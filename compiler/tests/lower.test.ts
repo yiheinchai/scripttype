@@ -241,11 +241,6 @@ describe('switch', () => {
 })
 
 /**
- * The spellings a JavaScript programmer reaches for without being taught anything.
- * Each of these used to be a compile error, which is the wrong answer for a language
- * whose pitch is "write it the way you already write JavaScript".
- */
-/**
  * The arrow form exists so the simplest cases are not longer than the TypeScript they
  * replace. A composition alias is one line either way.
  */
@@ -289,6 +284,109 @@ describe('arrow type functions', () => {
   })
 })
 
+/**
+ * Object members that carry a signature. A method is not the same type as a property
+ * holding a function, so these cannot be lowered to `name: (a) => R` and have to reach
+ * the output as signatures.
+ */
+describe('object signature members', () => {
+  const obj = (body: string) => c(`export function F(t: unknown) { return ${body} }`)
+
+  it('lowers a method to a method signature, not a function property', () => {
+    expect(obj(`{ get: methodType([string], t) }`)).toBe(
+      `export type F<T> = { get(a0: string): T }`,
+    )
+  })
+
+  it('spreads call and construct signatures, which have no name', () => {
+    expect(obj(`{ ...callSig([t], number) }`)).toBe(`export type F<T> = { (a0: T): number }`)
+    expect(obj(`{ ...ctorSig([t], t) }`)).toBe(`export type F<T> = { new (a0: T): T }`)
+  })
+
+  it('writes an overload set as repeated spreads', () => {
+    // Repeated keys are a TypeScript error, so an overload set is the one case where a
+    // method carries its own name.
+    expect(obj(`{ ...callSig([t], number), ...callSig([t, string], boolean) }`)).toBe(
+      `export type F<T> = { (a0: T): number; (a0: T, a1: string): boolean }`,
+    )
+    expect(obj(`{ ...methodType('at', [t], number), ...methodType('at', [], boolean) }`)).toBe(
+      `export type F<T> = { at(a0: T): number; at(): boolean }`,
+    )
+  })
+
+  it('carries type parameters, optionality, rest and optional parameters', () => {
+    expect(obj(`{ run: genericMethodType(['R'], [t], raw('R')) }`)).toBe(
+      `export type F<T> = { run<R>(a0: T): R }`,
+    )
+    expect(obj(`{ f: optional(methodType([t], voidType())) }`)).toBe(
+      `export type F<T> = { f?(a0: T): void }`,
+    )
+    expect(obj(`{ f: methodType([...arrayOf(t)], voidType()) }`)).toBe(
+      `export type F<T> = { f(...a0: T[]): void }`,
+    )
+    expect(obj(`{ f: methodType([optElem(t)], voidType()) }`)).toBe(
+      `export type F<T> = { f(a0?: T): void }`,
+    )
+  })
+
+  it('mixes signatures with ordinary properties, in order', () => {
+    expect(obj(`{ name: string, get: methodType([string], t), ...callSig([t], voidType()) }`)).toBe(
+      `export type F<T> = { name: string; get(a0: string): T; (a0: T): void }`,
+    )
+  })
+
+  it('spreads an index signature alongside named members', () => {
+    expect(obj(`{ ...indexRecord(string, t), name: string }`)).toBe(
+      `export type F<T> = { [key: string]: T; name: string }`,
+    )
+    // An object type has room for only one, so a second is an error rather than a
+    // silently dropped member.
+    expect(() => obj(`{ ...indexRecord(string, t), ...indexRecord(number, t) }`)).toThrow(
+      /only one index signature/,
+    )
+  })
+
+  it('rejects a spread that is not a signature, and says what is allowed', () => {
+    expect(() => obj(`{ ...t }`)).toThrow(/call, construct, index or named method signature/)
+    // An unnamed method has no key and no name of its own, so it cannot be placed.
+    expect(() => obj(`{ ...methodType([t], number) }`)).toThrow(/named method signature/)
+  })
+})
+
+/**
+ * A type predicate is the return type of a narrowing function, and names one of its
+ * parameters. Parameter names are synthesised on the way out, so the predicate has to
+ * name the parameter by position instead.
+ */
+describe('type predicates', () => {
+  const c2 = (body: string) => c(`export function F(t: unknown) { return ${body} }`)
+
+  it('narrows a parameter by index', () => {
+    expect(c2(`fnType([unknown], paramIs(0, t))`)).toBe(`export type F<T> = (a0: unknown) => a0 is T`)
+    expect(c2(`fnType([number, t], paramIs(1, string))`)).toBe(
+      `export type F<T> = (a0: number, a1: T) => a1 is string`,
+    )
+  })
+
+  it('asserts, with or without a type', () => {
+    expect(c2(`fnType([unknown], paramAsserts(0, t))`)).toBe(
+      `export type F<T> = (a0: unknown) => asserts a0 is T`,
+    )
+    expect(c2(`fnType([unknown], paramAsserts(0))`)).toBe(
+      `export type F<T> = (a0: unknown) => asserts a0`,
+    )
+  })
+
+  it('insists on a parameter index rather than a name', () => {
+    expect(() => c2(`fnType([unknown], paramIs('v', t))`)).toThrow(/parameter index/)
+  })
+})
+
+/**
+ * The spellings a JavaScript programmer reaches for without being taught anything.
+ * Each of these used to be a compile error, which is the wrong answer for a language
+ * whose pitch is "write it the way you already write JavaScript".
+ */
 describe('JavaScript idioms', () => {
   it('narrows with typeof', () => {
     const src = `export function F(a) { if (typeof a === 'string') { return 1 }; return 0 }`

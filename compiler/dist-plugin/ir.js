@@ -159,6 +159,22 @@ function emitFnParam(fn, p, i) {
     const opt = fn.optionalAt?.includes(i) ? '?' : '';
     return `${rest}a${i}${opt}: ${emit(p)}`;
 }
+/**
+ * An object member that is a signature: `name(a0: A): R`, `(a0: A): R`, or
+ * `new (a0: A): R`. The return type follows a colon rather than an arrow, which is the
+ * only syntactic difference from the standalone function type the same node would emit
+ * outside an object.
+ */
+function emitSignatureMember(p, fn) {
+    const tp = fn.typeParams?.length ? `<${fn.typeParams.join(', ')}>` : '';
+    const args = fn.params.map((x, i) => emitFnParam(fn, x, i)).join(', ');
+    const head = fn.sig === 'method'
+        ? `${p.computed || IDENT_RE.test(p.name) ? p.name : quote(p.name)}${p.optional ? '?' : ''}`
+        : fn.sig === 'construct'
+            ? 'new '
+            : '';
+    return `${head}${tp}(${args}): ${emit(fn.ret)}`;
+}
 function emit(e, minPrec = 0) {
     const text = emitInner(e);
     return precedenceOf(e) < minPrec ? `(${text})` : text;
@@ -195,6 +211,8 @@ function emitInner(e) {
         }
         case 'object': {
             const props = e.props.map((p) => {
+                if (p.value.kind === 'fn' && p.value.sig)
+                    return emitSignatureMember(p, p.value);
                 const key = p.computed || IDENT_RE.test(p.name) ? p.name : quote(p.name);
                 return `${p.readonly ? 'readonly ' : ''}${key}${p.optional ? '?' : ''}: ${emit(p.value)}`;
             });
@@ -230,6 +248,8 @@ function emitInner(e) {
             const args = e.params.map((p, i) => emitFnParam(e, p, i)).join(', ');
             return `${e.isCtor ? 'new ' : ''}${tp}(${args}) => ${emit(e.ret)}`;
         }
+        case 'predicate':
+            return `${e.asserts ? 'asserts ' : ''}a${e.param}${e.type ? ` is ${emit(e.type)}` : ''}`;
         case 'raw':
             return e.text;
     }
@@ -288,6 +308,8 @@ function mapExpr(e, fn) {
             return { ...e, params: e.params.map(rec), ret: rec(e.ret) };
         case 'paren':
             return { ...e, inner: rec(e.inner) };
+        case 'predicate':
+            return e.type ? { ...e, type: rec(e.type) } : e;
         default:
             return e;
     }

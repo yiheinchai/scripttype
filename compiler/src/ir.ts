@@ -21,8 +21,24 @@ export type TypeExpr =
   | { kind: 'mapped'; param: string; constraint: TypeExpr; value: TypeExpr; as?: TypeExpr; optional?: '+' | '-' | true; readonly?: '+' | '-' | true }
   | { kind: 'op'; op: 'keyof' | 'typeof' | 'readonly'; target: TypeExpr }
   | { kind: 'paren'; inner: TypeExpr }
-  /** `hasRest` marks the final parameter as a rest parameter: `(...a0: T) => R`. */
-  | { kind: 'fn'; params: TypeExpr[]; ret: TypeExpr; typeParams?: string[]; isCtor?: boolean; hasRest?: boolean; optionalAt?: number[] }
+  /**
+   * `hasRest` marks the final parameter as a rest parameter: `(...a0: T) => R`.
+   *
+   * `sig` marks the node as an object *member* rather than a standalone type. A member
+   * is written `name(a0: A): R` instead of `name: (a0: A) => R`, which is not the same
+   * type — method members are bivariant under `strictFunctionTypes` where function
+   * properties are contravariant — so the distinction has to survive into the output.
+   *
+   * `sigName` carries a method's name for the one case where it cannot be an object key:
+   * an overload set, where several members share a name.
+   */
+  | { kind: 'fn'; params: TypeExpr[]; ret: TypeExpr; typeParams?: string[]; isCtor?: boolean; hasRest?: boolean; optionalAt?: number[]; sig?: SignatureKind; sigName?: string }
+  /**
+   * A type predicate, which is only ever a function type's return: `a0 is T`. The
+   * parameter is held as an index because a function type's parameter names are
+   * synthesised, so the name the source used is not available to point at.
+   */
+  | { kind: 'predicate'; param: number; type?: TypeExpr; asserts?: boolean }
   | { kind: 'raw'; text: string }
 
 export interface TupleElement {
@@ -31,6 +47,13 @@ export interface TupleElement {
   optional?: boolean
   name?: string
 }
+
+/**
+ * The three object members that carry a signature instead of a type. `call` and
+ * `construct` are unnamed, so their `PropSig.name` is empty and only their position in
+ * the member list distinguishes them — which is what makes an overload set expressible.
+ */
+export type SignatureKind = 'method' | 'call' | 'construct'
 
 export interface PropSig {
   name: string
@@ -199,6 +222,24 @@ export function emitFnParam(
   return `${rest}a${i}${opt}: ${emit(p)}`
 }
 
+/**
+ * An object member that is a signature: `name(a0: A): R`, `(a0: A): R`, or
+ * `new (a0: A): R`. The return type follows a colon rather than an arrow, which is the
+ * only syntactic difference from the standalone function type the same node would emit
+ * outside an object.
+ */
+function emitSignatureMember(p: PropSig, fn: Extract<TypeExpr, { kind: 'fn' }>): string {
+  const tp = fn.typeParams?.length ? `<${fn.typeParams.join(', ')}>` : ''
+  const args = fn.params.map((x, i) => emitFnParam(fn, x, i)).join(', ')
+  const head =
+    fn.sig === 'method'
+      ? `${p.computed || IDENT_RE.test(p.name) ? p.name : quote(p.name)}${p.optional ? '?' : ''}`
+      : fn.sig === 'construct'
+        ? 'new '
+        : ''
+  return `${head}${tp}(${args}): ${emit(fn.ret)}`
+}
+
 export function emit(e: TypeExpr, minPrec = 0): string {
   const text = emitInner(e)
   return precedenceOf(e) < minPrec ? `(${text})` : text
@@ -235,6 +276,7 @@ function emitInner(e: TypeExpr): string {
     }
     case 'object': {
       const props = e.props.map((p) => {
+        if (p.value.kind === 'fn' && p.value.sig) return emitSignatureMember(p, p.value)
         const key = p.computed || IDENT_RE.test(p.name) ? p.name : quote(p.name)
         return `${p.readonly ? 'readonly ' : ''}${key}${p.optional ? '?' : ''}: ${emit(p.value)}`
       })
@@ -269,6 +311,8 @@ function emitInner(e: TypeExpr): string {
       const args = e.params.map((p, i) => emitFnParam(e, p, i)).join(', ')
       return `${e.isCtor ? 'new ' : ''}${tp}(${args}) => ${emit(e.ret)}`
     }
+    case 'predicate':
+      return `${e.asserts ? 'asserts ' : ''}a${e.param}${e.type ? ` is ${emit(e.type)}` : ''}`
     case 'raw':
       return e.text
   }
@@ -328,6 +372,8 @@ export function mapExpr(e: TypeExpr, fn: (e: TypeExpr) => TypeExpr | undefined):
       return { ...e, params: e.params.map(rec), ret: rec(e.ret) }
     case 'paren':
       return { ...e, inner: rec(e.inner) }
+    case 'predicate':
+      return e.type ? { ...e, type: rec(e.type) } : e
     default:
       return e
   }

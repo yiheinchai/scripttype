@@ -202,15 +202,18 @@ describe('scripttype CLI', () => {
   it('flags what it could not express instead of quietly emitting raw()', () => {
     const proj = path.join(dir, 'convert-hard')
     fs.mkdirSync(proj, { recursive: true })
+    // A `this` parameter is a position rather than a type, so it has nowhere to go in a
+    // parameter tuple — unlike the call signature this test used to use, which the
+    // language can now express.
     fs.writeFileSync(
       path.join(proj, 'hard.ts'),
-      'export type Callable<T> = { (x: T): T; name: string }\n',
+      'export type Handler<T> = { run(this: T): void; name: string }\n',
     )
     const r = run(['convert', 'hard.ts'], proj)
     expect(r.stdout).toContain('need review')
     const out = fs.readFileSync(path.join(proj, 'hard.st.ts'), 'utf8')
     expect(out).toContain('TODO(scripttype)')
-    expect(out).toContain('CallSignature')
+    expect(out).toContain('`this` parameter')
   })
 
   it('redirects an import between two converted modules, and shims one that is not', () => {

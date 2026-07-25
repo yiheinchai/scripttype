@@ -9,6 +9,7 @@
  */
 import ts from 'typescript'
 import {
+  type PropSig,
   type TypeAlias,
   type TypeExpr,
   type TypeParam,
@@ -1468,27 +1469,57 @@ class FunctionCompiler {
     }
 
     if (ts.isObjectLiteralExpression(e)) {
-      const props = e.properties.map((p) => {
+      const props: PropSig[] = []
+      let index: { key: TypeExpr; value: TypeExpr } | undefined
+      for (const p of e.properties) {
         if (ts.isPropertyAssignment(p)) {
           const computed = ts.isComputedPropertyName(p.name)
           const name = computed
             ? emit(this.expr((p.name as ts.ComputedPropertyName).expression, vars))
             : propName(p.name)
           const mods = stripModifiers(p.initializer)
-          return {
+          props.push({
             name: computed ? `[${name}]` : name,
             value: this.expr(mods.expr, vars),
             computed,
             optional: mods.optional === true,
             readonly: mods.readonly === true,
-          }
+          })
+          continue
         }
         if (ts.isShorthandPropertyAssignment(p)) {
-          return { name: p.name.text, value: this.expr(p.name, vars) }
+          props.push({ name: p.name.text, value: this.expr(p.name, vars) })
+          continue
+        }
+        // A call signature, a construct signature and an index signature all have no
+        // name, so none can be a key. Spreading is the JavaScript way to say "and these
+        // members too", and repeating it is how an overload set is written — several
+        // signatures that would collide as keys.
+        if (ts.isSpreadAssignment(p)) {
+          const value = this.expr(p.expression, vars)
+          if (value.kind === 'fn' && value.sig && (value.sig !== 'method' || value.sigName)) {
+            props.push({ name: value.sigName ?? '', value })
+            continue
+          }
+          if (value.kind === 'object' && value.index && !value.props.length) {
+            if (index) {
+              throw new CompileError('an object type can have only one index signature', p, 'ST1501')
+            }
+            index = value.index
+            continue
+          }
+          throw new CompileError(
+            'only a call, construct, index or named method signature can be spread into an object type',
+            p,
+            'ST1501',
+            "Write `...callSig([A], R)`, `...ctorSig([A], R)`, `...indexRecord(K, V)`, or " +
+              "`...methodType('name', [A], R)` for one member of an overload set; for other " +
+              'members use `key: value`.',
+          )
         }
         throw new CompileError('unsupported object member', p, 'ST1501')
-      })
-      return { kind: 'object', props }
+      }
+      return index ? { kind: 'object', props, index } : { kind: 'object', props }
     }
 
     if (ts.isTemplateExpression(e)) {

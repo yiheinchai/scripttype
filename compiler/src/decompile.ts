@@ -554,6 +554,34 @@ class Decompiler {
    * Dropping the `?` changes the type: `(a?: T) => R` and `(a: T) => R` are different, so
    * an equivalence check would fail on an otherwise correct translation.
    */
+  /**
+   * Render an object member that carries a signature — a method, call or construct
+   * signature — as a call to the matching builtin.
+   *
+   * Returns undefined for the two shapes the builtins cannot carry: a `this` parameter,
+   * which is a position rather than a type and has nowhere to go in a parameter tuple,
+   * and a missing return type, whose implicit `any` would be a guess rather than a
+   * translation.
+   */
+  private signatureExpr(
+    m: ts.SignatureDeclarationBase,
+    builtin: string,
+    memberName?: string,
+  ): string | undefined {
+    if (!m.type) return undefined
+    if (m.parameters.some((p) => ts.isIdentifier(p.name) && p.name.text === 'this')) return undefined
+    const params = m.parameters.map((p) => this.paramExpr(p))
+    const ret = this.expr(m.type)
+    // Present only for an overload member, which is spread rather than keyed.
+    const named = memberName === undefined ? '' : `'${memberName.replace(/'/g, "\\'")}', `
+    if (!m.typeParameters?.length) return `${builtin}(${named}[${params.join(', ')}], ${ret})`
+    // As with `genericFnType`, a type parameter is a binding rather than a type, so the
+    // whole declaration is carried across as a string literal.
+    const tps = m.typeParameters.map((tp) => `'${tp.getText(this.sf).replace(/'/g, "\\'")}'`)
+    const generic = 'generic' + builtin[0]!.toUpperCase() + builtin.slice(1)
+    return `${generic}(${named}[${tps.join(', ')}], [${params.join(', ')}], ${ret})`
+  }
+
   private paramExpr(p: ts.ParameterDeclaration): string {
     const inner = p.type ? this.expr(p.type) : 'unknown'
     if (p.dotDotDotToken) return `...${inner}`
@@ -591,7 +619,11 @@ class Decompiler {
 
     if (ts.isLiteralTypeNode(t)) {
       const l = t.literal
-      if (ts.isStringLiteral(l)) return `'${l.text.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`
+      // A template literal with nothing to substitute *is* a string literal type, so it
+      // reads better as one and is the same type either way.
+      if (ts.isStringLiteral(l) || ts.isNoSubstitutionTemplateLiteral(l)) {
+        return `'${l.text.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`
+      }
       if (ts.isNumericLiteral(l)) return l.text
       if (l.kind === ts.SyntaxKind.TrueKeyword) return 'true'
       if (l.kind === ts.SyntaxKind.FalseKeyword) return 'false'
@@ -661,6 +693,9 @@ class Decompiler {
 
     if (ts.isTypeLiteralNode(t)) {
       const props: string[] = []
+      const methodNames = t.members
+        .filter(ts.isMethodSignature)
+        .map((m) => (ts.isIdentifier(m.name) ? m.name.text : m.name.getText(this.sf)))
       for (const m of t.members) {
         if (ts.isPropertySignature(m) && m.type && m.name) {
           const key = ts.isIdentifier(m.name) ? m.name.text : m.name.getText(this.sf)
@@ -668,12 +703,49 @@ class Decompiler {
           if (m.questionToken) v = `optional(${v})`
           if (m.modifiers?.some((x) => x.kind === ts.SyntaxKind.ReadonlyKeyword)) v = `readonlyProp(${v})`
           props.push(`${key}: ${v}`)
+        } else if (ts.isMethodSignature(m)) {
+          const key = ts.isIdentifier(m.name) ? m.name.text : m.name.getText(this.sf)
+          // An overload set is several members sharing one name, which object keys
+          // cannot spell — two identical keys are a TypeScript error, so the ScriptType
+          // would not typecheck. Those members carry their name and are spread instead.
+          const overloaded = methodNames.filter((n) => n === key).length > 1
+          const sig = this.signatureExpr(m, 'methodType', overloaded ? key : undefined)
+          if (!sig) return this.gap(t, 'method signature with a `this` parameter or no return type')
+          if (overloaded) props.push(`...${sig}`)
+          else props.push(`${key}: ${m.questionToken ? `optional(${sig})` : sig}`)
+        } else if (ts.isCallSignatureDeclaration(m) || ts.isConstructSignatureDeclaration(m)) {
+          const sig = this.signatureExpr(m, ts.isCallSignatureDeclaration(m) ? 'callSig' : 'ctorSig')
+          if (!sig) return this.gap(t, 'signature with a `this` parameter or no return type')
+          props.push(`...${sig}`)
+        } else if (ts.isGetAccessorDeclaration(m) || ts.isSetAccessorDeclaration(m)) {
+          // In a type, a get-only accessor is exactly a readonly property and a get/set
+          // pair exactly a mutable one — checked against the equivalence gate, not
+          // assumed. A setter is emitted by its getter, and a lone one is write-only,
+          // which has no property spelling.
+          const key = ts.isIdentifier(m.name) ? m.name.text : m.name.getText(this.sf)
+          const paired = t.members.some(
+            (o) =>
+              ts.isSetAccessorDeclaration(o) &&
+              (ts.isIdentifier(o.name) ? o.name.text : o.name.getText(this.sf)) === key,
+          )
+          if (ts.isSetAccessorDeclaration(m)) {
+            if (!t.members.some((o) => ts.isGetAccessorDeclaration(o) && (ts.isIdentifier(o.name) ? o.name.text : o.name.getText(this.sf)) === key)) {
+              return this.gap(t, 'write-only accessor')
+            }
+            continue
+          }
+          if (!m.type) return this.gap(t, 'accessor without a type')
+          const v = this.expr(m.type)
+          props.push(`${key}: ${paired ? v : `readonlyProp(${v})`}`)
         } else if (ts.isIndexSignatureDeclaration(m)) {
           // `{ [key: K]: V }` — an index signature, not a named property.
-          if (t.members.length !== 1 || !m.type || !m.parameters[0]?.type) {
-            return this.gap(t, 'index signature combined with other members')
+          if (!m.type || !m.parameters[0]?.type) {
+            return this.gap(t, 'index signature without a key or value type')
           }
-          return `indexRecord(${this.expr(m.parameters[0].type)}, ${this.expr(m.type)})`
+          const rec = `indexRecord(${this.expr(m.parameters[0].type)}, ${this.expr(m.type)})`
+          // On its own it needs no object around it, and reads better without one.
+          if (t.members.length === 1) return rec
+          props.push(`...${rec}`)
         } else {
           return this.gap(t, `object member ${ts.SyntaxKind[m.kind]}`)
         }
@@ -738,6 +810,22 @@ class Decompiler {
     if (ts.isConstructorTypeNode(t)) {
       const params = t.parameters.map((p) => this.paramExpr(p))
       return `ctorType([${params.join(', ')}], ${this.expr(t.type)})`
+    }
+
+    // `value is Foo` as a function type's return. The parameter is named in the source
+    // but a function type's parameters are renamed positionally, so the name is resolved
+    // against the enclosing signature and carried across as its index.
+    if (ts.isTypePredicateNode(t)) {
+      if (!ts.isIdentifier(t.parameterName)) return this.gap(t, 'type predicate on `this`')
+      const sig = t.parent as ts.SignatureDeclarationBase
+      const name = t.parameterName.text
+      const i = (sig.parameters ?? []).findIndex((p) => ts.isIdentifier(p.name) && p.name.text === name)
+      if (i < 0) return this.gap(t, 'type predicate naming a parameter that is not in the signature')
+      if (!t.assertsModifier) {
+        if (!t.type) return this.gap(t, 'type predicate without a type')
+        return `paramIs(${i}, ${this.expr(t.type)})`
+      }
+      return t.type ? `paramAsserts(${i}, ${this.expr(t.type)})` : `paramAsserts(${i})`
     }
 
     if (ts.isTypeQueryNode(t)) {

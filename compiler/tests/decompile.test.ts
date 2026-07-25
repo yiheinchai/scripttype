@@ -108,6 +108,73 @@ describe('array types', () => {
   })
 })
 
+/**
+ * Object members that are signatures rather than types. These were the two largest
+ * language gaps in the corpus, so each case here is a shape that used to become `raw()`.
+ */
+describe('object signature members', () => {
+  // Parameters are named positionally on the way out, as they already are for `fnType`,
+  // so these cases are written with the names the round trip produces.
+  const same = (original: string) => expect(normalise(roundTrip(original))).toBe(normalise(original))
+
+  it('keeps a method a method', () => {
+    const original = 'type A<T> = { subscribe(a0: T): number }'
+    expect(decompile(original)).toContain('subscribe: methodType([T], number)')
+    same(original)
+  })
+
+  it('keeps call and construct signatures', () => {
+    same('type B<T> = { (a0: T): number }')
+    same('type C<T> = { new (a0: T): T }')
+    same('type E<T> = { name: string; get(a0: string): T; (a0: T): void }')
+  })
+
+  it('keeps an overload set, which no set of keys could spell', () => {
+    const original = 'type D<T> = { (a0: T): number; (a0: T, a1: string): boolean }'
+    expect(decompile(original)).toContain('...callSig([T], number), ...callSig([T, string], boolean)')
+    same(original)
+    same('type O<T> = { with(a0: T): number; with(): boolean }')
+  })
+
+  it('keeps type parameters, optionality, rest and optional parameters', () => {
+    same('type F<T> = { run<R>(a0: T, a1: R): R }')
+    same('type G<T> = { f?(a0: T): void }')
+    same('type H<T> = { f(...a0: T[]): void }')
+    same('type I<T> = { f(a0?: T): void }')
+  })
+
+  it('keeps an index signature that sits beside named members', () => {
+    const original = 'type J<T> = { [key: string]: T | string; name: string }'
+    expect(decompile(original)).toContain('...indexRecord(string,')
+    same(original)
+  })
+
+  it('reads a get-only accessor as the readonly property it is', () => {
+    // Not an assumption: `same` puts both spellings through the equivalence gate.
+    expect(decompile('type K<T> = { get foo(): T }')).toContain('readonlyProp(T)')
+    expect(normalise(roundTrip('type K<T> = { get foo(): T }'))).toBe(
+      normalise('type K<T> = { readonly foo: T }'),
+    )
+  })
+})
+
+/**
+ * A type predicate names one of the enclosing signature's parameters, and those are
+ * renamed positionally on the way out, so it has to travel as an index.
+ */
+describe('type predicates', () => {
+  it('narrows the parameter it named, by position', () => {
+    const original = 'type P<T> = { f: (a0: number, a1: T) => a1 is string }'
+    expect(decompile(original)).toContain('paramIs(1, string)')
+    expect(normalise(roundTrip(original))).toBe(normalise(original))
+  })
+
+  it('carries an assertion', () => {
+    const original = 'type Q<T> = { assert(a0: unknown): asserts a0 is T }'
+    expect(normalise(roundTrip(original))).toBe(normalise(original))
+  })
+})
+
 describe('round trip', () => {
   it('preserves a multi-branch conditional', () => {
     const original =

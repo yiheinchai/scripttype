@@ -75,6 +75,50 @@ type ctorType = any
 declare function genericFnType(...a: any[]): any
 type genericFnType = any
 
+/**
+ * Object members that carry a signature rather than a type.
+ *
+ * `methodType` is a property value, because a method has a name:
+ * `{ get: methodType([K], V) }` is `{ get(a0: K): V }`. A method is not the same type as
+ * a property holding a function — methods are bivariant under `strictFunctionTypes` —
+ * so the two spellings are not interchangeable.
+ *
+ * `callSig` and `ctorSig` are spread instead, because their members have no name:
+ * `{ ...callSig([A], R) }` is `{ (a0: A): R }`. Spreading more than one is how an
+ * overload set is written, since repeated keys would collide.
+ */
+declare function methodType(...a: any[]): any
+type methodType = any
+/** genericMethodType(['T'], [A], R) -> object member <T>name(a0: A): R */
+declare function genericMethodType(...a: any[]): any
+type genericMethodType = any
+/** callSig([A], R) -> object member (a0: A): R */
+declare function callSig(...a: any[]): any
+type callSig = any
+/** genericCallSig(['T'], [A], R) -> object member <T>(a0: A): R */
+declare function genericCallSig(...a: any[]): any
+type genericCallSig = any
+/** ctorSig([A], R) -> object member new (a0: A): R */
+declare function ctorSig(...a: any[]): any
+type ctorSig = any
+/** genericCtorSig(['T'], [A], R) -> object member <T>new (a0: A): R */
+declare function genericCtorSig(...a: any[]): any
+type genericCtorSig = any
+
+/**
+ * A narrowing return type: `fnType([unknown], paramIs(0, string))` is
+ * `(a0: unknown) => a0 is string`.
+ *
+ * The parameter is given by index rather than by name because a function type's
+ * parameters are named positionally on the way out, so a name written here would not be
+ * the name that reaches the output.
+ */
+declare function paramIs(...a: any[]): any
+type paramIs = any
+/** paramAsserts(0, T) -> asserts a0 is T; paramAsserts(0) -> asserts a0 */
+declare function paramAsserts(...a: any[]): any
+type paramAsserts = any
+
 /** t<T>() -> T  (names a type whose head has no usable value form, e.g. Promise) */
 declare function t<T = any>(): any
 

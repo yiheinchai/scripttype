@@ -36,6 +36,90 @@ function fnNode(params, ret, isCtor) {
         ...(optionalAt.length ? { optionalAt } : {}),
     };
 }
+/**
+ * Read a tuple of string literals as type-parameter declarations. They are strings
+ * because a type parameter is a *binding*, not a type: `'T extends string'` has no
+ * expression form, so the whole declaration is carried across verbatim.
+ */
+function typeParamNames(tps, who) {
+    if (tps.kind !== 'tuple')
+        throw new Error(`${who}(typeParams, params, ret) needs a tuple of type parameters`);
+    return tps.elements.map((e) => {
+        const x = e.expr;
+        if (x.kind === 'lit' && x.str)
+            return String(x.value);
+        if (x.kind === 'raw')
+            return x.text;
+        throw new Error(`${who} type parameters must be string literals`);
+    });
+}
+/**
+ * The object-member signature forms, in plain and generic pairs.
+ *
+ * `methodType` is used as a property value (`{ get: methodType([K], V) }`) because a
+ * method has a name; `callSig` and `ctorSig` are spread into the object
+ * (`{ ...callSig([A], R) }`) because they have none, and spreading is also what lets an
+ * overload set be written as several members that would otherwise collide as keys.
+ */
+function signatureBuiltins() {
+    const forms = [
+        { name: 'methodType', sig: 'method', isCtor: false, shape: 'name(a0: A): R' },
+        { name: 'callSig', sig: 'call', isCtor: false, shape: '(a0: A): R' },
+        { name: 'ctorSig', sig: 'construct', isCtor: true, shape: 'new (a0: A): R' },
+    ];
+    // A method may carry its own name as a leading string. That form exists only for an
+    // overload set — several members sharing one name, which no set of object keys can
+    // spell — so the extra argument is optional and the key form stays the normal one.
+    const named = (sig) => (sig === 'method' ? 1 : 0);
+    return forms.flatMap(({ name, sig, isCtor, shape }) => {
+        const generic = 'generic' + name[0].toUpperCase() + name.slice(1);
+        const n = named(sig);
+        return [
+            def({
+                name,
+                arity: n ? [2, 3] : 2,
+                doc: `${name}([A], R) -> object member ${shape}${n ? `; ${name}('n', [A], R) names it for an overload` : ''}`,
+                lower: (args) => {
+                    const { sigName, rest } = leadingName(args, 2, name);
+                    return expr({ ...fnNode(rest[0], rest[1], isCtor), sig, ...(sigName ? { sigName } : {}) });
+                },
+            }),
+            def({
+                name: generic,
+                arity: n ? [3, 4] : 3,
+                doc: `${generic}(['T'], [A], R) -> object member <T>${shape}`,
+                lower: (args) => {
+                    const { sigName, rest } = leadingName(args, 3, generic);
+                    return expr({
+                        ...fnNode(rest[1], rest[2], isCtor),
+                        sig,
+                        typeParams: typeParamNames(rest[0], generic),
+                        ...(sigName ? { sigName } : {}),
+                    });
+                },
+            }),
+        ];
+    });
+}
+/**
+ * Split an optional leading name off a builtin's arguments. `base` is how many arguments
+ * the unnamed form takes, so one more than that means the first is the name.
+ */
+function leadingName(args, base, who) {
+    if (args.length <= base)
+        return { rest: args };
+    const first = args[0];
+    if (first.kind !== 'lit' || !first.str)
+        throw new Error(`${who}'s member name must be a string literal`);
+    return { sigName: String(first.value), rest: args.slice(1) };
+}
+/** Read the parameter a predicate narrows, which is a position rather than a type. */
+function paramIndex(e, who) {
+    if (e.kind !== 'lit' || e.str || typeof e.value !== 'number' || !Number.isInteger(e.value) || e.value < 0) {
+        throw new Error(`${who}(i, T) needs a parameter index, e.g. ${who}(0, T)`);
+    }
+    return e.value;
+}
 const expr = (e) => ({ tag: 'expr', expr: e });
 const ANY_STR = (0, ir_js_1.kw)('string');
 function def(b) {
@@ -391,19 +475,19 @@ register(def({
     name: 'genericFnType',
     arity: 3,
     doc: "genericFnType(['T'], [A], R) -> <T>(a0: A) => R",
-    lower: ([tps, params, ret]) => {
-        if (tps.kind !== 'tuple' || params.kind !== 'tuple') {
-            throw new Error('genericFnType(typeParams, params, ret) needs two tuples');
-        }
-        const names = tps.elements.map((e) => {
-            const x = e.expr;
-            if (x.kind === 'lit' && x.str)
-                return String(x.value);
-            if (x.kind === 'raw')
-                return x.text;
-            throw new Error('genericFnType type parameters must be string literals');
-        });
-        return expr({ ...fnNode(params, ret, false), typeParams: names });
+    lower: ([tps, params, ret]) => expr({ ...fnNode(params, ret, false), typeParams: typeParamNames(tps, 'genericFnType') }),
+}), ...signatureBuiltins(), def({
+    name: 'paramIs',
+    arity: 2,
+    doc: 'paramIs(0, T) -> a0 is T  (a function type\'s narrowing return)',
+    lower: ([i, t]) => expr({ kind: 'predicate', param: paramIndex(i, 'paramIs'), type: t }),
+}), def({
+    name: 'paramAsserts',
+    arity: [1, 2],
+    doc: 'paramAsserts(0, T) -> asserts a0 is T; paramAsserts(0) -> asserts a0',
+    lower: ([i, t]) => {
+        const node = { kind: 'predicate', param: paramIndex(i, 'paramAsserts'), asserts: true };
+        return expr(t ? { ...node, type: t } : node);
     },
 }), def({
     name: 'asReadonly',

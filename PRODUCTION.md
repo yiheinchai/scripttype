@@ -30,15 +30,13 @@ This file is the session's stopping condition: work continues while unticked box
 - [x] **Installable with no build step on the user's side.** `npm pack` -> install the
       tarball into an empty directory -> `scripttype init` and `build` both work, with no
       `tsx` present. `prepack` rebuilds `dist` from scratch.
+- [x] **A config file.** `scripttype.json` for `include`, `outDir`, `width` and
+      `checkSource`, found by walking up from the cwd and stopping at a package
+      boundary. Flags override it; a bad config is an error, not a silent default.
 - [x] **A documented programmatic API.** An `exports` map with `src/index.ts` as the stated
       public surface; internals are unreachable by subpath.
 
 ## Remaining
-
-- [ ] **A config file.** `scripttype.json` for `include`, `outDir`, `width` and
-      `checkSource`, so a real project stops repeating flags in every script. CLI flags
-      override it. `init` writes one.
-      *Evidence: tests for precedence and for a malformed config's error message.*
 
 - [ ] **Whole-library conversion is clean.** All 189 converted type-fest modules build
       with zero warnings (currently 172; the tail is circular constraints and a few

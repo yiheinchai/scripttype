@@ -213,6 +213,72 @@ describe('scripttype CLI', () => {
     expect(out).toContain('CallSignature')
   })
 
+  it('redirects an import between two converted modules, and shims one that is not', () => {
+    const proj = path.join(dir, 'convert-imports')
+    fs.mkdirSync(proj, { recursive: true })
+    fs.writeFileSync(path.join(proj, 'words.ts'), 'export type Words<S extends string> = [S]\n')
+    fs.writeFileSync(
+      path.join(proj, 'use.ts'),
+      [
+        `import type { Words } from './words.js'`,
+        `import type { Elsewhere } from './not-converted.js'`,
+        'export type A<S extends string> = Words<S>',
+        'export type B<S extends string> = Elsewhere<S>',
+      ].join('\n') + '\n',
+    )
+    expect(run(['convert', '.'], proj).status).toBe(0)
+    const out = fs.readFileSync(path.join(proj, 'use.st.ts'), 'utf8')
+    // words.ts was converted, so the import points at its ScriptType and stays an import.
+    expect(out).toContain(`import { Words } from './words.st.js'`)
+    // not-converted.js was not, so it exports no value a ScriptType call could use.
+    expect(out).not.toContain('not-converted')
+    expect(out).toContain('declare const Elsewhere: any')
+  })
+
+  it('does not redirect to a module that produced no ScriptType', () => {
+    // A file with nothing generic in it is not converted, so pointing at its `.st.js`
+    // would dangle.
+    const proj = path.join(dir, 'convert-nogeneric')
+    fs.mkdirSync(proj, { recursive: true })
+    fs.writeFileSync(path.join(proj, 'plain.ts'), 'export type Plain = 1 | 2\n')
+    fs.writeFileSync(
+      path.join(proj, 'use.ts'),
+      `import type { Plain } from './plain.js'\nexport type A<T> = [T, Plain]\n`,
+    )
+    run(['convert', '.'], proj)
+    expect(fs.existsSync(path.join(proj, 'plain.st.ts'))).toBe(false)
+    expect(fs.readFileSync(path.join(proj, 'use.st.ts'), 'utf8')).not.toContain('plain.st.js')
+  })
+
+  it('carries non-generic aliases over so the module still exports them', () => {
+    const proj = path.join(dir, 'convert-plain')
+    fs.mkdirSync(proj, { recursive: true })
+    fs.writeFileSync(
+      path.join(proj, 'm.ts'),
+      `export type Tag = 'a' | 'b'\nexport type Wrap<T> = [T, Tag]\n`,
+    )
+    run(['convert', 'm.ts'], proj)
+    const out = fs.readFileSync(path.join(proj, 'm.st.ts'), 'utf8')
+    expect(out).toContain(`export type Tag = 'a' | 'b'`)
+    expect(out).toContain('export function Wrap')
+  })
+
+  it('says it skipped .d.ts rather than reporting nothing to do', () => {
+    // type-fest and friends ship their type-level code as .d.ts, so "no TypeScript
+    // files found" would be actively misleading there.
+    const proj = path.join(dir, 'convert-dts')
+    fs.mkdirSync(proj, { recursive: true })
+    fs.writeFileSync(path.join(proj, 'x.d.ts'), 'export type F<T> = T\n')
+    const skipped = run(['convert', '.'], proj)
+    expect(skipped.status).toBe(1)
+    expect(skipped.stderr).toContain('--declarations')
+
+    expect(run(['convert', '.', '--declarations'], proj).status).toBe(0)
+    // `x.d.ts` becomes `x.st.ts`, not `x.d.st.ts` — the result is source, not a
+    // declaration file, and sibling imports are written `./x.st.js`.
+    expect(fs.existsSync(path.join(proj, 'x.st.ts'))).toBe(true)
+  })
+
   it('refuses to replace an existing .st.ts without --force', () => {
     const proj = path.join(dir, 'convert-clobber')
     fs.mkdirSync(proj, { recursive: true })

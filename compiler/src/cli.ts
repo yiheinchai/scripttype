@@ -7,6 +7,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
+import ts from 'typescript'
 import { compileAll } from './compile.js'
 import { typecheckScriptType } from './typecheck.js'
 import { declareLocalTypeAliases, freeNames } from './freenames.js'
@@ -407,6 +408,11 @@ function cmdBuild(args: Args, { emit }: { emit: boolean }): number {
 function cmdConvert(args: Args): number {
   const inputs = args.positionals.length ? args.positionals : ['.']
   const files: string[] = []
+  // A `.d.ts` is usually build output, so a directory walk skips it — but plenty of
+  // libraries ship their type-level code that way, so the skip is reported rather than
+  // silent, and `--declarations` opts back in.
+  const wantDeclarations = !!args.flags.declarations
+  let skippedDeclarations = 0
   for (const i of inputs) {
     const p = path.resolve(i)
     if (!fs.existsSync(p)) throw new UserError(`no such file or directory: ${display(p)}`)
@@ -415,35 +421,67 @@ function cmdConvert(args: Args): number {
         for (const e of fs.readdirSync(d, { withFileTypes: true })) {
           if (e.name === 'node_modules' || e.name.startsWith('.')) continue
           const c = path.join(d, e.name)
-          if (e.isDirectory()) walk(c)
-          else if (/\.ts$/.test(c) && !/\.st\.ts$/.test(c) && !/\.d\.ts$/.test(c)) files.push(c)
+          if (e.isDirectory()) {
+            walk(c)
+          } else if (/\.ts$/.test(c) && !/\.st\.ts$/.test(c)) {
+            if (!/\.d\.ts$/.test(c)) files.push(c)
+            else if (wantDeclarations) files.push(c)
+            else skippedDeclarations++
+          }
         }
       }
       walk(p)
     } else files.push(p)
   }
-  if (!files.length) throw new UserError('no TypeScript files found')
+  if (!files.length) {
+    throw new UserError(
+      skippedDeclarations
+        ? `no TypeScript files found — skipped ${skippedDeclarations} .d.ts file(s), which are ` +
+          `usually build output. Pass --declarations to convert them anyway.`
+        : 'no TypeScript files found',
+    )
+  }
+  if (skippedDeclarations && !args.flags.quiet) {
+    process.stdout.write(
+      dim(`skipping ${skippedDeclarations} .d.ts file(s); pass --declarations to include them\n`),
+    )
+  }
 
   const outDir = typeof args.flags.out === 'string' ? args.flags.out : undefined
   let converted = 0
   let needsWork = 0
   let skipped = 0
 
+  // Two passes. The second needs to know which files actually produced a `.st.ts`,
+  // because a specifier is only redirected to `./x.st.js` if that file exists — a module
+  // with nothing generic in it is not converted, and pointing at its ScriptType would
+  // dangle.
+  const decompiled = new Map<string, ReturnType<typeof decompileFile>>()
+  const passthrough = new Map<string, string[]>()
   for (const file of files) {
     const text = fs.readFileSync(file, 'utf8')
-    let entries: ReturnType<typeof decompileFile>
     try {
-      entries = decompileFile(file, text)
+      const entries = decompileFile(file, text)
+      // Non-generic aliases are not ScriptType's business, but dropping them would make
+      // the converted module export less than the original and break every importer.
+      // The compiler passes a plain `type X = …` straight through, so carry them over.
+      const plain = plainAliases(file, text)
+      if (entries.length) {
+        decompiled.set(file, entries)
+        passthrough.set(file, plain)
+      }
     } catch (e) {
       process.stderr.write(`${red('error')}: ${display(file)}: ${(e as Error).message}\n`)
-      continue
     }
-    if (!entries.length) {
-      skipped++
-      continue
-    }
+  }
+  const produced = new Set(decompiled.keys())
+  skipped = files.length - produced.size
+
+  for (const [file, entries] of decompiled) {
+    const text = fs.readFileSync(file, 'utf8')
 
     const blocks: string[] = []
+    for (const p of passthrough.get(file) ?? []) blocks.push(p)
     for (const { name, result } of entries) {
       // `raw()` means the decompiler could not express the construct; the user has to
       // finish it by hand, so say so at the point where the work is.
@@ -461,14 +499,23 @@ function cmdConvert(args: Args): number {
       `// Review before committing: compile with \`scripttype build\` and check the output\n` +
       `// against the original.\n`
     const code = blocks.join('\n\n') + '\n'
+    // Carry the original file's imports over. Without them a converted file that
+    // references a type from a sibling module has an unresolved name, which is most
+    // real files — and they must become *value* imports, because ScriptType calls a
+    // type function rather than naming it.
+    const imports = carriedImports(text, code, file, produced)
     // Derived from the finished code, not per block: a function is only given a
     // type-space alias if something in the file actually names it in type position.
     const aliases = declareLocalTypeAliases(code)
-    const body = header + '\n' + (aliases ? aliases + '\n' : '') + code
+    const body =
+      header + '\n' + (imports ? imports + '\n' : '') + (aliases ? aliases + '\n' : '') + code
 
+    // `words.d.ts` becomes `words.st.ts`, not `words.d.st.ts`: the result is ScriptType
+    // source, not a declaration file, and the name has to agree with the `./words.st.js`
+    // specifier that sibling conversions emit for it.
     const dest = path.join(
       outDir ?? path.dirname(file),
-      path.basename(file).replace(/\.ts$/, '.st.ts'),
+      path.basename(file).replace(/(\.d)?\.ts$/, '.st.ts'),
     )
     if (args.flags.stdout) {
       process.stdout.write(body)
@@ -499,6 +546,108 @@ function cmdConvert(args: Args): number {
     }
   }
   return 0
+}
+
+/**
+ * The original file's imports, rewritten for ScriptType source.
+ *
+ * Two changes. They become *value* imports, because a ScriptType type function is
+ * called rather than named. And a specifier pointing at another file in the same
+ * conversion is redirected to that file's ScriptType (`./words.js` -> `./words.st.js`),
+ * since after conversion that is where the callable form lives.
+ *
+ * Only names the converted code actually mentions are kept; a file typically imports
+ * far more than any one alias uses, and an unused import fails `noUnusedLocals`.
+ */
+/**
+ * Non-generic type aliases, carried over verbatim.
+ *
+ * ScriptType only replaces *generic* aliases — those are the ones conditional types and
+ * `infer` live in. A plain `type Foo = 'a' | 'b'` has nothing to gain, but omitting it
+ * would make the converted module export less than the original, so it is passed through
+ * unchanged; the compiler already emits a hand-written alias as written.
+ */
+function plainAliases(file: string, text: string): string[] {
+  const sf = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
+  const out: string[] = []
+  for (const stmt of sf.statements) {
+    if (!ts.isTypeAliasDeclaration(stmt) || stmt.typeParameters?.length) continue
+    const exported = ts.getCombinedModifierFlags(stmt) & ts.ModifierFlags.Export
+    // The companion `declare const` matters: ScriptType code refers to a type by naming
+    // it in expression position, and a bare `type X` alone is TS2693 there.
+    out.push(
+      `declare const ${stmt.name.text}: any\n` +
+        `${exported ? 'export ' : ''}type ${stmt.name.text} = ${stmt.type.getText(sf)}`,
+    )
+  }
+  return out
+}
+
+/**
+ * How the original file's imports are reproduced for ScriptType source.
+ *
+ * A ScriptType type function is *called*, so an imported name has to exist in value
+ * space. That is only true if the module it comes from was also converted, so imports
+ * split two ways:
+ *
+ *   converted sibling  -> a value import redirected to `./x.st.js`
+ *   anything else      -> an ambient shim, since a `.d.ts` exports no value and a value
+ *                         import of one is TS2846
+ *
+ * A shim is honest about what it is: a declaration so the name resolves, carrying no
+ * meaning. It is the same device the generated corpus uses, and the alternative — an
+ * import that cannot typecheck — helps nobody.
+ */
+function carriedImports(
+  originalText: string,
+  code: string,
+  file: string,
+  converted: Set<string>,
+): string {
+  const sf = ts.createSourceFile(file, originalText, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
+  const mentions = (n: string) => new RegExp(`(?<![A-Za-z0-9_$])${n}(?![A-Za-z0-9_$])`).test(code)
+  const imports: string[] = []
+  const shims: string[] = []
+
+  const convertedBases = new Set(
+    [...converted].map((f) => f.replace(/(\.d)?\.ts$/, '')),
+  )
+
+  for (const stmt of sf.statements) {
+    if (!ts.isImportDeclaration(stmt) || !ts.isStringLiteral(stmt.moduleSpecifier)) continue
+    const clause = stmt.importClause
+    if (!clause?.namedBindings || !ts.isNamedImports(clause.namedBindings)) continue
+
+    const names = clause.namedBindings.elements
+      .map((el) => ({ from: (el.propertyName ?? el.name).text, as: el.name.text }))
+      .filter((n) => mentions(n.as))
+    if (!names.length) continue
+
+    // `./words.d.ts` and `./words.js` both denote the same module on disk.
+    const base = stmt.moduleSpecifier.text.replace(/\.(d\.ts|ts|js)$/, '')
+    const resolved = path.resolve(path.dirname(file), base)
+    if (convertedBases.has(resolved)) {
+      const clauses = names.map((n) => (n.from === n.as ? n.as : `${n.from} as ${n.as}`))
+      imports.push(`import { ${clauses.join(', ')} } from '${base}.st.js'`)
+    } else {
+      for (const n of names) shims.push(n.as)
+    }
+  }
+
+  const parts: string[] = []
+  if (imports.length) parts.push(...imports)
+  if (shims.length) {
+    parts.push(
+      '// Imported from modules that were not converted, so they export a type but no',
+      '// value. Declared here so the names resolve; they carry no meaning. Converting',
+      '// those modules too replaces these with real imports.',
+      ...[...new Set(shims)].sort().flatMap((n) => [
+        `declare const ${n}: any`,
+        `type ${n}<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any`,
+      ]),
+    )
+  }
+  return parts.join('\n') + (parts.length ? '\n' : '')
 }
 
 function cmdWatch(args: Args): number {

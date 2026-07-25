@@ -10,7 +10,7 @@
 // ✓ IsFloat: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsFloat(T) {
-  if (matches<number>(T)) {
+  if (typeof T === 'number') {
     const m1 = matches<`${number}e${Hole<"E", '-' | '+'>}${number}`>(`${T}`)
     if (m1) {
       if (matches<'-'>(m1.E)) {
@@ -26,5 +26,11 @@ export function IsFloat(T) {
   return false
 }
 /* compiles to:
- * export type IsFloat<T> = T extends number ? `${T}` extends `${number}e${infer E extends '-' | '+'}${number}` ? E extends '-' ? true : false : `${T}` extends `${number}.${number}` ? true : false : false
+ * export type IsFloat<T> =
+ *   T extends number
+ *     ? `${T}` extends `${number}e${infer E extends '-' | '+'}${number}`
+ *       ? E extends '-' ? true : false
+ *     : `${T}` extends `${number}.${number}` ? true
+ *     : false
+ *     : false
  */

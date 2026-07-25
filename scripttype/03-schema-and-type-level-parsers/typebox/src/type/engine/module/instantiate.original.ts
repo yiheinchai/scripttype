@@ -7,14 +7,14 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type Exclude<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extract<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Memory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCyclicCandidates<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateCyclic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Exclude<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Memory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCyclicCandidates<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type TInstantiateCyclics<Context extends TProperties, Declarations extends TProperties, CyclicKeys extends string[], 
   DeclarationContext extends TProperties = Memory.TAssign<Context, Declarations>,
   Result extends TProperties = {

@@ -10,6 +10,15 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace CliError {
+  export type CliError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Effect {
+  export type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Prompt {
+  export type Prompt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const CliError: any
 declare const Effect: any
 declare const Environment: any
@@ -20,23 +29,28 @@ declare const Prompt: any
 declare const Single: any
 declare const Transform: any
 declare const Variadic: any
-type CliError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Effect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Environment<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Optional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParamKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParsedArgs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prompt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Single<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Transform<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Variadic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CliError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Environment<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Optional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParamKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParsedArgs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prompt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Single<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Transform<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Variadic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Parse: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Parse(A) {
   return fnType([ParsedArgs], Effect.Effect(asReadonly([t<ReadonlyArray<string>>(), A]), CliError.CliError, Environment))
 }
 /* compiles to:
- * export type Parse<A> = (a0: ParsedArgs) => Effect.Effect<readonly [ReadonlyArray<string>, A], CliError.CliError, Environment>
+ * export type Parse<A> =
+ *   (a0: ParsedArgs) => Effect.Effect<
+ *     readonly [ReadonlyArray<string>, A],
+ *     CliError.CliError,
+ *     Environment
+ *   >
  */
 
 // ✓ FallbackPrompt: verified type-identical to the original
@@ -45,7 +59,8 @@ export function FallbackPrompt(A) {
   return Prompt.Prompt(A) | Effect.Effect(Prompt.Prompt(A), CliError.CliError, Environment)
 }
 /* compiles to:
- * export type FallbackPrompt<A> = Prompt.Prompt<A> | Effect.Effect<Prompt.Prompt<A>, CliError.CliError, Environment>
+ * export type FallbackPrompt<A> =
+ *   Prompt.Prompt<A> | Effect.Effect<Prompt.Prompt<A>, CliError.CliError, Environment>
  */
 
 // ✗ AnyParam: the ScriptType does not itself typecheck as TypeScript
@@ -55,5 +70,10 @@ export function AnyParam(Kind: ParamKind, A) {
   return Single(Kind, A) | t<Map<typeof Kind, any, typeof A>>() | Transform(Kind, any, A) | Optional(Kind, A) | Variadic(Kind, A)
 }
 /* compiles to:
- * export type AnyParam<Kind extends ParamKind, A> = Single<Kind, A> | Map<Kind, any, A> | Transform<Kind, any, A> | Optional<Kind, A> | Variadic<Kind, A>
+ * export type AnyParam<Kind extends ParamKind, A> =
+ *   | Single<Kind, A>
+ *   | Map<Kind, any, A>
+ *   | Transform<Kind, any, A>
+ *   | Optional<Kind, A>
+ *   | Variadic<Kind, A>
  */

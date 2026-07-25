@@ -17,13 +17,13 @@ declare const TTake: any
 declare const TTrim: any
 declare const TUnderScore: any
 declare const TUnsignedInteger: any
-type TAllowedDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TDot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TMany<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTake<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTrim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnderScore<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnsignedInteger<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TAllowedDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TDot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TMany<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnderScore<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnsignedInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIsLeadingDot: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TIsLeadingDot(Input: string) {
@@ -33,7 +33,8 @@ export function TIsLeadingDot(Input: string) {
   return false
 }
 /* compiles to:
- * export type TIsLeadingDot<Input extends string> = TTake<[TDot], Input> extends [string, string] ? true : false
+ * export type TIsLeadingDot<Input extends string> =
+ *   TTake<[TDot], Input> extends [string, string] ? true : false
  */
 
 // ✓ TTakeFractional: verified type-identical to the original
@@ -49,7 +50,10 @@ export function TTakeFractional(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTakeFractional<Input extends string> = TMany<TAllowedDigits, [TUnderScore], Input> extends [infer Digits extends string, infer DigitsRest extends string] ? Digits extends '' ? [] : [Digits, DigitsRest] : []
+ * export type TTakeFractional<Input extends string> =
+ *   TMany<TAllowedDigits, [TUnderScore], Input> extends [infer Digits extends string, infer DigitsRest extends string]
+ *     ? Digits extends '' ? [] : [Digits, DigitsRest]
+ *     : []
  */
 
 // ✓ TLeadingDot: verified type-identical to the original
@@ -66,7 +70,12 @@ export function TLeadingDot(Input: string) {
   return []
 }
 /* compiles to:
- * export type TLeadingDot<Input extends string> = TTake<[TDot], Input> extends [infer Dot extends string, infer DotRest extends string] ? TTakeFractional<DotRest> extends [infer Fractional extends string, infer FractionalRest extends string] ? [`0${Dot}${Fractional}`, FractionalRest] : [] : []
+ * export type TLeadingDot<Input extends string> =
+ *   TTake<[TDot], Input> extends [infer Dot extends string, infer DotRest extends string]
+ *     ? TTakeFractional<DotRest> extends [infer Fractional extends string, infer FractionalRest extends string]
+ *       ? [`0${Dot}${Fractional}`, FractionalRest]
+ *       : []
+ *     : []
  */
 
 // ✓ TLeadingInteger: verified type-identical to the original
@@ -87,7 +96,14 @@ export function TLeadingInteger(Input: string) {
   return []
 }
 /* compiles to:
- * export type TLeadingInteger<Input extends string> = TUnsignedInteger<Input> extends [infer Integer extends string, infer IntegerRest extends string] ? TTake<[TDot], IntegerRest> extends [infer Dot extends string, infer DotRest extends string] ? TTakeFractional<DotRest> extends [infer Fractional extends string, infer FractionalRest extends string] ? [`${Integer}${Dot}${Fractional}`, FractionalRest] : [`${Integer}`, DotRest] : [`${Integer}`, IntegerRest] : []
+ * export type TLeadingInteger<Input extends string> =
+ *   TUnsignedInteger<Input> extends [infer Integer extends string, infer IntegerRest extends string]
+ *     ? TTake<[TDot], IntegerRest> extends [infer Dot extends string, infer DotRest extends string]
+ *       ? TTakeFractional<DotRest> extends [infer Fractional extends string, infer FractionalRest extends string]
+ *         ? [`${Integer}${Dot}${Fractional}`, FractionalRest]
+ *         : [`${Integer}`, DotRest]
+ *       : [`${Integer}`, IntegerRest]
+ *     : []
  */
 
 // ✓ TTakeUnsignedNumber: verified type-identical to the original
@@ -99,7 +115,8 @@ export function TTakeUnsignedNumber(Input: string) {
   return TLeadingInteger(Input)
 }
 /* compiles to:
- * export type TTakeUnsignedNumber<Input extends string> = TIsLeadingDot<Input> extends true ? TLeadingDot<Input> : TLeadingInteger<Input>
+ * export type TTakeUnsignedNumber<Input extends string> =
+ *   TIsLeadingDot<Input> extends true ? TLeadingDot<Input> : TLeadingInteger<Input>
  */
 
 // ✓ TUnsignedNumber: verified type-identical to the original

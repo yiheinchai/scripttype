@@ -14,10 +14,10 @@ declare const StaticDirection: any
 declare const StaticType: any
 declare const TProperties: any
 declare const TSchema: any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticCodec: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticCodec(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Type: TSchema, Decoded: unknown) {
@@ -27,7 +27,17 @@ export function StaticCodec(Stack: string[], Direction: StaticDirection, Context
   return StaticType(Stack, Direction, Context, This, Omit(Type, '~codec'))
 }
 /* compiles to:
- * export type StaticCodec<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Type extends TSchema, Decoded> = Direction extends 'Decode' ? Decoded : StaticType<Stack, Direction, Context, This, Omit<Type, '~codec'>>
+ * export type StaticCodec<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Type extends TSchema,
+ *   Decoded
+ * > =
+ *   Direction extends 'Decode'
+ *     ? Decoded
+ *     : StaticType<Stack, Direction, Context, This, Omit<Type, '~codec'>>
  */
 
 // ✓ TDecodeCallback: verified type-identical to the original
@@ -54,5 +64,12 @@ export function TCodec(Type: TSchema = TSchema, Decoded: unknown = unknown) {
   return merge(Type, { '~codec': { encode: TDecodeCallback(unknown, Decoded), decode: TEncodeCallback(unknown, Decoded) } })
 }
 /* compiles to:
- * export type TCodec<Type extends TSchema = TSchema, Decoded = unknown> = Type & { '~codec': { encode: TDecodeCallback<unknown, Decoded>; decode: TEncodeCallback<unknown, Decoded> } }
+ * export type TCodec<Type extends TSchema = TSchema, Decoded = unknown> =
+ *   & Type
+ *   & {
+ *       '~codec': {
+ *         encode: TDecodeCallback<unknown, Decoded>
+ *         decode: TEncodeCallback<unknown, Decoded>
+ *       }
+ *     }
  */

@@ -15,11 +15,11 @@ declare const H: any
 declare const Request: any
 declare const Router: any
 declare const RouterRoute: any
-type Env<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type H<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Request<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Router<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouterRoute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Env<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type H<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Request<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Router<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouterRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ GetPath: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -36,5 +36,9 @@ export function HonoOptions(E: Env) {
   return { strict: optional(boolean), router: optional(Router([H, RouterRoute])), getPath: optional(GetPath(E)) }
 }
 /* compiles to:
- * export type HonoOptions<E extends Env> = { strict?: boolean; router?: Router<[H, RouterRoute]>; getPath?: GetPath<E> }
+ * export type HonoOptions<E extends Env> = {
+ *   strict?: boolean
+ *   router?: Router<[H, RouterRoute]>
+ *   getPath?: GetPath<E>
+ * }
  */

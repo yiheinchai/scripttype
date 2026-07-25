@@ -7,11 +7,11 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type At<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ComputeRaw<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IntersectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Overwrite<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Strict<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComputeRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IntersectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Overwrite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Strict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type _Merge<U extends object> = IntersectOf<Overwrite<U, {
     [K in keyof U]-?: At<U, K>
 }>>

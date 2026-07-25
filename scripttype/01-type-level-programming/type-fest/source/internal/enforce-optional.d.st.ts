@@ -11,12 +11,12 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Simplify: any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequiredFilter: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RequiredFilter(Type, Key: keyof typeof Type) {
   if (matches<(typeof Type)[typeof Key]>(Undefined)) {
-    if (matches<undefined>(Type[Key])) {
+    if (typeof Type[Key] === 'undefined') {
       return Key
     }
     return never
@@ -24,14 +24,15 @@ export function RequiredFilter(Type, Key: keyof typeof Type) {
   return Key
 }
 /* compiles to:
- * export type RequiredFilter<Type, Key extends keyof Type> = undefined extends Type[Key] ? Type[Key] extends undefined ? Key : never : Key
+ * export type RequiredFilter<Type, Key extends keyof Type> =
+ *   undefined extends Type[Key] ? Type[Key] extends undefined ? Key : never : Key
  */
 
 // ✓ OptionalFilter: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OptionalFilter(Type, Key: keyof typeof Type) {
   if (matches<(typeof Type)[typeof Key]>(Undefined)) {
-    if (matches<undefined>(Type[Key])) {
+    if (typeof Type[Key] === 'undefined') {
       return never
     }
     return Key
@@ -39,7 +40,8 @@ export function OptionalFilter(Type, Key: keyof typeof Type) {
   return never
 }
 /* compiles to:
- * export type OptionalFilter<Type, Key extends keyof Type> = undefined extends Type[Key] ? Type[Key] extends undefined ? never : Key : never
+ * export type OptionalFilter<Type, Key extends keyof Type> =
+ *   undefined extends Type[Key] ? Type[Key] extends undefined ? never : Key : never
  */
 
 // ✓ EnforceOptional: verified type-identical to the original
@@ -56,5 +58,13 @@ export function EnforceOptional(ObjectType) {
   return Simplify(out & out2)
 }
 /* compiles to:
- * export type EnforceOptional<ObjectType> = Simplify<{ [Key in keyof ObjectType as RequiredFilter<ObjectType, Key>]: ObjectType[Key] } & { [Key1 in keyof ObjectType as OptionalFilter<ObjectType, Key1>]?: Exclude<ObjectType[Key1], undefined> }>
+ * export type EnforceOptional<ObjectType> = Simplify<
+ *   & { [Key in keyof ObjectType as RequiredFilter<ObjectType, Key>]: ObjectType[Key] }
+ *   & {
+ *       [Key1 in keyof ObjectType as OptionalFilter<ObjectType, Key1>]?: Exclude<
+ *         ObjectType[Key1],
+ *         undefined
+ *       >
+ *     }
+ * >
  */

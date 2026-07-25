@@ -16,12 +16,12 @@ declare const List: any
 declare const Tail: any
 declare const _ListOf: any
 declare const _OPick: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _ListOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _OPick<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _ListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _OPick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PickAt: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PickAt(O, Path: List<Key>) {
@@ -39,16 +39,21 @@ export function PickAt(O, Path: List<Key>) {
     return _ListOf(out)
   }
   if (matches<object>(O)) {
-    const out = emptyObject
+    const out2 = emptyObject
     for (const K in keyof(_OPick(O, Path[0]))) {
-      out[K] = PickAt(O[K], Tail(Path))
+      out2[K] = PickAt(O[K], Tail(Path))
     }
-    return out
+    return out2
   }
   return O
 }
 /* compiles to:
- * export type PickAt<O, Path extends List<Key>> = [] extends Path ? O : O extends BuiltIn ? O : O extends List ? _ListOf<{ [K in keyof _OPick<O, Path[0]>]: PickAt<O[K], Tail<Path>> }> : O extends object ? { [K1 in keyof _OPick<O, Path[0]>]: PickAt<O[K1], Tail<Path>> } : O
+ * export type PickAt<O, Path extends List<Key>> =
+ *   [] extends Path ? O
+ *   : O extends BuiltIn ? O
+ *   : O extends List ? _ListOf<{ [K in keyof _OPick<O, Path[0]>]: PickAt<O[K], Tail<Path>> }>
+ *   : O extends object ? { [K1 in keyof _OPick<O, Path[0]>]: PickAt<O[K1], Tail<Path>> }
+ *   : O
  */
 
 // ✓ Pick: verified type-identical to the original
@@ -60,5 +65,6 @@ export function Pick(O: object, Path: List<Key>) {
   return never
 }
 /* compiles to:
- * export type Pick<O extends object, Path extends List<Key>> = Path extends unknown ? PickAt<O, Path> : never
+ * export type Pick<O extends object, Path extends List<Key>> =
+ *   Path extends unknown ? PickAt<O, Path> : never
  */

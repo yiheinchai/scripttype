@@ -13,14 +13,21 @@
 declare const PropertyKey: any
 declare const XProperties: any
 declare const XSchema: any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type XProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type XSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type XProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XStaticRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function XStaticRequired(_Stack: string[], _Root: XSchema, Schema: XSchema, Keys: string[], Result: Record<PropertyKey, unknown> = matches<XProperties>(Schema) ? {} : Record(Keys[number], unknown)) {
   return Result
 }
 /* compiles to:
- * export type XStaticRequired<_Stack extends string[], _Root extends XSchema, Schema extends XSchema, Keys extends string[], Result extends Record<PropertyKey, unknown> = Schema extends XProperties ? {} : Record<Keys[number], unknown>> = Result
+ * export type XStaticRequired<
+ *   _Stack extends string[],
+ *   _Root extends XSchema,
+ *   Schema extends XSchema,
+ *   Keys extends string[],
+ *   Result extends Record<PropertyKey, unknown> = Schema extends XProperties ? {} : Record<Keys[number], unknown>
+ * > =
+ *   Result
  */

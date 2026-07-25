@@ -17,13 +17,13 @@ declare const AnyEventObject: any
 declare const EventObject: any
 declare const NonReducibleUnknown: any
 declare const Snapshot: any
-type ActorLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ActorRefFromLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyActorSystem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyEventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonReducibleUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Snapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ActorRefFromLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyActorSystem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyEventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonReducibleUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Snapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CallbackSnapshot: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CallbackSnapshot(TInput) {
@@ -39,7 +39,12 @@ export function CallbackActorLogic(TEvent: EventObject, TInput = NonReducibleUnk
   return ActorLogic(CallbackSnapshot(TInput), TEvent, TInput, AnyActorSystem, TEmitted)
 }
 /* compiles to:
- * export type CallbackActorLogic<TEvent extends EventObject, TInput = NonReducibleUnknown, TEmitted extends EventObject = EventObject> = ActorLogic<CallbackSnapshot<TInput>, TEvent, TInput, AnyActorSystem, TEmitted>
+ * export type CallbackActorLogic<
+ *   TEvent extends EventObject,
+ *   TInput = NonReducibleUnknown,
+ *   TEmitted extends EventObject = EventObject
+ * > =
+ *   ActorLogic<CallbackSnapshot<TInput>, TEvent, TInput, AnyActorSystem, TEmitted>
  */
 
 // ✓ CallbackActorRef: verified type-identical to the original
@@ -48,7 +53,9 @@ export function CallbackActorRef(TEvent: EventObject, TInput = NonReducibleUnkno
   return ActorRefFromLogic(CallbackActorLogic(TEvent, TInput))
 }
 /* compiles to:
- * export type CallbackActorRef<TEvent extends EventObject, TInput = NonReducibleUnknown> = ActorRefFromLogic<CallbackActorLogic<TEvent, TInput>>
+ * export type CallbackActorRef<TEvent extends EventObject, TInput = NonReducibleUnknown> = ActorRefFromLogic<
+ *   CallbackActorLogic<TEvent, TInput>
+ * >
  */
 
 // ✗ Receiver: uses raw() — language gap, does not count as covered
@@ -64,5 +71,13 @@ export function CallbackLogicFunction(TEvent: EventObject = AnyEventObject, TSen
   return fnType([{ input: TInput, system: AnyActorSystem, self: CallbackActorRef(TEvent), sendBack: fnType([TSentEvent], voidType()), receive: Receiver(TEvent), emit: fnType([TEmitted], voidType()) }], fnType([], voidType()) | voidType())
 }
 /* compiles to:
- * export type CallbackLogicFunction<TEvent extends EventObject = AnyEventObject, TSentEvent extends EventObject = AnyEventObject, TInput = NonReducibleUnknown, TEmitted extends EventObject = EventObject> = (a0: { input: TInput; system: AnyActorSystem; self: CallbackActorRef<TEvent>; sendBack: (a0: TSentEvent) => void; receive: Receiver<TEvent>; emit: (a0: TEmitted) => void }) => (() => void) | void
+ * export type CallbackLogicFunction<
+ *   TEvent extends EventObject = AnyEventObject,
+ *   TSentEvent extends EventObject = AnyEventObject,
+ *   TInput = NonReducibleUnknown,
+ *   TEmitted extends EventObject = EventObject
+ * > =
+ *   (
+ *     a0: { input: TInput; system: AnyActorSystem; self: CallbackActorRef<TEvent>; sendBack: (a0: TSentEvent) => void; receive: Receiver<TEvent>; emit: (a0: TEmitted) => void }
+ *   ) => (() => void) | void
  */

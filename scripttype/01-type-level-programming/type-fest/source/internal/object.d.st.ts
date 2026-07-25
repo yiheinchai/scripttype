@@ -27,27 +27,27 @@ declare const RequiredKeysOf: any
 declare const Simplify: any
 declare const StringToNumber: any
 declare const ToString: any
-type FilterDefinedKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FilterOptionalKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KeysOfUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MapsSetsOrArrays<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Primitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredKeysOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringToNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FilterDefinedKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FilterOptionalKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KeysOfUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MapsSetsOrArrays<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredKeysOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BuildObject(Key: PropertyKey, Value, CopiedFrom: object = {}) {
-  if (matches<keyof typeof CopiedFrom>(Key)) {
+  if (Key in CopiedFrom) {
     const out = emptyObject
     for (const _ in keyof(CopiedFrom)) {
       out[_] = Value
@@ -56,27 +56,33 @@ export function BuildObject(Key: PropertyKey, Value, CopiedFrom: object = {}) {
   }
   const m1 = matches<`${Hole<"NumberKey", number>}`>(Key)
   if (m1) {
-    if (matches<keyof typeof CopiedFrom>(m1.NumberKey)) {
+    if (m1.NumberKey in CopiedFrom) {
       const out2 = emptyObject
       for (const _ in keyof(CopiedFrom)) {
         out2[_] = Value
       }
       return Pick(out2, m1.NumberKey)
     }
-    const out = emptyObject
+    const out3 = emptyObject
     for (const _ in keySet(Key)) {
-      out[_] = Value
+      out3[_] = Value
     }
-    return out
+    return out3
   }
-  const out = emptyObject
+  const out4 = emptyObject
   for (const _ in keySet(Key)) {
-    out[_] = Value
+    out4[_] = Value
   }
-  return out
+  return out4
 }
 /* compiles to:
- * export type BuildObject<Key extends PropertyKey, Value, CopiedFrom extends object = {}> = Key extends keyof CopiedFrom ? Pick<{ [_ in keyof CopiedFrom]: Value }, Key> : Key extends `${infer NumberKey extends number}` ? NumberKey extends keyof CopiedFrom ? Pick<{ [_1 in keyof CopiedFrom]: Value }, NumberKey> : { [_2 in Key]: Value } : { [_3 in Key]: Value }
+ * export type BuildObject<Key extends PropertyKey, Value, CopiedFrom extends object = {}> =
+ *   Key extends keyof CopiedFrom ? Pick<{ [_ in keyof CopiedFrom]: Value }, Key>
+ *   : Key extends `${infer NumberKey extends number}`
+ *     ? NumberKey extends keyof CopiedFrom
+ *       ? Pick<{ [_1 in keyof CopiedFrom]: Value }, NumberKey>
+ *       : { [_2 in Key]: Value }
+ *   : { [_3 in Key]: Value }
  */
 
 // ✓ IsPlainObject: verified type-identical to the original
@@ -94,21 +100,25 @@ export function IsPlainObject(T) {
   return false
 }
 /* compiles to:
- * export type IsPlainObject<T> = IsNever<T> extends true ? false : T extends NonRecursiveType | MapsSetsOrArrays ? false : T extends object ? true : false
+ * export type IsPlainObject<T> =
+ *   IsNever<T> extends true ? false
+ *   : T extends NonRecursiveType | MapsSetsOrArrays ? false
+ *   : T extends object ? true
+ *   : false
  */
 
 // ✓ ObjectValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ObjectValue(T, K) {
-  if (matches<keyof typeof T>(K)) {
+  if (K in T) {
     return T[K]
   }
-  if (matches<keyof typeof T>(ToString(K))) {
+  if (ToString(K) in T) {
     return T[ToString(K)]
   }
   const m1 = matches<`${Hole<"NumberK", number>}`>(K)
   if (m1) {
-    if (matches<keyof typeof T>(m1.NumberK)) {
+    if (m1.NumberK in T) {
       return T[m1.NumberK]
     }
     return never
@@ -116,7 +126,11 @@ export function ObjectValue(T, K) {
   return never
 }
 /* compiles to:
- * export type ObjectValue<T, K> = K extends keyof T ? T[K] : ToString<K> extends keyof T ? T[ToString<K>] : K extends `${infer NumberK extends number}` ? NumberK extends keyof T ? T[NumberK] : never : never
+ * export type ObjectValue<T, K> =
+ *   K extends keyof T ? T[K]
+ *   : ToString<K> extends keyof T ? T[ToString<K>]
+ *   : K extends `${infer NumberK extends number}` ? NumberK extends keyof T ? T[NumberK] : never
+ *   : never
  */
 
 // ✓ UndefinedToOptional: verified type-identical to the original
@@ -133,7 +147,10 @@ export function UndefinedToOptional(T: object) {
   return Simplify(out & out2)
 }
 /* compiles to:
- * export type UndefinedToOptional<T extends object> = Simplify<{ [Key in keyof Pick<T, FilterDefinedKeys<T>>]: T[Key] } & { [Key1 in keyof Pick<T, FilterOptionalKeys<T>>]?: Exclude<T[Key1], undefined> }>
+ * export type UndefinedToOptional<T extends object> = Simplify<
+ *   & { [Key in keyof Pick<T, FilterDefinedKeys<T>>]: T[Key] }
+ *   & { [Key1 in keyof Pick<T, FilterOptionalKeys<T>>]?: Exclude<T[Key1], undefined> }
+ * >
  */
 
 // ✓ HomomorphicPick: verified type-identical to the original
@@ -146,14 +163,16 @@ export function HomomorphicPick(T, Keys: KeysOfUnion<typeof T>) {
   return out
 }
 /* compiles to:
- * export type HomomorphicPick<T, Keys extends KeysOfUnion<T>> = { [P in keyof T as Extract<P, Keys>]: T[P] }
+ * export type HomomorphicPick<T, Keys extends KeysOfUnion<T>> = {
+ *   [P in keyof T as Extract<P, Keys>]: T[P]
+ * }
  */
 
 // ✓ ValueOfUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValueOfUnion(Union, Key: KeysOfUnion<typeof Union>) {
   if (matches<unknown>(Union)) {
-    if (matches<keyof typeof Union>(Key)) {
+    if (Key in Union) {
       return Union[Key]
     }
     return never
@@ -161,7 +180,8 @@ export function ValueOfUnion(Union, Key: KeysOfUnion<typeof Union>) {
   return never
 }
 /* compiles to:
- * export type ValueOfUnion<Union, Key extends KeysOfUnion<Union>> = Union extends unknown ? Key extends keyof Union ? Union[Key] : never : never
+ * export type ValueOfUnion<Union, Key extends KeysOfUnion<Union>> =
+ *   Union extends unknown ? Key extends keyof Union ? Union[Key] : never : never
  */
 
 // ✗ ReadonlyKeysOfUnion: the ScriptType does not itself typecheck as TypeScript
@@ -186,7 +206,12 @@ export function ReadonlyKeysOfUnion(Union) {
   return never
 }
 /* compiles to:
- * export type ReadonlyKeysOfUnion<Union> = Union extends unknown ? keyof { [Key in keyof Union as IsEqual<{ [K in Key]: Union[Key] }, { readonly [K1 in Key]: Union[Key] }> extends true ? Key : never]: never } : never
+ * export type ReadonlyKeysOfUnion<Union> =
+ *   Union extends unknown
+ *     ? keyof {
+ *       [Key in keyof Union as IsEqual<{ [K in Key]: Union[Key] }, { readonly [K1 in Key]: Union[Key] }> extends true ? Key : never]: never
+ *     }
+ *     : never
  */
 
 // ✗ ApplyDefaultOptions: the ScriptType does not itself typecheck as TypeScript
@@ -200,7 +225,14 @@ export function ApplyDefaultOptions(Options: object, Defaults: Simplify<Omit<Req
   return never
 }
 /* compiles to:
- * export type ApplyDefaultOptions<Options extends object, Defaults extends Simplify<Omit<Required<Options>, RequiredKeysOf<Options>> & Partial<Record<RequiredKeysOf<Options>, never>>>, SpecifiedOptions extends Options> = _ApplyDefaultOptions<Options, Defaults, SpecifiedOptions> extends (infer Result extends Required<Options>) ? Result : never
+ * export type ApplyDefaultOptions<
+ *   Options extends object,
+ *   Defaults extends Simplify<Omit<Required<Options>, RequiredKeysOf<Options>> & Partial<Record<RequiredKeysOf<Options>, never>>>,
+ *   SpecifiedOptions extends Options
+ * > =
+ *   _ApplyDefaultOptions<Options, Defaults, SpecifiedOptions> extends (infer Result extends Required<Options>)
+ *     ? Result
+ *     : never
  */
 
 // ✓ _ApplyDefaultOptions: verified type-identical to the original
@@ -213,7 +245,20 @@ export function _ApplyDefaultOptions(Options, Defaults, SpecifiedOptions) {
   return If(IsAny(SpecifiedOptions), Defaults, If(IsNever(SpecifiedOptions), Defaults, Merge(Defaults, out)))
 }
 /* compiles to:
- * export type _ApplyDefaultOptions<Options, Defaults, SpecifiedOptions> = If<IsAny<SpecifiedOptions>, Defaults, If<IsNever<SpecifiedOptions>, Defaults, Merge<Defaults, { [Key in keyof SpecifiedOptions as undefined extends Required<Options>[Key & keyof Options] ? Key : undefined extends SpecifiedOptions[Key] ? never : Key]: SpecifiedOptions[Key] }>>>
+ * export type _ApplyDefaultOptions<Options, Defaults, SpecifiedOptions> = If<
+ *   IsAny<SpecifiedOptions>,
+ *   Defaults,
+ *   If<
+ *     IsNever<SpecifiedOptions>,
+ *     Defaults,
+ *     Merge<
+ *       Defaults,
+ *       {
+ *         [Key in keyof SpecifiedOptions as undefined extends Required<Options>[Key & keyof Options] ? Key : undefined extends SpecifiedOptions[Key] ? never : Key]: SpecifiedOptions[Key]
+ *       }
+ *     >
+ *   >
+ * >
  */
 
 // ✓ CollapseLiterals: verified type-identical to the original
@@ -254,7 +299,10 @@ export function _UnwrapBrand(T, Base) {
   return T
 }
 /* compiles to:
- * export type _UnwrapBrand<T, Base> = T extends Primitive ? T extends infer U & Pick<T, Exclude<keyof T, KeysOfUnion<Base>>> ? U : T : T
+ * export type _UnwrapBrand<T, Base> =
+ *   T extends Primitive
+ *     ? T extends infer U & Pick<T, Exclude<keyof T, KeysOfUnion<Base>>> ? U : T
+ *     : T
  */
 
 // ✓ NormalizedKeys: verified type-identical to the original
@@ -263,5 +311,9 @@ export function NormalizedKeys(Keys: PropertyKey) {
   return anyOf(Keys, matches<typeof Keys>(string) ? number : never, StringToNumber(merge(Keys, string)), ToString(merge(Keys, number)))
 }
 /* compiles to:
- * export type NormalizedKeys<Keys extends PropertyKey> = Keys | (string extends Keys ? number : never) | StringToNumber<Keys & string> | ToString<Keys & number>
+ * export type NormalizedKeys<Keys extends PropertyKey> =
+ *   | Keys
+ *   | (string extends Keys ? number : never)
+ *   | StringToNumber<Keys & string>
+ *   | ToString<Keys & number>
  */

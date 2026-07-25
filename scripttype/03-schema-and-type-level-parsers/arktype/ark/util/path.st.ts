@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PropertyKey: any
 declare const requireKeys: any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type requireKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type requireKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ StringifyPathOptions: the ScriptType does not itself typecheck as TypeScript
 //   StringifyPathOptions.st.ts(2:54) TS2693: 'PropertyKey' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -21,5 +21,11 @@ export function StringifyPathOptions(stringifiable = PropertyKey) {
   return requireKeys({ stringifySymbol: optional(fnType([symbol], string)), stringifyNonKey: optional(fnType([Exclude(stringifiable, PropertyKey)], string)) }, matches<PropertyKey>(stringifiable) ? never : 'stringifyNonKey')
 }
 /* compiles to:
- * export type StringifyPathOptions<stringifiable = PropertyKey> = requireKeys<{ stringifySymbol?: (a0: symbol) => string; stringifyNonKey?: (a0: Exclude<stringifiable, PropertyKey>) => string }, stringifiable extends PropertyKey ? never : 'stringifyNonKey'>
+ * export type StringifyPathOptions<stringifiable = PropertyKey> = requireKeys<
+ *   {
+ *     stringifySymbol?: (a0: symbol) => string
+ *     stringifyNonKey?: (a0: Exclude<stringifiable, PropertyKey>) => string
+ *   },
+ *   stringifiable extends PropertyKey ? never : 'stringifyNonKey'
+ * >
  */

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Child: any
 declare const JSXNode: any
-type Child<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JSXNode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Child<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JSXNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PropsWithChildren: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PropsWithChildren(P = unknown) {
@@ -29,7 +29,8 @@ export function ReactElement(P = any, T = string | t<Function>()) {
   return merge(JSXNode, { type: T, props: P, key: string | Null })
 }
 /* compiles to:
- * export type ReactElement<P = any, T = string | Function> = JSXNode & { type: T; props: P; key: string | null }
+ * export type ReactElement<P = any, T = string | Function> =
+ *   JSXNode & { type: T; props: P; key: string | null }
  */
 
 // ✓ ComponentClass: verified type-identical to the original

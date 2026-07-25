@@ -15,16 +15,25 @@ declare const AnyActorRef: any
 declare const EventObject: any
 declare const MachineContext: any
 declare const ParameterizedObject: any
-type ActionArgs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyActorRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MachineContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParameterizedObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActionArgs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyActorRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParameterizedObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SendToActionTarget: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SendToActionTarget(TContext: MachineContext, TExpressionEvent: EventObject, TParams: ParameterizedObject['params'] | undefined, TTargetActor: AnyActorRef, TEvent: EventObject) {
   return anyOf(string, TTargetActor, fnType([ActionArgs(TContext, TExpressionEvent, TEvent), TParams], anyOf(string, TTargetActor)))
 }
 /* compiles to:
- * export type SendToActionTarget<TContext extends MachineContext, TExpressionEvent extends EventObject, TParams extends ParameterizedObject['params'] | undefined, TTargetActor extends AnyActorRef, TEvent extends EventObject> = string | TTargetActor | ((a0: ActionArgs<TContext, TExpressionEvent, TEvent>, a1: TParams) => string | TTargetActor)
+ * export type SendToActionTarget<
+ *   TContext extends MachineContext,
+ *   TExpressionEvent extends EventObject,
+ *   TParams extends ParameterizedObject['params'] | undefined,
+ *   TTargetActor extends AnyActorRef,
+ *   TEvent extends EventObject
+ * > =
+ *   | string
+ *   | TTargetActor
+ *   | ((a0: ActionArgs<TContext, TExpressionEvent, TEvent>, a1: TParams) => string | TTargetActor)
  */

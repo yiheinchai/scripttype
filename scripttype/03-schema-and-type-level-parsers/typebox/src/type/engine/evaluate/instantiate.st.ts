@@ -15,18 +15,22 @@ declare const TInstantiateType: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TEvaluateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEvaluateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TEvaluateAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TEvaluateAction(Type: TSchema, Result: TSchema = TEvaluateType(Type)) {
   return Result
 }
 /* compiles to:
- * export type TEvaluateAction<Type extends TSchema, Result extends TSchema = TEvaluateType<Type>> = Result
+ * export type TEvaluateAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TEvaluateType<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TEvaluateInstantiate: verified type-identical to the original
@@ -35,5 +39,11 @@ export function TEvaluateInstantiate(Context: TProperties, State: TState, Type: 
   return TEvaluateAction(InstantiatedType)
 }
 /* compiles to:
- * export type TEvaluateInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>> = TEvaluateAction<InstantiatedType>
+ * export type TEvaluateInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TEvaluateAction<InstantiatedType>
  */

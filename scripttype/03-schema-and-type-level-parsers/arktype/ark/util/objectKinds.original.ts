@@ -7,11 +7,11 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type DescribeOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InstanceType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type domainDescriptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type domainOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DescribeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InstanceType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type domainDescriptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type domainOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type builtinConstructors = typeof builtinConstructors
 
 export type BuiltinObjectKind = keyof builtinConstructors

@@ -7,21 +7,21 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TAddOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TAddReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TEvaluateIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRemoveOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRemoveReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTupleElementsToProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnreachable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TAddOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TAddReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRemoveOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRemoveReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTupleElementsToProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnreachable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type TIsReadonlyProperty<Left extends TSchema, Right extends TSchema> = (
   Left extends TReadonly<Left> ? Right extends TReadonly<Right> ? true : false : false
 )

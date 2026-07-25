@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PropertyKey: any
 declare const Token: any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Token<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Token<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Pure: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Pure(T) {
@@ -32,12 +32,14 @@ export function Pure(T) {
 export function SetProperty(T, K: PropertyKey, V) {
   const out = emptyObject
   for (const P in keySet(anyOf(keyof(T), K))) {
-    out[P] = matches<typeof K>(P) ? V : (matches<keyof typeof T>(P) ? T[P] : never)
+    out[P] = matches<typeof K>(P) ? V : (P in T ? T[P] : never)
   }
   return out
 }
 /* compiles to:
- * export type SetProperty<T, K extends PropertyKey, V> = { [P in keyof T | K]: P extends K ? V : P extends keyof T ? T[P] : never }
+ * export type SetProperty<T, K extends PropertyKey, V> = {
+ *   [P in keyof T | K]: P extends K ? V : P extends keyof T ? T[P] : never
+ * }
  */
 
 // ✓ ParseResult: verified type-identical to the original

@@ -15,22 +15,25 @@ declare const IsEqual: any
 declare const OmitIndexSignature: any
 declare const PickIndexSignature: any
 declare const Simplify: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PickIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PickIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SimpleMerge: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SimpleMerge(Destination, Source) {
   const out = emptyObject
   for (const Key in keyof(Destination)) {
-    out[matches<keyof typeof Source>(Key) ? never : Key] = Destination[Key]
+    out[Key in Source ? never : Key] = Destination[Key]
   }
   return Simplify(out & Source)
 }
 /* compiles to:
- * export type SimpleMerge<Destination, Source> = Simplify<{ [Key in keyof Destination as Key extends keyof Source ? never : Key]: Destination[Key] } & Source>
+ * export type SimpleMerge<Destination, Source> = Simplify<
+ *   & { [Key in keyof Destination as Key extends keyof Source ? never : Key]: Destination[Key] }
+ *   & Source
+ * >
  */
 
 // ✓ Merge: verified type-identical to the original
@@ -45,7 +48,12 @@ export function Merge(Destination, Source) {
   return never
 }
 /* compiles to:
- * export type Merge<Destination, Source> = Destination extends unknown ? Source extends unknown ? If<IsEqual<Destination, Source>, Destination, _Merge<Destination, Source>> : never : never
+ * export type Merge<Destination, Source> =
+ *   Destination extends unknown
+ *     ? Source extends unknown
+ *       ? If<IsEqual<Destination, Source>, Destination, _Merge<Destination, Source>>
+ *       : never
+ *     : never
  */
 
 // ✓ _Merge: verified type-identical to the original
@@ -54,5 +62,8 @@ export function _Merge(Destination, Source) {
   return Simplify(SimpleMerge(PickIndexSignature(Destination), PickIndexSignature(Source)) & SimpleMerge(OmitIndexSignature(Destination), OmitIndexSignature(Source)))
 }
 /* compiles to:
- * export type _Merge<Destination, Source> = Simplify<SimpleMerge<PickIndexSignature<Destination>, PickIndexSignature<Source>> & SimpleMerge<OmitIndexSignature<Destination>, OmitIndexSignature<Source>>>
+ * export type _Merge<Destination, Source> = Simplify<
+ *   & SimpleMerge<PickIndexSignature<Destination>, PickIndexSignature<Source>>
+ *   & SimpleMerge<OmitIndexSignature<Destination>, OmitIndexSignature<Source>>
+ * >
  */

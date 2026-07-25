@@ -7,20 +7,20 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Constrain<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferMaskFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferMaskTo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferSelected<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferShouldThrow<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferStrict<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferTo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LinkComponentProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseParamsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseSearchOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Constrain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferMaskFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferMaskTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferSelected<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferShouldThrow<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferStrict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LinkComponentProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseParamsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseSearchOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type ValidateLinkOptions<
   TRouter extends AnyRouter = RegisteredRouter,
   TOptions = unknown,

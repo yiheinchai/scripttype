@@ -15,11 +15,11 @@ declare const Depth: any
 declare const Key: any
 declare const PatchFlat: any
 declare const _Pick: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PatchFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Pick<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PatchFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UndefinableFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UndefinableFlat(O) {
@@ -43,7 +43,9 @@ export function UndefinableDeep(O) {
   return out
 }
 /* compiles to:
- * export type UndefinableDeep<O> = { [K in keyof O]: O[K] extends BuiltIn ? O[K] : UndefinableDeep<O[K] | undefined> }
+ * export type UndefinableDeep<O> = {
+ *   [K in keyof O]: O[K] extends BuiltIn ? O[K] : UndefinableDeep<O[K] | undefined>
+ * }
  */
 
 // ✓ UndefinablePart: verified type-identical to the original
@@ -52,7 +54,8 @@ export function UndefinablePart(O: object, depth: Depth) {
   return { 'flat': UndefinableFlat(O), 'deep': UndefinableDeep(O) }[depth]
 }
 /* compiles to:
- * export type UndefinablePart<O extends object, depth extends Depth> = { flat: UndefinableFlat<O>; deep: UndefinableDeep<O> }[depth]
+ * export type UndefinablePart<O extends object, depth extends Depth> =
+ *   { flat: UndefinableFlat<O>; deep: UndefinableDeep<O> }[depth]
  */
 
 // ✓ _Undefinable: verified type-identical to the original
@@ -61,7 +64,10 @@ export function _Undefinable(O: object, K: Key, depth: Depth) {
   return PatchFlat(UndefinablePart(_Pick(O, K), depth), O)
 }
 /* compiles to:
- * export type _Undefinable<O extends object, K extends Key, depth extends Depth> = PatchFlat<UndefinablePart<_Pick<O, K>, depth>, O>
+ * export type _Undefinable<O extends object, K extends Key, depth extends Depth> = PatchFlat<
+ *   UndefinablePart<_Pick<O, K>, depth>,
+ *   O
+ * >
  */
 
 // ✓ Undefinable: verified type-identical to the original
@@ -73,5 +79,6 @@ export function Undefinable(O: object, K: Key = Key, depth: Depth = 'flat') {
   return never
 }
 /* compiles to:
- * export type Undefinable<O extends object, K extends Key = Key, depth extends Depth = 'flat'> = O extends unknown ? _Undefinable<O, K, depth> : never
+ * export type Undefinable<O extends object, K extends Key = Key, depth extends Depth = 'flat'> =
+ *   O extends unknown ? _Undefinable<O, K, depth> : never
  */

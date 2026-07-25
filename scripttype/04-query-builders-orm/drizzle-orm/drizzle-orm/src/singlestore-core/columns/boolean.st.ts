@@ -11,12 +11,22 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SingleStoreBooleanBuilder: any
-type SingleStoreBooleanBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SingleStoreBooleanBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreBooleanBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreBooleanBuilderInitial(TName: string) {
   return SingleStoreBooleanBuilder({ name: TName, dataType: 'boolean', columnType: 'SingleStoreBoolean', data: boolean, driverParam: number | boolean, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreBooleanBuilderInitial<TName extends string> = SingleStoreBooleanBuilder<{ name: TName; dataType: 'boolean'; columnType: 'SingleStoreBoolean'; data: boolean; driverParam: number | boolean; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreBooleanBuilderInitial<TName extends string> = SingleStoreBooleanBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'boolean'
+ *     columnType: 'SingleStoreBoolean'
+ *     data: boolean
+ *     driverParam: number | boolean
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */

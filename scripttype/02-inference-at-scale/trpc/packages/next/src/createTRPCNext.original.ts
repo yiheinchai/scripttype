@@ -7,15 +7,15 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateReactUtils<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DecorateRouterRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NextPageContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProtectedIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReturnType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCUseQueries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCUseSuspenseQueries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type withTRPC<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateReactUtils<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DecorateRouterRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NextPageContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProtectedIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCUseQueries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCUseSuspenseQueries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type withTRPC<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export interface CreateTRPCNextBase<
   TRouter extends AnyRouter,
   TSSRContext extends NextPageContext,

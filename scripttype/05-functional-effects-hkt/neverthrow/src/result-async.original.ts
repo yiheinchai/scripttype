@@ -7,19 +7,19 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type Combine<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Dedup<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EmptyArrayToNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractErrAsyncTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractOkAsyncTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsLiteralArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MemberListOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MembersToUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Ok<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PromiseLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Result<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResultAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Combine<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Dedup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EmptyArrayToNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractErrAsyncTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractOkAsyncTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsLiteralArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MemberListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MembersToUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Ok<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PromiseLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResultAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type TraverseAsync<T, Depth extends number = 5> = IsLiteralArray<T> extends 1
   ? Combine<T, Depth> extends [infer Oks, infer Errs]
     ? ResultAsync<EmptyArrayToNever<Oks>, MembersToUnion<Errs>>

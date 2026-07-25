@@ -7,20 +7,20 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type EnforceOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Exclude<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FirstArrayElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsBothExtends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonEmptyTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PickIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Required<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SimplifyDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArrayOrTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _ArrayTail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EnforceOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Exclude<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FirstArrayElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsBothExtends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonEmptyTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PickIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Required<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SimplifyDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArrayOrTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _ArrayTail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type Writable<TArray extends UnknownArray> = {-readonly [Key in keyof TArray]: TArray[Key]};
 
 export type ArrayTail<TArray extends UnknownArray> = TArray extends unknown // For distributing `TArray`

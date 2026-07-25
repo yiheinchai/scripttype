@@ -17,20 +17,24 @@ declare const HTTPBaseHandlerOptions: any
 declare const LambdaEvent: any
 declare const TRPCRequestInfo: any
 declare const inferRouterContext: any
-type APIGWContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateContextCallback<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPBaseHandlerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LambdaEvent<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCRequestInfo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferRouterContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type APIGWContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateContextCallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTTPBaseHandlerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LambdaEvent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCRequestInfo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferRouterContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateAWSLambdaContextOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CreateAWSLambdaContextOptions(TEvent: LambdaEvent) {
   return { event: TEvent, context: APIGWContext, info: TRPCRequestInfo }
 }
 /* compiles to:
- * export type CreateAWSLambdaContextOptions<TEvent extends LambdaEvent> = { event: TEvent; context: APIGWContext; info: TRPCRequestInfo }
+ * export type CreateAWSLambdaContextOptions<TEvent extends LambdaEvent> = {
+ *   event: TEvent
+ *   context: APIGWContext
+ *   info: TRPCRequestInfo
+ * }
  */
 
 // ✓ AWSLambdaOptions: verified type-identical to the original
@@ -39,7 +43,12 @@ export function AWSLambdaOptions(TRouter: AnyRouter, TEvent: LambdaEvent) {
   return HTTPBaseHandlerOptions(TRouter, TEvent) & CreateContextCallback(inferRouterContext(AnyRouter), AWSLambdaCreateContextFn(TRouter, TEvent))
 }
 /* compiles to:
- * export type AWSLambdaOptions<TRouter extends AnyRouter, TEvent extends LambdaEvent> = HTTPBaseHandlerOptions<TRouter, TEvent> & CreateContextCallback<inferRouterContext<AnyRouter>, AWSLambdaCreateContextFn<TRouter, TEvent>>
+ * export type AWSLambdaOptions<TRouter extends AnyRouter, TEvent extends LambdaEvent> =
+ *   & HTTPBaseHandlerOptions<TRouter, TEvent>
+ *   & CreateContextCallback<
+ *       inferRouterContext<AnyRouter>,
+ *       AWSLambdaCreateContextFn<TRouter, TEvent>
+ *     >
  */
 
 // ✓ AWSLambdaCreateContextFn: verified type-identical to the original
@@ -48,5 +57,7 @@ export function AWSLambdaCreateContextFn(TRouter: AnyRouter, TEvent: LambdaEvent
   return fnType([CreateAWSLambdaContextOptions(TEvent)], inferRouterContext(TRouter) | t<Promise<inferRouterContext<typeof TRouter>>>())
 }
 /* compiles to:
- * export type AWSLambdaCreateContextFn<TRouter extends AnyRouter, TEvent extends LambdaEvent> = (a0: CreateAWSLambdaContextOptions<TEvent>) => inferRouterContext<TRouter> | Promise<inferRouterContext<TRouter>>
+ * export type AWSLambdaCreateContextFn<TRouter extends AnyRouter, TEvent extends LambdaEvent> =
+ *   (a0: CreateAWSLambdaContextOptions<TEvent>) => | inferRouterContext<TRouter>
+ *   | Promise<inferRouterContext<TRouter>>
  */

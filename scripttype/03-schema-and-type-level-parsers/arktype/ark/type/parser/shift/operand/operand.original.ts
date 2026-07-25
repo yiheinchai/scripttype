@@ -7,14 +7,14 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type BaseCompletions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EnclosingQuote<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EnclosingStartToken<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scanner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WhitespaceChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseEnclosed<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseUnenclosed<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseCompletions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EnclosingQuote<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EnclosingStartToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WhitespaceChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseEnclosed<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseUnenclosed<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type parseOperand<s extends StaticState, $, args> =
 	s["unscanned"] extends Scanner.shift<infer lookahead, infer unscanned> ?
 		lookahead extends "(" ? s.reduceGroupOpen<s, unscanned>

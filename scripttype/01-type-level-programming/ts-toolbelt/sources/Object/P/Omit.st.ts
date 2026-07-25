@@ -16,12 +16,12 @@ declare const List: any
 declare const Tail: any
 declare const _LOmit: any
 declare const _OOmit: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _LOmit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _OOmit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _LOmit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _OOmit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OmitAt: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OmitAt(O, Path: List<Key>) {
@@ -44,7 +44,11 @@ export function OmitAt(O, Path: List<Key>) {
   return out
 }
 /* compiles to:
- * export type OmitAt<O, Path extends List<Key>> = O extends BuiltIn ? O : Path extends [Key] ? O extends List ? _LOmit<O, Path[0]> : O extends object ? _OOmit<O, Path[0]> : O : { [K in keyof O]: K extends Path[0] ? OmitAt<O[K], Tail<Path>> : O[K] }
+ * export type OmitAt<O, Path extends List<Key>> =
+ *   O extends BuiltIn ? O
+ *   : Path extends [Key]
+ *     ? O extends List ? _LOmit<O, Path[0]> : O extends object ? _OOmit<O, Path[0]> : O
+ *   : { [K in keyof O]: K extends Path[0] ? OmitAt<O[K], Tail<Path>> : O[K] }
  */
 
 // ✓ Omit: verified type-identical to the original
@@ -56,5 +60,6 @@ export function Omit(O: object, Path: List<Key>) {
   return never
 }
 /* compiles to:
- * export type Omit<O extends object, Path extends List<Key>> = Path extends unknown ? OmitAt<O, Path> : never
+ * export type Omit<O extends object, Path extends List<Key>> =
+ *   Path extends unknown ? OmitAt<O, Path> : never
  */

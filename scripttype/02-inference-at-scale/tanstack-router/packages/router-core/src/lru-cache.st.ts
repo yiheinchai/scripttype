@@ -13,5 +13,9 @@ export function LRUCache(TKey, TValue) {
   return { get: fnType([TKey], anyOf(TValue, Undefined)), set: fnType([TKey, TValue], voidType()), clear: fnType([], voidType()) }
 }
 /* compiles to:
- * export type LRUCache<TKey, TValue> = { get: (a0: TKey) => TValue | undefined; set: (a0: TKey, a1: TValue) => void; clear: () => void }
+ * export type LRUCache<TKey, TValue> = {
+ *   get: (a0: TKey) => TValue | undefined
+ *   set: (a0: TKey, a1: TValue) => void
+ *   clear: () => void
+ * }
  */

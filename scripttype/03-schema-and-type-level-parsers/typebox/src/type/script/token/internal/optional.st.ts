@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TTake: any
-type TTake<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TOptional(Value: string, Input: string) {
@@ -22,5 +22,8 @@ export function TOptional(Value: string, Input: string) {
   return ['', Input]
 }
 /* compiles to:
- * export type TOptional<Value extends string, Input extends string> = TTake<[Value], Input> extends [infer Optional extends string, infer Rest extends string] ? [Optional, Rest] : ['', Input]
+ * export type TOptional<Value extends string, Input extends string> =
+ *   TTake<[Value], Input> extends [infer Optional extends string, infer Rest extends string]
+ *     ? [Optional, Rest]
+ *     : ['', Input]
  */

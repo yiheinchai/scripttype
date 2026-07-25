@@ -14,10 +14,10 @@ declare const B: any
 declare const IsAny: any
 declare const IsNever: any
 declare const Primitive: any
-type B<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Primitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type B<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsBothExtends: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsBothExtends(BaseType, FirstType, SecondType) {
@@ -30,7 +30,8 @@ export function IsBothExtends(BaseType, FirstType, SecondType) {
   return false
 }
 /* compiles to:
- * export type IsBothExtends<BaseType, FirstType, SecondType> = FirstType extends BaseType ? SecondType extends BaseType ? true : false : false
+ * export type IsBothExtends<BaseType, FirstType, SecondType> =
+ *   FirstType extends BaseType ? SecondType extends BaseType ? true : false : false
  */
 
 // ✓ HasMultipleCallSignatures: verified type-identical to the original
@@ -49,7 +50,10 @@ export function HasMultipleCallSignatures(T: (...arguments_: any[]) => unknown) 
   return false
 }
 /* compiles to:
- * export type HasMultipleCallSignatures<T extends (...arguments_: any[]) => unknown> = T extends { (...arguments_: infer A): unknown; (...arguments_: infer B): unknown; } ? B extends A ? A extends B ? false : true : true : false
+ * export type HasMultipleCallSignatures<T extends (...arguments_: any[]) => unknown> =
+ *   T extends { (...arguments_: infer A): unknown; (...arguments_: infer B): unknown; }
+ *     ? B extends A ? A extends B ? false : true : true
+ *     : false
  */
 
 // ✓ IsNotFalse: verified type-identical to the original
@@ -95,13 +99,13 @@ export function Not(A: boolean) {
 /* @scripttype preserveParamNames */
 export function IfNotAnyOrNever(T, Cases: { ifNot: unknown; ifAny?: unknown; ifNever?: unknown; }) {
   if (matches<true>(IsAny(T))) {
-    if (matches<keyof typeof Cases>('ifAny')) {
+    if ('ifAny' in Cases) {
       return Cases['ifAny']
     }
     return any
   }
   if (matches<true>(IsNever(T))) {
-    if (matches<keyof typeof Cases>('ifNever')) {
+    if ('ifNever' in Cases) {
       return Cases['ifNever']
     }
     return never
@@ -109,7 +113,13 @@ export function IfNotAnyOrNever(T, Cases: { ifNot: unknown; ifAny?: unknown; ifN
   return Cases['ifNot']
 }
 /* compiles to:
- * export type IfNotAnyOrNever<T, Cases extends { ifNot: unknown; ifAny?: unknown; ifNever?: unknown; }> = IsAny<T> extends true ? 'ifAny' extends keyof Cases ? Cases['ifAny'] : any : IsNever<T> extends true ? 'ifNever' extends keyof Cases ? Cases['ifNever'] : never : Cases['ifNot']
+ * export type IfNotAnyOrNever<
+ *   T,
+ *   Cases extends { ifNot: unknown; ifAny?: unknown; ifNever?: unknown; }
+ * > =
+ *   IsAny<T> extends true ? 'ifAny' extends keyof Cases ? Cases['ifAny'] : any
+ *   : IsNever<T> extends true ? 'ifNever' extends keyof Cases ? Cases['ifNever'] : never
+ *   : Cases['ifNot']
  */
 
 // ✓ IsAnyOrNever: verified type-identical to the original

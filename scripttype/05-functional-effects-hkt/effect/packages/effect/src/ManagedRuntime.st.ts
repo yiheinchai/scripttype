@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ManagedRuntime: any
-type ManagedRuntime<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ManagedRuntime<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Services: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -23,7 +23,8 @@ export function Services(T: ManagedRuntime<never, any>) {
   return never
 }
 /* compiles to:
- * export type Services<T extends ManagedRuntime<never, any>> = [T] extends [ManagedRuntime<infer R, unknown>] ? R : never
+ * export type Services<T extends ManagedRuntime<never, any>> =
+ *   [T] extends [ManagedRuntime<infer R, unknown>] ? R : never
  */
 
 // ✗ Error: compiles but is not type-identical yet
@@ -37,5 +38,6 @@ export function Error(T: ManagedRuntime<never, any>) {
   return never
 }
 /* compiles to:
- * export type Error<T extends ManagedRuntime<never, any>> = [T] extends [ManagedRuntime<unknown, infer E>] ? E : never
+ * export type Error<T extends ManagedRuntime<never, any>> =
+ *   [T] extends [ManagedRuntime<unknown, infer E>] ? E : never
  */

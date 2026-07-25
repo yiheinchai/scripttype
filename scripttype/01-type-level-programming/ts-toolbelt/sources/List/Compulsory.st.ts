@@ -14,15 +14,18 @@ declare const Cast: any
 declare const CompulsoryPart: any
 declare const Depth: any
 declare const List: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CompulsoryPart<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CompulsoryPart<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Compulsory: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Compulsory(L: List, depth: Depth = 'flat') {
   return Cast(CompulsoryPart(L, depth), List)
 }
 /* compiles to:
- * export type Compulsory<L extends List, depth extends Depth = 'flat'> = Cast<CompulsoryPart<L, depth>, List>
+ * export type Compulsory<L extends List, depth extends Depth = 'flat'> = Cast<
+ *   CompulsoryPart<L, depth>,
+ *   List
+ * >
  */

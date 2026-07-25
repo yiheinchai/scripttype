@@ -12,13 +12,21 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Context: any
 declare const Env: any
-type Context<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Env<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Env<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ServeStaticOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ServeStaticOptions(E: Env = Env) {
   return { root: optional(string), path: optional(string), precompressed: optional(boolean), mimes: optional(Record(string, string)), rewriteRequestPath: optional(fnType([string], string)), onFound: optional(fnType([string, Context(E)], voidType() | t<Promise<void>>())), onNotFound: optional(fnType([string, Context(E)], voidType() | t<Promise<void>>())) }
 }
 /* compiles to:
- * export type ServeStaticOptions<E extends Env = Env> = { root?: string; path?: string; precompressed?: boolean; mimes?: Record<string, string>; rewriteRequestPath?: (a0: string) => string; onFound?: (a0: string, a1: Context<E>) => void | Promise<void>; onNotFound?: (a0: string, a1: Context<E>) => void | Promise<void> }
+ * export type ServeStaticOptions<E extends Env = Env> = {
+ *   root?: string
+ *   path?: string
+ *   precompressed?: boolean
+ *   mimes?: Record<string, string>
+ *   rewriteRequestPath?: (a0: string) => string
+ *   onFound?: (a0: string, a1: Context<E>) => void | Promise<void>
+ *   onNotFound?: (a0: string, a1: Context<E>) => void | Promise<void>
+ * }
  */

@@ -7,17 +7,17 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type ActorRefFromLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyActorLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyActorRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConditionalRequired<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GetConcreteByKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InputFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsLiteralString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNotNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProvidedActor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredActorOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredLogicInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActorRefFromLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyActorRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConditionalRequired<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetConcreteByKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InputFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsLiteralString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNotNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProvidedActor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredActorOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredLogicInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type SpawnOptions<
   TActor extends ProvidedActor,
   TSrc extends TActor['src']

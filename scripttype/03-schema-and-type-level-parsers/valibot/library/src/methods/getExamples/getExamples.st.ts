@@ -17,13 +17,13 @@ declare const PipeItemAsync: any
 declare const Schema: any
 declare const SchemaWithPipe: any
 declare const SchemaWithPipeAsync: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExamplesAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PipeItem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PipeItemAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Schema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SchemaWithPipe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SchemaWithPipeAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExamplesAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PipeItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PipeItemAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SchemaWithPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SchemaWithPipeAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RecursiveConcat: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RecursiveConcat(TRootPipe: readonly (PipeItem<any, unknown, BaseIssue<unknown>> | PipeItemAsync<any, unknown, BaseIssue<unknown>>)[], TCollectedExamples: unknown[] = []) {
@@ -42,7 +42,17 @@ export function RecursiveConcat(TRootPipe: readonly (PipeItem<any, unknown, Base
   return TCollectedExamples
 }
 /* compiles to:
- * export type RecursiveConcat<TRootPipe extends readonly (PipeItem<any, unknown, BaseIssue<unknown>> | PipeItemAsync<any, unknown, BaseIssue<unknown>>)[], TCollectedExamples extends unknown[] = []> = TRootPipe extends readonly [infer TFirstItem, ...(infer TPipeRest extends readonly (PipeItem<any, unknown, BaseIssue<unknown>> | PipeItemAsync<any, unknown, BaseIssue<unknown>>)[])] ? TFirstItem extends SchemaWithPipe<infer TNestedPipe> | SchemaWithPipeAsync<infer TNestedPipe> ? RecursiveConcat<TPipeRest, RecursiveConcat<TNestedPipe, TCollectedExamples>> : TFirstItem extends ExamplesAction<unknown, infer TCurrentExamples> ? RecursiveConcat<TPipeRest, [...TCollectedExamples, ...TCurrentExamples]> : RecursiveConcat<TPipeRest, TCollectedExamples> : TCollectedExamples
+ * export type RecursiveConcat<
+ *   TRootPipe extends readonly (PipeItem<any, unknown, BaseIssue<unknown>> | PipeItemAsync<any, unknown, BaseIssue<unknown>>)[],
+ *   TCollectedExamples extends unknown[] = []
+ * > =
+ *   TRootPipe extends readonly [infer TFirstItem, ...infer TPipeRest extends readonly (PipeItem<any, unknown, BaseIssue<unknown>> | PipeItemAsync<any, unknown, BaseIssue<unknown>>)[]]
+ *     ? TFirstItem extends SchemaWithPipe<infer TNestedPipe> | SchemaWithPipeAsync<infer TNestedPipe>
+ *       ? RecursiveConcat<TPipeRest, RecursiveConcat<TNestedPipe, TCollectedExamples>>
+ *     : TFirstItem extends ExamplesAction<unknown, infer TCurrentExamples>
+ *       ? RecursiveConcat<TPipeRest, [...TCollectedExamples, ...TCurrentExamples]>
+ *     : RecursiveConcat<TPipeRest, TCollectedExamples>
+ *     : TCollectedExamples
  */
 
 // ✓ InferExamples: verified type-identical to the original
@@ -55,5 +65,8 @@ export function InferExamples(TSchema: Schema) {
   return []
 }
 /* compiles to:
- * export type InferExamples<TSchema extends Schema> = TSchema extends SchemaWithPipe<infer TPipe> | SchemaWithPipeAsync<infer TPipe> ? Readonly<RecursiveConcat<TPipe>> : []
+ * export type InferExamples<TSchema extends Schema> =
+ *   TSchema extends SchemaWithPipe<infer TPipe> | SchemaWithPipeAsync<infer TPipe>
+ *     ? Readonly<RecursiveConcat<TPipe>>
+ *     : []
  */

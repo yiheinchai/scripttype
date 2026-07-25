@@ -7,13 +7,13 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type BigintLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EnclosingLiteralStartToken<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EnclosingLiteralTokens<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NumberLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scanner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type trim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BigintLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EnclosingLiteralStartToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EnclosingLiteralTokens<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NumberLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type trim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type UnitLiteralKeyword = "null" | "undefined" | "true" | "false"
 
 export type UnenclosedUnitLiteral =

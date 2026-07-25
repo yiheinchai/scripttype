@@ -28,31 +28,35 @@ declare const TString: any
 declare const TStringKey: any
 declare const TTemplateLiteralDecodeUnsafe: any
 declare const TTemplateLiteralStatic: any
-type IntegerKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NumberKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInteger<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TIntegerKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNumberKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TStringKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTemplateLiteralDecodeUnsafe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTemplateLiteralStatic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IntegerKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NumberKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TIntegerKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNumberKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TStringKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTemplateLiteralDecodeUnsafe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTemplateLiteralStatic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticPropertyKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticPropertyKey(Key: string, Result: PropertyKey = matches<TStringKey>(Key) ? string : (matches<TIntegerKey>(Key) ? number : (matches<TNumberKey>(Key) ? number : (matches<`^${string}$`>(Key) ? TTemplateLiteralStatic(Key) : string)))) {
   return Result
 }
 /* compiles to:
- * export type StaticPropertyKey<Key extends string, Result extends PropertyKey = Key extends TStringKey ? string : Key extends TIntegerKey ? number : Key extends TNumberKey ? number : Key extends `^${string}$` ? TTemplateLiteralStatic<Key> : string> = Result
+ * export type StaticPropertyKey<
+ *   Key extends string,
+ *   Result extends PropertyKey = Key extends TStringKey ? string : Key extends TIntegerKey ? number : Key extends TNumberKey ? number : Key extends `^${string}$` ? TTemplateLiteralStatic<Key> : string
+ * > =
+ *   Result
  */
 
 // ✓ StaticRecord: verified type-identical to the original
@@ -61,7 +65,18 @@ export function StaticRecord(Stack: string[], Direction: StaticDirection, Contex
   return Result
 }
 /* compiles to:
- * export type StaticRecord<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Key extends string, Value extends TSchema, StaticKey extends PropertyKey = StaticPropertyKey<Key>, StaticValue = StaticType<Stack, Direction, Context, This, Value>, Result extends Record<PropertyKey, unknown> = Record<StaticKey, StaticValue>> = Result
+ * export type StaticRecord<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Key extends string,
+ *   Value extends TSchema,
+ *   StaticKey extends PropertyKey = StaticPropertyKey<Key>,
+ *   StaticValue = StaticType<Stack, Direction, Context, This, Value>,
+ *   Result extends Record<PropertyKey, unknown> = Record<StaticKey, StaticValue>
+ * > =
+ *   Result
  */
 
 // ✓ TRecordDeferred: verified type-identical to the original
@@ -70,7 +85,10 @@ export function TRecordDeferred(Key: TSchema = TSchema, Value: TSchema = TSchema
   return TDeferred('Record', [Key, Value])
 }
 /* compiles to:
- * export type TRecordDeferred<Key extends TSchema = TSchema, Value extends TSchema = TSchema> = TDeferred<'Record', [Key, Value]>
+ * export type TRecordDeferred<Key extends TSchema = TSchema, Value extends TSchema = TSchema> = TDeferred<
+ *   'Record',
+ *   [Key, Value]
+ * >
  */
 
 // ✗ TRecordPatternToType: does not compile yet
@@ -80,7 +98,11 @@ export function TRecordPatternToType(Pattern: string, Result: TSchema = matches<
   return Result
 }
 /* compiles to:
- * export type TRecordPatternToType<Pattern extends string, Result extends TSchema = Pattern extends StringKey ? TString : Pattern extends IntegerKey ? TInteger : Pattern extends NumberKey ? TNumber : TTemplateLiteralDecodeUnsafe<Pattern>> = Result
+ * export type TRecordPatternToType<
+ *   Pattern extends string,
+ *   Result extends TSchema = Pattern extends StringKey ? TString : Pattern extends IntegerKey ? TInteger : Pattern extends NumberKey ? TNumber : TTemplateLiteralDecodeUnsafe<Pattern>
+ * > =
+ *   Result
  */
 
 // ✓ TRecordPattern: verified type-identical to the original
@@ -89,7 +111,11 @@ export function TRecordPattern(Type: TRecord, Result: string = Extract(keyof(Typ
   return Result
 }
 /* compiles to:
- * export type TRecordPattern<Type extends TRecord, Result extends string = Extract<keyof Type['patternProperties'], string>> = Result
+ * export type TRecordPattern<
+ *   Type extends TRecord,
+ *   Result extends string = Extract<keyof Type['patternProperties'], string>
+ * > =
+ *   Result
  */
 
 // ✓ TRecordKey: verified type-identical to the original
@@ -98,7 +124,12 @@ export function TRecordKey(Type: TRecord, Pattern: string = TRecordPattern(Type)
   return Result
 }
 /* compiles to:
- * export type TRecordKey<Type extends TRecord, Pattern extends string = TRecordPattern<Type>, Result extends TSchema = TRecordPatternToType<Pattern>> = Result
+ * export type TRecordKey<
+ *   Type extends TRecord,
+ *   Pattern extends string = TRecordPattern<Type>,
+ *   Result extends TSchema = TRecordPatternToType<Pattern>
+ * > =
+ *   Result
  */
 
 // ✓ TRecordValue: verified type-identical to the original
@@ -107,5 +138,9 @@ export function TRecordValue(Type: TRecord, Result: TSchema = Type['patternPrope
   return Result
 }
 /* compiles to:
- * export type TRecordValue<Type extends TRecord, Result extends TSchema = Type['patternProperties'][TRecordPattern<Type>]> = Result
+ * export type TRecordValue<
+ *   Type extends TRecord,
+ *   Result extends TSchema = Type['patternProperties'][TRecordPattern<Type>]
+ * > =
+ *   Result
  */

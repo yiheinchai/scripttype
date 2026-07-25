@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Has: any
 declare const List: any
-type Has<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Has<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Longest: does not compile yet
 //   Type 'Has<keyof L, keyof L1>' cannot be used to index type '{ '0': L1; '1': L; }'.
 /* @scripttype preserveParamNames */
@@ -27,5 +27,8 @@ export function Longest(L: List, L1: List) {
   return never
 }
 /* compiles to:
- * export type Longest<L extends List, L1 extends List> = L extends unknown ? L1 extends unknown ? { '0': L1; '1': L }[Has<keyof L, keyof L1>] : never : never
+ * export type Longest<L extends List, L1 extends List> =
+ *   L extends unknown
+ *     ? L1 extends unknown ? { '0': L1; '1': L }[Has<keyof L, keyof L1>] : never
+ *     : never
  */

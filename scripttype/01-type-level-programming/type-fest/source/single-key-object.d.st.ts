@@ -13,9 +13,9 @@
 declare const If: any
 declare const IsEmptyObject: any
 declare const IsUnion: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEmptyObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEmptyObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleKeyObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleKeyObject(ObjectType) {
@@ -25,5 +25,8 @@ export function SingleKeyObject(ObjectType) {
   return If(IsEmptyObject(ObjectType), never, ObjectType)
 }
 /* compiles to:
- * export type SingleKeyObject<ObjectType> = IsUnion<keyof ObjectType> extends true ? never : If<IsEmptyObject<ObjectType>, never, ObjectType>
+ * export type SingleKeyObject<ObjectType> =
+ *   IsUnion<keyof ObjectType> extends true
+ *     ? never
+ *     : If<IsEmptyObject<ObjectType>, never, ObjectType>
  */

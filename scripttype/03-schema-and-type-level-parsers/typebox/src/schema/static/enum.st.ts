@@ -24,5 +24,8 @@ export function XStaticEnum(Values: unknown[]) {
 }
 /* compiles to:
  * export type XStaticEnum<Values extends unknown[]> = XStaticEnum__loop<Values, never>
- * type XStaticEnum__loop<Values extends unknown[], Result> = Values extends [infer Left extends unknown, ...(infer Right extends unknown[])] ? XStaticEnum__loop<Right, Left | Result> : Result
+ * type XStaticEnum__loop<Values extends unknown[], Result> =
+ *   Values extends [infer Left extends unknown, ...infer Right extends unknown[]]
+ *     ? XStaticEnum__loop<Right, Left | Result>
+ *     : Result
  */

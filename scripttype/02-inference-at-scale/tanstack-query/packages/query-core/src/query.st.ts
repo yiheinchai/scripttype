@@ -18,19 +18,27 @@ declare const InvalidateAction: any
 declare const PauseAction: any
 declare const SetStateAction: any
 declare const SuccessAction: any
-type ContinueAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FailedAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FetchAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InvalidateAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PauseAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SetStateAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SuccessAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ContinueAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FailedAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FetchAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InvalidateAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PauseAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SetStateAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SuccessAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Action: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Action(TData, TError) {
   return ContinueAction | ErrorAction(TError) | FailedAction(TError) | FetchAction | InvalidateAction | PauseAction | SetStateAction(TData, TError) | SuccessAction(TData)
 }
 /* compiles to:
- * export type Action<TData, TError> = ContinueAction | ErrorAction<TError> | FailedAction<TError> | FetchAction | InvalidateAction | PauseAction | SetStateAction<TData, TError> | SuccessAction<TData>
+ * export type Action<TData, TError> =
+ *   | ContinueAction
+ *   | ErrorAction<TError>
+ *   | FailedAction<TError>
+ *   | FetchAction
+ *   | InvalidateAction
+ *   | PauseAction
+ *   | SetStateAction<TData, TError>
+ *   | SuccessAction<TData>
  */

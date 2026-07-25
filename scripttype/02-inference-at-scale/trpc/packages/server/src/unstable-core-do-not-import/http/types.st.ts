@@ -19,22 +19,25 @@ declare const TRPCRequestInfo: any
 declare const TRPCResponse: any
 declare const inferRouterContext: any
 declare const inferRouterError: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPErrorHandlerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProcedureType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResponseMeta<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCRequestInfo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferRouterContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferRouterError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTTPErrorHandlerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProcedureType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResponseMeta<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCRequestInfo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferRouterContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferRouterError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ResponseMetaFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ResponseMetaFn(TRouter: AnyRouter) {
   return fnType([{ data: arrayOf(TRPCResponse(unknown, inferRouterError(TRouter))), ctx: optional(inferRouterContext(TRouter)), paths: anyOf(readonlyArrayOf(string), Undefined), info: anyOf(TRPCRequestInfo, Undefined), type: anyOf(ProcedureType, 'unknown'), errors: arrayOf(TRPCError), eagerGeneration: boolean }], ResponseMeta)
 }
 /* compiles to:
- * export type ResponseMetaFn<TRouter extends AnyRouter> = (a0: { data: TRPCResponse<unknown, inferRouterError<TRouter>>[]; ctx?: inferRouterContext<TRouter>; paths: readonly string[] | undefined; info: TRPCRequestInfo | undefined; type: ProcedureType | 'unknown'; errors: TRPCError[]; eagerGeneration: boolean }) => ResponseMeta
+ * export type ResponseMetaFn<TRouter extends AnyRouter> =
+ *   (
+ *     a0: { data: TRPCResponse<unknown, inferRouterError<TRouter>>[]; ctx?: inferRouterContext<TRouter>; paths: readonly string[] | undefined; info: TRPCRequestInfo | undefined; type: ProcedureType | 'unknown'; errors: TRPCError[]; eagerGeneration: boolean }
+ *   ) => ResponseMeta
  */
 
 // ✓ ResolveHTTPRequestOptionsContextFn: verified type-identical to the original
@@ -43,7 +46,8 @@ export function ResolveHTTPRequestOptionsContextFn(TRouter: AnyRouter) {
   return fnType([{ info: TRPCRequestInfo }], t<Promise<inferRouterContext<typeof TRouter>>>())
 }
 /* compiles to:
- * export type ResolveHTTPRequestOptionsContextFn<TRouter extends AnyRouter> = (a0: { info: TRPCRequestInfo }) => Promise<inferRouterContext<TRouter>>
+ * export type ResolveHTTPRequestOptionsContextFn<TRouter extends AnyRouter> =
+ *   (a0: { info: TRPCRequestInfo }) => Promise<inferRouterContext<TRouter>>
  */
 
 // ✓ HTTPErrorHandler: verified type-identical to the original
@@ -52,5 +56,6 @@ export function HTTPErrorHandler(TRouter: AnyRouter, TRequest) {
   return fnType([HTTPErrorHandlerOptions(TRouter, TRequest)], voidType())
 }
 /* compiles to:
- * export type HTTPErrorHandler<TRouter extends AnyRouter, TRequest> = (a0: HTTPErrorHandlerOptions<TRouter, TRequest>) => void
+ * export type HTTPErrorHandler<TRouter extends AnyRouter, TRequest> =
+ *   (a0: HTTPErrorHandlerOptions<TRouter, TRequest>) => void
  */

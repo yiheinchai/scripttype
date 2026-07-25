@@ -12,13 +12,18 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TCall: any
 declare const TSchema: any
-type TCall<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCall<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCallConstruct: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TCallConstruct(Target: TSchema, Arguments: TSchema[], Result: TSchema = TCall(Target, Arguments)) {
   return Result
 }
 /* compiles to:
- * export type TCallConstruct<Target extends TSchema, Arguments extends TSchema[], Result extends TSchema = TCall<Target, Arguments>> = Result
+ * export type TCallConstruct<
+ *   Target extends TSchema,
+ *   Arguments extends TSchema[],
+ *   Result extends TSchema = TCall<Target, Arguments>
+ * > =
+ *   Result
  */

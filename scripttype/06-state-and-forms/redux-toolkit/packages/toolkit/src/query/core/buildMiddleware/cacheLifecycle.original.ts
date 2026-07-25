@@ -7,17 +7,17 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type BaseEndpointDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseQueryFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseQueryMeta<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinitionType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationResultSelectorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PromiseWithKnownReason<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RootState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ThunkDispatch<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type neverResolvedError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseEndpointDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseQueryFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseQueryMeta<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefinitionType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationResultSelectorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PromiseWithKnownReason<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RootState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ThunkDispatch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type neverResolvedError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type LifecycleApi<ReducerPath extends string = string> = {
   /**
    * The dispatch method for the store

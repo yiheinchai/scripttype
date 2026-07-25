@@ -7,16 +7,16 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type Call<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ComposeLeft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extract<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type H<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Impl<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Strings<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tuples<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComposeLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type H<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Impl<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Strings<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tuples<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export interface LengthFn extends Fn {
     return: this["arg0"] extends string ? Impl.Length<this["arg0"]> : never;
   }

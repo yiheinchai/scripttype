@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Iteration: any
 declare const IterationOf: any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _IsZero: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _IsZero(N: Iteration) {

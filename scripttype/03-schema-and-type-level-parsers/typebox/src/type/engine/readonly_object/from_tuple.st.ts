@@ -13,14 +13,18 @@
 declare const TAddImmutable: any
 declare const TSchema: any
 declare const TTuple: any
-type TAddImmutable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TAddImmutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromTuple(Types: TSchema[], Result: TSchema = TAddImmutable(TTuple(Types))) {
   return Result
 }
 /* compiles to:
- * export type TFromTuple<Types extends TSchema[], Result extends TSchema = TAddImmutable<TTuple<Types>>> = Result
+ * export type TFromTuple<
+ *   Types extends TSchema[],
+ *   Result extends TSchema = TAddImmutable<TTuple<Types>>
+ * > =
+ *   Result
  */

@@ -17,20 +17,25 @@ declare const TOmitDeferred: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TOmitDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TOmitDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TOmitAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TOmitAction(Type: TSchema, Indexer: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type, Indexer])) ? TFromType(Type, Indexer) : TOmitDeferred(Type, Indexer)) {
   return Result
 }
 /* compiles to:
- * export type TOmitAction<Type extends TSchema, Indexer extends TSchema, Result extends TSchema = TCanInstantiate<[Type, Indexer]> extends true ? TFromType<Type, Indexer> : TOmitDeferred<Type, Indexer>> = Result
+ * export type TOmitAction<
+ *   Type extends TSchema,
+ *   Indexer extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type, Indexer]> extends true ? TFromType<Type, Indexer> : TOmitDeferred<Type, Indexer>
+ * > =
+ *   Result
  */
 
 // ✓ TOmitInstantiate: verified type-identical to the original
@@ -39,5 +44,13 @@ export function TOmitInstantiate(Context: TProperties, State: TState, Type: TSch
   return TOmitAction(InstantiatedType, InstantiatedIndexer)
 }
 /* compiles to:
- * export type TOmitInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, Indexer extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>, InstantiatedIndexer extends TSchema = TInstantiateType<Context, State, Indexer>> = TOmitAction<InstantiatedType, InstantiatedIndexer>
+ * export type TOmitInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   Indexer extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>,
+ *   InstantiatedIndexer extends TSchema = TInstantiateType<Context, State, Indexer>
+ * > =
+ *   TOmitAction<InstantiatedType, InstantiatedIndexer>
  */

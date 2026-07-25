@@ -12,15 +12,25 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SingleStoreDateBuilder: any
 declare const SingleStoreDateStringBuilder: any
-type SingleStoreDateBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreDateStringBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SingleStoreDateBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreDateStringBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreDateBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreDateBuilderInitial(TName: string) {
   return SingleStoreDateBuilder({ name: TName, dataType: 'date', columnType: 'SingleStoreDate', data: t<Date>(), driverParam: string | number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreDateBuilderInitial<TName extends string> = SingleStoreDateBuilder<{ name: TName; dataType: 'date'; columnType: 'SingleStoreDate'; data: Date; driverParam: string | number; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreDateBuilderInitial<TName extends string> = SingleStoreDateBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'date'
+ *     columnType: 'SingleStoreDate'
+ *     data: Date
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */
 
 // ✓ SingleStoreDateStringBuilderInitial: verified type-identical to the original
@@ -29,5 +39,15 @@ export function SingleStoreDateStringBuilderInitial(TName: string) {
   return SingleStoreDateStringBuilder({ name: TName, dataType: 'string', columnType: 'SingleStoreDateString', data: string, driverParam: string | number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreDateStringBuilderInitial<TName extends string> = SingleStoreDateStringBuilder<{ name: TName; dataType: 'string'; columnType: 'SingleStoreDateString'; data: string; driverParam: string | number; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreDateStringBuilderInitial<TName extends string> = SingleStoreDateStringBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'SingleStoreDateString'
+ *     data: string
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */

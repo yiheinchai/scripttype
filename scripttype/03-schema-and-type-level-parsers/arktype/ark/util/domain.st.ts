@@ -16,12 +16,12 @@ declare const TypesByDomain: any
 declare const describeDefaults: any
 declare const domainDescriptions: any
 declare const stringifyUnion: any
-type DescribeOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Domain<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypesByDomain<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type describeDefaults<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type domainDescriptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type stringifyUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DescribeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Domain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypesByDomain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type describeDefaults<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type domainDescriptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type stringifyUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ inferDomain: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function inferDomain(kind: Domain) {
@@ -31,7 +31,8 @@ export function inferDomain(kind: Domain) {
   return TypesByDomain[kind]
 }
 /* compiles to:
- * export type inferDomain<kind extends Domain> = Domain extends kind ? unknown : TypesByDomain[kind]
+ * export type inferDomain<kind extends Domain> =
+ *   Domain extends kind ? unknown : TypesByDomain[kind]
  */
 
 // ✓ domainOf: verified type-identical to the original
@@ -43,38 +44,53 @@ export function domainOf(data) {
   if (matches<object>(data)) {
     return 'object'
   }
-  if (matches<string>(data)) {
+  if (typeof data === 'string') {
     return 'string'
   }
-  if (matches<number>(data)) {
+  if (typeof data === 'number') {
     return 'number'
   }
-  if (matches<boolean>(data)) {
+  if (typeof data === 'boolean') {
     return 'boolean'
   }
-  if (matches<undefined>(data)) {
+  if (typeof data === 'undefined') {
     return 'undefined'
   }
   if (matches<null>(data)) {
     return 'null'
   }
-  if (matches<bigint>(data)) {
+  if (typeof data === 'bigint') {
     return 'bigint'
   }
-  if (matches<symbol>(data)) {
+  if (typeof data === 'symbol') {
     return 'symbol'
   }
   return never
 }
 /* compiles to:
- * export type domainOf<data> = unknown extends data ? Domain : data extends object ? 'object' : data extends string ? 'string' : data extends number ? 'number' : data extends boolean ? 'boolean' : data extends undefined ? 'undefined' : data extends null ? 'null' : data extends bigint ? 'bigint' : data extends symbol ? 'symbol' : never
+ * export type domainOf<data> =
+ *   unknown extends data ? Domain
+ *   : data extends object ? 'object'
+ *   : data extends string ? 'string'
+ *   : data extends number ? 'number'
+ *   : data extends boolean ? 'boolean'
+ *   : data extends undefined ? 'undefined'
+ *   : data extends null ? 'null'
+ *   : data extends bigint ? 'bigint'
+ *   : data extends symbol ? 'symbol'
+ *   : never
  */
 
 // ✓ describeDomainOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function describeDomainOf(t, opts: DescribeOptions = {}) {
-  return stringifyUnion(matches<true>(opts['includeArticles']) ? domainDescriptions[domainOf(t)] : domainOf(t), matches<string>(opts['branchDelimiter']) ? opts['branchDelimiter'] : describeDefaults['branchDelimiter'])
+  return stringifyUnion(matches<true>(opts['includeArticles']) ? domainDescriptions[domainOf(t)] : domainOf(t), typeof opts['branchDelimiter'] === 'string' ? opts['branchDelimiter'] : describeDefaults['branchDelimiter'])
 }
 /* compiles to:
- * export type describeDomainOf<t, opts extends DescribeOptions = {}> = stringifyUnion<opts['includeArticles'] extends true ? domainDescriptions[domainOf<t>] : domainOf<t>, opts['branchDelimiter'] extends string ? opts['branchDelimiter'] : describeDefaults['branchDelimiter']>
+ * export type describeDomainOf<t, opts extends DescribeOptions = {}> = stringifyUnion<
+ *   opts['includeArticles'] extends true ? domainDescriptions[domainOf<t>] : domainOf<t>,
+ *   opts['branchDelimiter'] extends string
+ *     ? opts['branchDelimiter']
+ *     : describeDefaults['branchDelimiter']
+ * >
  */

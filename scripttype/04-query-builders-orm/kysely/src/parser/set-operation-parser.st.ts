@@ -12,13 +12,16 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Expression: any
 declare const ExpressionBuilder: any
-type Expression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExpressionBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetOperandExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetOperandExpression(DB, O) {
   return Expression(O) | t<ReadonlyArray<Expression<typeof O>>>() | fnType([ExpressionBuilder(DB, never)], Expression(O) | t<ReadonlyArray<Expression<typeof O>>>())
 }
 /* compiles to:
- * export type SetOperandExpression<DB, O> = Expression<O> | ReadonlyArray<Expression<O>> | ((a0: ExpressionBuilder<DB, never>) => Expression<O> | ReadonlyArray<Expression<O>>)
+ * export type SetOperandExpression<DB, O> =
+ *   | Expression<O>
+ *   | ReadonlyArray<Expression<O>>
+ *   | ((a0: ExpressionBuilder<DB, never>) => Expression<O> | ReadonlyArray<Expression<O>>)
  */

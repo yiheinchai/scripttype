@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ExecuteResultSync: any
 declare const SQLiteRaw: any
-type ExecuteResultSync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQLiteRaw<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExecuteResultSync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQLiteRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExecuteResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExecuteResult(TType: 'sync' | 'async', TResult) {
@@ -23,7 +23,8 @@ export function ExecuteResult(TType: 'sync' | 'async', TResult) {
   return ExecuteResultSync(TResult)
 }
 /* compiles to:
- * export type ExecuteResult<TType extends 'sync' | 'async', TResult> = TType extends 'async' ? Promise<TResult> : ExecuteResultSync<TResult>
+ * export type ExecuteResult<TType extends 'sync' | 'async', TResult> =
+ *   TType extends 'async' ? Promise<TResult> : ExecuteResultSync<TResult>
  */
 
 // ✓ Result: verified type-identical to the original
@@ -32,7 +33,8 @@ export function Result(TKind: 'sync' | 'async', TResult) {
   return { sync: TResult, async: t<Promise<typeof TResult>>() }[TKind]
 }
 /* compiles to:
- * export type Result<TKind extends 'sync' | 'async', TResult> = { sync: TResult; async: Promise<TResult> }[TKind]
+ * export type Result<TKind extends 'sync' | 'async', TResult> =
+ *   { sync: TResult; async: Promise<TResult> }[TKind]
  */
 
 // ✓ DBResult: verified type-identical to the original
@@ -41,5 +43,6 @@ export function DBResult(TKind: 'sync' | 'async', TResult) {
   return { sync: TResult, async: SQLiteRaw(TResult) }[TKind]
 }
 /* compiles to:
- * export type DBResult<TKind extends 'sync' | 'async', TResult> = { sync: TResult; async: SQLiteRaw<TResult> }[TKind]
+ * export type DBResult<TKind extends 'sync' | 'async', TResult> =
+ *   { sync: TResult; async: SQLiteRaw<TResult> }[TKind]
  */

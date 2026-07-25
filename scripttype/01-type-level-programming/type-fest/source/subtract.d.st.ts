@@ -17,13 +17,13 @@ declare const NegativeInfinity: any
 declare const PositiveInfinity: any
 declare const ReverseSign: any
 declare const TupleOf: any
-type Absolute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNegative<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LessThan<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReverseSign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Absolute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LessThan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReverseSign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Subtract: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Subtract(A: number, B: number) {
@@ -57,7 +57,17 @@ export function Subtract(A: number, B: number) {
   return SubtractPostChecks(A, B)
 }
 /* compiles to:
- * export type Subtract<A extends number, B extends number> = number extends A | B ? number : A extends B & (PositiveInfinity | NegativeInfinity) ? number : A extends NegativeInfinity ? NegativeInfinity : B extends PositiveInfinity ? NegativeInfinity : A extends PositiveInfinity ? PositiveInfinity : B extends NegativeInfinity ? PositiveInfinity : A extends B ? 0 : A extends 0 ? ReverseSign<B> : B extends 0 ? A : SubtractPostChecks<A, B>
+ * export type Subtract<A extends number, B extends number> =
+ *   number extends A | B ? number
+ *   : A extends B & (PositiveInfinity | NegativeInfinity) ? number
+ *   : A extends NegativeInfinity ? NegativeInfinity
+ *   : B extends PositiveInfinity ? NegativeInfinity
+ *   : A extends PositiveInfinity ? PositiveInfinity
+ *   : B extends NegativeInfinity ? PositiveInfinity
+ *   : A extends B ? 0
+ *   : A extends 0 ? ReverseSign<B>
+ *   : B extends 0 ? A
+ *   : SubtractPostChecks<A, B>
  */
 
 // ✓ SubtractPostChecks: verified type-identical to the original
@@ -79,7 +89,16 @@ export function SubtractPostChecks(A: number, B: number, AreNegative = [IsNegati
   return never
 }
 /* compiles to:
- * export type SubtractPostChecks<A extends number, B extends number, AreNegative = [IsNegative<A>, IsNegative<B>]> = AreNegative extends [false, false] ? SubtractPositives<A, B> : AreNegative extends [true, true] ? ReverseSign<SubtractPositives<Absolute<A>, Absolute<B>>> : [...TupleOf<Absolute<A>>, ...TupleOf<Absolute<B>>] extends (infer R extends unknown[]) ? LessThan<A, B> extends true ? ReverseSign<R['length']> : R['length'] : never
+ * export type SubtractPostChecks<
+ *   A extends number,
+ *   B extends number,
+ *   AreNegative = [IsNegative<A>, IsNegative<B>]
+ * > =
+ *   AreNegative extends [false, false] ? SubtractPositives<A, B>
+ *   : AreNegative extends [true, true] ? ReverseSign<SubtractPositives<Absolute<A>, Absolute<B>>>
+ *   : [...TupleOf<Absolute<A>>, ...TupleOf<Absolute<B>>] extends (infer R extends unknown[])
+ *     ? LessThan<A, B> extends true ? ReverseSign<R['length']> : R['length']
+ *   : never
  */
 
 // ✓ SubtractPositives: verified type-identical to the original
@@ -91,7 +110,10 @@ export function SubtractPositives(A: number, B: number) {
   return SubtractIfAGreaterThanB(A, B)
 }
 /* compiles to:
- * export type SubtractPositives<A extends number, B extends number> = LessThan<A, B> extends true ? ReverseSign<SubtractIfAGreaterThanB<B, A>> : SubtractIfAGreaterThanB<A, B>
+ * export type SubtractPositives<A extends number, B extends number> =
+ *   LessThan<A, B> extends true
+ *     ? ReverseSign<SubtractIfAGreaterThanB<B, A>>
+ *     : SubtractIfAGreaterThanB<A, B>
  */
 
 // ✓ SubtractIfAGreaterThanB: verified type-identical to the original
@@ -104,5 +126,6 @@ export function SubtractIfAGreaterThanB(A: number, B: number) {
   return never
 }
 /* compiles to:
- * export type SubtractIfAGreaterThanB<A extends number, B extends number> = TupleOf<A> extends [...TupleOf<B>, ...infer R] ? R['length'] : never
+ * export type SubtractIfAGreaterThanB<A extends number, B extends number> =
+ *   TupleOf<A> extends [...TupleOf<B>, ...infer R] ? R['length'] : never
  */

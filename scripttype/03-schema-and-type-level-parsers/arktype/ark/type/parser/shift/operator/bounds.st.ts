@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Scanner {
+  export type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BoundExpressionKind: any
 declare const Comparator: any
 declare const ComparatorStartChar: any
@@ -24,20 +27,20 @@ declare const astToString: any
 declare const parseOperand: any
 declare const shiftResult: any
 declare const writeUnpairableComparatorMessage: any
-type BoundExpressionKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Comparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ComparatorStartChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DateLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferredAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InvertedComparators<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaxComparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OneCharComparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scanner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type astToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseOperand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type shiftResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnpairableComparatorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BoundExpressionKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComparatorStartChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferredAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InvertedComparators<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaxComparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OneCharComparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type astToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseOperand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnpairableComparatorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseBound: does not compile yet
 //   only direct calls are supported
 /* @scripttype preserveParamNames */
@@ -67,7 +70,10 @@ export function shiftComparator(start: ComparatorStartChar, unscanned: string) {
   return [merge(start, OneCharComparator), unscanned]
 }
 /* compiles to:
- * export type shiftComparator<start extends ComparatorStartChar, unscanned extends string> = unscanned extends `=${infer nextUnscanned}` ? [`${start}=`, nextUnscanned] : [start & OneCharComparator, unscanned]
+ * export type shiftComparator<start extends ComparatorStartChar, unscanned extends string> =
+ *   unscanned extends `=${infer nextUnscanned}`
+ *     ? [`${start}=`, nextUnscanned]
+ *     : [start & OneCharComparator, unscanned]
  */
 
 // ✗ parseRightBound: does not compile yet
@@ -97,5 +103,10 @@ export function writeInvalidLimitMessage(comparator: Comparator, limit: string |
   return `Comparator ${matches<"left">(boundKind) ? InvertedComparators[comparator] : comparator} must be ${matches<"left">(boundKind) ? 'preceded' : 'followed'} by a corresponding literal (was ${limit})`
 }
 /* compiles to:
- * export type writeInvalidLimitMessage<comparator extends Comparator, limit extends string | number, boundKind extends BoundExpressionKind> = `Comparator ${boundKind extends 'left' ? InvertedComparators[comparator] : comparator} must be ${boundKind extends 'left' ? 'preceded' : 'followed'} by a corresponding literal (was ${limit})`
+ * export type writeInvalidLimitMessage<
+ *   comparator extends Comparator,
+ *   limit extends string | number,
+ *   boundKind extends BoundExpressionKind
+ * > =
+ *   `Comparator ${boundKind extends 'left' ? InvertedComparators[comparator] : comparator} must be ${boundKind extends 'left' ? 'preceded' : 'followed'} by a corresponding literal (was ${limit})`
  */

@@ -13,10 +13,10 @@
 declare const LiteralToPrimitive: any
 declare const OmitIndexSignature: any
 declare const U: any
-type LiteralToPrimitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LiteralToPrimitiveDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type U<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type LiteralToPrimitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LiteralToPrimitiveDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ LiteralToPrimitiveDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function LiteralToPrimitiveDeep(T) {
@@ -34,5 +34,10 @@ export function LiteralToPrimitiveDeep(T) {
   return LiteralToPrimitive(T)
 }
 /* compiles to:
- * export type LiteralToPrimitiveDeep<T> = T extends object ? T extends Array<infer U> ? Array<LiteralToPrimitiveDeep<U>> : { [K in keyof OmitIndexSignature<T>]: LiteralToPrimitiveDeep<T[K]> } : LiteralToPrimitive<T>
+ * export type LiteralToPrimitiveDeep<T> =
+ *   T extends object
+ *     ? T extends Array<infer U>
+ *       ? Array<LiteralToPrimitiveDeep<U>>
+ *       : { [K in keyof OmitIndexSignature<T>]: LiteralToPrimitiveDeep<T[K]> }
+ *     : LiteralToPrimitive<T>
  */

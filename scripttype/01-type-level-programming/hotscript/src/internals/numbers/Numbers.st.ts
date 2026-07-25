@@ -30,26 +30,26 @@ declare const PowerFn: any
 declare const SubFn: any
 declare const _: any
 declare const unset: any
-type AbsFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AddFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CompareFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DivFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EqualFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GreaterThanFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GreaterThanOrEqualFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LessThanFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LessThanOrEqualFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaxFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MinFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ModFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MulFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegateFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NotEqualFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PowerFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SubFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AbsFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AddFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CompareFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DivFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EqualFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GreaterThanFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GreaterThanOrEqualFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LessThanFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LessThanOrEqualFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaxFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MinFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ModFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MulFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegateFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NotEqualFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PowerFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SubFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Add: does not compile yet
 //   Cannot find name 'AddFn'.
 /* @scripttype preserveParamNames */
@@ -57,7 +57,11 @@ export function Add(n1: number | bigint | _ | unset = unset, n2: number | bigint
   return PartialApply(AddFn, [n1, n2])
 }
 /* compiles to:
- * export type Add<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<AddFn, [n1, n2]>
+ * export type Add<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<AddFn, [n1, n2]>
  */
 
 // ✗ Sub: does not compile yet
@@ -67,7 +71,11 @@ export function Sub(n1: number | bigint | _ | unset = unset, n2: number | bigint
   return PartialApply(SubFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type Sub<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<SubFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type Sub<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<SubFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ Mul: does not compile yet
@@ -77,7 +85,11 @@ export function Mul(n1: number | bigint | _ | unset = unset, n2: number | bigint
   return PartialApply(MulFn, [n1, n2])
 }
 /* compiles to:
- * export type Mul<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<MulFn, [n1, n2]>
+ * export type Mul<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<MulFn, [n1, n2]>
  */
 
 // ✗ Div: does not compile yet
@@ -87,7 +99,11 @@ export function Div(n1: number | bigint | _ | unset = unset, n2: number | bigint
   return PartialApply(DivFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type Div<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<DivFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type Div<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<DivFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ Mod: does not compile yet
@@ -97,7 +113,11 @@ export function Mod(n1: number | bigint | _ | unset = unset, n2: number | bigint
   return PartialApply(ModFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type Mod<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<ModFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type Mod<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<ModFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ Negate: does not compile yet
@@ -127,7 +147,11 @@ export function Max(n1: number | bigint | _ | unset = unset, n2: number | bigint
   return PartialApply(MaxFn, [n1, n2])
 }
 /* compiles to:
- * export type Max<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<MaxFn, [n1, n2]>
+ * export type Max<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<MaxFn, [n1, n2]>
  */
 
 // ✗ Min: does not compile yet
@@ -137,7 +161,11 @@ export function Min(n1: number | bigint | _ | unset = unset, n2: number | bigint
   return PartialApply(MinFn, [n1, n2])
 }
 /* compiles to:
- * export type Min<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<MinFn, [n1, n2]>
+ * export type Min<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<MinFn, [n1, n2]>
  */
 
 // ✗ Power: does not compile yet
@@ -147,7 +175,11 @@ export function Power(n1: number | bigint | _ | unset = unset, n2: number | bigi
   return PartialApply(PowerFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type Power<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<PowerFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type Power<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<PowerFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ Compare: does not compile yet
@@ -157,7 +189,11 @@ export function Compare(n1: number | bigint | _ | unset = unset, n2: number | bi
   return PartialApply(CompareFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type Compare<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<CompareFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type Compare<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<CompareFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ Equal: does not compile yet
@@ -167,7 +203,11 @@ export function Equal(n1: number | bigint | _ | unset = unset, n2: number | bigi
   return PartialApply(EqualFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type Equal<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<EqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type Equal<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<EqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ NotEqual: does not compile yet
@@ -177,7 +217,11 @@ export function NotEqual(n1: number | bigint | _ | unset = unset, n2: number | b
   return PartialApply(NotEqualFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type NotEqual<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<NotEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type NotEqual<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<NotEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ LessThan: does not compile yet
@@ -187,7 +231,11 @@ export function LessThan(n1: number | bigint | _ | unset = unset, n2: number | b
   return PartialApply(LessThanFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type LessThan<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<LessThanFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type LessThan<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<LessThanFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ LessThanOrEqual: does not compile yet
@@ -197,7 +245,11 @@ export function LessThanOrEqual(n1: number | bigint | _ | unset = unset, n2: num
   return PartialApply(LessThanOrEqualFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type LessThanOrEqual<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<LessThanOrEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type LessThanOrEqual<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<LessThanOrEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ GreaterThan: does not compile yet
@@ -207,7 +259,11 @@ export function GreaterThan(n1: number | bigint | _ | unset = unset, n2: number 
   return PartialApply(GreaterThanFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type GreaterThan<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<GreaterThanFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type GreaterThan<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<GreaterThanFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ GreaterThanOrEqual: does not compile yet
@@ -217,5 +273,9 @@ export function GreaterThanOrEqual(n1: number | bigint | _ | unset = unset, n2: 
   return PartialApply(GreaterThanOrEqualFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type GreaterThanOrEqual<n1 extends number | bigint | _ | unset = unset, n2 extends number | bigint | _ | unset = unset> = PartialApply<GreaterThanOrEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type GreaterThanOrEqual<
+ *   n1 extends number | bigint | _ | unset = unset,
+ *   n2 extends number | bigint | _ | unset = unset
+ * > =
+ *   PartialApply<GreaterThanOrEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */

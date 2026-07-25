@@ -10,19 +10,27 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace KnexType {
+  export type CompositeTableType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const InferInsertModel: any
 declare const InferSelectModel: any
 declare const KnexType: any
 declare const Table: any
-type InferInsertModel<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferSelectModel<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KnexType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Table<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InferInsertModel<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferSelectModel<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KnexType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Knexify: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Knexify(T: Table) {
   return merge(KnexType.CompositeTableType(InferSelectModel(T, { dbColumnNames: true }), InferInsertModel(T, { dbColumnNames: true })), {})
 }
 /* compiles to:
- * export type Knexify<T extends Table> = KnexType.CompositeTableType<InferSelectModel<T, { dbColumnNames: true }>, InferInsertModel<T, { dbColumnNames: true }>> & {}
+ * export type Knexify<T extends Table> =
+ *   & KnexType.CompositeTableType<
+ *       InferSelectModel<T, { dbColumnNames: true }>,
+ *       InferInsertModel<T, { dbColumnNames: true }>
+ *     >
+ *   & {}
  */

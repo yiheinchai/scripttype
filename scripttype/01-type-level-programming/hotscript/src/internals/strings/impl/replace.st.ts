@@ -10,7 +10,7 @@
 // ✓ Replace: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Replace(Str, From: string, To: string) {
-  if (matches<string>(Str)) {
+  if (typeof Str === 'string') {
     const m1 = matches<`${Hole<"Before">}${typeof From}${Hole<"After">}`>(Str)
     if (m1) {
       return Replace(`${m1.Before}${To}${m1.After}`, From, To)
@@ -20,5 +20,10 @@ export function Replace(Str, From: string, To: string) {
   return Str
 }
 /* compiles to:
- * export type Replace<Str, From extends string, To extends string> = Str extends string ? Str extends `${infer Before}${From}${infer After}` ? Replace<`${Before}${To}${After}`, From, To> : Str : Str
+ * export type Replace<Str, From extends string, To extends string> =
+ *   Str extends string
+ *     ? Str extends `${infer Before}${From}${infer After}`
+ *       ? Replace<`${Before}${To}${After}`, From, To>
+ *       : Str
+ *     : Str
  */

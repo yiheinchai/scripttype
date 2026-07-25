@@ -15,16 +15,33 @@ declare const IsAutoincrement: any
 declare const IsPrimaryKey: any
 declare const MySqlSerialBuilder: any
 declare const NotNull: any
-type HasDefault<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAutoincrement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsPrimaryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlSerialBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NotNull<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type HasDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAutoincrement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsPrimaryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlSerialBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NotNull<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlSerialBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySqlSerialBuilderInitial(TName: string) {
   return IsAutoincrement(IsPrimaryKey(NotNull(HasDefault(MySqlSerialBuilder({ name: TName, dataType: 'number', columnType: 'MySqlSerial', data: number, driverParam: number, enumValues: Undefined })))))
 }
 /* compiles to:
- * export type MySqlSerialBuilderInitial<TName extends string> = IsAutoincrement<IsPrimaryKey<NotNull<HasDefault<MySqlSerialBuilder<{ name: TName; dataType: 'number'; columnType: 'MySqlSerial'; data: number; driverParam: number; enumValues: undefined }>>>>>
+ * export type MySqlSerialBuilderInitial<TName extends string> = IsAutoincrement<
+ *   IsPrimaryKey<
+ *     NotNull<
+ *       HasDefault<
+ *         MySqlSerialBuilder<
+ *           {
+ *             name: TName
+ *             dataType: 'number'
+ *             columnType: 'MySqlSerial'
+ *             data: number
+ *             driverParam: number
+ *             enumValues: undefined
+ *           }
+ *         >
+ *       >
+ *     >
+ *   >
+ * >
  */

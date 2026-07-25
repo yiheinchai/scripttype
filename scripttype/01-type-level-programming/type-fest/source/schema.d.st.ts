@@ -22,25 +22,36 @@ declare const ReadonlySet: any
 declare const SchemaOptions: any
 declare const Simplify: any
 declare const UnknownArray: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultSchemaOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalKeysOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SchemaOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultSchemaOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalKeysOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SchemaOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Schema: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Schema(Type, Value, Options: SchemaOptions = {}) {
   return IfNotAnyOrNever(Type, { ifNot: _Schema(Type, Value, ApplyDefaultOptions(SchemaOptions, DefaultSchemaOptions, Options)), ifAny: Value, ifNever: Value })
 }
 /* compiles to:
- * export type Schema<Type, Value, Options extends SchemaOptions = {}> = IfNotAnyOrNever<Type, { ifNot: _Schema<Type, Value, ApplyDefaultOptions<SchemaOptions, DefaultSchemaOptions, Options>>; ifAny: Value; ifNever: Value }>
+ * export type Schema<Type, Value, Options extends SchemaOptions = {}> = IfNotAnyOrNever<
+ *   Type,
+ *   {
+ *     ifNot: _Schema<
+ *       Type,
+ *       Value,
+ *       ApplyDefaultOptions<SchemaOptions, DefaultSchemaOptions, Options>
+ *     >
+ *     ifAny: Value
+ *     ifNever: Value
+ *   }
+ * >
  */
 
 // ✓ _Schema: verified type-identical to the original
@@ -64,7 +75,14 @@ export function _Schema(Type, Value, Options: Required<SchemaOptions>) {
   return SchemaHelper(Type, Value, Options)
 }
 /* compiles to:
- * export type _Schema<Type, Value, Options extends Required<SchemaOptions>> = IsAny<Type> extends true ? Value : IsUnknown<Type> extends true ? Value : Type extends NonRecursiveType | Map<unknown, unknown> | Set<unknown> | ReadonlyMap<unknown, unknown> | ReadonlySet<unknown> ? Value : Type extends UnknownArray ? Options['recurseIntoArrays'] extends false ? Value : SchemaHelper<Type, Value, Options> : SchemaHelper<Type, Value, Options>
+ * export type _Schema<Type, Value, Options extends Required<SchemaOptions>> =
+ *   IsAny<Type> extends true ? Value
+ *   : IsUnknown<Type> extends true ? Value
+ *   : Type extends NonRecursiveType | Map<unknown, unknown> | Set<unknown> | ReadonlyMap<unknown, unknown> | ReadonlySet<unknown>
+ *     ? Value
+ *   : Type extends UnknownArray
+ *     ? Options['recurseIntoArrays'] extends false ? Value : SchemaHelper<Type, Value, Options>
+ *   : SchemaHelper<Type, Value, Options>
  */
 
 // ✓ SchemaHelper: verified type-identical to the original
@@ -77,5 +95,13 @@ export function SchemaHelper(Type, Value, Options: Required<SchemaOptions>) {
   return Simplify(out)
 }
 /* compiles to:
- * export type SchemaHelper<Type, Value, Options extends Required<SchemaOptions>> = Simplify<{ [Key in keyof Type]: _Schema<Key extends OptionalKeysOf<Type & object> ? Exclude<Type[Key], undefined> : Type[Key], Value, Options> }>
+ * export type SchemaHelper<Type, Value, Options extends Required<SchemaOptions>> = Simplify<
+ *   {
+ *     [Key in keyof Type]: _Schema<
+ *       Key extends OptionalKeysOf<Type & object> ? Exclude<Type[Key], undefined> : Type[Key],
+ *       Value,
+ *       Options
+ *     >
+ *   }
+ * >
  */

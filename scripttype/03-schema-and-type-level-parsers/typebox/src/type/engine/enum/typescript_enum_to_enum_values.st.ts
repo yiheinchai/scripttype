@@ -13,9 +13,9 @@
 declare const TEnumValue: any
 declare const TTypeScriptEnumLike: any
 declare const TUnionToTuple: any
-type TEnumValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTypeScriptEnumLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnionToTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEnumValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTypeScriptEnumLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TReduceEnumValues: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TReduceEnumValues(Keys: string[], Type: TTypeScriptEnumLike) {
@@ -32,8 +32,19 @@ export function TReduceEnumValues(Keys: string[], Type: TTypeScriptEnumLike) {
   return Result
 }
 /* compiles to:
- * export type TReduceEnumValues<Keys extends string[], Type extends TTypeScriptEnumLike> = TReduceEnumValues__loop<Keys, [], Type>
- * type TReduceEnumValues__loop<Keys extends string[], Result extends any[], Type extends TTypeScriptEnumLike> = Keys extends [infer Left extends string, ...(infer Right extends string[])] ? TReduceEnumValues__loop<Right, [...Result, Type[Left]], Type> : Result
+ * export type TReduceEnumValues<Keys extends string[], Type extends TTypeScriptEnumLike> = TReduceEnumValues__loop<
+ *   Keys,
+ *   [],
+ *   Type
+ * >
+ * type TReduceEnumValues__loop<
+ *   Keys extends string[],
+ *   Result extends any[],
+ *   Type extends TTypeScriptEnumLike
+ * > =
+ *   Keys extends [infer Left extends string, ...infer Right extends string[]]
+ *     ? TReduceEnumValues__loop<Right, [...Result, Type[Left]], Type>
+ *     : Result
  */
 
 // ✓ TTypeScriptEnumToEnumValues: verified type-identical to the original
@@ -42,5 +53,10 @@ export function TTypeScriptEnumToEnumValues(Type: TTypeScriptEnumLike, EnumKeys:
   return Elements
 }
 /* compiles to:
- * export type TTypeScriptEnumToEnumValues<Type extends TTypeScriptEnumLike, EnumKeys extends string[] = TUnionToTuple<Extract<keyof Type, string>>, Elements extends TEnumValue[] = TReduceEnumValues<EnumKeys, Type>> = Elements
+ * export type TTypeScriptEnumToEnumValues<
+ *   Type extends TTypeScriptEnumLike,
+ *   EnumKeys extends string[] = TUnionToTuple<Extract<keyof Type, string>>,
+ *   Elements extends TEnumValue[] = TReduceEnumValues<EnumKeys, Type>
+ * > =
+ *   Elements
  */

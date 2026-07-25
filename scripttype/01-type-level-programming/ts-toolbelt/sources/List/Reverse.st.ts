@@ -20,16 +20,16 @@ declare const Naked: any
 declare const Next: any
 declare const Pos: any
 declare const Prepend: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Naked<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prepend<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Naked<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prepend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Reverse: does not compile yet
 //   Type 'Extends<Pos<I>, Length<L>>' cannot be used to index type '{ '0': __Reverse__st0<L, [L[Pos<I>], ...LO], Next<I>>; '1': LO; }'.
 /* @scripttype preserveParamNames */
@@ -37,7 +37,8 @@ export function __Reverse(L: List, LO: List, I: Iteration = IterationOf(0)) {
   return { 0: __Reverse(L, Prepend(LO, L[Pos(I)]), Next(I)), 1: LO }[Extends(Pos(I), Length(L))]
 }
 /* compiles to:
- * export type __Reverse<L extends List, LO extends List, I extends Iteration = IterationOf<0>> = { '0': __Reverse<L, Prepend<LO, L[Pos<I>]>, Next<I>>; '1': LO }[Extends<Pos<I>, Length<L>>]
+ * export type __Reverse<L extends List, LO extends List, I extends Iteration = IterationOf<0>> =
+ *   { '0': __Reverse<L, Prepend<LO, L[Pos<I>]>, Next<I>>; '1': LO }[Extends<Pos<I>, Length<L>>]
  */
 
 // ✓ _Reverse: verified type-identical to the original
@@ -50,7 +51,8 @@ export function _Reverse(L: List, LO: List = []) {
   return never
 }
 /* compiles to:
- * export type _Reverse<L extends List, LO extends List = []> = __Reverse<Naked<L>, LO> extends infer X ? Cast<X, List> : never
+ * export type _Reverse<L extends List, LO extends List = []> =
+ *   __Reverse<Naked<L>, LO> extends infer X ? Cast<X, List> : never
  */
 
 // ✓ Reverse: verified type-identical to the original

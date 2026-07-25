@@ -15,11 +15,11 @@ declare const BaseSchema: any
 declare const BaseSchemaAsync: any
 declare const SchemaWithDefault: any
 declare const SchemaWithDefaultAsync: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SchemaWithDefault<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SchemaWithDefaultAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SchemaWithDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SchemaWithDefaultAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferDefault: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InferDefault(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>> | SchemaWithDefault | SchemaWithDefaultAsync) {
@@ -32,5 +32,12 @@ export function InferDefault(TSchema: BaseSchema<unknown, unknown, BaseIssue<unk
   return Undefined
 }
 /* compiles to:
- * export type InferDefault<TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>> | SchemaWithDefault | SchemaWithDefaultAsync> = TSchema extends SchemaWithDefault | SchemaWithDefaultAsync ? TSchema['default'] extends (...args: any) => any ? ReturnType<TSchema['default']> : TSchema['default'] : undefined
+ * export type InferDefault<
+ *   TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>> | SchemaWithDefault | SchemaWithDefaultAsync
+ * > =
+ *   TSchema extends SchemaWithDefault | SchemaWithDefaultAsync
+ *     ? TSchema['default'] extends (...args: any) => any
+ *       ? ReturnType<TSchema['default']>
+ *       : TSchema['default']
+ *     : undefined
  */

@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Subscribable: any
-type Subscribable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Subscribable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnaryFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UnaryFunction(TSource, TReturn) {
@@ -27,7 +27,10 @@ export function OperatorFunction(TValueBefore, TErrorBefore, TValueAfter, TError
   return UnaryFunction(Subscribable(TValueBefore, TErrorBefore), Subscribable(TValueAfter, TErrorAfter))
 }
 /* compiles to:
- * export type OperatorFunction<TValueBefore, TErrorBefore, TValueAfter, TErrorAfter> = UnaryFunction<Subscribable<TValueBefore, TErrorBefore>, Subscribable<TValueAfter, TErrorAfter>>
+ * export type OperatorFunction<TValueBefore, TErrorBefore, TValueAfter, TErrorAfter> = UnaryFunction<
+ *   Subscribable<TValueBefore, TErrorBefore>,
+ *   Subscribable<TValueAfter, TErrorAfter>
+ * >
  */
 
 // ✓ MonoTypeOperatorFunction: verified type-identical to the original
@@ -36,5 +39,10 @@ export function MonoTypeOperatorFunction(TValue, TError) {
   return OperatorFunction(TValue, TError, TValue, TError)
 }
 /* compiles to:
- * export type MonoTypeOperatorFunction<TValue, TError> = OperatorFunction<TValue, TError, TValue, TError>
+ * export type MonoTypeOperatorFunction<TValue, TError> = OperatorFunction<
+ *   TValue,
+ *   TError,
+ *   TValue,
+ *   TError
+ * >
  */

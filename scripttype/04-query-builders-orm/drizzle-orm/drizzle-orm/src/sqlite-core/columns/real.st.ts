@@ -11,12 +11,21 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SQLiteRealBuilder: any
-type SQLiteRealBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SQLiteRealBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLiteRealBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SQLiteRealBuilderInitial(TName: string) {
   return SQLiteRealBuilder({ name: TName, dataType: 'number', columnType: 'SQLiteReal', data: number, driverParam: number, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteRealBuilderInitial<TName extends string> = SQLiteRealBuilder<{ name: TName; dataType: 'number'; columnType: 'SQLiteReal'; data: number; driverParam: number; enumValues: undefined }>
+ * export type SQLiteRealBuilderInitial<TName extends string> = SQLiteRealBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'SQLiteReal'
+ *     data: number
+ *     driverParam: number
+ *     enumValues: undefined
+ *   }
+ * >
  */

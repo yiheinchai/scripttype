@@ -15,18 +15,25 @@ declare const DefaultError: any
 declare const InitialDataFunction: any
 declare const NonUndefinedGuard: any
 declare const QueryKey: any
-type CreateQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InitialDataFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonUndefinedGuard<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CreateQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InitialDataFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonUndefinedGuard<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UndefinedInitialDataOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UndefinedInitialDataOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
   return merge(CreateQueryOptions(TQueryFnData, TError, TData, TQueryKey), { initialData: optional(anyOf(Undefined, InitialDataFunction(NonUndefinedGuard(TQueryFnData)))) })
 }
 /* compiles to:
- * export type UndefinedInitialDataOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = CreateQueryOptions<TQueryFnData, TError, TData, TQueryKey> & { initialData?: undefined | InitialDataFunction<NonUndefinedGuard<TQueryFnData>> }
+ * export type UndefinedInitialDataOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   & CreateQueryOptions<TQueryFnData, TError, TData, TQueryKey>
+ *   & { initialData?: undefined | InitialDataFunction<NonUndefinedGuard<TQueryFnData>> }
  */
 
 // ✓ DefinedInitialDataOptions: verified type-identical to the original
@@ -35,5 +42,12 @@ export function DefinedInitialDataOptions(TQueryFnData = unknown, TError = Defau
   return merge(CreateQueryOptions(TQueryFnData, TError, TData, TQueryKey), { initialData: NonUndefinedGuard(TQueryFnData) | fnType([], NonUndefinedGuard(TQueryFnData)) })
 }
 /* compiles to:
- * export type DefinedInitialDataOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = CreateQueryOptions<TQueryFnData, TError, TData, TQueryKey> & { initialData: NonUndefinedGuard<TQueryFnData> | (() => NonUndefinedGuard<TQueryFnData>) }
+ * export type DefinedInitialDataOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   & CreateQueryOptions<TQueryFnData, TError, TData, TQueryKey>
+ *   & { initialData: NonUndefinedGuard<TQueryFnData> | (() => NonUndefinedGuard<TQueryFnData>) }
  */

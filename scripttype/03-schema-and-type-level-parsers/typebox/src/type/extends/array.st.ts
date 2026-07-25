@@ -16,19 +16,26 @@ declare const TExtendsRight: any
 declare const TImmutable: any
 declare const TProperties: any
 declare const TSchema: any
-type TArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExtendsLeft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExtendsRight<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TImmutable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExtendsRight<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TImmutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsImmutable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TExtendsImmutable(Left: TSchema, Right: TSchema, IsImmutableLeft: boolean = matches<TImmutable>(Left) ? true : false, IsImmutableRight: boolean = matches<TImmutable>(Right) ? true : false, Result: boolean = matches<[ true, true ]>([IsImmutableLeft, IsImmutableRight]) ? true : (matches<[ false, true ]>([IsImmutableLeft, IsImmutableRight]) ? true : (matches<[ true, false ]>([IsImmutableLeft, IsImmutableRight]) ? false : true))) {
   return Result
 }
 /* compiles to:
- * export type TExtendsImmutable<Left extends TSchema, Right extends TSchema, IsImmutableLeft extends boolean = Left extends TImmutable ? true : false, IsImmutableRight extends boolean = Right extends TImmutable ? true : false, Result extends boolean = [IsImmutableLeft, IsImmutableRight] extends [true, true] ? true : [IsImmutableLeft, IsImmutableRight] extends [false, true] ? true : [IsImmutableLeft, IsImmutableRight] extends [true, false] ? false : true> = Result
+ * export type TExtendsImmutable<
+ *   Left extends TSchema,
+ *   Right extends TSchema,
+ *   IsImmutableLeft extends boolean = Left extends TImmutable ? true : false,
+ *   IsImmutableRight extends boolean = Right extends TImmutable ? true : false,
+ *   Result extends boolean = [IsImmutableLeft, IsImmutableRight] extends [true, true] ? true : [IsImmutableLeft, IsImmutableRight] extends [false, true] ? true : [IsImmutableLeft, IsImmutableRight] extends [true, false] ? false : true
+ * > =
+ *   Result
  */
 
 // ✓ TExtendsArray: verified type-identical to the original
@@ -44,5 +51,15 @@ export function TExtendsArray(Inferred: TProperties, ArrayLeft: TSchema, Left: T
   return TExtendsRight(Inferred, ArrayLeft, Right)
 }
 /* compiles to:
- * export type TExtendsArray<Inferred extends TProperties, ArrayLeft extends TSchema, Left extends TSchema, Right extends TSchema> = Right extends TArray<infer Type extends TSchema> ? TExtendsImmutable<ArrayLeft, Right> extends true ? TExtendsLeft<Inferred, Left, Type> : Result.TExtendsFalse : TExtendsRight<Inferred, ArrayLeft, Right>
+ * export type TExtendsArray<
+ *   Inferred extends TProperties,
+ *   ArrayLeft extends TSchema,
+ *   Left extends TSchema,
+ *   Right extends TSchema
+ * > =
+ *   Right extends TArray<infer Type extends TSchema>
+ *     ? TExtendsImmutable<ArrayLeft, Right> extends true
+ *       ? TExtendsLeft<Inferred, Left, Type>
+ *       : Result.TExtendsFalse
+ *     : TExtendsRight<Inferred, ArrayLeft, Right>
  */

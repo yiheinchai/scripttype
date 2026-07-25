@@ -12,15 +12,25 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SingleStoreDateTimeBuilder: any
 declare const SingleStoreDateTimeStringBuilder: any
-type SingleStoreDateTimeBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreDateTimeStringBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SingleStoreDateTimeBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreDateTimeStringBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreDateTimeBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreDateTimeBuilderInitial(TName: string) {
   return SingleStoreDateTimeBuilder({ name: TName, dataType: 'date', columnType: 'SingleStoreDateTime', data: t<Date>(), driverParam: string | number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreDateTimeBuilderInitial<TName extends string> = SingleStoreDateTimeBuilder<{ name: TName; dataType: 'date'; columnType: 'SingleStoreDateTime'; data: Date; driverParam: string | number; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreDateTimeBuilderInitial<TName extends string> = SingleStoreDateTimeBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'date'
+ *     columnType: 'SingleStoreDateTime'
+ *     data: Date
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */
 
 // ✓ SingleStoreDateTimeStringBuilderInitial: verified type-identical to the original
@@ -29,5 +39,15 @@ export function SingleStoreDateTimeStringBuilderInitial(TName: string) {
   return SingleStoreDateTimeStringBuilder({ name: TName, dataType: 'string', columnType: 'SingleStoreDateTimeString', data: string, driverParam: string | number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreDateTimeStringBuilderInitial<TName extends string> = SingleStoreDateTimeStringBuilder<{ name: TName; dataType: 'string'; columnType: 'SingleStoreDateTimeString'; data: string; driverParam: string | number; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreDateTimeStringBuilderInitial<TName extends string> = SingleStoreDateTimeStringBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'SingleStoreDateTimeString'
+ *     data: string
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */

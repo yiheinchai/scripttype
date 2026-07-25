@@ -7,23 +7,23 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type ActorLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EnqueueObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventPayloadMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractEvents<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferSchemaPayloadMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NoInfer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Omit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Record<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolveStoreContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolveStoreEmittedPayloadMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StandardSchemaMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StandardSchemaV1<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreSchemas<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreSnapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TransitionsFromEventPayloadMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EnqueueObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventPayloadMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractEvents<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferSchemaPayloadMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NoInfer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Omit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Record<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolveStoreContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolveStoreEmittedPayloadMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StandardSchemaMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StandardSchemaV1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreSchemas<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TransitionsFromEventPayloadMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type StoreLogic<
   TContext extends StoreContext,
   TEvent extends EventObject,

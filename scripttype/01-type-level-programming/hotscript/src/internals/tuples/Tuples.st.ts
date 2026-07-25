@@ -10,6 +10,23 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Iterator {
+  export type Get<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace NumberImpls {
+  export type Max<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Min<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Numbers {
+  export type Add<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Std {
+  export type _Omit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Tuples {
+  export type Partition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AppendFn: any
 declare const AtFn: any
 declare const Call: any
@@ -56,52 +73,52 @@ declare const ZipWithFn: any
 declare const _: any
 declare const args: any
 declare const unset: any
-type AppendFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AtFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Call<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConcatFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DropFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EveryFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FilterFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FindFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FlatMapFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Get<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HeadFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEmptyFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iterator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JoinFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LastFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LengthFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MapFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaxFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MinFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NumberImpls<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Numbers<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartitionFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PrependFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prev<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RangeFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReduceFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReduceRightFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReverseFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SomeFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SplitAtFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Std<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SumFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TailFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TakeFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TakeWhileFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToIntersectionFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToUnionFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tuples<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ZipWithFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type args<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AppendFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AtFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConcatFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DropFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EveryFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FilterFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FindFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FlatMapFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Get<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HeadFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEmptyFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iterator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JoinFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LastFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LengthFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MapFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaxFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MinFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NumberImpls<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Numbers<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartitionFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PrependFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RangeFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReduceFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReduceRightFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReverseFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SomeFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SplitAtFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Std<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SumFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TailFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TakeFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TakeWhileFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToIntersectionFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToUnionFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tuples<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ZipWithFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type args<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ HeadImpl: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -123,7 +140,10 @@ export function At(index: number | _ | unset = unset, tuple = unset) {
   return PartialApply(AtFn, [index, tuple])
 }
 /* compiles to:
- * export type At<index extends number | _ | unset = unset, tuple = unset> = PartialApply<AtFn, [index, tuple]>
+ * export type At<index extends number | _ | unset = unset, tuple = unset> = PartialApply<
+ *   AtFn,
+ *   [index, tuple]
+ * >
  */
 
 // ✗ IsEmptyImpl: compiles but is not type-identical yet
@@ -156,7 +176,10 @@ export function ToUnion(tuple: readonly any[] | _ | unset = unset) {
   return PartialApply(ToUnionFn, [tuple])
 }
 /* compiles to:
- * export type ToUnion<tuple extends readonly any[] | _ | unset = unset> = PartialApply<ToUnionFn, [tuple]>
+ * export type ToUnion<tuple extends readonly any[] | _ | unset = unset> = PartialApply<
+ *   ToUnionFn,
+ *   [tuple]
+ * >
  */
 
 // ✗ ToIntersection: does not compile yet
@@ -234,7 +257,11 @@ export function Map(fn: Fn | unset | _ = unset, tuple: readonly any[] | unset = 
   return PartialApply(MapFn, [fn, tuple])
 }
 /* compiles to:
- * export type Map<fn extends Fn | unset | _ = unset, tuple extends readonly any[] | unset = unset> = PartialApply<MapFn, [fn, tuple]>
+ * export type Map<
+ *   fn extends Fn | unset | _ = unset,
+ *   tuple extends readonly any[] | unset = unset
+ * > =
+ *   PartialApply<MapFn, [fn, tuple]>
  */
 
 // ✗ FlatMap: does not compile yet
@@ -244,7 +271,10 @@ export function FlatMap(fn: Fn, tuple: readonly any[] | unset = unset) {
   return PartialApply(FlatMapFn, [fn, tuple])
 }
 /* compiles to:
- * export type FlatMap<fn extends Fn, tuple extends readonly any[] | unset = unset> = PartialApply<FlatMapFn, [fn, tuple]>
+ * export type FlatMap<fn extends Fn, tuple extends readonly any[] | unset = unset> = PartialApply<
+ *   FlatMapFn,
+ *   [fn, tuple]
+ * >
  */
 
 // ✓ ReduceImpl: verified type-identical to the original
@@ -265,7 +295,11 @@ export function ReduceImpl(fn: Fn, acc, xs) {
 }
 /* compiles to:
  * export type ReduceImpl<fn extends Fn, acc, xs> = ReduceImpl__loop<acc, xs, fn>
- * type ReduceImpl__loop<Acc_, Xs_, Fn extends Fn> = Xs_ extends [infer first, ...infer rest] ? ReduceImpl__loop<Call<Fn, Acc_, first>, rest, Fn> : Xs_ extends readonly [infer first, ...infer rest] ? ReduceImpl<Fn, Call<Fn, Acc_, first>, rest> : Acc_
+ * type ReduceImpl__loop<Acc_, Xs_, Fn extends Fn> =
+ *   Xs_ extends [infer first, ...infer rest] ? ReduceImpl__loop<Call<Fn, Acc_, first>, rest, Fn>
+ *   : Xs_ extends readonly [infer first, ...infer rest]
+ *     ? ReduceImpl<Fn, Call<Fn, Acc_, first>, rest>
+ *   : Acc_
  */
 
 // ✗ Reduce: does not compile yet
@@ -275,7 +309,10 @@ export function Reduce(fn: Fn, init = unset, tuple: readonly any[] | unset = uns
   return PartialApply(ReduceFn, [fn, init, tuple])
 }
 /* compiles to:
- * export type Reduce<fn extends Fn, init = unset, tuple extends readonly any[] | unset = unset> = PartialApply<ReduceFn, [fn, init, tuple]>
+ * export type Reduce<fn extends Fn, init = unset, tuple extends readonly any[] | unset = unset> = PartialApply<
+ *   ReduceFn,
+ *   [fn, init, tuple]
+ * >
  */
 
 // ✗ ReverseImpl: does not compile yet
@@ -309,7 +346,10 @@ export function ReverseRecImpl(tuple, acc: unknown[]) {
 }
 /* compiles to:
  * export type ReverseRecImpl<tuple, acc extends unknown[]> = ReverseRecImpl__loop<tuple, acc>
- * type ReverseRecImpl__loop<Tuple_, Acc_ extends unknown[]> = Tuple_ extends [infer first, ...infer rest] ? ReverseRecImpl__loop<rest, [first, ...Acc_]> : Acc_
+ * type ReverseRecImpl__loop<Tuple_, Acc_ extends unknown[]> =
+ *   Tuple_ extends [infer first, ...infer rest]
+ *     ? ReverseRecImpl__loop<rest, [first, ...Acc_]>
+ *     : Acc_
  */
 
 // ✗ Reverse: does not compile yet
@@ -319,7 +359,10 @@ export function Reverse(tuple: readonly unknown[] | unset = unset) {
   return PartialApply(ReverseFn, [tuple])
 }
 /* compiles to:
- * export type Reverse<tuple extends readonly unknown[] | unset = unset> = PartialApply<ReverseFn, [tuple]>
+ * export type Reverse<tuple extends readonly unknown[] | unset = unset> = PartialApply<
+ *   ReverseFn,
+ *   [tuple]
+ * >
  */
 
 // ✓ ReduceRightImpl: verified type-identical to the original
@@ -339,7 +382,10 @@ export function ReduceRightImpl(xs, acc, fn: Fn) {
 }
 /* compiles to:
  * export type ReduceRightImpl<xs, acc, fn extends Fn> = ReduceRightImpl__loop<xs, acc, fn>
- * type ReduceRightImpl__loop<Xs_, Acc_, Fn extends Fn> = Xs_ extends [...infer rest, infer last] ? ReduceRightImpl__loop<rest, Call<Fn, Acc_, last>, Fn> : Acc_
+ * type ReduceRightImpl__loop<Xs_, Acc_, Fn extends Fn> =
+ *   Xs_ extends [...infer rest, infer last]
+ *     ? ReduceRightImpl__loop<rest, Call<Fn, Acc_, last>, Fn>
+ *     : Acc_
  */
 
 // ✗ ReduceRight: does not compile yet
@@ -349,7 +395,12 @@ export function ReduceRight(fn: Fn, init = unset, tuple: readonly any[] | unset 
   return PartialApply(ReduceRightFn, [fn, init, tuple])
 }
 /* compiles to:
- * export type ReduceRight<fn extends Fn, init = unset, tuple extends readonly any[] | unset = unset> = PartialApply<ReduceRightFn, [fn, init, tuple]>
+ * export type ReduceRight<
+ *   fn extends Fn,
+ *   init = unset,
+ *   tuple extends readonly any[] | unset = unset
+ * > =
+ *   PartialApply<ReduceRightFn, [fn, init, tuple]>
  */
 
 // ✗ Filter: does not compile yet
@@ -359,7 +410,10 @@ export function Filter(fn: Fn, tuple: readonly any[] | unset = unset) {
   return PartialApply(FilterFn, [fn, tuple])
 }
 /* compiles to:
- * export type Filter<fn extends Fn, tuple extends readonly any[] | unset = unset> = PartialApply<FilterFn, [fn, tuple]>
+ * export type Filter<fn extends Fn, tuple extends readonly any[] | unset = unset> = PartialApply<
+ *   FilterFn,
+ *   [fn, tuple]
+ * >
  */
 
 // ✗ FindImpl: compiles but is not type-identical yet
@@ -376,7 +430,12 @@ export function FindImpl(xs, fn: Fn, index: any[] = []) {
   return never
 }
 /* compiles to:
- * export type FindImpl<xs, fn extends Fn, index extends any[] = []> = xs extends [infer first, ...infer rest] ? Call<fn, first, index['length']> extends true ? first : FindImpl<rest, fn, [...index, any]> : never
+ * export type FindImpl<xs, fn extends Fn, index extends any[] = []> =
+ *   xs extends [infer first, ...infer rest]
+ *     ? Call<fn, first, index['length']> extends true
+ *       ? first
+ *       : FindImpl<rest, fn, [...index, any]>
+ *     : never
  */
 
 // ✗ Find: does not compile yet
@@ -386,7 +445,10 @@ export function Find(fn: Fn, tuple: readonly any[] | unset = unset) {
   return PartialApply(FindFn, [fn, tuple])
 }
 /* compiles to:
- * export type Find<fn extends Fn, tuple extends readonly any[] | unset = unset> = PartialApply<FindFn, [fn, tuple]>
+ * export type Find<fn extends Fn, tuple extends readonly any[] | unset = unset> = PartialApply<
+ *   FindFn,
+ *   [fn, tuple]
+ * >
  */
 
 // ✗ Sum: does not compile yet
@@ -413,7 +475,10 @@ export function DropImpl(xs: readonly any[], n: any[]) {
   return []
 }
 /* compiles to:
- * export type DropImpl<xs extends readonly any[], n extends any[]> = Iterator.Get<n> extends 0 ? xs : xs extends readonly [any, ...infer tail] ? DropImpl<tail, Iterator.Prev<n>> : []
+ * export type DropImpl<xs extends readonly any[], n extends any[]> =
+ *   Iterator.Get<n> extends 0 ? xs
+ *   : xs extends readonly [any, ...infer tail] ? DropImpl<tail, Iterator.Prev<n>>
+ *   : []
  */
 
 // ✗ Drop: does not compile yet
@@ -423,7 +488,10 @@ export function Drop(n: number | unset | _ = unset, tuple = unset) {
   return PartialApply(DropFn, [n, tuple])
 }
 /* compiles to:
- * export type Drop<n extends number | unset | _ = unset, tuple = unset> = PartialApply<DropFn, [n, tuple]>
+ * export type Drop<n extends number | unset | _ = unset, tuple = unset> = PartialApply<
+ *   DropFn,
+ *   [n, tuple]
+ * >
  */
 
 // ✗ TakeImpl: the ScriptType does not itself typecheck as TypeScript
@@ -440,7 +508,11 @@ export function TakeImpl(xs: readonly any[], it: any[], output: any[] = []) {
   return output
 }
 /* compiles to:
- * export type TakeImpl<xs extends readonly any[], it extends any[], output extends any[] = []> = Iterator.Get<it> extends 0 ? output : xs extends readonly [infer head, ...infer tail] ? TakeImpl<tail, Iterator.Prev<it>, [...output, head]> : output
+ * export type TakeImpl<xs extends readonly any[], it extends any[], output extends any[] = []> =
+ *   Iterator.Get<it> extends 0 ? output
+ *   : xs extends readonly [infer head, ...infer tail]
+ *     ? TakeImpl<tail, Iterator.Prev<it>, [...output, head]>
+ *   : output
  */
 
 // ✗ Take: does not compile yet
@@ -450,7 +522,10 @@ export function Take(n: number | unset | _ = unset, tuple = unset) {
   return PartialApply(TakeFn, [n, tuple])
 }
 /* compiles to:
- * export type Take<n extends number | unset | _ = unset, tuple = unset> = PartialApply<TakeFn, [n, tuple]>
+ * export type Take<n extends number | unset | _ = unset, tuple = unset> = PartialApply<
+ *   TakeFn,
+ *   [n, tuple]
+ * >
  */
 
 // ✗ TakeWhileImpl: compiles but is not type-identical yet
@@ -467,7 +542,17 @@ export function TakeWhileImpl(xs: readonly any[], fn: Fn, index: any[] = [], out
   return output
 }
 /* compiles to:
- * export type TakeWhileImpl<xs extends readonly any[], fn extends Fn, index extends any[] = [], output extends any[] = []> = xs extends readonly [infer head, ...infer tail] ? Call<fn, head, index['length']> extends true ? TakeWhileImpl<tail, fn, [...index, any], [...output, head]> : output : output
+ * export type TakeWhileImpl<
+ *   xs extends readonly any[],
+ *   fn extends Fn,
+ *   index extends any[] = [],
+ *   output extends any[] = []
+ * > =
+ *   xs extends readonly [infer head, ...infer tail]
+ *     ? Call<fn, head, index['length']> extends true
+ *       ? TakeWhileImpl<tail, fn, [...index, any], [...output, head]>
+ *       : output
+ *     : output
  */
 
 // ✗ TakeWhile: does not compile yet
@@ -515,7 +600,12 @@ export function SortImpl(xs: any[], predicateFn: Fn) {
   return []
 }
 /* compiles to:
- * export type SortImpl<xs extends any[], predicateFn extends Fn> = xs extends [infer head, ...infer tail] ? Call<Tuples.Partition<PartialApply<predicateFn, [_, head]>, tail>> extends [infer left extends any[], infer right extends any[]] ? [...SortImpl<left, predicateFn>, head, ...SortImpl<right, predicateFn>] : never : []
+ * export type SortImpl<xs extends any[], predicateFn extends Fn> =
+ *   xs extends [infer head, ...infer tail]
+ *     ? Call<Tuples.Partition<PartialApply<predicateFn, [_, head]>, tail>> extends [infer left extends any[], infer right extends any[]]
+ *       ? [...SortImpl<left, predicateFn>, head, ...SortImpl<right, predicateFn>]
+ *       : never
+ *     : []
  */
 
 // ✗ Join: does not compile yet
@@ -525,7 +615,10 @@ export function Join(Sep: string | _ | unset = unset, Tuple = unset) {
   return PartialApply(JoinFn, [Sep, Tuple])
 }
 /* compiles to:
- * export type Join<Sep extends string | _ | unset = unset, Tuple = unset> = PartialApply<JoinFn, [Sep, Tuple]>
+ * export type Join<Sep extends string | _ | unset = unset, Tuple = unset> = PartialApply<
+ *   JoinFn,
+ *   [Sep, Tuple]
+ * >
  */
 
 // ✗ Prepend: does not compile yet
@@ -582,7 +675,17 @@ export function PartitionImpl(fn: Fn, tuple: any[], left: any[] = [], right: any
   return [left, right]
 }
 /* compiles to:
- * export type PartitionImpl<fn extends Fn, tuple extends any[], left extends any[] = [], right extends any[] = []> = tuple extends [infer first, ...infer rest] ? Call<fn, first> extends true ? PartitionImpl<fn, rest, [...left, first], right> : PartitionImpl<fn, rest, left, [...right, first]> : [left, right]
+ * export type PartitionImpl<
+ *   fn extends Fn,
+ *   tuple extends any[],
+ *   left extends any[] = [],
+ *   right extends any[] = []
+ * > =
+ *   tuple extends [infer first, ...infer rest]
+ *     ? Call<fn, first> extends true
+ *       ? PartitionImpl<fn, rest, [...left, first], right>
+ *       : PartitionImpl<fn, rest, left, [...right, first]>
+ *     : [left, right]
  */
 
 // ✗ SplitAt: does not compile yet
@@ -592,7 +695,11 @@ export function SplitAt(index: number | unset | _ = unset, tuple: unknown[] | un
   return PartialApply(SplitAtFn, [index, tuple])
 }
 /* compiles to:
- * export type SplitAt<index extends number | unset | _ = unset, tuple extends unknown[] | unset | _ = unset> = PartialApply<SplitAtFn, [index, tuple]>
+ * export type SplitAt<
+ *   index extends number | unset | _ = unset,
+ *   tuple extends unknown[] | unset | _ = unset
+ * > =
+ *   PartialApply<SplitAtFn, [index, tuple]>
  */
 
 // ✗ Zip: does not compile yet
@@ -602,7 +709,19 @@ export function Zip(arr0: unknown[] | _ | unset = unset, arr1: unknown[] | _ | u
   return PartialApply(ZipWithFn(args), [arr0, arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9])
 }
 /* compiles to:
- * export type Zip<arr0 extends unknown[] | _ | unset = unset, arr1 extends unknown[] | _ | unset = unset, arr2 extends unknown[] | _ | unset = unset, arr3 extends unknown[] | _ | unset = unset, arr4 extends unknown[] | _ | unset = unset, arr5 extends unknown[] | _ | unset = unset, arr6 extends unknown[] | _ | unset = unset, arr7 extends unknown[] | _ | unset = unset, arr8 extends unknown[] | _ | unset = unset, arr9 extends unknown[] | _ | unset = unset> = PartialApply<ZipWithFn<args>, [arr0, arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9]>
+ * export type Zip<
+ *   arr0 extends unknown[] | _ | unset = unset,
+ *   arr1 extends unknown[] | _ | unset = unset,
+ *   arr2 extends unknown[] | _ | unset = unset,
+ *   arr3 extends unknown[] | _ | unset = unset,
+ *   arr4 extends unknown[] | _ | unset = unset,
+ *   arr5 extends unknown[] | _ | unset = unset,
+ *   arr6 extends unknown[] | _ | unset = unset,
+ *   arr7 extends unknown[] | _ | unset = unset,
+ *   arr8 extends unknown[] | _ | unset = unset,
+ *   arr9 extends unknown[] | _ | unset = unset
+ * > =
+ *   PartialApply<ZipWithFn<args>, [arr0, arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9]>
  */
 
 // ✗ ZipWith: does not compile yet
@@ -612,7 +731,20 @@ export function ZipWith(fn: Fn, arr0: unknown[] | _ | unset = unset, arr1: unkno
   return PartialApply(ZipWithFn(fn), [arr0, arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9])
 }
 /* compiles to:
- * export type ZipWith<fn extends Fn, arr0 extends unknown[] | _ | unset = unset, arr1 extends unknown[] | _ | unset = unset, arr2 extends unknown[] | _ | unset = unset, arr3 extends unknown[] | _ | unset = unset, arr4 extends unknown[] | _ | unset = unset, arr5 extends unknown[] | _ | unset = unset, arr6 extends unknown[] | _ | unset = unset, arr7 extends unknown[] | _ | unset = unset, arr8 extends unknown[] | _ | unset = unset, arr9 extends unknown[] | _ | unset = unset> = PartialApply<ZipWithFn<fn>, [arr0, arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9]>
+ * export type ZipWith<
+ *   fn extends Fn,
+ *   arr0 extends unknown[] | _ | unset = unset,
+ *   arr1 extends unknown[] | _ | unset = unset,
+ *   arr2 extends unknown[] | _ | unset = unset,
+ *   arr3 extends unknown[] | _ | unset = unset,
+ *   arr4 extends unknown[] | _ | unset = unset,
+ *   arr5 extends unknown[] | _ | unset = unset,
+ *   arr6 extends unknown[] | _ | unset = unset,
+ *   arr7 extends unknown[] | _ | unset = unset,
+ *   arr8 extends unknown[] | _ | unset = unset,
+ *   arr9 extends unknown[] | _ | unset = unset
+ * > =
+ *   PartialApply<ZipWithFn<fn>, [arr0, arr1, arr2, arr3, arr4, arr5, arr6, arr7, arr8, arr9]>
  */
 
 // ✓ GroupByImplRec: verified type-identical to the original
@@ -624,7 +756,7 @@ export function GroupByImplRec(xs, fn: Fn, acc = {}) {
     if (m2) {
       const out = emptyObject
       for (const K in keySet(m2.key)) {
-        out[K] = [...matches<keyof typeof acc>(m2.key) ? Extract(acc[m2.key], readonlyArrayOf(any)) : [], m1.first]
+        out[K] = [...m2.key in acc ? Extract(acc[m2.key], readonlyArrayOf(any)) : [], m1.first]
       }
       return GroupByImplRec(m1.rest, fn, Std._Omit(acc, m2.key) & out)
     }
@@ -633,7 +765,22 @@ export function GroupByImplRec(xs, fn: Fn, acc = {}) {
   return acc
 }
 /* compiles to:
- * export type GroupByImplRec<xs, fn extends Fn, acc = {}> = xs extends [infer first, ...infer rest] ? Call<fn, first> extends (infer key extends PropertyKey) ? GroupByImplRec<rest, fn, Std._Omit<acc, key> & { [K in key]: [...(key extends keyof acc ? Extract<acc[key], readonly any[]> : []), first] }> : never : acc
+ * export type GroupByImplRec<xs, fn extends Fn, acc = {}> =
+ *   xs extends [infer first, ...infer rest]
+ *     ? Call<fn, first> extends (infer key extends PropertyKey)
+ *       ? GroupByImplRec<
+ *         rest,
+ *         fn,
+ *         & Std._Omit<acc, key>
+ *         & {
+ *             [K in key]: [
+ *               ...(key extends keyof acc ? Extract<acc[key], readonly any[]> : []),
+ *               first
+ *             ]
+ *           }
+ *       >
+ *       : never
+ *     : acc
  */
 
 // ✗ GroupByImpl: does not compile yet
@@ -653,7 +800,11 @@ export function Range(start: number | _ | unset = unset, end: number | _ | unset
   return PartialApply(RangeFn, [start, end])
 }
 /* compiles to:
- * export type Range<start extends number | _ | unset = unset, end extends number | _ | unset = unset> = PartialApply<RangeFn, [start, end]>
+ * export type Range<
+ *   start extends number | _ | unset = unset,
+ *   end extends number | _ | unset = unset
+ * > =
+ *   PartialApply<RangeFn, [start, end]>
  */
 
 // ✓ RangeImpl: verified type-identical to the original
@@ -669,8 +820,15 @@ export function RangeImpl(start: number, length: number) {
   return output
 }
 /* compiles to:
- * export type RangeImpl<start extends number, length extends number> = RangeImpl__loop<[], length, start>
- * type RangeImpl__loop<Output extends any[], Length extends number, Start extends number> = Output['length'] extends Length ? Output : RangeImpl__loop<[...Output, Call<Numbers.Add<Start, Output['length']>>], Length, Start>
+ * export type RangeImpl<start extends number, length extends number> = RangeImpl__loop<
+ *   [],
+ *   length,
+ *   start
+ * >
+ * type RangeImpl__loop<Output extends any[], Length extends number, Start extends number> =
+ *   Output['length'] extends Length
+ *     ? Output
+ *     : RangeImpl__loop<[...Output, Call<Numbers.Add<Start, Output['length']>>], Length, Start>
  */
 
 // ✗ Length: does not compile yet
@@ -680,7 +838,10 @@ export function Length(tuple: readonly any[] | _ | unset = unset) {
   return PartialApply(LengthFn, [tuple])
 }
 /* compiles to:
- * export type Length<tuple extends readonly any[] | _ | unset = unset> = PartialApply<LengthFn, [tuple]>
+ * export type Length<tuple extends readonly any[] | _ | unset = unset> = PartialApply<
+ *   LengthFn,
+ *   [tuple]
+ * >
  */
 
 // ✗ Min: does not compile yet
@@ -710,7 +871,10 @@ export function MinImpl(xs) {
 }
 /* compiles to:
  * export type MinImpl<xs> = MinImpl__loop<xs, never>
- * type MinImpl__loop<Xs_, Min> = Xs_ extends [infer first extends number | bigint, ...infer rest] ? MinImpl__loop<rest, [Min] extends [never] ? first : NumberImpls.Min<first, Min>> : Min
+ * type MinImpl__loop<Xs_, Min> =
+ *   Xs_ extends [infer first extends number | bigint, ...infer rest]
+ *     ? MinImpl__loop<rest, [Min] extends [never] ? first : NumberImpls.Min<first, Min>>
+ *     : Min
  */
 
 // ✗ Max: does not compile yet
@@ -740,5 +904,8 @@ export function MaxImpl(xs) {
 }
 /* compiles to:
  * export type MaxImpl<xs> = MaxImpl__loop<xs, never>
- * type MaxImpl__loop<Xs_, Min> = Xs_ extends [infer first extends number | bigint, ...infer rest] ? MaxImpl__loop<rest, [Min] extends [never] ? first : NumberImpls.Max<first, Min>> : Min
+ * type MaxImpl__loop<Xs_, Min> =
+ *   Xs_ extends [infer first extends number | bigint, ...infer rest]
+ *     ? MaxImpl__loop<rest, [Min] extends [never] ? first : NumberImpls.Max<first, Min>>
+ *     : Min
  */

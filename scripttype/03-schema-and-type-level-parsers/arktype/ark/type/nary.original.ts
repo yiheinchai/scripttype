@@ -7,20 +7,20 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type ErrorType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Morph<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonObjectMergeErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type distill<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferMorph<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferMorphOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferNaryIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferNaryMerge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferNaryPipe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type instantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Morph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonObjectMergeErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type distill<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferMorph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferMorphOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferNaryIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferNaryMerge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferNaryPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type instantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type NaryUnionParser<$> = {
 	(): Type<never, $>
 	<const a, r = Type<type.infer<a, $>, $>>(

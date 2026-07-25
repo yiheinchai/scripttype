@@ -7,17 +7,17 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type ArkAmbient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringifiablePrefixOperator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferAstRoot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseDefault<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseOperand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseOperator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type resolutionToAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type resolvableReferenceIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnexpectedCharacterMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ArkAmbient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringifiablePrefixOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferAstRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseOperand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type resolutionToAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type resolvableReferenceIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnexpectedCharacterMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type extractFinalizedResult<s extends StaticState> =
 	s["finalizer"] extends "" ? s["root"]
 	: s["finalizer"] extends ErrorMessage ? s["finalizer"]

@@ -7,16 +7,16 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type AffectedFileResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BuilderProgram<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CancellationToken<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CustomTransformers<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Diagnostic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EmitResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InvalidatedProjectKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Program<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SourceFile<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WriteFileCallback<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AffectedFileResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BuilderProgram<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CancellationToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CustomTransformers<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Diagnostic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EmitResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InvalidatedProjectKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Program<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SourceFile<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WriteFileCallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export interface UpdateOutputFileStampsProject extends InvalidatedProjectBase {
     readonly kind: InvalidatedProjectKind.UpdateOutputFileStamps;
     updateOutputFileStatmps(): void;

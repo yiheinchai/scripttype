@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Strings {
+  export type ToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Apply: any
 declare const Call: any
 declare const Equal: any
@@ -25,22 +28,22 @@ declare const UnionToIntersection: any
 declare const keys: any
 declare const value: any
 declare const values: any
-type Apply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Call<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Equal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Primitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Strings<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TransformObjectDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type keys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type value<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type values<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Apply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Strings<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TransformObjectDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type values<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Keys: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Keys(src) {
@@ -51,7 +54,7 @@ export function Keys(src) {
     }
     const m1 = matches<Hole<"res">>(out[number])
     if (m1) {
-      if (matches<string>(m1.res)) {
+      if (typeof m1.res === 'string') {
         return Call(Strings.ToNumber, m1.res) & keyof(src)
       }
       return m1.res & keyof(src)
@@ -61,7 +64,12 @@ export function Keys(src) {
   return keyof(src)
 }
 /* compiles to:
- * export type Keys<src> = src extends readonly unknown[] ? { [Key in keyof src]: Key }[number] extends infer res ? res extends string ? Call<Strings.ToNumber, res> & keyof src : res & keyof src : never : keyof src
+ * export type Keys<src> =
+ *   src extends readonly unknown[]
+ *     ? { [Key in keyof src]: Key }[number] extends infer res
+ *       ? res extends string ? Call<Strings.ToNumber, res> & keyof src : res & keyof src
+ *       : never
+ *     : keyof src
  */
 
 // ✗ Values: the ScriptType does not itself typecheck as TypeScript
@@ -88,7 +96,9 @@ export function FromEntries(entries: [ PropertyKey, any ]) {
   return out | never
 }
 /* compiles to:
- * export type FromEntries<entries extends [PropertyKey, any]> = { [Entry in entries as Entry[0]]: Entry[1] }
+ * export type FromEntries<entries extends [PropertyKey, any]> = {
+ *   [Entry in entries as Entry[0]]: Entry[1]
+ * }
  */
 
 // ✗ Entries: the ScriptType does not itself typecheck as TypeScript
@@ -106,7 +116,8 @@ export function Entries(T) {
   return never
 }
 /* compiles to:
- * export type Entries<T> = Keys<T> extends (infer keys extends keyof T) ? { [K in keys]: [K, T[K]] }[keys] : never
+ * export type Entries<T> =
+ *   Keys<T> extends (infer keys extends keyof T) ? { [K in keys]: [K, T[K]] }[keys] : never
  */
 
 // ✓ Assign: verified type-identical to the original
@@ -130,7 +141,7 @@ export function GetFromPath(Obj, path) {
 // ✓ ParsePath: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ParsePath(path, output: string[] = [], currentChunk: string = '') {
-  if (matches<number>(path)) {
+  if (typeof path === 'number') {
     return [`${path}`]
   }
   const m1 = matches<`${Hole<"first">}${Hole<"rest">}`>(path)
@@ -143,7 +154,13 @@ export function ParsePath(path, output: string[] = [], currentChunk: string = ''
   return [...output, ...matches<"">(currentChunk) ? [] : [currentChunk]]
 }
 /* compiles to:
- * export type ParsePath<path, output extends string[] = [], currentChunk extends string = ''> = path extends number ? [`${path}`] : path extends `${infer first}${infer rest}` ? first extends '.' | '[' | ']' ? ParsePath<rest, [...output, ...(currentChunk extends '' ? [] : [currentChunk])], ''> : ParsePath<rest, output, `${currentChunk}${first}`> : [...output, ...(currentChunk extends '' ? [] : [currentChunk])]
+ * export type ParsePath<path, output extends string[] = [], currentChunk extends string = ''> =
+ *   path extends number ? [`${path}`]
+ *   : path extends `${infer first}${infer rest}`
+ *     ? first extends '.' | '[' | ']'
+ *       ? ParsePath<rest, [...output, ...(currentChunk extends '' ? [] : [currentChunk])], ''>
+ *       : ParsePath<rest, output, `${currentChunk}${first}`>
+ *   : [...output, ...(currentChunk extends '' ? [] : [currentChunk])]
  */
 
 // ✓ RecursiveGet: verified type-identical to the original
@@ -152,7 +169,7 @@ export function RecursiveGet(Obj, pathList) {
   if (matches<any>(Obj)) {
     const m1 = matches<[ Hole<"first">, ...Hole<"rest"> ]>(pathList)
     if (m1) {
-      if (matches<keyof typeof Obj>(m1.first)) {
+      if (m1.first in Obj) {
         return RecursiveGet(Obj[m1.first], m1.rest)
       }
       if (matches<[ `${number}` | "number", readonly any[] ]>([m1.first, Obj])) {
@@ -165,7 +182,15 @@ export function RecursiveGet(Obj, pathList) {
   return never
 }
 /* compiles to:
- * export type RecursiveGet<Obj, pathList> = Obj extends any ? pathList extends [infer first, ...infer rest] ? first extends keyof Obj ? RecursiveGet<Obj[first], rest> : [first, Obj] extends [`${number}` | 'number', readonly any[]] ? RecursiveGet<Extract<Obj, any[]>[number], rest> : undefined : Obj : never
+ * export type RecursiveGet<Obj, pathList> =
+ *   Obj extends any
+ *     ? pathList extends [infer first, ...infer rest]
+ *       ? first extends keyof Obj ? RecursiveGet<Obj[first], rest>
+ *       : [first, Obj] extends [`${number}` | 'number', readonly any[]]
+ *         ? RecursiveGet<Extract<Obj, any[]>[number], rest>
+ *       : undefined
+ *       : Obj
+ *     : never
  */
 
 // ✗ TransformObjectDeep: the ScriptType does not itself typecheck as TypeScript
@@ -227,7 +252,27 @@ export function TransformObjectDeep(fn: Fn, type) {
   return Partial(type)
 }
 /* compiles to:
- * export type TransformObjectDeep<fn extends Fn, type> = type extends Function | Date ? type : type extends Map<infer keys, infer values> ? Map<TransformObjectDeep<fn, keys>, TransformObjectDeep<fn, values>> : type extends ReadonlyMap<infer keys, infer values> ? ReadonlyMap<TransformObjectDeep<fn, keys>, TransformObjectDeep<fn, values>> : type extends WeakMap<infer keys, infer values> ? WeakMap<Extract<TransformObjectDeep<fn, keys>, object>, TransformObjectDeep<fn, values>> : type extends Set<infer values> ? Set<TransformObjectDeep<fn, values>> : type extends ReadonlySet<infer values> ? ReadonlySet<TransformObjectDeep<fn, values>> : type extends WeakSet<infer values> ? WeakSet<Extract<TransformObjectDeep<fn, values>, object>> : type extends Array<infer values> ? IsTuple<type> extends true ? Call<fn, { [Key in keyof type]: TransformObjectDeep<fn, type[Key]> }> : Array<TransformObjectDeep<fn, values> | undefined> : type extends Promise<infer value> ? Promise<TransformObjectDeep<fn, value>> : type extends object ? Call<fn, { [Key1 in keyof type]: TransformObjectDeep<fn, type[Key1]> }> : Equal<type, unknown> extends true ? unknown : Partial<type>
+ * export type TransformObjectDeep<fn extends Fn, type> =
+ *   type extends Function | Date ? type
+ *   : type extends Map<infer keys, infer values>
+ *     ? Map<TransformObjectDeep<fn, keys>, TransformObjectDeep<fn, values>>
+ *   : type extends ReadonlyMap<infer keys, infer values>
+ *     ? ReadonlyMap<TransformObjectDeep<fn, keys>, TransformObjectDeep<fn, values>>
+ *   : type extends WeakMap<infer keys, infer values>
+ *     ? WeakMap<Extract<TransformObjectDeep<fn, keys>, object>, TransformObjectDeep<fn, values>>
+ *   : type extends Set<infer values> ? Set<TransformObjectDeep<fn, values>>
+ *   : type extends ReadonlySet<infer values> ? ReadonlySet<TransformObjectDeep<fn, values>>
+ *   : type extends WeakSet<infer values>
+ *     ? WeakSet<Extract<TransformObjectDeep<fn, values>, object>>
+ *   : type extends Array<infer values>
+ *     ? IsTuple<type> extends true
+ *       ? Call<fn, { [Key in keyof type]: TransformObjectDeep<fn, type[Key]> }>
+ *       : Array<TransformObjectDeep<fn, values> | undefined>
+ *   : type extends Promise<infer value> ? Promise<TransformObjectDeep<fn, value>>
+ *   : type extends object
+ *     ? Call<fn, { [Key1 in keyof type]: TransformObjectDeep<fn, type[Key1]> }>
+ *   : Equal<type, unknown> extends true ? unknown
+ *   : Partial<type>
  */
 
 // ✓ Update: verified type-identical to the original
@@ -246,7 +291,7 @@ export function RecursiveUpdate(obj, pathList, fnOrValue) {
   if (matches<any>(obj)) {
     const m1 = matches<[ Hole<"first">, ...Hole<"rest"> ]>(pathList)
     if (m1) {
-      if (matches<keyof typeof obj>(m1.first)) {
+      if (m1.first in obj) {
         const out = emptyObject
         for (const K in keyof(obj)) {
           out[K] = matches<true>(Equal(m1.first, K)) ? RecursiveUpdate(obj[K], m1.rest, fnOrValue) : obj[K]
@@ -256,11 +301,11 @@ export function RecursiveUpdate(obj, pathList, fnOrValue) {
       if (matches<[ "number", readonly any[] ]>([m1.first, obj])) {
         return arrayOf(RecursiveUpdate(Extract(obj, arrayOf(any))[number], m1.rest, fnOrValue))
       }
-      const out = emptyObject
+      const out2 = emptyObject
       for (const K in keySet(Extract(m1.first, PropertyKey))) {
-        out[K] = RecursiveUpdate({}, m1.rest, fnOrValue)
+        out2[K] = RecursiveUpdate({}, m1.rest, fnOrValue)
       }
-      return Assign([obj, out])
+      return Assign([obj, out2])
     }
     if (matches<Fn>(fnOrValue)) {
       return Call(Extract(fnOrValue, Fn), obj)
@@ -270,7 +315,23 @@ export function RecursiveUpdate(obj, pathList, fnOrValue) {
   return never
 }
 /* compiles to:
- * export type RecursiveUpdate<obj, pathList, fnOrValue> = obj extends any ? pathList extends [infer first, ...infer rest] ? first extends keyof obj ? { [K in keyof obj]: Equal<first, K> extends true ? RecursiveUpdate<obj[K], rest, fnOrValue> : obj[K] } : [first, obj] extends ['number', readonly any[]] ? RecursiveUpdate<Extract<obj, any[]>[number], rest, fnOrValue>[] : Assign<[obj, { [K1 in Extract<first, PropertyKey>]: RecursiveUpdate<{}, rest, fnOrValue> }]> : fnOrValue extends Fn ? Call<Extract<fnOrValue, Fn>, obj> : fnOrValue : never
+ * export type RecursiveUpdate<obj, pathList, fnOrValue> =
+ *   obj extends any
+ *     ? pathList extends [infer first, ...infer rest]
+ *       ? first extends keyof obj
+ *         ? {
+ *           [K in keyof obj]: Equal<first, K> extends true
+ *             ? RecursiveUpdate<obj[K], rest, fnOrValue>
+ *             : obj[K]
+ *         }
+ *       : [first, obj] extends ['number', readonly any[]]
+ *         ? RecursiveUpdate<Extract<obj, any[]>[number], rest, fnOrValue>[]
+ *       : Assign<
+ *         [obj, { [K1 in Extract<first, PropertyKey>]: RecursiveUpdate<{}, rest, fnOrValue> }]
+ *       >
+ *     : fnOrValue extends Fn ? Call<Extract<fnOrValue, Fn>, obj>
+ *     : fnOrValue
+ *     : never
  */
 
 // ✓ Create: verified type-identical to the original
@@ -295,16 +356,23 @@ export function Create(pattern, args: unknown[]) {
     return arrayOf(Create(m2.V, args))
   }
   if (matches<object>(pattern)) {
-    const out = emptyObject
+    const out2 = emptyObject
     for (const key in keyof(pattern)) {
-      out[key] = Create(pattern[key], args)
+      out2[key] = Create(pattern[key], args)
     }
-    return out
+    return out2
   }
   return pattern
 }
 /* compiles to:
- * export type Create<pattern, args extends unknown[]> = pattern extends (infer p extends Fn) ? Apply<p, args> : pattern extends Primitive ? pattern : pattern extends readonly [any, ...any] ? { [Key in keyof pattern]: Create<pattern[Key], args> } : pattern extends readonly (infer V)[] ? Create<V, args>[] : pattern extends object ? { [Key1 in keyof pattern]: Create<pattern[Key1], args> } : pattern
+ * export type Create<pattern, args extends unknown[]> =
+ *   pattern extends (infer p extends Fn) ? Apply<p, args>
+ *   : pattern extends Primitive ? pattern
+ *   : pattern extends readonly [any, ...any]
+ *     ? { [Key in keyof pattern]: Create<pattern[Key], args> }
+ *   : pattern extends readonly (infer V)[] ? Create<V, args>[]
+ *   : pattern extends object ? { [Key1 in keyof pattern]: Create<pattern[Key1], args> }
+ *   : pattern
  */
 
 // ✓ JoinPath: verified type-identical to the original
@@ -319,7 +387,8 @@ export function JoinPath(A: string, B: string, Sep: string = '') {
   return `${A}${Sep}${B}`
 }
 /* compiles to:
- * export type JoinPath<A extends string, B extends string, Sep extends string = ''> = [A] extends [never] ? B : [B] extends [never] ? A : `${A}${Sep}${B}`
+ * export type JoinPath<A extends string, B extends string, Sep extends string = ''> =
+ *   [A] extends [never] ? B : [B] extends [never] ? A : `${A}${Sep}${B}`
  */
 
 // ✗ AllPaths: the ScriptType does not itself typecheck as TypeScript
@@ -349,5 +418,16 @@ export function AllPaths(T, ParentPath: string = never) {
   return ParentPath
 }
 /* compiles to:
- * export type AllPaths<T, ParentPath extends string = never> = T extends Primitive ? ParentPath : unknown extends T ? JoinPath<ParentPath, string, '.'> : T extends readonly any[] ? Keys<T> extends (infer key extends string | number) ? JoinPath<ParentPath, `[${key}]`> | AllPaths<T[number], JoinPath<ParentPath, `[${key}]`>> : never : keyof T extends (infer key extends keyof T & string) ? key extends any ? JoinPath<ParentPath, key, '.'> | AllPaths<T[key], JoinPath<ParentPath, key, '.'>> : never : ParentPath
+ * export type AllPaths<T, ParentPath extends string = never> =
+ *   T extends Primitive ? ParentPath
+ *   : unknown extends T ? JoinPath<ParentPath, string, '.'>
+ *   : T extends readonly any[]
+ *     ? Keys<T> extends (infer key extends string | number)
+ *       ? JoinPath<ParentPath, `[${key}]`> | AllPaths<T[number], JoinPath<ParentPath, `[${key}]`>>
+ *       : never
+ *   : keyof T extends (infer key extends keyof T & string)
+ *     ? key extends any
+ *       ? JoinPath<ParentPath, key, '.'> | AllPaths<T[key], JoinPath<ParentPath, key, '.'>>
+ *       : never
+ *   : ParentPath
  */

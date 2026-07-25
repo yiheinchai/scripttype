@@ -15,11 +15,11 @@ declare const TLiteral: any
 declare const TLiteralValue: any
 declare const TSchema: any
 declare const TUnion: any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteralValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TKeysToLiterals: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TKeysToLiterals(Keys: PropertyKey[], Result: TLiteral[] = []) {
@@ -33,7 +33,12 @@ export function TKeysToLiterals(Keys: PropertyKey[], Result: TLiteral[] = []) {
   return Result
 }
 /* compiles to:
- * export type TKeysToLiterals<Keys extends PropertyKey[], Result extends TLiteral[] = []> = Keys extends [infer Left extends PropertyKey, ...(infer Right extends PropertyKey[])] ? Left extends TLiteralValue ? TKeysToLiterals<Right, [...Result, TLiteral<Left>]> : TKeysToLiterals<Right, Result> : Result
+ * export type TKeysToLiterals<Keys extends PropertyKey[], Result extends TLiteral[] = []> =
+ *   Keys extends [infer Left extends PropertyKey, ...infer Right extends PropertyKey[]]
+ *     ? Left extends TLiteralValue
+ *       ? TKeysToLiterals<Right, [...Result, TLiteral<Left>]>
+ *       : TKeysToLiterals<Right, Result>
+ *     : Result
  */
 
 // ✓ TKeysToIndexer: verified type-identical to the original
@@ -42,5 +47,10 @@ export function TKeysToIndexer(Keys: PropertyKey[], Literals: TLiteral[] = TKeys
   return Result
 }
 /* compiles to:
- * export type TKeysToIndexer<Keys extends PropertyKey[], Literals extends TLiteral[] = TKeysToLiterals<Keys>, Result extends TSchema = TUnion<Literals>> = Result
+ * export type TKeysToIndexer<
+ *   Keys extends PropertyKey[],
+ *   Literals extends TLiteral[] = TKeysToLiterals<Keys>,
+ *   Result extends TSchema = TUnion<Literals>
+ * > =
+ *   Result
  */

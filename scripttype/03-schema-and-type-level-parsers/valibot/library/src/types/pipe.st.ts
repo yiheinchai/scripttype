@@ -18,21 +18,24 @@ declare const BaseTransformation: any
 declare const BaseTransformationAsync: any
 declare const BaseValidation: any
 declare const BaseValidationAsync: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseMetadata<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseTransformation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseTransformationAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseValidation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseValidationAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseMetadata<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseTransformation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseTransformationAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseValidation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseValidationAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PipeAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PipeAction(TInput, TOutput, TIssue: BaseIssue<unknown>) {
   return BaseValidation(TInput, TOutput, TIssue) | BaseTransformation(TInput, TOutput, TIssue) | BaseMetadata(TInput)
 }
 /* compiles to:
- * export type PipeAction<TInput, TOutput, TIssue extends BaseIssue<unknown>> = BaseValidation<TInput, TOutput, TIssue> | BaseTransformation<TInput, TOutput, TIssue> | BaseMetadata<TInput>
+ * export type PipeAction<TInput, TOutput, TIssue extends BaseIssue<unknown>> =
+ *   | BaseValidation<TInput, TOutput, TIssue>
+ *   | BaseTransformation<TInput, TOutput, TIssue>
+ *   | BaseMetadata<TInput>
  */
 
 // ✓ PipeActionAsync: verified type-identical to the original
@@ -41,7 +44,9 @@ export function PipeActionAsync(TInput, TOutput, TIssue: BaseIssue<unknown>) {
   return BaseValidationAsync(TInput, TOutput, TIssue) | BaseTransformationAsync(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type PipeActionAsync<TInput, TOutput, TIssue extends BaseIssue<unknown>> = BaseValidationAsync<TInput, TOutput, TIssue> | BaseTransformationAsync<TInput, TOutput, TIssue>
+ * export type PipeActionAsync<TInput, TOutput, TIssue extends BaseIssue<unknown>> =
+ *   | BaseValidationAsync<TInput, TOutput, TIssue>
+ *   | BaseTransformationAsync<TInput, TOutput, TIssue>
  */
 
 // ✓ PipeItem: verified type-identical to the original
@@ -50,7 +55,8 @@ export function PipeItem(TInput, TOutput, TIssue: BaseIssue<unknown>) {
   return BaseSchema(TInput, TOutput, TIssue) | PipeAction(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type PipeItem<TInput, TOutput, TIssue extends BaseIssue<unknown>> = BaseSchema<TInput, TOutput, TIssue> | PipeAction<TInput, TOutput, TIssue>
+ * export type PipeItem<TInput, TOutput, TIssue extends BaseIssue<unknown>> =
+ *   BaseSchema<TInput, TOutput, TIssue> | PipeAction<TInput, TOutput, TIssue>
  */
 
 // ✓ PipeItemAsync: verified type-identical to the original
@@ -59,7 +65,8 @@ export function PipeItemAsync(TInput, TOutput, TIssue: BaseIssue<unknown>) {
   return BaseSchemaAsync(TInput, TOutput, TIssue) | PipeActionAsync(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type PipeItemAsync<TInput, TOutput, TIssue extends BaseIssue<unknown>> = BaseSchemaAsync<TInput, TOutput, TIssue> | PipeActionAsync<TInput, TOutput, TIssue>
+ * export type PipeItemAsync<TInput, TOutput, TIssue extends BaseIssue<unknown>> =
+ *   BaseSchemaAsync<TInput, TOutput, TIssue> | PipeActionAsync<TInput, TOutput, TIssue>
  */
 
 // ✓ SchemaWithoutPipe: verified type-identical to the original
@@ -68,7 +75,10 @@ export function SchemaWithoutPipe(TSchema: BaseSchema<unknown, unknown, BaseIssu
   return merge(TSchema, { pipe: optional(never) })
 }
 /* compiles to:
- * export type SchemaWithoutPipe<TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>> = TSchema & { pipe?: never }
+ * export type SchemaWithoutPipe<
+ *   TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>
+ * > =
+ *   TSchema & { pipe?: never }
  */
 
 // ✓ GenericPipeAction: verified type-identical to the original
@@ -77,7 +87,12 @@ export function GenericPipeAction(TInput = any, TOutput = TInput, TIssue: BaseIs
   return PipeAction(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericPipeAction<TInput = any, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = PipeAction<TInput, TOutput, TIssue>
+ * export type GenericPipeAction<
+ *   TInput = any,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   PipeAction<TInput, TOutput, TIssue>
  */
 
 // ✓ GenericPipeActionAsync: verified type-identical to the original
@@ -86,7 +101,12 @@ export function GenericPipeActionAsync(TInput = any, TOutput = TInput, TIssue: B
   return PipeActionAsync(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericPipeActionAsync<TInput = any, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = PipeActionAsync<TInput, TOutput, TIssue>
+ * export type GenericPipeActionAsync<
+ *   TInput = any,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   PipeActionAsync<TInput, TOutput, TIssue>
  */
 
 // ✓ GenericPipeItem: verified type-identical to the original
@@ -95,7 +115,12 @@ export function GenericPipeItem(TInput = any, TOutput = TInput, TIssue: BaseIssu
   return PipeItem(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericPipeItem<TInput = any, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = PipeItem<TInput, TOutput, TIssue>
+ * export type GenericPipeItem<
+ *   TInput = any,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   PipeItem<TInput, TOutput, TIssue>
  */
 
 // ✓ GenericPipeItemAsync: verified type-identical to the original
@@ -104,5 +129,10 @@ export function GenericPipeItemAsync(TInput = any, TOutput = TInput, TIssue: Bas
   return PipeItemAsync(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericPipeItemAsync<TInput = any, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = PipeItemAsync<TInput, TOutput, TIssue>
+ * export type GenericPipeItemAsync<
+ *   TInput = any,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   PipeItemAsync<TInput, TOutput, TIssue>
  */

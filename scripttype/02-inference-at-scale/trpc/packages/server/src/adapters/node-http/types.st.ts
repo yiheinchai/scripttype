@@ -18,21 +18,24 @@ declare const NodeHTTPRequest: any
 declare const NodeHTTPResponse: any
 declare const TRPCRequestInfo: any
 declare const inferRouterContext: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateContextCallback<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPBaseHandlerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybePromise<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeHTTPRequest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeHTTPResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCRequestInfo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferRouterContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateContextCallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTTPBaseHandlerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeHTTPRequest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeHTTPResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCRequestInfo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferRouterContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NodeHTTPCreateContextOption: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NodeHTTPCreateContextOption(TRouter: AnyRouter, TRequest, TResponse) {
   return CreateContextCallback(inferRouterContext(TRouter), NodeHTTPCreateContextFn(TRouter, TRequest, TResponse))
 }
 /* compiles to:
- * export type NodeHTTPCreateContextOption<TRouter extends AnyRouter, TRequest, TResponse> = CreateContextCallback<inferRouterContext<TRouter>, NodeHTTPCreateContextFn<TRouter, TRequest, TResponse>>
+ * export type NodeHTTPCreateContextOption<TRouter extends AnyRouter, TRequest, TResponse> = CreateContextCallback<
+ *   inferRouterContext<TRouter>,
+ *   NodeHTTPCreateContextFn<TRouter, TRequest, TResponse>
+ * >
  */
 
 // ✗ ConnectMiddleware: compiles but is not type-identical yet
@@ -42,7 +45,11 @@ export function ConnectMiddleware(TRequest: NodeHTTPRequest = NodeHTTPRequest, T
   return fnType([TRequest, TResponse, fnType([any], any)], voidType())
 }
 /* compiles to:
- * export type ConnectMiddleware<TRequest extends NodeHTTPRequest = NodeHTTPRequest, TResponse extends NodeHTTPResponse = NodeHTTPResponse> = (a0: TRequest, a1: TResponse, a2: (a0: any) => any) => void
+ * export type ConnectMiddleware<
+ *   TRequest extends NodeHTTPRequest = NodeHTTPRequest,
+ *   TResponse extends NodeHTTPResponse = NodeHTTPResponse
+ * > =
+ *   (a0: TRequest, a1: TResponse, a2: (a0: any) => any) => void
  */
 
 // ✓ NodeHTTPHandlerOptions: verified type-identical to the original
@@ -51,7 +58,14 @@ export function NodeHTTPHandlerOptions(TRouter: AnyRouter, TRequest: NodeHTTPReq
   return merge(HTTPBaseHandlerOptions(TRouter, TRequest), NodeHTTPCreateContextOption(TRouter, TRequest, TResponse), { middleware: optional(ConnectMiddleware(TRequest, TResponse)), maxBodySize: optional(number) })
 }
 /* compiles to:
- * export type NodeHTTPHandlerOptions<TRouter extends AnyRouter, TRequest extends NodeHTTPRequest, TResponse extends NodeHTTPResponse> = HTTPBaseHandlerOptions<TRouter, TRequest> & NodeHTTPCreateContextOption<TRouter, TRequest, TResponse> & { middleware?: ConnectMiddleware<TRequest, TResponse>; maxBodySize?: number }
+ * export type NodeHTTPHandlerOptions<
+ *   TRouter extends AnyRouter,
+ *   TRequest extends NodeHTTPRequest,
+ *   TResponse extends NodeHTTPResponse
+ * > =
+ *   & HTTPBaseHandlerOptions<TRouter, TRequest>
+ *   & NodeHTTPCreateContextOption<TRouter, TRequest, TResponse>
+ *   & { middleware?: ConnectMiddleware<TRequest, TResponse>; maxBodySize?: number }
  */
 
 // ✓ NodeHTTPRequestHandlerOptions: verified type-identical to the original
@@ -60,7 +74,13 @@ export function NodeHTTPRequestHandlerOptions(TRouter: AnyRouter, TRequest: Node
   return merge(NodeHTTPHandlerOptions(TRouter, TRequest, TResponse), { req: TRequest, res: TResponse, path: string })
 }
 /* compiles to:
- * export type NodeHTTPRequestHandlerOptions<TRouter extends AnyRouter, TRequest extends NodeHTTPRequest, TResponse extends NodeHTTPResponse> = NodeHTTPHandlerOptions<TRouter, TRequest, TResponse> & { req: TRequest; res: TResponse; path: string }
+ * export type NodeHTTPRequestHandlerOptions<
+ *   TRouter extends AnyRouter,
+ *   TRequest extends NodeHTTPRequest,
+ *   TResponse extends NodeHTTPResponse
+ * > =
+ *   & NodeHTTPHandlerOptions<TRouter, TRequest, TResponse>
+ *   & { req: TRequest; res: TResponse; path: string }
  */
 
 // ✓ NodeHTTPCreateContextFnOptions: verified type-identical to the original
@@ -69,7 +89,11 @@ export function NodeHTTPCreateContextFnOptions(TRequest, TResponse) {
   return { req: TRequest, res: TResponse, info: TRPCRequestInfo }
 }
 /* compiles to:
- * export type NodeHTTPCreateContextFnOptions<TRequest, TResponse> = { req: TRequest; res: TResponse; info: TRPCRequestInfo }
+ * export type NodeHTTPCreateContextFnOptions<TRequest, TResponse> = {
+ *   req: TRequest
+ *   res: TResponse
+ *   info: TRPCRequestInfo
+ * }
  */
 
 // ✓ NodeHTTPCreateContextFn: verified type-identical to the original
@@ -78,5 +102,8 @@ export function NodeHTTPCreateContextFn(TRouter: AnyRouter, TRequest, TResponse)
   return fnType([NodeHTTPCreateContextFnOptions(TRequest, TResponse)], MaybePromise(inferRouterContext(TRouter)))
 }
 /* compiles to:
- * export type NodeHTTPCreateContextFn<TRouter extends AnyRouter, TRequest, TResponse> = (a0: NodeHTTPCreateContextFnOptions<TRequest, TResponse>) => MaybePromise<inferRouterContext<TRouter>>
+ * export type NodeHTTPCreateContextFn<TRouter extends AnyRouter, TRequest, TResponse> =
+ *   (a0: NodeHTTPCreateContextFnOptions<TRequest, TResponse>) => MaybePromise<
+ *     inferRouterContext<TRouter>
+ *   >
  */

@@ -7,31 +7,31 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type AbiParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiStateMutability<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventModifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FallbackSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FunctionModifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FunctionSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsConstructorSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsErrorSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEventSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsFunctionSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Modifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Omit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pretty<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReceiveSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolvedRegister<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scope<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SolidityFixedArrayRange<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StructLookup<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Trim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidateName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiStateMutability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventModifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FallbackSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FunctionModifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FunctionSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsConstructorSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsErrorSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEventSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsFunctionSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Modifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Omit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pretty<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReceiveSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolvedRegister<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SolidityFixedArrayRange<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StructLookup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Trim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidateName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type ParseOptions = {
   modifier?: Modifier
   structs?: StructLookup | unknown

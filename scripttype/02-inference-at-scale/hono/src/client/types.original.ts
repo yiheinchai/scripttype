@@ -7,34 +7,34 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type ArrayBuffer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Blob<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConstructorParameters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Endpoint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Exclude<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FormData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HasRequiredKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Headers<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Hono<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HonoBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KnownResponseFormat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type METHODS<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type METHOD_NAME_ALL_LOWERCASE<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonNullable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Omit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadableStream<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Record<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequestInit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResponseFormat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Schema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StatusCode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SuccessStatusCode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URL<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URLSearchParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Uint8Array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WebSocket<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type fetch<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ArrayBuffer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Blob<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConstructorParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Endpoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Exclude<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FormData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HasRequiredKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Headers<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Hono<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HonoBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KnownResponseFormat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type METHODS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type METHOD_NAME_ALL_LOWERCASE<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonNullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Omit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadableStream<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Record<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequestInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResponseFormat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StatusCode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SuccessStatusCode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URLSearchParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Uint8Array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WebSocket<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type fetch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type MethodNameAll = `$${typeof METHOD_NAME_ALL_LOWERCASE}`
 
 export type StandardMethods = `$${(typeof METHODS)[number]}`

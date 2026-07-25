@@ -17,20 +17,23 @@ declare const UndefinedTRPCInfiniteQueryOptionsIn: any
 declare const UndefinedTRPCInfiniteQueryOptionsOut: any
 declare const UnusedSkipTokenTRPCInfiniteQueryOptionsIn: any
 declare const UnusedSkipTokenTRPCInfiniteQueryOptionsOut: any
-type DefinedTRPCInfiniteQueryOptionsIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinedTRPCInfiniteQueryOptionsOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FeatureFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndefinedTRPCInfiniteQueryOptionsIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndefinedTRPCInfiniteQueryOptionsOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnusedSkipTokenTRPCInfiniteQueryOptionsIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnusedSkipTokenTRPCInfiniteQueryOptionsOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefinedTRPCInfiniteQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefinedTRPCInfiniteQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndefinedTRPCInfiniteQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndefinedTRPCInfiniteQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnusedSkipTokenTRPCInfiniteQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnusedSkipTokenTRPCInfiniteQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyTRPCInfiniteQueryOptionsIn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AnyTRPCInfiniteQueryOptionsIn(TFeatureFlags: FeatureFlags) {
   return DefinedTRPCInfiniteQueryOptionsIn(any, any, any, any, TFeatureFlags) | UnusedSkipTokenTRPCInfiniteQueryOptionsIn(any, any, any, any, TFeatureFlags) | UndefinedTRPCInfiniteQueryOptionsIn(any, any, any, any, TFeatureFlags)
 }
 /* compiles to:
- * export type AnyTRPCInfiniteQueryOptionsIn<TFeatureFlags extends FeatureFlags> = DefinedTRPCInfiniteQueryOptionsIn<any, any, any, any, TFeatureFlags> | UnusedSkipTokenTRPCInfiniteQueryOptionsIn<any, any, any, any, TFeatureFlags> | UndefinedTRPCInfiniteQueryOptionsIn<any, any, any, any, TFeatureFlags>
+ * export type AnyTRPCInfiniteQueryOptionsIn<TFeatureFlags extends FeatureFlags> =
+ *   | DefinedTRPCInfiniteQueryOptionsIn<any, any, any, any, TFeatureFlags>
+ *   | UnusedSkipTokenTRPCInfiniteQueryOptionsIn<any, any, any, any, TFeatureFlags>
+ *   | UndefinedTRPCInfiniteQueryOptionsIn<any, any, any, any, TFeatureFlags>
  */
 
 // ✓ AnyTRPCInfiniteQueryOptionsOut: verified type-identical to the original
@@ -39,5 +42,8 @@ export function AnyTRPCInfiniteQueryOptionsOut(TFeatureFlags: FeatureFlags) {
   return DefinedTRPCInfiniteQueryOptionsOut(any, any, any, any, TFeatureFlags) | UnusedSkipTokenTRPCInfiniteQueryOptionsOut(any, any, any, any, TFeatureFlags) | UndefinedTRPCInfiniteQueryOptionsOut(any, any, any, any, TFeatureFlags)
 }
 /* compiles to:
- * export type AnyTRPCInfiniteQueryOptionsOut<TFeatureFlags extends FeatureFlags> = DefinedTRPCInfiniteQueryOptionsOut<any, any, any, any, TFeatureFlags> | UnusedSkipTokenTRPCInfiniteQueryOptionsOut<any, any, any, any, TFeatureFlags> | UndefinedTRPCInfiniteQueryOptionsOut<any, any, any, any, TFeatureFlags>
+ * export type AnyTRPCInfiniteQueryOptionsOut<TFeatureFlags extends FeatureFlags> =
+ *   | DefinedTRPCInfiniteQueryOptionsOut<any, any, any, any, TFeatureFlags>
+ *   | UnusedSkipTokenTRPCInfiniteQueryOptionsOut<any, any, any, any, TFeatureFlags>
+ *   | UndefinedTRPCInfiniteQueryOptionsOut<any, any, any, any, TFeatureFlags>
  */

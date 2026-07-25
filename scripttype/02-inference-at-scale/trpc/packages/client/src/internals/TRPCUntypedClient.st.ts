@@ -13,14 +13,17 @@
 declare const InferrableClientTypes: any
 declare const TRPCLink: any
 declare const TypeError: any
-type InferrableClientTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCLink<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypeError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InferrableClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCLink<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateTRPCClientOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CreateTRPCClientOptions(TRouter: InferrableClientTypes) {
   return { links: arrayOf(TRPCLink(TRouter)), transformer: optional(TypeError('The transformer property has moved to httpLink/httpBatchLink/wsLink')) }
 }
 /* compiles to:
- * export type CreateTRPCClientOptions<TRouter extends InferrableClientTypes> = { links: TRPCLink<TRouter>[]; transformer?: TypeError<'The transformer property has moved to httpLink/httpBatchLink/wsLink'> }
+ * export type CreateTRPCClientOptions<TRouter extends InferrableClientTypes> = {
+ *   links: TRPCLink<TRouter>[]
+ *   transformer?: TypeError<'The transformer property has moved to httpLink/httpBatchLink/wsLink'>
+ * }
  */

@@ -11,12 +11,22 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SingleStoreJsonBuilder: any
-type SingleStoreJsonBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SingleStoreJsonBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreJsonBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreJsonBuilderInitial(TName: string) {
   return SingleStoreJsonBuilder({ name: TName, dataType: 'json', columnType: 'SingleStoreJson', data: unknown, driverParam: string, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreJsonBuilderInitial<TName extends string> = SingleStoreJsonBuilder<{ name: TName; dataType: 'json'; columnType: 'SingleStoreJson'; data: unknown; driverParam: string; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreJsonBuilderInitial<TName extends string> = SingleStoreJsonBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'json'
+ *     columnType: 'SingleStoreJson'
+ *     data: unknown
+ *     driverParam: string
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */

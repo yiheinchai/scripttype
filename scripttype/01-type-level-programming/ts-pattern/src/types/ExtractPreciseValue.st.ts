@@ -23,20 +23,20 @@ declare const ak: any
 declare const av: any
 declare const bk: any
 declare const bv: any
-type BuiltInObjects<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Compute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Contains<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractPreciseValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsPlainObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsReadonlyArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LeastUpperBound<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybeAddReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Override<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ak<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type av<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type bk<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type bv<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltInObjects<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Compute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Contains<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractPreciseValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsPlainObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsReadonlyArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LeastUpperBound<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybeAddReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Override<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ak<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type av<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type bk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type bv<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtractPreciseValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExtractPreciseValue(a, b) {
@@ -94,11 +94,11 @@ export function ExtractPreciseValue(a, b) {
       }
       const out = emptyObject
       for (const k in keyof(a)) {
-        out[matches<keyof typeof b>(k) ? never : k] = a[k]
+        out[k in b ? never : k] = a[k]
       }
       const out2 = emptyObject
       for (const k in keyof(b)) {
-        out2[k] = matches<keyof typeof a>(k) ? ExtractPreciseValue(a[k], b[k]) : b[k]
+        out2[k] = k in a ? ExtractPreciseValue(a[k], b[k]) : b[k]
       }
       const m6 = matches<Hole<"result">>(Compute(out & out2))
       if (m6) {
@@ -114,7 +114,32 @@ export function ExtractPreciseValue(a, b) {
   return LeastUpperBound(a, b)
 }
 /* compiles to:
- * export type ExtractPreciseValue<a, b> = b extends Override<infer b1> ? b1 : unknown extends b ? a : 0 extends 1 & b ? a : 0 extends 1 & a ? b : b extends readonly any[] ? ExtractPreciseArrayValue<a, b, IsReadonlyArray<a>> : b extends Map<infer bk, infer bv> ? a extends Map<infer ak, infer av> ? Map<ExtractPreciseValue<ak, bk>, ExtractPreciseValue<av, bv>> : LeastUpperBound<a, b> : b extends Set<infer bv> ? a extends Set<infer av> ? Set<ExtractPreciseValue<av, bv>> : LeastUpperBound<a, b> : IsPlainObject<b, BuiltInObjects | Error> extends true ? a extends object ? a extends b ? a : b extends a ? Contains<b, never> extends true ? never : Contains<Omit<b, keyof a>, {}> extends true ? never : [Exclude<keyof a, keyof b>] extends [never] ? b : Compute<b & Omit<a, keyof b>> : [keyof a & keyof b] extends [never] ? never : Compute<{ [K in keyof a as K extends keyof b ? never : K]: a[K] } & { [K1 in keyof b]: K1 extends keyof a ? ExtractPreciseValue<a[K1], b[K1]> : b[K1] }> extends infer result ? Contains<Pick<result, keyof result & keyof b>, never> extends true ? never : result : never : LeastUpperBound<a, b> : LeastUpperBound<a, b>
+ * export type ExtractPreciseValue<a, b> =
+ *   b extends Override<infer b1> ? b1
+ *   : unknown extends b ? a
+ *   : 0 extends 1 & b ? a
+ *   : 0 extends 1 & a ? b
+ *   : b extends readonly any[] ? ExtractPreciseArrayValue<a, b, IsReadonlyArray<a>>
+ *   : b extends Map<infer bk, infer bv>
+ *     ? a extends Map<infer ak, infer av>
+ *       ? Map<ExtractPreciseValue<ak, bk>, ExtractPreciseValue<av, bv>>
+ *       : LeastUpperBound<a, b>
+ *   : b extends Set<infer bv>
+ *     ? a extends Set<infer av> ? Set<ExtractPreciseValue<av, bv>> : LeastUpperBound<a, b>
+ *   : IsPlainObject<b, BuiltInObjects | Error> extends true
+ *     ? a extends object
+ *       ? a extends b ? a
+ *       : b extends a
+ *         ? Contains<b, never> extends true ? never
+ *         : Contains<Omit<b, keyof a>, {}> extends true ? never
+ *         : [Exclude<keyof a, keyof b>] extends [never] ? b
+ *         : Compute<b & Omit<a, keyof b>>
+ *       : [keyof a & keyof b] extends [never] ? never
+ *       : Compute<{ [K in keyof a as K extends keyof b ? never : K]: a[K] } & { [K1 in keyof b]: K1 extends keyof a ? ExtractPreciseValue<a[K1], b[K1]> : b[K1] }> extends infer result
+ *         ? Contains<Pick<result, keyof result & keyof b>, never> extends true ? never : result
+ *       : never
+ *       : LeastUpperBound<a, b>
+ *   : LeastUpperBound<a, b>
  */
 
 // ✓ ExtractPreciseArrayValue: verified type-identical to the original
@@ -181,5 +206,67 @@ export function ExtractPreciseArrayValue(a, b, isReadonly: boolean, startOutput:
   return LeastUpperBound(a, b)
 }
 /* compiles to:
- * export type ExtractPreciseArrayValue<a, b, isReadonly extends boolean, startOutput extends any[] = [], endOutput extends any[] = []> = a extends readonly (infer aItem)[] ? b extends readonly [] ? MaybeAddReadonly<[...startOutput, ...endOutput], isReadonly> : b extends readonly [infer b1, ...infer bRest] ? a extends readonly [infer a1, ...infer aRest] ? ExtractPreciseValue<a1, b1> extends infer currentValue ? [currentValue] extends [never] ? never : ExtractPreciseArrayValue<aRest, bRest, isReadonly, [...startOutput, currentValue], endOutput> : never : ExtractPreciseValue<aItem, b1> extends infer currentValue ? [currentValue] extends [never] ? never : ExtractPreciseArrayValue<aItem[], bRest, isReadonly, [...startOutput, currentValue], endOutput> : never : b extends readonly [...infer bInit, infer b1] ? a extends readonly [...infer aInit, infer a1] ? ExtractPreciseValue<a1, b1> extends infer currentValue ? [currentValue] extends [never] ? never : ExtractPreciseArrayValue<aInit, bInit, isReadonly, startOutput, [...endOutput, currentValue]> : never : ExtractPreciseValue<aItem, b1> extends infer currentValue ? [currentValue] extends [never] ? never : ExtractPreciseArrayValue<aItem[], bInit, isReadonly, startOutput, [...endOutput, currentValue]> : never : ExtractPreciseValue<aItem, ValueOf<b>> extends infer currentValue ? [currentValue] extends [never] ? never : MaybeAddReadonly<[...startOutput, ...currentValue[], ...endOutput], isReadonly> : never : LeastUpperBound<a, b>
+ * export type ExtractPreciseArrayValue<
+ *   a,
+ *   b,
+ *   isReadonly extends boolean,
+ *   startOutput extends any[] = [],
+ *   endOutput extends any[] = []
+ * > =
+ *   a extends readonly (infer aItem)[]
+ *     ? b extends readonly [] ? MaybeAddReadonly<[...startOutput, ...endOutput], isReadonly>
+ *     : b extends readonly [infer b1, ...infer bRest]
+ *       ? a extends readonly [infer a1, ...infer aRest]
+ *         ? ExtractPreciseValue<a1, b1> extends infer currentValue
+ *           ? [currentValue] extends [never]
+ *             ? never
+ *             : ExtractPreciseArrayValue<
+ *               aRest,
+ *               bRest,
+ *               isReadonly,
+ *               [...startOutput, currentValue],
+ *               endOutput
+ *             >
+ *           : never
+ *       : ExtractPreciseValue<aItem, b1> extends infer currentValue
+ *         ? [currentValue] extends [never]
+ *           ? never
+ *           : ExtractPreciseArrayValue<
+ *             aItem[],
+ *             bRest,
+ *             isReadonly,
+ *             [...startOutput, currentValue],
+ *             endOutput
+ *           >
+ *       : never
+ *     : b extends readonly [...infer bInit, infer b1]
+ *       ? a extends readonly [...infer aInit, infer a1]
+ *         ? ExtractPreciseValue<a1, b1> extends infer currentValue
+ *           ? [currentValue] extends [never]
+ *             ? never
+ *             : ExtractPreciseArrayValue<
+ *               aInit,
+ *               bInit,
+ *               isReadonly,
+ *               startOutput,
+ *               [...endOutput, currentValue]
+ *             >
+ *           : never
+ *       : ExtractPreciseValue<aItem, b1> extends infer currentValue
+ *         ? [currentValue] extends [never]
+ *           ? never
+ *           : ExtractPreciseArrayValue<
+ *             aItem[],
+ *             bInit,
+ *             isReadonly,
+ *             startOutput,
+ *             [...endOutput, currentValue]
+ *           >
+ *       : never
+ *     : ExtractPreciseValue<aItem, ValueOf<b>> extends infer currentValue
+ *       ? [currentValue] extends [never]
+ *         ? never
+ *         : MaybeAddReadonly<[...startOutput, ...currentValue[], ...endOutput], isReadonly>
+ *     : never
+ *     : LeastUpperBound<a, b>
  */

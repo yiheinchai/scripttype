@@ -10,6 +10,15 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace ArkAmbient {
+  export type $<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Scanner {
+  export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type shiftUntil<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type skipWhitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ArkAmbient: any
 declare const BaseCompletions: any
 declare const BigintLiteral: any
@@ -34,32 +43,32 @@ declare const writeInvalidGenericArgCountMessage: any
 declare const writeNonSubmoduleDotMessage: any
 declare const writePrefixedPrivateReferenceMessage: any
 declare const writeUnresolvableMessage: any
-type ArkAmbient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseCompletions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BigintLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GenericAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GenericInstantiationAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferredAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NumberLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParsedArgs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scanner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TerminatingChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type arkKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type from<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type genericParamNames<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type lastOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseGenericArgs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type resolutionToAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type resolvableReferenceIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type shift<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type shiftResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeInvalidGenericArgCountMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeNonSubmoduleDotMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writePrefixedPrivateReferenceMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnresolvableMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ArkAmbient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseCompletions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BigintLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GenericAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GenericInstantiationAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferredAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NumberLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParsedArgs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TerminatingChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type arkKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type from<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type genericParamNames<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type lastOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseGenericArgs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type resolutionToAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type resolvableReferenceIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeInvalidGenericArgCountMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeNonSubmoduleDotMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writePrefixedPrivateReferenceMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnresolvableMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseUnenclosed: the ScriptType does not itself typecheck as TypeScript
-//   parseUnenclosed.st.ts(3:23) TS2702: 'Scanner' only refers to a type, but is being used as a namespace here.
+//   parseUnenclosed.st.ts(5:24) TS2503: Cannot find namespace 's'.
 /* @scripttype preserveParamNames */
 export function parseUnenclosed(s: StaticState, $, args) {
   const m1 = matches<(Scanner.shiftResult<Hole<"token">, Hole<"unscanned">>)>(Scanner.shiftUntil(s['unscanned'], TerminatingChar))
@@ -73,7 +82,10 @@ export function parseUnenclosed(s: StaticState, $, args) {
   return never
 }
 /* compiles to:
- * export type parseUnenclosed<s extends StaticState, $, args> = Scanner.shiftUntil<s['unscanned'], TerminatingChar> extends Scanner.shiftResult<infer token, infer unscanned> ? tryResolve<s, unscanned, token, $, args> extends s.from<infer s> ? s : never : never
+ * export type parseUnenclosed<s extends StaticState, $, args> =
+ *   Scanner.shiftUntil<s['unscanned'], TerminatingChar> extends Scanner.shiftResult<infer token, infer unscanned>
+ *     ? tryResolve<s, unscanned, token, $, args> extends s.from<infer s> ? s : never
+ *     : never
  */
 
 // ✗ parseResolution: does not compile yet
@@ -113,16 +125,16 @@ export function parseGenericInstantiation(name: string, g: GenericAst, s: Static
 //   only direct calls are supported
 /* @scripttype preserveParamNames */
 export function tryResolve(s: StaticState, unscanned: string, token: string, $, args) {
-  if (matches<keyof typeof args>(token)) {
+  if (token in args) {
     return parseResolution(s, unscanned, token, args[token], $, args)
   }
-  if (matches<keyof typeof $>(token)) {
+  if (token in $) {
     return parseResolution(s, unscanned, token, $[token], $, args)
   }
-  if (matches<keyof ArkAmbient.$>(token)) {
+  if (token in ArkAmbient.$) {
     return parseResolution(s, unscanned, token, ArkAmbient.$[token], $, args)
   }
-  if (matches<keyof typeof $>(`#${token}`)) {
+  if (`#${token}` in $) {
     return parseResolution(s, unscanned, token, $[`#${token}`], $, args)
   }
   const m1 = matches<NumberLiteral<Hole<"n">>>(token)
@@ -152,7 +164,7 @@ export function tryResolve(s: StaticState, unscanned: string, token: string, $, 
 /* @scripttype preserveParamNames */
 export function tryResolveSubmodule(token: string, resolution, reference: string, s: StaticState, unscanned: string, $, args, submodulePath: string[]) {
   if (matches<{ [arkKind]: "module"; }>(resolution)) {
-    if (matches<keyof typeof resolution>(reference)) {
+    if (reference in resolution) {
       return parseResolution(s, unscanned, token, resolution[reference], $, args)
     }
     const m1 = matches<(`${Hole<"nestedSubmodule", keyof resolution & string>}.${Hole<"nestedReference">}`)>(reference)
@@ -189,7 +201,10 @@ export function qualifiedReference(reference: string, submodulePath: string[]) {
   return join([...submodulePath, reference], '.')
 }
 /* compiles to:
- * export type qualifiedReference<reference extends string, submodulePath extends string[]> = Join<[...submodulePath, reference], '.'>
+ * export type qualifiedReference<reference extends string, submodulePath extends string[]> = Join<
+ *   [...submodulePath, reference],
+ *   '.'
+ * >
  */
 
 // ✓ validReferenceFromToken: verified type-identical to the original
@@ -198,7 +213,16 @@ export function validReferenceFromToken(token: string, $, args, submodulePath: s
   return Extract(matches<0>(submodulePath['length']) ? BaseCompletions($, args) : resolvableReferenceIn($), `${token}${string}`)
 }
 /* compiles to:
- * export type validReferenceFromToken<token extends string, $, args, submodulePath extends string[]> = Extract<submodulePath['length'] extends 0 ? BaseCompletions<$, args> : resolvableReferenceIn<$>, `${token}${string}`>
+ * export type validReferenceFromToken<
+ *   token extends string,
+ *   $,
+ *   args,
+ *   submodulePath extends string[]
+ * > =
+ *   Extract<
+ *     submodulePath['length'] extends 0 ? BaseCompletions<$, args> : resolvableReferenceIn<$>,
+ *     `${token}${string}`
+ *   >
  */
 
 // ✓ writeMissingRightOperandMessage: verified type-identical to the original
@@ -207,7 +231,11 @@ export function writeMissingRightOperandMessage(token: string, unscanned: string
   return `Token '${token}' requires a right operand${matches<"">(unscanned) ? '' : ` before '${unscanned}'`}`
 }
 /* compiles to:
- * export type writeMissingRightOperandMessage<token extends string, unscanned extends string = ''> = `Token '${token}' requires a right operand${unscanned extends '' ? '' : ` before '${unscanned}'`}`
+ * export type writeMissingRightOperandMessage<
+ *   token extends string,
+ *   unscanned extends string = ''
+ * > =
+ *   `Token '${token}' requires a right operand${unscanned extends '' ? '' : ` before '${unscanned}'`}`
  */
 
 // ✓ writeExpressionExpectedMessage: verified type-identical to the original

@@ -25,28 +25,37 @@ declare const RequestStatusFlags: any
 declare const SkipToken: any
 declare const TagTypesFrom: any
 declare const _RootState: any
-type EndpointDefinitions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryArgFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryResultFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQuerySubState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationSubState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryArgFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QuerySubState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReducerPathFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequestStatusFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SkipToken<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TagTypesFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _RootState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EndpointDefinitions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryArgFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryResultFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQuerySubState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationSubState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryArgFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QuerySubState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReducerPathFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequestStatusFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SkipToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TagTypesFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _RootState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildSelectorsApiEndpointQuery: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BuildSelectorsApiEndpointQuery(Definition: QueryDefinition<any, any, any, any, any>, Definitions: EndpointDefinitions) {
   return { select: QueryResultSelectorFactory(Definition, _RootState(Definitions, TagTypesFrom(Definition), ReducerPathFrom(Definition))) }
 }
 /* compiles to:
- * export type BuildSelectorsApiEndpointQuery<Definition extends QueryDefinition<any, any, any, any, any>, Definitions extends EndpointDefinitions> = { select: QueryResultSelectorFactory<Definition, _RootState<Definitions, TagTypesFrom<Definition>, ReducerPathFrom<Definition>>> }
+ * export type BuildSelectorsApiEndpointQuery<
+ *   Definition extends QueryDefinition<any, any, any, any, any>,
+ *   Definitions extends EndpointDefinitions
+ * > =
+ *   {
+ *     select: QueryResultSelectorFactory<
+ *       Definition,
+ *       _RootState<Definitions, TagTypesFrom<Definition>, ReducerPathFrom<Definition>>
+ *     >
+ *   }
  */
 
 // ✓ BuildSelectorsApiEndpointInfiniteQuery: verified type-identical to the original
@@ -55,7 +64,16 @@ export function BuildSelectorsApiEndpointInfiniteQuery(Definition: InfiniteQuery
   return { select: InfiniteQueryResultSelectorFactory(Definition, _RootState(Definitions, TagTypesFrom(Definition), ReducerPathFrom(Definition))) }
 }
 /* compiles to:
- * export type BuildSelectorsApiEndpointInfiniteQuery<Definition extends InfiniteQueryDefinition<any, any, any, any, any>, Definitions extends EndpointDefinitions> = { select: InfiniteQueryResultSelectorFactory<Definition, _RootState<Definitions, TagTypesFrom<Definition>, ReducerPathFrom<Definition>>> }
+ * export type BuildSelectorsApiEndpointInfiniteQuery<
+ *   Definition extends InfiniteQueryDefinition<any, any, any, any, any>,
+ *   Definitions extends EndpointDefinitions
+ * > =
+ *   {
+ *     select: InfiniteQueryResultSelectorFactory<
+ *       Definition,
+ *       _RootState<Definitions, TagTypesFrom<Definition>, ReducerPathFrom<Definition>>
+ *     >
+ *   }
  */
 
 // ✓ BuildSelectorsApiEndpointMutation: verified type-identical to the original
@@ -64,7 +82,16 @@ export function BuildSelectorsApiEndpointMutation(Definition: MutationDefinition
   return { select: MutationResultSelectorFactory(Definition, _RootState(Definitions, TagTypesFrom(Definition), ReducerPathFrom(Definition))) }
 }
 /* compiles to:
- * export type BuildSelectorsApiEndpointMutation<Definition extends MutationDefinition<any, any, any, any, any>, Definitions extends EndpointDefinitions> = { select: MutationResultSelectorFactory<Definition, _RootState<Definitions, TagTypesFrom<Definition>, ReducerPathFrom<Definition>>> }
+ * export type BuildSelectorsApiEndpointMutation<
+ *   Definition extends MutationDefinition<any, any, any, any, any>,
+ *   Definitions extends EndpointDefinitions
+ * > =
+ *   {
+ *     select: MutationResultSelectorFactory<
+ *       Definition,
+ *       _RootState<Definitions, TagTypesFrom<Definition>, ReducerPathFrom<Definition>>
+ *     >
+ *   }
  */
 
 // ✓ QueryResultSelectorFactory: verified type-identical to the original
@@ -73,7 +100,13 @@ export function QueryResultSelectorFactory(Definition: QueryDefinition<any, any,
   return fnType([QueryArgFrom(Definition) | SkipToken], fnType([RootState], QueryResultSelectorResult(Definition)))
 }
 /* compiles to:
- * export type QueryResultSelectorFactory<Definition extends QueryDefinition<any, any, any, any>, RootState> = (a0: QueryArgFrom<Definition> | SkipToken) => (a0: RootState) => QueryResultSelectorResult<Definition>
+ * export type QueryResultSelectorFactory<
+ *   Definition extends QueryDefinition<any, any, any, any>,
+ *   RootState
+ * > =
+ *   (a0: QueryArgFrom<Definition> | SkipToken) => (a0: RootState) => QueryResultSelectorResult<
+ *     Definition
+ *   >
  */
 
 // ✓ QueryResultSelectorResult: verified type-identical to the original
@@ -82,7 +115,8 @@ export function QueryResultSelectorResult(Definition: QueryDefinition<any, any, 
   return QuerySubState(Definition) & RequestStatusFlags
 }
 /* compiles to:
- * export type QueryResultSelectorResult<Definition extends QueryDefinition<any, any, any, any>> = QuerySubState<Definition> & RequestStatusFlags
+ * export type QueryResultSelectorResult<Definition extends QueryDefinition<any, any, any, any>> =
+ *   QuerySubState<Definition> & RequestStatusFlags
  */
 
 // ✓ InfiniteQueryResultSelectorFactory: verified type-identical to the original
@@ -91,7 +125,13 @@ export function InfiniteQueryResultSelectorFactory(Definition: InfiniteQueryDefi
   return fnType([InfiniteQueryArgFrom(Definition) | SkipToken], fnType([RootState], InfiniteQueryResultSelectorResult(Definition)))
 }
 /* compiles to:
- * export type InfiniteQueryResultSelectorFactory<Definition extends InfiniteQueryDefinition<any, any, any, any, any>, RootState> = (a0: InfiniteQueryArgFrom<Definition> | SkipToken) => (a0: RootState) => InfiniteQueryResultSelectorResult<Definition>
+ * export type InfiniteQueryResultSelectorFactory<
+ *   Definition extends InfiniteQueryDefinition<any, any, any, any, any>,
+ *   RootState
+ * > =
+ *   (a0: InfiniteQueryArgFrom<Definition> | SkipToken) => (a0: RootState) => InfiniteQueryResultSelectorResult<
+ *     Definition
+ *   >
  */
 
 // ✓ InfiniteQueryResultSelectorResult: verified type-identical to the original
@@ -100,7 +140,10 @@ export function InfiniteQueryResultSelectorResult(Definition: InfiniteQueryDefin
   return InfiniteQuerySubState(Definition) & RequestStatusFlags & InfiniteQueryResultFlags
 }
 /* compiles to:
- * export type InfiniteQueryResultSelectorResult<Definition extends InfiniteQueryDefinition<any, any, any, any, any>> = InfiniteQuerySubState<Definition> & RequestStatusFlags & InfiniteQueryResultFlags
+ * export type InfiniteQueryResultSelectorResult<
+ *   Definition extends InfiniteQueryDefinition<any, any, any, any, any>
+ * > =
+ *   InfiniteQuerySubState<Definition> & RequestStatusFlags & InfiniteQueryResultFlags
  */
 
 // ✓ MutationResultSelectorFactory: verified type-identical to the original
@@ -109,7 +152,13 @@ export function MutationResultSelectorFactory(Definition: MutationDefinition<any
   return fnType([anyOf(string, { requestId: anyOf(string, Undefined), fixedCacheKey: anyOf(string, Undefined) }, SkipToken)], fnType([RootState], MutationResultSelectorResult(Definition)))
 }
 /* compiles to:
- * export type MutationResultSelectorFactory<Definition extends MutationDefinition<any, any, any, any>, RootState> = (a0: string | { requestId: string | undefined; fixedCacheKey: string | undefined } | SkipToken) => (a0: RootState) => MutationResultSelectorResult<Definition>
+ * export type MutationResultSelectorFactory<
+ *   Definition extends MutationDefinition<any, any, any, any>,
+ *   RootState
+ * > =
+ *   (
+ *     a0: string | { requestId: string | undefined; fixedCacheKey: string | undefined } | SkipToken
+ *   ) => (a0: RootState) => MutationResultSelectorResult<Definition>
  */
 
 // ✓ MutationResultSelectorResult: verified type-identical to the original
@@ -118,5 +167,8 @@ export function MutationResultSelectorResult(Definition: MutationDefinition<any,
   return MutationSubState(Definition) & RequestStatusFlags
 }
 /* compiles to:
- * export type MutationResultSelectorResult<Definition extends MutationDefinition<any, any, any, any>> = MutationSubState<Definition> & RequestStatusFlags
+ * export type MutationResultSelectorResult<
+ *   Definition extends MutationDefinition<any, any, any, any>
+ * > =
+ *   MutationSubState<Definition> & RequestStatusFlags
  */

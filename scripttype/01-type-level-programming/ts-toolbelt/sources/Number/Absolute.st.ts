@@ -14,10 +14,10 @@ declare const Iteration: any
 declare const IterationOf: any
 declare const _IsNegative: any
 declare const _Negate: any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _IsNegative<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Negate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Negate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _Absolute: does not compile yet
 //   Type '_IsNegative<N>' cannot be used to index type '{ '0': N; '1': _Negate<N>; }'.
 /* @scripttype preserveParamNames */
@@ -37,5 +37,6 @@ export function Absolute(N: number) {
   return never
 }
 /* compiles to:
- * export type Absolute<N extends number> = N extends unknown ? _Absolute<IterationOf<N>>[0] : never
+ * export type Absolute<N extends number> =
+ *   N extends unknown ? _Absolute<IterationOf<N>>[0] : never
  */

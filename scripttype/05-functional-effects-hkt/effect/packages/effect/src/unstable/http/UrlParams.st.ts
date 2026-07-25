@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Coercible: any
 declare const Item: any
-type Coercible<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Item<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Coercible<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Item<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ CoercibleRecordField: does not compile yet
 //   Cannot find name 'm1'.
 /* @scripttype preserveParamNames */
@@ -31,7 +31,12 @@ export function CoercibleRecordField(A) {
   return never
 }
 /* compiles to:
- * export type CoercibleRecordField<A> = A extends Coercible ? A : A extends ReadonlyArray<unknown> ? ReadonlyArray<typeof m1.Item extends Coercible ? typeof m1.Item : never> : A extends object ? CoercibleRecord<A> : never
+ * export type CoercibleRecordField<A> =
+ *   A extends Coercible ? A
+ *   : A extends ReadonlyArray<unknown>
+ *     ? ReadonlyArray<typeof m1.Item extends Coercible ? typeof m1.Item : never>
+ *   : A extends object ? CoercibleRecord<A>
+ *   : never
  */
 
 // ✓ CoercibleRecord: verified type-identical to the original
@@ -44,5 +49,7 @@ export function CoercibleRecord(A: object = any) {
   return out
 }
 /* compiles to:
- * export type CoercibleRecord<A extends object = any> = { readonly [K in keyof A]: CoercibleRecordField<A[K]> }
+ * export type CoercibleRecord<A extends object = any> = {
+ *   readonly [K in keyof A]: CoercibleRecordField<A[K]>
+ * }
  */

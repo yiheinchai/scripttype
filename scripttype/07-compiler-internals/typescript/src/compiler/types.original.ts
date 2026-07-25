@@ -7,47 +7,47 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type DiagnosticCategory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EmitFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EmitHelperFactory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EmitHint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Exclude<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extract<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FileIncludeKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GeneratedIdentifierFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ImportsNotUsedAsValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InternalEmitFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InternalNodeBuilderFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InternalSymbolName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JsxEmit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MapLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ModifierFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ModuleDetectionKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ModuleKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ModuleResolutionCache<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ModuleResolutionKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MultiMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NewLineKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeBuilderFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeCheckFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PackageJsonInfoCache<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PollingWatchKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PragmaKindFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Readonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ScriptTarget<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SnippetKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SymbolAccessibility<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SymbolFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SymlinkCache<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SyntaxKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TokenFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TransformFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypeReferenceSerializationKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WatchDirectoryFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WatchDirectoryKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WatchFileKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DiagnosticCategory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EmitFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EmitHelperFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EmitHint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Exclude<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FileIncludeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GeneratedIdentifierFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ImportsNotUsedAsValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InternalEmitFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InternalNodeBuilderFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InternalSymbolName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JsxEmit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MapLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ModifierFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ModuleDetectionKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ModuleKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ModuleResolutionCache<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ModuleResolutionKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MultiMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NewLineKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeBuilderFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeCheckFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PackageJsonInfoCache<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PollingWatchKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PragmaKindFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Readonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ScriptTarget<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SnippetKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SymbolAccessibility<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SymbolFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SymlinkCache<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SyntaxKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TokenFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TransformFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypeReferenceSerializationKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WatchDirectoryFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WatchDirectoryKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WatchFileKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type MatchingKeys<TRecord, TMatch, K extends keyof TRecord = keyof TRecord> = K extends (TRecord[K] extends TMatch ? K : never) ? K : never;
 
 export type __String = (string & { __escapedIdentifier: void; }) | (void & { __escapedIdentifier: void; }) | InternalSymbolName;

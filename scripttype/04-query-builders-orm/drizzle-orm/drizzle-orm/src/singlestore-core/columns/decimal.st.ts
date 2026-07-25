@@ -13,16 +13,26 @@
 declare const SingleStoreDecimalBigIntBuilder: any
 declare const SingleStoreDecimalBuilder: any
 declare const SingleStoreDecimalNumberBuilder: any
-type SingleStoreDecimalBigIntBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreDecimalBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreDecimalNumberBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SingleStoreDecimalBigIntBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreDecimalBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreDecimalNumberBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreDecimalBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreDecimalBuilderInitial(TName: string) {
   return SingleStoreDecimalBuilder({ name: TName, dataType: 'string', columnType: 'SingleStoreDecimal', data: string, driverParam: string, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreDecimalBuilderInitial<TName extends string> = SingleStoreDecimalBuilder<{ name: TName; dataType: 'string'; columnType: 'SingleStoreDecimal'; data: string; driverParam: string; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreDecimalBuilderInitial<TName extends string> = SingleStoreDecimalBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'SingleStoreDecimal'
+ *     data: string
+ *     driverParam: string
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */
 
 // ✓ SingleStoreDecimalNumberBuilderInitial: verified type-identical to the original
@@ -31,7 +41,17 @@ export function SingleStoreDecimalNumberBuilderInitial(TName: string) {
   return SingleStoreDecimalNumberBuilder({ name: TName, dataType: 'number', columnType: 'SingleStoreDecimalNumber', data: number, driverParam: string, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreDecimalNumberBuilderInitial<TName extends string> = SingleStoreDecimalNumberBuilder<{ name: TName; dataType: 'number'; columnType: 'SingleStoreDecimalNumber'; data: number; driverParam: string; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreDecimalNumberBuilderInitial<TName extends string> = SingleStoreDecimalNumberBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'SingleStoreDecimalNumber'
+ *     data: number
+ *     driverParam: string
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */
 
 // ✓ SingleStoreDecimalBigIntBuilderInitial: verified type-identical to the original
@@ -40,5 +60,15 @@ export function SingleStoreDecimalBigIntBuilderInitial(TName: string) {
   return SingleStoreDecimalBigIntBuilder({ name: TName, dataType: 'bigint', columnType: 'SingleStoreDecimalBigInt', data: bigint, driverParam: string, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreDecimalBigIntBuilderInitial<TName extends string> = SingleStoreDecimalBigIntBuilder<{ name: TName; dataType: 'bigint'; columnType: 'SingleStoreDecimalBigInt'; data: bigint; driverParam: string; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreDecimalBigIntBuilderInitial<TName extends string> = SingleStoreDecimalBigIntBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'bigint'
+ *     columnType: 'SingleStoreDecimalBigInt'
+ *     data: bigint
+ *     driverParam: string
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */

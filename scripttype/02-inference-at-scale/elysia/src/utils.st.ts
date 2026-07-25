@@ -18,14 +18,14 @@ declare const FormData: any
 declare const Prettify: any
 declare const Replace: any
 declare const SSEPayload: any
-type Blob<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ELYSIA_FORM_DATA<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ElysiaFile<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type File<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FormData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Replace<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SSEPayload<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Blob<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ELYSIA_FORM_DATA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ElysiaFile<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type File<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FormData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Replace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SSEPayload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsTuple(T) {
@@ -38,7 +38,8 @@ export function IsTuple(T) {
   return false
 }
 /* compiles to:
- * export type IsTuple<T> = T extends readonly any[] ? number extends T['length'] ? false : true : false
+ * export type IsTuple<T> =
+ *   T extends readonly any[] ? number extends T['length'] ? false : true : false
  */
 
 // ✗ ElysiaFormData: does not compile yet
@@ -53,17 +54,28 @@ export function ElysiaFormData(T: Record<keyof any, unknown>) {
   return merge(FormData, { [ELYSIA_FORM_DATA]: m1 ? out : T })
 }
 /* compiles to:
- * export type ElysiaFormData<T extends Record<keyof any, unknown>> = FormData & { [ELYSIA_FORM_DATA]: Replace<T, Blob | ElysiaFile, File> extends infer A ? { [Key in keyof A]: IsTuple<A[Key]> extends true ? A[Key][number] extends Blob | ElysiaFile ? File[] : A[Key] : A[Key] } : T }
+ * export type ElysiaFormData<T extends Record<keyof any, unknown>> =
+ *   & FormData
+ *   & {
+ *       [ELYSIA_FORM_DATA]: Replace<T, Blob | ElysiaFile, File> extends infer A
+ *         ? {
+ *           [Key in keyof A]: IsTuple<A[Key]> extends true
+ *             ? A[Key][number] extends Blob | ElysiaFile ? File[] : A[Key]
+ *             : A[Key]
+ *         }
+ *         : T
+ *     }
  */
 
 // ✓ FormatSSEPayload: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FormatSSEPayload(T = unknown) {
-  if (matches<string>(T)) {
+  if (typeof T === 'string') {
     return { data: readonlyProp(T) }
   }
   return Prettify(SSEPayload(T))
 }
 /* compiles to:
- * export type FormatSSEPayload<T = unknown> = T extends string ? { readonly data: T } : Prettify<SSEPayload<T>>
+ * export type FormatSSEPayload<T = unknown> =
+ *   T extends string ? { readonly data: T } : Prettify<SSEPayload<T>>
  */

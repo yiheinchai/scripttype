@@ -16,17 +16,23 @@ declare const FailedAction: any
 declare const PauseAction: any
 declare const PendingAction: any
 declare const SuccessAction: any
-type ContinueAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FailedAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PauseAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PendingAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SuccessAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ContinueAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FailedAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PauseAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PendingAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SuccessAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Action: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Action(TData, TError, TVariables, TOnMutateResult) {
   return ContinueAction | ErrorAction(TError) | FailedAction(TError) | PendingAction(TVariables, TOnMutateResult) | PauseAction | SuccessAction(TData)
 }
 /* compiles to:
- * export type Action<TData, TError, TVariables, TOnMutateResult> = ContinueAction | ErrorAction<TError> | FailedAction<TError> | PendingAction<TVariables, TOnMutateResult> | PauseAction | SuccessAction<TData>
+ * export type Action<TData, TError, TVariables, TOnMutateResult> =
+ *   | ContinueAction
+ *   | ErrorAction<TError>
+ *   | FailedAction<TError>
+ *   | PendingAction<TVariables, TOnMutateResult>
+ *   | PauseAction
+ *   | SuccessAction<TData>
  */

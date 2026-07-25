@@ -21,7 +21,8 @@ export function TTupleToIntersect(T: any[]) {
   return never
 }
 /* compiles to:
- * export type TTupleToIntersect<T extends any[]> = T extends [infer I] ? I : T extends [infer I, ...infer R] ? I & TTupleToIntersect<R> : never
+ * export type TTupleToIntersect<T extends any[]> =
+ *   T extends [infer I] ? I : T extends [infer I, ...infer R] ? I & TTupleToIntersect<R> : never
  */
 
 // ✓ TTupleToUnion: verified type-identical to the original
@@ -47,7 +48,8 @@ export function TUnionToIntersect(U) {
   return never
 }
 /* compiles to:
- * export type TUnionToIntersect<U> = (U extends unknown ? (a0: U) => 0 : never) extends (arg: infer I) => 0 ? I : never
+ * export type TUnionToIntersect<U> =
+ *   (U extends unknown ? (a0: U) => 0 : never) extends (arg: infer I) => 0 ? I : never
  */
 
 // ✓ TUnionLast: verified type-identical to the original
@@ -60,7 +62,10 @@ export function TUnionLast(U) {
   return never
 }
 /* compiles to:
- * export type TUnionLast<U> = TUnionToIntersect<U extends unknown ? (a0: U) => 0 : never> extends (x: infer L) => 0 ? L : never
+ * export type TUnionLast<U> =
+ *   TUnionToIntersect<U extends unknown ? (a0: U) => 0 : never> extends (x: infer L) => 0
+ *     ? L
+ *     : never
  */
 
 // ✓ TUnionToTuple: verified type-identical to the original
@@ -72,5 +77,6 @@ export function TUnionToTuple(U, Result: unknown[] = [], R = TUnionLast(U)) {
   return TUnionToTuple(Exclude(U, R), [Extract(U, R), ...Result])
 }
 /* compiles to:
- * export type TUnionToTuple<U, Result extends unknown[] = [], R = TUnionLast<U>> = [U] extends [never] ? Result : TUnionToTuple<Exclude<U, R>, [Extract<U, R>, ...Result]>
+ * export type TUnionToTuple<U, Result extends unknown[] = [], R = TUnionLast<U>> =
+ *   [U] extends [never] ? Result : TUnionToTuple<Exclude<U, R>, [Extract<U, R>, ...Result]>
  */

@@ -7,16 +7,16 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type CreateQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinedCreateQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitKeyof<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueriesPlaceholderDataFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ThrowOnError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CreateQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefinedCreateQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueriesPlaceholderDataFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ThrowOnError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type CreateQueryOptionsForCreateQueries<
   TQueryFnData = unknown,
   TError = DefaultError,

@@ -22,25 +22,29 @@ declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
 declare const TUnion: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCollapseToObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCyclic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TDependent<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TKeyOfDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCollapseToObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TDependent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TKeyOfDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TNormalizeType: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TNormalizeType(Type: TSchema, Result: TSchema = matches<TCyclic>(Type) ? TCollapseToObject(Type) : (matches<TDependent>(Type) ? TCollapseToObject(Type) : (matches<TIntersect>(Type) ? TCollapseToObject(Type) : (matches<TUnion>(Type) ? TCollapseToObject(Type) : Type)))) {
   return Result
 }
 /* compiles to:
- * export type TNormalizeType<Type extends TSchema, Result extends TSchema = Type extends TCyclic ? TCollapseToObject<Type> : Type extends TDependent ? TCollapseToObject<Type> : Type extends TIntersect ? TCollapseToObject<Type> : Type extends TUnion ? TCollapseToObject<Type> : Type> = Result
+ * export type TNormalizeType<
+ *   Type extends TSchema,
+ *   Result extends TSchema = Type extends TCyclic ? TCollapseToObject<Type> : Type extends TDependent ? TCollapseToObject<Type> : Type extends TIntersect ? TCollapseToObject<Type> : Type extends TUnion ? TCollapseToObject<Type> : Type
+ * > =
+ *   Result
  */
 
 // ✓ TKeyOfAction: verified type-identical to the original
@@ -49,7 +53,11 @@ export function TKeyOfAction(Type: TSchema, Result: TSchema = matches<true>(TCan
   return Result
 }
 /* compiles to:
- * export type TKeyOfAction<Type extends TSchema, Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TNormalizeType<Type>> : TKeyOfDeferred<Type>> = Result
+ * export type TKeyOfAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TNormalizeType<Type>> : TKeyOfDeferred<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TKeyOfInstantiate: verified type-identical to the original
@@ -58,5 +66,11 @@ export function TKeyOfInstantiate(Context: TProperties, State: TState, Type: TSc
   return TKeyOfAction(InstantiatedType)
 }
 /* compiles to:
- * export type TKeyOfInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>> = TKeyOfAction<InstantiatedType>
+ * export type TKeyOfInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TKeyOfAction<InstantiatedType>
  */

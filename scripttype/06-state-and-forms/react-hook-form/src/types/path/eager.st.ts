@@ -19,20 +19,20 @@ declare const IsTuple: any
 declare const Prev: any
 declare const Primitive: any
 declare const TupleKeys: any
-type AnyIsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ArrayKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ArrayPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BrowserNativeObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldArrayPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Path<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prev<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Primitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyIsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArrayKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArrayPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BrowserNativeObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldArrayPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Path<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyIsEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AnyIsEqual(T1, T2) {
@@ -45,7 +45,8 @@ export function AnyIsEqual(T1, T2) {
   return never
 }
 /* compiles to:
- * export type AnyIsEqual<T1, T2> = T1 extends T2 ? IsEqual<T1, T2> extends true ? true : never : never
+ * export type AnyIsEqual<T1, T2> =
+ *   T1 extends T2 ? IsEqual<T1, T2> extends true ? true : never : never
  */
 
 // ✓ PathImpl: verified type-identical to the original
@@ -60,7 +61,10 @@ export function PathImpl(K: string | number, V, TraversedTypes, D: number = 9) {
   return anyOf(`${K}`, `${K}.${PathInternal(V, TraversedTypes | V, Prev[D])}`)
 }
 /* compiles to:
- * export type PathImpl<K extends string | number, V, TraversedTypes, D extends number = 9> = V extends Primitive | BrowserNativeObject ? `${K}` : true extends AnyIsEqual<TraversedTypes, V> ? `${K}` : `${K}` | `${K}.${PathInternal<V, TraversedTypes | V, Prev[D]>}`
+ * export type PathImpl<K extends string | number, V, TraversedTypes, D extends number = 9> =
+ *   V extends Primitive | BrowserNativeObject ? `${K}`
+ *   : true extends AnyIsEqual<TraversedTypes, V> ? `${K}`
+ *   : `${K}` | `${K}.${PathInternal<V, TraversedTypes | V, Prev[D]>}`
  */
 
 // ✓ PathInternal: verified type-identical to the original
@@ -87,7 +91,13 @@ export function PathInternal(T, TraversedTypes = T, D: number = 9) {
   return out2[keyof(T)]
 }
 /* compiles to:
- * export type PathInternal<T, TraversedTypes = T, D extends number = 9> = [D] extends [never] ? never : T extends ReadonlyArray<infer V> ? IsTuple<T> extends true ? { [K in TupleKeys<T>]-?: PathImpl<K & string, T[K], TraversedTypes, D> }[TupleKeys<T>] : PathImpl<ArrayKey, V, TraversedTypes, D> : { [K1 in keyof T]-?: PathImpl<K1 & string, T[K1], TraversedTypes, D> }[keyof T]
+ * export type PathInternal<T, TraversedTypes = T, D extends number = 9> =
+ *   [D] extends [never] ? never
+ *   : T extends ReadonlyArray<infer V>
+ *     ? IsTuple<T> extends true
+ *       ? { [K in TupleKeys<T>]-?: PathImpl<K & string, T[K], TraversedTypes, D> }[TupleKeys<T>]
+ *       : PathImpl<ArrayKey, V, TraversedTypes, D>
+ *   : { [K1 in keyof T]-?: PathImpl<K1 & string, T[K1], TraversedTypes, D> }[keyof T]
  */
 
 // ✓ Path: verified type-identical to the original
@@ -139,7 +149,14 @@ export function ArrayPathImpl(K: string | number, V, TraversedTypes, D: number =
   return `${K}.${ArrayPathInternal(V, TraversedTypes | V, Prev[D])}`
 }
 /* compiles to:
- * export type ArrayPathImpl<K extends string | number, V, TraversedTypes, D extends number = 9> = V extends Primitive | BrowserNativeObject ? IsAny<V> extends true ? string : never : V extends ReadonlyArray<infer U> ? U extends Primitive | BrowserNativeObject ? IsAny<V> extends true ? string : never : true extends AnyIsEqual<TraversedTypes, V> ? never : `${K}` | `${K}.${ArrayPathInternal<V, TraversedTypes | V, Prev[D]>}` : true extends AnyIsEqual<TraversedTypes, V> ? never : `${K}.${ArrayPathInternal<V, TraversedTypes | V, Prev[D]>}`
+ * export type ArrayPathImpl<K extends string | number, V, TraversedTypes, D extends number = 9> =
+ *   V extends Primitive | BrowserNativeObject ? IsAny<V> extends true ? string : never
+ *   : V extends ReadonlyArray<infer U>
+ *     ? U extends Primitive | BrowserNativeObject ? IsAny<V> extends true ? string : never
+ *     : true extends AnyIsEqual<TraversedTypes, V> ? never
+ *     : `${K}` | `${K}.${ArrayPathInternal<V, TraversedTypes | V, Prev[D]>}`
+ *   : true extends AnyIsEqual<TraversedTypes, V> ? never
+ *   : `${K}.${ArrayPathInternal<V, TraversedTypes | V, Prev[D]>}`
  */
 
 // ✓ ArrayPathInternal: verified type-identical to the original
@@ -166,7 +183,13 @@ export function ArrayPathInternal(T, TraversedTypes = T, D: number = 9) {
   return out2[keyof(T)]
 }
 /* compiles to:
- * export type ArrayPathInternal<T, TraversedTypes = T, D extends number = 9> = [D] extends [never] ? never : T extends ReadonlyArray<infer V> ? IsTuple<T> extends true ? { [K in TupleKeys<T>]-?: ArrayPathImpl<K & string, T[K], TraversedTypes, D> }[TupleKeys<T>] : ArrayPathImpl<ArrayKey, V, TraversedTypes, D> : { [K1 in keyof T]-?: ArrayPathImpl<K1 & string, T[K1], TraversedTypes, D> }[keyof T]
+ * export type ArrayPathInternal<T, TraversedTypes = T, D extends number = 9> =
+ *   [D] extends [never] ? never
+ *   : T extends ReadonlyArray<infer V>
+ *     ? IsTuple<T> extends true
+ *       ? { [K in TupleKeys<T>]-?: ArrayPathImpl<K & string, T[K], TraversedTypes, D> }[TupleKeys<T>]
+ *       : ArrayPathImpl<ArrayKey, V, TraversedTypes, D>
+ *   : { [K1 in keyof T]-?: ArrayPathImpl<K1 & string, T[K1], TraversedTypes, D> }[keyof T]
  */
 
 // ✓ ArrayPath: verified type-identical to the original
@@ -205,7 +228,7 @@ export function PathValueImpl(T, P: string) {
   if (matches<any>(T)) {
     const m1 = matches<`${Hole<"K">}.${Hole<"R">}`>(P)
     if (m1) {
-      if (matches<keyof typeof T>(m1.K)) {
+      if (m1.K in T) {
         if (matches<(typeof T)[typeof m1.K]>(Undefined)) {
           return anyOf(PathValueImpl(T[m1.K], m1.R), Undefined)
         }
@@ -220,7 +243,7 @@ export function PathValueImpl(T, P: string) {
       }
       return never
     }
-    if (matches<keyof typeof T>(P)) {
+    if (P in T) {
       return T[P]
     }
     if (matches<`${ArrayKey}`>(P)) {
@@ -228,7 +251,7 @@ export function PathValueImpl(T, P: string) {
       if (m3) {
         return m3.V
       }
-      if (matches<undefined>(T)) {
+      if (typeof T === 'undefined') {
         return Undefined
       }
       return never
@@ -238,7 +261,18 @@ export function PathValueImpl(T, P: string) {
   return never
 }
 /* compiles to:
- * export type PathValueImpl<T, P extends string> = T extends any ? P extends `${infer K}.${infer R}` ? K extends keyof T ? undefined extends T[K] ? PathValueImpl<T[K], R> | undefined : PathValueImpl<T[K], R> : K extends `${ArrayKey}` ? T extends ReadonlyArray<infer V> ? PathValueImpl<V, R> : never : never : P extends keyof T ? T[P] : P extends `${ArrayKey}` ? T extends ReadonlyArray<infer V> ? V : T extends undefined ? undefined : never : never : never
+ * export type PathValueImpl<T, P extends string> =
+ *   T extends any
+ *     ? P extends `${infer K}.${infer R}`
+ *       ? K extends keyof T
+ *         ? undefined extends T[K] ? PathValueImpl<T[K], R> | undefined : PathValueImpl<T[K], R>
+ *       : K extends `${ArrayKey}` ? T extends ReadonlyArray<infer V> ? PathValueImpl<V, R> : never
+ *       : never
+ *     : P extends keyof T ? T[P]
+ *     : P extends `${ArrayKey}`
+ *       ? T extends ReadonlyArray<infer V> ? V : T extends undefined ? undefined : never
+ *     : never
+ *     : never
  */
 
 // ✓ FieldPathValue: verified type-identical to the original
@@ -247,7 +281,11 @@ export function FieldPathValue(TFieldValues: FieldValues, TFieldPath: FieldPath<
   return PathValue(TFieldValues, TFieldPath)
 }
 /* compiles to:
- * export type FieldPathValue<TFieldValues extends FieldValues, TFieldPath extends FieldPath<TFieldValues>> = PathValue<TFieldValues, TFieldPath>
+ * export type FieldPathValue<
+ *   TFieldValues extends FieldValues,
+ *   TFieldPath extends FieldPath<TFieldValues>
+ * > =
+ *   PathValue<TFieldValues, TFieldPath>
  */
 
 // ✓ FieldArrayPathValue: verified type-identical to the original
@@ -256,7 +294,11 @@ export function FieldArrayPathValue(TFieldValues: FieldValues, TFieldArrayPath: 
   return PathValue(TFieldValues, TFieldArrayPath)
 }
 /* compiles to:
- * export type FieldArrayPathValue<TFieldValues extends FieldValues, TFieldArrayPath extends FieldArrayPath<TFieldValues>> = PathValue<TFieldValues, TFieldArrayPath>
+ * export type FieldArrayPathValue<
+ *   TFieldValues extends FieldValues,
+ *   TFieldArrayPath extends FieldArrayPath<TFieldValues>
+ * > =
+ *   PathValue<TFieldValues, TFieldArrayPath>
  */
 
 // ✓ FieldPathValues: verified type-identical to the original
@@ -269,7 +311,11 @@ export function FieldPathValues(TFieldValues: FieldValues, TPath: FieldPath<type
   return merge({}, out)
 }
 /* compiles to:
- * export type FieldPathValues<TFieldValues extends FieldValues, TPath extends FieldPath<TFieldValues>[] | readonly FieldPath<TFieldValues>[]> = {} & { [K in keyof TPath]: FieldPathValue<TFieldValues, TPath[K] & FieldPath<TFieldValues>> }
+ * export type FieldPathValues<
+ *   TFieldValues extends FieldValues,
+ *   TPath extends FieldPath<TFieldValues>[] | readonly FieldPath<TFieldValues>[]
+ * > =
+ *   {} & { [K in keyof TPath]: FieldPathValue<TFieldValues, TPath[K] & FieldPath<TFieldValues>> }
  */
 
 // ✓ FieldPathByValue: verified type-identical to the original
@@ -282,7 +328,12 @@ export function FieldPathByValue(TFieldValues: FieldValues, TValue) {
   return out[FieldPath(TFieldValues)]
 }
 /* compiles to:
- * export type FieldPathByValue<TFieldValues extends FieldValues, TValue> = { [Key in FieldPath<TFieldValues>]: FieldPathValue<TFieldValues, Key> extends TValue ? Key : never }[FieldPath<TFieldValues>]
+ * export type FieldPathByValue<TFieldValues extends FieldValues, TValue> =
+ *   {
+ *     [Key in FieldPath<TFieldValues>]: FieldPathValue<TFieldValues, Key> extends TValue
+ *       ? Key
+ *       : never
+ *   }[FieldPath<TFieldValues>]
  */
 
 // ✓ FieldArrayPathByValue: verified type-identical to the original
@@ -295,5 +346,10 @@ export function FieldArrayPathByValue(TFieldValues: FieldValues, TValue) {
   return out[FieldArrayPath(TFieldValues)]
 }
 /* compiles to:
- * export type FieldArrayPathByValue<TFieldValues extends FieldValues, TValue> = { [Key in FieldArrayPath<TFieldValues>]: FieldArrayPathValue<TFieldValues, Key> extends TValue ? Key : never }[FieldArrayPath<TFieldValues>]
+ * export type FieldArrayPathByValue<TFieldValues extends FieldValues, TValue> =
+ *   {
+ *     [Key in FieldArrayPath<TFieldValues>]: FieldArrayPathValue<TFieldValues, Key> extends TValue
+ *       ? Key
+ *       : never
+ *   }[FieldArrayPath<TFieldValues>]
  */

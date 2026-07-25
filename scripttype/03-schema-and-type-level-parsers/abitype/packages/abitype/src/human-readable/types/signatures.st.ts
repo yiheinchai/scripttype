@@ -16,18 +16,18 @@ declare const SolidityKeywords: any
 declare const ValidCharacters: any
 declare const ValidConstructorSignatures: any
 declare const ValidFunctionSignatures: any
-type ConstructorSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FallbackSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FunctionSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InvalidFunctionParameters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReceiveSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SolidityKeywords<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StructSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidCharacters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidConstructorSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidFunctionSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ConstructorSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FallbackSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FunctionSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InvalidFunctionParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReceiveSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SolidityKeywords<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StructSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidCharacters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidConstructorSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidFunctionSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ErrorSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ErrorSignature(name: string = string, parameters: string = string) {
@@ -47,7 +47,8 @@ export function IsErrorSignature(signature: string) {
   return false
 }
 /* compiles to:
- * export type IsErrorSignature<signature extends string> = signature extends ErrorSignature<infer name> ? IsName<name> : false
+ * export type IsErrorSignature<signature extends string> =
+ *   signature extends ErrorSignature<infer name> ? IsName<name> : false
  */
 
 // ✓ EventSignature: verified type-identical to the original
@@ -69,7 +70,8 @@ export function IsEventSignature(signature: string) {
   return false
 }
 /* compiles to:
- * export type IsEventSignature<signature extends string> = signature extends EventSignature<infer name> ? IsName<name> : false
+ * export type IsEventSignature<signature extends string> =
+ *   signature extends EventSignature<infer name> ? IsName<name> : false
  */
 
 // ✓ FunctionSignature: verified type-identical to the original
@@ -104,7 +106,15 @@ export function IsFunctionSignature(signature) {
   return false
 }
 /* compiles to:
- * export type IsFunctionSignature<signature> = signature extends FunctionSignature<infer name> ? IsName<name> extends true ? signature extends ValidFunctionSignatures ? true : signature extends `function ${string}(${infer parameters})` ? parameters extends InvalidFunctionParameters ? false : true : false : false : false
+ * export type IsFunctionSignature<signature> =
+ *   signature extends FunctionSignature<infer name>
+ *     ? IsName<name> extends true
+ *       ? signature extends ValidFunctionSignatures ? true
+ *       : signature extends `function ${string}(${infer parameters})`
+ *         ? parameters extends InvalidFunctionParameters ? false : true
+ *       : false
+ *       : false
+ *     : false
  */
 
 // ✓ StructSignature: verified type-identical to the original
@@ -126,7 +136,8 @@ export function IsStructSignature(signature: string) {
   return false
 }
 /* compiles to:
- * export type IsStructSignature<signature extends string> = signature extends StructSignature<infer name> ? IsName<name> : false
+ * export type IsStructSignature<signature extends string> =
+ *   signature extends StructSignature<infer name> ? IsName<name> : false
  */
 
 // ✓ ConstructorSignature: verified type-identical to the original
@@ -150,7 +161,10 @@ export function IsConstructorSignature(signature) {
   return false
 }
 /* compiles to:
- * export type IsConstructorSignature<signature> = signature extends ConstructorSignature ? signature extends ValidConstructorSignatures ? true : false : false
+ * export type IsConstructorSignature<signature> =
+ *   signature extends ConstructorSignature
+ *     ? signature extends ValidConstructorSignatures ? true : false
+ *     : false
  */
 
 // ✓ FallbackSignature: verified type-identical to the original
@@ -171,7 +185,8 @@ export function IsFallbackSignature(signature: string) {
   return false
 }
 /* compiles to:
- * export type IsFallbackSignature<signature extends string> = signature extends FallbackSignature<''> | FallbackSignature<' payable'> ? true : false
+ * export type IsFallbackSignature<signature extends string> =
+ *   signature extends FallbackSignature<''> | FallbackSignature<' payable'> ? true : false
  */
 
 // ✓ IsSignature: verified type-identical to the original
@@ -187,7 +202,10 @@ export function IsSignature(type: string) {
   return false
 }
 /* compiles to:
- * export type IsSignature<type extends string> = (IsErrorSignature<type> extends true ? true : never) | (IsEventSignature<type> extends true ? true : never) | (IsFunctionSignature<type> extends true ? true : never) | (IsStructSignature<type> extends true ? true : never) | (IsConstructorSignature<type> extends true ? true : never) | (IsFallbackSignature<type> extends true ? true : never) | (type extends ReceiveSignature ? true : never) extends infer condition ? [condition] extends [never] ? false : true : false
+ * export type IsSignature<type extends string> =
+ *   (IsErrorSignature<type> extends true ? true : never) | (IsEventSignature<type> extends true ? true : never) | (IsFunctionSignature<type> extends true ? true : never) | (IsStructSignature<type> extends true ? true : never) | (IsConstructorSignature<type> extends true ? true : never) | (IsFallbackSignature<type> extends true ? true : never) | (type extends ReceiveSignature ? true : never) extends infer condition
+ *     ? [condition] extends [never] ? false : true
+ *     : false
  */
 
 // ✗ Signature: the ScriptType does not itself typecheck as TypeScript
@@ -203,7 +221,12 @@ export function Signature(string1: string, string2: string | unknown = unknown) 
   return t<Error<`Signature "${typeof string1}" is invalid${typeof string2 extends string ? ` at position ${typeof string2}` : ''}.`>>()
 }
 /* compiles to:
- * export type Signature<string1 extends string, string2 extends string | unknown = unknown> = IsSignature<string1> extends true ? string1 : string extends string1 ? string1 : Error<`Signature "${string1}" is invalid${typeof string2 extends string ? ` at position ${typeof string2}` : ''}.`>
+ * export type Signature<string1 extends string, string2 extends string | unknown = unknown> =
+ *   IsSignature<string1> extends true ? string1
+ *   : string extends string1 ? string1
+ *   : Error<
+ *     `Signature "${string1}" is invalid${typeof string2 extends string ? ` at position ${typeof string2}` : ''}.`
+ *   >
  */
 
 // ✓ Signatures: verified type-identical to the original
@@ -216,7 +239,9 @@ export function Signatures(signatures: readonly string[]) {
   return out
 }
 /* compiles to:
- * export type Signatures<signatures extends readonly string[]> = { [Key in keyof signatures]: Signature<signatures[Key], Key> }
+ * export type Signatures<signatures extends readonly string[]> = {
+ *   [Key in keyof signatures]: Signature<signatures[Key], Key>
+ * }
  */
 
 // ✓ IsName: verified type-identical to the original
@@ -231,7 +256,8 @@ export function IsName(name: string) {
   return false
 }
 /* compiles to:
- * export type IsName<name extends string> = name extends '' ? false : ValidateName<name> extends name ? true : false
+ * export type IsName<name extends string> =
+ *   name extends '' ? false : ValidateName<name> extends name ? true : false
  */
 
 // ✓ AssertName: verified type-identical to the original
@@ -244,7 +270,10 @@ export function AssertName(name: string) {
   return name
 }
 /* compiles to:
- * export type AssertName<name extends string> = ValidateName<name> extends (infer invalidName extends string[]) ? `[${invalidName[number]}]` : name
+ * export type AssertName<name extends string> =
+ *   ValidateName<name> extends (infer invalidName extends string[])
+ *     ? `[${invalidName[number]}]`
+ *     : name
  */
 
 // ✗ ValidateName: the ScriptType does not itself typecheck as TypeScript
@@ -272,7 +301,17 @@ export function ValidateName(name: string, checkCharacters: boolean = false) {
   return name
 }
 /* compiles to:
- * export type ValidateName<name extends string, checkCharacters extends boolean = false> = name extends `${string} ${string}` ? Error<`Identifier "${name}" cannot contain whitespace.`> : IsSolidityKeyword<name> extends true ? Error<`"${name}" is a protected Solidity keyword.`> : name extends `${number}` ? Error<`Identifier "${name}" cannot be a number string.`> : name extends `${number}${string}` ? Error<`Identifier "${name}" cannot start with a number.`> : checkCharacters extends true ? IsValidCharacter<name> extends true ? name : Error<`"${name}" contains invalid character.`> : name
+ * export type ValidateName<name extends string, checkCharacters extends boolean = false> =
+ *   name extends `${string} ${string}` ? Error<`Identifier "${name}" cannot contain whitespace.`>
+ *   : IsSolidityKeyword<name> extends true ? Error<`"${name}" is a protected Solidity keyword.`>
+ *   : name extends `${number}` ? Error<`Identifier "${name}" cannot be a number string.`>
+ *   : name extends `${number}${string}`
+ *     ? Error<`Identifier "${name}" cannot start with a number.`>
+ *   : checkCharacters extends true
+ *     ? IsValidCharacter<name> extends true
+ *       ? name
+ *       : Error<`"${name}" contains invalid character.`>
+ *   : name
  */
 
 // ✓ IsSolidityKeyword: verified type-identical to the original
@@ -284,7 +323,8 @@ export function IsSolidityKeyword(type: string) {
   return false
 }
 /* compiles to:
- * export type IsSolidityKeyword<type extends string> = type extends SolidityKeywords ? true : false
+ * export type IsSolidityKeyword<type extends string> =
+ *   type extends SolidityKeywords ? true : false
  */
 
 // ✓ IsValidCharacter: verified type-identical to the original
@@ -300,5 +340,8 @@ export function IsValidCharacter(character: string) {
   return false
 }
 /* compiles to:
- * export type IsValidCharacter<character extends string> = character extends `${ValidCharacters}${infer tail}` ? tail extends '' ? true : IsValidCharacter<tail> : false
+ * export type IsValidCharacter<character extends string> =
+ *   character extends `${ValidCharacters}${infer tail}`
+ *     ? tail extends '' ? true : IsValidCharacter<tail>
+ *     : false
  */

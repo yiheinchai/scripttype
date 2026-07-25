@@ -18,21 +18,24 @@ declare const GetState: any
 declare const Middleware: any
 declare const MiddlewareAPI: any
 declare const UnknownAction: any
-type BaseActionCreator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Dispatch<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DynamicDispatch<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FallbackIfUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GetState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Middleware<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MiddlewareAPI<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseActionCreator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Dispatch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DynamicDispatch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FallbackIfUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Middleware<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MiddlewareAPI<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GetMiddlewareApi: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GetMiddlewareApi(MiddlewareApiConfig) {
   return MiddlewareAPI(GetDispatchType(MiddlewareApiConfig), GetState(MiddlewareApiConfig))
 }
 /* compiles to:
- * export type GetMiddlewareApi<MiddlewareApiConfig> = MiddlewareAPI<GetDispatchType<MiddlewareApiConfig>, GetState<MiddlewareApiConfig>>
+ * export type GetMiddlewareApi<MiddlewareApiConfig> = MiddlewareAPI<
+ *   GetDispatchType<MiddlewareApiConfig>,
+ *   GetState<MiddlewareApiConfig>
+ * >
  */
 
 // ✓ GetDispatchType: verified type-identical to the original
@@ -45,7 +48,10 @@ export function GetDispatchType(MiddlewareApiConfig) {
   return Dispatch
 }
 /* compiles to:
- * export type GetDispatchType<MiddlewareApiConfig> = MiddlewareApiConfig extends { dispatch: infer DispatchType; } ? FallbackIfUnknown<DispatchType, Dispatch> : Dispatch
+ * export type GetDispatchType<MiddlewareApiConfig> =
+ *   MiddlewareApiConfig extends { dispatch: infer DispatchType; }
+ *     ? FallbackIfUnknown<DispatchType, Dispatch>
+ *     : Dispatch
  */
 
 // ✗ AddMiddleware: uses raw() — language gap, does not count as covered
@@ -68,7 +74,17 @@ export function MiddlewareEntry(State = unknown, DispatchType: Dispatch<UnknownA
   return { middleware: Middleware(any, State, DispatchType), applied: t<Map<MiddlewareAPI<typeof DispatchType, typeof State>, ReturnType<Middleware<any, typeof State, typeof DispatchType>>>>() }
 }
 /* compiles to:
- * export type MiddlewareEntry<State = unknown, DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>> = { middleware: Middleware<any, State, DispatchType>; applied: Map<MiddlewareAPI<DispatchType, State>, ReturnType<Middleware<any, State, DispatchType>>> }
+ * export type MiddlewareEntry<
+ *   State = unknown,
+ *   DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>
+ * > =
+ *   {
+ *     middleware: Middleware<any, State, DispatchType>
+ *     applied: Map<
+ *       MiddlewareAPI<DispatchType, State>,
+ *       ReturnType<Middleware<any, State, DispatchType>>
+ *     >
+ *   }
  */
 
 // ✓ DynamicMiddleware: verified type-identical to the original
@@ -77,7 +93,11 @@ export function DynamicMiddleware(State = unknown, DispatchType: Dispatch<Unknow
   return Middleware(DynamicDispatch, State, DispatchType)
 }
 /* compiles to:
- * export type DynamicMiddleware<State = unknown, DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>> = Middleware<DynamicDispatch, State, DispatchType>
+ * export type DynamicMiddleware<
+ *   State = unknown,
+ *   DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>
+ * > =
+ *   Middleware<DynamicDispatch, State, DispatchType>
  */
 
 // ✓ DynamicMiddlewareInstance: verified type-identical to the original
@@ -86,5 +106,14 @@ export function DynamicMiddlewareInstance(State = unknown, DispatchType: Dispatc
   return { middleware: DynamicMiddleware(State, DispatchType), addMiddleware: AddMiddleware(State, DispatchType), withMiddleware: WithMiddleware(State, DispatchType), instanceId: string }
 }
 /* compiles to:
- * export type DynamicMiddlewareInstance<State = unknown, DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>> = { middleware: DynamicMiddleware<State, DispatchType>; addMiddleware: AddMiddleware<State, DispatchType>; withMiddleware: WithMiddleware<State, DispatchType>; instanceId: string }
+ * export type DynamicMiddlewareInstance<
+ *   State = unknown,
+ *   DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>
+ * > =
+ *   {
+ *     middleware: DynamicMiddleware<State, DispatchType>
+ *     addMiddleware: AddMiddleware<State, DispatchType>
+ *     withMiddleware: WithMiddleware<State, DispatchType>
+ *     instanceId: string
+ *   }
  */

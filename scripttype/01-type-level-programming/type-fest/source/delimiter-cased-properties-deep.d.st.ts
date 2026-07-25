@@ -17,21 +17,30 @@ declare const U: any
 declare const UnknownArray: any
 declare const WordsOptions: any
 declare const _DefaultDelimiterCaseOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DelimiterCase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type U<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WordsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _DefaultDelimiterCaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _DelimiterCasedPropertiesDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DelimiterCase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WordsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _DefaultDelimiterCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _DelimiterCasedPropertiesDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DelimiterCasedPropertiesDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DelimiterCasedPropertiesDeep(Value, Delimiter: string, Options: WordsOptions = {}) {
   return _DelimiterCasedPropertiesDeep(Value, Delimiter, ApplyDefaultOptions(WordsOptions, _DefaultDelimiterCaseOptions, Options))
 }
 /* compiles to:
- * export type DelimiterCasedPropertiesDeep<Value, Delimiter extends string, Options extends WordsOptions = {}> = _DelimiterCasedPropertiesDeep<Value, Delimiter, ApplyDefaultOptions<WordsOptions, _DefaultDelimiterCaseOptions, Options>>
+ * export type DelimiterCasedPropertiesDeep<
+ *   Value,
+ *   Delimiter extends string,
+ *   Options extends WordsOptions = {}
+ * > =
+ *   _DelimiterCasedPropertiesDeep<
+ *     Value,
+ *     Delimiter,
+ *     ApplyDefaultOptions<WordsOptions, _DefaultDelimiterCaseOptions, Options>
+ *   >
  */
 
 // ✓ _DelimiterCasedPropertiesDeep: verified type-identical to the original
@@ -57,7 +66,23 @@ export function _DelimiterCasedPropertiesDeep(Value, Delimiter: string, Options:
   return Value
 }
 /* compiles to:
- * export type _DelimiterCasedPropertiesDeep<Value, Delimiter extends string, Options extends Required<WordsOptions>> = Value extends NonRecursiveType ? Value : Value extends UnknownArray ? DelimiterCasedPropertiesArrayDeep<Value, Delimiter, Options> : Value extends Set<infer U> ? Set<_DelimiterCasedPropertiesDeep<U, Delimiter, Options>> : Value extends object ? { [K in keyof Value as DelimiterCase<K, Delimiter, Options>]: _DelimiterCasedPropertiesDeep<Value[K], Delimiter, Options> } : Value
+ * export type _DelimiterCasedPropertiesDeep<
+ *   Value,
+ *   Delimiter extends string,
+ *   Options extends Required<WordsOptions>
+ * > =
+ *   Value extends NonRecursiveType ? Value
+ *   : Value extends UnknownArray ? DelimiterCasedPropertiesArrayDeep<Value, Delimiter, Options>
+ *   : Value extends Set<infer U> ? Set<_DelimiterCasedPropertiesDeep<U, Delimiter, Options>>
+ *   : Value extends object
+ *     ? {
+ *       [K in keyof Value as DelimiterCase<K, Delimiter, Options>]: _DelimiterCasedPropertiesDeep<
+ *         Value[K],
+ *         Delimiter,
+ *         Options
+ *       >
+ *     }
+ *   : Value
  */
 
 // ✓ DelimiterCasedPropertiesArrayDeep: verified type-identical to the original
@@ -93,5 +118,34 @@ export function DelimiterCasedPropertiesArrayDeep(Value: UnknownArray, Delimiter
   return never
 }
 /* compiles to:
- * export type DelimiterCasedPropertiesArrayDeep<Value extends UnknownArray, Delimiter extends string, Options extends Required<WordsOptions>> = Value extends [] ? [] : Value extends [infer U, ...infer V] ? [_DelimiterCasedPropertiesDeep<U, Delimiter, Options>, ..._DelimiterCasedPropertiesDeep<V, Delimiter, Options>] : Value extends readonly [infer U, ...infer V] ? readonly [_DelimiterCasedPropertiesDeep<U, Delimiter, Options>, ..._DelimiterCasedPropertiesDeep<V, Delimiter, Options>] : Value extends [...infer U, infer V] ? [..._DelimiterCasedPropertiesDeep<U, Delimiter, Options>, _DelimiterCasedPropertiesDeep<V, Delimiter, Options>] : Value extends readonly [...infer U, infer V] ? readonly [..._DelimiterCasedPropertiesDeep<U, Delimiter, Options>, _DelimiterCasedPropertiesDeep<V, Delimiter, Options>] : Value extends Array<infer U> ? Array<_DelimiterCasedPropertiesDeep<U, Delimiter, Options>> : Value extends ReadonlyArray<infer U> ? ReadonlyArray<_DelimiterCasedPropertiesDeep<U, Delimiter, Options>> : never
+ * export type DelimiterCasedPropertiesArrayDeep<
+ *   Value extends UnknownArray,
+ *   Delimiter extends string,
+ *   Options extends Required<WordsOptions>
+ * > =
+ *   Value extends [] ? []
+ *   : Value extends [infer U, ...infer V]
+ *     ? [
+ *       _DelimiterCasedPropertiesDeep<U, Delimiter, Options>,
+ *       ..._DelimiterCasedPropertiesDeep<V, Delimiter, Options>
+ *     ]
+ *   : Value extends readonly [infer U, ...infer V]
+ *     ? readonly [
+ *       _DelimiterCasedPropertiesDeep<U, Delimiter, Options>,
+ *       ..._DelimiterCasedPropertiesDeep<V, Delimiter, Options>
+ *     ]
+ *   : Value extends [...infer U, infer V]
+ *     ? [
+ *       ..._DelimiterCasedPropertiesDeep<U, Delimiter, Options>,
+ *       _DelimiterCasedPropertiesDeep<V, Delimiter, Options>
+ *     ]
+ *   : Value extends readonly [...infer U, infer V]
+ *     ? readonly [
+ *       ..._DelimiterCasedPropertiesDeep<U, Delimiter, Options>,
+ *       _DelimiterCasedPropertiesDeep<V, Delimiter, Options>
+ *     ]
+ *   : Value extends Array<infer U> ? Array<_DelimiterCasedPropertiesDeep<U, Delimiter, Options>>
+ *   : Value extends ReadonlyArray<infer U>
+ *     ? ReadonlyArray<_DelimiterCasedPropertiesDeep<U, Delimiter, Options>>
+ *   : never
  */

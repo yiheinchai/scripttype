@@ -10,18 +10,21 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Memory {
+  export type TAssign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Memory: any
 declare const TInstantiateType: any
 declare const TParameter: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type Memory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Memory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TBindArgument: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TBindArgument(Context: TProperties, State: TState, Name: string, Extends: TSchema, Type: TSchema, InstantiatedArgument: TSchema = TInstantiateType(Context, State, Type)) {
@@ -32,7 +35,15 @@ export function TBindArgument(Context: TProperties, State: TState, Name: string,
   return Memory.TAssign(Context, out)
 }
 /* compiles to:
- * export type TBindArgument<Context extends TProperties, State extends TState, Name extends string, Extends extends TSchema, Type extends TSchema, InstantiatedArgument extends TSchema = TInstantiateType<Context, State, Type>> = Memory.TAssign<Context, { [_ in Name]: InstantiatedArgument }>
+ * export type TBindArgument<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Name extends string,
+ *   Extends extends TSchema,
+ *   Type extends TSchema,
+ *   InstantiatedArgument extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   Memory.TAssign<Context, { [_ in Name]: InstantiatedArgument }>
  */
 
 // ✓ TBindArguments: verified type-identical to the original
@@ -45,7 +56,34 @@ export function TBindArguments(Context: TProperties, State: TState, ParameterLef
   return TBindParameters(TBindArgument(Context, State, ParameterLeft['name'], InstantiatedExtends, InstantiatedEquals), State, ParameterRight, [])
 }
 /* compiles to:
- * export type TBindArguments<Context extends TProperties, State extends TState, ParameterLeft extends TParameter, ParameterRight extends TParameter[], Arguments extends TSchema[], InstantiatedExtends extends TSchema = TInstantiateType<Context, State, ParameterLeft['extends']>, InstantiatedEquals extends TSchema = TInstantiateType<Context, State, ParameterLeft['equals']>> = Arguments extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TBindParameters<TBindArgument<Context, State, ParameterLeft['name'], InstantiatedExtends, Left>, State, ParameterRight, Right> : TBindParameters<TBindArgument<Context, State, ParameterLeft['name'], InstantiatedExtends, InstantiatedEquals>, State, ParameterRight, []>
+ * export type TBindArguments<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   ParameterLeft extends TParameter,
+ *   ParameterRight extends TParameter[],
+ *   Arguments extends TSchema[],
+ *   InstantiatedExtends extends TSchema = TInstantiateType<Context, State, ParameterLeft['extends']>,
+ *   InstantiatedEquals extends TSchema = TInstantiateType<Context, State, ParameterLeft['equals']>
+ * > =
+ *   Arguments extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TBindParameters<
+ *       TBindArgument<Context, State, ParameterLeft['name'], InstantiatedExtends, Left>,
+ *       State,
+ *       ParameterRight,
+ *       Right
+ *     >
+ *     : TBindParameters<
+ *       TBindArgument<
+ *         Context,
+ *         State,
+ *         ParameterLeft['name'],
+ *         InstantiatedExtends,
+ *         InstantiatedEquals
+ *       >,
+ *       State,
+ *       ParameterRight,
+ *       []
+ *     >
  */
 
 // ✓ TBindParameters: verified type-identical to the original
@@ -58,7 +96,15 @@ export function TBindParameters(Context: TProperties, State: TState, Parameters:
   return Context
 }
 /* compiles to:
- * export type TBindParameters<Context extends TProperties, State extends TState, Parameters extends TParameter[], Arguments extends TSchema[]> = Parameters extends [infer Left extends TParameter, ...(infer Right extends TParameter[])] ? TBindArguments<Context, State, Left, Right, Arguments> : Context
+ * export type TBindParameters<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Parameters extends TParameter[],
+ *   Arguments extends TSchema[]
+ * > =
+ *   Parameters extends [infer Left extends TParameter, ...infer Right extends TParameter[]]
+ *     ? TBindArguments<Context, State, Left, Right, Arguments>
+ *     : Context
  */
 
 // ✓ TResolveArgumentsContext: verified type-identical to the original
@@ -67,5 +113,12 @@ export function TResolveArgumentsContext(Context: TProperties, State: TState, Pa
   return Result
 }
 /* compiles to:
- * export type TResolveArgumentsContext<Context extends TProperties, State extends TState, Parameters extends TParameter[], Arguments extends TSchema[], Result extends TProperties = TBindParameters<Context, State, Parameters, Arguments>> = Result
+ * export type TResolveArgumentsContext<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Parameters extends TParameter[],
+ *   Arguments extends TSchema[],
+ *   Result extends TProperties = TBindParameters<Context, State, Parameters, Arguments>
+ * > =
+ *   Result
  */

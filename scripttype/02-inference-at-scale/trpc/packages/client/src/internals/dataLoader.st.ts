@@ -13,7 +13,13 @@ export function BatchItem(TKey, TValue) {
   return { aborted: boolean, key: TKey, resolve: fnType([TValue], voidType()) | Null, reject: fnType([t<Error>()], voidType()) | Null, batch: Batch(TKey, TValue) | Null }
 }
 /* compiles to:
- * export type BatchItem<TKey, TValue> = { aborted: boolean; key: TKey; resolve: ((a0: TValue) => void) | null; reject: ((a0: Error) => void) | null; batch: Batch<TKey, TValue> | null }
+ * export type BatchItem<TKey, TValue> = {
+ *   aborted: boolean
+ *   key: TKey
+ *   resolve: ((a0: TValue) => void) | null
+ *   reject: ((a0: Error) => void) | null
+ *   batch: Batch<TKey, TValue> | null
+ * }
  */
 
 // ✓ Batch: verified type-identical to the original
@@ -31,5 +37,8 @@ export function BatchLoader(TKey, TValue) {
   return { validate: fnType([arrayOf(TKey)], boolean), fetch: fnType([arrayOf(TKey)], t<Promise<(typeof TValue)[] | Promise<typeof TValue>[]>>()) }
 }
 /* compiles to:
- * export type BatchLoader<TKey, TValue> = { validate: (a0: TKey[]) => boolean; fetch: (a0: TKey[]) => Promise<TValue[] | Promise<TValue>[]> }
+ * export type BatchLoader<TKey, TValue> = {
+ *   validate: (a0: TKey[]) => boolean
+ *   fetch: (a0: TKey[]) => Promise<TValue[] | Promise<TValue>[]>
+ * }
  */

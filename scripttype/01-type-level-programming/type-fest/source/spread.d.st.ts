@@ -14,21 +14,27 @@ declare const RequiredKeysOf: any
 declare const Simplify: any
 declare const Spreadable: any
 declare const TupleOrArray: any
-type RequiredKeysOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Spreadable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleOrArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type RequiredKeysOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Spreadable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleOrArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SpreadObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SpreadObject(FirstType: object, SecondType: object) {
   const out = emptyObject
   for (const Key in keyof(FirstType)) {
-    out[Key] = matches<keyof typeof SecondType>(Key) ? (FirstType[Key] | Required(SecondType)[Key]) : FirstType[Key]
+    out[Key] = Key in SecondType ? (FirstType[Key] | Required(SecondType)[Key]) : FirstType[Key]
   }
   return out & Pick(SecondType, RequiredKeysOf(SecondType) | Exclude(keyof(SecondType), keyof(FirstType)))
 }
 /* compiles to:
- * export type SpreadObject<FirstType extends object, SecondType extends object> = { [Key in keyof FirstType]: Key extends keyof SecondType ? FirstType[Key] | Required<SecondType>[Key] : FirstType[Key] } & Pick<SecondType, RequiredKeysOf<SecondType> | Exclude<keyof SecondType, keyof FirstType>>
+ * export type SpreadObject<FirstType extends object, SecondType extends object> =
+ *   & {
+ *       [Key in keyof FirstType]: Key extends keyof SecondType
+ *         ? FirstType[Key] | Required<SecondType>[Key]
+ *         : FirstType[Key]
+ *     }
+ *   & Pick<SecondType, RequiredKeysOf<SecondType> | Exclude<keyof SecondType, keyof FirstType>>
  */
 
 // ✓ SpreadTupleOrArray: verified type-identical to the original
@@ -37,7 +43,11 @@ export function SpreadTupleOrArray(FirstType: TupleOrArray, SecondType: TupleOrA
   return t<Array<(typeof FirstType)[number] | (typeof SecondType)[number]>>()
 }
 /* compiles to:
- * export type SpreadTupleOrArray<FirstType extends TupleOrArray, SecondType extends TupleOrArray> = Array<FirstType[number] | SecondType[number]>
+ * export type SpreadTupleOrArray<
+ *   FirstType extends TupleOrArray,
+ *   SecondType extends TupleOrArray
+ * > =
+ *   Array<FirstType[number] | SecondType[number]>
  */
 
 // ✓ Spread: verified type-identical to the original
@@ -52,5 +62,10 @@ export function Spread(FirstType: Spreadable, SecondType: Spreadable) {
   return Simplify(SpreadObject(FirstType, SecondType))
 }
 /* compiles to:
- * export type Spread<FirstType extends Spreadable, SecondType extends Spreadable> = FirstType extends TupleOrArray ? SecondType extends TupleOrArray ? SpreadTupleOrArray<FirstType, SecondType> : Simplify<SpreadObject<FirstType, SecondType>> : Simplify<SpreadObject<FirstType, SecondType>>
+ * export type Spread<FirstType extends Spreadable, SecondType extends Spreadable> =
+ *   FirstType extends TupleOrArray
+ *     ? SecondType extends TupleOrArray
+ *       ? SpreadTupleOrArray<FirstType, SecondType>
+ *       : Simplify<SpreadObject<FirstType, SecondType>>
+ *     : Simplify<SpreadObject<FirstType, SecondType>>
  */

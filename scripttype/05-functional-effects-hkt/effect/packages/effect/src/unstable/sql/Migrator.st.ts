@@ -10,17 +10,24 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Effect {
+  export type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Effect: any
 declare const MigrationError: any
 declare const ResolvedMigration: any
-type Effect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MigrationError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolvedMigration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MigrationError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolvedMigration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Loader: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Loader(R = never) {
   return Effect.Effect(t<ReadonlyArray<ResolvedMigration>>(), MigrationError, R)
 }
 /* compiles to:
- * export type Loader<R = never> = Effect.Effect<ReadonlyArray<ResolvedMigration>, MigrationError, R>
+ * export type Loader<R = never> = Effect.Effect<
+ *   ReadonlyArray<ResolvedMigration>,
+ *   MigrationError,
+ *   R
+ * >
  */

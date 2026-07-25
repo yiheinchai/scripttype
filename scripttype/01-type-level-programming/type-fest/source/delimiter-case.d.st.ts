@@ -16,12 +16,12 @@ declare const IsStringLiteral: any
 declare const StartsWith: any
 declare const WordsOptions: any
 declare const _DefaultDelimiterCaseOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AsciiPunctuation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStringLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StartsWith<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WordsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _DefaultDelimiterCaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AsciiPunctuation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStringLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StartsWith<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WordsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _DefaultDelimiterCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DelimiterCaseFromArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DelimiterCaseFromArray(Words: string[], Delimiter: string) {
@@ -38,15 +38,32 @@ export function DelimiterCaseFromArray(Words: string[], Delimiter: string) {
   return OutputString
 }
 /* compiles to:
- * export type DelimiterCaseFromArray<Words extends string[], Delimiter extends string> = DelimiterCaseFromArray__loop<Words, '', Delimiter>
- * type DelimiterCaseFromArray__loop<Words extends string[], OutputString extends string, Delimiter extends string> = Words extends [infer FirstWord extends string, ...(infer RemainingWords extends string[])] ? DelimiterCaseFromArray__loop<RemainingWords, OutputString extends '' ? FirstWord : `${OutputString}${StartsWith<FirstWord, AsciiPunctuation> extends true ? '' : Delimiter}${FirstWord}`, Delimiter> : OutputString
+ * export type DelimiterCaseFromArray<Words extends string[], Delimiter extends string> = DelimiterCaseFromArray__loop<
+ *   Words,
+ *   '',
+ *   Delimiter
+ * >
+ * type DelimiterCaseFromArray__loop<
+ *   Words extends string[],
+ *   OutputString extends string,
+ *   Delimiter extends string
+ * > =
+ *   Words extends [infer FirstWord extends string, ...infer RemainingWords extends string[]]
+ *     ? DelimiterCaseFromArray__loop<
+ *       RemainingWords,
+ *       OutputString extends ''
+ *         ? FirstWord
+ *         : `${OutputString}${StartsWith<FirstWord, AsciiPunctuation> extends true ? '' : Delimiter}${FirstWord}`,
+ *       Delimiter
+ *     >
+ *     : OutputString
  */
 
 // ✓ DelimiterCase: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DelimiterCase(Value, Delimiter: string, Options: WordsOptions = {}) {
-  if (matches<string>(Value)) {
-    if (matches<string>(Delimiter)) {
+  if (typeof Value === 'string') {
+    if (typeof Delimiter === 'string') {
       if (matches<false>(IsStringLiteral(Value))) {
         return Value
       }
@@ -57,5 +74,20 @@ export function DelimiterCase(Value, Delimiter: string, Options: WordsOptions = 
   return Value
 }
 /* compiles to:
- * export type DelimiterCase<Value, Delimiter extends string, Options extends WordsOptions = {}> = Value extends string ? Delimiter extends string ? IsStringLiteral<Value> extends false ? Value : Lowercase<DelimiterCaseFromArray<Words<Value, ApplyDefaultOptions<WordsOptions, _DefaultDelimiterCaseOptions, Options>>, Delimiter>> : never : Value
+ * export type DelimiterCase<Value, Delimiter extends string, Options extends WordsOptions = {}> =
+ *   Value extends string
+ *     ? Delimiter extends string
+ *       ? IsStringLiteral<Value> extends false
+ *         ? Value
+ *         : Lowercase<
+ *           DelimiterCaseFromArray<
+ *             Words<
+ *               Value,
+ *               ApplyDefaultOptions<WordsOptions, _DefaultDelimiterCaseOptions, Options>
+ *             >,
+ *             Delimiter
+ *           >
+ *         >
+ *       : never
+ *     : Value
  */

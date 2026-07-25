@@ -13,9 +13,9 @@
 declare const Merge: any
 declare const Prettify: any
 declare const Schema: any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Schema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RecursiveMerge: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RecursiveMerge(TSchemas: readonly [ Schema, ...Schema[] ]) {
@@ -30,7 +30,11 @@ export function RecursiveMerge(TSchemas: readonly [ Schema, ...Schema[] ]) {
   return never
 }
 /* compiles to:
- * export type RecursiveMerge<TSchemas extends readonly [Schema, ...Schema[]]> = TSchemas extends readonly [infer TFirstSchema extends Schema] ? TFirstSchema['entries'] : TSchemas extends readonly [infer TFirstSchema extends Schema, ...(infer TRestSchemas extends readonly [Schema, ...Schema[]])] ? Merge<TFirstSchema['entries'], RecursiveMerge<TRestSchemas>> : never
+ * export type RecursiveMerge<TSchemas extends readonly [Schema, ...Schema[]]> =
+ *   TSchemas extends readonly [infer TFirstSchema extends Schema] ? TFirstSchema['entries']
+ *   : TSchemas extends readonly [infer TFirstSchema extends Schema, ...infer TRestSchemas extends readonly [Schema, ...Schema[]]]
+ *     ? Merge<TFirstSchema['entries'], RecursiveMerge<TRestSchemas>>
+ *   : never
  */
 
 // ✓ MergedEntries: verified type-identical to the original
@@ -39,5 +43,7 @@ export function MergedEntries(TSchemas: readonly [ Schema, ...Schema[] ]) {
   return Prettify(RecursiveMerge(TSchemas))
 }
 /* compiles to:
- * export type MergedEntries<TSchemas extends readonly [Schema, ...Schema[]]> = Prettify<RecursiveMerge<TSchemas>>
+ * export type MergedEntries<TSchemas extends readonly [Schema, ...Schema[]]> = Prettify<
+ *   RecursiveMerge<TSchemas>
+ * >
  */

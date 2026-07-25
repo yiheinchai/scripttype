@@ -14,15 +14,28 @@ declare const StaticDirection: any
 declare const StaticType: any
 declare const TProperties: any
 declare const TSchema: any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticDependent: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticDependent(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, If: TSchema, Then: TSchema, Else: TSchema, StaticIf: unknown = StaticType(Stack, Direction, Context, This, If), StaticThen: unknown = StaticType(Stack, Direction, Context, This, Then), StaticElse: unknown = StaticType(Stack, Direction, Context, This, Else), Result: unknown = anyOf(merge(StaticIf, StaticThen), Exclude(StaticElse, StaticIf))) {
   return Result
 }
 /* compiles to:
- * export type StaticDependent<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, If extends TSchema, Then extends TSchema, Else extends TSchema, StaticIf = StaticType<Stack, Direction, Context, This, If>, StaticThen = StaticType<Stack, Direction, Context, This, Then>, StaticElse = StaticType<Stack, Direction, Context, This, Else>, Result = StaticIf & StaticThen | Exclude<StaticElse, StaticIf>> = Result
+ * export type StaticDependent<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   If extends TSchema,
+ *   Then extends TSchema,
+ *   Else extends TSchema,
+ *   StaticIf = StaticType<Stack, Direction, Context, This, If>,
+ *   StaticThen = StaticType<Stack, Direction, Context, This, Then>,
+ *   StaticElse = StaticType<Stack, Direction, Context, This, Else>,
+ *   Result = StaticIf & StaticThen | Exclude<StaticElse, StaticIf>
+ * > =
+ *   Result
  */

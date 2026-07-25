@@ -7,13 +7,13 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type AbiParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Filter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStructSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Modifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseAbiParameters_<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseStructs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SplitParameters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Filter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStructSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Modifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseAbiParameters_<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseStructs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SplitParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type DeepFlatten<
   T extends readonly unknown[],
   Acc extends readonly unknown[] = readonly [],

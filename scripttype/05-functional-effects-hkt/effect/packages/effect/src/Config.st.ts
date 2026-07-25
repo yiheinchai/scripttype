@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Config: any
-type Config<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Config<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Success: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Success(T) {
@@ -42,7 +42,12 @@ export function Wrap(A) {
   return Config(A)
 }
 /* compiles to:
- * export type Wrap<A> = [NonNullable<A>] extends [infer T] ? [IsPlainObject<T>] extends [true] ? { readonly [K in keyof A]: Wrap<A[K]> } | Config<A> : Config<A> : Config<A>
+ * export type Wrap<A> =
+ *   [NonNullable<A>] extends [infer T]
+ *     ? [IsPlainObject<T>] extends [true]
+ *       ? { readonly [K in keyof A]: Wrap<A[K]> } | Config<A>
+ *       : Config<A>
+ *     : Config<A>
  */
 
 // ✓ IsPlainObject: verified type-identical to the original
@@ -60,5 +65,8 @@ export function IsPlainObject(A) {
   return false
 }
 /* compiles to:
- * export type IsPlainObject<A> = [A] extends [Record<string, any>] ? [keyof A] extends [never] ? false : [keyof A] extends [string] ? true : false : false
+ * export type IsPlainObject<A> =
+ *   [A] extends [Record<string, any>]
+ *     ? [keyof A] extends [never] ? false : [keyof A] extends [string] ? true : false
+ *     : false
  */

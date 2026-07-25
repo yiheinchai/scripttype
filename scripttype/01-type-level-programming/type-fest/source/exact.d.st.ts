@@ -16,13 +16,13 @@ declare const IsUnknown: any
 declare const KeysOfUnion: any
 declare const ObjectValue: any
 declare const Primitive: any
-type ArrayElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Exact<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KeysOfUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Primitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ArrayElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Exact<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KeysOfUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExactObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExactObject(ParameterType, InputType) {
@@ -33,7 +33,9 @@ export function ExactObject(ParameterType, InputType) {
   return out & Record(Exclude(keyof(InputType), KeysOfUnion(ParameterType)), never)
 }
 /* compiles to:
- * export type ExactObject<ParameterType, InputType> = { [Key in keyof ParameterType]: Exact<ParameterType[Key], ObjectValue<InputType, Key>> } & Record<Exclude<keyof InputType, KeysOfUnion<ParameterType>>, never>
+ * export type ExactObject<ParameterType, InputType> =
+ *   & { [Key in keyof ParameterType]: Exact<ParameterType[Key], ObjectValue<InputType, Key>> }
+ *   & Record<Exclude<keyof InputType, KeysOfUnion<ParameterType>>, never>
  */
 
 // ✓ Exact: verified type-identical to the original
@@ -60,5 +62,14 @@ export function Exact(ParameterType, InputType) {
   return ExactObject(ParameterType, InputType)
 }
 /* compiles to:
- * export type Exact<ParameterType, InputType> = IsEqual<ParameterType, InputType> extends true ? ParameterType : ParameterType extends Primitive ? ParameterType : IsUnknown<ParameterType> extends true ? unknown : ParameterType extends Function ? ParameterType : ParameterType extends unknown[] ? Array<Exact<ArrayElement<ParameterType>, ArrayElement<InputType>>> : ParameterType extends readonly unknown[] ? ReadonlyArray<Exact<ArrayElement<ParameterType>, ArrayElement<InputType>>> : ExactObject<ParameterType, InputType>
+ * export type Exact<ParameterType, InputType> =
+ *   IsEqual<ParameterType, InputType> extends true ? ParameterType
+ *   : ParameterType extends Primitive ? ParameterType
+ *   : IsUnknown<ParameterType> extends true ? unknown
+ *   : ParameterType extends Function ? ParameterType
+ *   : ParameterType extends unknown[]
+ *     ? Array<Exact<ArrayElement<ParameterType>, ArrayElement<InputType>>>
+ *   : ParameterType extends readonly unknown[]
+ *     ? ReadonlyArray<Exact<ArrayElement<ParameterType>, ArrayElement<InputType>>>
+ *   : ExactObject<ParameterType, InputType>
  */

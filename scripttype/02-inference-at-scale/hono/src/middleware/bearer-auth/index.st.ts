@@ -14,15 +14,41 @@ declare const Context: any
 declare const CustomizedErrorResponseOptions: any
 declare const Env: any
 declare const MessageFunction: any
-type Context<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CustomizedErrorResponseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Env<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MessageFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CustomizedErrorResponseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Env<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MessageFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BearerAuthOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BearerAuthOptions(E: Env = Env) {
   return anyOf({ token: string | arrayOf(string), realm: optional(string), prefix: optional(string), headerName: optional(string), hashFunction: optional(t<Function>()), noAuthenticationHeaderMessage: optional(string | object | MessageFunction), noAuthenticationHeader: optional(CustomizedErrorResponseOptions), invalidAuthenticationHeaderMessage: optional(string | object | MessageFunction), invalidAuthenticationHeader: optional(CustomizedErrorResponseOptions), invalidTokenMessage: optional(string | object | MessageFunction), invalidToken: optional(CustomizedErrorResponseOptions) }, { realm: optional(string), prefix: optional(string), headerName: optional(string), verifyToken: fnType([string, Context(E)], boolean | t<Promise<boolean>>()), hashFunction: optional(t<Function>()), noAuthenticationHeaderMessage: optional(string | object | MessageFunction), noAuthenticationHeader: optional(CustomizedErrorResponseOptions), invalidAuthenticationHeaderMessage: optional(string | object | MessageFunction), invalidAuthenticationHeader: optional(CustomizedErrorResponseOptions), invalidTokenMessage: optional(string | object | MessageFunction), invalidToken: optional(CustomizedErrorResponseOptions) })
 }
 /* compiles to:
- * export type BearerAuthOptions<E extends Env = Env> = { token: string | string[]; realm?: string; prefix?: string; headerName?: string; hashFunction?: Function; noAuthenticationHeaderMessage?: string | object | MessageFunction; noAuthenticationHeader?: CustomizedErrorResponseOptions; invalidAuthenticationHeaderMessage?: string | object | MessageFunction; invalidAuthenticationHeader?: CustomizedErrorResponseOptions; invalidTokenMessage?: string | object | MessageFunction; invalidToken?: CustomizedErrorResponseOptions } | { realm?: string; prefix?: string; headerName?: string; verifyToken: (a0: string, a1: Context<E>) => boolean | Promise<boolean>; hashFunction?: Function; noAuthenticationHeaderMessage?: string | object | MessageFunction; noAuthenticationHeader?: CustomizedErrorResponseOptions; invalidAuthenticationHeaderMessage?: string | object | MessageFunction; invalidAuthenticationHeader?: CustomizedErrorResponseOptions; invalidTokenMessage?: string | object | MessageFunction; invalidToken?: CustomizedErrorResponseOptions }
+ * export type BearerAuthOptions<E extends Env = Env> =
+ *   | {
+ *       token: string | string[]
+ *       realm?: string
+ *       prefix?: string
+ *       headerName?: string
+ *       hashFunction?: Function
+ *       noAuthenticationHeaderMessage?: string | object | MessageFunction
+ *       noAuthenticationHeader?: CustomizedErrorResponseOptions
+ *       invalidAuthenticationHeaderMessage?: string | object | MessageFunction
+ *       invalidAuthenticationHeader?: CustomizedErrorResponseOptions
+ *       invalidTokenMessage?: string | object | MessageFunction
+ *       invalidToken?: CustomizedErrorResponseOptions
+ *     }
+ *   | {
+ *       realm?: string
+ *       prefix?: string
+ *       headerName?: string
+ *       verifyToken: (a0: string, a1: Context<E>) => boolean | Promise<boolean>
+ *       hashFunction?: Function
+ *       noAuthenticationHeaderMessage?: string | object | MessageFunction
+ *       noAuthenticationHeader?: CustomizedErrorResponseOptions
+ *       invalidAuthenticationHeaderMessage?: string | object | MessageFunction
+ *       invalidAuthenticationHeader?: CustomizedErrorResponseOptions
+ *       invalidTokenMessage?: string | object | MessageFunction
+ *       invalidToken?: CustomizedErrorResponseOptions
+ *     }
  */

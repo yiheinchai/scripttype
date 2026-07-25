@@ -7,12 +7,12 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type Comparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferredAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfixExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PostfixExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Stringifiable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferredAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfixExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PostfixExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Stringifiable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type astToString<ast> =
 	ast extends InferredAst | DefAst ? ast[2]
 	: ast extends PostfixExpression<infer operator, infer operand> ?

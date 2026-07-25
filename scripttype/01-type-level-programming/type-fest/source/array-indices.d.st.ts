@@ -13,5 +13,8 @@ export function ArrayIndices(Element: readonly unknown[]) {
   return Exclude(Partial(Element)['length'], Element['length'])
 }
 /* compiles to:
- * export type ArrayIndices<Element extends readonly unknown[]> = Exclude<Partial<Element>['length'], Element['length']>
+ * export type ArrayIndices<Element extends readonly unknown[]> = Exclude<
+ *   Partial<Element>['length'],
+ *   Element['length']
+ * >
  */

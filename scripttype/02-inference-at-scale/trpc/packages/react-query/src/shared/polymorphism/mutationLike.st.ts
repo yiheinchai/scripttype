@@ -16,13 +16,13 @@ declare const InferMutationOptions: any
 declare const InferMutationResult: any
 declare const inferProcedureInput: any
 declare const inferTransformedProcedureOutput: any
-type AnyProcedure<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyRootTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferMutationOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferMutationResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferProcedureInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferTransformedProcedureOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyRootTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferMutationOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferMutationResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferProcedureInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferTransformedProcedureOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ MutationLike: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -30,7 +30,12 @@ export function MutationLike(TRoot: AnyRootTypes, TProcedure: AnyProcedure) {
   return { useMutation: fnType([InferMutationOptions(TRoot, TProcedure)], InferMutationResult(TRoot, TProcedure)) }
 }
 /* compiles to:
- * export type MutationLike<TRoot extends AnyRootTypes, TProcedure extends AnyProcedure> = { useMutation: (a0: InferMutationOptions<TRoot, TProcedure>) => InferMutationResult<TRoot, TProcedure> }
+ * export type MutationLike<TRoot extends AnyRootTypes, TProcedure extends AnyProcedure> = {
+ *   useMutation: (a0: InferMutationOptions<TRoot, TProcedure>) => InferMutationResult<
+ *     TRoot,
+ *     TProcedure
+ *   >
+ * }
  */
 
 // ✓ InferMutationLikeInput: verified type-identical to the original
@@ -43,7 +48,10 @@ export function InferMutationLikeInput(TMutationLike: MutationLike<any, any>) {
   return never
 }
 /* compiles to:
- * export type InferMutationLikeInput<TMutationLike extends MutationLike<any, any>> = TMutationLike extends MutationLike<any, infer $Procedure> ? inferProcedureInput<$Procedure> : never
+ * export type InferMutationLikeInput<TMutationLike extends MutationLike<any, any>> =
+ *   TMutationLike extends MutationLike<any, infer $Procedure>
+ *     ? inferProcedureInput<$Procedure>
+ *     : never
  */
 
 // ✓ InferMutationLikeData: verified type-identical to the original
@@ -56,5 +64,8 @@ export function InferMutationLikeData(TMutationLike: MutationLike<any, any>) {
   return never
 }
 /* compiles to:
- * export type InferMutationLikeData<TMutationLike extends MutationLike<any, any>> = TMutationLike extends MutationLike<infer TRoot, infer TProcedure> ? inferTransformedProcedureOutput<TRoot, TProcedure> : never
+ * export type InferMutationLikeData<TMutationLike extends MutationLike<any, any>> =
+ *   TMutationLike extends MutationLike<infer TRoot, infer TProcedure>
+ *     ? inferTransformedProcedureOutput<TRoot, TProcedure>
+ *     : never
  */

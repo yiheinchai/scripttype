@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const At: any
 declare const Key: any
-type At<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Unionize: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Unionize(O: object, O1: object, K: Key = Key) {
@@ -24,5 +24,6 @@ export function Unionize(O: object, O1: object, K: Key = Key) {
   return merge(out, {})
 }
 /* compiles to:
- * export type Unionize<O extends object, O1 extends object, K extends Key = Key> = { [P in keyof O]: P extends K ? O[P] | At<O1, P> : O[P] } & {}
+ * export type Unionize<O extends object, O1 extends object, K extends Key = Key> =
+ *   { [P in keyof O]: P extends K ? O[P] | At<O1, P> : O[P] } & {}
  */

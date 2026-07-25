@@ -14,10 +14,10 @@ declare const APIGatewayProxyEvent: any
 declare const APIGatewayProxyEventV2: any
 declare const APIGatewayProxyResult: any
 declare const APIGatewayProxyStructuredResultV2: any
-type APIGatewayProxyEvent<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type APIGatewayProxyEventV2<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type APIGatewayProxyResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type APIGatewayProxyStructuredResultV2<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type APIGatewayProxyEvent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type APIGatewayProxyEventV2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type APIGatewayProxyResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type APIGatewayProxyStructuredResultV2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ inferAPIGWReturn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function inferAPIGWReturn(TEvent) {
@@ -30,5 +30,8 @@ export function inferAPIGWReturn(TEvent) {
   return never
 }
 /* compiles to:
- * export type inferAPIGWReturn<TEvent> = TEvent extends APIGatewayProxyEvent ? APIGatewayProxyResult : TEvent extends APIGatewayProxyEventV2 ? APIGatewayProxyStructuredResultV2 : never
+ * export type inferAPIGWReturn<TEvent> =
+ *   TEvent extends APIGatewayProxyEvent ? APIGatewayProxyResult
+ *   : TEvent extends APIGatewayProxyEventV2 ? APIGatewayProxyStructuredResultV2
+ *   : never
  */

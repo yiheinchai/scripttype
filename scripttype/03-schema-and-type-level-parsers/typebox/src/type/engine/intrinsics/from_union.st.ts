@@ -14,10 +14,10 @@ declare const TFromType: any
 declare const TMappingType: any
 declare const TSchema: any
 declare const TUnion: any
-type TFromType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TMappingType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TMappingType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromUnion(Mapping: TMappingType, Types: TSchema[]) {
@@ -34,6 +34,17 @@ export function TFromUnion(Mapping: TMappingType, Types: TSchema[]) {
   return TUnion(Result)
 }
 /* compiles to:
- * export type TFromUnion<Mapping extends TMappingType, Types extends TSchema[]> = TFromUnion__loop<Types, [], Mapping>
- * type TFromUnion__loop<Types extends TSchema[], Result extends any[], Mapping extends TMappingType> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TFromUnion__loop<Right, [...Result, TFromType<Mapping, Left>], Mapping> : TUnion<Result>
+ * export type TFromUnion<Mapping extends TMappingType, Types extends TSchema[]> = TFromUnion__loop<
+ *   Types,
+ *   [],
+ *   Mapping
+ * >
+ * type TFromUnion__loop<
+ *   Types extends TSchema[],
+ *   Result extends any[],
+ *   Mapping extends TMappingType
+ * > =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TFromUnion__loop<Right, [...Result, TFromType<Mapping, Left>], Mapping>
+ *     : TUnion<Result>
  */

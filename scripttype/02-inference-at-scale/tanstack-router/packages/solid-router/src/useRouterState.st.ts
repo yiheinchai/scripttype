@@ -12,15 +12,18 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const AnyRouter: any
 declare const RouterState: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouterState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouterState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseRouterStateOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseRouterStateOptions(TRouter: AnyRouter, TSelected) {
   return { router: optional(TRouter), select: optional(fnType([RouterState(TRouter['routeTree'])], TSelected)) }
 }
 /* compiles to:
- * export type UseRouterStateOptions<TRouter extends AnyRouter, TSelected> = { router?: TRouter; select?: (a0: RouterState<TRouter['routeTree']>) => TSelected }
+ * export type UseRouterStateOptions<TRouter extends AnyRouter, TSelected> = {
+ *   router?: TRouter
+ *   select?: (a0: RouterState<TRouter['routeTree']>) => TSelected
+ * }
  */
 
 // ✓ UseRouterStateResult: verified type-identical to the original
@@ -32,5 +35,6 @@ export function UseRouterStateResult(TRouter: AnyRouter, TSelected) {
   return TSelected
 }
 /* compiles to:
- * export type UseRouterStateResult<TRouter extends AnyRouter, TSelected> = unknown extends TSelected ? RouterState<TRouter['routeTree']> : TSelected
+ * export type UseRouterStateResult<TRouter extends AnyRouter, TSelected> =
+ *   unknown extends TSelected ? RouterState<TRouter['routeTree']> : TSelected
  */

@@ -11,12 +11,21 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PgSmallIntBuilder: any
-type PgSmallIntBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgSmallIntBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgSmallIntBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgSmallIntBuilderInitial(TName: string) {
   return PgSmallIntBuilder({ name: TName, dataType: 'number', columnType: 'PgSmallInt', data: number, driverParam: number | string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgSmallIntBuilderInitial<TName extends string> = PgSmallIntBuilder<{ name: TName; dataType: 'number'; columnType: 'PgSmallInt'; data: number; driverParam: number | string; enumValues: undefined }>
+ * export type PgSmallIntBuilderInitial<TName extends string> = PgSmallIntBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'PgSmallInt'
+ *     data: number
+ *     driverParam: number | string
+ *     enumValues: undefined
+ *   }
+ * >
  */

@@ -14,10 +14,10 @@ declare const ExcludeExactly: any
 declare const IsNever: any
 declare const UnionMember: any
 declare const UnknownArray: any
-type ExcludeExactly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionMember<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExcludeExactly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionMember<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnionToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UnionToTuple(Union) {
@@ -28,7 +28,8 @@ export function UnionToTuple(Union) {
   return never
 }
 /* compiles to:
- * export type UnionToTuple<Union> = _UnionToTuple<Union> extends (infer Result extends UnknownArray) ? Result : never
+ * export type UnionToTuple<Union> =
+ *   _UnionToTuple<Union> extends (infer Result extends UnknownArray) ? Result : never
  */
 
 // ✓ _UnionToTuple: verified type-identical to the original
@@ -40,5 +41,12 @@ export function _UnionToTuple(Union, Accumulator: UnknownArray = [], Member = Un
   return _UnionToTuple(ExcludeExactly(Union, Member), [Member, ...Accumulator])
 }
 /* compiles to:
- * export type _UnionToTuple<Union, Accumulator extends UnknownArray = [], Member = UnionMember<Union>> = IsNever<Union> extends true ? Accumulator : _UnionToTuple<ExcludeExactly<Union, Member>, [Member, ...Accumulator]>
+ * export type _UnionToTuple<
+ *   Union,
+ *   Accumulator extends UnknownArray = [],
+ *   Member = UnionMember<Union>
+ * > =
+ *   IsNever<Union> extends true
+ *     ? Accumulator
+ *     : _UnionToTuple<ExcludeExactly<Union, Member>, [Member, ...Accumulator]>
  */

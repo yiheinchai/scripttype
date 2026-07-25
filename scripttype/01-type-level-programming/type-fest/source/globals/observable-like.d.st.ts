@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const OnComplete: any
 declare const OnError: any
-type OnComplete<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OnError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type OnComplete<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OnError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OnNext: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OnNext(ValueType) {
@@ -29,7 +29,11 @@ export function Observer(ValueType) {
   return { next: OnNext(ValueType), error: OnError, complete: OnComplete }
 }
 /* compiles to:
- * export type Observer<ValueType> = { next: OnNext<ValueType>; error: OnError; complete: OnComplete }
+ * export type Observer<ValueType> = {
+ *   next: OnNext<ValueType>
+ *   error: OnError
+ *   complete: OnComplete
+ * }
  */
 
 // ✗ ObservableLike: uses raw() — language gap, does not count as covered

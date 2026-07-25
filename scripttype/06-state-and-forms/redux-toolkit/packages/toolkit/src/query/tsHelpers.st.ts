@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PromiseLike: any
-type PromiseLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PromiseLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Id: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Id(T) {
@@ -56,7 +56,8 @@ export function UnionToIntersection(U) {
   return never
 }
 /* compiles to:
- * export type UnionToIntersection<U> = (U extends any ? (a0: U) => void : never) extends (k: infer I) => void ? I : never
+ * export type UnionToIntersection<U> =
+ *   (U extends any ? (a0: U) => void : never) extends (k: infer I) => void ? I : never
  */
 
 // ✓ NonOptionalKeys: verified type-identical to the original
@@ -96,7 +97,7 @@ export function OptionalIfAllPropsOptional(T) {
 // ✓ NonUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonUndefined(T) {
-  if (matches<undefined>(T)) {
+  if (typeof T === 'undefined') {
     return never
   }
   return T
@@ -150,7 +151,8 @@ export function IsAny(T, True, False = never) {
   return False
 }
 /* compiles to:
- * export type IsAny<T, True, False = never> = true | false extends typeof T extends never ? true : false ? True : False
+ * export type IsAny<T, True, False = never> =
+ *   true | false extends typeof T extends never ? true : false ? True : False
  */
 
 // ✓ CastAny: verified type-identical to the original

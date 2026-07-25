@@ -21,17 +21,17 @@ declare const Simplify: any
 declare const StringToNumber: any
 declare const UnionToTuple: any
 declare const UnknownArray: any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonNullableDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Paths<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SetNonNullable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringToNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonNullableDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SetNonNullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetNonNullableDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetNonNullableDeep(BaseType, KeyPaths: Paths<typeof BaseType>) {
@@ -41,7 +41,10 @@ export function SetNonNullableDeep(BaseType, KeyPaths: Paths<typeof BaseType>) {
   return SetNonNullableDeepHelper(BaseType, UnionToTuple(KeyPaths))
 }
 /* compiles to:
- * export type SetNonNullableDeep<BaseType, KeyPaths extends Paths<BaseType>> = IsAny<KeyPaths> extends true ? NonNullableDeep<BaseType> : SetNonNullableDeepHelper<BaseType, UnionToTuple<KeyPaths>>
+ * export type SetNonNullableDeep<BaseType, KeyPaths extends Paths<BaseType>> =
+ *   IsAny<KeyPaths> extends true
+ *     ? NonNullableDeep<BaseType>
+ *     : SetNonNullableDeepHelper<BaseType, UnionToTuple<KeyPaths>>
  */
 
 // ✓ SetNonNullableDeepHelper: verified type-identical to the original
@@ -60,8 +63,14 @@ export function SetNonNullableDeepHelper(BaseType, KeyPathsTuple: UnknownArray) 
   return baseType
 }
 /* compiles to:
- * export type SetNonNullableDeepHelper<BaseType, KeyPathsTuple extends UnknownArray> = SetNonNullableDeepHelper__loop<BaseType, KeyPathsTuple>
- * type SetNonNullableDeepHelper__loop<BaseType, KeyPathsTuple extends UnknownArray> = KeyPathsTuple extends [infer KeyPath, ...infer RestPaths] ? SetNonNullableDeepHelper__loop<SetNonNullableDeepSinglePath<BaseType, KeyPath>, RestPaths> : BaseType
+ * export type SetNonNullableDeepHelper<BaseType, KeyPathsTuple extends UnknownArray> = SetNonNullableDeepHelper__loop<
+ *   BaseType,
+ *   KeyPathsTuple
+ * >
+ * type SetNonNullableDeepHelper__loop<BaseType, KeyPathsTuple extends UnknownArray> =
+ *   KeyPathsTuple extends [infer KeyPath, ...infer RestPaths]
+ *     ? SetNonNullableDeepHelper__loop<SetNonNullableDeepSinglePath<BaseType, KeyPath>, RestPaths>
+ *     : BaseType
  */
 
 // ✓ SetNonNullableDeepSinglePath: verified type-identical to the original
@@ -81,5 +90,16 @@ export function SetNonNullableDeepSinglePath(BaseType, KeyPath) {
   return Simplify(SetNonNullable(BaseType, merge(KeyPath | StringToNumber(KeyPath & string), keyof(BaseType))))
 }
 /* compiles to:
- * export type SetNonNullableDeepSinglePath<BaseType, KeyPath> = BaseType extends NonRecursiveType | ReadonlySet<unknown> | ReadonlyMap<unknown, unknown> ? BaseType : KeyPath extends `${infer Property}.${infer RestPath}` ? { [Key in keyof BaseType]: Property extends `${Key & (string | number)}` ? SetNonNullableDeepSinglePath<BaseType[Key], RestPath> : BaseType[Key] } : Simplify<SetNonNullable<BaseType, (KeyPath | StringToNumber<KeyPath & string>) & keyof BaseType>>
+ * export type SetNonNullableDeepSinglePath<BaseType, KeyPath> =
+ *   BaseType extends NonRecursiveType | ReadonlySet<unknown> | ReadonlyMap<unknown, unknown>
+ *     ? BaseType
+ *   : KeyPath extends `${infer Property}.${infer RestPath}`
+ *     ? {
+ *       [Key in keyof BaseType]: Property extends `${Key & (string | number)}`
+ *         ? SetNonNullableDeepSinglePath<BaseType[Key], RestPath>
+ *         : BaseType[Key]
+ *     }
+ *   : Simplify<
+ *     SetNonNullable<BaseType, (KeyPath | StringToNumber<KeyPath & string>) & keyof BaseType>
+ *   >
  */

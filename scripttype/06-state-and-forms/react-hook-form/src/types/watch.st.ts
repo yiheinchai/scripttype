@@ -17,21 +17,30 @@ declare const FieldPathValue: any
 declare const FieldPathValues: any
 declare const FieldValues: any
 declare const ReactNode: any
-type Control<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DeepPartialSkipArrayKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldPathValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldPathValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReactNode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WatchName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Control<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DeepPartialSkipArrayKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldPathValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldPathValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReactNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WatchName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseWatchProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseWatchProps(TFieldValues: FieldValues = FieldValues) {
   return { defaultValue: optional(unknown), disabled: optional(boolean), name: optional(FieldPath(TFieldValues) | arrayOf(FieldPath(TFieldValues)) | readonlyArrayOf(FieldPath(TFieldValues))), control: optional(Control(TFieldValues)), exact: optional(boolean), compute: optional(fnType([TFieldValues], TFieldValues)) }
 }
 /* compiles to:
- * export type UseWatchProps<TFieldValues extends FieldValues = FieldValues> = { defaultValue?: unknown; disabled?: boolean; name?: FieldPath<TFieldValues> | FieldPath<TFieldValues>[] | readonly FieldPath<TFieldValues>[]; control?: Control<TFieldValues>; exact?: boolean; compute?: (a0: TFieldValues) => TFieldValues }
+ * export type UseWatchProps<TFieldValues extends FieldValues = FieldValues> = {
+ *   defaultValue?: unknown
+ *   disabled?: boolean
+ *   name?: | FieldPath<TFieldValues>
+ *   | FieldPath<TFieldValues>[]
+ *   | readonly FieldPath<TFieldValues>[]
+ *   control?: Control<TFieldValues>
+ *   exact?: boolean
+ *   compute?: (a0: TFieldValues) => TFieldValues
+ * }
  */
 
 // ✓ WatchDefaultValue: verified type-identical to the original
@@ -43,7 +52,10 @@ export function WatchDefaultValue(TFieldName, TFieldValues: FieldValues = FieldV
   return DeepPartialSkipArrayKey(TFieldValues)
 }
 /* compiles to:
- * export type WatchDefaultValue<TFieldName, TFieldValues extends FieldValues = FieldValues> = TFieldName extends FieldPath<TFieldValues> ? FieldPathValue<TFieldValues, TFieldName> : DeepPartialSkipArrayKey<TFieldValues>
+ * export type WatchDefaultValue<TFieldName, TFieldValues extends FieldValues = FieldValues> =
+ *   TFieldName extends FieldPath<TFieldValues>
+ *     ? FieldPathValue<TFieldValues, TFieldName>
+ *     : DeepPartialSkipArrayKey<TFieldValues>
  */
 
 // ✓ WatchName: verified type-identical to the original
@@ -52,7 +64,11 @@ export function WatchName(TFieldValues: FieldValues) {
   return anyOf(FieldPath(TFieldValues), arrayOf(FieldPath(TFieldValues)), readonlyArrayOf(FieldPath(TFieldValues)), Undefined)
 }
 /* compiles to:
- * export type WatchName<TFieldValues extends FieldValues> = FieldPath<TFieldValues> | FieldPath<TFieldValues>[] | readonly FieldPath<TFieldValues>[] | undefined
+ * export type WatchName<TFieldValues extends FieldValues> =
+ *   | FieldPath<TFieldValues>
+ *   | FieldPath<TFieldValues>[]
+ *   | readonly FieldPath<TFieldValues>[]
+ *   | undefined
  */
 
 // ✓ WatchValue: verified type-identical to the original
@@ -67,19 +83,24 @@ export function WatchValue(TFieldName, TFieldValues: FieldValues = FieldValues) 
   return TFieldValues
 }
 /* compiles to:
- * export type WatchValue<TFieldName, TFieldValues extends FieldValues = FieldValues> = TFieldName extends readonly FieldPath<TFieldValues>[] ? FieldPathValues<TFieldValues, TFieldName> : TFieldName extends FieldPath<TFieldValues> ? FieldPathValue<TFieldValues, TFieldName> : TFieldValues
+ * export type WatchValue<TFieldName, TFieldValues extends FieldValues = FieldValues> =
+ *   TFieldName extends readonly FieldPath<TFieldValues>[]
+ *     ? FieldPathValues<TFieldValues, TFieldName>
+ *   : TFieldName extends FieldPath<TFieldValues> ? FieldPathValue<TFieldValues, TFieldName>
+ *   : TFieldValues
  */
 
 // ✓ WatchRenderValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function WatchRenderValue(TFieldName, TFieldValues: FieldValues, TComputeValue) {
-  if (matches<undefined>(TComputeValue)) {
+  if (typeof TComputeValue === 'undefined') {
     return WatchValue(TFieldName, TFieldValues)
   }
   return TComputeValue
 }
 /* compiles to:
- * export type WatchRenderValue<TFieldName, TFieldValues extends FieldValues, TComputeValue> = TComputeValue extends undefined ? WatchValue<TFieldName, TFieldValues> : TComputeValue
+ * export type WatchRenderValue<TFieldName, TFieldValues extends FieldValues, TComputeValue> =
+ *   TComputeValue extends undefined ? WatchValue<TFieldName, TFieldValues> : TComputeValue
  */
 
 // ✓ WatchProps: verified type-identical to the original
@@ -88,5 +109,22 @@ export function WatchProps(TFieldName: WatchName<typeof TFieldValues>, TFieldVal
   return { control: optional(Control(TFieldValues, TContext, TTransformedValues)), names: optional(TFieldName), name: optional(TFieldName), disabled: optional(boolean), exact: optional(boolean), defaultValue: optional(WatchDefaultValue(TFieldName, TFieldValues)), compute: optional(fnType([WatchValue(TFieldName, TFieldValues)], TComputeValue)), render: fnType([WatchRenderValue(TFieldName, TFieldValues, TComputeValue)], ReactNode | arrayOf(ReactNode)) }
 }
 /* compiles to:
- * export type WatchProps<TFieldName extends WatchName<TFieldValues>, TFieldValues extends FieldValues = FieldValues, TContext = any, TTransformedValues = TFieldValues, TComputeValue = undefined> = { control?: Control<TFieldValues, TContext, TTransformedValues>; names?: TFieldName; name?: TFieldName; disabled?: boolean; exact?: boolean; defaultValue?: WatchDefaultValue<TFieldName, TFieldValues>; compute?: (a0: WatchValue<TFieldName, TFieldValues>) => TComputeValue; render: (a0: WatchRenderValue<TFieldName, TFieldValues, TComputeValue>) => ReactNode | ReactNode[] }
+ * export type WatchProps<
+ *   TFieldName extends WatchName<TFieldValues>,
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TContext = any,
+ *   TTransformedValues = TFieldValues,
+ *   TComputeValue = undefined
+ * > =
+ *   {
+ *     control?: Control<TFieldValues, TContext, TTransformedValues>
+ *     names?: TFieldName
+ *     name?: TFieldName
+ *     disabled?: boolean
+ *     exact?: boolean
+ *     defaultValue?: WatchDefaultValue<TFieldName, TFieldValues>
+ *     compute?: (a0: WatchValue<TFieldName, TFieldValues>) => TComputeValue
+ *     render: (a0: WatchRenderValue<TFieldName, TFieldValues, TComputeValue>) => | ReactNode
+ *     | ReactNode[]
+ *   }
  */

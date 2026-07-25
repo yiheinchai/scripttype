@@ -15,18 +15,20 @@ declare const List: any
 declare const ObjectOf: any
 declare const _ListOf: any
 declare const _OPick: any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _ListOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _OPick<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _ListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _OPick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _Pick: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _Pick(L: List, K: Key) {
   return _ListOf(_OPick(ObjectOf(L), anyOf(`${merge(K, number)}`, K)))
 }
 /* compiles to:
- * export type _Pick<L extends List, K extends Key> = _ListOf<_OPick<ObjectOf<L>, `${K & number}` | K>>
+ * export type _Pick<L extends List, K extends Key> = _ListOf<
+ *   _OPick<ObjectOf<L>, `${K & number}` | K>
+ * >
  */
 
 // ✓ Pick: verified type-identical to the original

@@ -17,5 +17,7 @@ export function OmitIndexSignature(ObjectType) {
   return out
 }
 /* compiles to:
- * export type OmitIndexSignature<ObjectType> = { [KeyType in keyof ObjectType as {} extends Record<KeyType, unknown> ? never : KeyType]: ObjectType[KeyType] }
+ * export type OmitIndexSignature<ObjectType> = {
+ *   [KeyType in keyof ObjectType as {} extends Record<KeyType, unknown> ? never : KeyType]: ObjectType[KeyType]
+ * }
  */

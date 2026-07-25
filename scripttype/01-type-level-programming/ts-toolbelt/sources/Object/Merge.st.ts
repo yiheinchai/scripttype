@@ -20,16 +20,16 @@ declare const Length: any
 declare const List: any
 declare const RequiredKeys: any
 declare const _OptionalKeys: any
-type Anyfy<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type At<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Has<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _OptionalKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Anyfy<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Has<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _OptionalKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Longer: does not compile yet
 //   Type 'Has<RequiredKeys<L>, RequiredKeys<L1>>' cannot be used to index type '{ '0': 0; '1': 1; }'.
 /* @scripttype preserveParamNames */
@@ -43,7 +43,10 @@ export function Longer(L: List, L1: List) {
   return never
 }
 /* compiles to:
- * export type Longer<L extends List, L1 extends List> = L extends unknown ? L1 extends unknown ? { '0': 0; '1': 1 }[Has<RequiredKeys<L>, RequiredKeys<L1>>] : never : never
+ * export type Longer<L extends List, L1 extends List> =
+ *   L extends unknown
+ *     ? L1 extends unknown ? { '0': 0; '1': 1 }[Has<RequiredKeys<L>, RequiredKeys<L1>>] : never
+ *     : never
  */
 
 // ✓ MergeProp: verified type-identical to the original
@@ -61,7 +64,11 @@ export function MergeProp(OK, O1K, fill, OOKeys: Key, K: Key) {
   return OK
 }
 /* compiles to:
- * export type MergeProp<OK, O1K, fill, OOKeys extends Key, K extends Key> = K extends OOKeys ? Exclude<OK, undefined> | O1K : [OK] extends [never] ? O1K : OK extends fill ? O1K : OK
+ * export type MergeProp<OK, O1K, fill, OOKeys extends Key, K extends Key> =
+ *   K extends OOKeys ? Exclude<OK, undefined> | O1K
+ *   : [OK] extends [never] ? O1K
+ *   : OK extends fill ? O1K
+ *   : OK
  */
 
 // ✓ MergeFlatObject: verified type-identical to the original
@@ -74,7 +81,13 @@ export function MergeFlatObject(O: object, O1: object, fill, OOKeys: Key = _Opti
   return merge(out, {})
 }
 /* compiles to:
- * export type MergeFlatObject<O extends object, O1 extends object, fill, OOKeys extends Key = _OptionalKeys<O>> = { [K in keyof (Anyfy<O> & O1)]: MergeProp<At<O, K>, At<O1, K>, fill, OOKeys, K> } & {}
+ * export type MergeFlatObject<
+ *   O extends object,
+ *   O1 extends object,
+ *   fill,
+ *   OOKeys extends Key = _OptionalKeys<O>
+ * > =
+ *   { [K in keyof (Anyfy<O> & O1)]: MergeProp<At<O, K>, At<O1, K>, fill, OOKeys, K> } & {}
  */
 
 // ✓ MergeFlatList: verified type-identical to the original
@@ -90,14 +103,23 @@ export function MergeFlatList(L: List, L1: List, ignore: object, fill, LOK: Key 
     }
     return out
   }
-  const out = emptyObject
+  const out2 = emptyObject
   for (const K in keyof(L1)) {
-    out[K] = MergeProp(At(L, K), L1[K], fill, LOK, K)
+    out2[K] = MergeProp(At(L, K), L1[K], fill, LOK, K)
   }
-  return out
+  return out2
 }
 /* compiles to:
- * export type MergeFlatList<L extends List, L1 extends List, ignore extends object, fill, LOK extends Key = _OptionalKeys<L>> = number extends Length<L | L1> ? MergeFlatChoice<L[number], L1[number], ignore, fill>[] : Longer<L, L1> extends 1 ? { [K in keyof L]: MergeProp<L[K], At<L1, K>, fill, LOK, K> } : { [K1 in keyof L1]: MergeProp<At<L, K1>, L1[K1], fill, LOK, K1> }
+ * export type MergeFlatList<
+ *   L extends List,
+ *   L1 extends List,
+ *   ignore extends object,
+ *   fill,
+ *   LOK extends Key = _OptionalKeys<L>
+ * > =
+ *   number extends Length<L | L1> ? MergeFlatChoice<L[number], L1[number], ignore, fill>[]
+ *   : Longer<L, L1> extends 1 ? { [K in keyof L]: MergeProp<L[K], At<L1, K>, fill, LOK, K> }
+ *   : { [K1 in keyof L1]: MergeProp<At<L, K1>, L1[K1], fill, LOK, K1> }
  */
 
 // ✓ MergeFlatChoice: verified type-identical to the original
@@ -118,7 +140,12 @@ export function MergeFlatChoice(O: object, O1: object, ignore: object, fill) {
   return MergeFlatObject(O, O1, fill)
 }
 /* compiles to:
- * export type MergeFlatChoice<O extends object, O1 extends object, ignore extends object, fill> = O extends ignore ? O : O1 extends ignore ? O : O extends List ? O1 extends List ? MergeFlatList<O, O1, ignore, fill> : MergeFlatObject<O, O1, fill> : MergeFlatObject<O, O1, fill>
+ * export type MergeFlatChoice<O extends object, O1 extends object, ignore extends object, fill> =
+ *   O extends ignore ? O
+ *   : O1 extends ignore ? O
+ *   : O extends List
+ *     ? O1 extends List ? MergeFlatList<O, O1, ignore, fill> : MergeFlatObject<O, O1, fill>
+ *   : MergeFlatObject<O, O1, fill>
  */
 
 // ✓ MergeFlat: verified type-identical to the original
@@ -133,7 +160,13 @@ export function MergeFlat(O: object, O1: object, ignore: object = BuiltIn, fill 
   return never
 }
 /* compiles to:
- * export type MergeFlat<O extends object, O1 extends object, ignore extends object = BuiltIn, fill = undefined> = O extends unknown ? O1 extends unknown ? MergeFlatChoice<O, O1, ignore, fill> : never : never
+ * export type MergeFlat<
+ *   O extends object,
+ *   O1 extends object,
+ *   ignore extends object = BuiltIn,
+ *   fill = undefined
+ * > =
+ *   O extends unknown ? O1 extends unknown ? MergeFlatChoice<O, O1, ignore, fill> : never : never
  */
 
 // ✓ MergeDeepList: verified type-identical to the original
@@ -149,14 +182,19 @@ export function MergeDeepList(L: List, L1: List, ignore: object, fill) {
     }
     return out
   }
-  const out = emptyObject
+  const out2 = emptyObject
   for (const K in keyof(L1)) {
-    out[K] = MergeDeepChoice(At(L, K), L1[K], ignore, fill, _OptionalKeys(L), K)
+    out2[K] = MergeDeepChoice(At(L, K), L1[K], ignore, fill, _OptionalKeys(L), K)
   }
-  return out
+  return out2
 }
 /* compiles to:
- * export type MergeDeepList<L extends List, L1 extends List, ignore extends object, fill> = number extends Length<L | L1> ? MergeDeepChoice<L[number], L1[number], ignore, fill, never, any>[] : Longer<L, L1> extends 1 ? { [K in keyof L]: MergeDeepChoice<L[K], At<L1, K>, ignore, fill, _OptionalKeys<L>, K> } : { [K1 in keyof L1]: MergeDeepChoice<At<L, K1>, L1[K1], ignore, fill, _OptionalKeys<L>, K1> }
+ * export type MergeDeepList<L extends List, L1 extends List, ignore extends object, fill> =
+ *   number extends Length<L | L1>
+ *     ? MergeDeepChoice<L[number], L1[number], ignore, fill, never, any>[]
+ *   : Longer<L, L1> extends 1
+ *     ? { [K in keyof L]: MergeDeepChoice<L[K], At<L1, K>, ignore, fill, _OptionalKeys<L>, K> }
+ *   : { [K1 in keyof L1]: MergeDeepChoice<At<L, K1>, L1[K1], ignore, fill, _OptionalKeys<L>, K1> }
  */
 
 // ✓ MergeDeepObject: verified type-identical to the original
@@ -169,7 +207,16 @@ export function MergeDeepObject(O: object, O1: object, ignore: object, fill, OOK
   return out
 }
 /* compiles to:
- * export type MergeDeepObject<O extends object, O1 extends object, ignore extends object, fill, OOKeys extends Key = _OptionalKeys<O>> = { [K in keyof (Anyfy<O> & O1)]: MergeDeepChoice<At<O, K>, At<O1, K>, ignore, fill, OOKeys, K> }
+ * export type MergeDeepObject<
+ *   O extends object,
+ *   O1 extends object,
+ *   ignore extends object,
+ *   fill,
+ *   OOKeys extends Key = _OptionalKeys<O>
+ * > =
+ *   {
+ *     [K in keyof (Anyfy<O> & O1)]: MergeDeepChoice<At<O, K>, At<O1, K>, ignore, fill, OOKeys, K>
+ *   }
  */
 
 // ✓ MergeDeepChoice: verified type-identical to the original
@@ -202,7 +249,27 @@ export function MergeDeepChoice(OK, O1K, ignore: object, fill, OOKeys: Key, K: K
   return MergeProp(OK, O1K, fill, OOKeys, K)
 }
 /* compiles to:
- * export type MergeDeepChoice<OK, O1K, ignore extends object, fill, OOKeys extends Key, K extends Key> = [OK] extends [never] ? MergeProp<OK, O1K, fill, OOKeys, K> : [O1K] extends [never] ? MergeProp<OK, O1K, fill, OOKeys, K> : OK extends ignore ? MergeProp<OK, O1K, fill, OOKeys, K> : O1K extends ignore ? MergeProp<OK, O1K, fill, OOKeys, K> : OK extends List ? O1K extends List ? MergeDeepList<OK, O1K, ignore, fill> : MergeProp<OK, O1K, fill, OOKeys, K> : OK extends object ? O1K extends object ? MergeDeepObject<OK, O1K, ignore, fill> : MergeProp<OK, O1K, fill, OOKeys, K> : MergeProp<OK, O1K, fill, OOKeys, K>
+ * export type MergeDeepChoice<
+ *   OK,
+ *   O1K,
+ *   ignore extends object,
+ *   fill,
+ *   OOKeys extends Key,
+ *   K extends Key
+ * > =
+ *   [OK] extends [never] ? MergeProp<OK, O1K, fill, OOKeys, K>
+ *   : [O1K] extends [never] ? MergeProp<OK, O1K, fill, OOKeys, K>
+ *   : OK extends ignore ? MergeProp<OK, O1K, fill, OOKeys, K>
+ *   : O1K extends ignore ? MergeProp<OK, O1K, fill, OOKeys, K>
+ *   : OK extends List
+ *     ? O1K extends List
+ *       ? MergeDeepList<OK, O1K, ignore, fill>
+ *       : MergeProp<OK, O1K, fill, OOKeys, K>
+ *   : OK extends object
+ *     ? O1K extends object
+ *       ? MergeDeepObject<OK, O1K, ignore, fill>
+ *       : MergeProp<OK, O1K, fill, OOKeys, K>
+ *   : MergeProp<OK, O1K, fill, OOKeys, K>
  */
 
 // ✓ MergeDeep: verified type-identical to the original
@@ -217,7 +284,10 @@ export function MergeDeep(O: object, O1: object, ignore: object, fill) {
   return never
 }
 /* compiles to:
- * export type MergeDeep<O extends object, O1 extends object, ignore extends object, fill> = O extends unknown ? O1 extends unknown ? MergeDeepChoice<O, O1, ignore, fill, 'x', 'y'> : never : never
+ * export type MergeDeep<O extends object, O1 extends object, ignore extends object, fill> =
+ *   O extends unknown
+ *     ? O1 extends unknown ? MergeDeepChoice<O, O1, ignore, fill, 'x', 'y'> : never
+ *     : never
  */
 
 // ✓ Merge: verified type-identical to the original
@@ -226,5 +296,12 @@ export function Merge(O: object, O1: object, depth: Depth = 'flat', ignore: obje
   return { 'flat': MergeFlat(O, O1, ignore, fill), 'deep': MergeDeep(O, O1, ignore, fill) }[depth]
 }
 /* compiles to:
- * export type Merge<O extends object, O1 extends object, depth extends Depth = 'flat', ignore extends object = BuiltIn, fill extends any = undefined> = { flat: MergeFlat<O, O1, ignore, fill>; deep: MergeDeep<O, O1, ignore, fill> }[depth]
+ * export type Merge<
+ *   O extends object,
+ *   O1 extends object,
+ *   depth extends Depth = 'flat',
+ *   ignore extends object = BuiltIn,
+ *   fill extends any = undefined
+ * > =
+ *   { flat: MergeFlat<O, O1, ignore, fill>; deep: MergeDeep<O, O1, ignore, fill> }[depth]
  */

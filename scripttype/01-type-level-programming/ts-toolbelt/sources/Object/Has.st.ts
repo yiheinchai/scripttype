@@ -14,15 +14,21 @@ declare const At: any
 declare const Is: any
 declare const Key: any
 declare const Match: any
-type At<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Is<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Is<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Has: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Has(O: object, K: Key, M: any = any, match: Match = 'default') {
   return Is(At(O, K), M, match)
 }
 /* compiles to:
- * export type Has<O extends object, K extends Key, M extends any = any, match extends Match = 'default'> = Is<At<O, K>, M, match>
+ * export type Has<
+ *   O extends object,
+ *   K extends Key,
+ *   M extends any = any,
+ *   match extends Match = 'default'
+ * > =
+ *   Is<At<O, K>, M, match>
  */

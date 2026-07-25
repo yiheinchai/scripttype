@@ -15,18 +15,26 @@ declare const InfiniteData: any
 declare const NonUndefinedGuard: any
 declare const QueryKey: any
 declare const UseInfiniteQueryOptions: any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonUndefinedGuard<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseInfiniteQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonUndefinedGuard<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseInfiniteQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UndefinedInitialDataInfiniteOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UndefinedInitialDataInfiniteOptions(TQueryFnData, TError = DefaultError, TData = InfiniteData(TQueryFnData), TQueryKey: QueryKey = QueryKey, TPageParam = unknown) {
   return merge(UseInfiniteQueryOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam), { initialData: optional(Undefined) })
 }
 /* compiles to:
- * export type UndefinedInitialDataInfiniteOptions<TQueryFnData, TError = DefaultError, TData = InfiniteData<TQueryFnData>, TQueryKey extends QueryKey = QueryKey, TPageParam = unknown> = UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam> & { initialData?: undefined }
+ * export type UndefinedInitialDataInfiniteOptions<
+ *   TQueryFnData,
+ *   TError = DefaultError,
+ *   TData = InfiniteData<TQueryFnData>,
+ *   TQueryKey extends QueryKey = QueryKey,
+ *   TPageParam = unknown
+ * > =
+ *   & UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>
+ *   & { initialData?: undefined }
  */
 
 // ✓ DefinedInitialDataInfiniteOptions: verified type-identical to the original
@@ -35,5 +43,16 @@ export function DefinedInitialDataInfiniteOptions(TQueryFnData, TError = Default
   return merge(UseInfiniteQueryOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam), { initialData: NonUndefinedGuard(InfiniteData(TQueryFnData, TPageParam)) | fnType([], NonUndefinedGuard(InfiniteData(TQueryFnData, TPageParam))) })
 }
 /* compiles to:
- * export type DefinedInitialDataInfiniteOptions<TQueryFnData, TError = DefaultError, TData = InfiniteData<TQueryFnData>, TQueryKey extends QueryKey = QueryKey, TPageParam = unknown> = UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam> & { initialData: NonUndefinedGuard<InfiniteData<TQueryFnData, TPageParam>> | (() => NonUndefinedGuard<InfiniteData<TQueryFnData, TPageParam>>) }
+ * export type DefinedInitialDataInfiniteOptions<
+ *   TQueryFnData,
+ *   TError = DefaultError,
+ *   TData = InfiniteData<TQueryFnData>,
+ *   TQueryKey extends QueryKey = QueryKey,
+ *   TPageParam = unknown
+ * > =
+ *   & UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>
+ *   & {
+ *       initialData: | NonUndefinedGuard<InfiniteData<TQueryFnData, TPageParam>>
+ *       | (() => NonUndefinedGuard<InfiniteData<TQueryFnData, TPageParam>>)
+ *     }
  */

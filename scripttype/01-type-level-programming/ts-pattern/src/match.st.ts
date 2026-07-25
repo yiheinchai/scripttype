@@ -13,5 +13,6 @@ export function MatchState(output) {
   return anyOf({ matched: true, value: output }, { matched: false, value: Undefined })
 }
 /* compiles to:
- * export type MatchState<output> = { matched: true; value: output } | { matched: false; value: undefined }
+ * export type MatchState<output> =
+ *   { matched: true; value: output } | { matched: false; value: undefined }
  */

@@ -11,12 +11,21 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const MySqlYearBuilder: any
-type MySqlYearBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MySqlYearBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlYearBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySqlYearBuilderInitial(TName: string) {
   return MySqlYearBuilder({ name: TName, dataType: 'number', columnType: 'MySqlYear', data: number, driverParam: number, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlYearBuilderInitial<TName extends string> = MySqlYearBuilder<{ name: TName; dataType: 'number'; columnType: 'MySqlYear'; data: number; driverParam: number; enumValues: undefined }>
+ * export type MySqlYearBuilderInitial<TName extends string> = MySqlYearBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'MySqlYear'
+ *     data: number
+ *     driverParam: number
+ *     enumValues: undefined
+ *   }
+ * >
  */

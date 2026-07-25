@@ -12,15 +12,24 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PgGeometryBuilder: any
 declare const PgGeometryObjectBuilder: any
-type PgGeometryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgGeometryObjectBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgGeometryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgGeometryObjectBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgGeometryBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgGeometryBuilderInitial(TName: string) {
   return PgGeometryBuilder({ name: TName, dataType: 'array', columnType: 'PgGeometry', data: [number, number], driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgGeometryBuilderInitial<TName extends string> = PgGeometryBuilder<{ name: TName; dataType: 'array'; columnType: 'PgGeometry'; data: [number, number]; driverParam: string; enumValues: undefined }>
+ * export type PgGeometryBuilderInitial<TName extends string> = PgGeometryBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'array'
+ *     columnType: 'PgGeometry'
+ *     data: [number, number]
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ PgGeometryObjectBuilderInitial: verified type-identical to the original
@@ -29,5 +38,14 @@ export function PgGeometryObjectBuilderInitial(TName: string) {
   return PgGeometryObjectBuilder({ name: TName, dataType: 'json', columnType: 'PgGeometryObject', data: { x: number, y: number }, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgGeometryObjectBuilderInitial<TName extends string> = PgGeometryObjectBuilder<{ name: TName; dataType: 'json'; columnType: 'PgGeometryObject'; data: { x: number; y: number }; driverParam: string; enumValues: undefined }>
+ * export type PgGeometryObjectBuilderInitial<TName extends string> = PgGeometryObjectBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'json'
+ *     columnType: 'PgGeometryObject'
+ *     data: { x: number; y: number }
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */

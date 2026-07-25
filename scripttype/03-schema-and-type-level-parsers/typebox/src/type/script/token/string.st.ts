@@ -13,9 +13,9 @@
 declare const TSpan: any
 declare const TTake: any
 declare const TTrim: any
-type TSpan<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTake<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTrim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TSpan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TTakeInitial(Quotes: string[], Input: string) {
@@ -31,7 +31,12 @@ export function TTakeSpan(Quote: string, Input: string) {
   return TSpan(Quote, Quote, false, Input)
 }
 /* compiles to:
- * export type TTakeSpan<Quote extends string, Input extends string> = TSpan<Quote, Quote, false, Input>
+ * export type TTakeSpan<Quote extends string, Input extends string> = TSpan<
+ *   Quote,
+ *   Quote,
+ *   false,
+ *   Input
+ * >
  */
 
 // ✓ TTakeString: verified type-identical to the original
@@ -44,7 +49,10 @@ export function TTakeString(Quotes: string[], Input: string) {
   return []
 }
 /* compiles to:
- * export type TTakeString<Quotes extends string[], Input extends string> = TTakeInitial<Quotes, Input> extends [infer Initial extends string, infer InitialRest extends string] ? TTakeSpan<Initial, `${Initial}${InitialRest}`> : []
+ * export type TTakeString<Quotes extends string[], Input extends string> =
+ *   TTakeInitial<Quotes, Input> extends [infer Initial extends string, infer InitialRest extends string]
+ *     ? TTakeSpan<Initial, `${Initial}${InitialRest}`>
+ *     : []
  */
 
 // ✓ TString: verified type-identical to the original
@@ -53,5 +61,8 @@ export function TString(Quotes: string[], Input: string) {
   return TTakeString(Quotes, TTrim(Input))
 }
 /* compiles to:
- * export type TString<Quotes extends string[], Input extends string> = TTakeString<Quotes, TTrim<Input>>
+ * export type TString<Quotes extends string[], Input extends string> = TTakeString<
+ *   Quotes,
+ *   TTrim<Input>
+ * >
  */

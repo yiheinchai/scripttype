@@ -15,18 +15,24 @@ declare const MutateOptions: any
 declare const MutationObserverOptions: any
 declare const MutationObserverResult: any
 declare const ValueAccessor: any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutateOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationObserverOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueAccessor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutateOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueAccessor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateMutationOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CreateMutationOptions(TData = unknown, TError = DefaultError, TVariables = voidType(), TOnMutateResult = unknown) {
   return MutationObserverOptions(TData, TError, TVariables, TOnMutateResult)
 }
 /* compiles to:
- * export type CreateMutationOptions<TData = unknown, TError = DefaultError, TVariables = void, TOnMutateResult = unknown> = MutationObserverOptions<TData, TError, TVariables, TOnMutateResult>
+ * export type CreateMutationOptions<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = void,
+ *   TOnMutateResult = unknown
+ * > =
+ *   MutationObserverOptions<TData, TError, TVariables, TOnMutateResult>
  */
 
 // ✗ MutationResultAccessor: compiles but is not type-identical yet
@@ -36,5 +42,15 @@ export function MutationResultAccessor(TData, TError, TVariables, TOnMutateResul
   return merge(ValueAccessor(MutationObserverResult(TData, TError, TVariables, TOnMutateResult)), { mutate: fnType([TVariables, MutateOptions(TData, TError, TVariables, TOnMutateResult)], voidType()), mutateAsync: MutationObserverResult(TData, TError, TVariables, TOnMutateResult)['mutate'], reset: MutationObserverResult(TData, TError, TVariables, TOnMutateResult)['reset'], destroy: fnType([], voidType()) })
 }
 /* compiles to:
- * export type MutationResultAccessor<TData, TError, TVariables, TOnMutateResult> = ValueAccessor<MutationObserverResult<TData, TError, TVariables, TOnMutateResult>> & { mutate: (a0: TVariables, a1: MutateOptions<TData, TError, TVariables, TOnMutateResult>) => void; mutateAsync: MutationObserverResult<TData, TError, TVariables, TOnMutateResult>['mutate']; reset: MutationObserverResult<TData, TError, TVariables, TOnMutateResult>['reset']; destroy: () => void }
+ * export type MutationResultAccessor<TData, TError, TVariables, TOnMutateResult> =
+ *   & ValueAccessor<MutationObserverResult<TData, TError, TVariables, TOnMutateResult>>
+ *   & {
+ *       mutate: (
+ *         a0: TVariables,
+ *         a1: MutateOptions<TData, TError, TVariables, TOnMutateResult>
+ *       ) => void
+ *       mutateAsync: MutationObserverResult<TData, TError, TVariables, TOnMutateResult>['mutate']
+ *       reset: MutationObserverResult<TData, TError, TVariables, TOnMutateResult>['reset']
+ *       destroy: () => void
+ *     }
  */

@@ -16,19 +16,28 @@ declare const IfNotAnyOrNever: any
 declare const IsStringLiteral: any
 declare const Or: any
 declare const StringToArrayOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultStringToArrayOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStringLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Or<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringToArrayOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultStringToArrayOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStringLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringToArrayOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringToArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StringToArray(S: string, Options: StringToArrayOptions = {}) {
   return IfNotAnyOrNever(S, { ifNot: _StringToArray(S, ApplyDefaultOptions(StringToArrayOptions, DefaultStringToArrayOptions, Options)), ifAny: arrayOf(unknown) })
 }
 /* compiles to:
- * export type StringToArray<S extends string, Options extends StringToArrayOptions = {}> = IfNotAnyOrNever<S, { ifNot: _StringToArray<S, ApplyDefaultOptions<StringToArrayOptions, DefaultStringToArrayOptions, Options>>; ifAny: unknown[] }>
+ * export type StringToArray<S extends string, Options extends StringToArrayOptions = {}> = IfNotAnyOrNever<
+ *   S,
+ *   {
+ *     ifNot: _StringToArray<
+ *       S,
+ *       ApplyDefaultOptions<StringToArrayOptions, DefaultStringToArrayOptions, Options>
+ *     >
+ *     ifAny: unknown[]
+ *   }
+ * >
  */
 
 // ✓ _StringToArray: verified type-identical to the original
@@ -50,5 +59,16 @@ export function _StringToArray(S: string, Options: Required<StringToArrayOptions
   return [...Accumulator, ...arrayOf(S)]
 }
 /* compiles to:
- * export type _StringToArray<S extends string, Options extends Required<StringToArrayOptions>, Accumulator extends string[] = []> = S extends `${infer First}${infer Rest}` ? Or<IsStringLiteral<First>, Options['mapNonLiteralsDirectly']> extends true ? _StringToArray<Rest, Options, [...Accumulator, First]> : _StringToArray<Rest, Options, [...Accumulator, ...First[]]> : S extends '' ? Accumulator : Options['mapNonLiteralsDirectly'] extends true ? [...Accumulator, S] : [...Accumulator, ...S[]]
+ * export type _StringToArray<
+ *   S extends string,
+ *   Options extends Required<StringToArrayOptions>,
+ *   Accumulator extends string[] = []
+ * > =
+ *   S extends `${infer First}${infer Rest}`
+ *     ? Or<IsStringLiteral<First>, Options['mapNonLiteralsDirectly']> extends true
+ *       ? _StringToArray<Rest, Options, [...Accumulator, First]>
+ *       : _StringToArray<Rest, Options, [...Accumulator, ...First[]]>
+ *   : S extends '' ? Accumulator
+ *   : Options['mapNonLiteralsDirectly'] extends true ? [...Accumulator, S]
+ *   : [...Accumulator, ...S[]]
  */

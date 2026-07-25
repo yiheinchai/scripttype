@@ -10,18 +10,21 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Result {
+  export type TExtendsTrue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Result: any
 declare const TExtendsRight: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TUndefined: any
 declare const TVoid: any
-type Result<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExtendsRight<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUndefined<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TVoid<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExtendsRight<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUndefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TVoid<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TExtendsUndefined(Inferred: TProperties, Left: TUndefined, Right: TSchema) {
@@ -34,5 +37,12 @@ export function TExtendsUndefined(Inferred: TProperties, Left: TUndefined, Right
   return TExtendsRight(Inferred, Left, Right)
 }
 /* compiles to:
- * export type TExtendsUndefined<Inferred extends TProperties, Left extends TUndefined, Right extends TSchema> = Right extends TVoid ? Result.TExtendsTrue<Inferred> : Right extends TUndefined ? Result.TExtendsTrue<Inferred> : TExtendsRight<Inferred, Left, Right>
+ * export type TExtendsUndefined<
+ *   Inferred extends TProperties,
+ *   Left extends TUndefined,
+ *   Right extends TSchema
+ * > =
+ *   Right extends TVoid ? Result.TExtendsTrue<Inferred>
+ *   : Right extends TUndefined ? Result.TExtendsTrue<Inferred>
+ *   : TExtendsRight<Inferred, Left, Right>
  */

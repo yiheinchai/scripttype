@@ -41,7 +41,8 @@ export function TrimStart(A: string) {
 }
 /* compiles to:
  * export type TrimStart<A extends string> = TrimStart__loop<A>
- * type TrimStart__loop<A extends string> = A extends `${' ' | '
+ * type TrimStart__loop<A extends string> =
+ *   A extends `${' ' | '
  * ' | '	' | ''}${infer B}` ? TrimStart__loop<B> : A
  */
 
@@ -61,6 +62,7 @@ export function TrimEnd(A: string) {
 }
 /* compiles to:
  * export type TrimEnd<A extends string> = TrimEnd__loop<A>
- * type TrimEnd__loop<A extends string> = A extends `${infer B}${' ' | '
+ * type TrimEnd__loop<A extends string> =
+ *   A extends `${infer B}${' ' | '
  * ' | '	' | ''}` ? TrimEnd__loop<B> : A
  */

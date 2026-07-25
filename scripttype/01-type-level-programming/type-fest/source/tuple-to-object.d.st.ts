@@ -14,10 +14,10 @@ declare const If: any
 declare const IsAny: any
 declare const IsTuple: any
 declare const UnknownArray: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TupleToObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TupleToObject(TArray: UnknownArray) {
@@ -28,5 +28,11 @@ export function TupleToObject(TArray: UnknownArray) {
   return If(IsAny(TArray), any, out)
 }
 /* compiles to:
- * export type TupleToObject<TArray extends UnknownArray> = If<IsAny<TArray>, any, { [Key in keyof TArray as Key & (`${number}` | (IsTuple<TArray> extends true ? never : number))]: TArray[Key] }>
+ * export type TupleToObject<TArray extends UnknownArray> = If<
+ *   IsAny<TArray>,
+ *   any,
+ *   {
+ *     [Key in keyof TArray as Key & (`${number}` | (IsTuple<TArray> extends true ? never : number))]: TArray[Key]
+ *   }
+ * >
  */

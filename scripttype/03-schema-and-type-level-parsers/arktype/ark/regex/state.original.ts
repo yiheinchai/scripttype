@@ -7,21 +7,21 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Flags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IndexedCaptures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NamedCaptures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NumberLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Regex<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegexContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnnamedCaptureKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ZeroWidthSpace<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type contains<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type noSuggest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type quantify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type setIndex<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unionKeyOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnmatchedGroupCloseMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Flags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IndexedCaptures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NamedCaptures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NumberLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Regex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegexContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnnamedCaptureKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ZeroWidthSpace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type contains<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type noSuggest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type quantify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type setIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unionKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnmatchedGroupCloseMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export interface FinalizationContext extends Required<RegexContext> {
 	errors: ErrorMessage[]
 }

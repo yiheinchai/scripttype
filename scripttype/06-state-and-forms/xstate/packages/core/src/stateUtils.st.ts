@@ -14,15 +14,17 @@ declare const EventObject: any
 declare const Iterable: any
 declare const MachineContext: any
 declare const StateNode: any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iterable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MachineContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StateNode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iterable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StateNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StateNodeIterable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StateNodeIterable(TContext: MachineContext, TE: EventObject) {
   return t<Iterable<StateNode<typeof TContext, typeof TE>>>()
 }
 /* compiles to:
- * export type StateNodeIterable<TContext extends MachineContext, TE extends EventObject> = Iterable<StateNode<TContext, TE>>
+ * export type StateNodeIterable<TContext extends MachineContext, TE extends EventObject> = Iterable<
+ *   StateNode<TContext, TE>
+ * >
  */

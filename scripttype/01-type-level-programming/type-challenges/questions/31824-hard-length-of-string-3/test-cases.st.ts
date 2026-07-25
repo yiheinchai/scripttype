@@ -19,15 +19,15 @@ declare const t3: any
 declare const t4: any
 declare const t5: any
 declare const t6: any
-type Deced<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Signum<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type t0<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type t1<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type t2<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type t3<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type t4<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type t5<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type t6<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Deced<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Signum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type t0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type t1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type t2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type t3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type t4<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type t5<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type t6<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Reped: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Reped(S: string, C: Signum) {
@@ -44,7 +44,8 @@ export function Reped(S: string, C: Signum) {
 }
 /* compiles to:
  * export type Reped<S extends string, C extends Signum> = Reped__loop<C, '', S>
- * type Reped__loop<C extends Signum, R extends string, S extends string> = C extends 0 ? R : Reped__loop<Deced[C], `${R}${S}`, S>
+ * type Reped__loop<C extends Signum, R extends string, S extends string> =
+ *   C extends 0 ? R : Reped__loop<Deced[C], `${R}${S}`, S>
  */
 
 // ✓ Signums: verified type-identical to the original
@@ -64,7 +65,10 @@ export function Signums(N: string) {
 }
 /* compiles to:
  * export type Signums<N extends string> = Signums__loop<N, []>
- * type Signums__loop<N extends string, Acc extends any[]> = N extends `${infer Head extends Signum}${infer Rest}` ? Signums__loop<Rest, [...Acc, Head]> : Acc
+ * type Signums__loop<N extends string, Acc extends any[]> =
+ *   N extends `${infer Head extends Signum}${infer Rest}`
+ *     ? Signums__loop<Rest, [...Acc, Head]>
+ *     : Acc
  */
 
 // ✓ Gened: verified type-identical to the original
@@ -77,5 +81,8 @@ export function Gened(N: string) {
   return never
 }
 /* compiles to:
- * export type Gened<N extends string> = Signums<N> extends [infer N6 extends Signum, infer N5 extends Signum, infer N4 extends Signum, infer N3 extends Signum, infer N2 extends Signum, infer N1 extends Signum, infer N0 extends Signum] ? `${Reped<t6, N6>}${Reped<t5, N5>}${Reped<t4, N4>}${Reped<t3, N3>}${Reped<t2, N2>}${Reped<t1, N1>}${Reped<t0, N0>}` : never
+ * export type Gened<N extends string> =
+ *   Signums<N> extends [infer N6 extends Signum, infer N5 extends Signum, infer N4 extends Signum, infer N3 extends Signum, infer N2 extends Signum, infer N1 extends Signum, infer N0 extends Signum]
+ *     ? `${Reped<t6, N6>}${Reped<t5, N5>}${Reped<t4, N4>}${Reped<t3, N3>}${Reped<t2, N2>}${Reped<t1, N1>}${Reped<t0, N0>}`
+ *     : never
  */

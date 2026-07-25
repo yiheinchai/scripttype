@@ -16,12 +16,12 @@ declare const ReadonlyMap: any
 declare const ReadonlySet: any
 declare const Simplify: any
 declare const ValueType: any
-type Except<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ItemType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Except<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ItemType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WritableArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function WritableArray(ArrayType: readonly unknown[]) {
@@ -43,7 +43,12 @@ export function WritableArray(ArrayType: readonly unknown[]) {
   return ArrayType
 }
 /* compiles to:
- * export type WritableArray<ArrayType extends readonly unknown[]> = ArrayType extends readonly [] ? [] : ArrayType extends readonly [...infer U, infer V] ? [...U, V] : ArrayType extends readonly [infer U, ...infer V] ? [U, ...V] : ArrayType extends ReadonlyArray<infer U> ? U[] : ArrayType
+ * export type WritableArray<ArrayType extends readonly unknown[]> =
+ *   ArrayType extends readonly [] ? []
+ *   : ArrayType extends readonly [...infer U, infer V] ? [...U, V]
+ *   : ArrayType extends readonly [infer U, ...infer V] ? [U, ...V]
+ *   : ArrayType extends ReadonlyArray<infer U> ? U[]
+ *   : ArrayType
  */
 
 // ✓ Writable: verified type-identical to the original
@@ -67,5 +72,14 @@ export function Writable(BaseType, Keys: keyof typeof BaseType = keyof(BaseType)
   return Simplify(Except(BaseType, Keys) & out)
 }
 /* compiles to:
- * export type Writable<BaseType, Keys extends keyof BaseType = keyof BaseType> = BaseType extends ReadonlyMap<infer KeyType, infer ValueType> ? Map<KeyType, ValueType> : BaseType extends ReadonlySet<infer ItemType> ? Set<ItemType> : BaseType extends readonly unknown[] ? WritableArray<BaseType> : Simplify<Except<BaseType, Keys> & { -readonly [KeyType1 in keyof BaseType as KeyType1 extends Keys ? KeyType1 : never]: BaseType[KeyType1] }>
+ * export type Writable<BaseType, Keys extends keyof BaseType = keyof BaseType> =
+ *   BaseType extends ReadonlyMap<infer KeyType, infer ValueType> ? Map<KeyType, ValueType>
+ *   : BaseType extends ReadonlySet<infer ItemType> ? Set<ItemType>
+ *   : BaseType extends readonly unknown[] ? WritableArray<BaseType>
+ *   : Simplify<
+ *     & Except<BaseType, Keys>
+ *     & {
+ *         -readonly [KeyType1 in keyof BaseType as KeyType1 extends Keys ? KeyType1 : never]: BaseType[KeyType1]
+ *       }
+ *   >
  */

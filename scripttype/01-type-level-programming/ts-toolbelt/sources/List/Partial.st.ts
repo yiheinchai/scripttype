@@ -14,15 +14,18 @@ declare const Cast: any
 declare const Depth: any
 declare const List: any
 declare const OPartial: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OPartial<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OPartial<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Partial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Partial(L: List, depth: Depth = 'flat') {
   return Cast(OPartial(L, depth), List)
 }
 /* compiles to:
- * export type Partial<L extends List, depth extends Depth = 'flat'> = Cast<OPartial<L, depth>, List>
+ * export type Partial<L extends List, depth extends Depth = 'flat'> = Cast<
+ *   OPartial<L, depth>,
+ *   List
+ * >
  */

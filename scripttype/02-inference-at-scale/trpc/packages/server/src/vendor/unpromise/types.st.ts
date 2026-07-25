@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PromiseLike: any
-type PromiseLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PromiseLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ PromiseExecutor: the ScriptType does not itself typecheck as TypeScript
 //   PromiseExecutor.st.ts(3:30) TS2693: 'PromiseLike' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -19,5 +19,6 @@ export function PromiseExecutor(T) {
   return fnType([fnType([T | PromiseLike(T)], voidType()), fnType([any], voidType())], voidType())
 }
 /* compiles to:
- * export type PromiseExecutor<T> = (a0: (a0: T | PromiseLike<T>) => void, a1: (a0: any) => void) => void
+ * export type PromiseExecutor<T> =
+ *   (a0: (a0: T | PromiseLike<T>) => void, a1: (a0: any) => void) => void
  */

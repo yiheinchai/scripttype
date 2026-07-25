@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace JSX {
+  export type Element<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyRouter: any
 declare const CreateTRPCClientOptions: any
 declare const DefinedUseQueryResult: any
@@ -33,29 +36,29 @@ declare const UseQueryResult: any
 declare const UseSuspenseInfiniteQueryResult: any
 declare const UseSuspenseQueryResult: any
 declare const coerceAsyncIterableToArray: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateTRPCClientOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinedUseQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DistributiveOmit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FetchInfiniteQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverSuccessResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JSX<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverSuccessResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCHookResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCProviderProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSubscriptionConnectingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSubscriptionErrorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSubscriptionIdleResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSubscriptionPendingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCUntypedClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCUseQueryBaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseInfiniteQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseMutationResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseSuspenseInfiniteQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseSuspenseQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type coerceAsyncIterableToArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateTRPCClientOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefinedUseQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DistributiveOmit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FetchInfiniteQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverSuccessResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JSX<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverSuccessResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCHookResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCProviderProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSubscriptionConnectingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSubscriptionErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSubscriptionIdleResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSubscriptionPendingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCUntypedClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCUseQueryBaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseInfiniteQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseMutationResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseSuspenseInfiniteQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseSuspenseQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type coerceAsyncIterableToArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OutputWithCursor: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OutputWithCursor(TData, TCursor = any) {
@@ -74,7 +77,8 @@ export function ExtractCursorType(TInput) {
   return unknown
 }
 /* compiles to:
- * export type ExtractCursorType<TInput> = TInput extends { cursor?: any; } ? TInput['cursor'] : unknown
+ * export type ExtractCursorType<TInput> =
+ *   TInput extends { cursor?: any; } ? TInput['cursor'] : unknown
  */
 
 // ✓ UseTRPCPrefetchInfiniteQueryOptions: verified type-identical to the original
@@ -83,7 +87,13 @@ export function UseTRPCPrefetchInfiniteQueryOptions(TInput, TOutput, TError) {
   return merge(DistributiveOmit(FetchInfiniteQueryOptions(TOutput, TError, TOutput, any, ExtractCursorType(TInput)), anyOf('queryKey', 'initialPageParam')), TRPCUseQueryBaseOptions, { initialCursor: optional(ExtractCursorType(TInput)) })
 }
 /* compiles to:
- * export type UseTRPCPrefetchInfiniteQueryOptions<TInput, TOutput, TError> = DistributiveOmit<FetchInfiniteQueryOptions<TOutput, TError, TOutput, any, ExtractCursorType<TInput>>, 'queryKey' | 'initialPageParam'> & TRPCUseQueryBaseOptions & { initialCursor?: ExtractCursorType<TInput> }
+ * export type UseTRPCPrefetchInfiniteQueryOptions<TInput, TOutput, TError> =
+ *   & DistributiveOmit<
+ *       FetchInfiniteQueryOptions<TOutput, TError, TOutput, any, ExtractCursorType<TInput>>,
+ *       'queryKey' | 'initialPageParam'
+ *     >
+ *   & TRPCUseQueryBaseOptions
+ *   & { initialCursor?: ExtractCursorType<TInput> }
  */
 
 // ✓ TRPCSubscriptionResult: verified type-identical to the original
@@ -92,7 +102,11 @@ export function TRPCSubscriptionResult(TOutput, TError) {
   return TRPCSubscriptionIdleResult(TOutput) | TRPCSubscriptionConnectingResult(TOutput, TError) | TRPCSubscriptionErrorResult(TOutput, TError) | TRPCSubscriptionPendingResult(TOutput)
 }
 /* compiles to:
- * export type TRPCSubscriptionResult<TOutput, TError> = TRPCSubscriptionIdleResult<TOutput> | TRPCSubscriptionConnectingResult<TOutput, TError> | TRPCSubscriptionErrorResult<TOutput, TError> | TRPCSubscriptionPendingResult<TOutput>
+ * export type TRPCSubscriptionResult<TOutput, TError> =
+ *   | TRPCSubscriptionIdleResult<TOutput>
+ *   | TRPCSubscriptionConnectingResult<TOutput, TError>
+ *   | TRPCSubscriptionErrorResult<TOutput, TError>
+ *   | TRPCSubscriptionPendingResult<TOutput>
  */
 
 // ✓ TRPCProvider: verified type-identical to the original
@@ -101,7 +115,8 @@ export function TRPCProvider(TRouter: AnyRouter, TSSRContext) {
   return fnType([TRPCProviderProps(TRouter, TSSRContext)], JSX.Element)
 }
 /* compiles to:
- * export type TRPCProvider<TRouter extends AnyRouter, TSSRContext> = (a0: TRPCProviderProps<TRouter, TSSRContext>) => JSX.Element
+ * export type TRPCProvider<TRouter extends AnyRouter, TSSRContext> =
+ *   (a0: TRPCProviderProps<TRouter, TSSRContext>) => JSX.Element
  */
 
 // ✓ CreateClient: verified type-identical to the original
@@ -110,7 +125,8 @@ export function CreateClient(TRouter: AnyRouter) {
   return fnType([CreateTRPCClientOptions(TRouter)], TRPCUntypedClient(TRouter))
 }
 /* compiles to:
- * export type CreateClient<TRouter extends AnyRouter> = (a0: CreateTRPCClientOptions<TRouter>) => TRPCUntypedClient<TRouter>
+ * export type CreateClient<TRouter extends AnyRouter> =
+ *   (a0: CreateTRPCClientOptions<TRouter>) => TRPCUntypedClient<TRouter>
  */
 
 // ✓ UseTRPCQueryResult: verified type-identical to the original
@@ -119,7 +135,8 @@ export function UseTRPCQueryResult(TData, TError) {
   return TRPCHookResult & UseQueryResult(coerceAsyncIterableToArray(TData), TError)
 }
 /* compiles to:
- * export type UseTRPCQueryResult<TData, TError> = TRPCHookResult & UseQueryResult<coerceAsyncIterableToArray<TData>, TError>
+ * export type UseTRPCQueryResult<TData, TError> =
+ *   TRPCHookResult & UseQueryResult<coerceAsyncIterableToArray<TData>, TError>
  */
 
 // ✓ DefinedUseTRPCQueryResult: verified type-identical to the original
@@ -128,7 +145,8 @@ export function DefinedUseTRPCQueryResult(TData, TError) {
   return DefinedUseQueryResult(TData, TError) & TRPCHookResult
 }
 /* compiles to:
- * export type DefinedUseTRPCQueryResult<TData, TError> = DefinedUseQueryResult<TData, TError> & TRPCHookResult
+ * export type DefinedUseTRPCQueryResult<TData, TError> =
+ *   DefinedUseQueryResult<TData, TError> & TRPCHookResult
  */
 
 // ✓ UseTRPCQuerySuccessResult: verified type-identical to the original
@@ -137,7 +155,8 @@ export function UseTRPCQuerySuccessResult(TData, TError) {
   return QueryObserverSuccessResult(TData, TError) & TRPCHookResult
 }
 /* compiles to:
- * export type UseTRPCQuerySuccessResult<TData, TError> = QueryObserverSuccessResult<TData, TError> & TRPCHookResult
+ * export type UseTRPCQuerySuccessResult<TData, TError> =
+ *   QueryObserverSuccessResult<TData, TError> & TRPCHookResult
  */
 
 // ✓ UseTRPCSuspenseQueryResult: verified type-identical to the original
@@ -146,7 +165,10 @@ export function UseTRPCSuspenseQueryResult(TData, TError) {
   return [TData, UseSuspenseQueryResult(TData, TError) & TRPCHookResult]
 }
 /* compiles to:
- * export type UseTRPCSuspenseQueryResult<TData, TError> = [TData, UseSuspenseQueryResult<TData, TError> & TRPCHookResult]
+ * export type UseTRPCSuspenseQueryResult<TData, TError> = [
+ *   TData,
+ *   UseSuspenseQueryResult<TData, TError> & TRPCHookResult
+ * ]
  */
 
 // ✓ UseTRPCInfiniteQueryResult: verified type-identical to the original
@@ -155,7 +177,12 @@ export function UseTRPCInfiniteQueryResult(TData, TError, TInput) {
   return TRPCHookResult & UseInfiniteQueryResult(InfiniteData(TData, NonNullable(ExtractCursorType(TInput)) | Null), TError)
 }
 /* compiles to:
- * export type UseTRPCInfiniteQueryResult<TData, TError, TInput> = TRPCHookResult & UseInfiniteQueryResult<InfiniteData<TData, NonNullable<ExtractCursorType<TInput>> | null>, TError>
+ * export type UseTRPCInfiniteQueryResult<TData, TError, TInput> =
+ *   & TRPCHookResult
+ *   & UseInfiniteQueryResult<
+ *       InfiniteData<TData, NonNullable<ExtractCursorType<TInput>> | null>,
+ *       TError
+ *     >
  */
 
 // ✓ UseTRPCInfiniteQuerySuccessResult: verified type-identical to the original
@@ -164,7 +191,12 @@ export function UseTRPCInfiniteQuerySuccessResult(TData, TError, TInput) {
   return InfiniteQueryObserverSuccessResult(InfiniteData(TData, NonNullable(ExtractCursorType(TInput)) | Null), TError) & TRPCHookResult
 }
 /* compiles to:
- * export type UseTRPCInfiniteQuerySuccessResult<TData, TError, TInput> = InfiniteQueryObserverSuccessResult<InfiniteData<TData, NonNullable<ExtractCursorType<TInput>> | null>, TError> & TRPCHookResult
+ * export type UseTRPCInfiniteQuerySuccessResult<TData, TError, TInput> =
+ *   & InfiniteQueryObserverSuccessResult<
+ *       InfiniteData<TData, NonNullable<ExtractCursorType<TInput>> | null>,
+ *       TError
+ *     >
+ *   & TRPCHookResult
  */
 
 // ✓ UseTRPCSuspenseInfiniteQueryResult: verified type-identical to the original
@@ -173,7 +205,14 @@ export function UseTRPCSuspenseInfiniteQueryResult(TData, TError, TInput) {
   return [InfiniteData(TData, NonNullable(ExtractCursorType(TInput)) | Null), UseSuspenseInfiniteQueryResult(InfiniteData(TData, NonNullable(ExtractCursorType(TInput)) | Null), TError) & TRPCHookResult]
 }
 /* compiles to:
- * export type UseTRPCSuspenseInfiniteQueryResult<TData, TError, TInput> = [InfiniteData<TData, NonNullable<ExtractCursorType<TInput>> | null>, UseSuspenseInfiniteQueryResult<InfiniteData<TData, NonNullable<ExtractCursorType<TInput>> | null>, TError> & TRPCHookResult]
+ * export type UseTRPCSuspenseInfiniteQueryResult<TData, TError, TInput> = [
+ *   InfiniteData<TData, NonNullable<ExtractCursorType<TInput>> | null>,
+ *   & UseSuspenseInfiniteQueryResult<
+ *       InfiniteData<TData, NonNullable<ExtractCursorType<TInput>> | null>,
+ *       TError
+ *     >
+ *   & TRPCHookResult
+ * ]
  */
 
 // ✓ UseTRPCMutationResult: verified type-identical to the original
@@ -182,5 +221,6 @@ export function UseTRPCMutationResult(TData, TError, TVariables, TContext) {
   return TRPCHookResult & UseMutationResult(TData, TError, TVariables, TContext)
 }
 /* compiles to:
- * export type UseTRPCMutationResult<TData, TError, TVariables, TContext> = TRPCHookResult & UseMutationResult<TData, TError, TVariables, TContext>
+ * export type UseTRPCMutationResult<TData, TError, TVariables, TContext> =
+ *   TRPCHookResult & UseMutationResult<TData, TError, TVariables, TContext>
  */

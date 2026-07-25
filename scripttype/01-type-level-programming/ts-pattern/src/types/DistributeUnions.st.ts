@@ -24,20 +24,20 @@ declare const PropertyKey: any
 declare const UnionToTuple: any
 declare const ValueOf: any
 declare const Values: any
-type BuildMany<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Flatten<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsMatching<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsPlainObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsReadonlyArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStrictArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybeAddReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Values<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuildMany<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Flatten<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsMatching<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsPlainObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsReadonlyArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStrictArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybeAddReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Values<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DistributeMatchingUnions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DistributeMatchingUnions(a, p) {
@@ -47,7 +47,8 @@ export function DistributeMatchingUnions(a, p) {
   return BuildMany(a, Distribute(FindUnionsMany(a, p)))
 }
 /* compiles to:
- * export type DistributeMatchingUnions<a, p> = IsAny<a> extends true ? any : BuildMany<a, Distribute<FindUnionsMany<a, p>>>
+ * export type DistributeMatchingUnions<a, p> =
+ *   IsAny<a> extends true ? any : BuildMany<a, Distribute<FindUnionsMany<a, p>>>
  */
 
 // ✓ FindUnionsMany: verified type-identical to the original
@@ -57,7 +58,11 @@ export function FindUnionsMany(a, p, path: PropertyKey[] = []) {
   return UnionToTuple(m1 ? m1.T : never)
 }
 /* compiles to:
- * export type FindUnionsMany<a, p, path extends PropertyKey[] = []> = UnionToTuple<(p extends any ? IsMatching<a, p> extends true ? FindUnions<a, p, path> : [] : never) extends readonly (infer T)[] ? T : never>
+ * export type FindUnionsMany<a, p, path extends PropertyKey[] = []> = UnionToTuple<
+ *   (p extends any ? IsMatching<a, p> extends true ? FindUnions<a, p, path> : [] : never) extends readonly (infer T)[]
+ *     ? T
+ *     : never
+ * >
  */
 
 // ✓ FindUnions: verified type-identical to the original
@@ -121,7 +126,60 @@ export function FindUnions(a, p, path: PropertyKey[] = []) {
   return []
 }
 /* compiles to:
- * export type FindUnions<a, p, path extends PropertyKey[] = []> = unknown extends p ? [] : IsAny<p> extends true ? [] : Length<path> extends 5 ? [] : IsUnion<a> extends true ? [{ cases: a extends any ? { value: a; subUnions: FindUnionsMany<a, p, path> } : never; path: path }] : [a, p] extends [readonly any[], readonly any[]] ? [a, p] extends [readonly [infer a1, infer a2, infer a3, infer a4, infer a5], readonly [infer p1, infer p2, infer p3, infer p4, infer p5]] ? [...FindUnions<a1, p1, [...path, 0]>, ...FindUnions<a2, p2, [...path, 1]>, ...FindUnions<a3, p3, [...path, 2]>, ...FindUnions<a4, p4, [...path, 3]>, ...FindUnions<a5, p5, [...path, 4]>] : [a, p] extends [readonly [infer a1, infer a2, infer a3, infer a4], readonly [infer p1, infer p2, infer p3, infer p4]] ? [...FindUnions<a1, p1, [...path, 0]>, ...FindUnions<a2, p2, [...path, 1]>, ...FindUnions<a3, p3, [...path, 2]>, ...FindUnions<a4, p4, [...path, 3]>] : [a, p] extends [readonly [infer a1, infer a2, infer a3], readonly [infer p1, infer p2, infer p3]] ? [...FindUnions<a1, p1, [...path, 0]>, ...FindUnions<a2, p2, [...path, 1]>, ...FindUnions<a3, p3, [...path, 2]>] : [a, p] extends [readonly [infer a1, infer a2], readonly [infer p1, infer p2]] ? [...FindUnions<a1, p1, [...path, 0]>, ...FindUnions<a2, p2, [...path, 1]>] : [a, p] extends [readonly [infer a1], readonly [infer p1]] ? FindUnions<a1, p1, [...path, 0]> : p extends readonly [] | readonly [any, ...any] | readonly [...any, any] ? IsStrictArray<Extract<a, readonly any[]>> extends false ? [] : [ArrayToVariadicUnion<a, p> extends infer aUnion ? { cases: aUnion extends any ? { value: aUnion; subUnions: [] } : never; path: path } : never] : [] : a extends Set<any> ? [] : a extends Map<any, any> ? [] : [IsPlainObject<a>, IsPlainObject<p>] extends [true, true] ? Flatten<Values<{ [K in keyof a & keyof p]: FindUnions<a[K], p[K], [...path, K]> }>> : []
+ * export type FindUnions<a, p, path extends PropertyKey[] = []> =
+ *   unknown extends p ? []
+ *   : IsAny<p> extends true ? []
+ *   : Length<path> extends 5 ? []
+ *   : IsUnion<a> extends true
+ *     ? [
+ *       {
+ *         cases: a extends any ? { value: a; subUnions: FindUnionsMany<a, p, path> } : never
+ *         path: path
+ *       }
+ *     ]
+ *   : [a, p] extends [readonly any[], readonly any[]]
+ *     ? [a, p] extends [readonly [infer a1, infer a2, infer a3, infer a4, infer a5], readonly [infer p1, infer p2, infer p3, infer p4, infer p5]]
+ *       ? [
+ *         ...FindUnions<a1, p1, [...path, 0]>,
+ *         ...FindUnions<a2, p2, [...path, 1]>,
+ *         ...FindUnions<a3, p3, [...path, 2]>,
+ *         ...FindUnions<a4, p4, [...path, 3]>,
+ *         ...FindUnions<a5, p5, [...path, 4]>
+ *       ]
+ *     : [a, p] extends [readonly [infer a1, infer a2, infer a3, infer a4], readonly [infer p1, infer p2, infer p3, infer p4]]
+ *       ? [
+ *         ...FindUnions<a1, p1, [...path, 0]>,
+ *         ...FindUnions<a2, p2, [...path, 1]>,
+ *         ...FindUnions<a3, p3, [...path, 2]>,
+ *         ...FindUnions<a4, p4, [...path, 3]>
+ *       ]
+ *     : [a, p] extends [readonly [infer a1, infer a2, infer a3], readonly [infer p1, infer p2, infer p3]]
+ *       ? [
+ *         ...FindUnions<a1, p1, [...path, 0]>,
+ *         ...FindUnions<a2, p2, [...path, 1]>,
+ *         ...FindUnions<a3, p3, [...path, 2]>
+ *       ]
+ *     : [a, p] extends [readonly [infer a1, infer a2], readonly [infer p1, infer p2]]
+ *       ? [...FindUnions<a1, p1, [...path, 0]>, ...FindUnions<a2, p2, [...path, 1]>]
+ *     : [a, p] extends [readonly [infer a1], readonly [infer p1]]
+ *       ? FindUnions<a1, p1, [...path, 0]>
+ *     : p extends readonly [] | readonly [any, ...any] | readonly [...any, any]
+ *       ? IsStrictArray<Extract<a, readonly any[]>> extends false
+ *         ? []
+ *         : [
+ *           ArrayToVariadicUnion<a, p> extends infer aUnion
+ *             ? {
+ *               cases: aUnion extends any ? { value: aUnion; subUnions: [] } : never
+ *               path: path
+ *             }
+ *             : never
+ *         ]
+ *     : []
+ *   : a extends Set<any> ? []
+ *   : a extends Map<any, any> ? []
+ *   : [IsPlainObject<a>, IsPlainObject<p>] extends [true, true]
+ *     ? Flatten<Values<{ [K in keyof a & keyof p]: FindUnions<a[K], p[K], [...path, K]> }>>
+ *   : []
  */
 
 // ✗ ArrayToVariadicUnion: the ScriptType does not itself typecheck as TypeScript
@@ -131,7 +189,15 @@ export function ArrayToVariadicUnion(input, excluded) {
   return MaybeAddReadonly((matches<readonly [ any, ...any ] | readonly [ ...any, any ]>(input) ? never : []) | (matches<readonly [ ...any, any ]>(excluded) ? [...Extract(input, readonlyArrayOf(any)), ValueOf(input)] : [ValueOf(input), ...Extract(input, readonlyArrayOf(any))]), IsReadonlyArray(input))
 }
 /* compiles to:
- * export type ArrayToVariadicUnion<input, excluded> = MaybeAddReadonly<(input extends readonly [any, ...any] | readonly [...any, any] ? never : []) | (excluded extends readonly [...any, any] ? [...Extract<input, readonly any[]>, ValueOf<input>] : [ValueOf<input>, ...Extract<input, readonly any[]>]), IsReadonlyArray<input>>
+ * export type ArrayToVariadicUnion<input, excluded> = MaybeAddReadonly<
+ *   | (input extends readonly [any, ...any] | readonly [...any, any] ? never : [])
+ *   | (
+ *       excluded extends readonly [...any, any]
+ *         ? [...Extract<input, readonly any[]>, ValueOf<input>]
+ *         : [ValueOf<input>, ...Extract<input, readonly any[]>]
+ *     ),
+ *   IsReadonlyArray<input>
+ * >
  */
 
 // ✓ Distribute: verified type-identical to the original
@@ -148,5 +214,10 @@ export function Distribute(unions: readonly any[]) {
   return []
 }
 /* compiles to:
- * export type Distribute<unions extends readonly any[]> = unions extends readonly [{ cases: infer cases; path: infer path; }, ...infer tail] ? cases extends { value: infer value; subUnions: infer subUnions; } ? [[value, path], ...Distribute<Extract<subUnions, readonly any[]>>, ...Distribute<tail>] : never : []
+ * export type Distribute<unions extends readonly any[]> =
+ *   unions extends readonly [{ cases: infer cases; path: infer path; }, ...infer tail]
+ *     ? cases extends { value: infer value; subUnions: infer subUnions; }
+ *       ? [[value, path], ...Distribute<Extract<subUnions, readonly any[]>>, ...Distribute<tail>]
+ *       : never
+ *     : []
  */

@@ -18,15 +18,15 @@ declare const RootModule: any
 declare const Type: any
 declare const anyOrNever: any
 declare const inferred: any
-type BoundModule<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Generic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GenericAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreparsedNodeResolution<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RootModule<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Submodule<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type anyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BoundModule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Generic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GenericAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreparsedNodeResolution<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RootModule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Submodule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ exportScope: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function exportScope($) {
@@ -46,16 +46,19 @@ export function bindExportsToScope(exports, $) {
   return out & unknown
 }
 /* compiles to:
- * export type bindExportsToScope<exports, $> = { [K in keyof exports]: instantiateExport<exports[K], $> } & unknown
+ * export type bindExportsToScope<exports, $> =
+ *   { [K in keyof exports]: instantiateExport<exports[K], $> } & unknown
  */
 
 // ✓ Submodule: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Submodule(exports: {}) {
-  return RootModule(merge(exports, matches<keyof typeof exports>('root') ? { [inferred]: exports['root'] } : {}))
+  return RootModule(merge(exports, 'root' in exports ? { [inferred]: exports['root'] } : {}))
 }
 /* compiles to:
- * export type Submodule<exports extends {}> = RootModule<exports & ('root' extends keyof exports ? { [inferred]: exports['root'] } : {})>
+ * export type Submodule<exports extends {}> = RootModule<
+ *   exports & ('root' extends keyof exports ? { [inferred]: exports['root'] } : {})
+ * >
  */
 
 // ✗ instantiateExport: does not compile yet
@@ -79,5 +82,12 @@ export function instantiateExport(t, $) {
   return Type(t, $)
 }
 /* compiles to:
- * export type instantiateExport<t, $> = [t] extends [PreparsedNodeResolution] ? [t] extends [anyOrNever] ? Type<t, $> : t extends GenericAst<infer params, infer body, infer body$> ? Generic<params, body, body$, $> : t extends Submodule<infer exports> ? BoundModule<exports, $> : never : Type<t, $>
+ * export type instantiateExport<t, $> =
+ *   [t] extends [PreparsedNodeResolution]
+ *     ? [t] extends [anyOrNever] ? Type<t, $>
+ *     : t extends GenericAst<infer params, infer body, infer body$>
+ *       ? Generic<params, body, body$, $>
+ *     : t extends Submodule<infer exports> ? BoundModule<exports, $>
+ *     : never
+ *     : Type<t, $>
  */

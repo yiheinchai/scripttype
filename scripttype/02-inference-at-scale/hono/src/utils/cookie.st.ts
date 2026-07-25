@@ -13,9 +13,9 @@
 declare const CookieOptions: any
 declare const HostCookieConstraint: any
 declare const SecureCookieConstraint: any
-type CookieOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HostCookieConstraint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SecureCookieConstraint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CookieOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HostCookieConstraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SecureCookieConstraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CookieConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CookieConstraint(Name) {
@@ -28,5 +28,8 @@ export function CookieConstraint(Name) {
   return CookieOptions
 }
 /* compiles to:
- * export type CookieConstraint<Name> = Name extends `__Secure-${string}` ? CookieOptions & SecureCookieConstraint : Name extends `__Host-${string}` ? CookieOptions & HostCookieConstraint : CookieOptions
+ * export type CookieConstraint<Name> =
+ *   Name extends `__Secure-${string}` ? CookieOptions & SecureCookieConstraint
+ *   : Name extends `__Host-${string}` ? CookieOptions & HostCookieConstraint
+ *   : CookieOptions
  */

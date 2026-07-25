@@ -16,12 +16,12 @@ declare const FromTables: any
 declare const SelectQueryBuilder: any
 declare const ShallowRecord: any
 declare const TableExpressionOrList: any
-type ExtractTableAlias<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type From<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FromTables<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ShallowRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableExpressionOrList<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExtractTableAlias<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type From<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FromTables<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableExpressionOrList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SelectFrom: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SelectFrom(DB, TB: keyof typeof DB, TE: TableExpressionOrList<typeof DB, typeof TB>) {
@@ -30,7 +30,7 @@ export function SelectFrom(DB, TB: keyof typeof DB, TE: TableExpressionOrList<ty
   }
   const m1 = matches<[ `${Hole<"T">} as ${Hole<"A">}` ]>([TE])
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return SelectQueryBuilder(DB & ShallowRecord(m1.A, DB[m1.T]), anyOf(TB, m1.A), {})
     }
     return never
@@ -42,5 +42,11 @@ export function SelectFrom(DB, TB: keyof typeof DB, TE: TableExpressionOrList<ty
   return SelectQueryBuilder(From(DB, TE), FromTables(DB, TB, TE), {})
 }
 /* compiles to:
- * export type SelectFrom<DB, TB extends keyof DB, TE extends TableExpressionOrList<DB, TB>> = [TE] extends [keyof DB] ? SelectQueryBuilder<DB, TB | ExtractTableAlias<DB, TE>, {}> : [TE] extends [`${infer T} as ${infer A}`] ? T extends keyof DB ? SelectQueryBuilder<DB & ShallowRecord<A, DB[T]>, TB | A, {}> : never : TE extends ReadonlyArray<infer T> ? SelectQueryBuilder<From<DB, T>, FromTables<DB, TB, T>, {}> : SelectQueryBuilder<From<DB, TE>, FromTables<DB, TB, TE>, {}>
+ * export type SelectFrom<DB, TB extends keyof DB, TE extends TableExpressionOrList<DB, TB>> =
+ *   [TE] extends [keyof DB] ? SelectQueryBuilder<DB, TB | ExtractTableAlias<DB, TE>, {}>
+ *   : [TE] extends [`${infer T} as ${infer A}`]
+ *     ? T extends keyof DB ? SelectQueryBuilder<DB & ShallowRecord<A, DB[T]>, TB | A, {}> : never
+ *   : TE extends ReadonlyArray<infer T>
+ *     ? SelectQueryBuilder<From<DB, T>, FromTables<DB, TB, T>, {}>
+ *   : SelectQueryBuilder<From<DB, TE>, FromTables<DB, TB, TE>, {}>
  */

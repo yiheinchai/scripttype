@@ -17,13 +17,13 @@ declare const MachineContext: any
 declare const NoRequiredParams: any
 declare const ParameterizedObject: any
 declare const WithDynamicParams: any
-type Elements<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Identity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MachineContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NoRequiredParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParameterizedObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WithDynamicParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Elements<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Identity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NoRequiredParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParameterizedObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WithDynamicParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleGuardArg: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleGuardArg(TContext: MachineContext, TExpressionEvent: EventObject, TParams: ParameterizedObject['params'] | undefined, TGuardArg) {
@@ -36,7 +36,15 @@ export function SingleGuardArg(TContext: MachineContext, TExpressionEvent: Event
   return GuardPredicate(TContext, TExpressionEvent, TParams, ParameterizedObject)
 }
 /* compiles to:
- * export type SingleGuardArg<TContext extends MachineContext, TExpressionEvent extends EventObject, TParams extends ParameterizedObject['params'] | undefined, TGuardArg> = [TGuardArg] extends [{ type: string; }] ? Identity<TGuardArg> : [TGuardArg] extends [string] ? TGuardArg : GuardPredicate<TContext, TExpressionEvent, TParams, ParameterizedObject>
+ * export type SingleGuardArg<
+ *   TContext extends MachineContext,
+ *   TExpressionEvent extends EventObject,
+ *   TParams extends ParameterizedObject['params'] | undefined,
+ *   TGuardArg
+ * > =
+ *   [TGuardArg] extends [{ type: string; }] ? Identity<TGuardArg>
+ *   : [TGuardArg] extends [string] ? TGuardArg
+ *   : GuardPredicate<TContext, TExpressionEvent, TParams, ParameterizedObject>
  */
 
 // ✓ NormalizeGuardArg: verified type-identical to the original
@@ -45,16 +53,20 @@ export function NormalizeGuardArg(TGuardArg) {
   if (matches<{ type: string; }>(TGuardArg)) {
     return merge(Identity(TGuardArg), { params: unknown })
   }
-  if (matches<string>(TGuardArg)) {
+  if (typeof TGuardArg === 'string') {
     return { type: TGuardArg, params: Undefined }
   }
-  if (matches<keyof typeof TGuardArg>('_out_TGuard')) {
+  if ('_out_TGuard' in TGuardArg) {
     return TGuardArg['_out_TGuard'] & ParameterizedObject
   }
   return never
 }
 /* compiles to:
- * export type NormalizeGuardArg<TGuardArg> = TGuardArg extends { type: string; } ? Identity<TGuardArg> & { params: unknown } : TGuardArg extends string ? { type: TGuardArg; params: undefined } : '_out_TGuard' extends keyof TGuardArg ? TGuardArg['_out_TGuard'] & ParameterizedObject : never
+ * export type NormalizeGuardArg<TGuardArg> =
+ *   TGuardArg extends { type: string; } ? Identity<TGuardArg> & { params: unknown }
+ *   : TGuardArg extends string ? { type: TGuardArg; params: undefined }
+ *   : '_out_TGuard' extends keyof TGuardArg ? TGuardArg['_out_TGuard'] & ParameterizedObject
+ *   : never
  */
 
 // ✓ NormalizeGuardArgArray: verified type-identical to the original
@@ -67,7 +79,9 @@ export function NormalizeGuardArgArray(TArg: unknown[]) {
   return Elements(out)
 }
 /* compiles to:
- * export type NormalizeGuardArgArray<TArg extends unknown[]> = Elements<{ [K in keyof TArg]: NormalizeGuardArg<TArg[K]> }>
+ * export type NormalizeGuardArgArray<TArg extends unknown[]> = Elements<
+ *   { [K in keyof TArg]: NormalizeGuardArg<TArg[K]> }
+ * >
  */
 
 // ✗ GuardPredicate: uses raw() — language gap, does not count as covered
@@ -83,5 +97,13 @@ export function Guard(TContext: MachineContext, TExpressionEvent: EventObject, T
   return NoRequiredParams(TGuard) | WithDynamicParams(TContext, TExpressionEvent, TGuard) | GuardPredicate(TContext, TExpressionEvent, TParams, TGuard)
 }
 /* compiles to:
- * export type Guard<TContext extends MachineContext, TExpressionEvent extends EventObject, TParams extends ParameterizedObject['params'] | undefined, TGuard extends ParameterizedObject> = NoRequiredParams<TGuard> | WithDynamicParams<TContext, TExpressionEvent, TGuard> | GuardPredicate<TContext, TExpressionEvent, TParams, TGuard>
+ * export type Guard<
+ *   TContext extends MachineContext,
+ *   TExpressionEvent extends EventObject,
+ *   TParams extends ParameterizedObject['params'] | undefined,
+ *   TGuard extends ParameterizedObject
+ * > =
+ *   | NoRequiredParams<TGuard>
+ *   | WithDynamicParams<TContext, TExpressionEvent, TGuard>
+ *   | GuardPredicate<TContext, TExpressionEvent, TParams, TGuard>
  */

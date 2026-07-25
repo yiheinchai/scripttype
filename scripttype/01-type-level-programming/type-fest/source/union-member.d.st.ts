@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const IsNever: any
 declare const UnionToIntersection: any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnionMember: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UnionMember(T) {
@@ -27,5 +27,8 @@ export function UnionMember(T) {
   return never
 }
 /* compiles to:
- * export type UnionMember<T> = IsNever<T> extends true ? never : UnionToIntersection<T extends any ? () => T : never> extends () => (infer R) ? R : never
+ * export type UnionMember<T> =
+ *   IsNever<T> extends true ? never
+ *   : UnionToIntersection<T extends any ? () => T : never> extends () => (infer R) ? R
+ *   : never
  */

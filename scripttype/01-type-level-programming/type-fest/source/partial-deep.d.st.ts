@@ -19,23 +19,26 @@ declare const ItemType: any
 declare const PartialDeepOptions: any
 declare const ReadonlyMap: any
 declare const ReadonlySet: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultPartialDeepOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HasMultipleCallSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ItemType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialDeepOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _PartialDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultPartialDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HasMultipleCallSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ItemType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _PartialDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PartialDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PartialDeep(T, Options: PartialDeepOptions = {}) {
   return _PartialDeep(T, ApplyDefaultOptions(PartialDeepOptions, DefaultPartialDeepOptions, Options))
 }
 /* compiles to:
- * export type PartialDeep<T, Options extends PartialDeepOptions = {}> = _PartialDeep<T, ApplyDefaultOptions<PartialDeepOptions, DefaultPartialDeepOptions, Options>>
+ * export type PartialDeep<T, Options extends PartialDeepOptions = {}> = _PartialDeep<
+ *   T,
+ *   ApplyDefaultOptions<PartialDeepOptions, DefaultPartialDeepOptions, Options>
+ * >
  */
 
 // ✓ _PartialDeep: verified type-identical to the original
@@ -88,7 +91,38 @@ export function _PartialDeep(T, Options: Required<PartialDeepOptions>) {
   return unknown
 }
 /* compiles to:
- * export type _PartialDeep<T, Options extends Required<PartialDeepOptions>> = T extends BuiltIns | new (...arguments_: any[]) => unknown ? T : T extends Map<infer KeyType, infer ValueType> ? PartialMapDeep<KeyType, ValueType, Options> : T extends Set<infer ItemType> ? PartialSetDeep<ItemType, Options> : T extends ReadonlyMap<infer KeyType, infer ValueType> ? PartialReadonlyMapDeep<KeyType, ValueType, Options> : T extends ReadonlySet<infer ItemType> ? PartialReadonlySetDeep<ItemType, Options> : T extends (...arguments_: any[]) => unknown ? IsNever<keyof T> extends true ? T : HasMultipleCallSignatures<T> extends true ? T : ((a0: Parameters<T>) => ReturnType<T>) & PartialObjectDeep<T, Options> : T extends object ? T extends ReadonlyArray<infer ItemType> ? Options['recurseIntoArrays'] extends true ? ItemType[] extends T ? readonly ItemType[] extends T ? ReadonlyArray<_PartialDeep<(typeof Options)['allowUndefinedInNonTupleArrays'] extends false ? typeof m5.ItemType : typeof m5.ItemType | undefined, Options>> : Array<_PartialDeep<(typeof Options)['allowUndefinedInNonTupleArrays'] extends false ? typeof m5.ItemType : typeof m5.ItemType | undefined, Options>> : PartialObjectDeep<T, Options> : T : PartialObjectDeep<T, Options> : unknown
+ * export type _PartialDeep<T, Options extends Required<PartialDeepOptions>> =
+ *   T extends BuiltIns | new (...arguments_: any[]) => unknown ? T
+ *   : T extends Map<infer KeyType, infer ValueType> ? PartialMapDeep<KeyType, ValueType, Options>
+ *   : T extends Set<infer ItemType> ? PartialSetDeep<ItemType, Options>
+ *   : T extends ReadonlyMap<infer KeyType, infer ValueType>
+ *     ? PartialReadonlyMapDeep<KeyType, ValueType, Options>
+ *   : T extends ReadonlySet<infer ItemType> ? PartialReadonlySetDeep<ItemType, Options>
+ *   : T extends (...arguments_: any[]) => unknown
+ *     ? IsNever<keyof T> extends true ? T
+ *     : HasMultipleCallSignatures<T> extends true ? T
+ *     : ((a0: Parameters<T>) => ReturnType<T>) & PartialObjectDeep<T, Options>
+ *   : T extends object
+ *     ? T extends ReadonlyArray<infer ItemType>
+ *       ? Options['recurseIntoArrays'] extends true
+ *         ? ItemType[] extends T
+ *           ? readonly ItemType[] extends T
+ *             ? ReadonlyArray<
+ *               _PartialDeep<
+ *                 (typeof Options)['allowUndefinedInNonTupleArrays'] extends false ? typeof m5.ItemType : typeof m5.ItemType | undefined,
+ *                 Options
+ *               >
+ *             >
+ *             : Array<
+ *               _PartialDeep<
+ *                 (typeof Options)['allowUndefinedInNonTupleArrays'] extends false ? typeof m5.ItemType : typeof m5.ItemType | undefined,
+ *                 Options
+ *               >
+ *             >
+ *           : PartialObjectDeep<T, Options>
+ *         : T
+ *       : PartialObjectDeep<T, Options>
+ *   : unknown
  */
 
 // ✓ PartialMapDeep: verified type-identical to the original
@@ -97,7 +131,8 @@ export function PartialMapDeep(KeyType, ValueType, Options: Required<PartialDeep
   return merge({}, t<Map<_PartialDeep<typeof KeyType, typeof Options>, _PartialDeep<typeof ValueType, typeof Options>>>())
 }
 /* compiles to:
- * export type PartialMapDeep<KeyType, ValueType, Options extends Required<PartialDeepOptions>> = {} & Map<_PartialDeep<KeyType, Options>, _PartialDeep<ValueType, Options>>
+ * export type PartialMapDeep<KeyType, ValueType, Options extends Required<PartialDeepOptions>> =
+ *   {} & Map<_PartialDeep<KeyType, Options>, _PartialDeep<ValueType, Options>>
  */
 
 // ✓ PartialSetDeep: verified type-identical to the original
@@ -106,7 +141,8 @@ export function PartialSetDeep(T, Options: Required<PartialDeepOptions>) {
   return merge({}, t<Set<_PartialDeep<typeof T, typeof Options>>>())
 }
 /* compiles to:
- * export type PartialSetDeep<T, Options extends Required<PartialDeepOptions>> = {} & Set<_PartialDeep<T, Options>>
+ * export type PartialSetDeep<T, Options extends Required<PartialDeepOptions>> =
+ *   {} & Set<_PartialDeep<T, Options>>
  */
 
 // ✗ PartialReadonlyMapDeep: the ScriptType does not itself typecheck as TypeScript
@@ -116,7 +152,12 @@ export function PartialReadonlyMapDeep(KeyType, ValueType, Options: Required<Par
   return merge({}, ReadonlyMap(_PartialDeep(KeyType, Options), _PartialDeep(ValueType, Options)))
 }
 /* compiles to:
- * export type PartialReadonlyMapDeep<KeyType, ValueType, Options extends Required<PartialDeepOptions>> = {} & ReadonlyMap<_PartialDeep<KeyType, Options>, _PartialDeep<ValueType, Options>>
+ * export type PartialReadonlyMapDeep<
+ *   KeyType,
+ *   ValueType,
+ *   Options extends Required<PartialDeepOptions>
+ * > =
+ *   {} & ReadonlyMap<_PartialDeep<KeyType, Options>, _PartialDeep<ValueType, Options>>
  */
 
 // ✗ PartialReadonlySetDeep: the ScriptType does not itself typecheck as TypeScript
@@ -126,7 +167,8 @@ export function PartialReadonlySetDeep(T, Options: Required<PartialDeepOptions>)
   return merge({}, ReadonlySet(_PartialDeep(T, Options)))
 }
 /* compiles to:
- * export type PartialReadonlySetDeep<T, Options extends Required<PartialDeepOptions>> = {} & ReadonlySet<_PartialDeep<T, Options>>
+ * export type PartialReadonlySetDeep<T, Options extends Required<PartialDeepOptions>> =
+ *   {} & ReadonlySet<_PartialDeep<T, Options>>
  */
 
 // ✓ PartialObjectDeep: verified type-identical to the original
@@ -139,5 +181,9 @@ export function PartialObjectDeep(ObjectType: object, Options: Required<PartialD
   return out
 }
 /* compiles to:
- * export type PartialObjectDeep<ObjectType extends object, Options extends Required<PartialDeepOptions>> = { [KeyType in keyof ObjectType]?: _PartialDeep<ObjectType[KeyType], Options> }
+ * export type PartialObjectDeep<
+ *   ObjectType extends object,
+ *   Options extends Required<PartialDeepOptions>
+ * > =
+ *   { [KeyType in keyof ObjectType]?: _PartialDeep<ObjectType[KeyType], Options> }
  */

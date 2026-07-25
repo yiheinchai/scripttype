@@ -13,9 +13,9 @@
 declare const AnyClientTypes: any
 declare const TransformerOptionNo: any
 declare const TransformerOptionYes: any
-type AnyClientTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TransformerOptionNo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TransformerOptionYes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TransformerOptionNo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TransformerOptionYes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TransformerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TransformerOptions(TRoot: Pick<AnyClientTypes, 'transformer'>) {
@@ -25,5 +25,6 @@ export function TransformerOptions(TRoot: Pick<AnyClientTypes, 'transformer'>) {
   return TransformerOptionNo
 }
 /* compiles to:
- * export type TransformerOptions<TRoot extends Pick<AnyClientTypes, 'transformer'>> = TRoot['transformer'] extends true ? TransformerOptionYes : TransformerOptionNo
+ * export type TransformerOptions<TRoot extends Pick<AnyClientTypes, 'transformer'>> =
+ *   TRoot['transformer'] extends true ? TransformerOptionYes : TransformerOptionNo
  */

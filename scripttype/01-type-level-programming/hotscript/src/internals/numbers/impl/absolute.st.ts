@@ -17,5 +17,6 @@ export function Abs(T: number | bigint) {
   return T
 }
 /* compiles to:
- * export type Abs<T extends number | bigint> = `${T}` extends `-${infer U extends number | bigint}` ? U : T
+ * export type Abs<T extends number | bigint> =
+ *   `${T}` extends `-${infer U extends number | bigint}` ? U : T
  */

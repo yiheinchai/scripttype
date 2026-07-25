@@ -13,11 +13,9 @@
 declare const AnyRouter: any
 declare const MergeAllPrimitive: any
 declare const RouteIds: any
-declare const TObj: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MergeAllPrimitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteIds<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObj<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MergeAllPrimitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteIds<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Awaitable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Awaitable(T) {
@@ -45,7 +43,8 @@ export function IsAny(TValue, TYesResult, TNoResult = TValue) {
   return TNoResult
 }
 /* compiles to:
- * export type IsAny<TValue, TYesResult, TNoResult = TValue> = 1 extends 0 & TValue ? TYesResult : TNoResult
+ * export type IsAny<TValue, TYesResult, TNoResult = TValue> =
+ *   1 extends 0 & TValue ? TYesResult : TNoResult
  */
 
 // ✓ PickAsRequired: verified type-identical to the original
@@ -54,7 +53,8 @@ export function PickAsRequired(TValue, TKey: keyof typeof TValue) {
   return Omit(TValue, TKey) & Required(Pick(TValue, TKey))
 }
 /* compiles to:
- * export type PickAsRequired<TValue, TKey extends keyof TValue> = Omit<TValue, TKey> & Required<Pick<TValue, TKey>>
+ * export type PickAsRequired<TValue, TKey extends keyof TValue> =
+ *   Omit<TValue, TKey> & Required<Pick<TValue, TKey>>
  */
 
 // ✓ PickRequired: verified type-identical to the original
@@ -118,7 +118,10 @@ export function Expand(T) {
   return T
 }
 /* compiles to:
- * export type Expand<T> = T extends object ? T extends infer O ? O extends Function ? O : { [K in keyof O]: O[K] } : never : T
+ * export type Expand<T> =
+ *   T extends object
+ *     ? T extends infer O ? O extends Function ? O : { [K in keyof O]: O[K] } : never
+ *     : T
  */
 
 // ✓ DeepPartial: verified type-identical to the original
@@ -150,7 +153,11 @@ export function MakeDifferenceOptional(TLeft, TRight) {
   return Omit(TRight, keyof(TLeft) & keyof(TRight)) & out
 }
 /* compiles to:
- * export type MakeDifferenceOptional<TLeft, TRight> = keyof TLeft & keyof TRight extends never ? TRight : Omit<TRight, keyof TLeft & keyof TRight> & { [K in keyof TLeft & keyof TRight]?: TRight[K] }
+ * export type MakeDifferenceOptional<TLeft, TRight> =
+ *   keyof TLeft & keyof TRight extends never
+ *     ? TRight
+ *     : & Omit<TRight, keyof TLeft & keyof TRight>
+ *     & { [K in keyof TLeft & keyof TRight]?: TRight[K] }
  */
 
 // ✓ IsUnion: verified type-identical to the original
@@ -162,7 +169,8 @@ export function IsUnion(T, U: typeof T = T) {
   return true
 }
 /* compiles to:
- * export type IsUnion<T, U extends T = T> = (T extends any ? U extends T ? false : true : never) extends false ? false : true
+ * export type IsUnion<T, U extends T = T> =
+ *   (T extends any ? U extends T ? false : true : never) extends false ? false : true
  */
 
 // ✓ IsNonEmptyObject: verified type-identical to the original
@@ -177,7 +185,8 @@ export function IsNonEmptyObject(T) {
   return false
 }
 /* compiles to:
- * export type IsNonEmptyObject<T> = T extends object ? keyof T extends never ? false : true : false
+ * export type IsNonEmptyObject<T> =
+ *   T extends object ? keyof T extends never ? false : true : false
  */
 
 // ✓ Assign: verified type-identical to the original
@@ -201,7 +210,15 @@ export function Assign(TLeft, TRight) {
   return never
 }
 /* compiles to:
- * export type Assign<TLeft, TRight> = TLeft extends any ? TRight extends any ? IsNonEmptyObject<TLeft> extends false ? TRight : IsNonEmptyObject<TRight> extends false ? TLeft : keyof TLeft & keyof TRight extends never ? TLeft & TRight : Omit<TLeft, keyof TRight> & TRight : never : never
+ * export type Assign<TLeft, TRight> =
+ *   TLeft extends any
+ *     ? TRight extends any
+ *       ? IsNonEmptyObject<TLeft> extends false ? TRight
+ *       : IsNonEmptyObject<TRight> extends false ? TLeft
+ *       : keyof TLeft & keyof TRight extends never ? TLeft & TRight
+ *       : Omit<TLeft, keyof TRight> & TRight
+ *       : never
+ *     : never
  */
 
 // ✓ IntersectAssign: verified type-identical to the original
@@ -222,7 +239,14 @@ export function IntersectAssign(TLeft, TRight) {
   return never
 }
 /* compiles to:
- * export type IntersectAssign<TLeft, TRight> = TLeft extends any ? TRight extends any ? IsNonEmptyObject<TLeft> extends false ? TRight : IsNonEmptyObject<TRight> extends false ? TLeft : TRight & TLeft : never : never
+ * export type IntersectAssign<TLeft, TRight> =
+ *   TLeft extends any
+ *     ? TRight extends any
+ *       ? IsNonEmptyObject<TLeft> extends false ? TRight
+ *       : IsNonEmptyObject<TRight> extends false ? TLeft
+ *       : TRight & TLeft
+ *       : never
+ *     : never
  */
 
 // ✓ Updater: verified type-identical to the original
@@ -240,7 +264,8 @@ export function NonNullableUpdater(TPrevious, TResult = TPrevious) {
   return TResult | fnType([TPrevious], TResult)
 }
 /* compiles to:
- * export type NonNullableUpdater<TPrevious, TResult = TPrevious> = TResult | ((a0: TPrevious) => TResult)
+ * export type NonNullableUpdater<TPrevious, TResult = TPrevious> =
+ *   TResult | ((a0: TPrevious) => TResult)
  */
 
 // ✓ ExtractObjects: verified type-identical to the original
@@ -265,14 +290,23 @@ export function PartialMergeAllObject(TUnion) {
     }
     const out = emptyObject
     for (const TKey in keySet(matches<any>(m1.TObj) ? keyof(m1.TObj) : never)) {
-      out[TKey] = optional(matches<any>(m1.TObj) ? (matches<keyof typeof m1.TObj>(TKey) ? m1.TObj[TKey] : never) : never)
+      out[TKey] = optional(matches<any>(m1.TObj) ? (TKey in m1.TObj ? m1.TObj[TKey] : never) : never)
     }
     return out
   }
   return never
 }
 /* compiles to:
- * export type PartialMergeAllObject<TUnion> = ExtractObjects<TUnion> extends infer TObj ? [TObj] extends [never] ? never : { [TKey in TObj extends any ? keyof TObj : never]?: TObj extends any ? TKey extends keyof TObj ? TObj[TKey] : never : never } : never
+ * export type PartialMergeAllObject<TUnion> =
+ *   ExtractObjects<TUnion> extends infer TObj
+ *     ? [TObj] extends [never]
+ *       ? never
+ *       : {
+ *         [TKey in TObj extends any ? keyof TObj : never]?: TObj extends any
+ *           ? TKey extends keyof TObj ? TObj[TKey] : never
+ *           : never
+ *       }
+ *     : never
  */
 
 // ✓ ExtractPrimitives: verified type-identical to the original
@@ -287,7 +321,8 @@ export function ExtractPrimitives(TUnion) {
   return TUnion
 }
 /* compiles to:
- * export type ExtractPrimitives<TUnion> = TUnion extends MergeAllPrimitive ? TUnion : TUnion extends object ? never : TUnion
+ * export type ExtractPrimitives<TUnion> =
+ *   TUnion extends MergeAllPrimitive ? TUnion : TUnion extends object ? never : TUnion
  */
 
 // ✓ PartialMergeAll: verified type-identical to the original
@@ -305,7 +340,8 @@ export function Constrain(T, TConstraint, TDefault = TConstraint) {
   return (matches<typeof TConstraint>(T) ? T : never) | TDefault
 }
 /* compiles to:
- * export type Constrain<T, TConstraint, TDefault = TConstraint> = (T extends TConstraint ? T : never) | TDefault
+ * export type Constrain<T, TConstraint, TDefault = TConstraint> =
+ *   (T extends TConstraint ? T : never) | TDefault
  */
 
 // ✓ ConstrainLiteral: verified type-identical to the original
@@ -314,7 +350,8 @@ export function ConstrainLiteral(T, TConstraint, TDefault = TConstraint) {
   return anyOf(T & TConstraint, TDefault)
 }
 /* compiles to:
- * export type ConstrainLiteral<T, TConstraint, TDefault = TConstraint> = T & TConstraint | TDefault
+ * export type ConstrainLiteral<T, TConstraint, TDefault = TConstraint> =
+ *   T & TConstraint | TDefault
  */
 
 // ✓ UnionToIntersection: verified type-identical to the original
@@ -327,7 +364,8 @@ export function UnionToIntersection(T) {
   return never
 }
 /* compiles to:
- * export type UnionToIntersection<T> = (T extends any ? (a0: T) => any : never) extends (arg: infer T) => any ? T : never
+ * export type UnionToIntersection<T> =
+ *   (T extends any ? (a0: T) => any : never) extends (arg: infer T) => any ? T : never
  */
 
 // ✓ MergeAllObjects: verified type-identical to the original
@@ -343,7 +381,13 @@ export function MergeAllObjects(TUnion, TIntersected = UnionToIntersection(Extra
   return out
 }
 /* compiles to:
- * export type MergeAllObjects<TUnion, TIntersected = UnionToIntersection<ExtractObjects<TUnion>>> = [keyof TIntersected] extends [never] ? never : { [TKey in keyof TIntersected]: TUnion extends any ? TUnion[TKey & keyof TUnion] : never }
+ * export type MergeAllObjects<
+ *   TUnion,
+ *   TIntersected = UnionToIntersection<ExtractObjects<TUnion>>
+ * > =
+ *   [keyof TIntersected] extends [never]
+ *     ? never
+ *     : { [TKey in keyof TIntersected]: TUnion extends any ? TUnion[TKey & keyof TUnion] : never }
  */
 
 // ✓ MergeAll: verified type-identical to the original
@@ -371,7 +415,10 @@ export function ValidateJSON(T) {
   return out
 }
 /* compiles to:
- * export type ValidateJSON<T> = ((a0: Array<any>) => any) extends T ? unknown extends T ? never : 'Function is not serializable' : { [K in keyof T]: ValidateJSON<T[K]> }
+ * export type ValidateJSON<T> =
+ *   ((a0: Array<any>) => any) extends T
+ *     ? unknown extends T ? never : 'Function is not serializable'
+ *     : { [K in keyof T]: ValidateJSON<T[K]> }
  */
 
 // ✓ LooseReturnType: verified type-identical to the original
@@ -384,7 +431,8 @@ export function LooseReturnType(T) {
   return never
 }
 /* compiles to:
- * export type LooseReturnType<T> = T extends (...args: Array<any>) => infer TReturn ? TReturn : never
+ * export type LooseReturnType<T> =
+ *   T extends (...args: Array<any>) => infer TReturn ? TReturn : never
  */
 
 // ✓ LooseAsyncReturnType: verified type-identical to the original
@@ -401,13 +449,16 @@ export function LooseAsyncReturnType(T) {
   return never
 }
 /* compiles to:
- * export type LooseAsyncReturnType<T> = T extends (...args: Array<any>) => infer TReturn ? TReturn extends Promise<infer TReturn> ? TReturn : TReturn : never
+ * export type LooseAsyncReturnType<T> =
+ *   T extends (...args: Array<any>) => infer TReturn
+ *     ? TReturn extends Promise<infer TReturn> ? TReturn : TReturn
+ *     : never
  */
 
 // ✓ StringLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StringLiteral(T) {
-  if (matches<string>(T)) {
+  if (typeof T === 'string') {
     if (matches<typeof T>(string)) {
       return string
     }
@@ -440,7 +491,10 @@ export function StrictOrFrom(TRouter: AnyRouter, TFrom, TStrict: boolean = true)
   return { from: ConstrainLiteral(TFrom, RouteIds(TRouter['routeTree'])), strict: optional(TStrict) }
 }
 /* compiles to:
- * export type StrictOrFrom<TRouter extends AnyRouter, TFrom, TStrict extends boolean = true> = TStrict extends false ? { from?: never; strict: TStrict } : { from: ConstrainLiteral<TFrom, RouteIds<TRouter['routeTree']>>; strict?: TStrict }
+ * export type StrictOrFrom<TRouter extends AnyRouter, TFrom, TStrict extends boolean = true> =
+ *   TStrict extends false
+ *     ? { from?: never; strict: TStrict }
+ *     : { from: ConstrainLiteral<TFrom, RouteIds<TRouter['routeTree']>>; strict?: TStrict }
  */
 
 // ✓ ThrowConstraint: verified type-identical to the original
@@ -455,7 +509,8 @@ export function ThrowConstraint(TStrict: boolean, TThrow: boolean) {
   return TThrow
 }
 /* compiles to:
- * export type ThrowConstraint<TStrict extends boolean, TThrow extends boolean> = TStrict extends false ? TThrow extends true ? never : TThrow : TThrow
+ * export type ThrowConstraint<TStrict extends boolean, TThrow extends boolean> =
+ *   TStrict extends false ? TThrow extends true ? never : TThrow : TThrow
  */
 
 // ✓ ControlledPromise: verified type-identical to the original
@@ -464,5 +519,12 @@ export function ControlledPromise(T) {
   return merge(t<Promise<typeof T>>(), { resolve: fnType([T], voidType()), reject: fnType([any], voidType()), status: anyOf('pending', 'resolved', 'rejected'), value: optional(T) })
 }
 /* compiles to:
- * export type ControlledPromise<T> = Promise<T> & { resolve: (a0: T) => void; reject: (a0: any) => void; status: 'pending' | 'resolved' | 'rejected'; value?: T }
+ * export type ControlledPromise<T> =
+ *   & Promise<T>
+ *   & {
+ *       resolve: (a0: T) => void
+ *       reject: (a0: any) => void
+ *       status: 'pending' | 'resolved' | 'rejected'
+ *       value?: T
+ *     }
  */

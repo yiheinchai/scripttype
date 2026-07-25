@@ -12,13 +12,19 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Register: any
 declare const RequestServerOptions: any
-type Register<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequestServerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Register<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequestServerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CsrfMatcher: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CsrfMatcher(TValue, TRegister = Register, TMiddlewares = unknown) {
   return TValue | t<Array<typeof TValue>>() | fnType([anyOf(TValue, merge(string, {})), RequestServerOptions(TRegister, TMiddlewares)], boolean | t<Promise<boolean>>())
 }
 /* compiles to:
- * export type CsrfMatcher<TValue, TRegister = Register, TMiddlewares = unknown> = TValue | Array<TValue> | ((a0: TValue | string & {}, a1: RequestServerOptions<TRegister, TMiddlewares>) => boolean | Promise<boolean>)
+ * export type CsrfMatcher<TValue, TRegister = Register, TMiddlewares = unknown> =
+ *   | TValue
+ *   | Array<TValue>
+ *   | (
+ *       (a0: TValue | string & {}, a1: RequestServerOptions<TRegister, TMiddlewares>) => | boolean
+ *       | Promise<boolean>
+ *     )
  */

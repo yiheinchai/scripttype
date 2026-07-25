@@ -14,15 +14,21 @@ declare const StaticDirection: any
 declare const StaticType: any
 declare const TObject: any
 declare const TProperties: any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticThis: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticThis(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties) {
   return StaticType(Stack, Direction, Context, This, TObject(This))
 }
 /* compiles to:
- * export type StaticThis<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties> = StaticType<Stack, Direction, Context, This, TObject<This>>
+ * export type StaticThis<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties
+ * > =
+ *   StaticType<Stack, Direction, Context, This, TObject<This>>
  */

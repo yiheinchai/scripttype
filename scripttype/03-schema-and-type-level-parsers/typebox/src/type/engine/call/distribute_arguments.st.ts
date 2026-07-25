@@ -15,11 +15,11 @@ declare const TParameter: any
 declare const TRef: any
 declare const TSchema: any
 declare const TUnion: any
-type TDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCollectDistributionNames: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TCollectDistributionNames(Expression: TSchema, Result: string[] = []) {
@@ -41,7 +41,22 @@ export function TCollectDistributionNames(Expression: TSchema, Result: string[] 
   return Result
 }
 /* compiles to:
- * export type TCollectDistributionNames<Expression extends TSchema, Result extends string[] = []> = Expression extends TDeferred<'Conditional', [infer Left extends TSchema, TSchema, infer True extends TSchema, infer False extends TSchema]> ? Left extends TRef ? TCollectDistributionNames<True, TCollectDistributionNames<False, [...Result, Left['$ref']]>> : TCollectDistributionNames<True, TCollectDistributionNames<False, Result>> : Expression extends TDeferred<'Mapped', [TSchema, infer Type extends TSchema, TSchema, TSchema]> ? Type extends TDeferred<'KeyOf', [infer Ref extends TRef]> ? [...Result, Ref['$ref']] : Result : Result
+ * export type TCollectDistributionNames<
+ *   Expression extends TSchema,
+ *   Result extends string[] = []
+ * > =
+ *   Expression extends TDeferred<'Conditional', [infer Left extends TSchema, TSchema, infer True extends TSchema, infer False extends TSchema]>
+ *     ? Left extends TRef
+ *       ? TCollectDistributionNames<
+ *         True,
+ *         TCollectDistributionNames<False, [...Result, Left['$ref']]>
+ *       >
+ *       : TCollectDistributionNames<True, TCollectDistributionNames<False, Result>>
+ *   : Expression extends TDeferred<'Mapped', [TSchema, infer Type extends TSchema, TSchema, TSchema]>
+ *     ? Type extends TDeferred<'KeyOf', [infer Ref extends TRef]>
+ *       ? [...Result, Ref['$ref']]
+ *       : Result
+ *   : Result
  */
 
 // ✓ TBuildDistributionArray: verified type-identical to the original
@@ -57,7 +72,16 @@ export function TBuildDistributionArray(Parameters: TParameter[], Names: string[
   return Result
 }
 /* compiles to:
- * export type TBuildDistributionArray<Parameters extends TParameter[], Names extends string[], Result extends boolean[] = []> = Parameters extends [infer Left extends TParameter, ...(infer Right extends TParameter[])] ? Left['name'] extends Names[number] ? TBuildDistributionArray<Right, Names, [...Result, true]> : TBuildDistributionArray<Right, Names, [...Result, false]> : Result
+ * export type TBuildDistributionArray<
+ *   Parameters extends TParameter[],
+ *   Names extends string[],
+ *   Result extends boolean[] = []
+ * > =
+ *   Parameters extends [infer Left extends TParameter, ...infer Right extends TParameter[]]
+ *     ? Left['name'] extends Names[number]
+ *       ? TBuildDistributionArray<Right, Names, [...Result, true]>
+ *       : TBuildDistributionArray<Right, Names, [...Result, false]>
+ *     : Result
  */
 
 // ✓ TZipDistributionArray: verified type-identical to the original
@@ -74,7 +98,20 @@ export function TZipDistributionArray(Arguments: TSchema[], DistributionArray: b
   return Result
 }
 /* compiles to:
- * export type TZipDistributionArray<Arguments extends TSchema[], DistributionArray extends boolean[], Result extends [boolean, TSchema][] = []> = Arguments extends [infer ArgumentLeft extends TSchema, ...(infer ArgumentRight extends TSchema[])] ? DistributionArray extends [infer BooleanLeft extends boolean, ...(infer BooleanRight extends boolean[])] ? TZipDistributionArray<ArgumentRight, BooleanRight, [...Result, [BooleanLeft, ArgumentLeft]]> : Result : Result
+ * export type TZipDistributionArray<
+ *   Arguments extends TSchema[],
+ *   DistributionArray extends boolean[],
+ *   Result extends [boolean, TSchema][] = []
+ * > =
+ *   Arguments extends [infer ArgumentLeft extends TSchema, ...infer ArgumentRight extends TSchema[]]
+ *     ? DistributionArray extends [infer BooleanLeft extends boolean, ...infer BooleanRight extends boolean[]]
+ *       ? TZipDistributionArray<
+ *         ArgumentRight,
+ *         BooleanRight,
+ *         [...Result, [BooleanLeft, ArgumentLeft]]
+ *       >
+ *       : Result
+ *     : Result
  */
 
 // ✓ TExpand: verified type-identical to the original
@@ -87,7 +124,8 @@ export function TExpand(Type: TSchema) {
   return [Type]
 }
 /* compiles to:
- * export type TExpand<Type extends TSchema> = Type extends TUnion<infer Types extends TSchema[]> ? [...Types] : [Type]
+ * export type TExpand<Type extends TSchema> =
+ *   Type extends TUnion<infer Types extends TSchema[]> ? [...Types] : [Type]
  */
 
 // ✓ TAppend: verified type-identical to the original
@@ -106,8 +144,15 @@ export function TAppend(Current: TSchema[][], Type: TSchema) {
   return Result
 }
 /* compiles to:
- * export type TAppend<Current extends TSchema[][], Type extends TSchema> = TAppend__loop<Current, [], Type>
- * type TAppend__loop<Current extends TSchema[][], Result extends any[], Type extends TSchema> = Current extends [infer Left extends TSchema[], ...(infer Right extends TSchema[][])] ? TAppend__loop<Right, [...Result, [...Left, Type]], Type> : Result
+ * export type TAppend<Current extends TSchema[][], Type extends TSchema> = TAppend__loop<
+ *   Current,
+ *   [],
+ *   Type
+ * >
+ * type TAppend__loop<Current extends TSchema[][], Result extends any[], Type extends TSchema> =
+ *   Current extends [infer Left extends TSchema[], ...infer Right extends TSchema[][]]
+ *     ? TAppend__loop<Right, [...Result, [...Left, Type]], Type>
+ *     : Result
  */
 
 // ✓ TCross: verified type-identical to the original
@@ -126,8 +171,19 @@ export function TCross(Current: TSchema[][], Variants: TSchema[]) {
   return Result
 }
 /* compiles to:
- * export type TCross<Current extends TSchema[][], Variants extends TSchema[]> = TCross__loop<Variants, [], Current>
- * type TCross__loop<Variants extends TSchema[], Result extends any[], Current extends TSchema[][]> = Variants extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TCross__loop<Right, [...Result, ...TAppend<Current, Left>], Current> : Result
+ * export type TCross<Current extends TSchema[][], Variants extends TSchema[]> = TCross__loop<
+ *   Variants,
+ *   [],
+ *   Current
+ * >
+ * type TCross__loop<
+ *   Variants extends TSchema[],
+ *   Result extends any[],
+ *   Current extends TSchema[][]
+ * > =
+ *   Variants extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TCross__loop<Right, [...Result, ...TAppend<Current, Left>], Current>
+ *     : Result
  */
 
 // ✓ TDistribute: verified type-identical to the original
@@ -143,7 +199,15 @@ export function TDistribute(ZippedArguments: [ boolean, TSchema ][], Result: TSc
   return Result
 }
 /* compiles to:
- * export type TDistribute<ZippedArguments extends [boolean, TSchema][], Result extends TSchema[][] = [[]]> = ZippedArguments extends [infer Left extends [boolean, TSchema], ...(infer Right extends [boolean, TSchema][])] ? Left[0] extends true ? TDistribute<Right, TCross<Result, TExpand<Left[1]>>> : TDistribute<Right, TCross<Result, [Left[1]]>> : Result
+ * export type TDistribute<
+ *   ZippedArguments extends [boolean, TSchema][],
+ *   Result extends TSchema[][] = [[]]
+ * > =
+ *   ZippedArguments extends [infer Left extends [boolean, TSchema], ...infer Right extends [boolean, TSchema][]]
+ *     ? Left[0] extends true
+ *       ? TDistribute<Right, TCross<Result, TExpand<Left[1]>>>
+ *       : TDistribute<Right, TCross<Result, [Left[1]]>>
+ *     : Result
  */
 
 // ✓ TDistributeArguments: verified type-identical to the original
@@ -152,5 +216,14 @@ export function TDistributeArguments(Parameters: TParameter[], Arguments: TSchem
   return Result
 }
 /* compiles to:
- * export type TDistributeArguments<Parameters extends TParameter[], Arguments extends TSchema[], Expression extends TSchema, DistributionNames extends string[] = TCollectDistributionNames<Expression>, DistributionArray extends boolean[] = TBuildDistributionArray<Parameters, DistributionNames>, ZippedArguments extends [boolean, TSchema][] = TZipDistributionArray<Arguments, DistributionArray>, Result extends TSchema[][] = Expression extends TDeferred<'Conditional', TSchema[]> ? TDistribute<ZippedArguments> : Expression extends TDeferred<'Mapped', TSchema[]> ? TDistribute<ZippedArguments> : [Arguments]> = Result
+ * export type TDistributeArguments<
+ *   Parameters extends TParameter[],
+ *   Arguments extends TSchema[],
+ *   Expression extends TSchema,
+ *   DistributionNames extends string[] = TCollectDistributionNames<Expression>,
+ *   DistributionArray extends boolean[] = TBuildDistributionArray<Parameters, DistributionNames>,
+ *   ZippedArguments extends [boolean, TSchema][] = TZipDistributionArray<Arguments, DistributionArray>,
+ *   Result extends TSchema[][] = Expression extends TDeferred<'Conditional', TSchema[]> ? TDistribute<ZippedArguments> : Expression extends TDeferred<'Mapped', TSchema[]> ? TDistribute<ZippedArguments> : [Arguments]
+ * > =
+ *   Result
  */

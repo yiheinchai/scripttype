@@ -20,23 +20,35 @@ declare const describeObject: any
 declare const domainOf: any
 declare const inferDomain: any
 declare const stringifyUnion: any
-type DescribeOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Stringifiable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type anyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type describeDefaults<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type describeDomainOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type describeObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type domainOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferDomain<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type stringifyUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DescribeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Stringifiable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type describeDefaults<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type describeDomainOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type describeObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type domainOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferDomain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type stringifyUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ typeToString: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function typeToString(t, opts: DescribeOptions = {}) {
-  return stringifyUnion(matches<[ anyOrNever ]>([t]) ? (matches<typeof t>(unknown) ? 'any' : 'never') : (matches<typeof t>(unknown) ? 'unknown' : (matches<typeof t>(boolean) ? (anyOf('boolean', matches<[ boolean ]>([t]) ? never : typeToString(Exclude(t, boolean), opts))) : (matches<array>(t) ? arrayTypeToString(t, opts) : (matches<object>(t) ? describeObject(t, opts) : (matches<Stringifiable>(t) ? stringifiableToString(t, opts) : describeDomainOf(t, opts)))))), matches<string>(opts['branchDelimiter']) ? opts['branchDelimiter'] : describeDefaults['branchDelimiter'])
+  return stringifyUnion(matches<[ anyOrNever ]>([t]) ? (matches<typeof t>(unknown) ? 'any' : 'never') : (matches<typeof t>(unknown) ? 'unknown' : (matches<typeof t>(boolean) ? (anyOf('boolean', matches<[ boolean ]>([t]) ? never : typeToString(Exclude(t, boolean), opts))) : (matches<array>(t) ? arrayTypeToString(t, opts) : (matches<object>(t) ? describeObject(t, opts) : (matches<Stringifiable>(t) ? stringifiableToString(t, opts) : describeDomainOf(t, opts)))))), typeof opts['branchDelimiter'] === 'string' ? opts['branchDelimiter'] : describeDefaults['branchDelimiter'])
 }
 /* compiles to:
- * export type typeToString<t, opts extends DescribeOptions = {}> = stringifyUnion<[t] extends [anyOrNever] ? unknown extends t ? 'any' : 'never' : unknown extends t ? 'unknown' : boolean extends t ? 'boolean' | ([t] extends [boolean] ? never : typeToString<Exclude<t, boolean>, opts>) : t extends array ? arrayTypeToString<t, opts> : t extends object ? describeObject<t, opts> : t extends Stringifiable ? stringifiableToString<t, opts> : describeDomainOf<t, opts>, opts['branchDelimiter'] extends string ? opts['branchDelimiter'] : describeDefaults['branchDelimiter']>
+ * export type typeToString<t, opts extends DescribeOptions = {}> = stringifyUnion<
+ *   [t] extends [anyOrNever] ? unknown extends t ? 'any' : 'never'
+ *   : unknown extends t ? 'unknown'
+ *   : boolean extends t
+ *     ? 'boolean' | ([t] extends [boolean] ? never : typeToString<Exclude<t, boolean>, opts>)
+ *   : t extends array ? arrayTypeToString<t, opts>
+ *   : t extends object ? describeObject<t, opts>
+ *   : t extends Stringifiable ? stringifiableToString<t, opts>
+ *   : describeDomainOf<t, opts>,
+ *   opts['branchDelimiter'] extends string
+ *     ? opts['branchDelimiter']
+ *     : describeDefaults['branchDelimiter']
+ * >
  */
 
 // ✓ stringifiableToString: verified type-identical to the original
@@ -48,7 +60,8 @@ export function stringifiableToString(t: Stringifiable, opts: DescribeOptions) {
   return `${t}`
 }
 /* compiles to:
- * export type stringifiableToString<t extends Stringifiable, opts extends DescribeOptions> = inferDomain<domainOf<t>> extends t ? describeDomainOf<t, opts> : `${t}`
+ * export type stringifiableToString<t extends Stringifiable, opts extends DescribeOptions> =
+ *   inferDomain<domainOf<t>> extends t ? describeDomainOf<t, opts> : `${t}`
  */
 
 // ✓ describe: verified type-identical to the original
@@ -76,7 +89,12 @@ export function arrayTypeToString(t: array, opts: DescribeOptions) {
   return never
 }
 /* compiles to:
- * export type arrayTypeToString<t extends array, opts extends DescribeOptions> = typeToString<t[number], opts> extends (infer element extends string) ? opts['includeArticles'] extends true ? describeArrayOf<element> : includesDelimiter<element, opts> extends true ? `(${element})[]` : `${element}[]` : never
+ * export type arrayTypeToString<t extends array, opts extends DescribeOptions> =
+ *   typeToString<t[number], opts> extends (infer element extends string)
+ *     ? opts['includeArticles'] extends true ? describeArrayOf<element>
+ *     : includesDelimiter<element, opts> extends true ? `(${element})[]`
+ *     : `${element}[]`
+ *     : never
  */
 
 // ✓ describeArrayOf: verified type-identical to the original
@@ -88,7 +106,8 @@ export function describeArrayOf(element: string) {
   return `an array of ${element}`
 }
 /* compiles to:
- * export type describeArrayOf<element extends string> = element extends 'unknown' ? 'an array' : `an array of ${element}`
+ * export type describeArrayOf<element extends string> =
+ *   element extends 'unknown' ? 'an array' : `an array of ${element}`
  */
 
 // ✗ includesDelimiter: does not compile yet
@@ -101,5 +120,8 @@ export function includesDelimiter(s: string, opts: DescribeOptions) {
   return false
 }
 /* compiles to:
- * export type includesDelimiter<s extends string, opts extends DescribeOptions> = s extends `${string}${(typeof opts)["branchDelimiter"] extends string ? (typeof opts)["branchDelimiter"] : describeDefaults["branchDelimiter"]}${string}` ? true : false
+ * export type includesDelimiter<s extends string, opts extends DescribeOptions> =
+ *   s extends `${string}${(typeof opts)["branchDelimiter"] extends string ? (typeof opts)["branchDelimiter"] : describeDefaults["branchDelimiter"]}${string}`
+ *     ? true
+ *     : false
  */

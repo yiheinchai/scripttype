@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Cast: any
 declare const Literal: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Literal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Literal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _Replace: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _Replace(S: string, R: Literal, W: Literal) {
@@ -24,7 +24,8 @@ export function _Replace(S: string, R: Literal, W: Literal) {
   return S
 }
 /* compiles to:
- * export type _Replace<S extends string, R extends Literal, W extends Literal> = S extends `${infer BS}${R}${infer AS}` ? Replace<`${BS}${W}${AS}`, R, W> : S
+ * export type _Replace<S extends string, R extends Literal, W extends Literal> =
+ *   S extends `${infer BS}${R}${infer AS}` ? Replace<`${BS}${W}${AS}`, R, W> : S
  */
 
 // ✓ Replace: verified type-identical to the original
@@ -37,5 +38,6 @@ export function Replace(S: string, R: Literal, W: Literal) {
   return never
 }
 /* compiles to:
- * export type Replace<S extends string, R extends Literal, W extends Literal> = _Replace<S, R, W> extends infer X ? Cast<X, string> : never
+ * export type Replace<S extends string, R extends Literal, W extends Literal> =
+ *   _Replace<S, R, W> extends infer X ? Cast<X, string> : never
  */

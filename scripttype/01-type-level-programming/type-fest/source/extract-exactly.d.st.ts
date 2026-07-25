@@ -14,17 +14,24 @@ declare const If: any
 declare const IfNotAnyOrNever: any
 declare const IsAny: any
 declare const IsEqual: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtractExactly: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExtractExactly(Union, Match) {
   return IfNotAnyOrNever(Union, { ifNot: _ExtractExactly(Union, Match), ifAny: If(IsAny(Match), Union, never), ifNever: never })
 }
 /* compiles to:
- * export type ExtractExactly<Union, Match> = IfNotAnyOrNever<Union, { ifNot: _ExtractExactly<Union, Match>; ifAny: If<IsAny<Match>, Union, never>; ifNever: never }>
+ * export type ExtractExactly<Union, Match> = IfNotAnyOrNever<
+ *   Union,
+ *   {
+ *     ifNot: _ExtractExactly<Union, Match>
+ *     ifAny: If<IsAny<Match>, Union, never>
+ *     ifNever: never
+ *   }
+ * >
  */
 
 // ✓ _ExtractExactly: verified type-identical to the original
@@ -33,5 +40,16 @@ export function _ExtractExactly(Union, Match) {
   return IfNotAnyOrNever(Match, { ifNot: matches<unknown>(Union) ? (matches<[ never ]>([matches<unknown>(Match) ? If(IsEqual(Union, Match), true, never) : never]) ? never : Union) : never, ifAny: never, ifNever: never })
 }
 /* compiles to:
- * export type _ExtractExactly<Union, Match> = IfNotAnyOrNever<Match, { ifNot: Union extends unknown ? [Match extends unknown ? If<IsEqual<Union, Match>, true, never> : never] extends [never] ? never : Union : never; ifAny: never; ifNever: never }>
+ * export type _ExtractExactly<Union, Match> = IfNotAnyOrNever<
+ *   Match,
+ *   {
+ *     ifNot: Union extends unknown
+ *       ? [Match extends unknown ? If<IsEqual<Union, Match>, true, never> : never] extends [never]
+ *         ? never
+ *         : Union
+ *       : never
+ *     ifAny: never
+ *     ifNever: never
+ *   }
+ * >
  */

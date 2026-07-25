@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const DOM_MEMO: any
 declare const Props: any
-type DOM_MEMO<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Props<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DOM_MEMO<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Props<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ FC: uses raw() — language gap, does not count as covered
 //   gap: object member CallSignature
 /* @scripttype preserveParamNames */
@@ -27,5 +27,6 @@ export function MemorableFC(T) {
   return merge(FC(T), { [DOM_MEMO]: fnType([Readonly(T), Readonly(T)], boolean) })
 }
 /* compiles to:
- * export type MemorableFC<T> = FC<T> & { [DOM_MEMO]: (a0: Readonly<T>, a1: Readonly<T>) => boolean }
+ * export type MemorableFC<T> =
+ *   FC<T> & { [DOM_MEMO]: (a0: Readonly<T>, a1: Readonly<T>) => boolean }
  */

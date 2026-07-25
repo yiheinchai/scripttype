@@ -19,23 +19,26 @@ declare const IfMaybeUndefined: any
 declare const IfVoid: any
 declare const IsAny: any
 declare const IsUnknownOrNonInferrable: any
-type ActionCreatorWithNonInferrablePayload<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ActionCreatorWithOptionalPayload<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ActionCreatorWithPayload<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ActionCreatorWithPreparedPayload<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ActionCreatorWithoutPayload<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfMaybeUndefined<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfVoid<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknownOrNonInferrable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PrepareAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActionCreatorWithNonInferrablePayload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ActionCreatorWithOptionalPayload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ActionCreatorWithPayload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ActionCreatorWithPreparedPayload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ActionCreatorWithoutPayload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfMaybeUndefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfVoid<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknownOrNonInferrable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PrepareAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PayloadAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PayloadAction(P = voidType(), T: string = string, M = never, E = never) {
   return merge({ payload: P, type: T }, matches<[ never ]>([M]) ? {} : { meta: M }, matches<[ never ]>([E]) ? {} : { error: E })
 }
 /* compiles to:
- * export type PayloadAction<P = void, T extends string = string, M = never, E = never> = { payload: P; type: T } & ([M] extends [never] ? {} : { meta: M }) & ([E] extends [never] ? {} : { error: E })
+ * export type PayloadAction<P = void, T extends string = string, M = never, E = never> =
+ *   & { payload: P; type: T }
+ *   & ([M] extends [never] ? {} : { meta: M })
+ *   & ([E] extends [never] ? {} : { error: E })
  */
 
 // ✗ PrepareAction: compiles but is not type-identical yet
@@ -45,7 +48,11 @@ export function PrepareAction(P) {
   return fnType([arrayOf(any)], { payload: P }) | fnType([arrayOf(any)], { payload: P, meta: any }) | fnType([arrayOf(any)], { payload: P, error: any }) | fnType([arrayOf(any)], { payload: P, meta: any, error: any })
 }
 /* compiles to:
- * export type PrepareAction<P> = ((a0: any[]) => { payload: P }) | ((a0: any[]) => { payload: P; meta: any }) | ((a0: any[]) => { payload: P; error: any }) | ((a0: any[]) => { payload: P; meta: any; error: any })
+ * export type PrepareAction<P> =
+ *   | ((a0: any[]) => { payload: P })
+ *   | ((a0: any[]) => { payload: P; meta: any })
+ *   | ((a0: any[]) => { payload: P; error: any })
+ *   | ((a0: any[]) => { payload: P; meta: any; error: any })
  */
 
 // ✓ _ActionCreatorWithPreparedPayload: verified type-identical to the original
@@ -60,7 +67,19 @@ export function _ActionCreatorWithPreparedPayload(PA: PrepareAction<any> | void,
   return voidType()
 }
 /* compiles to:
- * export type _ActionCreatorWithPreparedPayload<PA extends PrepareAction<any> | void, T extends string = string> = PA extends PrepareAction<infer P> ? ActionCreatorWithPreparedPayload<Parameters<PA>, P, T, ReturnType<PA> extends { error: infer E; } ? E : never, ReturnType<PA> extends { meta: infer M; } ? M : never> : void
+ * export type _ActionCreatorWithPreparedPayload<
+ *   PA extends PrepareAction<any> | void,
+ *   T extends string = string
+ * > =
+ *   PA extends PrepareAction<infer P>
+ *     ? ActionCreatorWithPreparedPayload<
+ *       Parameters<PA>,
+ *       P,
+ *       T,
+ *       ReturnType<PA> extends { error: infer E; } ? E : never,
+ *       ReturnType<PA> extends { meta: infer M; } ? M : never
+ *     >
+ *     : void
  */
 
 // ✗ BaseActionCreator: uses raw() — language gap, does not count as covered
@@ -76,7 +95,32 @@ export function PayloadActionCreator(P = voidType(), T: string = string, PA: Pre
   return IfPrepareActionMethodProvided(PA, _ActionCreatorWithPreparedPayload(PA, T), IsAny(P, ActionCreatorWithPayload(any, T), IsUnknownOrNonInferrable(P, ActionCreatorWithNonInferrablePayload(T), IfVoid(P, ActionCreatorWithoutPayload(T), IfMaybeUndefined(P, ActionCreatorWithOptionalPayload(P, T), ActionCreatorWithPayload(P, T))))))
 }
 /* compiles to:
- * export type PayloadActionCreator<P = void, T extends string = string, PA extends PrepareAction<P> | void = void> = IfPrepareActionMethodProvided<PA, _ActionCreatorWithPreparedPayload<PA, T>, IsAny<P, ActionCreatorWithPayload<any, T>, IsUnknownOrNonInferrable<P, ActionCreatorWithNonInferrablePayload<T>, IfVoid<P, ActionCreatorWithoutPayload<T>, IfMaybeUndefined<P, ActionCreatorWithOptionalPayload<P, T>, ActionCreatorWithPayload<P, T>>>>>>
+ * export type PayloadActionCreator<
+ *   P = void,
+ *   T extends string = string,
+ *   PA extends PrepareAction<P> | void = void
+ * > =
+ *   IfPrepareActionMethodProvided<
+ *     PA,
+ *     _ActionCreatorWithPreparedPayload<PA, T>,
+ *     IsAny<
+ *       P,
+ *       ActionCreatorWithPayload<any, T>,
+ *       IsUnknownOrNonInferrable<
+ *         P,
+ *         ActionCreatorWithNonInferrablePayload<T>,
+ *         IfVoid<
+ *           P,
+ *           ActionCreatorWithoutPayload<T>,
+ *           IfMaybeUndefined<
+ *             P,
+ *             ActionCreatorWithOptionalPayload<P, T>,
+ *             ActionCreatorWithPayload<P, T>
+ *           >
+ *         >
+ *       >
+ *     >
+ *   >
  */
 
 // ✓ IfPrepareActionMethodProvided: verified type-identical to the original
@@ -88,5 +132,6 @@ export function IfPrepareActionMethodProvided(PA: PrepareAction<any> | void, Tru
   return False
 }
 /* compiles to:
- * export type IfPrepareActionMethodProvided<PA extends PrepareAction<any> | void, True, False> = PA extends (...args: any[]) => any ? True : False
+ * export type IfPrepareActionMethodProvided<PA extends PrepareAction<any> | void, True, False> =
+ *   PA extends (...args: any[]) => any ? True : False
  */

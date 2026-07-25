@@ -24,20 +24,20 @@ declare const SingleStoreQueryResultHKT: any
 declare const SingleStoreQueryResultKind: any
 declare const SingleStoreTable: any
 declare const SingleStoreUpdateSetSource: any
-type AnySingleStoreColumn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnySingleStoreInsert<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnySingleStoreQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferModelFromColumns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Placeholder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreparedQueryHKTBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreparedQueryKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQL<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreInsertBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStorePreparedQueryConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreQueryResultKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreUpdateSetSource<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnySingleStoreColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnySingleStoreInsert<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnySingleStoreQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferModelFromColumns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Placeholder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreparedQueryHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreparedQueryKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreInsertBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStorePreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreUpdateSetSource<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreInsertValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreInsertValue(TTable: SingleStoreTable) {
@@ -48,7 +48,9 @@ export function SingleStoreInsertValue(TTable: SingleStoreTable) {
   return merge(out, {})
 }
 /* compiles to:
- * export type SingleStoreInsertValue<TTable extends SingleStoreTable> = { [Key in keyof TTable['$inferInsert']]: TTable['$inferInsert'][Key] | SQL | Placeholder } & {}
+ * export type SingleStoreInsertValue<TTable extends SingleStoreTable> =
+ *   & { [Key in keyof TTable['$inferInsert']]: TTable['$inferInsert'][Key] | SQL | Placeholder }
+ *   & {}
  */
 
 // ✓ SingleStoreInsertWithout: verified type-identical to the original
@@ -60,7 +62,24 @@ export function SingleStoreInsertWithout(T: AnySingleStoreInsert, TDynamic: bool
   return Omit(SingleStoreInsertBase(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], T['_']['returning'], TDynamic, anyOf(T['_']['excludedMethods'], '$returning')), anyOf(T['_']['excludedMethods'], K))
 }
 /* compiles to:
- * export type SingleStoreInsertWithout<T extends AnySingleStoreInsert, TDynamic extends boolean, K extends keyof T & string> = TDynamic extends true ? T : Omit<SingleStoreInsertBase<T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], T['_']['returning'], TDynamic, T['_']['excludedMethods'] | '$returning'>, T['_']['excludedMethods'] | K>
+ * export type SingleStoreInsertWithout<
+ *   T extends AnySingleStoreInsert,
+ *   TDynamic extends boolean,
+ *   K extends keyof T & string
+ * > =
+ *   TDynamic extends true
+ *     ? T
+ *     : Omit<
+ *       SingleStoreInsertBase<
+ *         T['_']['table'],
+ *         T['_']['queryResult'],
+ *         T['_']['preparedQueryHKT'],
+ *         T['_']['returning'],
+ *         TDynamic,
+ *         T['_']['excludedMethods'] | '$returning'
+ *       >,
+ *       T['_']['excludedMethods'] | K
+ *     >
  */
 
 // ✓ SingleStoreInsertDynamic: verified type-identical to the original
@@ -69,16 +88,35 @@ export function SingleStoreInsertDynamic(T: AnySingleStoreInsert) {
   return SingleStoreInsert(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], T['_']['returning'])
 }
 /* compiles to:
- * export type SingleStoreInsertDynamic<T extends AnySingleStoreInsert> = SingleStoreInsert<T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], T['_']['returning']>
+ * export type SingleStoreInsertDynamic<T extends AnySingleStoreInsert> = SingleStoreInsert<
+ *   T['_']['table'],
+ *   T['_']['queryResult'],
+ *   T['_']['preparedQueryHKT'],
+ *   T['_']['returning']
+ * >
  */
 
 // ✓ SingleStoreInsertPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreInsertPrepare(T: AnySingleStoreInsert, TReturning: Record<string, unknown> | undefined = Undefined) {
-  return PreparedQueryKind(T['_']['preparedQueryHKT'], merge(SingleStorePreparedQueryConfig, { execute: matches<undefined>(TReturning) ? SingleStoreQueryResultKind(T['_']['queryResult'], never) : arrayOf(TReturning), iterator: never }), true)
+  return PreparedQueryKind(T['_']['preparedQueryHKT'], merge(SingleStorePreparedQueryConfig, { execute: typeof TReturning === 'undefined' ? SingleStoreQueryResultKind(T['_']['queryResult'], never) : arrayOf(TReturning), iterator: never }), true)
 }
 /* compiles to:
- * export type SingleStoreInsertPrepare<T extends AnySingleStoreInsert, TReturning extends Record<string, unknown> | undefined = undefined> = PreparedQueryKind<T['_']['preparedQueryHKT'], SingleStorePreparedQueryConfig & { execute: TReturning extends undefined ? SingleStoreQueryResultKind<T['_']['queryResult'], never> : TReturning[]; iterator: never }, true>
+ * export type SingleStoreInsertPrepare<
+ *   T extends AnySingleStoreInsert,
+ *   TReturning extends Record<string, unknown> | undefined = undefined
+ * > =
+ *   PreparedQueryKind<
+ *     T['_']['preparedQueryHKT'],
+ *     & SingleStorePreparedQueryConfig
+ *     & {
+ *         execute: TReturning extends undefined
+ *           ? SingleStoreQueryResultKind<T['_']['queryResult'], never>
+ *           : TReturning[]
+ *         iterator: never
+ *       },
+ *     true
+ *   >
  */
 
 // ✓ SingleStoreInsertOnDuplicateKeyUpdateConfig: verified type-identical to the original
@@ -87,7 +125,9 @@ export function SingleStoreInsertOnDuplicateKeyUpdateConfig(T: AnySingleStoreIns
   return { set: SingleStoreUpdateSetSource(T['_']['table']) }
 }
 /* compiles to:
- * export type SingleStoreInsertOnDuplicateKeyUpdateConfig<T extends AnySingleStoreInsert> = { set: SingleStoreUpdateSetSource<T['_']['table']> }
+ * export type SingleStoreInsertOnDuplicateKeyUpdateConfig<T extends AnySingleStoreInsert> = {
+ *   set: SingleStoreUpdateSetSource<T['_']['table']>
+ * }
  */
 
 // ✓ SingleStoreInsert: verified type-identical to the original
@@ -96,7 +136,13 @@ export function SingleStoreInsert(TTable: SingleStoreTable = SingleStoreTable, T
   return SingleStoreInsertBase(TTable, TQueryResult, TPreparedQueryHKT, TReturning, true, never)
 }
 /* compiles to:
- * export type SingleStoreInsert<TTable extends SingleStoreTable = SingleStoreTable, TQueryResult extends SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT, TPreparedQueryHKT extends PreparedQueryHKTBase = PreparedQueryHKTBase, TReturning extends Record<string, unknown> | undefined = Record<string, unknown> | undefined> = SingleStoreInsertBase<TTable, TQueryResult, TPreparedQueryHKT, TReturning, true, never>
+ * export type SingleStoreInsert<
+ *   TTable extends SingleStoreTable = SingleStoreTable,
+ *   TQueryResult extends SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT,
+ *   TPreparedQueryHKT extends PreparedQueryHKTBase = PreparedQueryHKTBase,
+ *   TReturning extends Record<string, unknown> | undefined = Record<string, unknown> | undefined
+ * > =
+ *   SingleStoreInsertBase<TTable, TQueryResult, TPreparedQueryHKT, TReturning, true, never>
  */
 
 // ✓ SingleStoreInsertReturning: verified type-identical to the original
@@ -105,7 +151,18 @@ export function SingleStoreInsertReturning(T: AnySingleStoreInsert, TDynamic: bo
   return SingleStoreInsertBase(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], InferModelFromColumns(GetPrimarySerialOrDefaultKeys(T['_']['table']['_']['columns'])), TDynamic, anyOf(T['_']['excludedMethods'], '$returning'))
 }
 /* compiles to:
- * export type SingleStoreInsertReturning<T extends AnySingleStoreInsert, TDynamic extends boolean> = SingleStoreInsertBase<T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], InferModelFromColumns<GetPrimarySerialOrDefaultKeys<T['_']['table']['_']['columns']>>, TDynamic, T['_']['excludedMethods'] | '$returning'>
+ * export type SingleStoreInsertReturning<
+ *   T extends AnySingleStoreInsert,
+ *   TDynamic extends boolean
+ * > =
+ *   SingleStoreInsertBase<
+ *     T['_']['table'],
+ *     T['_']['queryResult'],
+ *     T['_']['preparedQueryHKT'],
+ *     InferModelFromColumns<GetPrimarySerialOrDefaultKeys<T['_']['table']['_']['columns']>>,
+ *     TDynamic,
+ *     T['_']['excludedMethods'] | '$returning'
+ *   >
  */
 
 // ✗ PrimaryKeyKeys: does not compile yet
@@ -119,7 +176,17 @@ export function PrimaryKeyKeys(T: Record<string, AnySingleStoreColumn>) {
   return out[keyof(T)]
 }
 /* compiles to:
- * export type PrimaryKeyKeys<T extends Record<string, AnySingleStoreColumn>> = { [K in keyof T]: T[K]['_']['isPrimaryKey'] extends true ? T[K]['_']['isAutoincrement'] extends true ? K : T[K]['_']['hasRuntimeDefault'] extends true ? T[K]['_']['isPrimaryKey'] extends true ? K : never : never : T[K]['_']['hasRuntimeDefault'] extends true ? T[K]['_']['isPrimaryKey'] extends true ? K : never : never }[keyof T]
+ * export type PrimaryKeyKeys<T extends Record<string, AnySingleStoreColumn>> =
+ *   {
+ *     [K in keyof T]: T[K]['_']['isPrimaryKey'] extends true
+ *       ? T[K]['_']['isAutoincrement'] extends true ? K
+ *       : T[K]['_']['hasRuntimeDefault'] extends true
+ *         ? T[K]['_']['isPrimaryKey'] extends true ? K : never
+ *       : never
+ *     : T[K]['_']['hasRuntimeDefault'] extends true
+ *       ? T[K]['_']['isPrimaryKey'] extends true ? K : never
+ *     : never
+ *   }[keyof T]
  */
 
 // ✓ GetPrimarySerialOrDefaultKeys: verified type-identical to the original
@@ -132,5 +199,7 @@ export function GetPrimarySerialOrDefaultKeys(T: Record<string, AnySingleStoreCo
   return out
 }
 /* compiles to:
- * export type GetPrimarySerialOrDefaultKeys<T extends Record<string, AnySingleStoreColumn>> = { [K in PrimaryKeyKeys<T>]: T[K] }
+ * export type GetPrimarySerialOrDefaultKeys<T extends Record<string, AnySingleStoreColumn>> = {
+ *   [K in PrimaryKeyKeys<T>]: T[K]
+ * }
  */

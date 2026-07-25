@@ -19,15 +19,15 @@ declare const Next: any
 declare const Pos: any
 declare const Prev: any
 declare const UnionOf: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Is<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prev<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Is<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _IncludesDeep: does not compile yet
 //   Type 'Pos<Prev<I>> extends limit ? 2 : Is<O, M, match>' cannot be used to index type '{ '0': _IncludesDeep__st0<O extends object ? UnionOf<O> : O, M, match, lim
 /* @scripttype preserveParamNames */
@@ -35,7 +35,18 @@ export function _IncludesDeep(O, M: any, match: Match, limit: number, I: Iterati
   return { 0: _IncludesDeep(matches<object>(O) ? UnionOf(O) : O, M, match, limit, Next(I)), 1: 1, 2: 0 }[matches<typeof limit>(Pos(Prev(I))) ? 2 : Is(O, M, match)]
 }
 /* compiles to:
- * export type _IncludesDeep<O, M extends any, match extends Match, limit extends number, I extends Iteration = IterationOf<0>> = { '0': _IncludesDeep<O extends object ? UnionOf<O> : O, M, match, limit, Next<I>>; '1': 1; '2': 0 }[Pos<Prev<I>> extends limit ? 2 : Is<O, M, match>]
+ * export type _IncludesDeep<
+ *   O,
+ *   M extends any,
+ *   match extends Match,
+ *   limit extends number,
+ *   I extends Iteration = IterationOf<0>
+ * > =
+ *   {
+ *     '0': _IncludesDeep<O extends object ? UnionOf<O> : O, M, match, limit, Next<I>>
+ *     '1': 1
+ *     '2': 0
+ *   }[Pos<Prev<I>> extends limit ? 2 : Is<O, M, match>]
  */
 
 // ✓ IncludesDeep: verified type-identical to the original
@@ -48,5 +59,11 @@ export function IncludesDeep(O: object, M: any, match: Match = 'default', limit:
   return never
 }
 /* compiles to:
- * export type IncludesDeep<O extends object, M extends any, match extends Match = 'default', limit extends number = 10> = _IncludesDeep<O, M, match, limit> extends infer X ? Cast<X, Boolean> : never
+ * export type IncludesDeep<
+ *   O extends object,
+ *   M extends any,
+ *   match extends Match = 'default',
+ *   limit extends number = 10
+ * > =
+ *   _IncludesDeep<O, M, match, limit> extends infer X ? Cast<X, Boolean> : never
  */

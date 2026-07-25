@@ -12,16 +12,18 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SessionDataT: any
 declare const _Algorithm: any
-type SessionData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SessionDataT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Algorithm<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SessionData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SessionDataT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Algorithm<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SealOptionsSub: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SealOptionsSub(TAlgorithm: _Algorithm = _Algorithm) {
   return Readonly({ saltBits: number, algorithm: TAlgorithm, iterations: number, minPasswordlength: number })
 }
 /* compiles to:
- * export type SealOptionsSub<TAlgorithm extends _Algorithm = _Algorithm> = Readonly<{ saltBits: number; algorithm: TAlgorithm; iterations: number; minPasswordlength: number }>
+ * export type SealOptionsSub<TAlgorithm extends _Algorithm = _Algorithm> = Readonly<
+ *   { saltBits: number; algorithm: TAlgorithm; iterations: number; minPasswordlength: number }
+ * >
  */
 
 // ✓ SessionData: verified type-identical to the original
@@ -39,5 +41,6 @@ export function SessionUpdate(T: SessionData = SessionData) {
   return Partial(SessionData(T)) | fnType([SessionData(T)], anyOf(Partial(SessionData(T)), Undefined))
 }
 /* compiles to:
- * export type SessionUpdate<T extends SessionData = SessionData> = Partial<SessionData<T>> | ((a0: SessionData<T>) => Partial<SessionData<T>> | undefined)
+ * export type SessionUpdate<T extends SessionData = SessionData> =
+ *   Partial<SessionData<T>> | ((a0: SessionData<T>) => Partial<SessionData<T>> | undefined)
  */

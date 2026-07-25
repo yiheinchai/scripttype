@@ -22,18 +22,18 @@ declare const ToIntersectionFn: any
 declare const ToTupleFn: any
 declare const _: any
 declare const unset: any
-type Call<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExcludeFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MapFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonNullableFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RangeFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToIntersectionFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToTupleFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExcludeFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MapFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonNullableFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RangeFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToIntersectionFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToTupleFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Extract: does not compile yet
 //   Cannot find name 'ExtractFn'. Did you mean 'Extract'?
 /* @scripttype preserveParamNames */
@@ -41,7 +41,10 @@ export function Extract(unionOrExtracted = unset, extracted = unset) {
   return PartialApply(ExtractFn, matches<unset>(extracted) ? [unset, unionOrExtracted] : [unionOrExtracted, extracted])
 }
 /* compiles to:
- * export type Extract<unionOrExtracted = unset, extracted = unset> = PartialApply<ExtractFn, extracted extends unset ? [unset, unionOrExtracted] : [unionOrExtracted, extracted]>
+ * export type Extract<unionOrExtracted = unset, extracted = unset> = PartialApply<
+ *   ExtractFn,
+ *   extracted extends unset ? [unset, unionOrExtracted] : [unionOrExtracted, extracted]
+ * >
  */
 
 // ✗ ExtractByImpl: compiles but is not type-identical yet
@@ -57,7 +60,8 @@ export function ExtractByImpl(union, predicate: Fn) {
   return never
 }
 /* compiles to:
- * export type ExtractByImpl<union, predicate extends Fn> = union extends any ? Call<predicate, union> extends true ? union : never : never
+ * export type ExtractByImpl<union, predicate extends Fn> =
+ *   union extends any ? Call<predicate, union> extends true ? union : never : never
  */
 
 // ✗ Exclude: does not compile yet
@@ -67,7 +71,10 @@ export function Exclude(unionOrExcluded = unset, excluded = unset) {
   return PartialApply(ExcludeFn, matches<unset>(excluded) ? [unset, unionOrExcluded] : [unionOrExcluded, excluded])
 }
 /* compiles to:
- * export type Exclude<unionOrExcluded = unset, excluded = unset> = PartialApply<ExcludeFn, excluded extends unset ? [unset, unionOrExcluded] : [unionOrExcluded, excluded]>
+ * export type Exclude<unionOrExcluded = unset, excluded = unset> = PartialApply<
+ *   ExcludeFn,
+ *   excluded extends unset ? [unset, unionOrExcluded] : [unionOrExcluded, excluded]
+ * >
  */
 
 // ✓ ExcludeByImpl: verified type-identical to the original
@@ -82,7 +89,8 @@ export function ExcludeByImpl(union, predicate: Fn) {
   return never
 }
 /* compiles to:
- * export type ExcludeByImpl<union, predicate extends Fn> = union extends any ? Call<predicate, union> extends true ? never : union : never
+ * export type ExcludeByImpl<union, predicate extends Fn> =
+ *   union extends any ? Call<predicate, union> extends true ? never : union : never
  */
 
 // ✗ MapImpl: compiles but is not type-identical yet
@@ -115,7 +123,11 @@ export function Range(start: number | _ | unset = unset, end: number | _ | unset
   return PartialApply(RangeFn, [start, end])
 }
 /* compiles to:
- * export type Range<start extends number | _ | unset = unset, end extends number | _ | unset = unset> = PartialApply<RangeFn, [start, end]>
+ * export type Range<
+ *   start extends number | _ | unset = unset,
+ *   end extends number | _ | unset = unset
+ * > =
+ *   PartialApply<RangeFn, [start, end]>
  */
 
 // ✗ ToTuple: does not compile yet

@@ -13,9 +13,9 @@
 declare const StoreApi: any
 declare const StoreMutatorIdentifier: any
 declare const StoreMutators: any
-type StoreApi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreMutatorIdentifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreMutators<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StoreApi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreMutatorIdentifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreMutators<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ SetStateInternal: uses raw() — language gap, does not count as covered
 //   gap: object member MethodSignature
 /* @scripttype preserveParamNames */
@@ -39,7 +39,7 @@ export function ExtractState(S) {
 // ✓ Get: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Get(T, K, F) {
-  if (matches<keyof typeof T>(K)) {
+  if (K in T) {
     return T[K]
   }
   return F
@@ -64,7 +64,12 @@ export function Mutate(S, Ms) {
   return never
 }
 /* compiles to:
- * export type Mutate<S, Ms> = number extends Ms['length' & keyof Ms] ? S : Ms extends [] ? S : Ms extends [[infer Mi, infer Ma], ...infer Mrs] ? Mutate<StoreMutators<S, Ma>[Mi & StoreMutatorIdentifier], Mrs> : never
+ * export type Mutate<S, Ms> =
+ *   number extends Ms['length' & keyof Ms] ? S
+ *   : Ms extends [] ? S
+ *   : Ms extends [[infer Mi, infer Ma], ...infer Mrs]
+ *     ? Mutate<StoreMutators<S, Ma>[Mi & StoreMutatorIdentifier], Mrs>
+ *   : never
  */
 
 // ✓ StateCreator: verified type-identical to the original
@@ -73,5 +78,18 @@ export function StateCreator(T, Mis: [ StoreMutatorIdentifier, unknown ][] = [],
   return merge(fnType([Get(Mutate(StoreApi(T), Mis), 'setState', never), Get(Mutate(StoreApi(T), Mis), 'getState', never), Mutate(StoreApi(T), Mis)], U), { $$storeMutators: optional(Mos) })
 }
 /* compiles to:
- * export type StateCreator<T, Mis extends [StoreMutatorIdentifier, unknown][] = [], Mos extends [StoreMutatorIdentifier, unknown][] = [], U = T> = ((a0: Get<Mutate<StoreApi<T>, Mis>, 'setState', never>, a1: Get<Mutate<StoreApi<T>, Mis>, 'getState', never>, a2: Mutate<StoreApi<T>, Mis>) => U) & { $$storeMutators?: Mos }
+ * export type StateCreator<
+ *   T,
+ *   Mis extends [StoreMutatorIdentifier, unknown][] = [],
+ *   Mos extends [StoreMutatorIdentifier, unknown][] = [],
+ *   U = T
+ * > =
+ *   & (
+ *       (
+ *         a0: Get<Mutate<StoreApi<T>, Mis>, 'setState', never>,
+ *         a1: Get<Mutate<StoreApi<T>, Mis>, 'getState', never>,
+ *         a2: Mutate<StoreApi<T>, Mis>
+ *       ) => U
+ *     )
+ *   & { $$storeMutators?: Mos }
  */

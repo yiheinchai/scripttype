@@ -15,5 +15,7 @@ export function Promise(A: any) {
   return globalThis.Promise(m1 ? m1.X : A)
 }
 /* compiles to:
- * export type Promise<A extends any> = globalThis.Promise<A extends globalThis.Promise<infer X> ? X : A>
+ * export type Promise<A extends any> = globalThis.Promise<
+ *   A extends globalThis.Promise<infer X> ? X : A
+ * >
  */

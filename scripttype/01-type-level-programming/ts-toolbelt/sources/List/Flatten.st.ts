@@ -19,15 +19,15 @@ declare const List: any
 declare const Next: any
 declare const Or: any
 declare const _UnNest: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Equals<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Or<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _UnNest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Equals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _UnNest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Flatten: does not compile yet
 //   Type 'Or<Equals<L, LO>, Extends<limit, I>>' cannot be used to index type '{ '0': __Flatten__st0<_UnNest<L, strict>, L, strict, limit, Next<I>>; '1': L; }'.
 /* @scripttype preserveParamNames */
@@ -35,7 +35,14 @@ export function __Flatten(L: List, LO: List, strict: Boolean, limit: Iteration, 
   return { 0: __Flatten(_UnNest(L, strict), L, strict, limit, Next(I)), 1: L }[Or(Equals(L, LO), Extends(limit, I))]
 }
 /* compiles to:
- * export type __Flatten<L extends List, LO extends List, strict extends Boolean, limit extends Iteration, I extends Iteration = IterationOf<0>> = { '0': __Flatten<_UnNest<L, strict>, L, strict, limit, Next<I>>; '1': L }[Or<Equals<L, LO>, Extends<limit, I>>]
+ * export type __Flatten<
+ *   L extends List,
+ *   LO extends List,
+ *   strict extends Boolean,
+ *   limit extends Iteration,
+ *   I extends Iteration = IterationOf<0>
+ * > =
+ *   { '0': __Flatten<_UnNest<L, strict>, L, strict, limit, Next<I>>; '1': L }[Or<Equals<L, LO>, Extends<limit, I>>]
  */
 
 // ✓ _Flatten: verified type-identical to the original
@@ -48,7 +55,8 @@ export function _Flatten(L: List, strict: Boolean, limit: number = number) {
   return never
 }
 /* compiles to:
- * export type _Flatten<L extends List, strict extends Boolean, limit extends number = number> = __Flatten<L, [], strict, IterationOf<limit>> extends infer X ? Cast<X, List> : never
+ * export type _Flatten<L extends List, strict extends Boolean, limit extends number = number> =
+ *   __Flatten<L, [], strict, IterationOf<limit>> extends infer X ? Cast<X, List> : never
  */
 
 // ✗ Flatten: the ScriptType does not itself typecheck as TypeScript
@@ -61,5 +69,10 @@ export function Flatten(L: List, strict: Boolean = 1, limit: number = number) {
   return never
 }
 /* compiles to:
- * export type Flatten<L extends List, strict extends Boolean = 1, limit extends number = number> = L extends unknown ? _Flatten<L, strict, limit> : never
+ * export type Flatten<
+ *   L extends List,
+ *   strict extends Boolean = 1,
+ *   limit extends number = number
+ * > =
+ *   L extends unknown ? _Flatten<L, strict, limit> : never
  */

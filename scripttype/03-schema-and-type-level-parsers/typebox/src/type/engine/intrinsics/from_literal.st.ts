@@ -14,18 +14,19 @@ declare const TApplyMapping: any
 declare const TLiteral: any
 declare const TLiteralValue: any
 declare const TMappingType: any
-type TApplyMapping<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteralValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TMappingType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TApplyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TMappingType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromLiteral(Mapping: TMappingType, Value: TLiteralValue) {
-  if (matches<string>(Value)) {
+  if (typeof Value === 'string') {
     return TLiteral(TApplyMapping(Mapping, Value))
   }
   return TLiteral(Value)
 }
 /* compiles to:
- * export type TFromLiteral<Mapping extends TMappingType, Value extends TLiteralValue> = Value extends string ? TLiteral<TApplyMapping<Mapping, Value>> : TLiteral<Value>
+ * export type TFromLiteral<Mapping extends TMappingType, Value extends TLiteralValue> =
+ *   Value extends string ? TLiteral<TApplyMapping<Mapping, Value>> : TLiteral<Value>
  */

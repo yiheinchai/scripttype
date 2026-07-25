@@ -36,32 +36,32 @@ declare const validateRange: any
 declare const writeInvalidGenericArgCountMessage: any
 declare const writeMalformedNumericLiteralMessage: any
 declare const writeMissingSubmoduleAccessMessage: any
-type BigintLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BranchOperator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Comparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Completion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Generic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GenericInstantiationAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferredAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfixExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NumberLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PostfixExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PrivateDeclaration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnitLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type anyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type arkKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type astToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateDefault<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateDivisor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateGenericInstantiation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateKeyof<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateRange<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeInvalidGenericArgCountMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeMalformedNumericLiteralMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeMissingSubmoduleAccessMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BigintLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BranchOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Completion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Generic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GenericInstantiationAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferredAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfixExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NumberLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PostfixExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PrivateDeclaration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type arkKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type astToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateDivisor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateGenericInstantiation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateRange<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeInvalidGenericArgCountMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeMalformedNumericLiteralMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeMissingSubmoduleAccessMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ validateAst: does not compile yet
 //   Type 'name' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
@@ -113,7 +113,25 @@ export function validateAst(ast, $, args) {
   return merge(ErrorMessage(writeUnexpectedExpressionMessage(astToString(ast))), { ast: ast })
 }
 /* compiles to:
- * export type validateAst<ast, $, args> = ast extends ErrorMessage ? ast : ast extends InferredAst ? validateInferredAst<ast[0], ast[2]> : ast extends DefAst ? ast[2] extends PrivateDeclaration<infer name> ? ErrorMessage<writePrefixedPrivateReferenceMessage<name>> : undefined : ast extends PostfixExpression<'[]' | '?', infer operand> ? validateAst<operand, $, args> : ast extends InfixExpression<infer operator, infer l, infer r> ? operator extends BranchOperator ? validateInfix<ast, $, args> : operator extends Comparator ? validateRange<l, operator, r, $, args> : operator extends '%' ? validateDivisor<l, $, args> : operator extends '=' ? validateDefault<l, r & UnitLiteral, $, args> : operator extends '#' ? validateAst<l, $, args> : ErrorMessage<writeUnexpectedExpressionMessage<astToString<ast>>> : ast extends ['keyof', infer operand] ? validateKeyof<operand, $, args> : ast extends GenericInstantiationAst<infer g, infer argAsts> ? validateGenericInstantiation<g, argAsts, $, args> : ErrorMessage<writeUnexpectedExpressionMessage<astToString<ast>>> & { ast: ast }
+ * export type validateAst<ast, $, args> =
+ *   ast extends ErrorMessage ? ast
+ *   : ast extends InferredAst ? validateInferredAst<ast[0], ast[2]>
+ *   : ast extends DefAst
+ *     ? ast[2] extends PrivateDeclaration<infer name>
+ *       ? ErrorMessage<writePrefixedPrivateReferenceMessage<name>>
+ *       : undefined
+ *   : ast extends PostfixExpression<'[]' | '?', infer operand> ? validateAst<operand, $, args>
+ *   : ast extends InfixExpression<infer operator, infer l, infer r>
+ *     ? operator extends BranchOperator ? validateInfix<ast, $, args>
+ *     : operator extends Comparator ? validateRange<l, operator, r, $, args>
+ *     : operator extends '%' ? validateDivisor<l, $, args>
+ *     : operator extends '=' ? validateDefault<l, r & UnitLiteral, $, args>
+ *     : operator extends '#' ? validateAst<l, $, args>
+ *     : ErrorMessage<writeUnexpectedExpressionMessage<astToString<ast>>>
+ *   : ast extends ['keyof', infer operand] ? validateKeyof<operand, $, args>
+ *   : ast extends GenericInstantiationAst<infer g, infer argAsts>
+ *     ? validateGenericInstantiation<g, argAsts, $, args>
+ *   : ErrorMessage<writeUnexpectedExpressionMessage<astToString<ast>>> & { ast: ast }
  */
 
 // ✓ writeUnexpectedExpressionMessage: verified type-identical to the original
@@ -161,7 +179,7 @@ export function validateInferredAst(inferred, def: string) {
     return ErrorMessage(writeInvalidGenericArgCountMessage(def, inferred['names'], []))
   }
   if (matches<{ [arkKind]: "module"; }>(inferred)) {
-    if (matches<keyof typeof inferred>('root')) {
+    if ('root' in inferred) {
       return Undefined
     }
     return ErrorMessage(writeMissingSubmoduleAccessMessage(def))
@@ -172,7 +190,26 @@ export function validateInferredAst(inferred, def: string) {
   return Undefined
 }
 /* compiles to:
- * export type validateInferredAst<inferred, def extends string> = def extends NumberLiteral ? number extends inferred ? ErrorMessage<writeMalformedNumericLiteralMessage<def, 'number'>> : undefined : def extends BigintLiteral ? bigint extends inferred ? ErrorMessage<writeMalformedNumericLiteralMessage<def, 'bigint'>> : undefined : [inferred] extends [anyOrNever] ? undefined : def extends PrivateDeclaration<infer name> ? ErrorMessage<writePrefixedPrivateReferenceMessage<name>> : inferred extends Generic ? ErrorMessage<writeInvalidGenericArgCountMessage<def, inferred['names'], []>> : inferred extends { [arkKind]: "module"; } ? 'root' extends keyof inferred ? undefined : ErrorMessage<writeMissingSubmoduleAccessMessage<def>> : def extends ErrorMessage ? def : undefined
+ * export type validateInferredAst<inferred, def extends string> =
+ *   def extends NumberLiteral
+ *     ? number extends inferred
+ *       ? ErrorMessage<writeMalformedNumericLiteralMessage<def, 'number'>>
+ *       : undefined
+ *   : def extends BigintLiteral
+ *     ? bigint extends inferred
+ *       ? ErrorMessage<writeMalformedNumericLiteralMessage<def, 'bigint'>>
+ *       : undefined
+ *   : [inferred] extends [anyOrNever] ? undefined
+ *   : def extends PrivateDeclaration<infer name>
+ *     ? ErrorMessage<writePrefixedPrivateReferenceMessage<name>>
+ *   : inferred extends Generic
+ *     ? ErrorMessage<writeInvalidGenericArgCountMessage<def, inferred['names'], []>>
+ *   : inferred extends { [arkKind]: "module"; }
+ *     ? 'root' extends keyof inferred
+ *       ? undefined
+ *       : ErrorMessage<writeMissingSubmoduleAccessMessage<def>>
+ *   : def extends ErrorMessage ? def
+ *   : undefined
  */
 
 // ✓ validateString: verified type-identical to the original
@@ -193,7 +230,12 @@ export function validateString(def: string, $, args) {
   return never
 }
 /* compiles to:
- * export type validateString<def extends string, $, args> = parseString<def, $, args> extends infer ast ? validateAst<ast, $, args> extends (infer result extends ErrorMessage) ? result extends Completion<infer text> ? text : result : def : never
+ * export type validateString<def extends string, $, args> =
+ *   parseString<def, $, args> extends infer ast
+ *     ? validateAst<ast, $, args> extends (infer result extends ErrorMessage)
+ *       ? result extends Completion<infer text> ? text : result
+ *       : def
+ *     : never
  */
 
 // ✓ validateInfix: verified type-identical to the original
@@ -210,5 +252,8 @@ export function validateInfix(ast: InfixExpression, $, args) {
   return Undefined
 }
 /* compiles to:
- * export type validateInfix<ast extends InfixExpression, $, args> = validateAst<ast[0], $, args> extends (infer e extends ErrorMessage) ? e : validateAst<ast[2], $, args> extends (infer e extends ErrorMessage) ? e : undefined
+ * export type validateInfix<ast extends InfixExpression, $, args> =
+ *   validateAst<ast[0], $, args> extends (infer e extends ErrorMessage) ? e
+ *   : validateAst<ast[2], $, args> extends (infer e extends ErrorMessage) ? e
+ *   : undefined
  */

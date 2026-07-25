@@ -23,21 +23,21 @@ declare const TypedArray: any
 declare const UndefinedToOptional: any
 declare const UnknownArray: any
 declare const toJSON: any
-type EmptyObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JsonPrimitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JsonValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Jsonify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NotJsonable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypedArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndefinedToNull<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndefinedToOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type toJSON<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EmptyObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JsonPrimitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JsonValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Jsonify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NotJsonable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypedArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndefinedToNull<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndefinedToOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type toJSON<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NeverToNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NeverToNull(T) {
@@ -53,7 +53,7 @@ export function NeverToNull(T) {
 // ✓ UndefinedToNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UndefinedToNull(T) {
-  if (matches<undefined>(T)) {
+  if (typeof T === 'undefined') {
     return Null
   }
   return T
@@ -81,7 +81,16 @@ export function JsonifyList(T: UnknownArray) {
   return t<Array<(typeof T)[number] extends NotJsonable ? null : Jsonify<UndefinedToNull<(typeof T)[number]>>>>()
 }
 /* compiles to:
- * export type JsonifyList<T extends UnknownArray> = T extends readonly [] ? [] : T extends readonly [infer F, ...infer R] ? [F, ...R] extends T ? [NeverToNull<Jsonify<F>>, ...JsonifyList<R>] : [NeverToNull<Jsonify<F>>] : IsUnknown<T[number]> extends true ? JsonValue[] : Array<(typeof T)[number] extends NotJsonable ? null : Jsonify<UndefinedToNull<(typeof T)[number]>>>
+ * export type JsonifyList<T extends UnknownArray> =
+ *   T extends readonly [] ? []
+ *   : T extends readonly [infer F, ...infer R]
+ *     ? [F, ...R] extends T
+ *       ? [NeverToNull<Jsonify<F>>, ...JsonifyList<R>]
+ *       : [NeverToNull<Jsonify<F>>]
+ *   : IsUnknown<T[number]> extends true ? JsonValue[]
+ *   : Array<
+ *     (typeof T)[number] extends NotJsonable ? null : Jsonify<UndefinedToNull<(typeof T)[number]>>
+ *   >
  */
 
 // ✓ JsonifyObject: verified type-identical to the original
@@ -94,7 +103,9 @@ export function JsonifyObject(T: object) {
   return out
 }
 /* compiles to:
- * export type JsonifyObject<T extends object> = { [Key in keyof T as T[Key] extends NotJsonable ? never : Key]: Jsonify<T[Key]> }
+ * export type JsonifyObject<T extends object> = {
+ *   [Key in keyof T as T[Key] extends NotJsonable ? never : Key]: Jsonify<T[Key]>
+ * }
  */
 
 // ✓ Jsonify: verified type-identical to the original
@@ -146,5 +157,19 @@ export function Jsonify(T) {
   return never
 }
 /* compiles to:
- * export type Jsonify<T> = IsAny<T> extends true ? any : T extends PositiveInfinity | NegativeInfinity ? null : T extends JsonPrimitive ? T : T extends { toJSON(): infer J; } ? (() => J) extends () => JsonValue ? J : Jsonify<J> : T extends Number ? number : T extends String ? string : T extends Boolean ? boolean : T extends Map<any, any> | Set<any> ? EmptyObject : T extends TypedArray ? Record<string, number> : T extends NotJsonable ? never : T extends UnknownArray ? JsonifyList<T> : T extends object ? JsonifyObject<UndefinedToOptional<T>> : IsUnknown<T> extends true ? JsonValue : never
+ * export type Jsonify<T> =
+ *   IsAny<T> extends true ? any
+ *   : T extends PositiveInfinity | NegativeInfinity ? null
+ *   : T extends JsonPrimitive ? T
+ *   : T extends { toJSON(): infer J; } ? (() => J) extends () => JsonValue ? J : Jsonify<J>
+ *   : T extends Number ? number
+ *   : T extends String ? string
+ *   : T extends Boolean ? boolean
+ *   : T extends Map<any, any> | Set<any> ? EmptyObject
+ *   : T extends TypedArray ? Record<string, number>
+ *   : T extends NotJsonable ? never
+ *   : T extends UnknownArray ? JsonifyList<T>
+ *   : T extends object ? JsonifyObject<UndefinedToOptional<T>>
+ *   : IsUnknown<T> extends true ? JsonValue
+ *   : never
  */

@@ -13,17 +13,20 @@
 declare const FieldErrors: any
 declare const FieldValues: any
 declare const ResolverOptions: any
-type FieldErrors<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolverOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FieldErrors<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ResolverSuccess: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ResolverSuccess(TTransformedValues) {
   return { values: TTransformedValues, errors: Record(string, never) }
 }
 /* compiles to:
- * export type ResolverSuccess<TTransformedValues> = { values: TTransformedValues; errors: Record<string, never> }
+ * export type ResolverSuccess<TTransformedValues> = {
+ *   values: TTransformedValues
+ *   errors: Record<string, never>
+ * }
  */
 
 // ✓ ResolverError: verified type-identical to the original
@@ -32,7 +35,10 @@ export function ResolverError(TFieldValues: FieldValues = FieldValues) {
   return { values: Record(string, never), errors: FieldErrors(TFieldValues) }
 }
 /* compiles to:
- * export type ResolverError<TFieldValues extends FieldValues = FieldValues> = { values: Record<string, never>; errors: FieldErrors<TFieldValues> }
+ * export type ResolverError<TFieldValues extends FieldValues = FieldValues> = {
+ *   values: Record<string, never>
+ *   errors: FieldErrors<TFieldValues>
+ * }
  */
 
 // ✓ ResolverResult: verified type-identical to the original
@@ -41,7 +47,11 @@ export function ResolverResult(TFieldValues: FieldValues = FieldValues, TTransfo
   return ResolverSuccess(TTransformedValues) | ResolverError(TFieldValues)
 }
 /* compiles to:
- * export type ResolverResult<TFieldValues extends FieldValues = FieldValues, TTransformedValues = TFieldValues> = ResolverSuccess<TTransformedValues> | ResolverError<TFieldValues>
+ * export type ResolverResult<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TTransformedValues = TFieldValues
+ * > =
+ *   ResolverSuccess<TTransformedValues> | ResolverError<TFieldValues>
  */
 
 // ✓ Resolver: verified type-identical to the original
@@ -50,5 +60,11 @@ export function Resolver(TFieldValues: FieldValues = FieldValues, TContext = any
   return fnType([TFieldValues, anyOf(TContext, Undefined), ResolverOptions(TFieldValues)], t<Promise<ResolverResult<typeof TFieldValues, typeof TTransformedValues>>>() | ResolverResult(TFieldValues, TTransformedValues))
 }
 /* compiles to:
- * export type Resolver<TFieldValues extends FieldValues = FieldValues, TContext = any, TTransformedValues = TFieldValues> = (a0: TFieldValues, a1: TContext | undefined, a2: ResolverOptions<TFieldValues>) => Promise<ResolverResult<TFieldValues, TTransformedValues>> | ResolverResult<TFieldValues, TTransformedValues>
+ * export type Resolver<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TContext = any,
+ *   TTransformedValues = TFieldValues
+ * > =
+ *   (a0: TFieldValues, a1: TContext | undefined, a2: ResolverOptions<TFieldValues>) => | Promise<ResolverResult<TFieldValues, TTransformedValues>>
+ *   | ResolverResult<TFieldValues, TTransformedValues>
  */

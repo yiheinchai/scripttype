@@ -17,5 +17,7 @@ export function SetNonNullable(BaseType, Keys: keyof typeof BaseType = keyof(Bas
   return out
 }
 /* compiles to:
- * export type SetNonNullable<BaseType, Keys extends keyof BaseType = keyof BaseType> = { [Key in keyof BaseType]: Key extends Keys ? NonNullable<BaseType[Key]> : BaseType[Key] }
+ * export type SetNonNullable<BaseType, Keys extends keyof BaseType = keyof BaseType> = {
+ *   [Key in keyof BaseType]: Key extends Keys ? NonNullable<BaseType[Key]> : BaseType[Key]
+ * }
  */

@@ -15,11 +15,11 @@ declare const Kind: any
 declare const Kind2: any
 declare const URIS: any
 declare const URIS2: any
-type Either<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Kind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Kind2<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URIS<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URIS2<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Either<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Kind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Kind2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URIS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URIS2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ EitherT1: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function EitherT1(M: URIS, E, A) {

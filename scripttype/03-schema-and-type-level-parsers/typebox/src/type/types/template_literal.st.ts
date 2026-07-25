@@ -15,11 +15,11 @@ declare const TParseTemplateIntoTypes: any
 declare const TSchema: any
 declare const TTemplateLiteralAction: any
 declare const TTemplateLiteralStatic: any
-type TDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TParseTemplateIntoTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTemplateLiteralAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTemplateLiteralStatic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TParseTemplateIntoTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTemplateLiteralAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTemplateLiteralStatic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticTemplateLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticTemplateLiteral(Pattern: string) {
@@ -35,7 +35,10 @@ export function TTemplateLiteralDeferred(Types: TSchema[] = arrayOf(TSchema)) {
   return TDeferred('TemplateLiteral', [Types])
 }
 /* compiles to:
- * export type TTemplateLiteralDeferred<Types extends TSchema[] = TSchema[]> = TDeferred<'TemplateLiteral', [Types]>
+ * export type TTemplateLiteralDeferred<Types extends TSchema[] = TSchema[]> = TDeferred<
+ *   'TemplateLiteral',
+ *   [Types]
+ * >
  */
 
 // ✓ TTemplateLiteralFromTypes: verified type-identical to the original
@@ -44,7 +47,11 @@ export function TTemplateLiteralFromTypes(Types: TSchema[], Result: TSchema = TT
   return Result
 }
 /* compiles to:
- * export type TTemplateLiteralFromTypes<Types extends TSchema[], Result extends TSchema = TTemplateLiteralAction<Types>> = Result
+ * export type TTemplateLiteralFromTypes<
+ *   Types extends TSchema[],
+ *   Result extends TSchema = TTemplateLiteralAction<Types>
+ * > =
+ *   Result
  */
 
 // ✓ TTemplateLiteralFromString: verified type-identical to the original
@@ -53,5 +60,10 @@ export function TTemplateLiteralFromString(Template: string, Types: TSchema[] = 
   return Result
 }
 /* compiles to:
- * export type TTemplateLiteralFromString<Template extends string, Types extends TSchema[] = TParseTemplateIntoTypes<Template>, Result extends TSchema = TTemplateLiteralFromTypes<Types>> = Result
+ * export type TTemplateLiteralFromString<
+ *   Template extends string,
+ *   Types extends TSchema[] = TParseTemplateIntoTypes<Template>,
+ *   Result extends TSchema = TTemplateLiteralFromTypes<Types>
+ * > =
+ *   Result
  */

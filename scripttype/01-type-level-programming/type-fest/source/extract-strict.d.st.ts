@@ -14,5 +14,9 @@ export function ExtractStrict(T, U: [ typeof U ] extends [ typeof U extends unkn
   return Extract(T, U)
 }
 /* compiles to:
- * export type ExtractStrict<T, U extends [ typeof U ] extends [ typeof U extends unknown ? (Extract<typeof T, typeof U> extends never ? never : typeof U) : never ] ? unknown : never> = Extract<T, U>
+ * export type ExtractStrict<
+ *   T,
+ *   U extends [ typeof U ] extends [ typeof U extends unknown ? (Extract<typeof T, typeof U> extends never ? never : typeof U) : never ] ? unknown : never
+ * > =
+ *   Extract<T, U>
  */

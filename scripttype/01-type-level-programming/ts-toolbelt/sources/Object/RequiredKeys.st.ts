@@ -18,7 +18,8 @@ export function _RequiredKeys(O: object) {
   return out[keyof(O)]
 }
 /* compiles to:
- * export type _RequiredKeys<O extends object> = { [K in keyof O]-?: {} extends Pick<O, K> ? never : K }[keyof O]
+ * export type _RequiredKeys<O extends object> =
+ *   { [K in keyof O]-?: {} extends Pick<O, K> ? never : K }[keyof O]
  */
 
 // ✓ RequiredKeys: verified type-identical to the original

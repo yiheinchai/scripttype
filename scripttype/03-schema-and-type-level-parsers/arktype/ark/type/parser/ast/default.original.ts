@@ -7,13 +7,13 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnitLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type astToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferAstIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnassignableDefaultValueMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type astToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferAstIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnassignableDefaultValueMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type validateDefault<baseAst, unitLiteral extends UnitLiteral, $, args> =
 	validateAst<baseAst, $, args> extends infer e extends ErrorMessage ? e
 	: // check against the output of the type since morphs will not occur

@@ -10,13 +10,19 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Duration {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Exit {
+  export type Exit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Any: any
 declare const Duration: any
 declare const Exit: any
-type Any<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Duration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Error<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Exit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Duration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Exit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SuccessSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SuccessSchema(A: Any) {
@@ -60,7 +66,9 @@ export function DecodingServices(A: Any) {
   return A['~effect/persistence/Persistable']['success']['DecodingServices'] | A['~effect/persistence/Persistable']['error']['DecodingServices']
 }
 /* compiles to:
- * export type DecodingServices<A extends Any> = A['~effect/persistence/Persistable']['success']['DecodingServices'] | A['~effect/persistence/Persistable']['error']['DecodingServices']
+ * export type DecodingServices<A extends Any> =
+ *   | A['~effect/persistence/Persistable']['success']['DecodingServices']
+ *   | A['~effect/persistence/Persistable']['error']['DecodingServices']
  */
 
 // ✗ EncodingServices: does not compile yet
@@ -70,7 +78,9 @@ export function EncodingServices(A: Any) {
   return A['~effect/persistence/Persistable']['success']['EncodingServices'] | A['~effect/persistence/Persistable']['error']['EncodingServices']
 }
 /* compiles to:
- * export type EncodingServices<A extends Any> = A['~effect/persistence/Persistable']['success']['EncodingServices'] | A['~effect/persistence/Persistable']['error']['EncodingServices']
+ * export type EncodingServices<A extends Any> =
+ *   | A['~effect/persistence/Persistable']['success']['EncodingServices']
+ *   | A['~effect/persistence/Persistable']['error']['EncodingServices']
  */
 
 // ✓ Services: verified type-identical to the original
@@ -79,7 +89,11 @@ export function Services(A: Any) {
   return A['~effect/persistence/Persistable']['success']['DecodingServices'] | A['~effect/persistence/Persistable']['success']['EncodingServices'] | A['~effect/persistence/Persistable']['error']['DecodingServices'] | A['~effect/persistence/Persistable']['error']['EncodingServices']
 }
 /* compiles to:
- * export type Services<A extends Any> = A['~effect/persistence/Persistable']['success']['DecodingServices'] | A['~effect/persistence/Persistable']['success']['EncodingServices'] | A['~effect/persistence/Persistable']['error']['DecodingServices'] | A['~effect/persistence/Persistable']['error']['EncodingServices']
+ * export type Services<A extends Any> =
+ *   | A['~effect/persistence/Persistable']['success']['DecodingServices']
+ *   | A['~effect/persistence/Persistable']['success']['EncodingServices']
+ *   | A['~effect/persistence/Persistable']['error']['DecodingServices']
+ *   | A['~effect/persistence/Persistable']['error']['EncodingServices']
  */
 
 // ✗ TimeToLiveFn: the ScriptType does not itself typecheck as TypeScript

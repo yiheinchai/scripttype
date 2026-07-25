@@ -13,16 +13,25 @@
 declare const SQLiteBooleanBuilder: any
 declare const SQLiteIntegerBuilder: any
 declare const SQLiteTimestampBuilder: any
-type SQLiteBooleanBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQLiteIntegerBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQLiteTimestampBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SQLiteBooleanBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQLiteIntegerBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQLiteTimestampBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLiteIntegerBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SQLiteIntegerBuilderInitial(TName: string) {
   return SQLiteIntegerBuilder({ name: TName, dataType: 'number', columnType: 'SQLiteInteger', data: number, driverParam: number, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteIntegerBuilderInitial<TName extends string> = SQLiteIntegerBuilder<{ name: TName; dataType: 'number'; columnType: 'SQLiteInteger'; data: number; driverParam: number; enumValues: undefined }>
+ * export type SQLiteIntegerBuilderInitial<TName extends string> = SQLiteIntegerBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'SQLiteInteger'
+ *     data: number
+ *     driverParam: number
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ SQLiteTimestampBuilderInitial: verified type-identical to the original
@@ -31,7 +40,16 @@ export function SQLiteTimestampBuilderInitial(TName: string) {
   return SQLiteTimestampBuilder({ name: TName, dataType: 'date', columnType: 'SQLiteTimestamp', data: t<Date>(), driverParam: number, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteTimestampBuilderInitial<TName extends string> = SQLiteTimestampBuilder<{ name: TName; dataType: 'date'; columnType: 'SQLiteTimestamp'; data: Date; driverParam: number; enumValues: undefined }>
+ * export type SQLiteTimestampBuilderInitial<TName extends string> = SQLiteTimestampBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'date'
+ *     columnType: 'SQLiteTimestamp'
+ *     data: Date
+ *     driverParam: number
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ SQLiteBooleanBuilderInitial: verified type-identical to the original
@@ -40,5 +58,14 @@ export function SQLiteBooleanBuilderInitial(TName: string) {
   return SQLiteBooleanBuilder({ name: TName, dataType: 'boolean', columnType: 'SQLiteBoolean', data: boolean, driverParam: number, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteBooleanBuilderInitial<TName extends string> = SQLiteBooleanBuilder<{ name: TName; dataType: 'boolean'; columnType: 'SQLiteBoolean'; data: boolean; driverParam: number; enumValues: undefined }>
+ * export type SQLiteBooleanBuilderInitial<TName extends string> = SQLiteBooleanBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'boolean'
+ *     columnType: 'SQLiteBoolean'
+ *     data: boolean
+ *     driverParam: number
+ *     enumValues: undefined
+ *   }
+ * >
  */

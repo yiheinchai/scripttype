@@ -13,5 +13,7 @@ export function inferAsyncReturnType(TFunction: (...args: any[]) => any) {
   return Awaited(ReturnType(TFunction))
 }
 /* compiles to:
- * export type inferAsyncReturnType<TFunction extends (...args: any[]) => any> = Awaited<ReturnType<TFunction>>
+ * export type inferAsyncReturnType<TFunction extends (...args: any[]) => any> = Awaited<
+ *   ReturnType<TFunction>
+ * >
  */

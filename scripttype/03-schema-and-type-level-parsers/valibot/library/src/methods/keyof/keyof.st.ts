@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Schema: any
 declare const UnionToTuple: any
-type Schema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ForceTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ForceTuple(T) {
@@ -32,5 +32,7 @@ export function ObjectKeys(TSchema: Schema) {
   return ForceTuple(UnionToTuple(keyof(TSchema['entries'])))
 }
 /* compiles to:
- * export type ObjectKeys<TSchema extends Schema> = ForceTuple<UnionToTuple<keyof TSchema['entries']>>
+ * export type ObjectKeys<TSchema extends Schema> = ForceTuple<
+ *   UnionToTuple<keyof TSchema['entries']>
+ * >
  */

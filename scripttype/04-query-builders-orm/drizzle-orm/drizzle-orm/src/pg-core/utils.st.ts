@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const AnyPgColumn: any
-type AnyPgColumn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyPgColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ColumnsWithTable: does not compile yet
 //   'TTableName' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -23,5 +23,10 @@ export function ColumnsWithTable(TTableName: string, TForeignTableName: string, 
   return out
 }
 /* compiles to:
- * export type ColumnsWithTable<TTableName extends string, TForeignTableName extends string, TColumns extends AnyPgColumn<{ tableName: typeof TTableName; }>[]> = { [Key in keyof TColumns]: AnyPgColumn<{ tableName: TForeignTableName }> }
+ * export type ColumnsWithTable<
+ *   TTableName extends string,
+ *   TForeignTableName extends string,
+ *   TColumns extends AnyPgColumn<{ tableName: typeof TTableName; }>[]
+ * > =
+ *   { [Key in keyof TColumns]: AnyPgColumn<{ tableName: TForeignTableName }> }
  */

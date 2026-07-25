@@ -16,12 +16,12 @@ declare const TInstantiate: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TTuple: any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ StaticInstantiatedParameters: the ScriptType does not itself typecheck as TypeScript
 //   StaticInstantiatedParameters.st.ts(2:293) TS2322: Type 'unknown' is not assignable to type 'unknown[]'.
 /* @scripttype preserveParamNames */
@@ -29,7 +29,17 @@ export function StaticInstantiatedParameters(Stack: string[], Direction: StaticD
   return Result
 }
 /* compiles to:
- * export type StaticInstantiatedParameters<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Parameters extends TSchema[], Evaluated extends TSchema = TInstantiate<Context, TTuple<Parameters>>, Static = StaticType<Stack, Direction, Context, This, Evaluated>, Result extends unknown[] = Static extends unknown[] ? Static : []> = Result
+ * export type StaticInstantiatedParameters<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Parameters extends TSchema[],
+ *   Evaluated extends TSchema = TInstantiate<Context, TTuple<Parameters>>,
+ *   Static = StaticType<Stack, Direction, Context, This, Evaluated>,
+ *   Result extends unknown[] = Static extends unknown[] ? Static : []
+ * > =
+ *   Result
  */
 
 // ✓ StaticFunction: verified type-identical to the original
@@ -38,5 +48,16 @@ export function StaticFunction(Stack: string[], Direction: StaticDirection, Cont
   return Result
 }
 /* compiles to:
- * export type StaticFunction<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Parameters extends TSchema[], ReturnType extends TSchema, StaticParameters extends unknown[] = StaticInstantiatedParameters<Stack, Direction, Context, This, Parameters>, StaticReturnType = StaticType<Stack, Direction, Context, This, ReturnType>, Result = (a0: StaticParameters) => StaticReturnType> = Result
+ * export type StaticFunction<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Parameters extends TSchema[],
+ *   ReturnType extends TSchema,
+ *   StaticParameters extends unknown[] = StaticInstantiatedParameters<Stack, Direction, Context, This, Parameters>,
+ *   StaticReturnType = StaticType<Stack, Direction, Context, This, ReturnType>,
+ *   Result = (a0: StaticParameters) => StaticReturnType
+ * > =
+ *   Result
  */

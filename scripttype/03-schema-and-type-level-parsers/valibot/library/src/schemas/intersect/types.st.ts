@@ -19,23 +19,25 @@ declare const IntersectOptions: any
 declare const IntersectOptionsAsync: any
 declare const IsNever: any
 declare const UnionToIntersect: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOption<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IntersectOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IntersectOptionsAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IntersectOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IntersectOptionsAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferOption: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InferOption(TInput, TOutput) {
   return BaseSchema(TInput, TOutput, BaseIssue(unknown)) | BaseSchemaAsync(TInput, TOutput, BaseIssue(unknown))
 }
 /* compiles to:
- * export type InferOption<TInput, TOutput> = BaseSchema<TInput, TOutput, BaseIssue<unknown>> | BaseSchemaAsync<TInput, TOutput, BaseIssue<unknown>>
+ * export type InferOption<TInput, TOutput> =
+ *   | BaseSchema<TInput, TOutput, BaseIssue<unknown>>
+ *   | BaseSchemaAsync<TInput, TOutput, BaseIssue<unknown>>
  */
 
 // ✓ InferIntersectInput: verified type-identical to the original
@@ -54,7 +56,13 @@ export function InferIntersectInput(TOptions: IntersectOptions | IntersectOption
   return UnionToIntersect(InferInput(TOptions[number]))
 }
 /* compiles to:
- * export type InferIntersectInput<TOptions extends IntersectOptions | IntersectOptionsAsync> = TOptions extends readonly [InferOption<infer TInput, unknown>, ...infer TRest] ? TRest extends readonly [InferOption<unknown, unknown>, ...InferOption<unknown, unknown>[]] ? TInput & InferIntersectInput<TRest> : TInput : IsNever<TOptions[number]> extends true ? never : UnionToIntersect<InferInput<TOptions[number]>>
+ * export type InferIntersectInput<TOptions extends IntersectOptions | IntersectOptionsAsync> =
+ *   TOptions extends readonly [InferOption<infer TInput, unknown>, ...infer TRest]
+ *     ? TRest extends readonly [InferOption<unknown, unknown>, ...InferOption<unknown, unknown>[]]
+ *       ? TInput & InferIntersectInput<TRest>
+ *       : TInput
+ *   : IsNever<TOptions[number]> extends true ? never
+ *   : UnionToIntersect<InferInput<TOptions[number]>>
  */
 
 // ✓ InferIntersectOutput: verified type-identical to the original
@@ -73,5 +81,11 @@ export function InferIntersectOutput(TOptions: IntersectOptions | IntersectOptio
   return UnionToIntersect(InferOutput(TOptions[number]))
 }
 /* compiles to:
- * export type InferIntersectOutput<TOptions extends IntersectOptions | IntersectOptionsAsync> = TOptions extends readonly [InferOption<unknown, infer TOutput>, ...infer TRest] ? TRest extends readonly [InferOption<unknown, unknown>, ...InferOption<unknown, unknown>[]] ? TOutput & InferIntersectOutput<TRest> : TOutput : IsNever<TOptions[number]> extends true ? never : UnionToIntersect<InferOutput<TOptions[number]>>
+ * export type InferIntersectOutput<TOptions extends IntersectOptions | IntersectOptionsAsync> =
+ *   TOptions extends readonly [InferOption<unknown, infer TOutput>, ...infer TRest]
+ *     ? TRest extends readonly [InferOption<unknown, unknown>, ...InferOption<unknown, unknown>[]]
+ *       ? TOutput & InferIntersectOutput<TRest>
+ *       : TOutput
+ *   : IsNever<TOptions[number]> extends true ? never
+ *   : UnionToIntersect<InferOutput<TOptions[number]>>
  */

@@ -17,13 +17,13 @@ declare const KeysOfUnion: any
 declare const MapsSetsOrArrays: any
 declare const NonRecursiveType: any
 declare const Simplify: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KeysOfUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MapsSetsOrArrays<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KeysOfUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MapsSetsOrArrays<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExclusifyUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExclusifyUnion(Union) {
@@ -31,7 +31,18 @@ export function ExclusifyUnion(Union) {
   return IfNotAnyOrNever(Union, { ifNot: If(IsUnknown(Union), Union, m1 ? (m1.SkippedMembers | _ExclusifyUnion(Exclude(Union, m1.SkippedMembers))) : never) })
 }
 /* compiles to:
- * export type ExclusifyUnion<Union> = IfNotAnyOrNever<Union, { ifNot: If<IsUnknown<Union>, Union, Extract<Union, NonRecursiveType | MapsSetsOrArrays> extends infer SkippedMembers ? SkippedMembers | _ExclusifyUnion<Exclude<Union, SkippedMembers>> : never> }>
+ * export type ExclusifyUnion<Union> = IfNotAnyOrNever<
+ *   Union,
+ *   {
+ *     ifNot: If<
+ *       IsUnknown<Union>,
+ *       Union,
+ *       Extract<Union, NonRecursiveType | MapsSetsOrArrays> extends infer SkippedMembers
+ *         ? SkippedMembers | _ExclusifyUnion<Exclude<Union, SkippedMembers>>
+ *         : never
+ *     >
+ *   }
+ * >
  */
 
 // ✓ _ExclusifyUnion: verified type-identical to the original
@@ -43,5 +54,8 @@ export function _ExclusifyUnion(Union, UnionCopy = Union) {
   return never
 }
 /* compiles to:
- * export type _ExclusifyUnion<Union, UnionCopy = Union> = Union extends unknown ? Simplify<Union & Partial<Record<Exclude<KeysOfUnion<UnionCopy>, keyof Union>, never>>> : never
+ * export type _ExclusifyUnion<Union, UnionCopy = Union> =
+ *   Union extends unknown
+ *     ? Simplify<Union & Partial<Record<Exclude<KeysOfUnion<UnionCopy>, keyof Union>, never>>>
+ *     : never
  */

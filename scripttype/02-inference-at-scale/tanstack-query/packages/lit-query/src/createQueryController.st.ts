@@ -15,18 +15,25 @@ declare const QueryKey: any
 declare const QueryObserverOptions: any
 declare const QueryObserverResult: any
 declare const ValueAccessor: any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueAccessor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueAccessor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CreateQueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
   return QueryObserverOptions(TQueryFnData, TError, TData, TQueryData, TQueryKey)
 }
 /* compiles to:
- * export type CreateQueryOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>
+ * export type CreateQueryOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>
  */
 
 // ✓ QueryResultAccessor: verified type-identical to the original
@@ -35,5 +42,11 @@ export function QueryResultAccessor(TData, TError) {
   return merge(ValueAccessor(QueryObserverResult(TData, TError)), { refetch: QueryObserverResult(TData, TError)['refetch'], suspense: fnType([], t<Promise<QueryObserverResult<typeof TData, typeof TError>>>()), destroy: fnType([], voidType()) })
 }
 /* compiles to:
- * export type QueryResultAccessor<TData, TError> = ValueAccessor<QueryObserverResult<TData, TError>> & { refetch: QueryObserverResult<TData, TError>['refetch']; suspense: () => Promise<QueryObserverResult<TData, TError>>; destroy: () => void }
+ * export type QueryResultAccessor<TData, TError> =
+ *   & ValueAccessor<QueryObserverResult<TData, TError>>
+ *   & {
+ *       refetch: QueryObserverResult<TData, TError>['refetch']
+ *       suspense: () => Promise<QueryObserverResult<TData, TError>>
+ *       destroy: () => void
+ *     }
  */

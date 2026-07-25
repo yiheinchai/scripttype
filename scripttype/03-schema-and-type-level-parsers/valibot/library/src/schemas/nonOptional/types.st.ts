@@ -23,26 +23,29 @@ declare const UnionOptions: any
 declare const UnionOptionsAsync: any
 declare const UnionSchema: any
 declare const UnionSchemaAsync: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionOptionsAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionOptionsAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferNonOptionalInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InferNonOptionalInput(TWrapped: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>) {
   return NonOptional(InferInput(TWrapped))
 }
 /* compiles to:
- * export type InferNonOptionalInput<TWrapped extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>> = NonOptional<InferInput<TWrapped>>
+ * export type InferNonOptionalInput<
+ *   TWrapped extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>
+ * > =
+ *   NonOptional<InferInput<TWrapped>>
  */
 
 // ✓ InferNonOptionalOutput: verified type-identical to the original
@@ -51,7 +54,10 @@ export function InferNonOptionalOutput(TWrapped: BaseSchema<unknown, unknown, Ba
   return NonOptional(InferOutput(TWrapped))
 }
 /* compiles to:
- * export type InferNonOptionalOutput<TWrapped extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>> = NonOptional<InferOutput<TWrapped>>
+ * export type InferNonOptionalOutput<
+ *   TWrapped extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>
+ * > =
+ *   NonOptional<InferOutput<TWrapped>>
  */
 
 // ✓ InferNonOptionalIssue: verified type-identical to the original
@@ -63,5 +69,11 @@ export function InferNonOptionalIssue(TWrapped: BaseSchema<unknown, unknown, Bas
   return Exclude(InferIssue(TWrapped), { type: 'undefined' })
 }
 /* compiles to:
- * export type InferNonOptionalIssue<TWrapped extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>> = TWrapped extends UnionSchema<UnionOptions, ErrorMessage<UnionIssue<BaseIssue<unknown>>> | undefined> | UnionSchemaAsync<UnionOptionsAsync, ErrorMessage<UnionIssue<BaseIssue<unknown>>> | undefined> ? Exclude<InferIssue<TWrapped>, { type: 'undefined' | 'union' }> | UnionIssue<InferNonOptionalIssue<TWrapped['options'][number]>> : Exclude<InferIssue<TWrapped>, { type: 'undefined' }>
+ * export type InferNonOptionalIssue<
+ *   TWrapped extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>
+ * > =
+ *   TWrapped extends UnionSchema<UnionOptions, ErrorMessage<UnionIssue<BaseIssue<unknown>>> | undefined> | UnionSchemaAsync<UnionOptionsAsync, ErrorMessage<UnionIssue<BaseIssue<unknown>>> | undefined>
+ *     ? | Exclude<InferIssue<TWrapped>, { type: 'undefined' | 'union' }>
+ *     | UnionIssue<InferNonOptionalIssue<TWrapped['options'][number]>>
+ *     : Exclude<InferIssue<TWrapped>, { type: 'undefined' }>
  */

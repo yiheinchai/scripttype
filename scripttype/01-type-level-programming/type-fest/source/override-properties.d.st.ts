@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Key: any
 declare const Merge: any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ OverrideProperties: the ScriptType does not itself typecheck as TypeScript
 //   OverrideProperties.st.ts(2:47) TS2502: 'TOverride' is referenced directly or indirectly in its own type annotation.
 /* @scripttype preserveParamNames */
@@ -21,5 +21,9 @@ export function OverrideProperties(TOriginal, TOverride: Partial<Record<keyof ty
   return Merge(TOriginal, TOverride)
 }
 /* compiles to:
- * export type OverrideProperties<TOriginal, TOverride extends Partial<Record<keyof TOriginal, unknown>> & { [Key in keyof typeof TOverride]: Key extends keyof typeof TOriginal ? (typeof TOverride)[Key] : never; }> = Merge<TOriginal, TOverride>
+ * export type OverrideProperties<
+ *   TOriginal,
+ *   TOverride extends Partial<Record<keyof TOriginal, unknown>> & { [Key in keyof typeof TOverride]: Key extends keyof typeof TOriginal ? (typeof TOverride)[Key] : never; }
+ * > =
+ *   Merge<TOriginal, TOverride>
  */

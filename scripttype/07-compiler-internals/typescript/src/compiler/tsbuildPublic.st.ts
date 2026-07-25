@@ -13,14 +13,15 @@
 declare const BuildInvalidedProject: any
 declare const BuilderProgram: any
 declare const UpdateOutputFileStampsProject: any
-type BuildInvalidedProject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BuilderProgram<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateOutputFileStampsProject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuildInvalidedProject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BuilderProgram<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateOutputFileStampsProject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InvalidatedProject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InvalidatedProject(T: BuilderProgram) {
   return UpdateOutputFileStampsProject | BuildInvalidedProject(T)
 }
 /* compiles to:
- * export type InvalidatedProject<T extends BuilderProgram> = UpdateOutputFileStampsProject | BuildInvalidedProject<T>
+ * export type InvalidatedProject<T extends BuilderProgram> =
+ *   UpdateOutputFileStampsProject | BuildInvalidedProject<T>
  */

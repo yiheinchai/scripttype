@@ -10,24 +10,27 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Numbers {
+  export type Compare<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Call: any
 declare const Numbers: any
 declare const StringToTuple: any
 declare const _Equal: any
 declare const ascii: any
-type Call<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Numbers<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringToTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Equal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ascii<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Numbers<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ascii<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CharacterCompare: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CharacterCompare(Char1: string, Char2: string) {
   if (matches<typeof Char2>(Char1)) {
     return 0
   }
-  if (matches<keyof ascii>(Char1)) {
-    if (matches<keyof ascii>(Char2)) {
+  if (Char1 in ascii) {
+    if (Char2 in ascii) {
       return Call(Numbers.Compare, ascii[Char1], ascii[Char2])
     }
     return 1
@@ -35,7 +38,11 @@ export function CharacterCompare(Char1: string, Char2: string) {
   return -1
 }
 /* compiles to:
- * export type CharacterCompare<Char1 extends string, Char2 extends string> = Char1 extends Char2 ? 0 : Char1 extends keyof ascii ? Char2 extends keyof ascii ? Call<Numbers.Compare, ascii[Char1], ascii[Char2]> : 1 : -1
+ * export type CharacterCompare<Char1 extends string, Char2 extends string> =
+ *   Char1 extends Char2 ? 0
+ *   : Char1 extends keyof ascii
+ *     ? Char2 extends keyof ascii ? Call<Numbers.Compare, ascii[Char1], ascii[Char2]> : 1
+ *   : -1
  */
 
 // ✓ CharactersCompare: verified type-identical to the original
@@ -58,7 +65,15 @@ export function CharactersCompare(T: string[], U: string[]) {
   return 0
 }
 /* compiles to:
- * export type CharactersCompare<T extends string[], U extends string[]> = T extends [infer N1 extends string, ...(infer R1 extends string[])] ? U extends [infer N2 extends string, ...(infer R2 extends string[])] ? CharacterCompare<N1, N2> extends 0 ? CharactersCompare<R1, R2> : CharacterCompare<N1, N2> : 1 : U extends [string, ...string[]] ? -1 : 0
+ * export type CharactersCompare<T extends string[], U extends string[]> =
+ *   T extends [infer N1 extends string, ...infer R1 extends string[]]
+ *     ? U extends [infer N2 extends string, ...infer R2 extends string[]]
+ *       ? CharacterCompare<N1, N2> extends 0
+ *         ? CharactersCompare<R1, R2>
+ *         : CharacterCompare<N1, N2>
+ *       : 1
+ *   : U extends [string, ...string[]] ? -1
+ *   : 0
  */
 
 // ✓ Compare: verified type-identical to the original
@@ -70,7 +85,8 @@ export function Compare(T: string, U: string) {
   return CharactersCompare(StringToTuple(T), StringToTuple(U))
 }
 /* compiles to:
- * export type Compare<T extends string, U extends string> = _Equal<T, U> extends true ? 0 : CharactersCompare<StringToTuple<T>, StringToTuple<U>>
+ * export type Compare<T extends string, U extends string> =
+ *   _Equal<T, U> extends true ? 0 : CharactersCompare<StringToTuple<T>, StringToTuple<U>>
  */
 
 // ✓ LessThan: verified type-identical to the original
@@ -82,7 +98,8 @@ export function LessThan(T: string, U: string) {
   return false
 }
 /* compiles to:
- * export type LessThan<T extends string, U extends string> = Compare<T, U> extends -1 ? true : false
+ * export type LessThan<T extends string, U extends string> =
+ *   Compare<T, U> extends -1 ? true : false
  */
 
 // ✓ LessThanOrEqual: verified type-identical to the original
@@ -94,7 +111,8 @@ export function LessThanOrEqual(T: string, U: string) {
   return true
 }
 /* compiles to:
- * export type LessThanOrEqual<T extends string, U extends string> = Compare<T, U> extends 1 ? false : true
+ * export type LessThanOrEqual<T extends string, U extends string> =
+ *   Compare<T, U> extends 1 ? false : true
  */
 
 // ✓ Equal: verified type-identical to the original
@@ -115,7 +133,8 @@ export function NotEqual(T: string, U: string) {
   return true
 }
 /* compiles to:
- * export type NotEqual<T extends string, U extends string> = _Equal<T, U> extends true ? false : true
+ * export type NotEqual<T extends string, U extends string> =
+ *   _Equal<T, U> extends true ? false : true
  */
 
 // ✓ GreaterThan: verified type-identical to the original
@@ -127,7 +146,8 @@ export function GreaterThan(T: string, U: string) {
   return false
 }
 /* compiles to:
- * export type GreaterThan<T extends string, U extends string> = Compare<T, U> extends 1 ? true : false
+ * export type GreaterThan<T extends string, U extends string> =
+ *   Compare<T, U> extends 1 ? true : false
  */
 
 // ✓ GreaterThanOrEqual: verified type-identical to the original
@@ -139,5 +159,6 @@ export function GreaterThanOrEqual(T: string, U: string) {
   return true
 }
 /* compiles to:
- * export type GreaterThanOrEqual<T extends string, U extends string> = Compare<T, U> extends -1 ? false : true
+ * export type GreaterThanOrEqual<T extends string, U extends string> =
+ *   Compare<T, U> extends -1 ? false : true
  */

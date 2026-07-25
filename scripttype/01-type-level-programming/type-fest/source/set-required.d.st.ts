@@ -17,20 +17,26 @@ declare const IsArrayReadonly: any
 declare const OptionalKeysOf: any
 declare const Simplify: any
 declare const UnknownArray: any
-type Except<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HomomorphicPick<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsArrayReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalKeysOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Except<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HomomorphicPick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsArrayReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalKeysOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetRequired(BaseType, Keys: keyof typeof BaseType) {
   return (matches<(...arguments_: never) => any>(BaseType) ? fnType([Parameters(BaseType)], ReturnType(BaseType)) : unknown) & _SetRequired(BaseType, Keys)
 }
 /* compiles to:
- * export type SetRequired<BaseType, Keys extends keyof BaseType> = (BaseType extends (...arguments_: never) => any ? (a0: Parameters<BaseType>) => ReturnType<BaseType> : unknown) & _SetRequired<BaseType, Keys>
+ * export type SetRequired<BaseType, Keys extends keyof BaseType> =
+ *   & (
+ *       BaseType extends (...arguments_: never) => any
+ *         ? (a0: Parameters<BaseType>) => ReturnType<BaseType>
+ *         : unknown
+ *     )
+ *   & _SetRequired<BaseType, Keys>
  */
 
 // ✓ _SetRequired: verified type-identical to the original
@@ -46,7 +52,12 @@ export function _SetRequired(BaseType, Keys: keyof typeof BaseType) {
   return Simplify(Except(BaseType, Keys) & Required(HomomorphicPick(BaseType, Keys)))
 }
 /* compiles to:
- * export type _SetRequired<BaseType, Keys extends keyof BaseType> = BaseType extends UnknownArray ? SetArrayRequired<BaseType, Keys> extends infer ResultantArray ? If<IsArrayReadonly<BaseType>, Readonly<ResultantArray>, ResultantArray> : never : Simplify<Except<BaseType, Keys> & Required<HomomorphicPick<BaseType, Keys>>>
+ * export type _SetRequired<BaseType, Keys extends keyof BaseType> =
+ *   BaseType extends UnknownArray
+ *     ? SetArrayRequired<BaseType, Keys> extends infer ResultantArray
+ *       ? If<IsArrayReadonly<BaseType>, Readonly<ResultantArray>, ResultantArray>
+ *       : never
+ *     : Simplify<Except<BaseType, Keys> & Required<HomomorphicPick<BaseType, Keys>>>
  */
 
 // ✓ SetArrayRequired: verified type-identical to the original
@@ -71,5 +82,20 @@ export function SetArrayRequired(TArray: UnknownArray, Keys, Counter: any[] = []
   return never
 }
 /* compiles to:
- * export type SetArrayRequired<TArray extends UnknownArray, Keys, Counter extends any[] = [], Accumulator extends UnknownArray = []> = TArray extends unknown ? keyof TArray & `${number}` extends never ? [...Accumulator, ...TArray] : TArray extends readonly [infer First, ...infer Rest] ? '0' extends OptionalKeysOf<TArray> ? `${Counter['length']}` extends `${Keys & (string | number)}` ? SetArrayRequired<Rest, Keys, [...Counter, any], [...Accumulator, First]> : [...Accumulator, ...TArray] : SetArrayRequired<Rest, Keys, [...Counter, any], [...Accumulator, TArray[0]]> : never : never
+ * export type SetArrayRequired<
+ *   TArray extends UnknownArray,
+ *   Keys,
+ *   Counter extends any[] = [],
+ *   Accumulator extends UnknownArray = []
+ * > =
+ *   TArray extends unknown
+ *     ? keyof TArray & `${number}` extends never ? [...Accumulator, ...TArray]
+ *     : TArray extends readonly [infer First, ...infer Rest]
+ *       ? '0' extends OptionalKeysOf<TArray>
+ *         ? `${Counter['length']}` extends `${Keys & (string | number)}`
+ *           ? SetArrayRequired<Rest, Keys, [...Counter, any], [...Accumulator, First]>
+ *           : [...Accumulator, ...TArray]
+ *         : SetArrayRequired<Rest, Keys, [...Counter, any], [...Accumulator, TArray[0]]>
+ *     : never
+ *     : never
  */

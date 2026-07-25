@@ -17,15 +17,15 @@ declare const ReadonlyMap: any
 declare const ReadonlySet: any
 declare const U: any
 declare const ValueType: any
-type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HasMultipleCallSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ItemType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type U<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WritableDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _WritableObjectDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HasMultipleCallSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ItemType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WritableDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _WritableObjectDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WritableDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function WritableDeep(T) {
@@ -56,7 +56,17 @@ export function WritableDeep(T) {
   return unknown
 }
 /* compiles to:
- * export type WritableDeep<T> = T extends BuiltIns ? T : T extends (...arguments_: any[]) => unknown ? {} extends _WritableObjectDeep<T> ? T : HasMultipleCallSignatures<T> extends true ? T : ((a0: Parameters<T>) => ReturnType<T>) & _WritableObjectDeep<T> : T extends ReadonlyMap<unknown, unknown> ? WritableMapDeep<T> : T extends ReadonlySet<unknown> ? WritableSetDeep<T> : T extends readonly unknown[] ? WritableArrayDeep<T> : T extends object ? _WritableObjectDeep<T> : unknown
+ * export type WritableDeep<T> =
+ *   T extends BuiltIns ? T
+ *   : T extends (...arguments_: any[]) => unknown
+ *     ? {} extends _WritableObjectDeep<T> ? T
+ *     : HasMultipleCallSignatures<T> extends true ? T
+ *     : ((a0: Parameters<T>) => ReturnType<T>) & _WritableObjectDeep<T>
+ *   : T extends ReadonlyMap<unknown, unknown> ? WritableMapDeep<T>
+ *   : T extends ReadonlySet<unknown> ? WritableSetDeep<T>
+ *   : T extends readonly unknown[] ? WritableArrayDeep<T>
+ *   : T extends object ? _WritableObjectDeep<T>
+ *   : unknown
  */
 
 // ✓ WritableMapDeep: verified type-identical to the original
@@ -69,7 +79,10 @@ export function WritableMapDeep(MapType: ReadonlyMap<unknown, unknown>) {
   return MapType
 }
 /* compiles to:
- * export type WritableMapDeep<MapType extends ReadonlyMap<unknown, unknown>> = MapType extends ReadonlyMap<infer KeyType, infer ValueType> ? Map<WritableDeep<KeyType>, WritableDeep<ValueType>> : MapType
+ * export type WritableMapDeep<MapType extends ReadonlyMap<unknown, unknown>> =
+ *   MapType extends ReadonlyMap<infer KeyType, infer ValueType>
+ *     ? Map<WritableDeep<KeyType>, WritableDeep<ValueType>>
+ *     : MapType
  */
 
 // ✓ WritableSetDeep: verified type-identical to the original
@@ -82,7 +95,8 @@ export function WritableSetDeep(SetType: ReadonlySet<unknown>) {
   return SetType
 }
 /* compiles to:
- * export type WritableSetDeep<SetType extends ReadonlySet<unknown>> = SetType extends ReadonlySet<infer ItemType> ? Set<WritableDeep<ItemType>> : SetType
+ * export type WritableSetDeep<SetType extends ReadonlySet<unknown>> =
+ *   SetType extends ReadonlySet<infer ItemType> ? Set<WritableDeep<ItemType>> : SetType
  */
 
 // ✓ _WritableObjectDeep: verified type-identical to the original
@@ -95,7 +109,9 @@ export function _WritableObjectDeep(ObjectType: object) {
   return out
 }
 /* compiles to:
- * export type _WritableObjectDeep<ObjectType extends object> = { -readonly [KeyType in keyof ObjectType]: WritableDeep<ObjectType[KeyType]> }
+ * export type _WritableObjectDeep<ObjectType extends object> = {
+ *   -readonly [KeyType in keyof ObjectType]: WritableDeep<ObjectType[KeyType]>
+ * }
  */
 
 // ✓ WritableArrayDeep: verified type-identical to the original
@@ -123,5 +139,13 @@ export function WritableArrayDeep(ArrayType: readonly unknown[]) {
   return ArrayType
 }
 /* compiles to:
- * export type WritableArrayDeep<ArrayType extends readonly unknown[]> = ArrayType extends readonly [] ? [] : ArrayType extends readonly [...infer U, infer V] ? [...WritableArrayDeep<U>, WritableDeep<V>] : ArrayType extends readonly [infer U, ...infer V] ? [WritableDeep<U>, ...WritableArrayDeep<V>] : ArrayType extends ReadonlyArray<infer U> ? Array<WritableDeep<U>> : ArrayType extends Array<infer U> ? Array<WritableDeep<U>> : ArrayType
+ * export type WritableArrayDeep<ArrayType extends readonly unknown[]> =
+ *   ArrayType extends readonly [] ? []
+ *   : ArrayType extends readonly [...infer U, infer V]
+ *     ? [...WritableArrayDeep<U>, WritableDeep<V>]
+ *   : ArrayType extends readonly [infer U, ...infer V]
+ *     ? [WritableDeep<U>, ...WritableArrayDeep<V>]
+ *   : ArrayType extends ReadonlyArray<infer U> ? Array<WritableDeep<U>>
+ *   : ArrayType extends Array<infer U> ? Array<WritableDeep<U>>
+ *   : ArrayType
  */

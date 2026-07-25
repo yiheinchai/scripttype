@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const JoinableItem: any
-type JoinableItem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type JoinableItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NullishCoalesce: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NullishCoalesce(Value: JoinableItem, Fallback: string) {
@@ -21,7 +21,8 @@ export function NullishCoalesce(Value: JoinableItem, Fallback: string) {
   return Value
 }
 /* compiles to:
- * export type NullishCoalesce<Value extends JoinableItem, Fallback extends string> = Value extends undefined | null ? NonNullable<Value> | Fallback : Value
+ * export type NullishCoalesce<Value extends JoinableItem, Fallback extends string> =
+ *   Value extends undefined | null ? NonNullable<Value> | Fallback : Value
  */
 
 // ✓ Join: verified type-identical to the original
@@ -44,5 +45,12 @@ export function Join(Items: readonly JoinableItem[], Delimiter: string) {
   return string
 }
 /* compiles to:
- * export type Join<Items extends readonly JoinableItem[], Delimiter extends string> = Items extends readonly [] ? '' : Items extends readonly [JoinableItem] ? `${NullishCoalesce<Items[0], ''>}` : Items extends readonly [infer First extends JoinableItem, ...(infer Tail extends readonly JoinableItem[])] ? `${NullishCoalesce<First, ''>}${Delimiter}${Join<Tail, Delimiter>}` : Items extends readonly [...(infer Head extends readonly JoinableItem[]), infer Last extends JoinableItem] ? `${Join<Head, Delimiter>}${Delimiter}${NullishCoalesce<Last, ''>}` : string
+ * export type Join<Items extends readonly JoinableItem[], Delimiter extends string> =
+ *   Items extends readonly [] ? ''
+ *   : Items extends readonly [JoinableItem] ? `${NullishCoalesce<Items[0], ''>}`
+ *   : Items extends readonly [infer First extends JoinableItem, ...infer Tail extends readonly JoinableItem[]]
+ *     ? `${NullishCoalesce<First, ''>}${Delimiter}${Join<Tail, Delimiter>}`
+ *   : Items extends readonly [...infer Head extends readonly JoinableItem[], infer Last extends JoinableItem]
+ *     ? `${Join<Head, Delimiter>}${Delimiter}${NullishCoalesce<Last, ''>}`
+ *   : string
  */

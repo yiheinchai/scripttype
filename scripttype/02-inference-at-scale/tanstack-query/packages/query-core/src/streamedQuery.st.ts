@@ -13,16 +13,20 @@
 declare const AsyncIterable: any
 declare const QueryFunctionContext: any
 declare const QueryKey: any
-type AsyncIterable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryFunctionContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AsyncIterable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryFunctionContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BaseStreamedQueryParams: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BaseStreamedQueryParams(TQueryFnData, TQueryKey: QueryKey) {
   return { streamFn: fnType([QueryFunctionContext(TQueryKey)], t<AsyncIterable<typeof TQueryFnData>>() | t<Promise<AsyncIterable<typeof TQueryFnData>>>()), refetchMode: optional(anyOf('append', 'reset', 'replace')) }
 }
 /* compiles to:
- * export type BaseStreamedQueryParams<TQueryFnData, TQueryKey extends QueryKey> = { streamFn: (a0: QueryFunctionContext<TQueryKey>) => AsyncIterable<TQueryFnData> | Promise<AsyncIterable<TQueryFnData>>; refetchMode?: 'append' | 'reset' | 'replace' }
+ * export type BaseStreamedQueryParams<TQueryFnData, TQueryKey extends QueryKey> = {
+ *   streamFn: (a0: QueryFunctionContext<TQueryKey>) => | AsyncIterable<TQueryFnData>
+ *   | Promise<AsyncIterable<TQueryFnData>>
+ *   refetchMode?: 'append' | 'reset' | 'replace'
+ * }
  */
 
 // ✓ SimpleStreamedQueryParams: verified type-identical to the original
@@ -31,7 +35,8 @@ export function SimpleStreamedQueryParams(TQueryFnData, TQueryKey: QueryKey) {
   return merge(BaseStreamedQueryParams(TQueryFnData, TQueryKey), { reducer: optional(never), initialValue: optional(never) })
 }
 /* compiles to:
- * export type SimpleStreamedQueryParams<TQueryFnData, TQueryKey extends QueryKey> = BaseStreamedQueryParams<TQueryFnData, TQueryKey> & { reducer?: never; initialValue?: never }
+ * export type SimpleStreamedQueryParams<TQueryFnData, TQueryKey extends QueryKey> =
+ *   BaseStreamedQueryParams<TQueryFnData, TQueryKey> & { reducer?: never; initialValue?: never }
  */
 
 // ✓ ReducibleStreamedQueryParams: verified type-identical to the original
@@ -40,7 +45,9 @@ export function ReducibleStreamedQueryParams(TQueryFnData, TData, TQueryKey: Que
   return merge(BaseStreamedQueryParams(TQueryFnData, TQueryKey), { reducer: fnType([TData, TQueryFnData], TData), initialValue: TData })
 }
 /* compiles to:
- * export type ReducibleStreamedQueryParams<TQueryFnData, TData, TQueryKey extends QueryKey> = BaseStreamedQueryParams<TQueryFnData, TQueryKey> & { reducer: (a0: TData, a1: TQueryFnData) => TData; initialValue: TData }
+ * export type ReducibleStreamedQueryParams<TQueryFnData, TData, TQueryKey extends QueryKey> =
+ *   & BaseStreamedQueryParams<TQueryFnData, TQueryKey>
+ *   & { reducer: (a0: TData, a1: TQueryFnData) => TData; initialValue: TData }
  */
 
 // ✓ StreamedQueryParams: verified type-identical to the original
@@ -49,5 +56,7 @@ export function StreamedQueryParams(TQueryFnData, TData, TQueryKey: QueryKey) {
   return SimpleStreamedQueryParams(TQueryFnData, TQueryKey) | ReducibleStreamedQueryParams(TQueryFnData, TData, TQueryKey)
 }
 /* compiles to:
- * export type StreamedQueryParams<TQueryFnData, TData, TQueryKey extends QueryKey> = SimpleStreamedQueryParams<TQueryFnData, TQueryKey> | ReducibleStreamedQueryParams<TQueryFnData, TData, TQueryKey>
+ * export type StreamedQueryParams<TQueryFnData, TData, TQueryKey extends QueryKey> =
+ *   | SimpleStreamedQueryParams<TQueryFnData, TQueryKey>
+ *   | ReducibleStreamedQueryParams<TQueryFnData, TData, TQueryKey>
  */

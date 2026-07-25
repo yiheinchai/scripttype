@@ -10,6 +10,25 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Effect {
+  export type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Retry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace HttpClient {
+  export type With<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace HttpClientRequest {
+  export type HttpClientRequest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace HttpClientResponse {
+  export type HttpClientResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Predicate {
+  export type Refinement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Schedule {
+  export type Schedule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Effect: any
 declare const HttpClient: any
 declare const HttpClientRequest: any
@@ -20,16 +39,16 @@ declare const Predicate: any
 declare const Refinement: any
 declare const Retry: any
 declare const Schedule: any
-type Effect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HttpClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HttpClientRequest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HttpClientResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NoExcessProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Options<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Predicate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Refinement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Retry<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Schedule<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HttpClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HttpClientRequest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HttpClientResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NoExcessProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Options<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Predicate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Refinement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Retry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Schedule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Preprocess: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -37,7 +56,12 @@ export function Preprocess(E, R) {
   return fnType([HttpClientRequest.HttpClientRequest], Effect.Effect(HttpClientRequest.HttpClientRequest, E, R))
 }
 /* compiles to:
- * export type Preprocess<E, R> = (a0: HttpClientRequest.HttpClientRequest) => Effect.Effect<HttpClientRequest.HttpClientRequest, E, R>
+ * export type Preprocess<E, R> =
+ *   (a0: HttpClientRequest.HttpClientRequest) => Effect.Effect<
+ *     HttpClientRequest.HttpClientRequest,
+ *     E,
+ *     R
+ *   >
  */
 
 // ✗ Postprocess: compiles but is not type-identical yet
@@ -47,7 +71,12 @@ export function Postprocess(E = never, R = never) {
   return fnType([Effect.Effect(HttpClientRequest.HttpClientRequest, E, R)], Effect.Effect(HttpClientResponse.HttpClientResponse, E, R))
 }
 /* compiles to:
- * export type Postprocess<E = never, R = never> = (a0: Effect.Effect<HttpClientRequest.HttpClientRequest, E, R>) => Effect.Effect<HttpClientResponse.HttpClientResponse, E, R>
+ * export type Postprocess<E = never, R = never> =
+ *   (a0: Effect.Effect<HttpClientRequest.HttpClientRequest, E, R>) => Effect.Effect<
+ *     HttpClientResponse.HttpClientResponse,
+ *     E,
+ *     R
+ *   >
  */
 
 // ✗ Return: the ScriptType does not itself typecheck as TypeScript
@@ -68,5 +97,8 @@ export function Return(R, E, O: NoExcessProperties<Effect.Retry.Options<typeof E
   return never
 }
 /* compiles to:
- * export type Return<R, E, O extends NoExcessProperties<Effect.Retry.Options<E>, O>> = HttpClient.With<(O extends { schedule: Schedule.Schedule<infer _O, infer _I, infer _E, infer _R>; } ? E | _E : O extends { times: number; } ? E : O extends { until: Predicate.Refinement<typeof E, infer E2>; } ? E2 : E) | (O extends { while: (...args: Array<any>) => Effect.Effect<infer _A, infer E, infer _R>; } ? E : never) | (O extends { until: (...args: Array<any>) => Effect.Effect<infer _A, infer E, infer _R>; } ? E : never), R | (O extends { schedule: Schedule.Schedule<infer _O, infer _I, infer _E, infer R>; } ? R : never) | (O extends { while: (...args: Array<any>) => Effect.Effect<infer _A, infer _E, infer R>; } ? R : never) | (O extends { until: (...args: Array<any>) => Effect.Effect<infer _A, infer _E, infer R>; } ? R : never)> extends infer Z ? Z : never
+ * export type Return<R, E, O extends NoExcessProperties<Effect.Retry.Options<E>, O>> =
+ *   HttpClient.With<(O extends { schedule: Schedule.Schedule<infer _O, infer _I, infer _E, infer _R>; } ? E | _E : O extends { times: number; } ? E : O extends { until: Predicate.Refinement<typeof E, infer E2>; } ? E2 : E) | (O extends { while: (...args: Array<any>) => Effect.Effect<infer _A, infer E, infer _R>; } ? E : never) | (O extends { until: (...args: Array<any>) => Effect.Effect<infer _A, infer E, infer _R>; } ? E : never), R | (O extends { schedule: Schedule.Schedule<infer _O, infer _I, infer _E, infer R>; } ? R : never) | (O extends { while: (...args: Array<any>) => Effect.Effect<infer _A, infer _E, infer R>; } ? R : never) | (O extends { until: (...args: Array<any>) => Effect.Effect<infer _A, infer _E, infer R>; } ? R : never)> extends infer Z
+ *     ? Z
+ *     : never
  */

@@ -15,11 +15,11 @@ declare const TTake: any
 declare const TTrim: any
 declare const TTrimWhitespace: any
 declare const TWhiteSpace: any
-type TNewLine<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTake<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTrim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTrimWhitespace<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TWhiteSpace<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TNewLine<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTrimWhitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TWhiteSpace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeConst: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TTakeConst(Const: string, Input: string) {
@@ -48,5 +48,11 @@ export function TConst(Const: string, Input: string) {
   return never
 }
 /* compiles to:
- * export type TConst<Const extends string, Input extends string> = Const extends '' ? ['', Input] : Const extends `${infer First extends string}${string}` ? First extends TNewLine ? TTakeConst<Const, TTrimWhitespace<Input>> : First extends TWhiteSpace ? TTakeConst<Const, Input> : TTakeConst<Const, TTrim<Input>> : never
+ * export type TConst<Const extends string, Input extends string> =
+ *   Const extends '' ? ['', Input]
+ *   : Const extends `${infer First extends string}${string}`
+ *     ? First extends TNewLine ? TTakeConst<Const, TTrimWhitespace<Input>>
+ *     : First extends TWhiteSpace ? TTakeConst<Const, Input>
+ *     : TTakeConst<Const, TTrim<Input>>
+ *   : never
  */

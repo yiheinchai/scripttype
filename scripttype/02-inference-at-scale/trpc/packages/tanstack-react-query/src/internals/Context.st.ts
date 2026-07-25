@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace React {
+  export type FC<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ReactNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyTRPCRouter: any
 declare const DefaultFeatureFlags: any
 declare const FeatureFlags: any
@@ -17,18 +21,25 @@ declare const KeyPrefixOptions: any
 declare const QueryClient: any
 declare const React: any
 declare const TRPCClient: any
-type AnyTRPCRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultFeatureFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FeatureFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KeyPrefixOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type React<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyTRPCRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultFeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KeyPrefixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type React<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCProviderType: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRPCProviderType(TRouter: AnyTRPCRouter, TFeatureFlags: FeatureFlags = DefaultFeatureFlags) {
   return React.FC(merge({ children: React.ReactNode, queryClient: QueryClient, trpcClient: TRPCClient(TRouter) }, KeyPrefixOptions(TFeatureFlags)))
 }
 /* compiles to:
- * export type TRPCProviderType<TRouter extends AnyTRPCRouter, TFeatureFlags extends FeatureFlags = DefaultFeatureFlags> = React.FC<{ children: React.ReactNode; queryClient: QueryClient; trpcClient: TRPCClient<TRouter> } & KeyPrefixOptions<TFeatureFlags>>
+ * export type TRPCProviderType<
+ *   TRouter extends AnyTRPCRouter,
+ *   TFeatureFlags extends FeatureFlags = DefaultFeatureFlags
+ * > =
+ *   React.FC<
+ *     & { children: React.ReactNode; queryClient: QueryClient; trpcClient: TRPCClient<TRouter> }
+ *     & KeyPrefixOptions<TFeatureFlags>
+ *   >
  */

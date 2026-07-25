@@ -20,24 +20,37 @@ declare const QueryOptions: any
 declare const SkipTokenForUseQueries: any
 declare const ThrowOnError: any
 declare const UseQueryResult: any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MAXIMUM_DEPTH<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitKeyof<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueriesPlaceholderDataFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SkipTokenForUseQueries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ThrowOnError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseQueryOptionsForUseQueries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MAXIMUM_DEPTH<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueriesPlaceholderDataFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SkipTokenForUseQueries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ThrowOnError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseQueryOptionsForUseQueries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseQueryOptionsForUseQueries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseQueryOptionsForUseQueries(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
   return merge(OmitKeyof(QueryOptions(TQueryFnData, TError, TData, TQueryKey), anyOf('placeholderData', 'suspense')), { placeholderData: optional(TQueryFnData | QueriesPlaceholderDataFunction(TQueryFnData)), suspense: optional(boolean) })
 }
 /* compiles to:
- * export type UseQueryOptionsForUseQueries<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = OmitKeyof<QueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'placeholderData' | 'suspense'> & { placeholderData?: TQueryFnData | QueriesPlaceholderDataFunction<TQueryFnData>; suspense?: boolean }
+ * export type UseQueryOptionsForUseQueries<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   & OmitKeyof<
+ *       QueryOptions<TQueryFnData, TError, TData, TQueryKey>,
+ *       'placeholderData' | 'suspense'
+ *     >
+ *   & {
+ *       placeholderData?: TQueryFnData | QueriesPlaceholderDataFunction<TQueryFnData>
+ *       suspense?: boolean
+ *     }
  */
 
 // ✓ GetOptions: verified type-identical to the original
@@ -74,7 +87,26 @@ export function GetOptions(T) {
   return UseQueryOptionsForUseQueries
 }
 /* compiles to:
- * export type GetOptions<T> = T extends { queryFnData: infer TQueryFnData; error?: infer TError; data: infer TData; } ? UseQueryOptionsForUseQueries<TQueryFnData, TError, TData> : T extends { queryFnData: infer TQueryFnData; error?: infer TError; } ? UseQueryOptionsForUseQueries<TQueryFnData, TError> : T extends { data: infer TData; error?: infer TError; } ? UseQueryOptionsForUseQueries<unknown, TError, TData> : T extends [infer TQueryFnData, infer TError, infer TData] ? UseQueryOptionsForUseQueries<TQueryFnData, TError, TData> : T extends [infer TQueryFnData, infer TError] ? UseQueryOptionsForUseQueries<TQueryFnData, TError> : T extends [infer TQueryFnData] ? UseQueryOptionsForUseQueries<TQueryFnData> : T extends { queryFn?: QueryFunction<infer TQueryFnData, infer TQueryKey> | SkipTokenForUseQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; } ? UseQueryOptionsForUseQueries<TQueryFnData, unknown extends TError ? DefaultError : TError, unknown extends TData ? TQueryFnData : TData, TQueryKey> : UseQueryOptionsForUseQueries
+ * export type GetOptions<T> =
+ *   T extends { queryFnData: infer TQueryFnData; error?: infer TError; data: infer TData; }
+ *     ? UseQueryOptionsForUseQueries<TQueryFnData, TError, TData>
+ *   : T extends { queryFnData: infer TQueryFnData; error?: infer TError; }
+ *     ? UseQueryOptionsForUseQueries<TQueryFnData, TError>
+ *   : T extends { data: infer TData; error?: infer TError; }
+ *     ? UseQueryOptionsForUseQueries<unknown, TError, TData>
+ *   : T extends [infer TQueryFnData, infer TError, infer TData]
+ *     ? UseQueryOptionsForUseQueries<TQueryFnData, TError, TData>
+ *   : T extends [infer TQueryFnData, infer TError]
+ *     ? UseQueryOptionsForUseQueries<TQueryFnData, TError>
+ *   : T extends [infer TQueryFnData] ? UseQueryOptionsForUseQueries<TQueryFnData>
+ *   : T extends { queryFn?: QueryFunction<infer TQueryFnData, infer TQueryKey> | SkipTokenForUseQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; }
+ *     ? UseQueryOptionsForUseQueries<
+ *       TQueryFnData,
+ *       unknown extends TError ? DefaultError : TError,
+ *       unknown extends TData ? TQueryFnData : TData,
+ *       TQueryKey
+ *     >
+ *   : UseQueryOptionsForUseQueries
  */
 
 // ✓ GetResults: verified type-identical to the original
@@ -111,7 +143,21 @@ export function GetResults(T) {
   return UseQueryResult
 }
 /* compiles to:
- * export type GetResults<T> = T extends { queryFnData: any; error?: infer TError; data: infer TData; } ? UseQueryResult<TData, TError> : T extends { queryFnData: infer TQueryFnData; error?: infer TError; } ? UseQueryResult<TQueryFnData, TError> : T extends { data: infer TData; error?: infer TError; } ? UseQueryResult<TData, TError> : T extends [any, infer TError, infer TData] ? UseQueryResult<TData, TError> : T extends [infer TQueryFnData, infer TError] ? UseQueryResult<TQueryFnData, TError> : T extends [infer TQueryFnData] ? UseQueryResult<TQueryFnData> : T extends { queryFn?: QueryFunction<infer TQueryFnData, any> | SkipTokenForUseQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; } ? UseQueryResult<unknown extends TData ? TQueryFnData : TData, unknown extends TError ? DefaultError : TError> : UseQueryResult
+ * export type GetResults<T> =
+ *   T extends { queryFnData: any; error?: infer TError; data: infer TData; }
+ *     ? UseQueryResult<TData, TError>
+ *   : T extends { queryFnData: infer TQueryFnData; error?: infer TError; }
+ *     ? UseQueryResult<TQueryFnData, TError>
+ *   : T extends { data: infer TData; error?: infer TError; } ? UseQueryResult<TData, TError>
+ *   : T extends [any, infer TError, infer TData] ? UseQueryResult<TData, TError>
+ *   : T extends [infer TQueryFnData, infer TError] ? UseQueryResult<TQueryFnData, TError>
+ *   : T extends [infer TQueryFnData] ? UseQueryResult<TQueryFnData>
+ *   : T extends { queryFn?: QueryFunction<infer TQueryFnData, any> | SkipTokenForUseQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; }
+ *     ? UseQueryResult<
+ *       unknown extends TData ? TQueryFnData : TData,
+ *       unknown extends TError ? DefaultError : TError
+ *     >
+ *   : UseQueryResult
  */
 
 // ✓ QueriesOptions: verified type-identical to the original
@@ -141,7 +187,20 @@ export function QueriesOptions(T: Array<any>, TResult: Array<any> = [], TDepth: 
   return t<Array<UseQueryOptionsForUseQueries>>()
 }
 /* compiles to:
- * export type QueriesOptions<T extends Array<any>, TResult extends Array<any> = [], TDepth extends ReadonlyArray<number> = []> = TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseQueryOptionsForUseQueries> : T extends [] ? [] : T extends [infer Head] ? [...TResult, GetOptions<Head>] : T extends [infer Head, ...infer Tail] ? QueriesOptions<[...Tail], [...TResult, GetOptions<Head>], [...TDepth, 1]> : ReadonlyArray<unknown> extends T ? T : T extends Array<UseQueryOptionsForUseQueries<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>> ? Array<UseQueryOptionsForUseQueries<TQueryFnData, TError, TData, TQueryKey>> : Array<UseQueryOptionsForUseQueries>
+ * export type QueriesOptions<
+ *   T extends Array<any>,
+ *   TResult extends Array<any> = [],
+ *   TDepth extends ReadonlyArray<number> = []
+ * > =
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseQueryOptionsForUseQueries>
+ *   : T extends [] ? []
+ *   : T extends [infer Head] ? [...TResult, GetOptions<Head>]
+ *   : T extends [infer Head, ...infer Tail]
+ *     ? QueriesOptions<[...Tail], [...TResult, GetOptions<Head>], [...TDepth, 1]>
+ *   : ReadonlyArray<unknown> extends T ? T
+ *   : T extends Array<UseQueryOptionsForUseQueries<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>>
+ *     ? Array<UseQueryOptionsForUseQueries<TQueryFnData, TError, TData, TQueryKey>>
+ *   : Array<UseQueryOptionsForUseQueries>
  */
 
 // ✓ QueriesResults: verified type-identical to the original
@@ -168,5 +227,15 @@ export function QueriesResults(T: Array<any>, TResult: Array<any> = [], TDepth: 
   return out
 }
 /* compiles to:
- * export type QueriesResults<T extends Array<any>, TResult extends Array<any> = [], TDepth extends ReadonlyArray<number> = []> = TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseQueryResult> : T extends [] ? [] : T extends [infer Head] ? [...TResult, GetResults<Head>] : T extends [infer Head, ...infer Tail] ? QueriesResults<[...Tail], [...TResult, GetResults<Head>], [...TDepth, 1]> : { [K in keyof T]: GetResults<T[K]> }
+ * export type QueriesResults<
+ *   T extends Array<any>,
+ *   TResult extends Array<any> = [],
+ *   TDepth extends ReadonlyArray<number> = []
+ * > =
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseQueryResult>
+ *   : T extends [] ? []
+ *   : T extends [infer Head] ? [...TResult, GetResults<Head>]
+ *   : T extends [infer Head, ...infer Tail]
+ *     ? QueriesResults<[...Tail], [...TResult, GetResults<Head>], [...TDepth, 1]>
+ *   : { [K in keyof T]: GetResults<T[K]> }
  */

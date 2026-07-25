@@ -13,5 +13,6 @@ export function IntersectParameters(l: readonly unknown[], r: readonly unknown[]
   return merge(l, r)
 }
 /* compiles to:
- * export type IntersectParameters<l extends readonly unknown[], r extends readonly unknown[]> = l & r
+ * export type IntersectParameters<l extends readonly unknown[], r extends readonly unknown[]> =
+ *   l & r
  */

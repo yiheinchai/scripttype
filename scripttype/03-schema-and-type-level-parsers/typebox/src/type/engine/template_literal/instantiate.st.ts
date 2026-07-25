@@ -17,20 +17,24 @@ declare const TSchema: any
 declare const TState: any
 declare const TTemplateLiteralDeferred: any
 declare const TTemplateLiteralEncode: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTemplateLiteralDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTemplateLiteralEncode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTemplateLiteralDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTemplateLiteralEncode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTemplateLiteralAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TTemplateLiteralAction(Types: TSchema[], Result: TSchema = matches<true>(TCanInstantiate(Types)) ? TTemplateLiteralEncode(Types) : TTemplateLiteralDeferred(Types)) {
   return Result
 }
 /* compiles to:
- * export type TTemplateLiteralAction<Types extends TSchema[], Result extends TSchema = TCanInstantiate<Types> extends true ? TTemplateLiteralEncode<Types> : TTemplateLiteralDeferred<Types>> = Result
+ * export type TTemplateLiteralAction<
+ *   Types extends TSchema[],
+ *   Result extends TSchema = TCanInstantiate<Types> extends true ? TTemplateLiteralEncode<Types> : TTemplateLiteralDeferred<Types>
+ * > =
+ *   Result
  */
 
 // ✓ TTemplateLiteralInstantiate: verified type-identical to the original
@@ -39,5 +43,11 @@ export function TTemplateLiteralInstantiate(Context: TProperties, State: TState,
   return TTemplateLiteralAction(InstantiatedTypes)
 }
 /* compiles to:
- * export type TTemplateLiteralInstantiate<Context extends TProperties, State extends TState, Types extends TSchema[], InstantiatedTypes extends TSchema[] = TInstantiateTypes<Context, State, Types>> = TTemplateLiteralAction<InstantiatedTypes>
+ * export type TTemplateLiteralInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Types extends TSchema[],
+ *   InstantiatedTypes extends TSchema[] = TInstantiateTypes<Context, State, Types>
+ * > =
+ *   TTemplateLiteralAction<InstantiatedTypes>
  */

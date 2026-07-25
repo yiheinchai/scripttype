@@ -18,14 +18,14 @@ declare const Key: any
 declare const Length: any
 declare const List: any
 declare const _Omit: any
-type At<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Has<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Omit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Has<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Omit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Longer: does not compile yet
 //   Type 'Has<keyof L, keyof L1>' cannot be used to index type '{ '0': 0; '1': 1; }'.
 /* @scripttype preserveParamNames */
@@ -39,7 +39,10 @@ export function Longer(L: List, L1: List) {
   return never
 }
 /* compiles to:
- * export type Longer<L extends List, L1 extends List> = L extends unknown ? L1 extends unknown ? { '0': 0; '1': 1 }[Has<keyof L, keyof L1>] : never : never
+ * export type Longer<L extends List, L1 extends List> =
+ *   L extends unknown
+ *     ? L1 extends unknown ? { '0': 0; '1': 1 }[Has<keyof L, keyof L1>] : never
+ *     : never
  */
 
 // ✓ PatchProp: verified type-identical to the original
@@ -54,7 +57,8 @@ export function PatchProp(OK, O1K, fill, OKeys: Key, K: Key) {
   return O1K
 }
 /* compiles to:
- * export type PatchProp<OK, O1K, fill, OKeys extends Key, K extends Key> = K extends OKeys ? OK extends fill ? O1K : OK : O1K
+ * export type PatchProp<OK, O1K, fill, OKeys extends Key, K extends Key> =
+ *   K extends OKeys ? OK extends fill ? O1K : OK : O1K
  */
 
 // ✓ PatchFlatObject: verified type-identical to the original
@@ -67,7 +71,13 @@ export function PatchFlatObject(O: object, O1: object, fill, OKeys: Key = keyof(
   return merge(out, {})
 }
 /* compiles to:
- * export type PatchFlatObject<O extends object, O1 extends object, fill, OKeys extends Key = keyof O> = { [K in keyof (O & _Omit<O1, OKeys>)]: PatchProp<At<O, K>, At<O1, K>, fill, OKeys, K> } & {}
+ * export type PatchFlatObject<
+ *   O extends object,
+ *   O1 extends object,
+ *   fill,
+ *   OKeys extends Key = keyof O
+ * > =
+ *   { [K in keyof (O & _Omit<O1, OKeys>)]: PatchProp<At<O, K>, At<O1, K>, fill, OKeys, K> } & {}
  */
 
 // ✓ PatchFlatList: verified type-identical to the original
@@ -83,14 +93,17 @@ export function PatchFlatList(L: List, L1: List, ignore: object, fill) {
     }
     return out
   }
-  const out = emptyObject
+  const out2 = emptyObject
   for (const K in keyof(L1)) {
-    out[K] = PatchProp(At(L, K), L1[K], fill, keyof(L), K)
+    out2[K] = PatchProp(At(L, K), L1[K], fill, keyof(L), K)
   }
-  return out
+  return out2
 }
 /* compiles to:
- * export type PatchFlatList<L extends List, L1 extends List, ignore extends object, fill> = number extends Length<L | L1> ? PatchFlatChoice<L[number], L1[number], ignore, fill>[] : Longer<L, L1> extends 1 ? { [K in keyof L]: PatchProp<L[K], At<L1, K>, fill, keyof L, K> } : { [K1 in keyof L1]: PatchProp<At<L, K1>, L1[K1], fill, keyof L, K1> }
+ * export type PatchFlatList<L extends List, L1 extends List, ignore extends object, fill> =
+ *   number extends Length<L | L1> ? PatchFlatChoice<L[number], L1[number], ignore, fill>[]
+ *   : Longer<L, L1> extends 1 ? { [K in keyof L]: PatchProp<L[K], At<L1, K>, fill, keyof L, K> }
+ *   : { [K1 in keyof L1]: PatchProp<At<L, K1>, L1[K1], fill, keyof L, K1> }
  */
 
 // ✓ PatchFlatChoice: verified type-identical to the original
@@ -111,7 +124,12 @@ export function PatchFlatChoice(O: object, O1: object, ignore: object, fill) {
   return PatchFlatObject(O, O1, fill)
 }
 /* compiles to:
- * export type PatchFlatChoice<O extends object, O1 extends object, ignore extends object, fill> = O extends ignore ? O : O1 extends ignore ? O : O extends List ? O1 extends List ? PatchFlatList<O, O1, ignore, fill> : PatchFlatObject<O, O1, fill> : PatchFlatObject<O, O1, fill>
+ * export type PatchFlatChoice<O extends object, O1 extends object, ignore extends object, fill> =
+ *   O extends ignore ? O
+ *   : O1 extends ignore ? O
+ *   : O extends List
+ *     ? O1 extends List ? PatchFlatList<O, O1, ignore, fill> : PatchFlatObject<O, O1, fill>
+ *   : PatchFlatObject<O, O1, fill>
  */
 
 // ✓ PatchFlat: verified type-identical to the original
@@ -126,7 +144,13 @@ export function PatchFlat(O: object, O1: object, ignore: object = BuiltIn, fill 
   return never
 }
 /* compiles to:
- * export type PatchFlat<O extends object, O1 extends object, ignore extends object = BuiltIn, fill = never> = O extends unknown ? O1 extends unknown ? PatchFlatChoice<O, O1, ignore, fill> : never : never
+ * export type PatchFlat<
+ *   O extends object,
+ *   O1 extends object,
+ *   ignore extends object = BuiltIn,
+ *   fill = never
+ * > =
+ *   O extends unknown ? O1 extends unknown ? PatchFlatChoice<O, O1, ignore, fill> : never : never
  */
 
 // ✓ PatchDeepList: verified type-identical to the original
@@ -142,14 +166,19 @@ export function PatchDeepList(L: List, L1: List, ignore: object, fill) {
     }
     return out
   }
-  const out = emptyObject
+  const out2 = emptyObject
   for (const K in keyof(L1)) {
-    out[K] = PatchDeepChoice(At(L, K), L1[K], ignore, fill, keyof(L), K)
+    out2[K] = PatchDeepChoice(At(L, K), L1[K], ignore, fill, keyof(L), K)
   }
-  return out
+  return out2
 }
 /* compiles to:
- * export type PatchDeepList<L extends List, L1 extends List, ignore extends object, fill> = number extends Length<L | L1> ? PatchDeepChoice<L[number], L1[number], ignore, fill, never, any>[] : Longer<L, L1> extends 1 ? { [K in keyof L]: PatchDeepChoice<L[K], At<L1, K>, ignore, fill, keyof L, K> } : { [K1 in keyof L1]: PatchDeepChoice<At<L, K1>, L1[K1], ignore, fill, keyof L, K1> }
+ * export type PatchDeepList<L extends List, L1 extends List, ignore extends object, fill> =
+ *   number extends Length<L | L1>
+ *     ? PatchDeepChoice<L[number], L1[number], ignore, fill, never, any>[]
+ *   : Longer<L, L1> extends 1
+ *     ? { [K in keyof L]: PatchDeepChoice<L[K], At<L1, K>, ignore, fill, keyof L, K> }
+ *   : { [K1 in keyof L1]: PatchDeepChoice<At<L, K1>, L1[K1], ignore, fill, keyof L, K1> }
  */
 
 // ✓ PatchDeepObject: verified type-identical to the original
@@ -162,7 +191,23 @@ export function PatchDeepObject(O: object, O1: object, ignore: object, fill, OKe
   return out
 }
 /* compiles to:
- * export type PatchDeepObject<O extends object, O1 extends object, ignore extends object, fill, OKeys extends Key = keyof O> = { [K in keyof (O & _Omit<O1, OKeys>)]: PatchDeepChoice<At<O, K>, At<O1, K>, ignore, fill, OKeys, K> }
+ * export type PatchDeepObject<
+ *   O extends object,
+ *   O1 extends object,
+ *   ignore extends object,
+ *   fill,
+ *   OKeys extends Key = keyof O
+ * > =
+ *   {
+ *     [K in keyof (O & _Omit<O1, OKeys>)]: PatchDeepChoice<
+ *       At<O, K>,
+ *       At<O1, K>,
+ *       ignore,
+ *       fill,
+ *       OKeys,
+ *       K
+ *     >
+ *   }
  */
 
 // ✓ PatchDeepChoice: verified type-identical to the original
@@ -195,7 +240,27 @@ export function PatchDeepChoice(OK, O1K, ignore: object, fill, OKeys: Key, K: Ke
   return PatchProp(OK, O1K, fill, OKeys, K)
 }
 /* compiles to:
- * export type PatchDeepChoice<OK, O1K, ignore extends object, fill, OKeys extends Key, K extends Key> = [OK] extends [never] ? PatchProp<OK, O1K, fill, OKeys, K> : [O1K] extends [never] ? PatchProp<OK, O1K, fill, OKeys, K> : OK extends ignore ? PatchProp<OK, O1K, fill, OKeys, K> : O1K extends ignore ? PatchProp<OK, O1K, fill, OKeys, K> : OK extends List ? O1K extends List ? PatchDeepList<OK, O1K, ignore, fill> : PatchProp<OK, O1K, fill, OKeys, K> : OK extends object ? O1K extends object ? PatchDeepObject<OK, O1K, ignore, fill> : PatchProp<OK, O1K, fill, OKeys, K> : PatchProp<OK, O1K, fill, OKeys, K>
+ * export type PatchDeepChoice<
+ *   OK,
+ *   O1K,
+ *   ignore extends object,
+ *   fill,
+ *   OKeys extends Key,
+ *   K extends Key
+ * > =
+ *   [OK] extends [never] ? PatchProp<OK, O1K, fill, OKeys, K>
+ *   : [O1K] extends [never] ? PatchProp<OK, O1K, fill, OKeys, K>
+ *   : OK extends ignore ? PatchProp<OK, O1K, fill, OKeys, K>
+ *   : O1K extends ignore ? PatchProp<OK, O1K, fill, OKeys, K>
+ *   : OK extends List
+ *     ? O1K extends List
+ *       ? PatchDeepList<OK, O1K, ignore, fill>
+ *       : PatchProp<OK, O1K, fill, OKeys, K>
+ *   : OK extends object
+ *     ? O1K extends object
+ *       ? PatchDeepObject<OK, O1K, ignore, fill>
+ *       : PatchProp<OK, O1K, fill, OKeys, K>
+ *   : PatchProp<OK, O1K, fill, OKeys, K>
  */
 
 // ✓ PatchDeep: verified type-identical to the original
@@ -210,7 +275,10 @@ export function PatchDeep(O: object, O1: object, ignore: object, fill) {
   return never
 }
 /* compiles to:
- * export type PatchDeep<O extends object, O1 extends object, ignore extends object, fill> = O extends unknown ? O1 extends unknown ? PatchDeepChoice<O, O1, ignore, fill, 'x', 'y'> : never : never
+ * export type PatchDeep<O extends object, O1 extends object, ignore extends object, fill> =
+ *   O extends unknown
+ *     ? O1 extends unknown ? PatchDeepChoice<O, O1, ignore, fill, 'x', 'y'> : never
+ *     : never
  */
 
 // ✓ Patch: verified type-identical to the original
@@ -219,5 +287,12 @@ export function Patch(O: object, O1: object, depth: Depth = 'flat', ignore: obje
   return { 'flat': PatchFlat(O, O1, ignore, fill), 'deep': PatchDeep(O, O1, ignore, fill) }[depth]
 }
 /* compiles to:
- * export type Patch<O extends object, O1 extends object, depth extends Depth = 'flat', ignore extends object = BuiltIn, fill extends any = never> = { flat: PatchFlat<O, O1, ignore, fill>; deep: PatchDeep<O, O1, ignore, fill> }[depth]
+ * export type Patch<
+ *   O extends object,
+ *   O1 extends object,
+ *   depth extends Depth = 'flat',
+ *   ignore extends object = BuiltIn,
+ *   fill extends any = never
+ * > =
+ *   { flat: PatchFlat<O, O1, ignore, fill>; deep: PatchDeep<O, O1, ignore, fill> }[depth]
  */

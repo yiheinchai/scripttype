@@ -12,13 +12,17 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const DrizzleConfig: any
 declare const Mode: any
-type DrizzleConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Mode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DrizzleConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Mode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySql2DrizzleConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySql2DrizzleConfig(TSchema: Record<string, unknown> = Record(string, never)) {
   return merge(Omit(DrizzleConfig(TSchema), 'schema'), anyOf({ schema: TSchema, mode: Mode }, { schema: optional(Undefined), mode: optional(Mode) }))
 }
 /* compiles to:
- * export type MySql2DrizzleConfig<TSchema extends Record<string, unknown> = Record<string, never>> = Omit<DrizzleConfig<TSchema>, 'schema'> & ({ schema: TSchema; mode: Mode } | { schema?: undefined; mode?: Mode })
+ * export type MySql2DrizzleConfig<
+ *   TSchema extends Record<string, unknown> = Record<string, never>
+ * > =
+ *   & Omit<DrizzleConfig<TSchema>, 'schema'>
+ *   & ({ schema: TSchema; mode: Mode } | { schema?: undefined; mode?: Mode })
  */

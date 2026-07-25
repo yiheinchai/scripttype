@@ -16,24 +16,45 @@ declare const ParseSignature: any
 declare const ParseStructs: any
 declare const Signature: any
 declare const Signatures: any
-type Abi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Filter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseStructs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Signature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Signatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Filter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseStructs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Signature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Signatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParseAbiItem: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ParseAbiItem(signature: string | readonly string[] | readonly unknown[]) {
   const m1 = matches<Hole<"structs">>(ParseStructs(signature))
   const out = emptyObject
   for (const key in keyof(signature)) {
-    out[key] = ParseSignature(matches<string>(signature[key]) ? signature[key] : never, m1.structs)
+    out[key] = ParseSignature(typeof signature[key] === 'string' ? signature[key] : never, m1.structs)
   }
   const m2 = matches<Hole<"mapped", readonly unknown[]>>(out)
   const m3 = matches<Hole<"result">>(Filter(m2.mapped, never)[0])
-  return (matches<string>(signature) ? (matches<typeof signature>(string) ? Abi[number] : (matches<Signature<typeof signature>>(signature) ? ParseSignature(signature) : never)) : never) | (matches<readonly string[]>(signature) ? (matches<typeof signature>(arrayOf(string)) ? Abi[number] : (matches<Signatures<typeof signature>>(signature) ? (m1 ? (m2 ? (m3 ? (matches<undefined>(m3.result) ? never : m3.result) : never) : never) : never) : never)) : never)
+  return (typeof signature === 'string' ? (matches<typeof signature>(string) ? Abi[number] : (matches<Signature<typeof signature>>(signature) ? ParseSignature(signature) : never)) : never) | (matches<readonly string[]>(signature) ? (matches<typeof signature>(arrayOf(string)) ? Abi[number] : (matches<Signatures<typeof signature>>(signature) ? (m1 ? (m2 ? (m3 ? (typeof m3.result === 'undefined' ? never : m3.result) : never) : never) : never) : never)) : never)
 }
 /* compiles to:
- * export type ParseAbiItem<signature extends string | readonly string[] | readonly unknown[]> = (signature extends string ? string extends signature ? Abi[number] : signature extends Signature<signature> ? ParseSignature<signature> : never : never) | (signature extends readonly string[] ? string[] extends signature ? Abi[number] : signature extends Signatures<signature> ? ParseStructs<signature> extends infer structs ? { [Key in keyof signature]: ParseSignature<signature[Key] extends string ? signature[Key] : never, structs> } extends (infer mapped extends readonly unknown[]) ? Filter<mapped, never>[0] extends infer result ? result extends undefined ? never : result : never : never : never : never : never)
+ * export type ParseAbiItem<signature extends string | readonly string[] | readonly unknown[]> =
+ *   | (
+ *       signature extends string
+ *         ? string extends signature ? Abi[number]
+ *         : signature extends Signature<signature> ? ParseSignature<signature>
+ *         : never
+ *         : never
+ *     )
+ *   | (
+ *       signature extends readonly string[]
+ *         ? string[] extends signature ? Abi[number]
+ *         : signature extends Signatures<signature>
+ *           ? ParseStructs<signature> extends infer structs
+ *             ? { [Key in keyof signature]: ParseSignature<signature[Key] extends string ? signature[Key] : never, structs> } extends (infer mapped extends readonly unknown[])
+ *               ? Filter<mapped, never>[0] extends infer result
+ *                 ? result extends undefined ? never : result
+ *                 : never
+ *               : never
+ *             : never
+ *         : never
+ *         : never
+ *     )
  */

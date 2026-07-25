@@ -14,10 +14,10 @@ declare const CastAny: any
 declare const Draft: any
 declare const EntityId: any
 declare const EntityState: any
-type CastAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Draft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EntityId<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EntityState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CastAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Draft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EntityId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EntityState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Comparer: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Comparer(T) {
@@ -60,5 +60,6 @@ export function DraftableEntityState(T, Id: EntityId) {
   return EntityState(T, Id) | Draft(EntityState(T, Id))
 }
 /* compiles to:
- * export type DraftableEntityState<T, Id extends EntityId> = EntityState<T, Id> | Draft<EntityState<T, Id>>
+ * export type DraftableEntityState<T, Id extends EntityId> =
+ *   EntityState<T, Id> | Draft<EntityState<T, Id>>
  */

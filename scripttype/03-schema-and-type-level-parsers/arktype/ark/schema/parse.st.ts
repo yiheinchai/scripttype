@@ -12,13 +12,18 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ContextualArgs: any
 declare const NodeId: any
-type ContextualArgs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeId<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ContextualArgs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BaseParseOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BaseParseOptions(prereduced: boolean = boolean) {
   return { alias: optional(string), prereduced: optional(prereduced), args: optional(ContextualArgs), id: optional(NodeId) }
 }
 /* compiles to:
- * export type BaseParseOptions<prereduced extends boolean = boolean> = { alias?: string; prereduced?: prereduced; args?: ContextualArgs; id?: NodeId }
+ * export type BaseParseOptions<prereduced extends boolean = boolean> = {
+ *   alias?: string
+ *   prereduced?: prereduced
+ *   args?: ContextualArgs
+ *   id?: NodeId
+ * }
  */

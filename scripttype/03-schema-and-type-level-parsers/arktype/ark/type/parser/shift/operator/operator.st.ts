@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Scanner {
+  export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ComparatorStartChar: any
 declare const FinalizingLookahead: any
 declare const Scanner: any
@@ -21,17 +24,17 @@ declare const parseBound: any
 declare const parseBrand: any
 declare const parseDivisor: any
 declare const shift: any
-type ComparatorStartChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FinalizingLookahead<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scanner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WhitespaceChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type incompleteArrayTokenMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type lookaheadIsFinalizing<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseBound<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseBrand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseDivisor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type shift<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ComparatorStartChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FinalizingLookahead<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WhitespaceChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type incompleteArrayTokenMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type lookaheadIsFinalizing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseBound<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseBrand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseDivisor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseOperator: does not compile yet
 //   only direct calls are supported
 /* @scripttype preserveParamNames */
@@ -84,5 +87,9 @@ export function writeUnexpectedCharacterMessage(char: string, shouldBe: string =
   return `'${char}' is not allowed here${matches<"">(shouldBe) ? '' : ` (should be ${shouldBe})`}`
 }
 /* compiles to:
- * export type writeUnexpectedCharacterMessage<char extends string, shouldBe extends string = ''> = `'${char}' is not allowed here${shouldBe extends '' ? '' : ` (should be ${shouldBe})`}`
+ * export type writeUnexpectedCharacterMessage<
+ *   char extends string,
+ *   shouldBe extends string = ''
+ * > =
+ *   `'${char}' is not allowed here${shouldBe extends '' ? '' : ` (should be ${shouldBe})`}`
  */

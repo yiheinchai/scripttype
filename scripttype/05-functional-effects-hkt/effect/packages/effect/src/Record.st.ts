@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Head: any
-type Head<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadonlyRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyRecord(K: string | symbol, A) {
@@ -48,14 +48,21 @@ export function IsFiniteString(T: string) {
   return false
 }
 /* compiles to:
- * export type IsFiniteString<T extends string> = T extends '' ? true : [T] extends [`${infer Head}${infer Rest}`] ? string extends Head ? false : `${number}` extends Head ? false : Rest extends '' ? true : IsFiniteString<Rest> : false
+ * export type IsFiniteString<T extends string> =
+ *   T extends '' ? true
+ *   : [T] extends [`${infer Head}${infer Rest}`]
+ *     ? string extends Head ? false
+ *     : `${number}` extends Head ? false
+ *     : Rest extends '' ? true
+ *     : IsFiniteString<Rest>
+ *   : false
  */
 
 // ✗ NonLiteralKey: does not compile yet
 //   Cannot find name 'IsFiniteString'.
 /* @scripttype preserveParamNames */
 export function NonLiteralKey(K: string | symbol) {
-  if (matches<string>(K)) {
+  if (typeof K === 'string') {
     if (matches<true>(IsFiniteString(K))) {
       return string
     }
@@ -64,7 +71,8 @@ export function NonLiteralKey(K: string | symbol) {
   return symbol
 }
 /* compiles to:
- * export type NonLiteralKey<K extends string | symbol> = K extends string ? IsFiniteString<K> extends true ? string : K : symbol
+ * export type NonLiteralKey<K extends string | symbol> =
+ *   K extends string ? IsFiniteString<K> extends true ? string : K : symbol
  */
 
 // ✗ IntersectKeys: does not compile yet
@@ -77,5 +85,6 @@ export function IntersectKeys(K1: string, K2: string) {
   return merge(K1, K2)
 }
 /* compiles to:
- * export type IntersectKeys<K1 extends string, K2 extends string> = [string] extends [K1 | K2] ? NonLiteralKey<K1> & NonLiteralKey<K2> : K1 & K2
+ * export type IntersectKeys<K1 extends string, K2 extends string> =
+ *   [string] extends [K1 | K2] ? NonLiteralKey<K1> & NonLiteralKey<K2> : K1 & K2
  */

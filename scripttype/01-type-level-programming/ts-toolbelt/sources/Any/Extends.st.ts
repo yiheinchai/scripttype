@@ -19,5 +19,6 @@ export function Extends(A1: any, A2: any) {
   return 0
 }
 /* compiles to:
- * export type Extends<A1 extends any, A2 extends any> = [A1] extends [never] ? 0 : A1 extends A2 ? 1 : 0
+ * export type Extends<A1 extends any, A2 extends any> =
+ *   [A1] extends [never] ? 0 : A1 extends A2 ? 1 : 0
  */

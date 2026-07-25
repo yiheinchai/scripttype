@@ -14,10 +14,10 @@ declare const Column: any
 declare const SelectedFieldsFlat: any
 declare const Table: any
 declare const View: any
-type Column<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectedFieldsFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Table<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type View<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectedFieldsFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsNever(T) {
@@ -42,7 +42,8 @@ export function IsEnumDefined(TEnum: string[] | undefined) {
   return true
 }
 /* compiles to:
- * export type IsEnumDefined<TEnum extends string[] | undefined> = [string, ...string[]] extends TEnum ? false : undefined extends TEnum ? false : true
+ * export type IsEnumDefined<TEnum extends string[] | undefined> =
+ *   [string, ...string[]] extends TEnum ? false : undefined extends TEnum ? false : true
  */
 
 // ✗ ColumnIsGeneratedAlwaysAs: does not compile yet
@@ -61,7 +62,12 @@ export function ColumnIsGeneratedAlwaysAs(TColumn) {
   return false
 }
 /* compiles to:
- * export type ColumnIsGeneratedAlwaysAs<TColumn> = TColumn extends Column ? TColumn['_']['identity'] extends 'always' ? true : TColumn['_']['generated'] extends { type: 'byDefault'; } | undefined ? false : true : false
+ * export type ColumnIsGeneratedAlwaysAs<TColumn> =
+ *   TColumn extends Column
+ *     ? TColumn['_']['identity'] extends 'always' ? true
+ *     : TColumn['_']['generated'] extends { type: 'byDefault'; } | undefined ? false
+ *     : true
+ *     : false
  */
 
 // ✓ RemoveNever: verified type-identical to the original
@@ -90,7 +96,12 @@ export function RemoveNeverElements(T: any[]) {
   return []
 }
 /* compiles to:
- * export type RemoveNeverElements<T extends any[]> = T extends [infer First, ...infer Rest] ? IsNever<First> extends true ? RemoveNeverElements<Rest> : [First, ...RemoveNeverElements<Rest>] : []
+ * export type RemoveNeverElements<T extends any[]> =
+ *   T extends [infer First, ...infer Rest]
+ *     ? IsNever<First> extends true
+ *       ? RemoveNeverElements<Rest>
+ *       : [First, ...RemoveNeverElements<Rest>]
+ *     : []
  */
 
 // ✓ GetSelection: verified type-identical to the original
@@ -105,5 +116,6 @@ export function GetSelection(T: SelectedFieldsFlat<Column> | Table | View) {
   return T
 }
 /* compiles to:
- * export type GetSelection<T extends SelectedFieldsFlat<Column> | Table | View> = T extends Table ? T['_']['columns'] : T extends View ? T['_']['selectedFields'] : T
+ * export type GetSelection<T extends SelectedFieldsFlat<Column> | Table | View> =
+ *   T extends Table ? T['_']['columns'] : T extends View ? T['_']['selectedFields'] : T
  */

@@ -13,14 +13,20 @@
 declare const XCanonical: any
 declare const XSchema: any
 declare const XStaticSchema: any
-type XCanonical<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type XSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type XStaticSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type XCanonical<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type XStaticSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XStatic: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function XStatic(Value: unknown, Schema: XSchema = matches<XSchema>(Value) ? Value : {}, Canonical: XSchema = XCanonical(Schema), Result: unknown = XStaticSchema([], Canonical, Canonical)) {
   return Result
 }
 /* compiles to:
- * export type XStatic<Value, Schema extends XSchema = Value extends XSchema ? Value : {}, Canonical extends XSchema = XCanonical<Schema>, Result = XStaticSchema<[], Canonical, Canonical>> = Result
+ * export type XStatic<
+ *   Value,
+ *   Schema extends XSchema = Value extends XSchema ? Value : {},
+ *   Canonical extends XSchema = XCanonical<Schema>,
+ *   Result = XStaticSchema<[], Canonical, Canonical>
+ * > =
+ *   Result
  */

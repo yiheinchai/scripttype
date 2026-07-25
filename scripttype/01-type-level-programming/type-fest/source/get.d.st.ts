@@ -19,16 +19,16 @@ declare const Paths: any
 declare const Split: any
 declare const ToString: any
 declare const _LiteralStringUnion: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultGetOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DigitCharacter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GetOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KeyAsString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Paths<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Split<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WithStringKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _LiteralStringUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultGetOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DigitCharacter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KeyAsString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Split<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WithStringKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _LiteralStringUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GetWithPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GetWithPath(BaseType, Keys, Options: Required<GetOptions>) {
@@ -42,7 +42,15 @@ export function GetWithPath(BaseType, Keys, Options: Required<GetOptions>) {
   return never
 }
 /* compiles to:
- * export type GetWithPath<BaseType, Keys, Options extends Required<GetOptions>> = Keys extends readonly [] ? BaseType : Keys extends readonly [infer Head, ...infer Tail] ? GetWithPath<PropertyOf<BaseType, Extract<Head, string>, Options>, Extract<Tail, string[]>, Options> : never
+ * export type GetWithPath<BaseType, Keys, Options extends Required<GetOptions>> =
+ *   Keys extends readonly [] ? BaseType
+ *   : Keys extends readonly [infer Head, ...infer Tail]
+ *     ? GetWithPath<
+ *       PropertyOf<BaseType, Extract<Head, string>, Options>,
+ *       Extract<Tail, string[]>,
+ *       Options
+ *     >
+ *   : never
  */
 
 // ✓ Strictify: verified type-identical to the original
@@ -54,14 +62,15 @@ export function Strictify(Type, Options: Required<GetOptions>) {
   return anyOf(Type, Undefined)
 }
 /* compiles to:
- * export type Strictify<Type, Options extends Required<GetOptions>> = Options['strict'] extends false ? Type : Type | undefined
+ * export type Strictify<Type, Options extends Required<GetOptions>> =
+ *   Options['strict'] extends false ? Type : Type | undefined
  */
 
 // ✓ StrictPropertyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StrictPropertyOf(BaseType, Key: keyof typeof BaseType, Options: Required<GetOptions>) {
   if (matches<typeof BaseType>(Record(string, any))) {
-    if (matches<keyof typeof BaseType>(string)) {
+    if (string in BaseType) {
       return Strictify(BaseType[Key], Options)
     }
     return BaseType[Key]
@@ -69,7 +78,14 @@ export function StrictPropertyOf(BaseType, Key: keyof typeof BaseType, Options: 
   return BaseType[Key]
 }
 /* compiles to:
- * export type StrictPropertyOf<BaseType, Key extends keyof BaseType, Options extends Required<GetOptions>> = Record<string, any> extends BaseType ? string extends keyof BaseType ? Strictify<BaseType[Key], Options> : BaseType[Key] : BaseType[Key]
+ * export type StrictPropertyOf<
+ *   BaseType,
+ *   Key extends keyof BaseType,
+ *   Options extends Required<GetOptions>
+ * > =
+ *   Record<string, any> extends BaseType
+ *     ? string extends keyof BaseType ? Strictify<BaseType[Key], Options> : BaseType[Key]
+ *     : BaseType[Key]
  */
 
 // ✓ ToPath: verified type-identical to the original
@@ -78,7 +94,11 @@ export function ToPath(S: string) {
   return Split(FixPathSquareBrackets(S), '.', { strictLiteralChecks: false })
 }
 /* compiles to:
- * export type ToPath<S extends string> = Split<FixPathSquareBrackets<S>, '.', { strictLiteralChecks: false }>
+ * export type ToPath<S extends string> = Split<
+ *   FixPathSquareBrackets<S>,
+ *   '.',
+ *   { strictLiteralChecks: false }
+ * >
  */
 
 // ✓ FixPathSquareBrackets: verified type-identical to the original
@@ -98,7 +118,14 @@ export function FixPathSquareBrackets(Path: string) {
   return Path
 }
 /* compiles to:
- * export type FixPathSquareBrackets<Path extends string> = Path extends `[${infer Head}]${infer Tail}` ? Tail extends `[${string}` ? `${Head}.${FixPathSquareBrackets<Tail>}` : `${Head}${FixPathSquareBrackets<Tail>}` : Path extends `${infer Head}[${infer Middle}]${infer Tail}` ? `${Head}.${FixPathSquareBrackets<`[${Middle}]${Tail}`>}` : Path
+ * export type FixPathSquareBrackets<Path extends string> =
+ *   Path extends `[${infer Head}]${infer Tail}`
+ *     ? Tail extends `[${string}`
+ *       ? `${Head}.${FixPathSquareBrackets<Tail>}`
+ *       : `${Head}${FixPathSquareBrackets<Tail>}`
+ *   : Path extends `${infer Head}[${infer Middle}]${infer Tail}`
+ *     ? `${Head}.${FixPathSquareBrackets<`[${Middle}]${Tail}`>}`
+ *   : Path
  */
 
 // ✓ ConsistsOnlyOf: verified type-identical to the original
@@ -114,7 +141,10 @@ export function ConsistsOnlyOf(LongString: string, Substring: string) {
   return false
 }
 /* compiles to:
- * export type ConsistsOnlyOf<LongString extends string, Substring extends string> = LongString extends '' ? true : LongString extends `${Substring}${infer Tail}` ? ConsistsOnlyOf<Tail, Substring> : false
+ * export type ConsistsOnlyOf<LongString extends string, Substring extends string> =
+ *   LongString extends '' ? true
+ *   : LongString extends `${Substring}${infer Tail}` ? ConsistsOnlyOf<Tail, Substring>
+ *   : false
  */
 
 // ✓ WithStringKeys: verified type-identical to the original
@@ -127,7 +157,9 @@ export function WithStringKeys(BaseType) {
   return out
 }
 /* compiles to:
- * export type WithStringKeys<BaseType> = { [Key in KeyAsString<BaseType>]: UncheckedIndex<BaseType, Key> }
+ * export type WithStringKeys<BaseType> = {
+ *   [Key in KeyAsString<BaseType>]: UncheckedIndex<BaseType, Key>
+ * }
  */
 
 // ✓ UncheckedIndex: verified type-identical to the original
@@ -139,7 +171,8 @@ export function UncheckedIndex(T, U: string | number) {
   return never
 }
 /* compiles to:
- * export type UncheckedIndex<T, U extends string | number> = [T] extends [Record<string | number, any>] ? T[U] : never
+ * export type UncheckedIndex<T, U extends string | number> =
+ *   [T] extends [Record<string | number, any>] ? T[U] : never
  */
 
 // ✓ PropertyOf: verified type-identical to the original
@@ -148,7 +181,7 @@ export function PropertyOf(BaseType, Key: string, Options: Required<GetOptions>)
   if (matches<null | undefined>(BaseType)) {
     return Undefined
   }
-  if (matches<keyof typeof BaseType>(Key)) {
+  if (Key in BaseType) {
     return StrictPropertyOf(BaseType, Key, Options)
   }
   if (matches<readonly unknown[]>(BaseType)) {
@@ -156,7 +189,7 @@ export function PropertyOf(BaseType, Key: string, Options: Required<GetOptions>)
       if (matches<(typeof BaseType)['length']>(number)) {
         return Strictify(BaseType[number], Options)
       }
-      if (matches<keyof typeof BaseType>(Key)) {
+      if (Key in BaseType) {
         return Strictify(BaseType[merge(Key, keyof(BaseType))], Options)
       }
       return unknown
@@ -176,14 +209,36 @@ export function PropertyOf(BaseType, Key: string, Options: Required<GetOptions>)
   return unknown
 }
 /* compiles to:
- * export type PropertyOf<BaseType, Key extends string, Options extends Required<GetOptions>> = BaseType extends null | undefined ? undefined : Key extends keyof BaseType ? StrictPropertyOf<BaseType, Key, Options> : BaseType extends readonly unknown[] ? Key extends `${number}` ? number extends BaseType['length'] ? Strictify<BaseType[number], Options> : Key extends keyof BaseType ? Strictify<BaseType[Key & keyof BaseType], Options> : unknown : unknown : BaseType extends { [n: number]: infer Item; length: number; } ? ConsistsOnlyOf<Key, DigitCharacter> extends true ? Strictify<Item, Options> : unknown : Key extends keyof WithStringKeys<BaseType> ? StrictPropertyOf<WithStringKeys<BaseType>, Key, Options> : unknown
+ * export type PropertyOf<BaseType, Key extends string, Options extends Required<GetOptions>> =
+ *   BaseType extends null | undefined ? undefined
+ *   : Key extends keyof BaseType ? StrictPropertyOf<BaseType, Key, Options>
+ *   : BaseType extends readonly unknown[]
+ *     ? Key extends `${number}`
+ *       ? number extends BaseType['length'] ? Strictify<BaseType[number], Options>
+ *       : Key extends keyof BaseType ? Strictify<BaseType[Key & keyof BaseType], Options>
+ *       : unknown
+ *       : unknown
+ *   : BaseType extends { [n: number]: infer Item; length: number; }
+ *     ? ConsistsOnlyOf<Key, DigitCharacter> extends true ? Strictify<Item, Options> : unknown
+ *   : Key extends keyof WithStringKeys<BaseType>
+ *     ? StrictPropertyOf<WithStringKeys<BaseType>, Key, Options>
+ *   : unknown
  */
 
 // ✓ Get: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Get(BaseType, Path: readonly string[] | _LiteralStringUnion<ToString<Paths<typeof BaseType, { bracketNotation: false; maxRecursionDepth: 2; }> | Paths<typeof BaseType, { bracketNotation: true; maxRecursionDepth: 2; }>>>, Options: GetOptions = {}) {
-  return GetWithPath(BaseType, matches<string>(Path) ? ToPath(Path) : Path, ApplyDefaultOptions(GetOptions, DefaultGetOptions, Options))
+  return GetWithPath(BaseType, typeof Path === 'string' ? ToPath(Path) : Path, ApplyDefaultOptions(GetOptions, DefaultGetOptions, Options))
 }
 /* compiles to:
- * export type Get<BaseType, Path extends readonly string[] | _LiteralStringUnion<ToString<Paths<BaseType, { bracketNotation: false; maxRecursionDepth: 2; }> | Paths<BaseType, { bracketNotation: true; maxRecursionDepth: 2; }>>>, Options extends GetOptions = {}> = GetWithPath<BaseType, Path extends string ? ToPath<Path> : Path, ApplyDefaultOptions<GetOptions, DefaultGetOptions, Options>>
+ * export type Get<
+ *   BaseType,
+ *   Path extends readonly string[] | _LiteralStringUnion<ToString<Paths<BaseType, { bracketNotation: false; maxRecursionDepth: 2; }> | Paths<BaseType, { bracketNotation: true; maxRecursionDepth: 2; }>>>,
+ *   Options extends GetOptions = {}
+ * > =
+ *   GetWithPath<
+ *     BaseType,
+ *     Path extends string ? ToPath<Path> : Path,
+ *     ApplyDefaultOptions<GetOptions, DefaultGetOptions, Options>
+ *   >
  */

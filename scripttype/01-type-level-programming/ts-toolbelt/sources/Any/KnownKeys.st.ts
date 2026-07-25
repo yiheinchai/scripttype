@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Keys: any
-type Keys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ KnownKeys: does not compile yet
 //   'O' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -27,5 +27,8 @@ export function KnownKeys(O: object) {
   return never
 }
 /* compiles to:
- * export type KnownKeys<O extends object> = { [K in keyof O]: string extends K ? never : number extends K ? never : K } extends { [K in keyof typeof O]: infer U; } ? U & Keys<O> : never
+ * export type KnownKeys<O extends object> =
+ *   { [K in keyof O]: string extends K ? never : number extends K ? never : K } extends { [K in keyof typeof O]: infer U; }
+ *     ? U & Keys<O>
+ *     : never
  */

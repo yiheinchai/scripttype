@@ -7,13 +7,13 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type Extract<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Hkt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type andPreserveUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type domainOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type propValueOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type requiredKeyOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Extract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Hkt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type andPreserveUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type domainOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type propValueOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type requiredKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export interface AndPreserveUnknown extends Hkt<[unknown, unknown]> {
 	body: andPreserveUnknown<this[0], this[1]>
 }

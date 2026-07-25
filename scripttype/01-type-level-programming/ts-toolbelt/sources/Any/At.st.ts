@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Key: any
 declare const List: any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ At: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function At(A: any, K: Key) {
@@ -24,7 +24,7 @@ export function At(A: any, K: Key) {
       }
       return Undefined
     }
-    if (matches<keyof typeof A>(K)) {
+    if (K in A) {
       return A[K]
     }
     return Undefined
@@ -32,11 +32,19 @@ export function At(A: any, K: Key) {
   if (matches<typeof A>(unknown)) {
     return unknown
   }
-  if (matches<keyof typeof A>(K)) {
+  if (K in A) {
     return A[K]
   }
   return Undefined
 }
 /* compiles to:
- * export type At<A extends any, K extends Key> = A extends List ? number extends A['length'] ? K extends number | `${number}` ? A[never] | undefined : undefined : K extends keyof A ? A[K] : undefined : unknown extends A ? unknown : K extends keyof A ? A[K] : undefined
+ * export type At<A extends any, K extends Key> =
+ *   A extends List
+ *     ? number extends A['length']
+ *       ? K extends number | `${number}` ? A[never] | undefined : undefined
+ *     : K extends keyof A ? A[K]
+ *     : undefined
+ *   : unknown extends A ? unknown
+ *   : K extends keyof A ? A[K]
+ *   : undefined
  */

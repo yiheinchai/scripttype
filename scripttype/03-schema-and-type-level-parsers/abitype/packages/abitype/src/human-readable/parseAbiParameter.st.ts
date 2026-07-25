@@ -16,24 +16,43 @@ declare const IsStructSignature: any
 declare const Modifier: any
 declare const ParseAbiParameter_: any
 declare const ParseStructs: any
-type AbiParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Filter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStructSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Modifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseAbiParameter_<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseStructs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Filter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStructSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Modifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseAbiParameter_<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseStructs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParseAbiParameter: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ParseAbiParameter(param: string | readonly string[] | readonly unknown[]) {
   const m1 = matches<Hole<"structs">>(ParseStructs(param))
   const out = emptyObject
   for (const key in keyof(param)) {
-    out[key] = matches<string>(param[key]) ? (matches<true>(IsStructSignature(param[key])) ? never : ParseAbiParameter_(param[key], { modifier: Modifier, structs: m1.structs })) : never
+    out[key] = typeof param[key] === 'string' ? (matches<true>(IsStructSignature(param[key])) ? never : ParseAbiParameter_(param[key], { modifier: Modifier, structs: m1.structs })) : never
   }
   const m2 = matches<Hole<"mapped", readonly unknown[]>>(out)
   const m3 = matches<Hole<"result">>(Filter(m2.mapped, never)[0])
-  return (matches<string>(param) ? (matches<''>(param) ? never : (matches<typeof param>(string) ? AbiParameter : ParseAbiParameter_(param, { modifier: Modifier }))) : never) | (matches<readonly string[]>(param) ? (matches<typeof param>(arrayOf(string)) ? AbiParameter : (m1 ? (m2 ? (m3 ? (matches<undefined>(m3.result) ? never : m3.result) : never) : never) : never)) : never)
+  return (typeof param === 'string' ? (matches<''>(param) ? never : (matches<typeof param>(string) ? AbiParameter : ParseAbiParameter_(param, { modifier: Modifier }))) : never) | (matches<readonly string[]>(param) ? (matches<typeof param>(arrayOf(string)) ? AbiParameter : (m1 ? (m2 ? (m3 ? (typeof m3.result === 'undefined' ? never : m3.result) : never) : never) : never)) : never)
 }
 /* compiles to:
- * export type ParseAbiParameter<param extends string | readonly string[] | readonly unknown[]> = (param extends string ? param extends '' ? never : string extends param ? AbiParameter : ParseAbiParameter_<param, { modifier: Modifier }> : never) | (param extends readonly string[] ? string[] extends param ? AbiParameter : ParseStructs<param> extends infer structs ? { [Key in keyof param]: param[Key] extends string ? IsStructSignature<param[Key]> extends true ? never : ParseAbiParameter_<param[Key], { modifier: Modifier; structs: structs }> : never } extends (infer mapped extends readonly unknown[]) ? Filter<mapped, never>[0] extends infer result ? result extends undefined ? never : result : never : never : never : never)
+ * export type ParseAbiParameter<param extends string | readonly string[] | readonly unknown[]> =
+ *   | (
+ *       param extends string
+ *         ? param extends '' ? never
+ *         : string extends param ? AbiParameter
+ *         : ParseAbiParameter_<param, { modifier: Modifier }>
+ *         : never
+ *     )
+ *   | (
+ *       param extends readonly string[]
+ *         ? string[] extends param ? AbiParameter
+ *         : ParseStructs<param> extends infer structs
+ *           ? { [Key in keyof param]: param[Key] extends string ? IsStructSignature<param[Key]> extends true ? never : ParseAbiParameter_<param[Key], { modifier: Modifier; structs: structs }> : never } extends (infer mapped extends readonly unknown[])
+ *             ? Filter<mapped, never>[0] extends infer result
+ *               ? result extends undefined ? never : result
+ *               : never
+ *             : never
+ *         : never
+ *         : never
+ *     )
  */

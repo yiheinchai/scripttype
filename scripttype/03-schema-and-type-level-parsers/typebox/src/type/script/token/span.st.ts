@@ -14,10 +14,10 @@ declare const TNewLine: any
 declare const TTake: any
 declare const TTrim: any
 declare const TUntil: any
-type TNewLine<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTake<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTrim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUntil<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TNewLine<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUntil<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TMultiLine: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TMultiLine(Start: string, End: string, Input: string) {
@@ -36,7 +36,14 @@ export function TMultiLine(Start: string, End: string, Input: string) {
   return []
 }
 /* compiles to:
- * export type TMultiLine<Start extends string, End extends string, Input extends string> = TTake<[Start], Input> extends [unknown, infer Rest extends string] ? TUntil<[End], Rest> extends [infer Until extends string, infer UntilRest extends string] ? TTake<[End], UntilRest> extends [string, infer Rest extends string] ? [`${Until}`, Rest] : [] : [] : []
+ * export type TMultiLine<Start extends string, End extends string, Input extends string> =
+ *   TTake<[Start], Input> extends [unknown, infer Rest extends string]
+ *     ? TUntil<[End], Rest> extends [infer Until extends string, infer UntilRest extends string]
+ *       ? TTake<[End], UntilRest> extends [string, infer Rest extends string]
+ *         ? [`${Until}`, Rest]
+ *         : []
+ *       : []
+ *     : []
  */
 
 // ✓ TSingleLine: verified type-identical to the original
@@ -57,7 +64,14 @@ export function TSingleLine(Start: string, End: string, Input: string) {
   return []
 }
 /* compiles to:
- * export type TSingleLine<Start extends string, End extends string, Input extends string> = TTake<[Start], Input> extends [string, infer Rest extends string] ? TUntil<[TNewLine, End], Rest> extends [infer Until extends string, infer UntilRest extends string] ? TTake<[End], UntilRest> extends [string, infer EndRest extends string] ? [`${Until}`, EndRest] : [] : [] : []
+ * export type TSingleLine<Start extends string, End extends string, Input extends string> =
+ *   TTake<[Start], Input> extends [string, infer Rest extends string]
+ *     ? TUntil<[TNewLine, End], Rest> extends [infer Until extends string, infer UntilRest extends string]
+ *       ? TTake<[End], UntilRest> extends [string, infer EndRest extends string]
+ *         ? [`${Until}`, EndRest]
+ *         : []
+ *       : []
+ *     : []
  */
 
 // ✓ TSpan: verified type-identical to the original
@@ -69,5 +83,13 @@ export function TSpan(Start: string, End: string, MultiLine: boolean, Input: str
   return TSingleLine(Start, End, TTrim(Input))
 }
 /* compiles to:
- * export type TSpan<Start extends string, End extends string, MultiLine extends boolean, Input extends string> = MultiLine extends true ? TMultiLine<Start, End, TTrim<Input>> : TSingleLine<Start, End, TTrim<Input>>
+ * export type TSpan<
+ *   Start extends string,
+ *   End extends string,
+ *   MultiLine extends boolean,
+ *   Input extends string
+ * > =
+ *   MultiLine extends true
+ *     ? TMultiLine<Start, End, TTrim<Input>>
+ *     : TSingleLine<Start, End, TTrim<Input>>
  */

@@ -18,21 +18,33 @@ declare const TRPCClient: any
 declare const TRPCContextPropsBase: any
 declare const TRPCQueryKey: any
 declare const TRPCUseUtilsOptions: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DistributiveOmit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractCursorType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FetchInfiniteQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCContextPropsBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCQueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCUseUtilsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DistributiveOmit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractCursorType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FetchInfiniteQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCContextPropsBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCQueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCUseUtilsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCFetchInfiniteQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRPCFetchInfiniteQueryOptions(TInput, TOutput, TError) {
   return merge(DistributiveOmit(FetchInfiniteQueryOptions(TOutput, TError, TOutput, TRPCQueryKey, ExtractCursorType(TInput)), anyOf('queryKey', 'initialPageParam')), TRPCUseUtilsOptions, { initialCursor: optional(ExtractCursorType(TInput)) })
 }
 /* compiles to:
- * export type TRPCFetchInfiniteQueryOptions<TInput, TOutput, TError> = DistributiveOmit<FetchInfiniteQueryOptions<TOutput, TError, TOutput, TRPCQueryKey, ExtractCursorType<TInput>>, 'queryKey' | 'initialPageParam'> & TRPCUseUtilsOptions & { initialCursor?: ExtractCursorType<TInput> }
+ * export type TRPCFetchInfiniteQueryOptions<TInput, TOutput, TError> =
+ *   & DistributiveOmit<
+ *       FetchInfiniteQueryOptions<
+ *         TOutput,
+ *         TError,
+ *         TOutput,
+ *         TRPCQueryKey,
+ *         ExtractCursorType<TInput>
+ *       >,
+ *       'queryKey' | 'initialPageParam'
+ *     >
+ *   & TRPCUseUtilsOptions
+ *   & { initialCursor?: ExtractCursorType<TInput> }
  */
 
 // ✓ DecoratedTRPCContextProps: verified type-identical to the original
@@ -41,5 +53,6 @@ export function DecoratedTRPCContextProps(TRouter: AnyRouter, TSSRContext) {
   return merge(TRPCContextPropsBase(TRouter, TSSRContext), { client: TRPCClient(TRouter) })
 }
 /* compiles to:
- * export type DecoratedTRPCContextProps<TRouter extends AnyRouter, TSSRContext> = TRPCContextPropsBase<TRouter, TSSRContext> & { client: TRPCClient<TRouter> }
+ * export type DecoratedTRPCContextProps<TRouter extends AnyRouter, TSSRContext> =
+ *   TRPCContextPropsBase<TRouter, TSSRContext> & { client: TRPCClient<TRouter> }
  */

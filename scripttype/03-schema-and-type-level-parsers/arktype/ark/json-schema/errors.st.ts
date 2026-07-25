@@ -13,7 +13,11 @@ export function writeJsonSchemaInsufficientKeysMessage(describedExpectedKeys: st
   return `Provided JSON Schema must have at least one of the keys ${describedExpectedKeys} (was ${printableJsonSchema})`
 }
 /* compiles to:
- * export type writeJsonSchemaInsufficientKeysMessage<describedExpectedKeys extends string, printableJsonSchema extends string> = `Provided JSON Schema must have at least one of the keys ${describedExpectedKeys} (was ${printableJsonSchema})`
+ * export type writeJsonSchemaInsufficientKeysMessage<
+ *   describedExpectedKeys extends string,
+ *   printableJsonSchema extends string
+ * > =
+ *   `Provided JSON Schema must have at least one of the keys ${describedExpectedKeys} (was ${printableJsonSchema})`
  */
 
 // ✓ writeJsonSchemaUnsupportedTypeMessage: verified type-identical to the original
@@ -31,7 +35,11 @@ export function writeJsonSchemaObjectNonConformingKeyAndPropertyNamesMessage(req
   return `Required key ${requiredKey} doesn't conform to propertyNames schema of ${propertyNamesExpression}`
 }
 /* compiles to:
- * export type writeJsonSchemaObjectNonConformingKeyAndPropertyNamesMessage<requiredKey extends string, propertyNamesExpression extends string> = `Required key ${requiredKey} doesn't conform to propertyNames schema of ${propertyNamesExpression}`
+ * export type writeJsonSchemaObjectNonConformingKeyAndPropertyNamesMessage<
+ *   requiredKey extends string,
+ *   propertyNamesExpression extends string
+ * > =
+ *   `Required key ${requiredKey} doesn't conform to propertyNames schema of ${propertyNamesExpression}`
  */
 
 // ✓ writeJsonSchemaObjectNonConformingPatternAndPropertyNamesMessage: verified type-identical to the original
@@ -40,5 +48,9 @@ export function writeJsonSchemaObjectNonConformingPatternAndPropertyNamesMessage
   return `Pattern property ${patternPropertySignatureExpression} doesn't conform to propertyNames schema of ${propertyNamesExpression}`
 }
 /* compiles to:
- * export type writeJsonSchemaObjectNonConformingPatternAndPropertyNamesMessage<patternPropertySignatureExpression extends string, propertyNamesExpression extends string> = `Pattern property ${patternPropertySignatureExpression} doesn't conform to propertyNames schema of ${propertyNamesExpression}`
+ * export type writeJsonSchemaObjectNonConformingPatternAndPropertyNamesMessage<
+ *   patternPropertySignatureExpression extends string,
+ *   propertyNamesExpression extends string
+ * > =
+ *   `Pattern property ${patternPropertySignatureExpression} doesn't conform to propertyNames schema of ${propertyNamesExpression}`
  */

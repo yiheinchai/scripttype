@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ReadonlyMap: any
 declare const ReadonlySet: any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ReadonlyOutput: the ScriptType does not itself typecheck as TypeScript
 //   ReadonlyOutput.st.ts(5:12) TS2693: 'ReadonlyMap' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -29,5 +29,8 @@ export function ReadonlyOutput(TInput) {
   return Readonly(TInput)
 }
 /* compiles to:
- * export type ReadonlyOutput<TInput> = TInput extends Map<infer TKey, infer TValue> ? ReadonlyMap<TKey, TValue> : TInput extends Set<infer TValue> ? ReadonlySet<TValue> : Readonly<TInput>
+ * export type ReadonlyOutput<TInput> =
+ *   TInput extends Map<infer TKey, infer TValue> ? ReadonlyMap<TKey, TValue>
+ *   : TInput extends Set<infer TValue> ? ReadonlySet<TValue>
+ *   : Readonly<TInput>
  */

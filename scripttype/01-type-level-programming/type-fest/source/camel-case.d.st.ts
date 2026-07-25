@@ -13,9 +13,9 @@
 declare const ApplyDefaultOptions: any
 declare const CamelCaseOptions: any
 declare const _DefaultCamelCaseOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CamelCaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _DefaultCamelCaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _DefaultCamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ LeadingUnderscores: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function LeadingUnderscores(Type: string) {
@@ -33,7 +33,10 @@ export function LeadingUnderscores(Type: string) {
 }
 /* compiles to:
  * export type LeadingUnderscores<Type extends string> = LeadingUnderscores__loop<Type, ''>
- * type LeadingUnderscores__loop<Type extends string, Underscores extends string> = Type extends `_${infer Rest}` ? LeadingUnderscores__loop<Rest, `_${Underscores}`> : Underscores
+ * type LeadingUnderscores__loop<Type extends string, Underscores extends string> =
+ *   Type extends `_${infer Rest}`
+ *     ? LeadingUnderscores__loop<Rest, `_${Underscores}`>
+ *     : Underscores
  */
 
 // ✓ CamelCaseFromArray: verified type-identical to the original
@@ -49,13 +52,22 @@ export function CamelCaseFromArray(Words: string[], Options: Required<CamelCaseO
   return OutputString
 }
 /* compiles to:
- * export type CamelCaseFromArray<Words extends string[], Options extends Required<CamelCaseOptions>, OutputString extends string = ''> = Words extends [infer FirstWord extends string, ...(infer RemainingWords extends string[])] ? Options['preserveConsecutiveUppercase'] extends true ? `${Capitalize<FirstWord>}${CamelCaseFromArray<RemainingWords, Options>}` : `${Capitalize<Lowercase<FirstWord>>}${CamelCaseFromArray<RemainingWords, Options>}` : OutputString
+ * export type CamelCaseFromArray<
+ *   Words extends string[],
+ *   Options extends Required<CamelCaseOptions>,
+ *   OutputString extends string = ''
+ * > =
+ *   Words extends [infer FirstWord extends string, ...infer RemainingWords extends string[]]
+ *     ? Options['preserveConsecutiveUppercase'] extends true
+ *       ? `${Capitalize<FirstWord>}${CamelCaseFromArray<RemainingWords, Options>}`
+ *       : `${Capitalize<Lowercase<FirstWord>>}${CamelCaseFromArray<RemainingWords, Options>}`
+ *     : OutputString
  */
 
 // ✓ CamelCase: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CamelCase(Type, Options: CamelCaseOptions = {}) {
-  if (matches<string>(Type)) {
+  if (typeof Type === 'string') {
     if (matches<typeof Type>(string)) {
       return Type
     }
@@ -64,5 +76,10 @@ export function CamelCase(Type, Options: CamelCaseOptions = {}) {
   return Type
 }
 /* compiles to:
- * export type CamelCase<Type, Options extends CamelCaseOptions = {}> = Type extends string ? string extends Type ? Type : `${Options['preserveLeadingUnderscores'] extends true ? LeadingUnderscores<Type> : ''}${Uncapitalize<CamelCaseFromArray<Words<Type extends Uppercase<Type> ? Lowercase<Type> : Type, Options>, ApplyDefaultOptions<CamelCaseOptions, _DefaultCamelCaseOptions, Options>>>}` : Type
+ * export type CamelCase<Type, Options extends CamelCaseOptions = {}> =
+ *   Type extends string
+ *     ? string extends Type
+ *       ? Type
+ *       : `${Options['preserveLeadingUnderscores'] extends true ? LeadingUnderscores<Type> : ''}${Uncapitalize<CamelCaseFromArray<Words<Type extends Uppercase<Type> ? Lowercase<Type> : Type, Options>, ApplyDefaultOptions<CamelCaseOptions, _DefaultCamelCaseOptions, Options>>>}`
+ *     : Type
  */

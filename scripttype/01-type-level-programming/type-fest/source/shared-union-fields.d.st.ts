@@ -16,12 +16,12 @@ declare const ReadonlyMap: any
 declare const ReadonlySet: any
 declare const Simplify: any
 declare const UnknownArray: any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ SharedUnionFields: the ScriptType does not itself typecheck as TypeScript
 //   SharedUnionFields.st.ts(3:80) TS2693: 'ReadonlyMap' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -37,5 +37,15 @@ export function SharedUnionFields(Union) {
   return never
 }
 /* compiles to:
- * export type SharedUnionFields<Union> = Extract<Union, NonRecursiveType | ReadonlyMap<unknown, unknown> | ReadonlySet<unknown> | UnknownArray> extends infer SkippedMembers ? Exclude<Union, SkippedMembers> extends infer RelevantMembers ? SkippedMembers | (IsNever<RelevantMembers> extends true ? never : Simplify<Pick<RelevantMembers, keyof RelevantMembers>>) : never : never
+ * export type SharedUnionFields<Union> =
+ *   Extract<Union, NonRecursiveType | ReadonlyMap<unknown, unknown> | ReadonlySet<unknown> | UnknownArray> extends infer SkippedMembers
+ *     ? Exclude<Union, SkippedMembers> extends infer RelevantMembers
+ *       ? | SkippedMembers
+ *       | (
+ *           IsNever<RelevantMembers> extends true
+ *             ? never
+ *             : Simplify<Pick<RelevantMembers, keyof RelevantMembers>>
+ *         )
+ *       : never
+ *     : never
  */

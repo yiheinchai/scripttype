@@ -15,20 +15,29 @@ declare const EarlyHintsOptions: any
 declare const InlineCssOptions: any
 declare const Request: any
 declare const Response: any
-type BaseContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EarlyHintsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InlineCssOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Request<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Response<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EarlyHintsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InlineCssOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Request<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ RequestOptions: the ScriptType does not itself typecheck as TypeScript
 //   RequestOptions.st.ts(4:49) TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
 /* @scripttype preserveParamNames */
 export function RequestOptions(TRegister) {
   const m1 = matches<{ server: { requestContext: Hole<"TRequestContext">; }; }>(TRegister)
-  return EarlyHintsOptions & InlineCssOptions & (m1 ? (matches<undefined>(m1.TRequestContext) ? { context: optional(m1.TRequestContext & BaseContext) } : { context: m1.TRequestContext & BaseContext }) : { context: optional(BaseContext) })
+  return EarlyHintsOptions & InlineCssOptions & (m1 ? (typeof m1.TRequestContext === 'undefined' ? { context: optional(m1.TRequestContext & BaseContext) } : { context: m1.TRequestContext & BaseContext }) : { context: optional(BaseContext) })
 }
 /* compiles to:
- * export type RequestOptions<TRegister> = EarlyHintsOptions & InlineCssOptions & (TRegister extends { server: { requestContext: infer TRequestContext; }; } ? TRequestContext extends undefined ? { context?: TRequestContext & BaseContext } : { context: TRequestContext & BaseContext } : { context?: BaseContext })
+ * export type RequestOptions<TRegister> =
+ *   & EarlyHintsOptions
+ *   & InlineCssOptions
+ *   & (
+ *       TRegister extends { server: { requestContext: infer TRequestContext; }; }
+ *         ? TRequestContext extends undefined
+ *           ? { context?: TRequestContext & BaseContext }
+ *           : { context: TRequestContext & BaseContext }
+ *         : { context?: BaseContext }
+ *     )
  */
 
 // ✓ HasRequired: verified type-identical to the original
@@ -47,7 +56,10 @@ export function HasRequired(T) {
   return true
 }
 /* compiles to:
- * export type HasRequired<T> = keyof T extends never ? false : { [K in keyof T]-?: undefined extends T[K] ? never : K }[keyof T] extends never ? false : true
+ * export type HasRequired<T> =
+ *   keyof T extends never ? false
+ *   : { [K in keyof T]-?: undefined extends T[K] ? never : K }[keyof T] extends never ? false
+ *   : true
  */
 
 // ✓ RequestHandler: verified type-identical to the original
@@ -59,5 +71,8 @@ export function RequestHandler(TRegister) {
   return fnType([Request, RequestOptions(TRegister)], t<Promise<Response>>() | Response)
 }
 /* compiles to:
- * export type RequestHandler<TRegister> = HasRequired<RequestOptions<TRegister>> extends true ? (a0: Request, a1: RequestOptions<TRegister>) => Promise<Response> | Response : (a0: Request, a1: RequestOptions<TRegister>) => Promise<Response> | Response
+ * export type RequestHandler<TRegister> =
+ *   HasRequired<RequestOptions<TRegister>> extends true
+ *     ? (a0: Request, a1: RequestOptions<TRegister>) => Promise<Response> | Response
+ *     : (a0: Request, a1: RequestOptions<TRegister>) => Promise<Response> | Response
  */

@@ -12,9 +12,9 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const None: any
 declare const Some: any
-type None<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Option<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Some<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type None<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Option<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Some<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Option: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Option(A) {

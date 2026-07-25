@@ -20,7 +20,10 @@ export function RollbackToSavepoint(S: string[], SN: (typeof S)[number]) {
   return never
 }
 /* compiles to:
- * export type RollbackToSavepoint<S extends string[], SN extends S[number]> = S extends [...infer L, infer R] ? R extends SN ? S : RollbackToSavepoint<L extends string[] ? L : never, SN> : never
+ * export type RollbackToSavepoint<S extends string[], SN extends S[number]> =
+ *   S extends [...infer L, infer R]
+ *     ? R extends SN ? S : RollbackToSavepoint<L extends string[] ? L : never, SN>
+ *     : never
  */
 
 // ✓ ReleaseSavepoint: verified type-identical to the original
@@ -36,5 +39,8 @@ export function ReleaseSavepoint(S: string[], SN: (typeof S)[number]) {
   return never
 }
 /* compiles to:
- * export type ReleaseSavepoint<S extends string[], SN extends S[number]> = S extends [...infer L, infer R] ? R extends SN ? L : ReleaseSavepoint<L extends string[] ? L : never, SN> : never
+ * export type ReleaseSavepoint<S extends string[], SN extends S[number]> =
+ *   S extends [...infer L, infer R]
+ *     ? R extends SN ? L : ReleaseSavepoint<L extends string[] ? L : never, SN>
+ *     : never
  */

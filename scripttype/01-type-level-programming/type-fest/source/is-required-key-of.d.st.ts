@@ -13,20 +13,23 @@
 declare const IsAny: any
 declare const IsOptionalKeyOf: any
 declare const Not: any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsOptionalKeyOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Not<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsOptionalKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsRequiredKeyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsRequiredKeyOf(Type: object, Key: keyof typeof Type) {
   if (matches<true>(IsAny(anyOf(Type, Key)))) {
     return never
   }
-  if (matches<keyof typeof Type>(Key)) {
+  if (Key in Type) {
     return Not(IsOptionalKeyOf(Type, Key))
   }
   return false
 }
 /* compiles to:
- * export type IsRequiredKeyOf<Type extends object, Key extends keyof Type> = IsAny<Type | Key> extends true ? never : Key extends keyof Type ? Not<IsOptionalKeyOf<Type, Key>> : false
+ * export type IsRequiredKeyOf<Type extends object, Key extends keyof Type> =
+ *   IsAny<Type | Key> extends true ? never
+ *   : Key extends keyof Type ? Not<IsOptionalKeyOf<Type, Key>>
+ *   : false
  */

@@ -16,15 +16,15 @@ declare const NoInfer: any
 declare const Reducer: any
 declare const TypeGuard: any
 declare const UnknownAction: any
-type Action<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ActionMatcherDescription<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Actions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Draft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NoInfer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NotFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Reducer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypeGuard<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Action<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ActionMatcherDescription<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Actions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Draft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NoInfer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NotFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Reducer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypeGuard<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Actions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Actions(T: keyof any = string) {
@@ -41,7 +41,10 @@ export function ActionMatcherDescription(S, A: Action) {
   return { matcher: TypeGuard(A), reducer: CaseReducer(S, NoInfer(A)) }
 }
 /* compiles to:
- * export type ActionMatcherDescription<S, A extends Action> = { matcher: TypeGuard<A>; reducer: CaseReducer<S, NoInfer<A>> }
+ * export type ActionMatcherDescription<S, A extends Action> = {
+ *   matcher: TypeGuard<A>
+ *   reducer: CaseReducer<S, NoInfer<A>>
+ * }
  */
 
 // ✓ ReadonlyActionMatcherDescriptionCollection: verified type-identical to the original
@@ -50,7 +53,9 @@ export function ReadonlyActionMatcherDescriptionCollection(S) {
   return t<ReadonlyArray<ActionMatcherDescription<typeof S, any>>>()
 }
 /* compiles to:
- * export type ReadonlyActionMatcherDescriptionCollection<S> = ReadonlyArray<ActionMatcherDescription<S, any>>
+ * export type ReadonlyActionMatcherDescriptionCollection<S> = ReadonlyArray<
+ *   ActionMatcherDescription<S, any>
+ * >
  */
 
 // ✓ ActionMatcherDescriptionCollection: verified type-identical to the original
@@ -69,7 +74,8 @@ export function CaseReducer(S = any, A: Action = UnknownAction) {
   return fnType([Draft(S), A], NoInfer(S) | voidType() | Draft(NoInfer(S)))
 }
 /* compiles to:
- * export type CaseReducer<S = any, A extends Action = UnknownAction> = (a0: Draft<S>, a1: A) => NoInfer<S> | void | Draft<NoInfer<S>>
+ * export type CaseReducer<S = any, A extends Action = UnknownAction> =
+ *   (a0: Draft<S>, a1: A) => NoInfer<S> | void | Draft<NoInfer<S>>
  */
 
 // ✓ CaseReducers: verified type-identical to the original
@@ -82,7 +88,9 @@ export function CaseReducers(S, AS: Actions) {
   return out
 }
 /* compiles to:
- * export type CaseReducers<S, AS extends Actions> = { [T in keyof AS]: AS[T] extends Action ? CaseReducer<S, AS[T]> : void }
+ * export type CaseReducers<S, AS extends Actions> = {
+ *   [T in keyof AS]: AS[T] extends Action ? CaseReducer<S, AS[T]> : void
+ * }
  */
 
 // ✓ NotFunction: verified type-identical to the original
@@ -103,5 +111,6 @@ export function ReducerWithInitialState(S: NotFunction<any>) {
   return merge(Reducer(S), { getInitialState: fnType([], S) })
 }
 /* compiles to:
- * export type ReducerWithInitialState<S extends NotFunction<any>> = Reducer<S> & { getInitialState: () => S }
+ * export type ReducerWithInitialState<S extends NotFunction<any>> =
+ *   Reducer<S> & { getInitialState: () => S }
  */

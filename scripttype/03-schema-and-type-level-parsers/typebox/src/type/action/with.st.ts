@@ -12,15 +12,18 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TDeferred: any
 declare const TSchema: any
-type TDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TWithDeferred: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TWithDeferred(Type: TSchema, Options: TSchema) {
   return TDeferred('With', [Type, Options])
 }
 /* compiles to:
- * export type TWithDeferred<Type extends TSchema, Options extends TSchema> = TDeferred<'With', [Type, Options]>
+ * export type TWithDeferred<Type extends TSchema, Options extends TSchema> = TDeferred<
+ *   'With',
+ *   [Type, Options]
+ * >
  */
 
 // ✓ TWith: verified type-identical to the original

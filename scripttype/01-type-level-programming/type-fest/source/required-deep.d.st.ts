@@ -18,15 +18,15 @@ declare const ReadonlyMap: any
 declare const ReadonlySet: any
 declare const Simplify: any
 declare const ValueType: any
-type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HasMultipleCallSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ItemType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HasMultipleCallSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ItemType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ RequiredDeep: the ScriptType does not itself typecheck as TypeScript
 //   RequiredDeep.st.ts(16:12) TS2693: 'ReadonlyMap' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -77,7 +77,24 @@ export function RequiredDeep(T) {
   return unknown
 }
 /* compiles to:
- * export type RequiredDeep<T> = T extends BuiltIns ? T : T extends Map<infer KeyType, infer ValueType> ? Map<RequiredDeep<KeyType>, RequiredDeep<ValueType>> : T extends Set<infer ItemType> ? Set<RequiredDeep<ItemType>> : T extends ReadonlyMap<infer KeyType, infer ValueType> ? ReadonlyMap<RequiredDeep<KeyType>, RequiredDeep<ValueType>> : T extends ReadonlySet<infer ItemType> ? ReadonlySet<RequiredDeep<ItemType>> : T extends WeakMap<infer KeyType, infer ValueType> ? WeakMap<RequiredDeep<KeyType>, RequiredDeep<ValueType>> : T extends WeakSet<infer ItemType> ? WeakSet<RequiredDeep<ItemType>> : T extends Promise<infer ValueType> ? Promise<RequiredDeep<ValueType>> : T extends (...arguments_: any[]) => unknown ? IsNever<keyof T> extends true ? T : HasMultipleCallSignatures<T> extends true ? T : ((a0: Parameters<T>) => ReturnType<T>) & RequiredObjectDeep<T> : T extends object ? Simplify<RequiredObjectDeep<T>> : unknown
+ * export type RequiredDeep<T> =
+ *   T extends BuiltIns ? T
+ *   : T extends Map<infer KeyType, infer ValueType>
+ *     ? Map<RequiredDeep<KeyType>, RequiredDeep<ValueType>>
+ *   : T extends Set<infer ItemType> ? Set<RequiredDeep<ItemType>>
+ *   : T extends ReadonlyMap<infer KeyType, infer ValueType>
+ *     ? ReadonlyMap<RequiredDeep<KeyType>, RequiredDeep<ValueType>>
+ *   : T extends ReadonlySet<infer ItemType> ? ReadonlySet<RequiredDeep<ItemType>>
+ *   : T extends WeakMap<infer KeyType, infer ValueType>
+ *     ? WeakMap<RequiredDeep<KeyType>, RequiredDeep<ValueType>>
+ *   : T extends WeakSet<infer ItemType> ? WeakSet<RequiredDeep<ItemType>>
+ *   : T extends Promise<infer ValueType> ? Promise<RequiredDeep<ValueType>>
+ *   : T extends (...arguments_: any[]) => unknown
+ *     ? IsNever<keyof T> extends true ? T
+ *     : HasMultipleCallSignatures<T> extends true ? T
+ *     : ((a0: Parameters<T>) => ReturnType<T>) & RequiredObjectDeep<T>
+ *   : T extends object ? Simplify<RequiredObjectDeep<T>>
+ *   : unknown
  */
 
 // ✓ RequiredObjectDeep: verified type-identical to the original
@@ -90,5 +107,7 @@ export function RequiredObjectDeep(ObjectType: object) {
   return out
 }
 /* compiles to:
- * export type RequiredObjectDeep<ObjectType extends object> = { [KeyType in keyof ObjectType]-?: RequiredDeep<ObjectType[KeyType]> }
+ * export type RequiredObjectDeep<ObjectType extends object> = {
+ *   [KeyType in keyof ObjectType]-?: RequiredDeep<ObjectType[KeyType]>
+ * }
  */

@@ -17,18 +17,24 @@ declare const ConsumerStreamResultData: any
 declare const ConsumerStreamResultError: any
 declare const ConsumerStreamResultPing: any
 declare const ConsumerStreamResultTimeout: any
-type ConsumerConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConsumerStreamResultConnected<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConsumerStreamResultConnecting<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConsumerStreamResultData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConsumerStreamResultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConsumerStreamResultPing<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConsumerStreamResultTimeout<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ConsumerConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConsumerStreamResultConnected<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConsumerStreamResultConnecting<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConsumerStreamResultData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConsumerStreamResultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConsumerStreamResultPing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConsumerStreamResultTimeout<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ConsumerStreamResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ConsumerStreamResult(TConfig: ConsumerConfig) {
   return ConsumerStreamResultData(TConfig) | ConsumerStreamResultError(TConfig) | ConsumerStreamResultConnecting(TConfig) | ConsumerStreamResultTimeout(TConfig) | ConsumerStreamResultPing(TConfig) | ConsumerStreamResultConnected(TConfig)
 }
 /* compiles to:
- * export type ConsumerStreamResult<TConfig extends ConsumerConfig> = ConsumerStreamResultData<TConfig> | ConsumerStreamResultError<TConfig> | ConsumerStreamResultConnecting<TConfig> | ConsumerStreamResultTimeout<TConfig> | ConsumerStreamResultPing<TConfig> | ConsumerStreamResultConnected<TConfig>
+ * export type ConsumerStreamResult<TConfig extends ConsumerConfig> =
+ *   | ConsumerStreamResultData<TConfig>
+ *   | ConsumerStreamResultError<TConfig>
+ *   | ConsumerStreamResultConnecting<TConfig>
+ *   | ConsumerStreamResultTimeout<TConfig>
+ *   | ConsumerStreamResultPing<TConfig>
+ *   | ConsumerStreamResultConnected<TConfig>
  */

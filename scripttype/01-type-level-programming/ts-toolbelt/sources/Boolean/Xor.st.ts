@@ -14,5 +14,6 @@ export function Xor(B1: Boolean, B2: Boolean) {
   return { 0: { 0: 0, 1: 1 }, 1: { 0: 1, 1: 0 } }[B1][B2]
 }
 /* compiles to:
- * export type Xor<B1 extends Boolean, B2 extends Boolean> = { '0': { '0': 0; '1': 1 }; '1': { '0': 1; '1': 0 } }[B1][B2]
+ * export type Xor<B1 extends Boolean, B2 extends Boolean> =
+ *   { '0': { '0': 0; '1': 1 }; '1': { '0': 1; '1': 0 } }[B1][B2]
  */

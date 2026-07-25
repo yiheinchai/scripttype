@@ -19,22 +19,29 @@ declare const OperationContext: any
 declare const OperationResultEnvelope: any
 declare const TRPCClientError: any
 declare const TRPCClientRuntime: any
-type AbortSignal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferrableClientTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Maybe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Observable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Observer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OperationContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OperationResultEnvelope<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCClientError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCClientRuntime<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AbortSignal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferrableClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Maybe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Observable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Observer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OperationContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OperationResultEnvelope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCClientError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCClientRuntime<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Operation: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Operation(TInput = unknown) {
   return { id: number, type: anyOf('mutation', 'query', 'subscription'), input: TInput, path: string, context: OperationContext, signal: Maybe(AbortSignal) }
 }
 /* compiles to:
- * export type Operation<TInput = unknown> = { id: number; type: 'mutation' | 'query' | 'subscription'; input: TInput; path: string; context: OperationContext; signal: Maybe<AbortSignal> }
+ * export type Operation<TInput = unknown> = {
+ *   id: number
+ *   type: 'mutation' | 'query' | 'subscription'
+ *   input: TInput
+ *   path: string
+ *   context: OperationContext
+ *   signal: Maybe<AbortSignal>
+ * }
  */
 
 // ✓ OperationResultObservable: verified type-identical to the original
@@ -43,7 +50,10 @@ export function OperationResultObservable(TInferrable: InferrableClientTypes, TO
   return Observable(OperationResultEnvelope(TOutput, TRPCClientError(TInferrable)), TRPCClientError(TInferrable))
 }
 /* compiles to:
- * export type OperationResultObservable<TInferrable extends InferrableClientTypes, TOutput> = Observable<OperationResultEnvelope<TOutput, TRPCClientError<TInferrable>>, TRPCClientError<TInferrable>>
+ * export type OperationResultObservable<TInferrable extends InferrableClientTypes, TOutput> = Observable<
+ *   OperationResultEnvelope<TOutput, TRPCClientError<TInferrable>>,
+ *   TRPCClientError<TInferrable>
+ * >
  */
 
 // ✓ OperationResultObserver: verified type-identical to the original
@@ -52,7 +62,10 @@ export function OperationResultObserver(TInferrable: InferrableClientTypes, TOut
   return Observer(OperationResultEnvelope(TOutput, TRPCClientError(TInferrable)), TRPCClientError(TInferrable))
 }
 /* compiles to:
- * export type OperationResultObserver<TInferrable extends InferrableClientTypes, TOutput> = Observer<OperationResultEnvelope<TOutput, TRPCClientError<TInferrable>>, TRPCClientError<TInferrable>>
+ * export type OperationResultObserver<TInferrable extends InferrableClientTypes, TOutput> = Observer<
+ *   OperationResultEnvelope<TOutput, TRPCClientError<TInferrable>>,
+ *   TRPCClientError<TInferrable>
+ * >
  */
 
 // ✓ OperationLink: verified type-identical to the original
@@ -61,7 +74,14 @@ export function OperationLink(TInferrable: InferrableClientTypes, TInput = unkno
   return fnType([{ op: Operation(TInput), next: fnType([Operation(TInput)], OperationResultObservable(TInferrable, TOutput)) }], OperationResultObservable(TInferrable, TOutput))
 }
 /* compiles to:
- * export type OperationLink<TInferrable extends InferrableClientTypes, TInput = unknown, TOutput = unknown> = (a0: { op: Operation<TInput>; next: (a0: Operation<TInput>) => OperationResultObservable<TInferrable, TOutput> }) => OperationResultObservable<TInferrable, TOutput>
+ * export type OperationLink<
+ *   TInferrable extends InferrableClientTypes,
+ *   TInput = unknown,
+ *   TOutput = unknown
+ * > =
+ *   (
+ *     a0: { op: Operation<TInput>; next: (a0: Operation<TInput>) => OperationResultObservable<TInferrable, TOutput> }
+ *   ) => OperationResultObservable<TInferrable, TOutput>
  */
 
 // ✓ TRPCLink: verified type-identical to the original
@@ -70,5 +90,6 @@ export function TRPCLink(TInferrable: InferrableClientTypes) {
   return fnType([TRPCClientRuntime], OperationLink(TInferrable))
 }
 /* compiles to:
- * export type TRPCLink<TInferrable extends InferrableClientTypes> = (a0: TRPCClientRuntime) => OperationLink<TInferrable>
+ * export type TRPCLink<TInferrable extends InferrableClientTypes> =
+ *   (a0: TRPCClientRuntime) => OperationLink<TInferrable>
  */

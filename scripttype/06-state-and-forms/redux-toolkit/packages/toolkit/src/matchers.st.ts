@@ -15,18 +15,20 @@ declare const AnyAsyncThunk: any
 declare const AsyncThunk: any
 declare const Matcher: any
 declare const UnionToIntersection: any
-type ActionFromMatcher<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyAsyncThunk<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AsyncThunk<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Matcher<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActionFromMatcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyAsyncThunk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AsyncThunk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Matcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ActionMatchingAnyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ActionMatchingAnyOf(Matchers: Matcher<any>[]) {
   return ActionFromMatcher(Matchers[number])
 }
 /* compiles to:
- * export type ActionMatchingAnyOf<Matchers extends Matcher<any>[]> = ActionFromMatcher<Matchers[number]>
+ * export type ActionMatchingAnyOf<Matchers extends Matcher<any>[]> = ActionFromMatcher<
+ *   Matchers[number]
+ * >
  */
 
 // ✓ ActionMatchingAllOf: verified type-identical to the original
@@ -35,7 +37,9 @@ export function ActionMatchingAllOf(Matchers: Matcher<any>[]) {
   return UnionToIntersection(ActionMatchingAnyOf(Matchers))
 }
 /* compiles to:
- * export type ActionMatchingAllOf<Matchers extends Matcher<any>[]> = UnionToIntersection<ActionMatchingAnyOf<Matchers>>
+ * export type ActionMatchingAllOf<Matchers extends Matcher<any>[]> = UnionToIntersection<
+ *   ActionMatchingAnyOf<Matchers>
+ * >
  */
 
 // ✓ PendingActionFromAsyncThunk: verified type-identical to the original
@@ -44,7 +48,9 @@ export function PendingActionFromAsyncThunk(T: AnyAsyncThunk) {
   return ActionFromMatcher(T['pending'])
 }
 /* compiles to:
- * export type PendingActionFromAsyncThunk<T extends AnyAsyncThunk> = ActionFromMatcher<T['pending']>
+ * export type PendingActionFromAsyncThunk<T extends AnyAsyncThunk> = ActionFromMatcher<
+ *   T['pending']
+ * >
  */
 
 // ✓ RejectedActionFromAsyncThunk: verified type-identical to the original
@@ -53,7 +59,9 @@ export function RejectedActionFromAsyncThunk(T: AnyAsyncThunk) {
   return ActionFromMatcher(T['rejected'])
 }
 /* compiles to:
- * export type RejectedActionFromAsyncThunk<T extends AnyAsyncThunk> = ActionFromMatcher<T['rejected']>
+ * export type RejectedActionFromAsyncThunk<T extends AnyAsyncThunk> = ActionFromMatcher<
+ *   T['rejected']
+ * >
  */
 
 // ✓ RejectedWithValueActionFromAsyncThunk: verified type-identical to the original
@@ -63,7 +71,13 @@ export function RejectedWithValueActionFromAsyncThunk(T: AnyAsyncThunk) {
   return ActionFromMatcher(T['rejected']) & (m1 ? { payload: m1.RejectedValue } : unknown)
 }
 /* compiles to:
- * export type RejectedWithValueActionFromAsyncThunk<T extends AnyAsyncThunk> = ActionFromMatcher<T['rejected']> & (T extends AsyncThunk<any, any, { rejectValue: infer RejectedValue; }> ? { payload: RejectedValue } : unknown)
+ * export type RejectedWithValueActionFromAsyncThunk<T extends AnyAsyncThunk> =
+ *   & ActionFromMatcher<T['rejected']>
+ *   & (
+ *       T extends AsyncThunk<any, any, { rejectValue: infer RejectedValue; }>
+ *         ? { payload: RejectedValue }
+ *         : unknown
+ *     )
  */
 
 // ✓ FulfilledActionFromAsyncThunk: verified type-identical to the original
@@ -72,7 +86,9 @@ export function FulfilledActionFromAsyncThunk(T: AnyAsyncThunk) {
   return ActionFromMatcher(T['fulfilled'])
 }
 /* compiles to:
- * export type FulfilledActionFromAsyncThunk<T extends AnyAsyncThunk> = ActionFromMatcher<T['fulfilled']>
+ * export type FulfilledActionFromAsyncThunk<T extends AnyAsyncThunk> = ActionFromMatcher<
+ *   T['fulfilled']
+ * >
  */
 
 // ✓ ActionsFromAsyncThunk: verified type-identical to the original
@@ -81,5 +97,8 @@ export function ActionsFromAsyncThunk(T: AnyAsyncThunk) {
   return ActionFromMatcher(T['pending']) | ActionFromMatcher(T['fulfilled']) | ActionFromMatcher(T['rejected'])
 }
 /* compiles to:
- * export type ActionsFromAsyncThunk<T extends AnyAsyncThunk> = ActionFromMatcher<T['pending']> | ActionFromMatcher<T['fulfilled']> | ActionFromMatcher<T['rejected']>
+ * export type ActionsFromAsyncThunk<T extends AnyAsyncThunk> =
+ *   | ActionFromMatcher<T['pending']>
+ *   | ActionFromMatcher<T['fulfilled']>
+ *   | ActionFromMatcher<T['rejected']>
  */

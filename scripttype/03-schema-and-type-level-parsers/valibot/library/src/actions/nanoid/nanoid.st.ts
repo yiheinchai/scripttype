@@ -13,9 +13,9 @@
 declare const ErrorMessage: any
 declare const NanoIdAction: any
 declare const NanoIdIssue: any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NanoIdAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NanoIdIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NanoIdAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NanoIdIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NanoIDIssue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NanoIDIssue(TInput: string) {
@@ -31,5 +31,9 @@ export function NanoIDAction(TInput: string, TMessage: ErrorMessage<NanoIdIssue<
   return NanoIdAction(TInput, TMessage)
 }
 /* compiles to:
- * export type NanoIDAction<TInput extends string, TMessage extends ErrorMessage<NanoIdIssue<TInput>> | undefined> = NanoIdAction<TInput, TMessage>
+ * export type NanoIDAction<
+ *   TInput extends string,
+ *   TMessage extends ErrorMessage<NanoIdIssue<TInput>> | undefined
+ * > =
+ *   NanoIdAction<TInput, TMessage>
  */

@@ -13,5 +13,9 @@ export function Listener(A) {
   return { f: readonlyProp(fnType([A], voidType())), prev: Listener(A) | Null, next: Listener(A) | Null }
 }
 /* compiles to:
- * export type Listener<A> = { readonly f: (a0: A) => void; prev: Listener<A> | null; next: Listener<A> | null }
+ * export type Listener<A> = {
+ *   readonly f: (a0: A) => void
+ *   prev: Listener<A> | null
+ *   next: Listener<A> | null
+ * }
  */

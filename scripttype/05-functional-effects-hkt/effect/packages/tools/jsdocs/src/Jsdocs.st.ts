@@ -13,7 +13,9 @@ export function Result(A, E) {
   return anyOf({ _tag: readonlyProp('Success'), value: readonlyProp(A) }, { _tag: readonlyProp('Failure'), error: readonlyProp(E) })
 }
 /* compiles to:
- * export type Result<A, E> = { readonly _tag: 'Success'; readonly value: A } | { readonly _tag: 'Failure'; readonly error: E }
+ * export type Result<A, E> =
+ *   | { readonly _tag: 'Success'; readonly value: A }
+ *   | { readonly _tag: 'Failure'; readonly error: E }
  */
 
 // ✓ JSDocResult: verified type-identical to the original

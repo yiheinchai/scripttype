@@ -12,9 +12,9 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const NormalizedSchema: any
 declare const Traversal: any
-type NormalizedSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Predicate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Traversal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type NormalizedSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Predicate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Traversal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Schema: does not compile yet
 //   Cannot find name 'NormalizedSchema'. Did you mean 'BaseNormalizedSchema'?
 /* @scripttype preserveParamNames */
@@ -22,7 +22,8 @@ export function Schema(predicate: Predicate = Predicate) {
   return anyOf(NormalizedSchema(predicate), predicate)
 }
 /* compiles to:
- * export type Schema<predicate extends Predicate = Predicate> = NormalizedSchema<predicate> | predicate
+ * export type Schema<predicate extends Predicate = Predicate> =
+ *   NormalizedSchema<predicate> | predicate
  */
 
 // ✓ Predicate: verified type-identical to the original
@@ -48,5 +49,6 @@ export function Castable(input = never, narrowed: typeof input = input) {
   return Predicate(input) | Casted(input, narrowed)
 }
 /* compiles to:
- * export type Castable<input = never, narrowed extends input = input> = Predicate<input> | Casted<input, narrowed>
+ * export type Castable<input = never, narrowed extends input = input> =
+ *   Predicate<input> | Casted<input, narrowed>
  */

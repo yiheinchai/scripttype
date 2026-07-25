@@ -13,5 +13,8 @@ export function TrackableQueryObserver(TResult: object) {
   return { options: { notifyOnChangeProps: optional(unknown) }, trackResult: fnType([TResult], unknown) }
 }
 /* compiles to:
- * export type TrackableQueryObserver<TResult extends object> = { options: { notifyOnChangeProps?: unknown }; trackResult: (a0: TResult) => unknown }
+ * export type TrackableQueryObserver<TResult extends object> = {
+ *   options: { notifyOnChangeProps?: unknown }
+ *   trackResult: (a0: TResult) => unknown
+ * }
  */

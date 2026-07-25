@@ -10,10 +10,13 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Scanner {
+  export type skipWhitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Scanner: any
 declare const TerminatingChar: any
-type Scanner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TerminatingChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TerminatingChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ lookaheadIsFinalizing: does not compile yet
 //   Type 'string | number | symbol' is not assignable to type 'string | number | bigint | boolean | null | undefined'.   Type 'symbol' is not assignable to type 'st
 /* @scripttype preserveParamNames */
@@ -43,5 +46,13 @@ export function lookaheadIsFinalizing(lookahead: string, unscanned: string) {
   return false
 }
 /* compiles to:
- * export type lookaheadIsFinalizing<lookahead extends string, unscanned extends string> = lookahead extends '>' ? unscanned extends `=${infer nextUnscanned}` ? nextUnscanned extends `=${string}` ? true : false : Scanner.skipWhitespace<unscanned> extends '' | `${TerminatingChar}${string}` ? true : false : lookahead extends '=' ? unscanned extends `=${string}` ? false : true : lookahead extends ',' | '?' ? true : false
+ * export type lookaheadIsFinalizing<lookahead extends string, unscanned extends string> =
+ *   lookahead extends '>'
+ *     ? unscanned extends `=${infer nextUnscanned}`
+ *       ? nextUnscanned extends `=${string}` ? true : false
+ *     : Scanner.skipWhitespace<unscanned> extends '' | `${TerminatingChar}${string}` ? true
+ *     : false
+ *   : lookahead extends '=' ? unscanned extends `=${string}` ? false : true
+ *   : lookahead extends ',' | '?' ? true
+ *   : false
  */

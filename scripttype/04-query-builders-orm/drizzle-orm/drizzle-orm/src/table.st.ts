@@ -18,21 +18,23 @@ declare const Simplify: any
 declare const Table: any
 declare const TableConfig: any
 declare const Update: any
-type Column<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GetColumnData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalKeyOnly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredKeyOnly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Table<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Update<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetColumnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalKeyOnly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredKeyOnly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Update<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UpdateTableConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UpdateTableConfig(T: TableConfig, TUpdate: Partial<TableConfig>) {
   return Required(Update(T, TUpdate))
 }
 /* compiles to:
- * export type UpdateTableConfig<T extends TableConfig, TUpdate extends Partial<TableConfig>> = Required<Update<T, TUpdate>>
+ * export type UpdateTableConfig<T extends TableConfig, TUpdate extends Partial<TableConfig>> = Required<
+ *   Update<T, TUpdate>
+ * >
  */
 
 // ✓ AnyTable: verified type-identical to the original
@@ -41,7 +43,9 @@ export function AnyTable(TPartial: Partial<TableConfig>) {
   return Table(UpdateTableConfig(TableConfig, TPartial))
 }
 /* compiles to:
- * export type AnyTable<TPartial extends Partial<TableConfig>> = Table<UpdateTableConfig<TableConfig, TPartial>>
+ * export type AnyTable<TPartial extends Partial<TableConfig>> = Table<
+ *   UpdateTableConfig<TableConfig, TPartial>
+ * >
  */
 
 // ✓ MapColumnName: verified type-identical to the original
@@ -53,7 +57,12 @@ export function MapColumnName(TName: string, TColumn: Column, TDBColumNames: boo
   return TName
 }
 /* compiles to:
- * export type MapColumnName<TName extends string, TColumn extends Column, TDBColumNames extends boolean> = TDBColumNames extends true ? TColumn['_']['name'] : TName
+ * export type MapColumnName<
+ *   TName extends string,
+ *   TColumn extends Column,
+ *   TDBColumNames extends boolean
+ * > =
+ *   TDBColumNames extends true ? TColumn['_']['name'] : TName
  */
 
 // ✓ InferModelFromColumns: verified type-identical to the original
@@ -74,7 +83,30 @@ export function InferModelFromColumns(TColumns: Record<string, Column>, TInferMo
   return Simplify(matches<'insert'>(TInferMode) ? (out & out2) : out3)
 }
 /* compiles to:
- * export type InferModelFromColumns<TColumns extends Record<string, Column>, TInferMode extends 'select' | 'insert' = 'select', TConfig extends { dbColumnNames: boolean; override?: boolean; } = { dbColumnNames: false; override: false }> = Simplify<TInferMode extends 'insert' ? { [Key in keyof TColumns & string as RequiredKeyOnly<MapColumnName<Key, TColumns[Key], TConfig['dbColumnNames']>, TColumns[Key]>]: GetColumnData<TColumns[Key], 'query'> } & { [Key1 in keyof TColumns & string as OptionalKeyOnly<MapColumnName<Key1, TColumns[Key1], TConfig['dbColumnNames']>, TColumns[Key1], TConfig['override']>]?: GetColumnData<TColumns[Key1], 'query'> | undefined } : { [Key2 in keyof TColumns & string as MapColumnName<Key2, TColumns[Key2], TConfig['dbColumnNames']>]: GetColumnData<TColumns[Key2], 'query'> }>
+ * export type InferModelFromColumns<
+ *   TColumns extends Record<string, Column>,
+ *   TInferMode extends 'select' | 'insert' = 'select',
+ *   TConfig extends { dbColumnNames: boolean; override?: boolean; } = { dbColumnNames: false; override: false }
+ * > =
+ *   Simplify<
+ *     TInferMode extends 'insert'
+ *       ? & {
+ *           [Key in keyof TColumns & string as RequiredKeyOnly<MapColumnName<Key, TColumns[Key], TConfig['dbColumnNames']>, TColumns[Key]>]: GetColumnData<
+ *             TColumns[Key],
+ *             'query'
+ *           >
+ *         }
+ *       & {
+ *           [Key1 in keyof TColumns & string as OptionalKeyOnly<MapColumnName<Key1, TColumns[Key1], TConfig['dbColumnNames']>, TColumns[Key1], TConfig['override']>]?: | GetColumnData<TColumns[Key1], 'query'>
+ *           | undefined
+ *         }
+ *       : {
+ *         [Key2 in keyof TColumns & string as MapColumnName<Key2, TColumns[Key2], TConfig['dbColumnNames']>]: GetColumnData<
+ *           TColumns[Key2],
+ *           'query'
+ *         >
+ *       }
+ *   >
  */
 
 // ✓ InferModel: verified type-identical to the original
@@ -83,7 +115,12 @@ export function InferModel(TTable: Table, TInferMode: 'select' | 'insert' = 'sel
   return InferModelFromColumns(TTable['_']['columns'], TInferMode, TConfig)
 }
 /* compiles to:
- * export type InferModel<TTable extends Table, TInferMode extends 'select' | 'insert' = 'select', TConfig extends { dbColumnNames: boolean; } = { dbColumnNames: false }> = InferModelFromColumns<TTable['_']['columns'], TInferMode, TConfig>
+ * export type InferModel<
+ *   TTable extends Table,
+ *   TInferMode extends 'select' | 'insert' = 'select',
+ *   TConfig extends { dbColumnNames: boolean; } = { dbColumnNames: false }
+ * > =
+ *   InferModelFromColumns<TTable['_']['columns'], TInferMode, TConfig>
  */
 
 // ✓ InferSelectModel: verified type-identical to the original
@@ -92,7 +129,11 @@ export function InferSelectModel(TTable: Table, TConfig: { dbColumnNames: boolea
   return InferModelFromColumns(TTable['_']['columns'], 'select', TConfig)
 }
 /* compiles to:
- * export type InferSelectModel<TTable extends Table, TConfig extends { dbColumnNames: boolean; } = { dbColumnNames: false }> = InferModelFromColumns<TTable['_']['columns'], 'select', TConfig>
+ * export type InferSelectModel<
+ *   TTable extends Table,
+ *   TConfig extends { dbColumnNames: boolean; } = { dbColumnNames: false }
+ * > =
+ *   InferModelFromColumns<TTable['_']['columns'], 'select', TConfig>
  */
 
 // ✓ InferInsertModel: verified type-identical to the original
@@ -101,7 +142,11 @@ export function InferInsertModel(TTable: Table, TConfig: { dbColumnNames: boolea
   return InferModelFromColumns(TTable['_']['columns'], 'insert', TConfig)
 }
 /* compiles to:
- * export type InferInsertModel<TTable extends Table, TConfig extends { dbColumnNames: boolean; override?: boolean; } = { dbColumnNames: false; override: false }> = InferModelFromColumns<TTable['_']['columns'], 'insert', TConfig>
+ * export type InferInsertModel<
+ *   TTable extends Table,
+ *   TConfig extends { dbColumnNames: boolean; override?: boolean; } = { dbColumnNames: false; override: false }
+ * > =
+ *   InferModelFromColumns<TTable['_']['columns'], 'insert', TConfig>
  */
 
 // ✓ InferEnum: verified type-identical to the original

@@ -17,13 +17,13 @@ declare const Next: any
 declare const Pos: any
 declare const Prev: any
 declare const _IsNegative: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prev<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _IsNegative<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _SubPositive: does not compile yet
 //   Type 'Pos<N2> extends 0 ? 1 : number extends Pos<N2> ? 2 : 0' cannot be used to index type '{ '0': _SubPositive__st0<Prev<N1>, Prev<N2>>; '1': N1; '2': number; 
 /* @scripttype preserveParamNames */
@@ -31,7 +31,8 @@ export function _SubPositive(N1: Iteration, N2: Iteration) {
   return { 0: _SubPositive(Prev(N1), Prev(N2)), 1: N1, 2: number }[matches<0>(Pos(N2)) ? 1 : (matches<Pos<typeof N2>>(number) ? 2 : 0)]
 }
 /* compiles to:
- * export type _SubPositive<N1 extends Iteration, N2 extends Iteration> = { '0': _SubPositive<Prev<N1>, Prev<N2>>; '1': N1; '2': number }[Pos<N2> extends 0 ? 1 : number extends Pos<N2> ? 2 : 0]
+ * export type _SubPositive<N1 extends Iteration, N2 extends Iteration> =
+ *   { '0': _SubPositive<Prev<N1>, Prev<N2>>; '1': N1; '2': number }[Pos<N2> extends 0 ? 1 : number extends Pos<N2> ? 2 : 0]
  */
 
 // ✓ SubPositive: verified type-identical to the original
@@ -44,7 +45,8 @@ export function SubPositive(N1: Iteration, N2: Iteration) {
   return never
 }
 /* compiles to:
- * export type SubPositive<N1 extends Iteration, N2 extends Iteration> = _SubPositive<N1, N2> extends infer X ? Cast<X, Iteration> : never
+ * export type SubPositive<N1 extends Iteration, N2 extends Iteration> =
+ *   _SubPositive<N1, N2> extends infer X ? Cast<X, Iteration> : never
  */
 
 // ✗ _SubNegative: does not compile yet
@@ -54,7 +56,8 @@ export function _SubNegative(N1: Iteration, N2: Iteration) {
   return { 0: _SubNegative(Next(N1), Next(N2)), 1: N1, 2: number }[matches<0>(Pos(N2)) ? 1 : (matches<Pos<typeof N2>>(number) ? 2 : 0)]
 }
 /* compiles to:
- * export type _SubNegative<N1 extends Iteration, N2 extends Iteration> = { '0': _SubNegative<Next<N1>, Next<N2>>; '1': N1; '2': number }[Pos<N2> extends 0 ? 1 : number extends Pos<N2> ? 2 : 0]
+ * export type _SubNegative<N1 extends Iteration, N2 extends Iteration> =
+ *   { '0': _SubNegative<Next<N1>, Next<N2>>; '1': N1; '2': number }[Pos<N2> extends 0 ? 1 : number extends Pos<N2> ? 2 : 0]
  */
 
 // ✓ SubNegative: verified type-identical to the original
@@ -67,7 +70,8 @@ export function SubNegative(N1: Iteration, N2: Iteration) {
   return never
 }
 /* compiles to:
- * export type SubNegative<N1 extends Iteration, N2 extends Iteration> = _SubNegative<N1, N2> extends infer X ? Cast<X, Iteration> : never
+ * export type SubNegative<N1 extends Iteration, N2 extends Iteration> =
+ *   _SubNegative<N1, N2> extends infer X ? Cast<X, Iteration> : never
  */
 
 // ✗ _Sub: does not compile yet
@@ -77,7 +81,8 @@ export function _Sub(N1: Iteration, N2: Iteration) {
   return { 0: SubPositive(N1, N2), 1: SubNegative(N1, N2) }[_IsNegative(N2)]
 }
 /* compiles to:
- * export type _Sub<N1 extends Iteration, N2 extends Iteration> = { '0': SubPositive<N1, N2>; '1': SubNegative<N1, N2> }[_IsNegative<N2>]
+ * export type _Sub<N1 extends Iteration, N2 extends Iteration> =
+ *   { '0': SubPositive<N1, N2>; '1': SubNegative<N1, N2> }[_IsNegative<N2>]
  */
 
 // ✓ Sub: verified type-identical to the original
@@ -92,5 +97,8 @@ export function Sub(N1: number, N2: number) {
   return never
 }
 /* compiles to:
- * export type Sub<N1 extends number, N2 extends number> = N1 extends unknown ? N2 extends unknown ? _Sub<IterationOf<N1>, IterationOf<N2>>[0] : never : never
+ * export type Sub<N1 extends number, N2 extends number> =
+ *   N1 extends unknown
+ *     ? N2 extends unknown ? _Sub<IterationOf<N1>, IterationOf<N2>>[0] : never
+ *     : never
  */

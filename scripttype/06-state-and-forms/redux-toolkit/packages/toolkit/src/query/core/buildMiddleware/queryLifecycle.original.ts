@@ -7,11 +7,11 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type BaseQueryError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseQueryFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseQueryMeta<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationBaseLifecycleApi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PromiseWithKnownReason<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseQueryError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseQueryFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseQueryMeta<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationBaseLifecycleApi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PromiseWithKnownReason<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type QueryFulfilledRejectionReason<BaseQuery extends BaseQueryFn> =
   | {
       error: BaseQueryError<BaseQuery>

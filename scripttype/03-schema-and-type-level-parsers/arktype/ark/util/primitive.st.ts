@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SerializablePrimitive: any
-type SerializablePrimitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SerializablePrimitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SerializedString: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SerializedString(value: string = string) {
@@ -24,14 +24,15 @@ export function SerializedString(value: string = string) {
 // ✓ serializePrimitive: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function serializePrimitive(value: SerializablePrimitive) {
-  if (matches<string>(value)) {
+  if (typeof value === 'string') {
     return `"${value}"`
   }
-  if (matches<bigint>(value)) {
+  if (typeof value === 'bigint') {
     return `${value}n`
   }
   return `${value}`
 }
 /* compiles to:
- * export type serializePrimitive<value extends SerializablePrimitive> = value extends string ? `"${value}"` : value extends bigint ? `${value}n` : `${value}`
+ * export type serializePrimitive<value extends SerializablePrimitive> =
+ *   value extends string ? `"${value}"` : value extends bigint ? `${value}n` : `${value}`
  */

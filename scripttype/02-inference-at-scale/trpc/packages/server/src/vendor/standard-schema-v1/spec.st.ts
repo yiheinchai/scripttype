@@ -13,9 +13,9 @@
 declare const FailureResult: any
 declare const StandardSchemaV1: any
 declare const SuccessResult: any
-type FailureResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StandardSchemaV1<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SuccessResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FailureResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StandardSchemaV1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SuccessResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Result: does not compile yet
 //   Cannot find name 'SuccessResult'.
 /* @scripttype preserveParamNames */
@@ -32,7 +32,8 @@ export function InferInput(Schema: StandardSchemaV1) {
   return NonNullable(Schema['~standard']['types'])['input']
 }
 /* compiles to:
- * export type InferInput<Schema extends StandardSchemaV1> = NonNullable<Schema['~standard']['types']>['input']
+ * export type InferInput<Schema extends StandardSchemaV1> =
+ *   NonNullable<Schema['~standard']['types']>['input']
  */
 
 // ✓ InferOutput: verified type-identical to the original
@@ -41,5 +42,6 @@ export function InferOutput(Schema: StandardSchemaV1) {
   return NonNullable(Schema['~standard']['types'])['output']
 }
 /* compiles to:
- * export type InferOutput<Schema extends StandardSchemaV1> = NonNullable<Schema['~standard']['types']>['output']
+ * export type InferOutput<Schema extends StandardSchemaV1> =
+ *   NonNullable<Schema['~standard']['types']>['output']
  */

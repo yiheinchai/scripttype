@@ -15,16 +15,18 @@ declare const ListOf: any
 declare const Match: any
 declare const OExclude: any
 declare const ObjectOf: any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ListOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OExclude<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OExclude<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Exclude: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Exclude(L: List, L1: List, match: Match = 'default') {
   return ListOf(OExclude(ObjectOf(L), ObjectOf(L1), match))
 }
 /* compiles to:
- * export type Exclude<L extends List, L1 extends List, match extends Match = 'default'> = ListOf<OExclude<ObjectOf<L>, ObjectOf<L1>, match>>
+ * export type Exclude<L extends List, L1 extends List, match extends Match = 'default'> = ListOf<
+ *   OExclude<ObjectOf<L>, ObjectOf<L1>, match>
+ * >
  */

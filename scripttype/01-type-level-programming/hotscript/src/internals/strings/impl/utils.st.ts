@@ -13,10 +13,10 @@
 declare const Add: any
 declare const Iterator: any
 declare const Mul: any
-type Add<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iterator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Mul<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type String<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Add<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iterator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Mul<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type String<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ String: the ScriptType does not itself typecheck as TypeScript
 //   String.st.ts(2:28) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
@@ -68,7 +68,8 @@ export function Prev(It: Iterator) {
   return Undefined
 }
 /* compiles to:
- * export type Prev<It extends Iterator> = It extends [unknown, ...(infer Rest extends Iterator)] ? Rest : undefined
+ * export type Prev<It extends Iterator> =
+ *   It extends [unknown, ...infer Rest extends Iterator] ? Rest : undefined
  */
 
 // ✗ Double: the ScriptType does not itself typecheck as TypeScript
@@ -86,7 +87,12 @@ export function Double(It: Iterator) {
   return never
 }
 /* compiles to:
- * export type Double<It extends Iterator> = `${String<It>}_` extends `$${infer pattern}` ? `${String<It>}${pattern}` extends `${infer double}_` ? [[double, Mul<Value<It>, 2>], ...It] : never : never
+ * export type Double<It extends Iterator> =
+ *   `${String<It>}_` extends `$${infer pattern}`
+ *     ? `${String<It>}${pattern}` extends `${infer double}_`
+ *       ? [[double, Mul<Value<It>, 2>], ...It]
+ *       : never
+ *     : never
  */
 
 // ✗ CutAt: the ScriptType does not itself typecheck as TypeScript
@@ -100,5 +106,6 @@ export function CutAt(T: string, It: Iterator) {
   return Undefined
 }
 /* compiles to:
- * export type CutAt<T extends string, It extends Iterator> = `$${T}` extends `${String<It>}${infer $Rest}` ? $Rest : undefined
+ * export type CutAt<T extends string, It extends Iterator> =
+ *   `$${T}` extends `${String<It>}${infer $Rest}` ? $Rest : undefined
  */

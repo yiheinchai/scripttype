@@ -19,23 +19,30 @@ declare const LiteralKeyOf: any
 declare const Merge: any
 declare const PartialOnUndefinedDeepOptions: any
 declare const U: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultPartialOnUndefinedDeepOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LiteralKeyOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialOnUndefinedDeepOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type U<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _PartialOnUndefinedDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultPartialOnUndefinedDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LiteralKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialOnUndefinedDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _PartialOnUndefinedDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PartialOnUndefinedDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PartialOnUndefinedDeep(T, Options: PartialOnUndefinedDeepOptions = {}) {
   return _PartialOnUndefinedDeep(T, ApplyDefaultOptions(PartialOnUndefinedDeepOptions, DefaultPartialOnUndefinedDeepOptions, Options))
 }
 /* compiles to:
- * export type PartialOnUndefinedDeep<T, Options extends PartialOnUndefinedDeepOptions = {}> = _PartialOnUndefinedDeep<T, ApplyDefaultOptions<PartialOnUndefinedDeepOptions, DefaultPartialOnUndefinedDeepOptions, Options>>
+ * export type PartialOnUndefinedDeep<T, Options extends PartialOnUndefinedDeepOptions = {}> = _PartialOnUndefinedDeep<
+ *   T,
+ *   ApplyDefaultOptions<
+ *     PartialOnUndefinedDeepOptions,
+ *     DefaultPartialOnUndefinedDeepOptions,
+ *     Options
+ *   >
+ * >
  */
 
 // ✓ _PartialOnUndefinedDeep: verified type-identical to the original
@@ -59,7 +66,23 @@ export function _PartialOnUndefinedDeep(T, Options: Required<PartialOnUndefinedD
   return T
 }
 /* compiles to:
- * export type _PartialOnUndefinedDeep<T, Options extends Required<PartialOnUndefinedDeepOptions>> = T extends Record<any, any> | undefined ? { [KeyType in keyof T as undefined extends T[KeyType] ? If<IsUnknown<T[KeyType]>, never, KeyType> : never]?: PartialOnUndefinedDeepValue<T[KeyType], Options> } extends infer U ? Merge<{ [KeyType1 in keyof T as KeyType1 extends LiteralKeyOf<U> ? never : KeyType1]: PartialOnUndefinedDeepValue<T[KeyType1], Options> }, U> : never : T
+ * export type _PartialOnUndefinedDeep<
+ *   T,
+ *   Options extends Required<PartialOnUndefinedDeepOptions>
+ * > =
+ *   T extends Record<any, any> | undefined
+ *     ? { [KeyType in keyof T as undefined extends T[KeyType] ? If<IsUnknown<T[KeyType]>, never, KeyType> : never]?: PartialOnUndefinedDeepValue<T[KeyType], Options> } extends infer U
+ *       ? Merge<
+ *         {
+ *           [KeyType1 in keyof T as KeyType1 extends LiteralKeyOf<U> ? never : KeyType1]: PartialOnUndefinedDeepValue<
+ *             T[KeyType1],
+ *             Options
+ *           >
+ *         },
+ *         U
+ *       >
+ *       : never
+ *     : T
  */
 
 // ✓ PartialOnUndefinedDeepValue: verified type-identical to the original
@@ -91,5 +114,22 @@ export function PartialOnUndefinedDeepValue(T, Options: Required<PartialOnUndefi
   return unknown
 }
 /* compiles to:
- * export type PartialOnUndefinedDeepValue<T, Options extends Required<PartialOnUndefinedDeepOptions>> = T extends BuiltIns | (...arguments_: any[]) => unknown ? T : T extends ReadonlyArray<infer U> ? Options['recurseIntoArrays'] extends true ? U[] extends T ? readonly U[] extends T ? ReadonlyArray<_PartialOnUndefinedDeep<U, Options>> : Array<_PartialOnUndefinedDeep<U, Options>> : _PartialOnUndefinedDeep<{ [Key in keyof T]: _PartialOnUndefinedDeep<T[Key], Options> }, Options> : T : T extends Record<any, any> | undefined ? _PartialOnUndefinedDeep<T, Options> : unknown
+ * export type PartialOnUndefinedDeepValue<
+ *   T,
+ *   Options extends Required<PartialOnUndefinedDeepOptions>
+ * > =
+ *   T extends BuiltIns | (...arguments_: any[]) => unknown ? T
+ *   : T extends ReadonlyArray<infer U>
+ *     ? Options['recurseIntoArrays'] extends true
+ *       ? U[] extends T
+ *         ? readonly U[] extends T
+ *           ? ReadonlyArray<_PartialOnUndefinedDeep<U, Options>>
+ *           : Array<_PartialOnUndefinedDeep<U, Options>>
+ *         : _PartialOnUndefinedDeep<
+ *           { [Key in keyof T]: _PartialOnUndefinedDeep<T[Key], Options> },
+ *           Options
+ *         >
+ *       : T
+ *   : T extends Record<any, any> | undefined ? _PartialOnUndefinedDeep<T, Options>
+ *   : unknown
  */

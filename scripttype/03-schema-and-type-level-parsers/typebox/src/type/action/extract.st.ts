@@ -13,16 +13,19 @@
 declare const TDeferred: any
 declare const TExtractAction: any
 declare const TSchema: any
-type TDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExtractAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExtractAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtractDeferred: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TExtractDeferred(Left: TSchema, Right: TSchema) {
   return TDeferred('Extract', [Left, Right])
 }
 /* compiles to:
- * export type TExtractDeferred<Left extends TSchema, Right extends TSchema> = TDeferred<'Extract', [Left, Right]>
+ * export type TExtractDeferred<Left extends TSchema, Right extends TSchema> = TDeferred<
+ *   'Extract',
+ *   [Left, Right]
+ * >
  */
 
 // ✓ TExtract: verified type-identical to the original

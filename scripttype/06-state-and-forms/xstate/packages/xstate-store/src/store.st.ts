@@ -14,10 +14,10 @@ declare const EventObject: any
 declare const EventPayloadMap: any
 declare const StoreAssigner: any
 declare const StoreContext: any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventPayloadMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreAssigner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventPayloadMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreAssigner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TransitionsFromEventPayloadMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TransitionsFromEventPayloadMap(TEventPayloadMap: EventPayloadMap, TContext: StoreContext, TEmitted: EventObject) {
@@ -28,5 +28,17 @@ export function TransitionsFromEventPayloadMap(TEventPayloadMap: EventPayloadMap
   return out
 }
 /* compiles to:
- * export type TransitionsFromEventPayloadMap<TEventPayloadMap extends EventPayloadMap, TContext extends StoreContext, TEmitted extends EventObject> = { [K in keyof TEventPayloadMap & string]?: StoreAssigner<TContext, { type: K } & TEventPayloadMap[K], TEmitted, TEventPayloadMap> }
+ * export type TransitionsFromEventPayloadMap<
+ *   TEventPayloadMap extends EventPayloadMap,
+ *   TContext extends StoreContext,
+ *   TEmitted extends EventObject
+ * > =
+ *   {
+ *     [K in keyof TEventPayloadMap & string]?: StoreAssigner<
+ *       TContext,
+ *       { type: K } & TEventPayloadMap[K],
+ *       TEmitted,
+ *       TEventPayloadMap
+ *     >
+ *   }
  */

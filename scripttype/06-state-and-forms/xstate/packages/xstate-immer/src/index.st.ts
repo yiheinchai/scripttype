@@ -16,17 +16,24 @@ declare const EventObject: any
 declare const MachineContext: any
 declare const ParameterizedObject: any
 declare const ProvidedActor: any
-type AssignArgs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Draft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MachineContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParameterizedObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProvidedActor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AssignArgs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Draft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParameterizedObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProvidedActor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ImmerAssigner: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ImmerAssigner(TContext: MachineContext, TExpressionEvent: EventObject, TParams: ParameterizedObject['params'] | undefined, TEvent: EventObject, TActor: ProvidedActor) {
   return fnType([AssignArgs(Draft(TContext), TExpressionEvent, TEvent, TActor), TParams], voidType())
 }
 /* compiles to:
- * export type ImmerAssigner<TContext extends MachineContext, TExpressionEvent extends EventObject, TParams extends ParameterizedObject['params'] | undefined, TEvent extends EventObject, TActor extends ProvidedActor> = (a0: AssignArgs<Draft<TContext>, TExpressionEvent, TEvent, TActor>, a1: TParams) => void
+ * export type ImmerAssigner<
+ *   TContext extends MachineContext,
+ *   TExpressionEvent extends EventObject,
+ *   TParams extends ParameterizedObject['params'] | undefined,
+ *   TEvent extends EventObject,
+ *   TActor extends ProvidedActor
+ * > =
+ *   (a0: AssignArgs<Draft<TContext>, TExpressionEvent, TEvent, TActor>, a1: TParams) => void
  */

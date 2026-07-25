@@ -16,19 +16,26 @@ declare const Expand: any
 declare const RouteById: any
 declare const StrictOrFrom: any
 declare const UseRouteContextBaseOptions: any
-type AllContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Expand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteById<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StrictOrFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseRouteContextBaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AllContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Expand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteById<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StrictOrFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseRouteContextBaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseRouteContextOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseRouteContextOptions(TRouter: AnyRouter, TFrom: string | undefined, TStrict: boolean, TSelected) {
   return StrictOrFrom(TRouter, TFrom, TStrict) & UseRouteContextBaseOptions(TRouter, TFrom, TStrict, TSelected)
 }
 /* compiles to:
- * export type UseRouteContextOptions<TRouter extends AnyRouter, TFrom extends string | undefined, TStrict extends boolean, TSelected> = StrictOrFrom<TRouter, TFrom, TStrict> & UseRouteContextBaseOptions<TRouter, TFrom, TStrict, TSelected>
+ * export type UseRouteContextOptions<
+ *   TRouter extends AnyRouter,
+ *   TFrom extends string | undefined,
+ *   TStrict extends boolean,
+ *   TSelected
+ * > =
+ *   & StrictOrFrom<TRouter, TFrom, TStrict>
+ *   & UseRouteContextBaseOptions<TRouter, TFrom, TStrict, TSelected>
  */
 
 // ✓ ResolveUseRouteContext: verified type-identical to the original
@@ -40,7 +47,10 @@ export function ResolveUseRouteContext(TRouter: AnyRouter, TFrom, TStrict: boole
   return Expand(RouteById(TRouter['routeTree'], TFrom)['types']['allContext'])
 }
 /* compiles to:
- * export type ResolveUseRouteContext<TRouter extends AnyRouter, TFrom, TStrict extends boolean> = TStrict extends false ? AllContext<TRouter['routeTree']> : Expand<RouteById<TRouter['routeTree'], TFrom>['types']['allContext']>
+ * export type ResolveUseRouteContext<TRouter extends AnyRouter, TFrom, TStrict extends boolean> =
+ *   TStrict extends false
+ *     ? AllContext<TRouter['routeTree']>
+ *     : Expand<RouteById<TRouter['routeTree'], TFrom>['types']['allContext']>
  */
 
 // ✓ UseRouteContextResult: verified type-identical to the original
@@ -52,5 +62,11 @@ export function UseRouteContextResult(TRouter: AnyRouter, TFrom, TStrict: boolea
   return TSelected
 }
 /* compiles to:
- * export type UseRouteContextResult<TRouter extends AnyRouter, TFrom, TStrict extends boolean, TSelected> = unknown extends TSelected ? ResolveUseRouteContext<TRouter, TFrom, TStrict> : TSelected
+ * export type UseRouteContextResult<
+ *   TRouter extends AnyRouter,
+ *   TFrom,
+ *   TStrict extends boolean,
+ *   TSelected
+ * > =
+ *   unknown extends TSelected ? ResolveUseRouteContext<TRouter, TFrom, TStrict> : TSelected
  */

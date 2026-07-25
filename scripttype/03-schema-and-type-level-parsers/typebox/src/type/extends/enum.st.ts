@@ -15,16 +15,22 @@ declare const TEvaluateEnum: any
 declare const TExtendsLeft: any
 declare const TProperties: any
 declare const TSchema: any
-type TEnumValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TEvaluateEnum<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExtendsLeft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEnumValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TEvaluateEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsEnum: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TExtendsEnum(Inferred: TProperties, Left: TEnumValue[], Right: TSchema, Evaluated: TSchema = TEvaluateEnum(Left)) {
   return TExtendsLeft(Inferred, Evaluated, Right)
 }
 /* compiles to:
- * export type TExtendsEnum<Inferred extends TProperties, Left extends TEnumValue[], Right extends TSchema, Evaluated extends TSchema = TEvaluateEnum<Left>> = TExtendsLeft<Inferred, Evaluated, Right>
+ * export type TExtendsEnum<
+ *   Inferred extends TProperties,
+ *   Left extends TEnumValue[],
+ *   Right extends TSchema,
+ *   Evaluated extends TSchema = TEvaluateEnum<Left>
+ * > =
+ *   TExtendsLeft<Inferred, Evaluated, Right>
  */

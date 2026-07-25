@@ -20,29 +20,32 @@ declare const List: any
 declare const Next: any
 declare const Pos: any
 declare const Select: any
-type Append<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Select<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Append<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Select<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AppendExists: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AppendExists(O: object, LN: List, I: Iteration) {
-  if (matches<keyof typeof O>(Key(I))) {
+  if (Key(I) in O) {
     return Append(LN, O[Key(I)])
   }
-  if (matches<keyof typeof O>(Pos(I))) {
+  if (Pos(I) in O) {
     return Append(LN, O[Pos(I)])
   }
   return LN
 }
 /* compiles to:
- * export type AppendExists<O extends object, LN extends List, I extends Iteration> = Key<I> extends keyof O ? Append<LN, O[Key<I>]> : Pos<I> extends keyof O ? Append<LN, O[Pos<I>]> : LN
+ * export type AppendExists<O extends object, LN extends List, I extends Iteration> =
+ *   Key<I> extends keyof O ? Append<LN, O[Key<I>]>
+ *   : Pos<I> extends keyof O ? Append<LN, O[Pos<I>]>
+ *   : LN
  */
 
 // ✗ ___ListOf: does not compile yet
@@ -52,25 +55,35 @@ export function ___ListOf(O: object, K, LN: List = [], I: Iteration = IterationO
   return { 0: ___ListOf(O, Exclude(K, Key(I)), AppendExists(O, LN, I), Next(I)), 1: LN }[Extends([K], [never])]
 }
 /* compiles to:
- * export type ___ListOf<O extends object, K, LN extends List = [], I extends Iteration = IterationOf<0>> = { '0': ___ListOf<O, Exclude<K, Key<I>>, AppendExists<O, LN, I>, Next<I>>; '1': LN }[Extends<[K], [never]>]
+ * export type ___ListOf<
+ *   O extends object,
+ *   K,
+ *   LN extends List = [],
+ *   I extends Iteration = IterationOf<0>
+ * > =
+ *   { '0': ___ListOf<O, Exclude<K, Key<I>>, AppendExists<O, LN, I>, Next<I>>; '1': LN }[Extends<[K], [never]>]
  */
 
 // ✓ __ListOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function __ListOf(O: object) {
-  if (matches<keyof typeof O>(number)) {
+  if (number in O) {
     return arrayOf(O[number])
   }
-  if (matches<keyof typeof O>(string)) {
+  if (string in O) {
     return arrayOf(O[string])
   }
-  if (matches<keyof typeof O>(symbol)) {
+  if (symbol in O) {
     return arrayOf(O[symbol])
   }
   return ___ListOf(O, Select(keyof(O), anyOf(number, `${number}`)))
 }
 /* compiles to:
- * export type __ListOf<O extends object> = number extends keyof O ? O[number][] : string extends keyof O ? O[string][] : symbol extends keyof O ? O[symbol][] : ___ListOf<O, Select<keyof O, number | `${number}`>>
+ * export type __ListOf<O extends object> =
+ *   number extends keyof O ? O[number][]
+ *   : string extends keyof O ? O[string][]
+ *   : symbol extends keyof O ? O[symbol][]
+ *   : ___ListOf<O, Select<keyof O, number | `${number}`>>
  */
 
 // ✓ _ListOf: verified type-identical to the original

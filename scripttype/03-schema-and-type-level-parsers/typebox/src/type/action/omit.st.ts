@@ -13,16 +13,19 @@
 declare const TDeferred: any
 declare const TOmitAction: any
 declare const TSchema: any
-type TDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TOmitAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TOmitAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TOmitDeferred: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TOmitDeferred(Type: TSchema, Indexer: TSchema) {
   return TDeferred('Omit', [Type, Indexer])
 }
 /* compiles to:
- * export type TOmitDeferred<Type extends TSchema, Indexer extends TSchema> = TDeferred<'Omit', [Type, Indexer]>
+ * export type TOmitDeferred<Type extends TSchema, Indexer extends TSchema> = TDeferred<
+ *   'Omit',
+ *   [Type, Indexer]
+ * >
  */
 
 // ✓ TOmit: verified type-identical to the original

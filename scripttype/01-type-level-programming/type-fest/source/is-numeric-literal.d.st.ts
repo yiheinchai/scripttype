@@ -13,16 +13,19 @@
 declare const CollapseLiterals: any
 declare const IfNotAnyOrNever: any
 declare const UnwrapBrand: any
-type CollapseLiterals<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnwrapBrand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CollapseLiterals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnwrapBrand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsNumericLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsNumericLiteral(T) {
   return IfNotAnyOrNever(T, { ifNot: _IsNumericLiteral(CollapseLiterals(UnwrapBrand(T))), ifAny: false, ifNever: false })
 }
 /* compiles to:
- * export type IsNumericLiteral<T> = IfNotAnyOrNever<T, { ifNot: _IsNumericLiteral<CollapseLiterals<UnwrapBrand<T>>>; ifAny: false; ifNever: false }>
+ * export type IsNumericLiteral<T> = IfNotAnyOrNever<
+ *   T,
+ *   { ifNot: _IsNumericLiteral<CollapseLiterals<UnwrapBrand<T>>>; ifAny: false; ifNever: false }
+ * >
  */
 
 // ✓ _IsNumericLiteral: verified type-identical to the original
@@ -40,5 +43,6 @@ export function _IsNumericLiteral(T) {
   return false
 }
 /* compiles to:
- * export type _IsNumericLiteral<T> = T extends number | bigint ? number extends T ? false : bigint extends T ? false : true : false
+ * export type _IsNumericLiteral<T> =
+ *   T extends number | bigint ? number extends T ? false : bigint extends T ? false : true : false
  */

@@ -19,15 +19,15 @@ declare const RootKind: any
 declare const array: any
 declare const listable: any
 declare const makeRootAndArrayPropertiesMutable: any
-type ConstraintKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeDeclarationsByKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodesByKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OpenNodeKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RootKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type listable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type makeRootAndArrayPropertiesMutable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ConstraintKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeDeclarationsByKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodesByKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OpenNodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RootKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type listable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type makeRootAndArrayPropertiesMutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ nodeOfKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function nodeOfKind(kind: NodeKind) {
@@ -100,7 +100,8 @@ export function reducibleKindOf(kind: NodeKind) {
   return kind
 }
 /* compiles to:
- * export type reducibleKindOf<kind extends NodeKind> = Declaration<kind>['reducibleTo'] extends NodeKind ? Declaration<kind>['reducibleTo'] : kind
+ * export type reducibleKindOf<kind extends NodeKind> =
+ *   Declaration<kind>['reducibleTo'] extends NodeKind ? Declaration<kind>['reducibleTo'] : kind
  */
 
 // ✓ Inner: verified type-identical to the original
@@ -121,7 +122,8 @@ export function defAttachedAs(kind: ConstraintKind) {
   return NodeSchema(kind)
 }
 /* compiles to:
- * export type defAttachedAs<kind extends ConstraintKind> = kind extends OpenNodeKind ? listable<NodeSchema<kind>> : NodeSchema<kind>
+ * export type defAttachedAs<kind extends ConstraintKind> =
+ *   kind extends OpenNodeKind ? listable<NodeSchema<kind>> : NodeSchema<kind>
  */
 
 // ✓ innerAttachedAs: verified type-identical to the original
@@ -133,7 +135,8 @@ export function innerAttachedAs(kind: ConstraintKind) {
   return nodeOfKind(kind)
 }
 /* compiles to:
- * export type innerAttachedAs<kind extends ConstraintKind> = kind extends OpenNodeKind ? array<nodeOfKind<kind>> : nodeOfKind<kind>
+ * export type innerAttachedAs<kind extends ConstraintKind> =
+ *   kind extends OpenNodeKind ? array<nodeOfKind<kind>> : nodeOfKind<kind>
  */
 
 // ✓ mutableInnerOfKind: verified type-identical to the original
@@ -142,7 +145,9 @@ export function mutableInnerOfKind(kind: NodeKind) {
   return makeRootAndArrayPropertiesMutable(Inner(kind))
 }
 /* compiles to:
- * export type mutableInnerOfKind<kind extends NodeKind> = makeRootAndArrayPropertiesMutable<Inner<kind>>
+ * export type mutableInnerOfKind<kind extends NodeKind> = makeRootAndArrayPropertiesMutable<
+ *   Inner<kind>
+ * >
  */
 
 // ✓ mutableNormalizedRootOfKind: verified type-identical to the original
@@ -151,7 +156,9 @@ export function mutableNormalizedRootOfKind(kind: NodeKind) {
   return makeRootAndArrayPropertiesMutable(NormalizedSchema(kind))
 }
 /* compiles to:
- * export type mutableNormalizedRootOfKind<kind extends NodeKind> = makeRootAndArrayPropertiesMutable<NormalizedSchema<kind>>
+ * export type mutableNormalizedRootOfKind<kind extends NodeKind> = makeRootAndArrayPropertiesMutable<
+ *   NormalizedSchema<kind>
+ * >
  */
 
 // ✓ errorContext: verified type-identical to the original

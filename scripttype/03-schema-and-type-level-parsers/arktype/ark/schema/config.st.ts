@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace ToJsonSchema {
+  export type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ActualConfig: any
 declare const ArkErrorCode: any
 declare const ArkSchemaConfig: any
@@ -23,26 +26,40 @@ declare const ProblemConfig: any
 declare const ToJsonSchema: any
 declare const TypeMeta: any
 declare const show: any
-type ActualConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ArkErrorCode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ArkSchemaConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CloneImplementation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DescriptionWriter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExpectedConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MessageConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeConfigsByKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProblemConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToJsonSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypeMeta<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type show<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActualConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArkErrorCode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArkSchemaConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CloneImplementation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DescriptionWriter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExpectedConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MessageConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeConfigsByKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProblemConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToJsonSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypeMeta<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type show<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ nodeConfigForKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function nodeConfigForKind(kind: NodeKind) {
   return Readonly(show(merge({ description: optional(DescriptionWriter(kind)) }, matches<ArkErrorCode>(kind) ? { expected: optional(ExpectedConfig(kind)), actual: optional(ActualConfig(kind)), problem: optional(ProblemConfig(kind)), message: optional(MessageConfig(kind)) } : {})))
 }
 /* compiles to:
- * export type nodeConfigForKind<kind extends NodeKind> = Readonly<show<{ description?: DescriptionWriter<kind> } & (kind extends ArkErrorCode ? { expected?: ExpectedConfig<kind>; actual?: ActualConfig<kind>; problem?: ProblemConfig<kind>; message?: MessageConfig<kind> } : {})>>
+ * export type nodeConfigForKind<kind extends NodeKind> = Readonly<
+ *   show<
+ *     & { description?: DescriptionWriter<kind> }
+ *     & (
+ *         kind extends ArkErrorCode
+ *           ? {
+ *             expected?: ExpectedConfig<kind>
+ *             actual?: ActualConfig<kind>
+ *             problem?: ProblemConfig<kind>
+ *             message?: MessageConfig<kind>
+ *           }
+ *           : {}
+ *       )
+ *   >
+ * >
  */
 
 // ✓ NodeConfig: verified type-identical to the original
@@ -64,5 +81,14 @@ export function resolveConfig(config: ArkSchemaConfig) {
   return show(out & Omit(config, keyof(ArkSchemaConfig)))
 }
 /* compiles to:
- * export type resolveConfig<config extends ArkSchemaConfig> = show<{ [K in keyof ArkSchemaConfig]-?: K extends NodeKind ? Required<config[K]> : K extends 'clone' ? CloneImplementation | false : K extends 'keywords' ? Record<string, TypeMeta | undefined> : K extends 'toJsonSchema' ? ToJsonSchema.Context : config[K] } & Omit<config, keyof ArkSchemaConfig>>
+ * export type resolveConfig<config extends ArkSchemaConfig> = show<
+ *   & {
+ *       [K in keyof ArkSchemaConfig]-?: K extends NodeKind ? Required<config[K]>
+ *       : K extends 'clone' ? CloneImplementation | false
+ *       : K extends 'keywords' ? Record<string, TypeMeta | undefined>
+ *       : K extends 'toJsonSchema' ? ToJsonSchema.Context
+ *       : config[K]
+ *     }
+ *   & Omit<config, keyof ArkSchemaConfig>
+ * >
  */

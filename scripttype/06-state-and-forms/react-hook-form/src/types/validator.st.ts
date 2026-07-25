@@ -18,22 +18,23 @@ declare const Message: any
 declare const ValidateFormEventType: any
 declare const ValidateResult: any
 declare const ValidationValue: any
-type FieldPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldPathValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FormState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FormValidateResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Message<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidateFormEventType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidateResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidationValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FieldPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldPathValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FormState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FormValidateResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Message<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidateFormEventType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidateResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidationValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidationRule: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValidationRule(TValidationValue: ValidationValue = ValidationValue) {
   return anyOf(TValidationValue, ValidationValueMessage(TValidationValue))
 }
 /* compiles to:
- * export type ValidationRule<TValidationValue extends ValidationValue = ValidationValue> = TValidationValue | ValidationValueMessage<TValidationValue>
+ * export type ValidationRule<TValidationValue extends ValidationValue = ValidationValue> =
+ *   TValidationValue | ValidationValueMessage<TValidationValue>
  */
 
 // ✓ ValidationValueMessage: verified type-identical to the original
@@ -42,7 +43,10 @@ export function ValidationValueMessage(TValidationValue: ValidationValue = Valid
   return { value: anyOf(TValidationValue, Undefined), message: Message }
 }
 /* compiles to:
- * export type ValidationValueMessage<TValidationValue extends ValidationValue = ValidationValue> = { value: TValidationValue | undefined; message: Message }
+ * export type ValidationValueMessage<
+ *   TValidationValue extends ValidationValue = ValidationValue
+ * > =
+ *   { value: TValidationValue | undefined; message: Message }
  */
 
 // ✓ FormValidateResult: verified type-identical to the original
@@ -51,7 +55,12 @@ export function FormValidateResult(T) {
   return Partial(Record(keyof(T), { message: anyOf(Message, arrayOf(Message), boolean, Undefined), type: string })) | string | boolean
 }
 /* compiles to:
- * export type FormValidateResult<T> = Partial<Record<keyof T, { message: Message | Message[] | boolean | undefined; type: string }>> | string | boolean
+ * export type FormValidateResult<T> =
+ *   | Partial<
+ *       Record<keyof T, { message: Message | Message[] | boolean | undefined; type: string }>
+ *     >
+ *   | string
+ *   | boolean
  */
 
 // ✓ Validate: verified type-identical to the original
@@ -60,7 +69,8 @@ export function Validate(TFieldValue, TFormValues) {
   return fnType([TFieldValue, TFormValues], ValidateResult | t<Promise<ValidateResult>>())
 }
 /* compiles to:
- * export type Validate<TFieldValue, TFormValues> = (a0: TFieldValue, a1: TFormValues) => ValidateResult | Promise<ValidateResult>
+ * export type Validate<TFieldValue, TFormValues> =
+ *   (a0: TFieldValue, a1: TFormValues) => ValidateResult | Promise<ValidateResult>
  */
 
 // ✓ ValidateForm: verified type-identical to the original
@@ -69,7 +79,13 @@ export function ValidateForm(TFormValues: FieldValues, TFieldName: FieldPath<typ
   return fnType([{ formValues: TFormValues, formState: FormState(TFormValues), eventType: optional(ValidateFormEventType), name: optional(anyOf(TFieldName, arrayOf(TFieldName))) }], FormValidateResult(TFormValues) | t<Promise<FormValidateResult<typeof TFormValues>>>())
 }
 /* compiles to:
- * export type ValidateForm<TFormValues extends FieldValues, TFieldName extends FieldPath<TFormValues> = FieldPath<TFormValues>> = (a0: { formValues: TFormValues; formState: FormState<TFormValues>; eventType?: ValidateFormEventType; name?: TFieldName | TFieldName[] }) => FormValidateResult<TFormValues> | Promise<FormValidateResult<TFormValues>>
+ * export type ValidateForm<
+ *   TFormValues extends FieldValues,
+ *   TFieldName extends FieldPath<TFormValues> = FieldPath<TFormValues>
+ * > =
+ *   (
+ *     a0: { formValues: TFormValues; formState: FormState<TFormValues>; eventType?: ValidateFormEventType; name?: TFieldName | TFieldName[] }
+ *   ) => FormValidateResult<TFormValues> | Promise<FormValidateResult<TFormValues>>
  */
 
 // ✓ RegisterOptions: verified type-identical to the original
@@ -78,5 +94,31 @@ export function RegisterOptions(TFieldValues: FieldValues = FieldValues, TFieldN
   return merge(Partial({ required: Message | ValidationRule(boolean), min: ValidationRule(number | string), max: ValidationRule(number | string), maxLength: ValidationRule(number), minLength: ValidationRule(number), validate: Validate(FieldPathValue(TFieldValues, TFieldName), TFieldValues) | Record(string, Validate(FieldPathValue(TFieldValues, TFieldName), TFieldValues)), value: FieldPathValue(TFieldValues, TFieldName), setValueAs: fnType([any], any), shouldUnregister: optional(boolean), onChange: optional(fnType([any], voidType())), onBlur: optional(fnType([any], voidType())), disabled: boolean, deps: FieldPath(TFieldValues) | arrayOf(FieldPath(TFieldValues)) }), anyOf({ pattern: optional(ValidationRule(t<RegExp>())), valueAsNumber: optional(false), valueAsDate: optional(false) }, { pattern: optional(Undefined), valueAsNumber: optional(false), valueAsDate: optional(true) }, { pattern: optional(Undefined), valueAsNumber: optional(true), valueAsDate: optional(false) }))
 }
 /* compiles to:
- * export type RegisterOptions<TFieldValues extends FieldValues = FieldValues, TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = Partial<{ required: Message | ValidationRule<boolean>; min: ValidationRule<number | string>; max: ValidationRule<number | string>; maxLength: ValidationRule<number>; minLength: ValidationRule<number>; validate: Validate<FieldPathValue<TFieldValues, TFieldName>, TFieldValues> | Record<string, Validate<FieldPathValue<TFieldValues, TFieldName>, TFieldValues>>; value: FieldPathValue<TFieldValues, TFieldName>; setValueAs: (a0: any) => any; shouldUnregister?: boolean; onChange?: (a0: any) => void; onBlur?: (a0: any) => void; disabled: boolean; deps: FieldPath<TFieldValues> | FieldPath<TFieldValues>[] }> & ({ pattern?: ValidationRule<RegExp>; valueAsNumber?: false; valueAsDate?: false } | { pattern?: undefined; valueAsNumber?: false; valueAsDate?: true } | { pattern?: undefined; valueAsNumber?: true; valueAsDate?: false })
+ * export type RegisterOptions<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TFieldName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+ * > =
+ *   & Partial<
+ *       {
+ *         required: Message | ValidationRule<boolean>
+ *         min: ValidationRule<number | string>
+ *         max: ValidationRule<number | string>
+ *         maxLength: ValidationRule<number>
+ *         minLength: ValidationRule<number>
+ *         validate: | Validate<FieldPathValue<TFieldValues, TFieldName>, TFieldValues>
+ *         | Record<string, Validate<FieldPathValue<TFieldValues, TFieldName>, TFieldValues>>
+ *         value: FieldPathValue<TFieldValues, TFieldName>
+ *         setValueAs: (a0: any) => any
+ *         shouldUnregister?: boolean
+ *         onChange?: (a0: any) => void
+ *         onBlur?: (a0: any) => void
+ *         disabled: boolean
+ *         deps: FieldPath<TFieldValues> | FieldPath<TFieldValues>[]
+ *       }
+ *     >
+ *   & (
+ *       | { pattern?: ValidationRule<RegExp>; valueAsNumber?: false; valueAsDate?: false }
+ *       | { pattern?: undefined; valueAsNumber?: false; valueAsDate?: true }
+ *       | { pattern?: undefined; valueAsNumber?: true; valueAsDate?: false }
+ *     )
  */

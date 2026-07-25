@@ -14,10 +14,10 @@ declare const Comparator: any
 declare const InvertedComparators: any
 declare const LimitLiteral: any
 declare const MinComparator: any
-type Comparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InvertedComparators<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LimitLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MinComparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InvertedComparators<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LimitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MinComparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ writeOpenRangeMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function writeOpenRangeMessage(min: LimitLiteral, comparator: MinComparator) {
@@ -42,5 +42,11 @@ export function writeMultipleLeftBoundsMessage(openLimit: LimitLiteral, openComp
   return `An expression may have at most one left bound (parsed ${openLimit}${InvertedComparators[openComparator]}, ${limit}${InvertedComparators[comparator]})`
 }
 /* compiles to:
- * export type writeMultipleLeftBoundsMessage<openLimit extends LimitLiteral, openComparator extends MinComparator, limit extends LimitLiteral, comparator extends MinComparator> = `An expression may have at most one left bound (parsed ${openLimit}${InvertedComparators[openComparator]}, ${limit}${InvertedComparators[comparator]})`
+ * export type writeMultipleLeftBoundsMessage<
+ *   openLimit extends LimitLiteral,
+ *   openComparator extends MinComparator,
+ *   limit extends LimitLiteral,
+ *   comparator extends MinComparator
+ * > =
+ *   `An expression may have at most one left bound (parsed ${openLimit}${InvertedComparators[openComparator]}, ${limit}${InvertedComparators[comparator]})`
  */

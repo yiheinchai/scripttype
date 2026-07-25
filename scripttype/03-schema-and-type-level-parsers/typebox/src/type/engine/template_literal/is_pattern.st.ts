@@ -12,13 +12,18 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TParsePatternIntoTypes: any
 declare const TSchema: any
-type TParsePatternIntoTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TParsePatternIntoTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIsTemplateLiteralPattern: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TIsTemplateLiteralPattern(Pattern: string, Types: TSchema[] = TParsePatternIntoTypes(Pattern), Result: boolean = matches<[ ]>(Types) ? false : true) {
   return Result
 }
 /* compiles to:
- * export type TIsTemplateLiteralPattern<Pattern extends string, Types extends TSchema[] = TParsePatternIntoTypes<Pattern>, Result extends boolean = Types extends [] ? false : true> = Result
+ * export type TIsTemplateLiteralPattern<
+ *   Pattern extends string,
+ *   Types extends TSchema[] = TParsePatternIntoTypes<Pattern>,
+ *   Result extends boolean = Types extends [] ? false : true
+ * > =
+ *   Result
  */

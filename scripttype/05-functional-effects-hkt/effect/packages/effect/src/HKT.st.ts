@@ -10,10 +10,15 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Types {
+  export type Contravariant<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Covariant<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Invariant<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TypeLambda: any
 declare const Types: any
-type TypeLambda<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Types<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TypeLambda<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Kind: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Kind(F: TypeLambda, In, Out2, Out1, Target) {
@@ -23,5 +28,17 @@ export function Kind(F: TypeLambda, In, Out2, Out1, Target) {
   return { F: readonlyProp(F), In: readonlyProp(Types.Contravariant(In)), Out2: readonlyProp(Types.Covariant(Out2)), Out1: readonlyProp(Types.Covariant(Out1)), Target: readonlyProp(Types.Invariant(Target)) }
 }
 /* compiles to:
- * export type Kind<F extends TypeLambda, In, Out2, Out1, Target> = F extends { readonly type: unknown; } ? (F & { readonly In: In; readonly Out2: Out2; readonly Out1: Out1; readonly Target: Target })['type'] : { readonly F: F; readonly In: Types.Contravariant<In>; readonly Out2: Types.Covariant<Out2>; readonly Out1: Types.Covariant<Out1>; readonly Target: Types.Invariant<Target> }
+ * export type Kind<F extends TypeLambda, In, Out2, Out1, Target> =
+ *   F extends { readonly type: unknown; }
+ *     ? (
+ *       & F
+ *       & { readonly In: In; readonly Out2: Out2; readonly Out1: Out1; readonly Target: Target }
+ *     )['type']
+ *     : {
+ *       readonly F: F
+ *       readonly In: Types.Contravariant<In>
+ *       readonly Out2: Types.Covariant<Out2>
+ *       readonly Out1: Types.Covariant<Out1>
+ *       readonly Target: Types.Invariant<Target>
+ *     }
  */

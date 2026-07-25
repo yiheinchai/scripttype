@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace MutableHashMap {
+  export type MutableHashMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Edge: any
 declare const EdgeIndex: any
 declare const Graph: any
@@ -17,13 +20,13 @@ declare const MutableGraph: any
 declare const MutableHashMap: any
 declare const NodeIndex: any
 declare const Walker: any
-type Edge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EdgeIndex<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Graph<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutableGraph<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutableHashMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeIndex<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Walker<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Edge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EdgeIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Graph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutableGraph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutableHashMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Walker<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DirectedGraph: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DirectedGraph(N, E) {
@@ -66,7 +69,10 @@ export function NodeMaps(N, I) {
   return { byIdentity: readonlyProp(MutableHashMap.MutableHashMap(I, N)), byIndex: readonlyProp(t<Map<NodeIndex, typeof I>>()) }
 }
 /* compiles to:
- * export type NodeMaps<N, I> = { readonly byIdentity: MutableHashMap.MutableHashMap<I, N>; readonly byIndex: Map<NodeIndex, I> }
+ * export type NodeMaps<N, I> = {
+ *   readonly byIdentity: MutableHashMap.MutableHashMap<I, N>
+ *   readonly byIndex: Map<NodeIndex, I>
+ * }
  */
 
 // ✓ NodeWalker: verified type-identical to the original

@@ -14,17 +14,23 @@ declare const Accessor: any
 declare const DefaultError: any
 declare const QueryKey: any
 declare const QueryOptions: any
-type Accessor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Accessor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UndefinedInitialDataOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UndefinedInitialDataOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
   return Accessor(merge(QueryOptions(TQueryFnData, TError, TData, TQueryKey), { initialData: optional(Undefined) }))
 }
 /* compiles to:
- * export type UndefinedInitialDataOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = Accessor<QueryOptions<TQueryFnData, TError, TData, TQueryKey> & { initialData?: undefined }>
+ * export type UndefinedInitialDataOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   Accessor<QueryOptions<TQueryFnData, TError, TData, TQueryKey> & { initialData?: undefined }>
  */
 
 // ✓ DefinedInitialDataOptions: verified type-identical to the original
@@ -33,5 +39,14 @@ export function DefinedInitialDataOptions(TQueryFnData = unknown, TError = Defau
   return Accessor(merge(QueryOptions(TQueryFnData, TError, TData, TQueryKey), { initialData: TQueryFnData | fnType([], TQueryFnData) }))
 }
 /* compiles to:
- * export type DefinedInitialDataOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = Accessor<QueryOptions<TQueryFnData, TError, TData, TQueryKey> & { initialData: TQueryFnData | (() => TQueryFnData) }>
+ * export type DefinedInitialDataOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   Accessor<
+ *     & QueryOptions<TQueryFnData, TError, TData, TQueryKey>
+ *     & { initialData: TQueryFnData | (() => TQueryFnData) }
+ *   >
  */

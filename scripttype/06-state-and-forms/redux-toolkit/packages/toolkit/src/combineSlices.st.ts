@@ -17,21 +17,24 @@ declare const Reducer: any
 declare const ReducerMap: any
 declare const StateFromReducersMapObject: any
 declare const UnionToIntersection: any
-type AnySliceLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonUndefined<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreloadedStateShapeFromReducersMapObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Reducer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReducerMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SliceLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StateFromReducersMapObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnySliceLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonUndefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreloadedStateShapeFromReducersMapObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Reducer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReducerMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SliceLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StateFromReducersMapObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SliceLike: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SliceLike(ReducerPath: string, State, PreloadedState = State) {
   return { reducerPath: ReducerPath, reducer: Reducer(State, any, PreloadedState) }
 }
 /* compiles to:
- * export type SliceLike<ReducerPath extends string, State, PreloadedState = State> = { reducerPath: ReducerPath; reducer: Reducer<State, any, PreloadedState> }
+ * export type SliceLike<ReducerPath extends string, State, PreloadedState = State> = {
+ *   reducerPath: ReducerPath
+ *   reducer: Reducer<State, any, PreloadedState>
+ * }
  */
 
 // ✓ SliceLikeReducerPath: verified type-identical to the original
@@ -44,7 +47,8 @@ export function SliceLikeReducerPath(A: AnySliceLike) {
   return never
 }
 /* compiles to:
- * export type SliceLikeReducerPath<A extends AnySliceLike> = A extends SliceLike<infer ReducerPath, any> ? ReducerPath : never
+ * export type SliceLikeReducerPath<A extends AnySliceLike> =
+ *   A extends SliceLike<infer ReducerPath, any> ? ReducerPath : never
  */
 
 // ✓ SliceLikeState: verified type-identical to the original
@@ -57,7 +61,8 @@ export function SliceLikeState(A: AnySliceLike) {
   return never
 }
 /* compiles to:
- * export type SliceLikeState<A extends AnySliceLike> = A extends SliceLike<any, infer State, any> ? State : never
+ * export type SliceLikeState<A extends AnySliceLike> =
+ *   A extends SliceLike<any, infer State, any> ? State : never
  */
 
 // ✓ SliceLikePreloadedState: verified type-identical to the original
@@ -70,7 +75,8 @@ export function SliceLikePreloadedState(A: AnySliceLike) {
   return never
 }
 /* compiles to:
- * export type SliceLikePreloadedState<A extends AnySliceLike> = A extends SliceLike<any, any, infer PreloadedState> ? PreloadedState : never
+ * export type SliceLikePreloadedState<A extends AnySliceLike> =
+ *   A extends SliceLike<any, any, infer PreloadedState> ? PreloadedState : never
  */
 
 // ✓ WithSlice: verified type-identical to the original
@@ -83,7 +89,9 @@ export function WithSlice(A: AnySliceLike) {
   return out
 }
 /* compiles to:
- * export type WithSlice<A extends AnySliceLike> = { [Path in SliceLikeReducerPath<A>]: SliceLikeState<A> }
+ * export type WithSlice<A extends AnySliceLike> = {
+ *   [Path in SliceLikeReducerPath<A>]: SliceLikeState<A>
+ * }
  */
 
 // ✓ WithSlicePreloadedState: verified type-identical to the original
@@ -96,7 +104,9 @@ export function WithSlicePreloadedState(A: AnySliceLike) {
   return out
 }
 /* compiles to:
- * export type WithSlicePreloadedState<A extends AnySliceLike> = { [Path in SliceLikeReducerPath<A>]: SliceLikePreloadedState<A> }
+ * export type WithSlicePreloadedState<A extends AnySliceLike> = {
+ *   [Path in SliceLikeReducerPath<A>]: SliceLikePreloadedState<A>
+ * }
  */
 
 // ✓ ExistingSliceLike: verified type-identical to the original
@@ -109,7 +119,14 @@ export function ExistingSliceLike(DeclaredState, PreloadedState) {
   return out[keyof(DeclaredState)]
 }
 /* compiles to:
- * export type ExistingSliceLike<DeclaredState, PreloadedState> = { [ReducerPath in keyof DeclaredState]: SliceLike<ReducerPath & string, NonUndefined<DeclaredState[ReducerPath]>, NonUndefined<PreloadedState[ReducerPath & keyof PreloadedState]>> }[keyof DeclaredState]
+ * export type ExistingSliceLike<DeclaredState, PreloadedState> =
+ *   {
+ *     [ReducerPath in keyof DeclaredState]: SliceLike<
+ *       ReducerPath & string,
+ *       NonUndefined<DeclaredState[ReducerPath]>,
+ *       NonUndefined<PreloadedState[ReducerPath & keyof PreloadedState]>
+ *     >
+ *   }[keyof DeclaredState]
  */
 
 // ✓ InitialState: verified type-identical to the original
@@ -119,7 +136,11 @@ export function InitialState(Slices: Array<AnySliceLike | ReducerMap>) {
   return UnionToIntersection(m1 ? (matches<AnySliceLike>(m1.Slice) ? WithSlice(m1.Slice) : StateFromReducersMapObject(m1.Slice)) : never)
 }
 /* compiles to:
- * export type InitialState<Slices extends Array<AnySliceLike | ReducerMap>> = UnionToIntersection<Slices[number] extends infer Slice ? Slice extends AnySliceLike ? WithSlice<Slice> : StateFromReducersMapObject<Slice> : never>
+ * export type InitialState<Slices extends Array<AnySliceLike | ReducerMap>> = UnionToIntersection<
+ *   Slices[number] extends infer Slice
+ *     ? Slice extends AnySliceLike ? WithSlice<Slice> : StateFromReducersMapObject<Slice>
+ *     : never
+ * >
  */
 
 // ✓ InitialPreloadedState: verified type-identical to the original
@@ -129,5 +150,11 @@ export function InitialPreloadedState(Slices: Array<AnySliceLike | ReducerMap>) 
   return UnionToIntersection(m1 ? (matches<AnySliceLike>(m1.Slice) ? WithSlicePreloadedState(m1.Slice) : PreloadedStateShapeFromReducersMapObject(m1.Slice)) : never)
 }
 /* compiles to:
- * export type InitialPreloadedState<Slices extends Array<AnySliceLike | ReducerMap>> = UnionToIntersection<Slices[number] extends infer Slice ? Slice extends AnySliceLike ? WithSlicePreloadedState<Slice> : PreloadedStateShapeFromReducersMapObject<Slice> : never>
+ * export type InitialPreloadedState<Slices extends Array<AnySliceLike | ReducerMap>> = UnionToIntersection<
+ *   Slices[number] extends infer Slice
+ *     ? Slice extends AnySliceLike
+ *       ? WithSlicePreloadedState<Slice>
+ *       : PreloadedStateShapeFromReducersMapObject<Slice>
+ *     : never
+ * >
  */

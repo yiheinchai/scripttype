@@ -12,15 +12,24 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PgEnumColumnBuilder: any
 declare const PgEnumObjectColumnBuilder: any
-type PgEnumColumnBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgEnumObjectColumnBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgEnumColumnBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgEnumObjectColumnBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgEnumObjectColumnBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgEnumObjectColumnBuilderInitial(TName: string, TValues: object) {
   return PgEnumObjectColumnBuilder({ name: TName, dataType: 'string', columnType: 'PgEnumObjectColumn', data: TValues[keyof(TValues)], enumValues: arrayOf(string), driverParam: string })
 }
 /* compiles to:
- * export type PgEnumObjectColumnBuilderInitial<TName extends string, TValues extends object> = PgEnumObjectColumnBuilder<{ name: TName; dataType: 'string'; columnType: 'PgEnumObjectColumn'; data: TValues[keyof TValues]; enumValues: string[]; driverParam: string }>
+ * export type PgEnumObjectColumnBuilderInitial<TName extends string, TValues extends object> = PgEnumObjectColumnBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'PgEnumObjectColumn'
+ *     data: TValues[keyof TValues]
+ *     enumValues: string[]
+ *     driverParam: string
+ *   }
+ * >
  */
 
 // ✓ PgEnumColumnBuilderInitial: verified type-identical to the original
@@ -29,5 +38,18 @@ export function PgEnumColumnBuilderInitial(TName: string, TValues: [ string, ...
   return PgEnumColumnBuilder({ name: TName, dataType: 'string', columnType: 'PgEnumColumn', data: TValues[number], enumValues: TValues, driverParam: string })
 }
 /* compiles to:
- * export type PgEnumColumnBuilderInitial<TName extends string, TValues extends [string, ...string[]]> = PgEnumColumnBuilder<{ name: TName; dataType: 'string'; columnType: 'PgEnumColumn'; data: TValues[number]; enumValues: TValues; driverParam: string }>
+ * export type PgEnumColumnBuilderInitial<
+ *   TName extends string,
+ *   TValues extends [string, ...string[]]
+ * > =
+ *   PgEnumColumnBuilder<
+ *     {
+ *       name: TName
+ *       dataType: 'string'
+ *       columnType: 'PgEnumColumn'
+ *       data: TValues[number]
+ *       enumValues: TValues
+ *       driverParam: string
+ *     }
+ *   >
  */

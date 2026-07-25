@@ -13,16 +13,17 @@
 declare const ArrayInput: any
 declare const ContentInput: any
 declare const MaybePromise: any
-type ArrayInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ContentInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybePromise<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ArrayInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ContentInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArrayRequirement: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ArrayRequirement(TInput: ArrayInput) {
   return fnType([TInput[number], number, TInput], boolean)
 }
 /* compiles to:
- * export type ArrayRequirement<TInput extends ArrayInput> = (a0: TInput[number], a1: number, a2: TInput) => boolean
+ * export type ArrayRequirement<TInput extends ArrayInput> =
+ *   (a0: TInput[number], a1: number, a2: TInput) => boolean
  */
 
 // ✓ ArrayRequirementAsync: verified type-identical to the original
@@ -31,7 +32,8 @@ export function ArrayRequirementAsync(TInput: ArrayInput) {
   return fnType([TInput[number], number, TInput], MaybePromise(boolean))
 }
 /* compiles to:
- * export type ArrayRequirementAsync<TInput extends ArrayInput> = (a0: TInput[number], a1: number, a2: TInput) => MaybePromise<boolean>
+ * export type ArrayRequirementAsync<TInput extends ArrayInput> =
+ *   (a0: TInput[number], a1: number, a2: TInput) => MaybePromise<boolean>
  */
 
 // ✓ ContentRequirement: verified type-identical to the original
@@ -43,5 +45,6 @@ export function ContentRequirement(TInput: ContentInput) {
   return TInput
 }
 /* compiles to:
- * export type ContentRequirement<TInput extends ContentInput> = TInput extends readonly unknown[] ? TInput[number] : TInput
+ * export type ContentRequirement<TInput extends ContentInput> =
+ *   TInput extends readonly unknown[] ? TInput[number] : TInput
  */

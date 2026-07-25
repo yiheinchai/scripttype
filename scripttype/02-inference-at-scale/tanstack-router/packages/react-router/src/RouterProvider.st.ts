@@ -13,14 +13,39 @@
 declare const AnyRouter: any
 declare const RegisteredRouter: any
 declare const RouterOptions: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouterOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouterOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RouterProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RouterProps(TRouter: AnyRouter = RegisteredRouter, TDehydrated: Record<string, any> = Record(string, any)) {
   return merge(Omit(RouterOptions(TRouter['routeTree'], NonNullable(TRouter['options']['trailingSlash']), NonNullable(TRouter['options']['defaultStructuralSharing']), TRouter['history'], TDehydrated), 'context'), { router: TRouter, context: optional(Partial(RouterOptions(TRouter['routeTree'], NonNullable(TRouter['options']['trailingSlash']), NonNullable(TRouter['options']['defaultStructuralSharing']), TRouter['history'], TDehydrated)['context'])) })
 }
 /* compiles to:
- * export type RouterProps<TRouter extends AnyRouter = RegisteredRouter, TDehydrated extends Record<string, any> = Record<string, any>> = Omit<RouterOptions<TRouter['routeTree'], NonNullable<TRouter['options']['trailingSlash']>, NonNullable<TRouter['options']['defaultStructuralSharing']>, TRouter['history'], TDehydrated>, 'context'> & { router: TRouter; context?: Partial<RouterOptions<TRouter['routeTree'], NonNullable<TRouter['options']['trailingSlash']>, NonNullable<TRouter['options']['defaultStructuralSharing']>, TRouter['history'], TDehydrated>['context']> }
+ * export type RouterProps<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TDehydrated extends Record<string, any> = Record<string, any>
+ * > =
+ *   & Omit<
+ *       RouterOptions<
+ *         TRouter['routeTree'],
+ *         NonNullable<TRouter['options']['trailingSlash']>,
+ *         NonNullable<TRouter['options']['defaultStructuralSharing']>,
+ *         TRouter['history'],
+ *         TDehydrated
+ *       >,
+ *       'context'
+ *     >
+ *   & {
+ *       router: TRouter
+ *       context?: Partial<
+ *         RouterOptions<
+ *           TRouter['routeTree'],
+ *           NonNullable<TRouter['options']['trailingSlash']>,
+ *           NonNullable<TRouter['options']['defaultStructuralSharing']>,
+ *           TRouter['history'],
+ *           TDehydrated
+ *         >['context']
+ *       >
+ *     }
  */

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Abi: any
 declare const FormatAbiItem: any
-type Abi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FormatAbiItem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FormatAbiItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FormatAbi: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FormatAbi(abi: Abi | readonly unknown[]) {
@@ -33,5 +33,9 @@ export function FormatAbi(abi: Abi | readonly unknown[]) {
   return readonlyArrayOf(string)
 }
 /* compiles to:
- * export type FormatAbi<abi extends Abi | readonly unknown[]> = Abi extends abi ? readonly string[] : abi extends readonly [] ? never : abi extends Abi ? { [Key in keyof abi]: FormatAbiItem<abi[Key]> } : readonly string[]
+ * export type FormatAbi<abi extends Abi | readonly unknown[]> =
+ *   Abi extends abi ? readonly string[]
+ *   : abi extends readonly [] ? never
+ *   : abi extends Abi ? { [Key in keyof abi]: FormatAbiItem<abi[Key]> }
+ *   : readonly string[]
  */

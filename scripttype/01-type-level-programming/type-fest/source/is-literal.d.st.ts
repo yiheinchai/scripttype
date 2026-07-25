@@ -18,21 +18,24 @@ declare const IsNumericLiteral: any
 declare const IsStringLiteral: any
 declare const IsSymbolLiteral: any
 declare const UnwrapBrand: any
-type CollapseLiterals<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsBooleanLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNumericLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStringLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsSymbolLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnwrapBrand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CollapseLiterals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsBooleanLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNumericLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStringLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsSymbolLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnwrapBrand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsLiteral(T) {
   return IfNotAnyOrNever(T, { ifNot: _IsLiteral(CollapseLiterals(UnwrapBrand(T))), ifAny: false, ifNever: false })
 }
 /* compiles to:
- * export type IsLiteral<T> = IfNotAnyOrNever<T, { ifNot: _IsLiteral<CollapseLiterals<UnwrapBrand<T>>>; ifAny: false; ifNever: false }>
+ * export type IsLiteral<T> = IfNotAnyOrNever<
+ *   T,
+ *   { ifNot: _IsLiteral<CollapseLiterals<UnwrapBrand<T>>>; ifAny: false; ifNever: false }
+ * >
  */
 
 // ✓ _IsLiteral: verified type-identical to the original
@@ -42,7 +45,13 @@ export function _IsLiteral(T) {
   return (m1 ? (matches<true>(IsNever(m1.Bools)) ? never : IsBooleanLiteral(m1.Bools)) : never) | IsLiteralNonBools(Exclude(T, boolean))
 }
 /* compiles to:
- * export type _IsLiteral<T> = (Extract<T, boolean> extends infer Bools ? IsNever<Bools> extends true ? never : IsBooleanLiteral<Bools> : never) | IsLiteralNonBools<Exclude<T, boolean>>
+ * export type _IsLiteral<T> =
+ *   | (
+ *       Extract<T, boolean> extends infer Bools
+ *         ? IsNever<Bools> extends true ? never : IsBooleanLiteral<Bools>
+ *         : never
+ *     )
+ *   | IsLiteralNonBools<Exclude<T, boolean>>
  */
 
 // ✓ IsLiteralNonBools: verified type-identical to the original
@@ -51,14 +60,18 @@ export function IsLiteralNonBools(T) {
   if (matches<number | bigint>(T)) {
     return IsNumericLiteral(T)
   }
-  if (matches<string>(T)) {
+  if (typeof T === 'string') {
     return IsStringLiteral(T)
   }
-  if (matches<symbol>(T)) {
+  if (typeof T === 'symbol') {
     return IsSymbolLiteral(T)
   }
   return false
 }
 /* compiles to:
- * export type IsLiteralNonBools<T> = T extends number | bigint ? IsNumericLiteral<T> : T extends string ? IsStringLiteral<T> : T extends symbol ? IsSymbolLiteral<T> : false
+ * export type IsLiteralNonBools<T> =
+ *   T extends number | bigint ? IsNumericLiteral<T>
+ *   : T extends string ? IsStringLiteral<T>
+ *   : T extends symbol ? IsSymbolLiteral<T>
+ *   : false
  */

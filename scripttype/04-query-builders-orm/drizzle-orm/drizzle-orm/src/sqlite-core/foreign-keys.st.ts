@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const AnySQLiteColumn: any
 declare const SQLiteColumn: any
-type AnySQLiteColumn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQLiteColumn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnySQLiteColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQLiteColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ColumnsWithTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ColumnsWithTable(TTableName: string, TColumns: SQLiteColumn[]) {
@@ -24,5 +24,7 @@ export function ColumnsWithTable(TTableName: string, TColumns: SQLiteColumn[]) {
   return out
 }
 /* compiles to:
- * export type ColumnsWithTable<TTableName extends string, TColumns extends SQLiteColumn[]> = { [Key in keyof TColumns]: AnySQLiteColumn<{ tableName: TTableName }> }
+ * export type ColumnsWithTable<TTableName extends string, TColumns extends SQLiteColumn[]> = {
+ *   [Key in keyof TColumns]: AnySQLiteColumn<{ tableName: TTableName }>
+ * }
  */

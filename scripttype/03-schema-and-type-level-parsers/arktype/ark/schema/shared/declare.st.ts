@@ -19,26 +19,28 @@ declare const TypeMeta: any
 declare const nodeOfKind: any
 declare const reducibleKindOf: any
 declare const show: any
-type BaseErrorContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseNodeDeclaration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DeclarationInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Disjoint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NarrowedAttachments<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypeMeta<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type nodeOfKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type reducibleKindOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type show<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseErrorContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseNodeDeclaration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DeclarationInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Disjoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NarrowedAttachments<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypeMeta<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type nodeOfKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type reducibleKindOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type show<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ withMetaPrefixedKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function withMetaPrefixedKeys(o) {
   const out = emptyObject
   for (const k in keyof(o)) {
-    out[matches<string>(k) ? `meta.${k}` : never] = o[k]
+    out[typeof k === 'string' ? `meta.${k}` : never] = o[k]
   }
   return out
 }
 /* compiles to:
- * export type withMetaPrefixedKeys<o> = { [K in keyof o as K extends string ? `meta.${K}` : never]: o[K] }
+ * export type withMetaPrefixedKeys<o> = {
+ *   [K in keyof o as K extends string ? `meta.${K}` : never]: o[K]
+ * }
  */
 
 // ✗ Collapsible: compiles but is not type-identical yet
@@ -77,7 +79,9 @@ export function defaultErrorContext(d: DeclarationInput) {
   return show(BaseErrorContext(d['kind']) & d['inner'])
 }
 /* compiles to:
- * export type defaultErrorContext<d extends DeclarationInput> = show<BaseErrorContext<d['kind']> & d['inner']>
+ * export type defaultErrorContext<d extends DeclarationInput> = show<
+ *   BaseErrorContext<d['kind']> & d['inner']
+ * >
  */
 
 // ✗ declareNode: the ScriptType does not itself typecheck as TypeScript
@@ -87,19 +91,30 @@ export function declareNode(d: { [k in keyof typeof d]: k extends keyof Declarat
   return merge({ intersectionIsOpen: false, prerequisite: prerequisiteOf(d), childKind: never, reducibleTo: d['kind'], errorContext: Null }, d)
 }
 /* compiles to:
- * export type declareNode<d extends { [k in keyof typeof d]: k extends keyof DeclarationInput ? DeclarationInput[k] : never; } & DeclarationInput> = { intersectionIsOpen: false; prerequisite: prerequisiteOf<d>; childKind: never; reducibleTo: d['kind']; errorContext: null } & d
+ * export type declareNode<
+ *   d extends { [k in keyof typeof d]: k extends keyof DeclarationInput ? DeclarationInput[k] : never; } & DeclarationInput
+ * > =
+ *   & {
+ *       intersectionIsOpen: false
+ *       prerequisite: prerequisiteOf<d>
+ *       childKind: never
+ *       reducibleTo: d['kind']
+ *       errorContext: null
+ *     }
+ *   & d
  */
 
 // ✓ prerequisiteOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function prerequisiteOf(d: DeclarationInput) {
-  if (matches<keyof typeof d>('prerequisite')) {
+  if ('prerequisite' in d) {
     return d['prerequisite']
   }
   return unknown
 }
 /* compiles to:
- * export type prerequisiteOf<d extends DeclarationInput> = 'prerequisite' extends keyof d ? d['prerequisite'] : unknown
+ * export type prerequisiteOf<d extends DeclarationInput> =
+ *   'prerequisite' extends keyof d ? d['prerequisite'] : unknown
  */
 
 // ✓ attachmentsOf: verified type-identical to the original
@@ -108,7 +123,8 @@ export function attachmentsOf(d: BaseNodeDeclaration) {
   return NarrowedAttachments(d) & attachedInner(d)
 }
 /* compiles to:
- * export type attachmentsOf<d extends BaseNodeDeclaration> = NarrowedAttachments<d> & attachedInner<d>
+ * export type attachmentsOf<d extends BaseNodeDeclaration> =
+ *   NarrowedAttachments<d> & attachedInner<d>
  */
 
 // ✓ attachedInner: verified type-identical to the original
@@ -120,7 +136,8 @@ export function attachedInner(d: BaseNodeDeclaration) {
   return {}
 }
 /* compiles to:
- * export type attachedInner<d extends BaseNodeDeclaration> = 'intersection' & d['kind'] extends never ? d['inner'] : {}
+ * export type attachedInner<d extends BaseNodeDeclaration> =
+ *   'intersection' & d['kind'] extends never ? d['inner'] : {}
  */
 
 // ✓ ownIntersectionResult: verified type-identical to the original
@@ -129,5 +146,6 @@ export function ownIntersectionResult(d: BaseNodeDeclaration) {
   return nodeOfKind(reducibleKindOf(d['kind'])) | Disjoint
 }
 /* compiles to:
- * export type ownIntersectionResult<d extends BaseNodeDeclaration> = nodeOfKind<reducibleKindOf<d['kind']>> | Disjoint
+ * export type ownIntersectionResult<d extends BaseNodeDeclaration> =
+ *   nodeOfKind<reducibleKindOf<d['kind']>> | Disjoint
  */

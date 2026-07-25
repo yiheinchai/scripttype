@@ -158,7 +158,7 @@ export function ExtractTypeFromStringSelectExpression(DB, TB: keyof typeof DB, S
   const m1 = matches<`${Hole<"SC">}.${Hole<"T">}.${Hole<"C">} as ${string}`>(SE)
   if (m1) {
     if (matches<typeof TB>(`${m1.SC}.${m1.T}`)) {
-      if (matches<keyof (typeof DB)[`${typeof m1.SC}.${typeof m1.T}`]>(m1.C)) {
+      if (m1.C in DB[`${m1.SC}.${m1.T}`]) {
         return DB[`${m1.SC}.${m1.T}`][m1.C]
       }
       return never
@@ -168,7 +168,7 @@ export function ExtractTypeFromStringSelectExpression(DB, TB: keyof typeof DB, S
   const m2 = matches<`${Hole<"T">}.${Hole<"C">} as ${string}`>(SE)
   if (m2) {
     if (matches<typeof TB>(m2.T)) {
-      if (matches<keyof (typeof DB)[typeof m2.T]>(m2.C)) {
+      if (m2.C in DB[m2.T]) {
         return DB[m2.T][m2.C]
       }
       return never
@@ -185,7 +185,7 @@ export function ExtractTypeFromStringSelectExpression(DB, TB: keyof typeof DB, S
   const m4 = matches<`${Hole<"SC">}.${Hole<"T">}.${Hole<"C">}`>(SE)
   if (m4) {
     if (matches<typeof TB>(`${m4.SC}.${m4.T}`)) {
-      if (matches<keyof (typeof DB)[`${typeof m4.SC}.${typeof m4.T}`]>(m4.C)) {
+      if (m4.C in DB[`${m4.SC}.${m4.T}`]) {
         return DB[`${m4.SC}.${m4.T}`][m4.C]
       }
       return never
@@ -195,7 +195,7 @@ export function ExtractTypeFromStringSelectExpression(DB, TB: keyof typeof DB, S
   const m5 = matches<`${Hole<"T">}.${Hole<"C">}`>(SE)
   if (m5) {
     if (matches<typeof TB>(m5.T)) {
-      if (matches<keyof (typeof DB)[typeof m5.T]>(m5.C)) {
+      if (m5.C in DB[m5.T]) {
         return DB[m5.T][m5.C]
       }
       return never

@@ -16,19 +16,31 @@ declare const NavigateOptions: any
 declare const ParsedLocation: any
 declare const RegisteredRouter: any
 declare const Response: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HeadersInit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NavigateOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParsedLocation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Response<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HeadersInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NavigateOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParsedLocation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Redirect: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Redirect(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = '.') {
   return merge(Response, { options: merge(NavigateOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo), { _builtLocation: optional(ParsedLocation) }), redirectHandled: optional(boolean) })
 }
 /* compiles to:
- * export type Redirect<TRouter extends AnyRouter = RegisteredRouter, TFrom extends string = string, TTo extends string | undefined = undefined, TMaskFrom extends string = TFrom, TMaskTo extends string = '.'> = Response & { options: NavigateOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo> & { _builtLocation?: ParsedLocation }; redirectHandled?: boolean }
+ * export type Redirect<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string | undefined = undefined,
+ *   TMaskFrom extends string = TFrom,
+ *   TMaskTo extends string = '.'
+ * > =
+ *   & Response
+ *   & {
+ *       options: & NavigateOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo>
+ *       & { _builtLocation?: ParsedLocation }
+ *       redirectHandled?: boolean
+ *     }
  */
 
 // ✓ RedirectOptions: verified type-identical to the original
@@ -37,7 +49,22 @@ export function RedirectOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: st
   return merge({ href: optional(string), code: optional(number), statusCode: optional(number), throw: optional(any), headers: optional(HeadersInit), _builtLocation: optional(ParsedLocation) }, NavigateOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo))
 }
 /* compiles to:
- * export type RedirectOptions<TRouter extends AnyRouter = RegisteredRouter, TFrom extends string = string, TTo extends string | undefined = undefined, TMaskFrom extends string = TFrom, TMaskTo extends string = '.'> = { href?: string; code?: number; statusCode?: number; throw?: any; headers?: HeadersInit; _builtLocation?: ParsedLocation } & NavigateOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo>
+ * export type RedirectOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string | undefined = undefined,
+ *   TMaskFrom extends string = TFrom,
+ *   TMaskTo extends string = '.'
+ * > =
+ *   & {
+ *       href?: string
+ *       code?: number
+ *       statusCode?: number
+ *       throw?: any
+ *       headers?: HeadersInit
+ *       _builtLocation?: ParsedLocation
+ *     }
+ *   & NavigateOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo>
  */
 
 // ✓ ResolvedRedirect: verified type-identical to the original
@@ -46,7 +73,14 @@ export function ResolvedRedirect(TRouter: AnyRouter = RegisteredRouter, TFrom: s
   return Redirect(TRouter, TFrom, TTo, TMaskFrom, TMaskTo)
 }
 /* compiles to:
- * export type ResolvedRedirect<TRouter extends AnyRouter = RegisteredRouter, TFrom extends string = string, TTo extends string = '', TMaskFrom extends string = TFrom, TMaskTo extends string = ''> = Redirect<TRouter, TFrom, TTo, TMaskFrom, TMaskTo>
+ * export type ResolvedRedirect<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string = '',
+ *   TMaskFrom extends string = TFrom,
+ *   TMaskTo extends string = ''
+ * > =
+ *   Redirect<TRouter, TFrom, TTo, TMaskFrom, TMaskTo>
  */
 
 // ✓ RedirectOptionsRoute: verified type-identical to the original
@@ -55,5 +89,11 @@ export function RedirectOptionsRoute(TDefaultFrom: string = string, TRouter: Any
   return Omit(RedirectOptions(TRouter, TDefaultFrom, TTo, TDefaultFrom, TMaskTo), 'from')
 }
 /* compiles to:
- * export type RedirectOptionsRoute<TDefaultFrom extends string = string, TRouter extends AnyRouter = RegisteredRouter, TTo extends string | undefined = undefined, TMaskTo extends string = ''> = Omit<RedirectOptions<TRouter, TDefaultFrom, TTo, TDefaultFrom, TMaskTo>, 'from'>
+ * export type RedirectOptionsRoute<
+ *   TDefaultFrom extends string = string,
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TTo extends string | undefined = undefined,
+ *   TMaskTo extends string = ''
+ * > =
+ *   Omit<RedirectOptions<TRouter, TDefaultFrom, TTo, TDefaultFrom, TMaskTo>, 'from'>
  */

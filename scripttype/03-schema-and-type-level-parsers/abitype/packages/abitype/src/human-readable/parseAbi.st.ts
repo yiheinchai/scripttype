@@ -15,11 +15,11 @@ declare const Filter: any
 declare const ParseSignature: any
 declare const ParseStructs: any
 declare const Signatures: any
-type Abi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Filter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseStructs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Signatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Filter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseStructs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Signatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParseAbi: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ParseAbi(signatures: readonly string[]) {
@@ -32,7 +32,7 @@ export function ParseAbi(signatures: readonly string[]) {
       if (m1) {
         const out = emptyObject
         for (const key in keyof(signatures)) {
-          out[key] = matches<string>(signatures[key]) ? ParseSignature(signatures[key], m1.structs) : never
+          out[key] = typeof signatures[key] === 'string' ? ParseSignature(signatures[key], m1.structs) : never
         }
         const m2 = matches<Hole<"mapped", readonly unknown[]>>(out)
         if (m2) {
@@ -54,5 +54,17 @@ export function ParseAbi(signatures: readonly string[]) {
   return never
 }
 /* compiles to:
- * export type ParseAbi<signatures extends readonly string[]> = string[] extends signatures ? Abi : signatures extends readonly string[] ? signatures extends Signatures<signatures> ? ParseStructs<signatures> extends infer structs ? { [Key in keyof signatures]: signatures[Key] extends string ? ParseSignature<signatures[Key], structs> : never } extends (infer mapped extends readonly unknown[]) ? Filter<mapped, never> extends infer result ? result extends readonly [] ? never : result : never : never : never : never : never
+ * export type ParseAbi<signatures extends readonly string[]> =
+ *   string[] extends signatures ? Abi
+ *   : signatures extends readonly string[]
+ *     ? signatures extends Signatures<signatures>
+ *       ? ParseStructs<signatures> extends infer structs
+ *         ? { [Key in keyof signatures]: signatures[Key] extends string ? ParseSignature<signatures[Key], structs> : never } extends (infer mapped extends readonly unknown[])
+ *           ? Filter<mapped, never> extends infer result
+ *             ? result extends readonly [] ? never : result
+ *             : never
+ *           : never
+ *         : never
+ *       : never
+ *   : never
  */

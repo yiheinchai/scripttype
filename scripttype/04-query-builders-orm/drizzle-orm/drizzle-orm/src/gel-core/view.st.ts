@@ -13,16 +13,21 @@
 declare const ColumnsSelection: any
 declare const GelMaterializedView: any
 declare const GelView: any
-type ColumnsSelection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelMaterializedView<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelView<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelMaterializedView<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelView<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GelViewWithSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GelViewWithSelection(TName: string = string, TExisting: boolean = boolean, TSelectedFields: ColumnsSelection = ColumnsSelection) {
   return merge(GelView(TName, TExisting, TSelectedFields), TSelectedFields)
 }
 /* compiles to:
- * export type GelViewWithSelection<TName extends string = string, TExisting extends boolean = boolean, TSelectedFields extends ColumnsSelection = ColumnsSelection> = GelView<TName, TExisting, TSelectedFields> & TSelectedFields
+ * export type GelViewWithSelection<
+ *   TName extends string = string,
+ *   TExisting extends boolean = boolean,
+ *   TSelectedFields extends ColumnsSelection = ColumnsSelection
+ * > =
+ *   GelView<TName, TExisting, TSelectedFields> & TSelectedFields
  */
 
 // ✓ GelMaterializedViewWithSelection: verified type-identical to the original
@@ -31,5 +36,10 @@ export function GelMaterializedViewWithSelection(TName: string = string, TExisti
   return merge(GelMaterializedView(TName, TExisting, TSelectedFields), TSelectedFields)
 }
 /* compiles to:
- * export type GelMaterializedViewWithSelection<TName extends string = string, TExisting extends boolean = boolean, TSelectedFields extends ColumnsSelection = ColumnsSelection> = GelMaterializedView<TName, TExisting, TSelectedFields> & TSelectedFields
+ * export type GelMaterializedViewWithSelection<
+ *   TName extends string = string,
+ *   TExisting extends boolean = boolean,
+ *   TSelectedFields extends ColumnsSelection = ColumnsSelection
+ * > =
+ *   GelMaterializedView<TName, TExisting, TSelectedFields> & TSelectedFields
  */

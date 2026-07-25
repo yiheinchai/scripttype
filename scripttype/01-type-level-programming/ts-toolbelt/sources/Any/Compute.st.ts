@@ -15,12 +15,12 @@ declare const Depth: any
 declare const Has: any
 declare const If: any
 declare const Key: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ComputeDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Has<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComputeDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Has<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ComputeRaw: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ComputeRaw(A: any) {
@@ -34,7 +34,8 @@ export function ComputeRaw(A: any) {
   return out & unknown
 }
 /* compiles to:
- * export type ComputeRaw<A extends any> = A extends Function ? A : { [K in keyof A]: A[K] } & unknown
+ * export type ComputeRaw<A extends any> =
+ *   A extends Function ? A : { [K in keyof A]: A[K] } & unknown
  */
 
 // ✗ ComputeFlat: does not compile yet
@@ -63,7 +64,17 @@ export function ComputeFlat(A: any) {
   return out & unknown
 }
 /* compiles to:
- * export type ComputeFlat<A extends any> = A extends BuiltIn ? A : A extends Array<any> ? A extends Array<Record<Key, any>> ? Array<{ [K in keyof (typeof A)[number]]: (typeof A)[number][K]; } & unknown> : A : A extends ReadonlyArray<any> ? A extends ReadonlyArray<Record<Key, any>> ? ReadonlyArray<{ [K in keyof (typeof A)[number]]: (typeof A)[number][K]; } & unknown> : A : { [K in keyof A]: A[K] } & unknown
+ * export type ComputeFlat<A extends any> =
+ *   A extends BuiltIn ? A
+ *   : A extends Array<any>
+ *     ? A extends Array<Record<Key, any>>
+ *       ? Array<{ [K in keyof (typeof A)[number]]: (typeof A)[number][K]; } & unknown>
+ *       : A
+ *   : A extends ReadonlyArray<any>
+ *     ? A extends ReadonlyArray<Record<Key, any>>
+ *       ? ReadonlyArray<{ [K in keyof (typeof A)[number]]: (typeof A)[number][K]; } & unknown>
+ *       : A
+ *   : { [K in keyof A]: A[K] } & unknown
  */
 
 // ✗ ComputeDeep: does not compile yet
@@ -80,7 +91,28 @@ export function ComputeDeep(A: any, Seen = never) {
   return If(Has(Seen, A), A, matches<Array<any>>(A) ? (matches<Array<Record<Key, any>>>(A) ? t<Array<{ [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; } & unknown>>() : A) : (matches<ReadonlyArray<any>>(A) ? (matches<ReadonlyArray<Record<Key, any>>>(A) ? t<ReadonlyArray<{ [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; } & unknown>>() : A) : (out & unknown)))
 }
 /* compiles to:
- * export type ComputeDeep<A extends any, Seen = never> = A extends BuiltIn ? A : If<Has<Seen, A>, A, A extends Array<any> ? A extends Array<Record<Key, any>> ? Array<{ [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; } & unknown> : A : A extends ReadonlyArray<any> ? A extends ReadonlyArray<Record<Key, any>> ? ReadonlyArray<{ [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; } & unknown> : A : { [K in keyof A]: ComputeDeep<A[K], A | Seen> } & unknown>
+ * export type ComputeDeep<A extends any, Seen = never> =
+ *   A extends BuiltIn
+ *     ? A
+ *     : If<
+ *       Has<Seen, A>,
+ *       A,
+ *       A extends Array<any>
+ *         ? A extends Array<Record<Key, any>>
+ *           ? Array<
+ *             & { [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; }
+ *             & unknown
+ *           >
+ *           : A
+ *       : A extends ReadonlyArray<any>
+ *         ? A extends ReadonlyArray<Record<Key, any>>
+ *           ? ReadonlyArray<
+ *             & { [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; }
+ *             & unknown
+ *           >
+ *           : A
+ *       : { [K in keyof A]: ComputeDeep<A[K], A | Seen> } & unknown
+ *     >
  */
 
 // ✓ Compute: verified type-identical to the original
@@ -89,5 +121,6 @@ export function Compute(A: any, depth: Depth = 'deep') {
   return { 'flat': ComputeFlat(A), 'deep': ComputeDeep(A) }[depth]
 }
 /* compiles to:
- * export type Compute<A extends any, depth extends Depth = 'deep'> = { flat: ComputeFlat<A>; deep: ComputeDeep<A> }[depth]
+ * export type Compute<A extends any, depth extends Depth = 'deep'> =
+ *   { flat: ComputeFlat<A>; deep: ComputeDeep<A> }[depth]
  */

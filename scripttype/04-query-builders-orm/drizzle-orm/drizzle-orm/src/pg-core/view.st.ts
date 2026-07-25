@@ -13,16 +13,21 @@
 declare const ColumnsSelection: any
 declare const PgMaterializedView: any
 declare const PgView: any
-type ColumnsSelection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgMaterializedView<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgView<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgMaterializedView<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgView<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgViewWithSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgViewWithSelection(TName: string = string, TExisting: boolean = boolean, TSelectedFields: ColumnsSelection = ColumnsSelection) {
   return merge(PgView(TName, TExisting, TSelectedFields), TSelectedFields)
 }
 /* compiles to:
- * export type PgViewWithSelection<TName extends string = string, TExisting extends boolean = boolean, TSelectedFields extends ColumnsSelection = ColumnsSelection> = PgView<TName, TExisting, TSelectedFields> & TSelectedFields
+ * export type PgViewWithSelection<
+ *   TName extends string = string,
+ *   TExisting extends boolean = boolean,
+ *   TSelectedFields extends ColumnsSelection = ColumnsSelection
+ * > =
+ *   PgView<TName, TExisting, TSelectedFields> & TSelectedFields
  */
 
 // ✓ PgMaterializedViewWithSelection: verified type-identical to the original
@@ -31,5 +36,10 @@ export function PgMaterializedViewWithSelection(TName: string = string, TExistin
   return merge(PgMaterializedView(TName, TExisting, TSelectedFields), TSelectedFields)
 }
 /* compiles to:
- * export type PgMaterializedViewWithSelection<TName extends string = string, TExisting extends boolean = boolean, TSelectedFields extends ColumnsSelection = ColumnsSelection> = PgMaterializedView<TName, TExisting, TSelectedFields> & TSelectedFields
+ * export type PgMaterializedViewWithSelection<
+ *   TName extends string = string,
+ *   TExisting extends boolean = boolean,
+ *   TSelectedFields extends ColumnsSelection = ColumnsSelection
+ * > =
+ *   PgMaterializedView<TName, TExisting, TSelectedFields> & TSelectedFields
  */

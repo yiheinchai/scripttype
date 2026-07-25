@@ -14,15 +14,20 @@ declare const TEnumValue: any
 declare const TEvaluateEnum: any
 declare const TFromType: any
 declare const TSchema: any
-type TEnumValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TEvaluateEnum<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEnumValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TEvaluateEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromEnum: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromEnum(Values: TEnumValue[], Evaluated: TSchema = TEvaluateEnum(Values), Result: string[] = TFromType(Evaluated)) {
   return Result
 }
 /* compiles to:
- * export type TFromEnum<Values extends TEnumValue[], Evaluated extends TSchema = TEvaluateEnum<Values>, Result extends string[] = TFromType<Evaluated>> = Result
+ * export type TFromEnum<
+ *   Values extends TEnumValue[],
+ *   Evaluated extends TSchema = TEvaluateEnum<Values>,
+ *   Result extends string[] = TFromType<Evaluated>
+ * > =
+ *   Result
  */

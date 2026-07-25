@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace React {
+  export type ReactElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Control: any
 declare const ControllerFieldState: any
 declare const FieldPath: any
@@ -20,16 +23,16 @@ declare const React: any
 declare const RefCallBack: any
 declare const RegisterOptions: any
 declare const UseFormStateReturn: any
-type Control<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ControllerFieldState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldPathValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Noop<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type React<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RefCallBack<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisterOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseFormStateReturn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Control<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ControllerFieldState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldPathValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Noop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type React<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RefCallBack<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisterOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseFormStateReturn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ControllerRenderProps: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -37,7 +40,18 @@ export function ControllerRenderProps(TFieldValues: FieldValues = FieldValues, T
   return { onChange: fnType([arrayOf(any)], voidType()), onBlur: Noop, value: FieldPathValue(TFieldValues, TName), disabled: optional(boolean), name: TName, ref: RefCallBack }
 }
 /* compiles to:
- * export type ControllerRenderProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = { onChange: (a0: any[]) => void; onBlur: Noop; value: FieldPathValue<TFieldValues, TName>; disabled?: boolean; name: TName; ref: RefCallBack }
+ * export type ControllerRenderProps<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+ * > =
+ *   {
+ *     onChange: (a0: any[]) => void
+ *     onBlur: Noop
+ *     value: FieldPathValue<TFieldValues, TName>
+ *     disabled?: boolean
+ *     name: TName
+ *     ref: RefCallBack
+ *   }
  */
 
 // ✓ UseControllerProps: verified type-identical to the original
@@ -46,7 +60,23 @@ export function UseControllerProps(TFieldValues: FieldValues = FieldValues, TNam
   return { name: TName, rules: optional(Omit(RegisterOptions(TFieldValues, TName), anyOf('valueAsNumber', 'valueAsDate', 'setValueAs', 'disabled'))), shouldUnregister: optional(boolean), defaultValue: optional(FieldPathValue(TFieldValues, TName)), control: optional(Control(TFieldValues, any, TTransformedValues)), disabled: optional(boolean), exact: optional(boolean) }
 }
 /* compiles to:
- * export type UseControllerProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>, TTransformedValues = TFieldValues> = { name: TName; rules?: Omit<RegisterOptions<TFieldValues, TName>, 'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'>; shouldUnregister?: boolean; defaultValue?: FieldPathValue<TFieldValues, TName>; control?: Control<TFieldValues, any, TTransformedValues>; disabled?: boolean; exact?: boolean }
+ * export type UseControllerProps<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+ *   TTransformedValues = TFieldValues
+ * > =
+ *   {
+ *     name: TName
+ *     rules?: Omit<
+ *       RegisterOptions<TFieldValues, TName>,
+ *       'valueAsNumber' | 'valueAsDate' | 'setValueAs' | 'disabled'
+ *     >
+ *     shouldUnregister?: boolean
+ *     defaultValue?: FieldPathValue<TFieldValues, TName>
+ *     control?: Control<TFieldValues, any, TTransformedValues>
+ *     disabled?: boolean
+ *     exact?: boolean
+ *   }
  */
 
 // ✓ UseControllerReturn: verified type-identical to the original
@@ -55,7 +85,15 @@ export function UseControllerReturn(TFieldValues: FieldValues = FieldValues, TNa
   return { field: ControllerRenderProps(TFieldValues, TName), formState: UseFormStateReturn(TFieldValues), fieldState: ControllerFieldState }
 }
 /* compiles to:
- * export type UseControllerReturn<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>> = { field: ControllerRenderProps<TFieldValues, TName>; formState: UseFormStateReturn<TFieldValues>; fieldState: ControllerFieldState }
+ * export type UseControllerReturn<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+ * > =
+ *   {
+ *     field: ControllerRenderProps<TFieldValues, TName>
+ *     formState: UseFormStateReturn<TFieldValues>
+ *     fieldState: ControllerFieldState
+ *   }
  */
 
 // ✓ ControllerProps: verified type-identical to the original
@@ -64,5 +102,15 @@ export function ControllerProps(TFieldValues: FieldValues = FieldValues, TName: 
   return merge({ render: fnType([{ field: ControllerRenderProps(TFieldValues, TName), fieldState: ControllerFieldState, formState: UseFormStateReturn(TFieldValues) }], React.ReactElement) }, UseControllerProps(TFieldValues, TName, TTransformedValues))
 }
 /* compiles to:
- * export type ControllerProps<TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>, TTransformedValues = TFieldValues> = { render: (a0: { field: ControllerRenderProps<TFieldValues, TName>; fieldState: ControllerFieldState; formState: UseFormStateReturn<TFieldValues> }) => React.ReactElement } & UseControllerProps<TFieldValues, TName, TTransformedValues>
+ * export type ControllerProps<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+ *   TTransformedValues = TFieldValues
+ * > =
+ *   & {
+ *       render: (
+ *         a0: { field: ControllerRenderProps<TFieldValues, TName>; fieldState: ControllerFieldState; formState: UseFormStateReturn<TFieldValues> }
+ *       ) => React.ReactElement
+ *     }
+ *   & UseControllerProps<TFieldValues, TName, TTransformedValues>
  */

@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Left: any
-type Left<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeOne: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TTakeOne(Input: string) {
@@ -22,7 +22,8 @@ export function TTakeOne(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTakeOne<Input extends string> = Input extends `${infer Left extends string}${infer Right extends string}` ? [Left, Right] : []
+ * export type TTakeOne<Input extends string> =
+ *   Input extends `${infer Left extends string}${infer Right extends string}` ? [Left, Right] : []
  */
 
 // ✓ TIsInputMatchSentinal: verified type-identical to the original
@@ -38,7 +39,10 @@ export function TIsInputMatchSentinal(End: string[], Input: string) {
   return false
 }
 /* compiles to:
- * export type TIsInputMatchSentinal<End extends string[], Input extends string> = End extends [infer Left extends string, ...(infer Right extends string[])] ? Input extends `${Left}${string}` ? true : TIsInputMatchSentinal<Right, Input> : false
+ * export type TIsInputMatchSentinal<End extends string[], Input extends string> =
+ *   End extends [infer Left extends string, ...infer Right extends string[]]
+ *     ? Input extends `${Left}${string}` ? true : TIsInputMatchSentinal<Right, Input>
+ *     : false
  */
 
 // ✓ TUntil: verified type-identical to the original
@@ -54,5 +58,10 @@ export function TUntil(End: string[], Input: string, Result: string = '') {
   return []
 }
 /* compiles to:
- * export type TUntil<End extends string[], Input extends string, Result extends string = ''> = TTakeOne<Input> extends [infer One extends string, infer Rest extends string] ? TIsInputMatchSentinal<End, Input> extends true ? [Result, Input] : TUntil<End, Rest, `${Result}${One}`> : []
+ * export type TUntil<End extends string[], Input extends string, Result extends string = ''> =
+ *   TTakeOne<Input> extends [infer One extends string, infer Rest extends string]
+ *     ? TIsInputMatchSentinal<End, Input> extends true
+ *       ? [Result, Input]
+ *       : TUntil<End, Rest, `${Result}${One}`>
+ *     : []
  */

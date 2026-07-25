@@ -20,5 +20,8 @@ export function UnwrapPartial(PartialObjectType) {
   return PartialObjectType
 }
 /* compiles to:
- * export type UnwrapPartial<PartialObjectType> = PartialObjectType extends Partial<infer ObjectType> ? Partial<ObjectType> extends PartialObjectType ? ObjectType : PartialObjectType : PartialObjectType
+ * export type UnwrapPartial<PartialObjectType> =
+ *   PartialObjectType extends Partial<infer ObjectType>
+ *     ? Partial<ObjectType> extends PartialObjectType ? ObjectType : PartialObjectType
+ *     : PartialObjectType
  */

@@ -17,7 +17,8 @@ export function TTakeVariant(Variant: string, Input: string) {
   return []
 }
 /* compiles to:
- * export type TTakeVariant<Variant extends string, Input extends string> = Input extends `${Variant}${infer Rest extends string}` ? [Variant, Rest] : []
+ * export type TTakeVariant<Variant extends string, Input extends string> =
+ *   Input extends `${Variant}${infer Rest extends string}` ? [Variant, Rest] : []
  */
 
 // ✓ TTake: verified type-identical to the original
@@ -34,5 +35,10 @@ export function TTake(Variants: string[], Input: string) {
   return []
 }
 /* compiles to:
- * export type TTake<Variants extends string[], Input extends string> = Variants extends [infer ValueLeft extends string, ...(infer ValueRight extends string[])] ? TTakeVariant<ValueLeft, Input> extends [infer Take extends string, infer Rest extends string] ? [Take, Rest] : TTake<ValueRight, Input> : []
+ * export type TTake<Variants extends string[], Input extends string> =
+ *   Variants extends [infer ValueLeft extends string, ...infer ValueRight extends string[]]
+ *     ? TTakeVariant<ValueLeft, Input> extends [infer Take extends string, infer Rest extends string]
+ *       ? [Take, Rest]
+ *       : TTake<ValueRight, Input>
+ *     : []
  */

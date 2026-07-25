@@ -17,5 +17,7 @@ export function MappedType(ObjectType) {
   return out
 }
 /* compiles to:
- * export type MappedType<ObjectType> = { [Key in keyof ObjectType]: { key: Key; value: Exclude<ObjectType[Key], undefined> } }
+ * export type MappedType<ObjectType> = {
+ *   [Key in keyof ObjectType]: { key: Key; value: Exclude<ObjectType[Key], undefined> }
+ * }
  */

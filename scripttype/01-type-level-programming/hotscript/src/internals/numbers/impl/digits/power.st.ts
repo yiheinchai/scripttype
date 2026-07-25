@@ -14,10 +14,10 @@ declare const Digit: any
 declare const MulDigits: any
 declare const TrimZeros: any
 declare const _DivModDigits: any
-type Digit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MulDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TrimZeros<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _DivModDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MulDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TrimZeros<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _DivModDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PowerDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PowerDigits(T: Digit[], U: Digit[], Acc: Digit[] = [1]) {
@@ -41,5 +41,14 @@ export function PowerDigits(T: Digit[], U: Digit[], Acc: Digit[] = [1]) {
   return Acc
 }
 /* compiles to:
- * export type PowerDigits<T extends Digit[], U extends Digit[], Acc extends Digit[] = [1]> = U extends [0] ? [1] : U extends [1] ? MulDigits<T, Acc> : U extends [infer UN extends Digit, ...(infer UR extends Digit[])] ? _DivModDigits<UR, [UN], [2]> extends { Quotient: infer Q extends Digit[]; Remainder: infer R extends Digit[]; } ? TrimZeros<R> extends [0] ? PowerDigits<MulDigits<T, T>, TrimZeros<Q>, Acc> : PowerDigits<MulDigits<T, T>, TrimZeros<Q>, MulDigits<T, Acc>> : never : Acc
+ * export type PowerDigits<T extends Digit[], U extends Digit[], Acc extends Digit[] = [1]> =
+ *   U extends [0] ? [1]
+ *   : U extends [1] ? MulDigits<T, Acc>
+ *   : U extends [infer UN extends Digit, ...infer UR extends Digit[]]
+ *     ? _DivModDigits<UR, [UN], [2]> extends { Quotient: infer Q extends Digit[]; Remainder: infer R extends Digit[]; }
+ *       ? TrimZeros<R> extends [0]
+ *         ? PowerDigits<MulDigits<T, T>, TrimZeros<Q>, Acc>
+ *         : PowerDigits<MulDigits<T, T>, TrimZeros<Q>, MulDigits<T, Acc>>
+ *       : never
+ *   : Acc
  */

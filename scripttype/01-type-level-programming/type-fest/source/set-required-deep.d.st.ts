@@ -19,15 +19,15 @@ declare const SimplifyDeep: any
 declare const StringToNumber: any
 declare const UnionToTuple: any
 declare const UnknownArray: any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Paths<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SetRequired<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SimplifyDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringToNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SetRequired<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SimplifyDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetRequiredDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetRequiredDeep(BaseType, KeyPaths: Paths<typeof BaseType>) {
@@ -37,7 +37,10 @@ export function SetRequiredDeep(BaseType, KeyPaths: Paths<typeof BaseType>) {
   return SetRequiredDeepHelper(BaseType, UnionToTuple(KeyPaths))
 }
 /* compiles to:
- * export type SetRequiredDeep<BaseType, KeyPaths extends Paths<BaseType>> = IsAny<KeyPaths> extends true ? SimplifyDeep<RequiredDeep<BaseType>> : SetRequiredDeepHelper<BaseType, UnionToTuple<KeyPaths>>
+ * export type SetRequiredDeep<BaseType, KeyPaths extends Paths<BaseType>> =
+ *   IsAny<KeyPaths> extends true
+ *     ? SimplifyDeep<RequiredDeep<BaseType>>
+ *     : SetRequiredDeepHelper<BaseType, UnionToTuple<KeyPaths>>
  */
 
 // ✓ SetRequiredDeepHelper: verified type-identical to the original
@@ -56,8 +59,14 @@ export function SetRequiredDeepHelper(BaseType, KeyPathsTuple: UnknownArray) {
   return baseType
 }
 /* compiles to:
- * export type SetRequiredDeepHelper<BaseType, KeyPathsTuple extends UnknownArray> = SetRequiredDeepHelper__loop<BaseType, KeyPathsTuple>
- * type SetRequiredDeepHelper__loop<BaseType, KeyPathsTuple extends UnknownArray> = KeyPathsTuple extends [infer KeyPath, ...infer RestPaths] ? SetRequiredDeepHelper__loop<SetRequiredDeepSinglePath<BaseType, KeyPath>, RestPaths> : BaseType
+ * export type SetRequiredDeepHelper<BaseType, KeyPathsTuple extends UnknownArray> = SetRequiredDeepHelper__loop<
+ *   BaseType,
+ *   KeyPathsTuple
+ * >
+ * type SetRequiredDeepHelper__loop<BaseType, KeyPathsTuple extends UnknownArray> =
+ *   KeyPathsTuple extends [infer KeyPath, ...infer RestPaths]
+ *     ? SetRequiredDeepHelper__loop<SetRequiredDeepSinglePath<BaseType, KeyPath>, RestPaths>
+ *     : BaseType
  */
 
 // ✓ SetRequiredDeepSinglePath: verified type-identical to the original
@@ -77,5 +86,13 @@ export function SetRequiredDeepSinglePath(BaseType, KeyPath) {
   return SetRequired(BaseType, merge(KeyPath | StringToNumber(KeyPath & string), keyof(BaseType)))
 }
 /* compiles to:
- * export type SetRequiredDeepSinglePath<BaseType, KeyPath> = BaseType extends NonRecursiveType ? BaseType : KeyPath extends `${infer Property}.${infer RestPath}` ? { [Key in keyof BaseType]: Property extends `${Key & (string | number)}` ? SetRequiredDeepSinglePath<BaseType[Key], RestPath> : BaseType[Key] } : SetRequired<BaseType, (KeyPath | StringToNumber<KeyPath & string>) & keyof BaseType>
+ * export type SetRequiredDeepSinglePath<BaseType, KeyPath> =
+ *   BaseType extends NonRecursiveType ? BaseType
+ *   : KeyPath extends `${infer Property}.${infer RestPath}`
+ *     ? {
+ *       [Key in keyof BaseType]: Property extends `${Key & (string | number)}`
+ *         ? SetRequiredDeepSinglePath<BaseType[Key], RestPath>
+ *         : BaseType[Key]
+ *     }
+ *   : SetRequired<BaseType, (KeyPath | StringToNumber<KeyPath & string>) & keyof BaseType>
  */

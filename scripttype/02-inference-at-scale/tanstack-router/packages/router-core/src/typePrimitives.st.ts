@@ -23,26 +23,29 @@ declare const SearchParamOptions: any
 declare const ToPathOption: any
 declare const UseParamsResult: any
 declare const UseSearchResult: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Constrain<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConstrainLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FromPathOption<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NavigateOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PathParamOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RedirectOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteIds<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SearchParamOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToPathOption<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseParamsResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseSearchResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Constrain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConstrainLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FromPathOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NavigateOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PathParamOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RedirectOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteIds<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SearchParamOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToPathOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseParamsResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseSearchResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidateFromPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValidateFromPath(TRouter: AnyRouter = RegisteredRouter, TFrom = string) {
   return FromPathOption(TRouter, TFrom)
 }
 /* compiles to:
- * export type ValidateFromPath<TRouter extends AnyRouter = RegisteredRouter, TFrom = string> = FromPathOption<TRouter, TFrom>
+ * export type ValidateFromPath<TRouter extends AnyRouter = RegisteredRouter, TFrom = string> = FromPathOption<
+ *   TRouter,
+ *   TFrom
+ * >
  */
 
 // ✓ ValidateToPath: verified type-identical to the original
@@ -51,7 +54,12 @@ export function ValidateToPath(TRouter: AnyRouter = RegisteredRouter, TTo: strin
   return ToPathOption(TRouter, TFrom, TTo)
 }
 /* compiles to:
- * export type ValidateToPath<TRouter extends AnyRouter = RegisteredRouter, TTo extends string | undefined = undefined, TFrom extends string = string> = ToPathOption<TRouter, TFrom, TTo>
+ * export type ValidateToPath<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TTo extends string | undefined = undefined,
+ *   TFrom extends string = string
+ * > =
+ *   ToPathOption<TRouter, TFrom, TTo>
  */
 
 // ✓ ValidateSearch: verified type-identical to the original
@@ -60,7 +68,12 @@ export function ValidateSearch(TRouter: AnyRouter = RegisteredRouter, TTo: strin
   return SearchParamOptions(TRouter, TFrom, TTo)
 }
 /* compiles to:
- * export type ValidateSearch<TRouter extends AnyRouter = RegisteredRouter, TTo extends string | undefined = undefined, TFrom extends string = string> = SearchParamOptions<TRouter, TFrom, TTo>
+ * export type ValidateSearch<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TTo extends string | undefined = undefined,
+ *   TFrom extends string = string
+ * > =
+ *   SearchParamOptions<TRouter, TFrom, TTo>
  */
 
 // ✓ ValidateParams: verified type-identical to the original
@@ -69,7 +82,12 @@ export function ValidateParams(TRouter: AnyRouter = RegisteredRouter, TTo: strin
   return PathParamOptions(TRouter, TFrom, TTo)
 }
 /* compiles to:
- * export type ValidateParams<TRouter extends AnyRouter = RegisteredRouter, TTo extends string | undefined = undefined, TFrom extends string = string> = PathParamOptions<TRouter, TFrom, TTo>
+ * export type ValidateParams<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TTo extends string | undefined = undefined,
+ *   TFrom extends string = string
+ * > =
+ *   PathParamOptions<TRouter, TFrom, TTo>
  */
 
 // ✓ InferFrom: verified type-identical to the original
@@ -82,7 +100,8 @@ export function InferFrom(TOptions, TDefaultFrom: string = string) {
   return TDefaultFrom
 }
 /* compiles to:
- * export type InferFrom<TOptions, TDefaultFrom extends string = string> = TOptions extends { from: infer TFrom extends string; } ? TFrom : TDefaultFrom
+ * export type InferFrom<TOptions, TDefaultFrom extends string = string> =
+ *   TOptions extends { from: infer TFrom extends string; } ? TFrom : TDefaultFrom
  */
 
 // ✓ InferTo: verified type-identical to the original
@@ -95,7 +114,8 @@ export function InferTo(TOptions) {
   return Undefined
 }
 /* compiles to:
- * export type InferTo<TOptions> = TOptions extends { to: infer TTo extends string; } ? TTo : undefined
+ * export type InferTo<TOptions> =
+ *   TOptions extends { to: infer TTo extends string; } ? TTo : undefined
  */
 
 // ✓ InferMaskTo: verified type-identical to the original
@@ -108,7 +128,8 @@ export function InferMaskTo(TOptions) {
   return ''
 }
 /* compiles to:
- * export type InferMaskTo<TOptions> = TOptions extends { mask: { to: infer TTo extends string; }; } ? TTo : ''
+ * export type InferMaskTo<TOptions> =
+ *   TOptions extends { mask: { to: infer TTo extends string; }; } ? TTo : ''
  */
 
 // ✓ InferMaskFrom: verified type-identical to the original
@@ -121,7 +142,8 @@ export function InferMaskFrom(TOptions) {
   return string
 }
 /* compiles to:
- * export type InferMaskFrom<TOptions> = TOptions extends { mask: { from: infer TFrom extends string; }; } ? TFrom : string
+ * export type InferMaskFrom<TOptions> =
+ *   TOptions extends { mask: { from: infer TFrom extends string; }; } ? TFrom : string
  */
 
 // ✓ ValidateNavigateOptions: verified type-identical to the original
@@ -130,7 +152,21 @@ export function ValidateNavigateOptions(TRouter: AnyRouter = RegisteredRouter, T
   return Constrain(TOptions, NavigateOptions(TRouter, InferFrom(TOptions, TDefaultFrom), InferTo(TOptions), InferMaskFrom(TOptions), InferMaskTo(TOptions)))
 }
 /* compiles to:
- * export type ValidateNavigateOptions<TRouter extends AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom extends string = string> = Constrain<TOptions, NavigateOptions<TRouter, InferFrom<TOptions, TDefaultFrom>, InferTo<TOptions>, InferMaskFrom<TOptions>, InferMaskTo<TOptions>>>
+ * export type ValidateNavigateOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TOptions = unknown,
+ *   TDefaultFrom extends string = string
+ * > =
+ *   Constrain<
+ *     TOptions,
+ *     NavigateOptions<
+ *       TRouter,
+ *       InferFrom<TOptions, TDefaultFrom>,
+ *       InferTo<TOptions>,
+ *       InferMaskFrom<TOptions>,
+ *       InferMaskTo<TOptions>
+ *     >
+ *   >
  */
 
 // ✓ ValidateNavigateOptionsArray: verified type-identical to the original
@@ -143,7 +179,12 @@ export function ValidateNavigateOptionsArray(TRouter: AnyRouter = RegisteredRout
   return out
 }
 /* compiles to:
- * export type ValidateNavigateOptionsArray<TRouter extends AnyRouter = RegisteredRouter, TOptions extends ReadonlyArray<any> = ReadonlyArray<unknown>, TDefaultFrom extends string = string> = { [K in keyof TOptions]: ValidateNavigateOptions<TRouter, TOptions[K], TDefaultFrom> }
+ * export type ValidateNavigateOptionsArray<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TOptions extends ReadonlyArray<any> = ReadonlyArray<unknown>,
+ *   TDefaultFrom extends string = string
+ * > =
+ *   { [K in keyof TOptions]: ValidateNavigateOptions<TRouter, TOptions[K], TDefaultFrom> }
  */
 
 // ✓ ValidateRedirectOptions: verified type-identical to the original
@@ -152,7 +193,21 @@ export function ValidateRedirectOptions(TRouter: AnyRouter = RegisteredRouter, T
   return Constrain(TOptions, RedirectOptions(TRouter, InferFrom(TOptions, TDefaultFrom), InferTo(TOptions), InferMaskFrom(TOptions), InferMaskTo(TOptions)))
 }
 /* compiles to:
- * export type ValidateRedirectOptions<TRouter extends AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom extends string = string> = Constrain<TOptions, RedirectOptions<TRouter, InferFrom<TOptions, TDefaultFrom>, InferTo<TOptions>, InferMaskFrom<TOptions>, InferMaskTo<TOptions>>>
+ * export type ValidateRedirectOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TOptions = unknown,
+ *   TDefaultFrom extends string = string
+ * > =
+ *   Constrain<
+ *     TOptions,
+ *     RedirectOptions<
+ *       TRouter,
+ *       InferFrom<TOptions, TDefaultFrom>,
+ *       InferTo<TOptions>,
+ *       InferMaskFrom<TOptions>,
+ *       InferMaskTo<TOptions>
+ *     >
+ *   >
  */
 
 // ✓ ValidateRedirectOptionsArray: verified type-identical to the original
@@ -165,7 +220,12 @@ export function ValidateRedirectOptionsArray(TRouter: AnyRouter = RegisteredRout
   return out
 }
 /* compiles to:
- * export type ValidateRedirectOptionsArray<TRouter extends AnyRouter = RegisteredRouter, TOptions extends ReadonlyArray<any> = ReadonlyArray<unknown>, TDefaultFrom extends string = string> = { [K in keyof TOptions]: ValidateRedirectOptions<TRouter, TOptions[K], TDefaultFrom> }
+ * export type ValidateRedirectOptionsArray<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TOptions extends ReadonlyArray<any> = ReadonlyArray<unknown>,
+ *   TDefaultFrom extends string = string
+ * > =
+ *   { [K in keyof TOptions]: ValidateRedirectOptions<TRouter, TOptions[K], TDefaultFrom> }
  */
 
 // ✓ ValidateId: verified type-identical to the original
@@ -174,7 +234,11 @@ export function ValidateId(TRouter: AnyRouter = RegisteredRouter, TId: string = 
   return ConstrainLiteral(TId, RouteIds(TRouter['routeTree']))
 }
 /* compiles to:
- * export type ValidateId<TRouter extends AnyRouter = RegisteredRouter, TId extends string = string> = ConstrainLiteral<TId, RouteIds<TRouter['routeTree']>>
+ * export type ValidateId<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TId extends string = string
+ * > =
+ *   ConstrainLiteral<TId, RouteIds<TRouter['routeTree']>>
  */
 
 // ✓ InferStrict: verified type-identical to the original
@@ -187,7 +251,8 @@ export function InferStrict(TOptions) {
   return true
 }
 /* compiles to:
- * export type InferStrict<TOptions> = TOptions extends { strict: infer TStrict extends boolean; } ? TStrict : true
+ * export type InferStrict<TOptions> =
+ *   TOptions extends { strict: infer TStrict extends boolean; } ? TStrict : true
  */
 
 // ✓ InferShouldThrow: verified type-identical to the original
@@ -200,7 +265,8 @@ export function InferShouldThrow(TOptions) {
   return true
 }
 /* compiles to:
- * export type InferShouldThrow<TOptions> = TOptions extends { shouldThrow: infer TShouldThrow extends boolean; } ? TShouldThrow : true
+ * export type InferShouldThrow<TOptions> =
+ *   TOptions extends { shouldThrow: infer TShouldThrow extends boolean; } ? TShouldThrow : true
  */
 
 // ✓ InferSelected: verified type-identical to the original
@@ -213,7 +279,8 @@ export function InferSelected(TOptions) {
   return unknown
 }
 /* compiles to:
- * export type InferSelected<TOptions> = TOptions extends { select: (...args: Array<any>) => infer TSelected; } ? TSelected : unknown
+ * export type InferSelected<TOptions> =
+ *   TOptions extends { select: (...args: Array<any>) => infer TSelected; } ? TSelected : unknown
  */
 
 // ✓ ValidateUseSearchResult: verified type-identical to the original
@@ -222,7 +289,12 @@ export function ValidateUseSearchResult(TOptions, TRouter: AnyRouter = Registere
   return UseSearchResult(TRouter, InferFrom(TOptions), InferStrict(TOptions), InferSelected(TOptions))
 }
 /* compiles to:
- * export type ValidateUseSearchResult<TOptions, TRouter extends AnyRouter = RegisteredRouter> = UseSearchResult<TRouter, InferFrom<TOptions>, InferStrict<TOptions>, InferSelected<TOptions>>
+ * export type ValidateUseSearchResult<TOptions, TRouter extends AnyRouter = RegisteredRouter> = UseSearchResult<
+ *   TRouter,
+ *   InferFrom<TOptions>,
+ *   InferStrict<TOptions>,
+ *   InferSelected<TOptions>
+ * >
  */
 
 // ✓ ValidateUseParamsResult: verified type-identical to the original
@@ -231,5 +303,8 @@ export function ValidateUseParamsResult(TOptions, TRouter: AnyRouter = Registere
   return Constrain(TOptions, UseParamsResult(TRouter, InferFrom(TOptions), InferStrict(TOptions), InferSelected(TOptions)))
 }
 /* compiles to:
- * export type ValidateUseParamsResult<TOptions, TRouter extends AnyRouter = RegisteredRouter> = Constrain<TOptions, UseParamsResult<TRouter, InferFrom<TOptions>, InferStrict<TOptions>, InferSelected<TOptions>>>
+ * export type ValidateUseParamsResult<TOptions, TRouter extends AnyRouter = RegisteredRouter> = Constrain<
+ *   TOptions,
+ *   UseParamsResult<TRouter, InferFrom<TOptions>, InferStrict<TOptions>, InferSelected<TOptions>>
+ * >
  */

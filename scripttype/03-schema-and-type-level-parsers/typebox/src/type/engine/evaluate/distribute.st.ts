@@ -19,15 +19,15 @@ declare const TProperties: any
 declare const TSchema: any
 declare const TTuple: any
 declare const TUnion: any
-type TComposite<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TEvaluateIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TEvaluateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNarrow<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TComposite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TEvaluateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNarrow<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIsObjectLike: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TIsObjectLike(Type: TSchema) {
@@ -42,7 +42,8 @@ export function TIsObjectLike(Type: TSchema) {
   return false
 }
 /* compiles to:
- * export type TIsObjectLike<Type extends TSchema> = Type extends TObject<TProperties> ? true : Type extends TTuple<TSchema[]> ? true : false
+ * export type TIsObjectLike<Type extends TSchema> =
+ *   Type extends TObject<TProperties> ? true : Type extends TTuple<TSchema[]> ? true : false
  */
 
 // ✓ TIsUnionOperand: verified type-identical to the original
@@ -51,7 +52,14 @@ export function TIsUnionOperand(Left: TSchema, Right: TSchema, IsUnionLeft: bool
   return Result
 }
 /* compiles to:
- * export type TIsUnionOperand<Left extends TSchema, Right extends TSchema, IsUnionLeft extends boolean = Left extends TUnion ? true : false, IsUnionRight extends boolean = Right extends TUnion ? true : false, Result extends boolean = IsUnionLeft extends true ? true : IsUnionRight extends true ? true : false> = Result
+ * export type TIsUnionOperand<
+ *   Left extends TSchema,
+ *   Right extends TSchema,
+ *   IsUnionLeft extends boolean = Left extends TUnion ? true : false,
+ *   IsUnionRight extends boolean = Right extends TUnion ? true : false,
+ *   Result extends boolean = IsUnionLeft extends true ? true : IsUnionRight extends true ? true : false
+ * > =
+ *   Result
  */
 
 // ✓ TDistributeOperation: verified type-identical to the original
@@ -60,7 +68,17 @@ export function TDistributeOperation(Left: TSchema, Right: TSchema, EvaluatedLef
   return Result
 }
 /* compiles to:
- * export type TDistributeOperation<Left extends TSchema, Right extends TSchema, EvaluatedLeft extends TSchema = TEvaluateType<Left>, EvaluatedRight extends TSchema = TEvaluateType<Right>, IsUnionOperand extends boolean = TIsUnionOperand<EvaluatedLeft, EvaluatedRight>, IsObjectLeft extends boolean = TIsObjectLike<EvaluatedLeft>, IsObjectRight extends boolean = TIsObjectLike<EvaluatedRight>, Result extends TSchema = [IsUnionOperand] extends [true] ? TEvaluateIntersect<[EvaluatedLeft, EvaluatedRight]> : [IsObjectLeft, IsObjectRight] extends [true, true] ? TComposite<EvaluatedLeft, EvaluatedRight> : [IsObjectLeft, IsObjectRight] extends [true, false] ? EvaluatedLeft : [IsObjectLeft, IsObjectRight] extends [false, true] ? EvaluatedRight : TNarrow<EvaluatedLeft, EvaluatedRight>> = Result
+ * export type TDistributeOperation<
+ *   Left extends TSchema,
+ *   Right extends TSchema,
+ *   EvaluatedLeft extends TSchema = TEvaluateType<Left>,
+ *   EvaluatedRight extends TSchema = TEvaluateType<Right>,
+ *   IsUnionOperand extends boolean = TIsUnionOperand<EvaluatedLeft, EvaluatedRight>,
+ *   IsObjectLeft extends boolean = TIsObjectLike<EvaluatedLeft>,
+ *   IsObjectRight extends boolean = TIsObjectLike<EvaluatedRight>,
+ *   Result extends TSchema = [IsUnionOperand] extends [true] ? TEvaluateIntersect<[EvaluatedLeft, EvaluatedRight]> : [IsObjectLeft, IsObjectRight] extends [true, true] ? TComposite<EvaluatedLeft, EvaluatedRight> : [IsObjectLeft, IsObjectRight] extends [true, false] ? EvaluatedLeft : [IsObjectLeft, IsObjectRight] extends [false, true] ? EvaluatedRight : TNarrow<EvaluatedLeft, EvaluatedRight>
+ * > =
+ *   Result
  */
 
 // ✓ TDistributeType: verified type-identical to the original
@@ -79,8 +97,20 @@ export function TDistributeType(Type: TSchema, Distribution: TSchema[]) {
   return matches<[ ]>(Result) ? [Type] : Result
 }
 /* compiles to:
- * export type TDistributeType<Type extends TSchema, Distribution extends TSchema[]> = TDistributeType__loop<Distribution, [], Type>
- * type TDistributeType__loop<Distribution extends TSchema[], Result extends any[], Type extends TSchema> = Distribution extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TDistributeType__loop<Right, [...Result, TDistributeOperation<Type, Left>], Type> : Result extends [] ? [Type] : Result
+ * export type TDistributeType<Type extends TSchema, Distribution extends TSchema[]> = TDistributeType__loop<
+ *   Distribution,
+ *   [],
+ *   Type
+ * >
+ * type TDistributeType__loop<
+ *   Distribution extends TSchema[],
+ *   Result extends any[],
+ *   Type extends TSchema
+ * > =
+ *   Distribution extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TDistributeType__loop<Right, [...Result, TDistributeOperation<Type, Left>], Type>
+ *   : Result extends [] ? [Type]
+ *   : Result
  */
 
 // ✓ TDistributeUnion: verified type-identical to the original
@@ -99,8 +129,23 @@ export function TDistributeUnion(Types: TSchema[], Distribution: TSchema[]) {
   return Result
 }
 /* compiles to:
- * export type TDistributeUnion<Types extends TSchema[], Distribution extends TSchema[]> = TDistributeUnion__loop<Types, [], Distribution>
- * type TDistributeUnion__loop<Types extends TSchema[], Result extends any[], Distribution extends TSchema[]> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TDistributeUnion__loop<Right, [...Result, ...TDistribute<[Left], Distribution>], Distribution> : Result
+ * export type TDistributeUnion<Types extends TSchema[], Distribution extends TSchema[]> = TDistributeUnion__loop<
+ *   Types,
+ *   [],
+ *   Distribution
+ * >
+ * type TDistributeUnion__loop<
+ *   Types extends TSchema[],
+ *   Result extends any[],
+ *   Distribution extends TSchema[]
+ * > =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TDistributeUnion__loop<
+ *       Right,
+ *       [...Result, ...TDistribute<[Left], Distribution>],
+ *       Distribution
+ *     >
+ *     : Result
  */
 
 // ✓ TDistribute: verified type-identical to the original
@@ -117,5 +162,10 @@ export function TDistribute(Types: TSchema[], Result: TSchema[] = []) {
   return Result
 }
 /* compiles to:
- * export type TDistribute<Types extends TSchema[], Result extends TSchema[] = []> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? Left extends TUnion<infer UnionTypes extends TSchema[]> ? TDistribute<Right, TDistributeUnion<UnionTypes, Result>> : TDistribute<Right, TDistributeType<Left, Result>> : Result
+ * export type TDistribute<Types extends TSchema[], Result extends TSchema[] = []> =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? Left extends TUnion<infer UnionTypes extends TSchema[]>
+ *       ? TDistribute<Right, TDistributeUnion<UnionTypes, Result>>
+ *       : TDistribute<Right, TDistributeType<Left, Result>>
+ *     : Result
  */

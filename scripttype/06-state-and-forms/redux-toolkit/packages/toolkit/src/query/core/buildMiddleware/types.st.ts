@@ -16,12 +16,12 @@ declare const EndpointDefinitions: any
 declare const MwNext: any
 declare const RootState: any
 declare const SubMiddlewareApi: any
-type Action<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BuildSubMiddlewareInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EndpointDefinitions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MwNext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RootState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SubMiddlewareApi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Action<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BuildSubMiddlewareInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EndpointDefinitions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MwNext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RootState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SubMiddlewareApi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ QueryStateMeta: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function QueryStateMeta(T) {
@@ -37,7 +37,12 @@ export function ApiMiddlewareInternalHandler(Return = voidType()) {
   return fnType([Action, merge(SubMiddlewareApi, { next: MwNext }), RootState(EndpointDefinitions, string, string)], Return)
 }
 /* compiles to:
- * export type ApiMiddlewareInternalHandler<Return = void> = (a0: Action, a1: SubMiddlewareApi & { next: MwNext }, a2: RootState<EndpointDefinitions, string, string>) => Return
+ * export type ApiMiddlewareInternalHandler<Return = void> =
+ *   (
+ *     a0: Action,
+ *     a1: SubMiddlewareApi & { next: MwNext },
+ *     a2: RootState<EndpointDefinitions, string, string>
+ *   ) => Return
  */
 
 // ✓ InternalHandlerBuilder: verified type-identical to the original
@@ -46,7 +51,8 @@ export function InternalHandlerBuilder(ReturnType = voidType()) {
   return fnType([BuildSubMiddlewareInput], ApiMiddlewareInternalHandler(ReturnType))
 }
 /* compiles to:
- * export type InternalHandlerBuilder<ReturnType = void> = (a0: BuildSubMiddlewareInput) => ApiMiddlewareInternalHandler<ReturnType>
+ * export type InternalHandlerBuilder<ReturnType = void> =
+ *   (a0: BuildSubMiddlewareInput) => ApiMiddlewareInternalHandler<ReturnType>
  */
 
 // ✗ PromiseWithKnownReason: uses raw() — language gap, does not count as covered

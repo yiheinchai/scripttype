@@ -13,14 +13,15 @@
 declare const ActionHandlerDef: any
 declare const FormData: any
 declare const TRPCResponse: any
-type ActionHandlerDef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FormData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActionHandlerDef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FormData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCActionHandler: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRPCActionHandler(TDef: ActionHandlerDef) {
   return fnType([FormData | TDef['input']], t<Promise<TRPCResponse<(typeof TDef)['output'], (typeof TDef)['errorShape']>>>())
 }
 /* compiles to:
- * export type TRPCActionHandler<TDef extends ActionHandlerDef> = (a0: FormData | TDef['input']) => Promise<TRPCResponse<TDef['output'], TDef['errorShape']>>
+ * export type TRPCActionHandler<TDef extends ActionHandlerDef> =
+ *   (a0: FormData | TDef['input']) => Promise<TRPCResponse<TDef['output'], TDef['errorShape']>>
  */

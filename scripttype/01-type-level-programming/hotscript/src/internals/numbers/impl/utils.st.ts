@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Digit: any
 declare const DigitNumber: any
-type Digit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ToNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ToNumber(T: string) {
@@ -24,7 +24,8 @@ export function ToNumber(T: string) {
   return never
 }
 /* compiles to:
- * export type ToNumber<T extends string> = T extends `${infer N extends number | bigint}` ? N : never
+ * export type ToNumber<T extends string> =
+ *   T extends `${infer N extends number | bigint}` ? N : never
  */
 
 // ✓ ToString: verified type-identical to the original
@@ -62,7 +63,8 @@ export function ToDigits(T: string) {
 }
 /* compiles to:
  * export type ToDigits<T extends string> = ToDigits__loop<T, []>
- * type ToDigits__loop<T extends string, Acc extends any[]> = T extends `${infer N extends Digit}${infer R}` ? ToDigits__loop<R, [...Acc, N]> : Acc
+ * type ToDigits__loop<T extends string, Acc extends any[]> =
+ *   T extends `${infer N extends Digit}${infer R}` ? ToDigits__loop<R, [...Acc, N]> : Acc
  */
 
 // ✓ ToDigitNumber: verified type-identical to the original
@@ -75,7 +77,8 @@ export function ToDigitNumber(T: string) {
   return { sign: '', num: ToDigits(T) }
 }
 /* compiles to:
- * export type ToDigitNumber<T extends string> = T extends `-${infer R}` ? { sign: '-'; num: ToDigits<R> } : { sign: ''; num: ToDigits<T> }
+ * export type ToDigitNumber<T extends string> =
+ *   T extends `-${infer R}` ? { sign: '-'; num: ToDigits<R> } : { sign: ''; num: ToDigits<T> }
  */
 
 // ✓ FromDigits: verified type-identical to the original
@@ -95,7 +98,8 @@ export function FromDigits(T) {
 }
 /* compiles to:
  * export type FromDigits<T> = FromDigits__loop<T, ''>
- * type FromDigits__loop<T, Acc extends string> = T extends [infer N extends Digit, ...infer R] ? FromDigits__loop<R, `${Acc}${N}`> : Acc
+ * type FromDigits__loop<T, Acc extends string> =
+ *   T extends [infer N extends Digit, ...infer R] ? FromDigits__loop<R, `${Acc}${N}`> : Acc
  */
 
 // ✓ Sign: verified type-identical to the original
@@ -134,7 +138,8 @@ export function MulSign(S1: "-" | "", S2: "-" | "") {
   return ''
 }
 /* compiles to:
- * export type MulSign<S1 extends '-' | '', S2 extends '-' | ''> = S1 extends '-' ? S2 extends '-' ? '' : '-' : S2 extends '-' ? '-' : ''
+ * export type MulSign<S1 extends '-' | '', S2 extends '-' | ''> =
+ *   S1 extends '-' ? S2 extends '-' ? '' : '-' : S2 extends '-' ? '-' : ''
  */
 
 // ✓ Num: verified type-identical to the original
@@ -168,7 +173,8 @@ export function TrimZeros(T: Digit[]) {
   return T
 }
 /* compiles to:
- * export type TrimZeros<T extends Digit[]> = T extends [0] ? [0] : T extends [0, ...(infer R extends Digit[])] ? TrimZeros<R> : T
+ * export type TrimZeros<T extends Digit[]> =
+ *   T extends [0] ? [0] : T extends [0, ...infer R extends Digit[]] ? TrimZeros<R> : T
  */
 
 // ✓ Normalize: verified type-identical to the original
@@ -180,5 +186,6 @@ export function Normalize(T: DigitNumber, Trim: Digit[] = TrimZeros(Num(T))) {
   return MakeDigitNumber(Sign(T), Trim)
 }
 /* compiles to:
- * export type Normalize<T extends DigitNumber, Trim extends Digit[] = TrimZeros<Num<T>>> = Trim extends [0] ? MakeDigitNumber<'', Trim> : MakeDigitNumber<Sign<T>, Trim>
+ * export type Normalize<T extends DigitNumber, Trim extends Digit[] = TrimZeros<Num<T>>> =
+ *   Trim extends [0] ? MakeDigitNumber<'', Trim> : MakeDigitNumber<Sign<T>, Trim>
  */

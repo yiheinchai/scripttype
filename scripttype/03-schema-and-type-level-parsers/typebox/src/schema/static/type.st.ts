@@ -24,7 +24,10 @@ export function XFromTypeNames(TypeNames: string[]) {
 }
 /* compiles to:
  * export type XFromTypeNames<TypeNames extends string[]> = XFromTypeNames__loop<TypeNames, never>
- * type XFromTypeNames__loop<TypeNames extends string[], Result> = TypeNames extends readonly [infer Left extends string, ...(infer Right extends string[])] ? XFromTypeNames__loop<Right, Result | XFromTypeName<Left>> : Result
+ * type XFromTypeNames__loop<TypeNames extends string[], Result> =
+ *   TypeNames extends readonly [infer Left extends string, ...infer Right extends string[]]
+ *     ? XFromTypeNames__loop<Right, Result | XFromTypeName<Left>>
+ *     : Result
  */
 
 // ✓ XFromTypeName: verified type-identical to the original
@@ -78,7 +81,23 @@ export function XFromTypeName(TypeName: string) {
   return unknown
 }
 /* compiles to:
- * export type XFromTypeName<TypeName extends string> = TypeName extends 'object' ? object : TypeName extends 'array' ? {} : TypeName extends 'boolean' ? boolean : TypeName extends 'integer' ? number : TypeName extends 'number' ? number : TypeName extends 'null' ? null : TypeName extends 'string' ? string : TypeName extends 'bigint' ? bigint : TypeName extends 'symbol' ? symbol : TypeName extends 'undefined' ? undefined : TypeName extends 'void' ? void : TypeName extends 'asyncIterator' ? {} : TypeName extends 'constructor' ? {} : TypeName extends 'function' ? {} : TypeName extends 'iterator' ? {} : unknown
+ * export type XFromTypeName<TypeName extends string> =
+ *   TypeName extends 'object' ? object
+ *   : TypeName extends 'array' ? {}
+ *   : TypeName extends 'boolean' ? boolean
+ *   : TypeName extends 'integer' ? number
+ *   : TypeName extends 'number' ? number
+ *   : TypeName extends 'null' ? null
+ *   : TypeName extends 'string' ? string
+ *   : TypeName extends 'bigint' ? bigint
+ *   : TypeName extends 'symbol' ? symbol
+ *   : TypeName extends 'undefined' ? undefined
+ *   : TypeName extends 'void' ? void
+ *   : TypeName extends 'asyncIterator' ? {}
+ *   : TypeName extends 'constructor' ? {}
+ *   : TypeName extends 'function' ? {}
+ *   : TypeName extends 'iterator' ? {}
+ *   : unknown
  */
 
 // ✓ XStaticType: verified type-identical to the original
@@ -87,11 +106,14 @@ export function XStaticType(TypeName: string[] | string) {
   if (matches<string[]>(TypeName)) {
     return XFromTypeNames(TypeName)
   }
-  if (matches<string>(TypeName)) {
+  if (typeof TypeName === 'string') {
     return XFromTypeName(TypeName)
   }
   return unknown
 }
 /* compiles to:
- * export type XStaticType<TypeName extends string[] | string> = TypeName extends string[] ? XFromTypeNames<TypeName> : TypeName extends string ? XFromTypeName<TypeName> : unknown
+ * export type XStaticType<TypeName extends string[] | string> =
+ *   TypeName extends string[] ? XFromTypeNames<TypeName>
+ *   : TypeName extends string ? XFromTypeName<TypeName>
+ *   : unknown
  */

@@ -20,23 +20,32 @@ declare const Not: any
 declare const Or: any
 declare const SomeExtendOptions: any
 declare const UnknownArray: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CollapseRestElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultSomeExtendOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Not<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Or<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SomeExtendOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CollapseRestElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultSomeExtendOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SomeExtendOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SomeExtend: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SomeExtend(TArray: UnknownArray, Type, Options: SomeExtendOptions = {}) {
   return _SomeExtend(CollapseRestElement(TArray), Type, ApplyDefaultOptions(SomeExtendOptions, DefaultSomeExtendOptions, Options))
 }
 /* compiles to:
- * export type SomeExtend<TArray extends UnknownArray, Type, Options extends SomeExtendOptions = {}> = _SomeExtend<CollapseRestElement<TArray>, Type, ApplyDefaultOptions<SomeExtendOptions, DefaultSomeExtendOptions, Options>>
+ * export type SomeExtend<
+ *   TArray extends UnknownArray,
+ *   Type,
+ *   Options extends SomeExtendOptions = {}
+ * > =
+ *   _SomeExtend<
+ *     CollapseRestElement<TArray>,
+ *     Type,
+ *     ApplyDefaultOptions<SomeExtendOptions, DefaultSomeExtendOptions, Options>
+ *   >
  */
 
 // ✓ _SomeExtend: verified type-identical to the original
@@ -46,5 +55,24 @@ export function _SomeExtend(TArray: UnknownArray, Type, Options: Required<SomeEx
   return IfNotAnyOrNever(TArray, { ifNot: m1 ? (matches<true>(IsNever(m1.First)) ? (matches<true>(Or(Or(IsNever(Type), IsAny(Type)), Not(Options['strictNever']))) ? true : _SomeExtend(m1.Rest, Type, Options)) : (matches<typeof Type>(m1.First) ? true : _SomeExtend(m1.Rest, Type, Options))) : false, ifAny: false, ifNever: false })
 }
 /* compiles to:
- * export type _SomeExtend<TArray extends UnknownArray, Type, Options extends Required<SomeExtendOptions>> = IfNotAnyOrNever<TArray, { ifNot: TArray extends readonly [infer First, ...infer Rest] ? IsNever<First> extends true ? Or<Or<IsNever<Type>, IsAny<Type>>, Not<Options['strictNever']>> extends true ? true : _SomeExtend<Rest, Type, Options> : First extends Type ? true : _SomeExtend<Rest, Type, Options> : false; ifAny: false; ifNever: false }>
+ * export type _SomeExtend<
+ *   TArray extends UnknownArray,
+ *   Type,
+ *   Options extends Required<SomeExtendOptions>
+ * > =
+ *   IfNotAnyOrNever<
+ *     TArray,
+ *     {
+ *       ifNot: TArray extends readonly [infer First, ...infer Rest]
+ *         ? IsNever<First> extends true
+ *           ? Or<Or<IsNever<Type>, IsAny<Type>>, Not<Options['strictNever']>> extends true
+ *             ? true
+ *             : _SomeExtend<Rest, Type, Options>
+ *         : First extends Type ? true
+ *         : _SomeExtend<Rest, Type, Options>
+ *         : false
+ *       ifAny: false
+ *       ifNever: false
+ *     }
+ *   >
  */

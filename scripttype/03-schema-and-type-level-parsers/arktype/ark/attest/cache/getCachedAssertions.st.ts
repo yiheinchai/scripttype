@@ -12,13 +12,16 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TypeAssertionData: any
 declare const TypeAssertionKind: any
-type TypeAssertionData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypeAssertionKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TypeAssertionData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypeAssertionKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ VersionedTypeAssertion: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function VersionedTypeAssertion(kind: TypeAssertionKind = TypeAssertionKind) {
   return [string, TypeAssertionData(kind)]
 }
 /* compiles to:
- * export type VersionedTypeAssertion<kind extends TypeAssertionKind = TypeAssertionKind> = [string, TypeAssertionData<kind>]
+ * export type VersionedTypeAssertion<kind extends TypeAssertionKind = TypeAssertionKind> = [
+ *   string,
+ *   TypeAssertionData<kind>
+ * ]
  */

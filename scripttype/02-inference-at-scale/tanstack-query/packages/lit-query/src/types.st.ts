@@ -21,24 +21,31 @@ declare const InfiniteData: any
 declare const MutationObserverResult: any
 declare const QueryKey: any
 declare const QueryObserverResult: any
-type Accessor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateInfiniteQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateMutationOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateQueriesControllerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateQueriesResults<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Accessor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateInfiniteQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateMutationOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateQueriesControllerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateQueriesResults<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ QueryControllerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function QueryControllerOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
   return Accessor(CreateQueryOptions(TQueryFnData, TError, TData, TQueryData, TQueryKey))
 }
 /* compiles to:
- * export type QueryControllerOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = Accessor<CreateQueryOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>>
+ * export type QueryControllerOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   Accessor<CreateQueryOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>>
  */
 
 // ✓ QueryControllerResult: verified type-identical to the original
@@ -47,7 +54,10 @@ export function QueryControllerResult(TData = unknown, TError = DefaultError) {
   return QueryObserverResult(TData, TError)
 }
 /* compiles to:
- * export type QueryControllerResult<TData = unknown, TError = DefaultError> = QueryObserverResult<TData, TError>
+ * export type QueryControllerResult<TData = unknown, TError = DefaultError> = QueryObserverResult<
+ *   TData,
+ *   TError
+ * >
  */
 
 // ✓ InfiniteQueryControllerOptions: verified type-identical to the original
@@ -56,7 +66,14 @@ export function InfiniteQueryControllerOptions(TQueryFnData = unknown, TError = 
   return Accessor(CreateInfiniteQueryOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam))
 }
 /* compiles to:
- * export type InfiniteQueryControllerOptions<TQueryFnData = unknown, TError = DefaultError, TData = InfiniteData<TQueryFnData>, TQueryKey extends QueryKey = QueryKey, TPageParam = unknown> = Accessor<CreateInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>>
+ * export type InfiniteQueryControllerOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = InfiniteData<TQueryFnData>,
+ *   TQueryKey extends QueryKey = QueryKey,
+ *   TPageParam = unknown
+ * > =
+ *   Accessor<CreateInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>>
  */
 
 // ✓ MutationControllerOptions: verified type-identical to the original
@@ -65,7 +82,13 @@ export function MutationControllerOptions(TData = unknown, TError = DefaultError
   return Accessor(CreateMutationOptions(TData, TError, TVariables, TOnMutateResult))
 }
 /* compiles to:
- * export type MutationControllerOptions<TData = unknown, TError = DefaultError, TVariables = void, TOnMutateResult = unknown> = Accessor<CreateMutationOptions<TData, TError, TVariables, TOnMutateResult>>
+ * export type MutationControllerOptions<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = void,
+ *   TOnMutateResult = unknown
+ * > =
+ *   Accessor<CreateMutationOptions<TData, TError, TVariables, TOnMutateResult>>
  */
 
 // ✓ MutationControllerResult: verified type-identical to the original
@@ -74,7 +97,13 @@ export function MutationControllerResult(TData = unknown, TError = DefaultError,
   return MutationObserverResult(TData, TError, TVariables, TOnMutateResult)
 }
 /* compiles to:
- * export type MutationControllerResult<TData = unknown, TError = DefaultError, TVariables = void, TOnMutateResult = unknown> = MutationObserverResult<TData, TError, TVariables, TOnMutateResult>
+ * export type MutationControllerResult<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = void,
+ *   TOnMutateResult = unknown
+ * > =
+ *   MutationObserverResult<TData, TError, TVariables, TOnMutateResult>
  */
 
 // ✓ QueriesControllerOptions: verified type-identical to the original
@@ -83,5 +112,9 @@ export function QueriesControllerOptions(TQueryOptions: Array<any> = t<Array<any
   return Accessor(CreateQueriesControllerOptions(TQueryOptions, TCombinedResult))
 }
 /* compiles to:
- * export type QueriesControllerOptions<TQueryOptions extends Array<any> = Array<any>, TCombinedResult = CreateQueriesResults<TQueryOptions>> = Accessor<CreateQueriesControllerOptions<TQueryOptions, TCombinedResult>>
+ * export type QueriesControllerOptions<
+ *   TQueryOptions extends Array<any> = Array<any>,
+ *   TCombinedResult = CreateQueriesResults<TQueryOptions>
+ * > =
+ *   Accessor<CreateQueriesControllerOptions<TQueryOptions, TCombinedResult>>
  */

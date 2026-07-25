@@ -14,15 +14,21 @@ declare const TEvaluateIntersect: any
 declare const TExtendsLeft: any
 declare const TProperties: any
 declare const TSchema: any
-type TEvaluateIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExtendsLeft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsIntersect: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TExtendsIntersect(Inferred: TProperties, Left: TSchema[], Right: TSchema, Evaluated: TSchema = TEvaluateIntersect(Left)) {
   return TExtendsLeft(Inferred, Evaluated, Right)
 }
 /* compiles to:
- * export type TExtendsIntersect<Inferred extends TProperties, Left extends TSchema[], Right extends TSchema, Evaluated extends TSchema = TEvaluateIntersect<Left>> = TExtendsLeft<Inferred, Evaluated, Right>
+ * export type TExtendsIntersect<
+ *   Inferred extends TProperties,
+ *   Left extends TSchema[],
+ *   Right extends TSchema,
+ *   Evaluated extends TSchema = TEvaluateIntersect<Left>
+ * > =
+ *   TExtendsLeft<Inferred, Evaluated, Right>
  */

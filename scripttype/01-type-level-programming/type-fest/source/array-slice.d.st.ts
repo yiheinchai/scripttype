@@ -22,20 +22,18 @@ declare const LessThanOrEqual: any
 declare const Not: any
 declare const Sum: any
 declare const TupleMin: any
-declare const m1: any
-type AddResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type And<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ArraySplice<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GreaterThan<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GreaterThanOrEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNegative<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LessThanOrEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Not<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Sum<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleMin<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type m1<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AddResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArraySplice<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GreaterThan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GreaterThanOrEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LessThanOrEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Sum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleMin<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArraySlice: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ArraySlice(Array_: readonly unknown[], Start: number = never, End: number = never) {
@@ -66,7 +64,21 @@ export function ArraySlice(Array_: readonly unknown[], Start: number = never, En
   return never
 }
 /* compiles to:
- * export type ArraySlice<Array_ extends readonly unknown[], Start extends number = never, End extends number = never> = Array_ extends unknown ? IsNever<Start> extends true ? IsNever<End> extends true ? _ArraySlice<Array_, Start, End> : End extends unknown ? _ArraySlice<Array_, Start, End> : never : IsNever<End> extends true ? Start extends unknown ? _ArraySlice<Array_, Start, End> : never : Start extends unknown ? End extends unknown ? _ArraySlice<Array_, Start, End> : never : never : never
+ * export type ArraySlice<
+ *   Array_ extends readonly unknown[],
+ *   Start extends number = never,
+ *   End extends number = never
+ * > =
+ *   Array_ extends unknown
+ *     ? IsNever<Start> extends true
+ *       ? IsNever<End> extends true ? _ArraySlice<Array_, Start, End>
+ *       : End extends unknown ? _ArraySlice<Array_, Start, End>
+ *       : never
+ *     : IsNever<End> extends true
+ *       ? Start extends unknown ? _ArraySlice<Array_, Start, End> : never
+ *     : Start extends unknown ? End extends unknown ? _ArraySlice<Array_, Start, End> : never
+ *     : never
+ *     : never
  */
 
 // ✓ _ArraySlice: verified type-identical to the original
@@ -81,7 +93,18 @@ export function _ArraySlice(Array_: readonly unknown[], Start: number = 0, End: 
   return ArraySliceHelper(Array_, matches<true>(IsEqual(Start, never)) ? 0 : Start, matches<true>(IsEqual(End, never)) ? Array_['length'] : End)
 }
 /* compiles to:
- * export type _ArraySlice<Array_ extends readonly unknown[], Start extends number = 0, End extends number = Array_['length']> = And<IsEqual<Start, never>, IsEqual<End, never>> extends true ? Array_ : number extends Array_['length'] ? VariableLengthArraySliceHelper<Array_, Start, End> : ArraySliceHelper<Array_, IsEqual<Start, never> extends true ? 0 : Start, IsEqual<End, never> extends true ? Array_['length'] : End>
+ * export type _ArraySlice<
+ *   Array_ extends readonly unknown[],
+ *   Start extends number = 0,
+ *   End extends number = Array_['length']
+ * > =
+ *   And<IsEqual<Start, never>, IsEqual<End, never>> extends true ? Array_
+ *   : number extends Array_['length'] ? VariableLengthArraySliceHelper<Array_, Start, End>
+ *   : ArraySliceHelper<
+ *     Array_,
+ *     IsEqual<Start, never> extends true ? 0 : Start,
+ *     IsEqual<End, never> extends true ? Array_['length'] : End
+ *   >
  */
 
 // ✓ VariableLengthArraySliceHelper: verified type-identical to the original
@@ -96,19 +119,60 @@ export function VariableLengthArraySliceHelper(Array_: readonly unknown[], Start
   return []
 }
 /* compiles to:
- * export type VariableLengthArraySliceHelper<Array_ extends readonly unknown[], Start extends number, End extends number> = And<Not<IsNegative<Start>>, IsEqual<End, never>> extends true ? ArraySplice<Array_, 0, Start> : And<And<Not<IsNegative<Start>>, Not<IsNegative<End>>>, IsEqual<GreaterThan<End, Start>, true>> extends true ? ArraySliceByPositiveIndex<Array_, Start, End> : []
+ * export type VariableLengthArraySliceHelper<
+ *   Array_ extends readonly unknown[],
+ *   Start extends number,
+ *   End extends number
+ * > =
+ *   And<Not<IsNegative<Start>>, IsEqual<End, never>> extends true ? ArraySplice<Array_, 0, Start>
+ *   : And<And<Not<IsNegative<Start>>, Not<IsNegative<End>>>, IsEqual<GreaterThan<End, Start>, true>> extends true
+ *     ? ArraySliceByPositiveIndex<Array_, Start, End>
+ *   : []
  */
 
 // ✓ ArraySliceHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArraySliceHelper(Array_: readonly unknown[], Start: number = 0, End: number = Array_['length'], TraversedElement: Array<(typeof Array_)[number]> = [], Result: Array<(typeof Array_)[number]> = [], ArrayLength: number = Array_['length'], PositiveS: number = matches<true>(IsNegative(Start)) ? (m1 ? (matches<typeof m1.AddResult>(number) ? 0 : (matches<true>(GreaterThan(m1.AddResult, 0)) ? m1.AddResult : 0)) : never) : Start, PositiveE: number = matches<true>(IsNegative(End)) ? Sum(ArrayLength, End) : End) {
+export function ArraySliceHelper__v1(Start, ArrayLength) {
+  const m1 = matches<Hole<"AddResult", number>>(Sum(ArrayLength, Start))
+  if (m1) {
+    if (matches<typeof m1.AddResult>(number)) {
+      return 0
+    }
+    if (matches<true>(GreaterThan(m1.AddResult, 0))) {
+      return m1.AddResult
+    }
+    return 0
+  }
+  return never
+}
+export function ArraySliceHelper(Array_: readonly unknown[], Start: number = 0, End: number = Array_['length'], TraversedElement: Array<(typeof Array_)[number]> = [], Result: Array<(typeof Array_)[number]> = [], ArrayLength: number = Array_['length'], PositiveS: number = matches<true>(IsNegative(Start)) ? (ArraySliceHelper__v1(Start, ArrayLength)) : Start, PositiveE: number = matches<true>(IsNegative(End)) ? Sum(ArrayLength, End) : End) {
   if (matches<[ IsNegative<typeof PositiveS>, LessThanOrEqual<typeof PositiveE, typeof PositiveS>, GreaterThanOrEqual<typeof PositiveS, typeof ArrayLength> ][number]>(true)) {
     return []
   }
   return ArraySliceByPositiveIndex(Array_, TupleMin([PositiveS, ArrayLength]), TupleMin([PositiveE, ArrayLength]))
 }
 /* compiles to:
- * export type ArraySliceHelper<Array_ extends readonly unknown[], Start extends number = 0, End extends number = Array_['length'], TraversedElement extends Array<Array_[number]> = [], Result extends Array<Array_[number]> = [], ArrayLength extends number = Array_['length'], PositiveS extends number = IsNegative<Start> extends true ? m1 extends true ? number extends m1.AddResult ? 0 : GreaterThan<m1.AddResult, 0> extends true ? m1.AddResult : 0 : never : Start, PositiveE extends number = IsNegative<End> extends true ? Sum<ArrayLength, End> : End> = true extends [IsNegative<PositiveS>, LessThanOrEqual<PositiveE, PositiveS>, GreaterThanOrEqual<PositiveS, ArrayLength>][number] ? [] : ArraySliceByPositiveIndex<Array_, TupleMin<[PositiveS, ArrayLength]>, TupleMin<[PositiveE, ArrayLength]>>
+ * export type ArraySliceHelper__v1<Start, ArrayLength> =
+ *   Sum<ArrayLength, Start> extends (infer AddResult extends number)
+ *     ? number extends AddResult ? 0 : GreaterThan<AddResult, 0> extends true ? AddResult : 0
+ *     : never
+ * export type ArraySliceHelper<
+ *   Array_ extends readonly unknown[],
+ *   Start extends number = 0,
+ *   End extends number = Array_['length'],
+ *   TraversedElement extends Array<Array_[number]> = [],
+ *   Result extends Array<Array_[number]> = [],
+ *   ArrayLength extends number = Array_['length'],
+ *   PositiveS extends number = IsNegative<Start> extends true ? ArraySliceHelper__v1<Start, ArrayLength> : Start,
+ *   PositiveE extends number = IsNegative<End> extends true ? Sum<ArrayLength, End> : End
+ * > =
+ *   true extends [IsNegative<PositiveS>, LessThanOrEqual<PositiveE, PositiveS>, GreaterThanOrEqual<PositiveS, ArrayLength>][number]
+ *     ? []
+ *     : ArraySliceByPositiveIndex<
+ *       Array_,
+ *       TupleMin<[PositiveS, ArrayLength]>,
+ *       TupleMin<[PositiveE, ArrayLength]>
+ *     >
  */
 
 // ✓ ArraySliceByPositiveIndex: verified type-identical to the original
@@ -126,6 +190,24 @@ export function ArraySliceByPositiveIndex(Array_: readonly unknown[], Start: num
   return Result
 }
 /* compiles to:
- * export type ArraySliceByPositiveIndex<Array_ extends readonly unknown[], Start extends number, End extends number> = ArraySliceByPositiveIndex__loop<Start, [], End, Array_>
- * type ArraySliceByPositiveIndex__loop<Start extends number, Result extends any[], End extends number, Array_ extends readonly unknown[]> = Start extends End ? Result : ArraySliceByPositiveIndex__loop<Sum<Start, 1>, [...Result, Array_[Sum<Start, 1>]], End, Array_>
+ * export type ArraySliceByPositiveIndex<
+ *   Array_ extends readonly unknown[],
+ *   Start extends number,
+ *   End extends number
+ * > =
+ *   ArraySliceByPositiveIndex__loop<Start, [], End, Array_>
+ * type ArraySliceByPositiveIndex__loop<
+ *   Start extends number,
+ *   Result extends any[],
+ *   End extends number,
+ *   Array_ extends readonly unknown[]
+ * > =
+ *   Start extends End
+ *     ? Result
+ *     : ArraySliceByPositiveIndex__loop<
+ *       Sum<Start, 1>,
+ *       [...Result, Array_[Sum<Start, 1>]],
+ *       End,
+ *       Array_
+ *     >
  */

@@ -17,20 +17,24 @@ declare const TPartialDeferred: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TPartialDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TPartialDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TPartialAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TPartialAction(Type: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type])) ? TFromType(Type) : TPartialDeferred(Type)) {
   return Result
 }
 /* compiles to:
- * export type TPartialAction<Type extends TSchema, Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<Type> : TPartialDeferred<Type>> = Result
+ * export type TPartialAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<Type> : TPartialDeferred<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TPartialInstantiate: verified type-identical to the original
@@ -39,5 +43,11 @@ export function TPartialInstantiate(Context: TProperties, State: TState, Type: T
   return TPartialAction(InstantiatedType)
 }
 /* compiles to:
- * export type TPartialInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>> = TPartialAction<InstantiatedType>
+ * export type TPartialInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TPartialAction<InstantiatedType>
  */

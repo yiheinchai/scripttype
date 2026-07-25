@@ -24,27 +24,31 @@ declare const TUncapitalizeDeferred: any
 declare const TUncapitalizeMapping: any
 declare const TUppercaseDeferred: any
 declare const TUppercaseMapping: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCapitalizeDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCapitalizeMapping<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLowercaseDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLowercaseMapping<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUncapitalizeDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUncapitalizeMapping<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUppercaseDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUppercaseMapping<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCapitalizeDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCapitalizeMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLowercaseDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLowercaseMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUncapitalizeDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUncapitalizeMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUppercaseDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUppercaseMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCapitalizeAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TCapitalizeAction(Type: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type])) ? TFromType(TCapitalizeMapping, Type) : TCapitalizeDeferred(Type)) {
   return Result
 }
 /* compiles to:
- * export type TCapitalizeAction<Type extends TSchema, Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TCapitalizeMapping, Type> : TCapitalizeDeferred<Type>> = Result
+ * export type TCapitalizeAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TCapitalizeMapping, Type> : TCapitalizeDeferred<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TLowercaseAction: verified type-identical to the original
@@ -53,7 +57,11 @@ export function TLowercaseAction(Type: TSchema, Result: TSchema = matches<true>(
   return Result
 }
 /* compiles to:
- * export type TLowercaseAction<Type extends TSchema, Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TLowercaseMapping, Type> : TLowercaseDeferred<Type>> = Result
+ * export type TLowercaseAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TLowercaseMapping, Type> : TLowercaseDeferred<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TUncapitalizeAction: verified type-identical to the original
@@ -62,7 +70,11 @@ export function TUncapitalizeAction(Type: TSchema, Result: TSchema = matches<tru
   return Result
 }
 /* compiles to:
- * export type TUncapitalizeAction<Type extends TSchema, Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TUncapitalizeMapping, Type> : TUncapitalizeDeferred<Type>> = Result
+ * export type TUncapitalizeAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TUncapitalizeMapping, Type> : TUncapitalizeDeferred<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TUppercaseAction: verified type-identical to the original
@@ -71,7 +83,11 @@ export function TUppercaseAction(Type: TSchema, Result: TSchema = matches<true>(
   return Result
 }
 /* compiles to:
- * export type TUppercaseAction<Type extends TSchema, Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TUppercaseMapping, Type> : TUppercaseDeferred<Type>> = Result
+ * export type TUppercaseAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type]> extends true ? TFromType<TUppercaseMapping, Type> : TUppercaseDeferred<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TCapitalizeInstantiate: verified type-identical to the original
@@ -80,7 +96,13 @@ export function TCapitalizeInstantiate(Context: TProperties, State: TState, Type
   return TCapitalizeAction(InstantiatedType)
 }
 /* compiles to:
- * export type TCapitalizeInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>> = TCapitalizeAction<InstantiatedType>
+ * export type TCapitalizeInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TCapitalizeAction<InstantiatedType>
  */
 
 // ✓ TLowercaseInstantiate: verified type-identical to the original
@@ -89,7 +111,13 @@ export function TLowercaseInstantiate(Context: TProperties, State: TState, Type:
   return TLowercaseAction(InstantiatedType)
 }
 /* compiles to:
- * export type TLowercaseInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>> = TLowercaseAction<InstantiatedType>
+ * export type TLowercaseInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TLowercaseAction<InstantiatedType>
  */
 
 // ✓ TUncapitalizeInstantiate: verified type-identical to the original
@@ -98,7 +126,13 @@ export function TUncapitalizeInstantiate(Context: TProperties, State: TState, Ty
   return TUncapitalizeAction(InstantiatedType)
 }
 /* compiles to:
- * export type TUncapitalizeInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>> = TUncapitalizeAction<InstantiatedType>
+ * export type TUncapitalizeInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TUncapitalizeAction<InstantiatedType>
  */
 
 // ✓ TUppercaseInstantiate: verified type-identical to the original
@@ -107,5 +141,11 @@ export function TUppercaseInstantiate(Context: TProperties, State: TState, Type:
   return TUppercaseAction(InstantiatedType)
 }
 /* compiles to:
- * export type TUppercaseInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>> = TUppercaseAction<InstantiatedType>
+ * export type TUppercaseInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TUppercaseAction<InstantiatedType>
  */

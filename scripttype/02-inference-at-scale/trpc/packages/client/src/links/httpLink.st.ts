@@ -14,15 +14,17 @@ declare const AnyClientTypes: any
 declare const HTTPHeaders: any
 declare const HTTPLinkBaseOptions: any
 declare const Operation: any
-type AnyClientTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPHeaders<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPLinkBaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Operation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTTPHeaders<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTTPLinkBaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Operation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ HTTPLinkOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HTTPLinkOptions(TRoot: AnyClientTypes) {
   return merge(HTTPLinkBaseOptions(TRoot), { headers: optional(HTTPHeaders | fnType([{ op: Operation }], HTTPHeaders | t<Promise<HTTPHeaders>>())) })
 }
 /* compiles to:
- * export type HTTPLinkOptions<TRoot extends AnyClientTypes> = HTTPLinkBaseOptions<TRoot> & { headers?: HTTPHeaders | ((a0: { op: Operation }) => HTTPHeaders | Promise<HTTPHeaders>) }
+ * export type HTTPLinkOptions<TRoot extends AnyClientTypes> =
+ *   & HTTPLinkBaseOptions<TRoot>
+ *   & { headers?: HTTPHeaders | ((a0: { op: Operation }) => HTTPHeaders | Promise<HTTPHeaders>) }
  */

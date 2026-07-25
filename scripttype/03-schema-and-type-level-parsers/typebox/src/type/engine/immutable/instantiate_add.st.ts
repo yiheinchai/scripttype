@@ -15,18 +15,22 @@ declare const TInstantiateType: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TImmutable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TImmutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TAddImmutableOperation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TAddImmutableOperation(Type: TSchema, Result: TSchema = matches<keyof typeof Type>('~immutable') ? Type : TImmutable(Type)) {
+export function TAddImmutableOperation(Type: TSchema, Result: TSchema = '~immutable' in Type ? Type : TImmutable(Type)) {
   return Result
 }
 /* compiles to:
- * export type TAddImmutableOperation<Type extends TSchema, Result extends TSchema = '~immutable' extends keyof Type ? Type : TImmutable<Type>> = Result
+ * export type TAddImmutableOperation<
+ *   Type extends TSchema,
+ *   Result extends TSchema = '~immutable' extends keyof Type ? Type : TImmutable<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TAddImmutableAction: verified type-identical to the original
@@ -35,7 +39,11 @@ export function TAddImmutableAction(Type: TSchema, Result: TSchema = TAddImmutab
   return Result
 }
 /* compiles to:
- * export type TAddImmutableAction<Type extends TSchema, Result extends TSchema = TAddImmutableOperation<Type>> = Result
+ * export type TAddImmutableAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TAddImmutableOperation<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TAddImmutableInstantiate: verified type-identical to the original
@@ -44,5 +52,11 @@ export function TAddImmutableInstantiate(Context: TProperties, State: TState, Ty
   return TAddImmutableAction(InstantiateType)
 }
 /* compiles to:
- * export type TAddImmutableInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiateType extends TSchema = TInstantiateType<Context, State, Type>> = TAddImmutableAction<InstantiateType>
+ * export type TAddImmutableInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiateType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TAddImmutableAction<InstantiateType>
  */

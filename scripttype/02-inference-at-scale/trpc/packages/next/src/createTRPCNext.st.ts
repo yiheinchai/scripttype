@@ -15,16 +15,19 @@ declare const CreateTRPCNextBase: any
 declare const DecorateRouterRecord: any
 declare const NextPageContext: any
 declare const ProtectedIntersection: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateTRPCNextBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DecorateRouterRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NextPageContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProtectedIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateTRPCNextBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DecorateRouterRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NextPageContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProtectedIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateTRPCNext: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CreateTRPCNext(TRouter: AnyRouter, TSSRContext: NextPageContext) {
   return ProtectedIntersection(CreateTRPCNextBase(TRouter, TSSRContext), DecorateRouterRecord(TRouter['_def']['_config']['$types'], TRouter['_def']['record']))
 }
 /* compiles to:
- * export type CreateTRPCNext<TRouter extends AnyRouter, TSSRContext extends NextPageContext> = ProtectedIntersection<CreateTRPCNextBase<TRouter, TSSRContext>, DecorateRouterRecord<TRouter['_def']['_config']['$types'], TRouter['_def']['record']>>
+ * export type CreateTRPCNext<TRouter extends AnyRouter, TSSRContext extends NextPageContext> = ProtectedIntersection<
+ *   CreateTRPCNextBase<TRouter, TSSRContext>,
+ *   DecorateRouterRecord<TRouter['_def']['_config']['$types'], TRouter['_def']['record']>
+ * >
  */

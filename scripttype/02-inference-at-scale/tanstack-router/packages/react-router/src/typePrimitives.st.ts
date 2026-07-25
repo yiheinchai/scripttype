@@ -23,26 +23,42 @@ declare const LinkComponentProps: any
 declare const RegisteredRouter: any
 declare const UseParamsOptions: any
 declare const UseSearchOptions: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Constrain<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferMaskFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferMaskTo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferSelected<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferShouldThrow<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferStrict<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferTo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LinkComponentProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseParamsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseSearchOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Constrain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferMaskFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferMaskTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferSelected<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferShouldThrow<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferStrict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LinkComponentProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseParamsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseSearchOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidateLinkOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValidateLinkOptions(TRouter: AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom: string = string, TComp = 'a') {
   return Constrain(TOptions, LinkComponentProps(TComp, TRouter, InferFrom(TOptions, TDefaultFrom), InferTo(TOptions), InferMaskFrom(TOptions), InferMaskTo(TOptions)))
 }
 /* compiles to:
- * export type ValidateLinkOptions<TRouter extends AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom extends string = string, TComp = 'a'> = Constrain<TOptions, LinkComponentProps<TComp, TRouter, InferFrom<TOptions, TDefaultFrom>, InferTo<TOptions>, InferMaskFrom<TOptions>, InferMaskTo<TOptions>>>
+ * export type ValidateLinkOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TOptions = unknown,
+ *   TDefaultFrom extends string = string,
+ *   TComp = 'a'
+ * > =
+ *   Constrain<
+ *     TOptions,
+ *     LinkComponentProps<
+ *       TComp,
+ *       TRouter,
+ *       InferFrom<TOptions, TDefaultFrom>,
+ *       InferTo<TOptions>,
+ *       InferMaskFrom<TOptions>,
+ *       InferMaskTo<TOptions>
+ *     >
+ *   >
  */
 
 // ✓ InferStructuralSharing: verified type-identical to the original
@@ -55,7 +71,10 @@ export function InferStructuralSharing(TOptions) {
   return unknown
 }
 /* compiles to:
- * export type InferStructuralSharing<TOptions> = TOptions extends { structuralSharing: infer TStructuralSharing; } ? TStructuralSharing : unknown
+ * export type InferStructuralSharing<TOptions> =
+ *   TOptions extends { structuralSharing: infer TStructuralSharing; }
+ *     ? TStructuralSharing
+ *     : unknown
  */
 
 // ✓ ValidateUseSearchOptions: verified type-identical to the original
@@ -64,7 +83,17 @@ export function ValidateUseSearchOptions(TOptions, TRouter: AnyRouter = Register
   return Constrain(TOptions, UseSearchOptions(TRouter, InferFrom(TOptions), InferStrict(TOptions), InferShouldThrow(TOptions), InferSelected(TOptions), InferStructuralSharing(TOptions)))
 }
 /* compiles to:
- * export type ValidateUseSearchOptions<TOptions, TRouter extends AnyRouter = RegisteredRouter> = Constrain<TOptions, UseSearchOptions<TRouter, InferFrom<TOptions>, InferStrict<TOptions>, InferShouldThrow<TOptions>, InferSelected<TOptions>, InferStructuralSharing<TOptions>>>
+ * export type ValidateUseSearchOptions<TOptions, TRouter extends AnyRouter = RegisteredRouter> = Constrain<
+ *   TOptions,
+ *   UseSearchOptions<
+ *     TRouter,
+ *     InferFrom<TOptions>,
+ *     InferStrict<TOptions>,
+ *     InferShouldThrow<TOptions>,
+ *     InferSelected<TOptions>,
+ *     InferStructuralSharing<TOptions>
+ *   >
+ * >
  */
 
 // ✓ ValidateUseParamsOptions: verified type-identical to the original
@@ -73,7 +102,17 @@ export function ValidateUseParamsOptions(TOptions, TRouter: AnyRouter = Register
   return Constrain(TOptions, UseParamsOptions(TRouter, InferFrom(TOptions), InferStrict(TOptions), InferShouldThrow(TOptions), InferSelected(TOptions), InferSelected(TOptions)))
 }
 /* compiles to:
- * export type ValidateUseParamsOptions<TOptions, TRouter extends AnyRouter = RegisteredRouter> = Constrain<TOptions, UseParamsOptions<TRouter, InferFrom<TOptions>, InferStrict<TOptions>, InferShouldThrow<TOptions>, InferSelected<TOptions>, InferSelected<TOptions>>>
+ * export type ValidateUseParamsOptions<TOptions, TRouter extends AnyRouter = RegisteredRouter> = Constrain<
+ *   TOptions,
+ *   UseParamsOptions<
+ *     TRouter,
+ *     InferFrom<TOptions>,
+ *     InferStrict<TOptions>,
+ *     InferShouldThrow<TOptions>,
+ *     InferSelected<TOptions>,
+ *     InferSelected<TOptions>
+ *   >
+ * >
  */
 
 // ✓ ValidateLinkOptionsArray: verified type-identical to the original
@@ -86,5 +125,11 @@ export function ValidateLinkOptionsArray(TRouter: AnyRouter = RegisteredRouter, 
   return out
 }
 /* compiles to:
- * export type ValidateLinkOptionsArray<TRouter extends AnyRouter = RegisteredRouter, TOptions extends ReadonlyArray<any> = ReadonlyArray<unknown>, TDefaultFrom extends string = string, TComp = 'a'> = { [K in keyof TOptions]: ValidateLinkOptions<TRouter, TOptions[K], TDefaultFrom, TComp> }
+ * export type ValidateLinkOptionsArray<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TOptions extends ReadonlyArray<any> = ReadonlyArray<unknown>,
+ *   TDefaultFrom extends string = string,
+ *   TComp = 'a'
+ * > =
+ *   { [K in keyof TOptions]: ValidateLinkOptions<TRouter, TOptions[K], TDefaultFrom, TComp> }
  */

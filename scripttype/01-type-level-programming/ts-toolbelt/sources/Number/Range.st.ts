@@ -20,16 +20,16 @@ declare const Pos: any
 declare const Prepend: any
 declare const Prev: any
 declare const Way: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prepend<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prev<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Way<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prepend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Way<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ RangeForth: does not compile yet
 //   Type 'Extends<From, To>' cannot be used to index type '{ '0': RangeForth__st0<Prev<From>, To, [Pos<From>, ...L]>; '1': L; }'.
 /* @scripttype preserveParamNames */
@@ -37,7 +37,8 @@ export function RangeForth(From: Iteration, To: Iteration, L: List = []) {
   return { 0: RangeForth(Prev(From), To, Prepend(L, Pos(From))), 1: L }[Extends(From, To)]
 }
 /* compiles to:
- * export type RangeForth<From extends Iteration, To extends Iteration, L extends List = []> = { '0': RangeForth<Prev<From>, To, Prepend<L, Pos<From>>>; '1': L }[Extends<From, To>]
+ * export type RangeForth<From extends Iteration, To extends Iteration, L extends List = []> =
+ *   { '0': RangeForth<Prev<From>, To, Prepend<L, Pos<From>>>; '1': L }[Extends<From, To>]
  */
 
 // ✗ RangeBack: does not compile yet
@@ -47,7 +48,8 @@ export function RangeBack(From: Iteration, To: Iteration, L: List = []) {
   return { 0: RangeBack(Next(From), To, Prepend(L, Pos(From))), 1: L }[Extends(From, To)]
 }
 /* compiles to:
- * export type RangeBack<From extends Iteration, To extends Iteration, L extends List = []> = { '0': RangeBack<Next<From>, To, Prepend<L, Pos<From>>>; '1': L }[Extends<From, To>]
+ * export type RangeBack<From extends Iteration, To extends Iteration, L extends List = []> =
+ *   { '0': RangeBack<Next<From>, To, Prepend<L, Pos<From>>>; '1': L }[Extends<From, To>]
  */
 
 // ✓ __Range: verified type-identical to the original
@@ -56,7 +58,8 @@ export function __Range(From: Iteration, To: Iteration, way: Way) {
   return { '->': RangeForth(To, Prev(From)), '<-': RangeBack(From, Next(To)) }[way]
 }
 /* compiles to:
- * export type __Range<From extends Iteration, To extends Iteration, way extends Way> = { '->': RangeForth<To, Prev<From>>; '<-': RangeBack<From, Next<To>> }[way]
+ * export type __Range<From extends Iteration, To extends Iteration, way extends Way> =
+ *   { '->': RangeForth<To, Prev<From>>; '<-': RangeBack<From, Next<To>> }[way]
  */
 
 // ✓ _Range: verified type-identical to the original
@@ -69,7 +72,10 @@ export function _Range(From: number, To: number, way: Way) {
   return never
 }
 /* compiles to:
- * export type _Range<From extends number, To extends number, way extends Way> = __Range<IterationOf<From>, IterationOf<To>, way> extends infer X ? Cast<X, (string | number)[]> : never
+ * export type _Range<From extends number, To extends number, way extends Way> =
+ *   __Range<IterationOf<From>, IterationOf<To>, way> extends infer X
+ *     ? Cast<X, (string | number)[]>
+ *     : never
  */
 
 // ✓ Range: verified type-identical to the original
@@ -84,5 +90,6 @@ export function Range(From: number, To: number, way: Way = '->') {
   return never
 }
 /* compiles to:
- * export type Range<From extends number, To extends number, way extends Way = '->'> = From extends unknown ? To extends unknown ? _Range<From, To, way> : never : never
+ * export type Range<From extends number, To extends number, way extends Way = '->'> =
+ *   From extends unknown ? To extends unknown ? _Range<From, To, way> : never : never
  */

@@ -10,20 +10,23 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace exponentials {
+  export type max<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const PropertyKey: any
 declare const anyOrNever: any
 declare const conform: any
 declare const exponentials: any
 declare const isDisjoint: any
 declare const parseNonNegativeInteger: any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type anyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type conform<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type exponentials<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type groupableKeyOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type isDisjoint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseNonNegativeInteger<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type conform<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type exponentials<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type groupableKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type isDisjoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseNonNegativeInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DuplicateData: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DuplicateData(val = unknown) {
@@ -42,7 +45,8 @@ export function pathToString(segments: string[], delimiter: string = '/') {
   return join(segments, delimiter)
 }
 /* compiles to:
- * export type pathToString<segments extends string[], delimiter extends string = '/'> = segments extends [] ? '/' : Join<segments, delimiter>
+ * export type pathToString<segments extends string[], delimiter extends string = '/'> =
+ *   segments extends [] ? '/' : Join<segments, delimiter>
  */
 
 // ✓ join: verified type-identical to the original
@@ -61,8 +65,19 @@ export function join(segments: array<string>, delimiter: string) {
   return result
 }
 /* compiles to:
- * export type join<segments extends array<string>, delimiter extends string> = Join__loop<segments, '', delimiter>
- * type Join__loop<Segments_ extends array<string>, Result extends string, Delimiter extends string> = Segments_ extends readonly [infer head extends string, ...(infer tail extends string[])] ? Join__loop<tail, Result extends '' ? head : `${Result}${Delimiter}${head}`, Delimiter> : Result
+ * export type join<segments extends array<string>, delimiter extends string> = Join__loop<
+ *   segments,
+ *   '',
+ *   delimiter
+ * >
+ * type Join__loop<
+ *   Segments_ extends array<string>,
+ *   Result extends string,
+ *   Delimiter extends string
+ * > =
+ *   Segments_ extends readonly [infer head extends string, ...infer tail extends string[]]
+ *     ? Join__loop<tail, Result extends '' ? head : `${Result}${Delimiter}${head}`, Delimiter>
+ *     : Result
  */
 
 // ✓ filter: verified type-identical to the original
@@ -82,7 +97,10 @@ export function filter(t: array, constraint) {
 }
 /* compiles to:
  * export type filter<t extends array, constraint> = Filter__loop<t, [], constraint>
- * type Filter__loop<T_ extends array, Result extends any[], Constraint> = T_ extends readonly [infer head, ...infer tail] ? Filter__loop<tail, head extends Constraint ? [...Result, head] : Result, Constraint> : Result
+ * type Filter__loop<T_ extends array, Result extends any[], Constraint> =
+ *   T_ extends readonly [infer head, ...infer tail]
+ *     ? Filter__loop<tail, head extends Constraint ? [...Result, head] : Result, Constraint>
+ *     : Result
  */
 
 // ✓ array: verified type-identical to the original
@@ -120,8 +138,22 @@ export function _multiply(base: array, result: array, count: number, i: 1[]) {
   return result_
 }
 /* compiles to:
- * export type _multiply<base extends array, result extends array, count extends number, i extends 1[]> = _multiply__loop<result, i, count, base>
- * type _multiply__loop<Result_ extends array, I_ extends 1[], Count extends number, Base extends array> = I_['length'] extends Count ? Result_ : _multiply__loop<[...Result_, ...Base], [...I_, 1], Count, Base>
+ * export type _multiply<
+ *   base extends array,
+ *   result extends array,
+ *   count extends number,
+ *   i extends 1[]
+ * > =
+ *   _multiply__loop<result, i, count, base>
+ * type _multiply__loop<
+ *   Result_ extends array,
+ *   I_ extends 1[],
+ *   Count extends number,
+ *   Base extends array
+ * > =
+ *   I_['length'] extends Count
+ *     ? Result_
+ *     : _multiply__loop<[...Result_, ...Base], [...I_, 1], Count, Base>
  */
 
 // ✗ repeat: does not compile yet
@@ -131,7 +163,12 @@ export function repeat(element, count: number) {
   return buildFromSegments(element, [], exponentials.max(count), count)
 }
 /* compiles to:
- * export type repeat<element, count extends number> = buildFromSegments<element, [], exponentials.max<count>, count>
+ * export type repeat<element, count extends number> = buildFromSegments<
+ *   element,
+ *   [],
+ *   exponentials.max<count>,
+ *   count
+ * >
  */
 
 // ✗ buildFromSegments: does not compile yet
@@ -145,13 +182,23 @@ export function buildFromSegments(element, result: 1[], segments: 1[][], count: 
     }
     return out
   }
-  if (matches<keyof typeof next>(`${count}`)) {
+  if (`${count}` in next) {
     return buildFromSegments(element, result, nextSegments(segments), count)
   }
   return buildFromSegments(element, next, nextSegments(segments), count)
 }
 /* compiles to:
- * export type buildFromSegments<element, result extends 1[], segments extends 1[][], count extends number, next extends 1[] = [...result, ...segments[0]]> = next['length'] extends count ? { [I in keyof next]: element } : `${count}` extends keyof next ? buildFromSegments<element, result, nextSegments<segments>, count> : buildFromSegments<element, next, nextSegments<segments>, count>
+ * export type buildFromSegments<
+ *   element,
+ *   result extends 1[],
+ *   segments extends 1[][],
+ *   count extends number,
+ *   next extends 1[] = [...result, ...segments[0]]
+ * > =
+ *   next['length'] extends count ? { [I in keyof next]: element }
+ *   : `${count}` extends keyof next
+ *     ? buildFromSegments<element, result, nextSegments<segments>, count>
+ *   : buildFromSegments<element, next, nextSegments<segments>, count>
  */
 
 // ✗ nextSegments: compiles but is not type-identical yet
@@ -165,7 +212,8 @@ export function nextSegments(segments: 1[][]) {
   return never
 }
 /* compiles to:
- * export type nextSegments<segments extends 1[][]> = segments extends [unknown, ...(infer nextSegments extends 1[][])] ? nextSegments : never
+ * export type nextSegments<segments extends 1[][]> =
+ *   segments extends [unknown, ...infer nextSegments extends 1[][]] ? nextSegments : never
  */
 
 // ✗ minLength: does not compile yet
@@ -175,7 +223,8 @@ export function minLength(element, minLength: number) {
   return asReadonly([...multiply([element], minLength), ...arrayOf(element)])
 }
 /* compiles to:
- * export type minLength<element, minLength extends number> = readonly [...multiply<[element], minLength>, ...element[]]
+ * export type minLength<element, minLength extends number> =
+ *   readonly [...multiply<[element], minLength>, ...element[]]
  */
 
 // ✓ listable: verified type-identical to the original
@@ -203,13 +252,14 @@ export function flattenListable(t) {
 // ✓ longerThan: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function longerThan(t: array, n: number) {
-  if (matches<keyof typeof t>(`${n}`)) {
+  if (`${n}` in t) {
     return true
   }
   return false
 }
 /* compiles to:
- * export type longerThan<t extends array, n extends number> = `${n}` extends keyof t ? true : false
+ * export type longerThan<t extends array, n extends number> =
+ *   `${n}` extends keyof t ? true : false
  */
 
 // ✓ CollapsingList: verified type-identical to the original
@@ -293,7 +343,8 @@ export function arrayIndexOf(a: array) {
   return never
 }
 /* compiles to:
- * export type arrayIndexOf<a extends array> = keyof a extends infer k ? parseNonNegativeInteger<k & string> : never
+ * export type arrayIndexOf<a extends array> =
+ *   keyof a extends infer k ? parseNonNegativeInteger<k & string> : never
  */
 
 // ✓ liftArray: verified type-identical to the original
@@ -324,7 +375,10 @@ export function appendableValue(to: array | undefined) {
   return never
 }
 /* compiles to:
- * export type appendableValue<to extends array | undefined> = to extends array<infer element> ? element extends array ? array<element> : listable<element> : never
+ * export type appendableValue<to extends array | undefined> =
+ *   to extends array<infer element>
+ *     ? element extends array ? array<element> : listable<element>
+ *     : never
  */
 
 // ✓ groupableKeyOf: verified type-identical to the original
@@ -332,7 +386,7 @@ export function appendableValue(to: array | undefined) {
 export function groupableKeyOf(o) {
   const m1 = matches<Hole<"k">>(keyof(o))
   if (m1) {
-    if (matches<keyof typeof o>(m1.k)) {
+    if (m1.k in o) {
       if (matches<PropertyKey>(o[m1.k])) {
         return m1.k
       }
@@ -343,7 +397,10 @@ export function groupableKeyOf(o) {
   return never
 }
 /* compiles to:
- * export type groupableKeyOf<o> = keyof o extends infer k ? k extends keyof o ? o[k] extends PropertyKey ? k : never : never : never
+ * export type groupableKeyOf<o> =
+ *   keyof o extends infer k
+ *     ? k extends keyof o ? o[k] extends PropertyKey ? k : never : never
+ *     : never
  */
 
 // ✗ groupBy: the ScriptType does not itself typecheck as TypeScript
@@ -357,7 +414,15 @@ export function groupBy(element, discriminant: groupableKeyOf<typeof element>) {
   return out & unknown
 }
 /* compiles to:
- * export type groupBy<element, discriminant extends groupableKeyOf<element>> = { [K in element[discriminant] & PropertyKey]?: (element extends unknown ? isDisjoint<element[discriminant], K> extends true ? never : element : never)[] } & unknown
+ * export type groupBy<element, discriminant extends groupableKeyOf<element>> =
+ *   & {
+ *       [K in element[discriminant] & PropertyKey]?: (
+ *         element extends unknown
+ *           ? isDisjoint<element[discriminant], K> extends true ? never : element
+ *           : never
+ *       )[]
+ *     }
+ *   & unknown
  */
 
 // ✓ validateExhaustiveKeys: verified type-identical to the original
@@ -373,7 +438,17 @@ export function validateExhaustiveKeys(keys: readonly PropertyKey[], expectedKey
   return [expectedKey]
 }
 /* compiles to:
- * export type validateExhaustiveKeys<keys extends readonly PropertyKey[], expectedKey extends PropertyKey> = keys extends readonly [infer head, ...(infer tail extends PropertyKey[])] ? readonly [conform<head, expectedKey>, ...validateExhaustiveKeys<tail, Exclude<expectedKey, head>>] : [expectedKey] extends [never] ? [] : [expectedKey]
+ * export type validateExhaustiveKeys<
+ *   keys extends readonly PropertyKey[],
+ *   expectedKey extends PropertyKey
+ * > =
+ *   keys extends readonly [infer head, ...infer tail extends PropertyKey[]]
+ *     ? readonly [
+ *       conform<head, expectedKey>,
+ *       ...validateExhaustiveKeys<tail, Exclude<expectedKey, head>>
+ *     ]
+ *   : [expectedKey] extends [never] ? []
+ *   : [expectedKey]
  */
 
 // ✓ applyElementLabels: verified type-identical to the original
@@ -390,7 +465,15 @@ export function applyElementLabels(t: readonly unknown[], labels: readonly unkno
   return t
 }
 /* compiles to:
- * export type applyElementLabels<t extends readonly unknown[], labels extends readonly unknown[]> = labels extends [unknown, ...infer labelsTail] ? t extends readonly [infer head, ...infer tail] ? readonly [...labelElement<head, labels>, ...applyElementLabels<tail, labelsTail>] : applyOptionalElementLabels<Required<t>, labels> : t
+ * export type applyElementLabels<
+ *   t extends readonly unknown[],
+ *   labels extends readonly unknown[]
+ * > =
+ *   labels extends [unknown, ...infer labelsTail]
+ *     ? t extends readonly [infer head, ...infer tail]
+ *       ? readonly [...labelElement<head, labels>, ...applyElementLabels<tail, labelsTail>]
+ *       : applyOptionalElementLabels<Required<t>, labels>
+ *     : t
  */
 
 // ✓ applyOptionalElementLabels: verified type-identical to the original
@@ -407,7 +490,15 @@ export function applyOptionalElementLabels(t: readonly unknown[], labels: readon
   return t
 }
 /* compiles to:
- * export type applyOptionalElementLabels<t extends readonly unknown[], labels extends readonly unknown[]> = labels extends readonly [unknown, ...infer labelsTail] ? t extends readonly [infer head, ...infer tail] ? [...labelOptionalElement<head, labels>, ...applyOptionalElementLabels<tail, labelsTail>] : applyRestElementLabels<t, labels> : t
+ * export type applyOptionalElementLabels<
+ *   t extends readonly unknown[],
+ *   labels extends readonly unknown[]
+ * > =
+ *   labels extends readonly [unknown, ...infer labelsTail]
+ *     ? t extends readonly [infer head, ...infer tail]
+ *       ? [...labelOptionalElement<head, labels>, ...applyOptionalElementLabels<tail, labelsTail>]
+ *       : applyRestElementLabels<t, labels>
+ *     : t
  */
 
 // ✓ applyRestElementLabels: verified type-identical to the original
@@ -423,7 +514,14 @@ export function applyRestElementLabels(t: readonly unknown[], labels: readonly u
   return t
 }
 /* compiles to:
- * export type applyRestElementLabels<t extends readonly unknown[], labels extends readonly unknown[]> = t extends readonly [] ? [] : labels extends readonly [unknown, ...infer tail] ? [...labelOptionalElement<t[0], labels>, ...applyRestElementLabels<t, tail>] : t
+ * export type applyRestElementLabels<
+ *   t extends readonly unknown[],
+ *   labels extends readonly unknown[]
+ * > =
+ *   t extends readonly [] ? []
+ *   : labels extends readonly [unknown, ...infer tail]
+ *     ? [...labelOptionalElement<t[0], labels>, ...applyRestElementLabels<t, tail>]
+ *   : t
  */
 
 // ✓ labelElement: verified type-identical to the original
@@ -443,7 +541,10 @@ export function labelElement(element, labels: readonly unknown[]) {
   return [element]
 }
 /* compiles to:
- * export type labelElement<element, labels extends readonly unknown[]> = labels extends readonly [unknown] ? { [K in keyof labels]: element } : labels extends readonly [...infer head, unknown] ? labelElement<element, head> : [element]
+ * export type labelElement<element, labels extends readonly unknown[]> =
+ *   labels extends readonly [unknown] ? { [K in keyof labels]: element }
+ *   : labels extends readonly [...infer head, unknown] ? labelElement<element, head>
+ *   : [element]
  */
 
 // ✗ labelOptionalElement: compiles but is not type-identical yet
@@ -464,7 +565,10 @@ export function labelOptionalElement(element, label: readonly unknown[]) {
   return [element]
 }
 /* compiles to:
- * export type labelOptionalElement<element, label extends readonly unknown[]> = label extends readonly [unknown] ? { [K in keyof label]?: element } : label extends readonly [...infer head, unknown] ? labelOptionalElement<element, head> : [element]
+ * export type labelOptionalElement<element, label extends readonly unknown[]> =
+ *   label extends readonly [unknown] ? { [K in keyof label]?: element }
+ *   : label extends readonly [...infer head, unknown] ? labelOptionalElement<element, head>
+ *   : [element]
  */
 
 // ✓ setIndex: verified type-identical to the original
@@ -476,7 +580,12 @@ export function setIndex(arr: readonly unknown[], i: number, to: (typeof arr)[nu
   return Readonly(_setIndex(arr, i, to, []))
 }
 /* compiles to:
- * export type setIndex<arr extends readonly unknown[], i extends number, to extends arr[number]> = arr extends arr[number][] ? _setIndex<arr, i, to, []> : Readonly<_setIndex<arr, i, to, []>>
+ * export type setIndex<
+ *   arr extends readonly unknown[],
+ *   i extends number,
+ *   to extends arr[number]
+ * > =
+ *   arr extends arr[number][] ? _setIndex<arr, i, to, []> : Readonly<_setIndex<arr, i, to, []>>
  */
 
 // ✓ _setIndex: verified type-identical to the original
@@ -495,8 +604,22 @@ export function _setIndex(arr: readonly unknown[], i: number, to: (typeof arr)[n
   return result_
 }
 /* compiles to:
- * export type _setIndex<arr extends readonly unknown[], i extends number, to extends arr[number], result extends arr[number][]> = _setIndex__loop<arr, result, i, to>
- * type _setIndex__loop<Arr_ extends readonly unknown[], Result_ extends arr[number][], I extends number, To extends arr[number]> = Arr_ extends readonly [infer head, ...infer tail] ? _setIndex__loop<tail, [...Result_, Result_['length'] extends I ? To : head], I, To> : Result_
+ * export type _setIndex<
+ *   arr extends readonly unknown[],
+ *   i extends number,
+ *   to extends arr[number],
+ *   result extends arr[number][]
+ * > =
+ *   _setIndex__loop<arr, result, i, to>
+ * type _setIndex__loop<
+ *   Arr_ extends readonly unknown[],
+ *   Result_ extends arr[number][],
+ *   I extends number,
+ *   To extends arr[number]
+ * > =
+ *   Arr_ extends readonly [infer head, ...infer tail]
+ *     ? _setIndex__loop<tail, [...Result_, Result_['length'] extends I ? To : head], I, To>
+ *     : Result_
  */
 
 // ✓ max: verified type-identical to the original
@@ -511,11 +634,12 @@ export function max(n: number) {
 // ✓ _max: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _max(n: number, filtered: unknown[]) {
-  if (matches<keyof (typeof filtered)[0]>(`${n}`)) {
+  if (`${n}` in filtered[0]) {
     return _max(n, tailOf(filtered))
   }
   return filtered
 }
 /* compiles to:
- * export type _max<n extends number, filtered extends unknown[]> = `${n}` extends keyof filtered[0] ? _max<n, tailOf<filtered>> : filtered
+ * export type _max<n extends number, filtered extends unknown[]> =
+ *   `${n}` extends keyof filtered[0] ? _max<n, tailOf<filtered>> : filtered
  */

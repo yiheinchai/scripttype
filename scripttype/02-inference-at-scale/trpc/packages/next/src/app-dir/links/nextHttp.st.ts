@@ -14,17 +14,18 @@ declare const AnyRootTypes: any
 declare const HTTPBatchLinkOptions: any
 declare const HTTPLinkOptions: any
 declare const NextLinkBaseOptions: any
-type AnyRootTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPBatchLinkOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPLinkOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NextLinkBaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRootTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTTPBatchLinkOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTTPLinkOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NextLinkBaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NextLinkSingleOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NextLinkSingleOptions(TRoot: AnyRootTypes) {
   return merge(NextLinkBaseOptions, Omit(HTTPLinkOptions(TRoot), 'fetch'), { batch: optional(false) })
 }
 /* compiles to:
- * export type NextLinkSingleOptions<TRoot extends AnyRootTypes> = NextLinkBaseOptions & Omit<HTTPLinkOptions<TRoot>, 'fetch'> & { batch?: false }
+ * export type NextLinkSingleOptions<TRoot extends AnyRootTypes> =
+ *   NextLinkBaseOptions & Omit<HTTPLinkOptions<TRoot>, 'fetch'> & { batch?: false }
  */
 
 // ✓ NextLinkBatchOptions: verified type-identical to the original
@@ -33,5 +34,6 @@ export function NextLinkBatchOptions(TRoot: AnyRootTypes) {
   return merge(NextLinkBaseOptions, Omit(HTTPBatchLinkOptions(TRoot), 'fetch'), { batch: true })
 }
 /* compiles to:
- * export type NextLinkBatchOptions<TRoot extends AnyRootTypes> = NextLinkBaseOptions & Omit<HTTPBatchLinkOptions<TRoot>, 'fetch'> & { batch: true }
+ * export type NextLinkBatchOptions<TRoot extends AnyRootTypes> =
+ *   NextLinkBaseOptions & Omit<HTTPBatchLinkOptions<TRoot>, 'fetch'> & { batch: true }
  */

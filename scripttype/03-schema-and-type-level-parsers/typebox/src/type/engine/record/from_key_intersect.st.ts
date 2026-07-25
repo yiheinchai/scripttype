@@ -13,14 +13,20 @@
 declare const TEvaluateIntersect: any
 declare const TFromKey: any
 declare const TSchema: any
-type TEvaluateIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromIntersectKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromIntersectKey(Types: TSchema[], Value: TSchema, EvaluatedKey: TSchema = TEvaluateIntersect(Types), Result: TSchema = TFromKey(EvaluatedKey, Value)) {
   return Result
 }
 /* compiles to:
- * export type TFromIntersectKey<Types extends TSchema[], Value extends TSchema, EvaluatedKey extends TSchema = TEvaluateIntersect<Types>, Result extends TSchema = TFromKey<EvaluatedKey, Value>> = Result
+ * export type TFromIntersectKey<
+ *   Types extends TSchema[],
+ *   Value extends TSchema,
+ *   EvaluatedKey extends TSchema = TEvaluateIntersect<Types>,
+ *   Result extends TSchema = TFromKey<EvaluatedKey, Value>
+ * > =
+ *   Result
  */

@@ -12,13 +12,14 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const BaseServeStaticOptions: any
 declare const Env: any
-type BaseServeStaticOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Env<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseServeStaticOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Env<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ServeStaticOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ServeStaticOptions(E: Env = Env) {
   return merge(BaseServeStaticOptions(E), { namespace: optional(unknown), manifest: optional(object | string) })
 }
 /* compiles to:
- * export type ServeStaticOptions<E extends Env = Env> = BaseServeStaticOptions<E> & { namespace?: unknown; manifest?: object | string }
+ * export type ServeStaticOptions<E extends Env = Env> =
+ *   BaseServeStaticOptions<E> & { namespace?: unknown; manifest?: object | string }
  */

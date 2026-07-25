@@ -7,11 +7,11 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type Expression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractRowFromCommonTableExpressionName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractTableFromCommonTableExpressionName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyQueryCreator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractRowFromCommonTableExpressionName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractTableFromCommonTableExpressionName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyQueryCreator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type ReadonlyCommonTableExpressionOutput<DB, CN> =
   | SelectQueryBuilder<DB, any, any>
   | Expression<ExtractRowFromCommonTableExpressionName<CN>>

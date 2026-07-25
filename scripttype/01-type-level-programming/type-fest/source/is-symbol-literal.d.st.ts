@@ -13,22 +13,25 @@
 declare const CollapseLiterals: any
 declare const IfNotAnyOrNever: any
 declare const UnwrapBrand: any
-type CollapseLiterals<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnwrapBrand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CollapseLiterals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnwrapBrand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsSymbolLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsSymbolLiteral(T) {
   return IfNotAnyOrNever(T, { ifNot: _IsSymbolLiteral(CollapseLiterals(UnwrapBrand(T))), ifAny: false, ifNever: false })
 }
 /* compiles to:
- * export type IsSymbolLiteral<T> = IfNotAnyOrNever<T, { ifNot: _IsSymbolLiteral<CollapseLiterals<UnwrapBrand<T>>>; ifAny: false; ifNever: false }>
+ * export type IsSymbolLiteral<T> = IfNotAnyOrNever<
+ *   T,
+ *   { ifNot: _IsSymbolLiteral<CollapseLiterals<UnwrapBrand<T>>>; ifAny: false; ifNever: false }
+ * >
  */
 
 // ✓ _IsSymbolLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _IsSymbolLiteral(T) {
-  if (matches<symbol>(T)) {
+  if (typeof T === 'symbol') {
     if (matches<typeof T>(symbol)) {
       return false
     }

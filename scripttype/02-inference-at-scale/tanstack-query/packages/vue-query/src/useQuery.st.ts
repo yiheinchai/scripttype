@@ -23,19 +23,19 @@ declare const QueryKey: any
 declare const QueryObserverOptions: any
 declare const ShallowOption: any
 declare const UseBaseQueryReturnType: any
-type DeepUnwrapRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinedQueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InitialDataFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybeRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybeRefDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybeRefOrGetter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonUndefinedGuard<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryBooleanOption<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ShallowOption<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseBaseQueryReturnType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DeepUnwrapRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefinedQueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InitialDataFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybeRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybeRefDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybeRefOrGetter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonUndefinedGuard<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryBooleanOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ShallowOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseBaseQueryReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseQueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
@@ -46,7 +46,37 @@ export function UseQueryOptions(TQueryFnData = unknown, TError = DefaultError, T
   return MaybeRef(out & ShallowOption)
 }
 /* compiles to:
- * export type UseQueryOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = MaybeRef<{ [Property in keyof QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>]: Property extends 'enabled' ? MaybeRefOrGetter<boolean | undefined> | (() => QueryBooleanOption<TQueryFnData, TError, TQueryData, DeepUnwrapRef<TQueryKey>>) : MaybeRefDeep<QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, DeepUnwrapRef<TQueryKey>>[Property]> } & ShallowOption>
+ * export type UseQueryOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   MaybeRef<
+ *     & {
+ *         [Property in keyof QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>]: Property extends 'enabled'
+ *           ? | MaybeRefOrGetter<boolean | undefined>
+ *           | (
+ *               () => QueryBooleanOption<
+ *                 TQueryFnData,
+ *                 TError,
+ *                 TQueryData,
+ *                 DeepUnwrapRef<TQueryKey>
+ *               >
+ *             )
+ *           : MaybeRefDeep<
+ *             QueryObserverOptions<
+ *               TQueryFnData,
+ *               TError,
+ *               TData,
+ *               TQueryData,
+ *               DeepUnwrapRef<TQueryKey>
+ *             >[Property]
+ *           >
+ *       }
+ *     & ShallowOption
+ *   >
  */
 
 // ✓ UndefinedInitialQueryOptions: verified type-identical to the original
@@ -55,7 +85,18 @@ export function UndefinedInitialQueryOptions(TQueryFnData = unknown, TError = De
   return merge(UseQueryOptions(TQueryFnData, TError, TData, TQueryFnData, TQueryKey), { initialData: optional(anyOf(Undefined, InitialDataFunction(NonUndefinedGuard(TQueryFnData)), NonUndefinedGuard(TQueryFnData))) })
 }
 /* compiles to:
- * export type UndefinedInitialQueryOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey> & { initialData?: undefined | InitialDataFunction<NonUndefinedGuard<TQueryFnData>> | NonUndefinedGuard<TQueryFnData> }
+ * export type UndefinedInitialQueryOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   & UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>
+ *   & {
+ *       initialData?: | undefined
+ *       | InitialDataFunction<NonUndefinedGuard<TQueryFnData>>
+ *       | NonUndefinedGuard<TQueryFnData>
+ *     }
  */
 
 // ✓ DefinedInitialQueryOptions: verified type-identical to the original
@@ -64,7 +105,14 @@ export function DefinedInitialQueryOptions(TQueryFnData = unknown, TError = Defa
   return merge(UseQueryOptions(TQueryFnData, TError, TData, TQueryFnData, TQueryKey), { initialData: NonUndefinedGuard(TQueryFnData) | fnType([], NonUndefinedGuard(TQueryFnData)) })
 }
 /* compiles to:
- * export type DefinedInitialQueryOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey> & { initialData: NonUndefinedGuard<TQueryFnData> | (() => NonUndefinedGuard<TQueryFnData>) }
+ * export type DefinedInitialQueryOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   & UseQueryOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>
+ *   & { initialData: NonUndefinedGuard<TQueryFnData> | (() => NonUndefinedGuard<TQueryFnData>) }
  */
 
 // ✓ UseQueryReturnType: verified type-identical to the original
@@ -82,5 +130,9 @@ export function UseQueryDefinedReturnType(TData, TError) {
   return UseBaseQueryReturnType(TData, TError, DefinedQueryObserverResult(TData, TError))
 }
 /* compiles to:
- * export type UseQueryDefinedReturnType<TData, TError> = UseBaseQueryReturnType<TData, TError, DefinedQueryObserverResult<TData, TError>>
+ * export type UseQueryDefinedReturnType<TData, TError> = UseBaseQueryReturnType<
+ *   TData,
+ *   TError,
+ *   DefinedQueryObserverResult<TData, TError>
+ * >
  */

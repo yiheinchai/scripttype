@@ -14,17 +14,30 @@ declare const HasDefault: any
 declare const NotNull: any
 declare const PgBigSerial53Builder: any
 declare const PgBigSerial64Builder: any
-type HasDefault<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NotNull<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgBigSerial53Builder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgBigSerial64Builder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type HasDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NotNull<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgBigSerial53Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgBigSerial64Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgBigSerial53BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgBigSerial53BuilderInitial(TName: string) {
   return NotNull(HasDefault(PgBigSerial53Builder({ name: TName, dataType: 'number', columnType: 'PgBigSerial53', data: number, driverParam: number, enumValues: Undefined })))
 }
 /* compiles to:
- * export type PgBigSerial53BuilderInitial<TName extends string> = NotNull<HasDefault<PgBigSerial53Builder<{ name: TName; dataType: 'number'; columnType: 'PgBigSerial53'; data: number; driverParam: number; enumValues: undefined }>>>
+ * export type PgBigSerial53BuilderInitial<TName extends string> = NotNull<
+ *   HasDefault<
+ *     PgBigSerial53Builder<
+ *       {
+ *         name: TName
+ *         dataType: 'number'
+ *         columnType: 'PgBigSerial53'
+ *         data: number
+ *         driverParam: number
+ *         enumValues: undefined
+ *       }
+ *     >
+ *   >
+ * >
  */
 
 // ✓ PgBigSerial64BuilderInitial: verified type-identical to the original
@@ -33,5 +46,18 @@ export function PgBigSerial64BuilderInitial(TName: string) {
   return NotNull(HasDefault(PgBigSerial64Builder({ name: TName, dataType: 'bigint', columnType: 'PgBigSerial64', data: bigint, driverParam: string, enumValues: Undefined })))
 }
 /* compiles to:
- * export type PgBigSerial64BuilderInitial<TName extends string> = NotNull<HasDefault<PgBigSerial64Builder<{ name: TName; dataType: 'bigint'; columnType: 'PgBigSerial64'; data: bigint; driverParam: string; enumValues: undefined }>>>
+ * export type PgBigSerial64BuilderInitial<TName extends string> = NotNull<
+ *   HasDefault<
+ *     PgBigSerial64Builder<
+ *       {
+ *         name: TName
+ *         dataType: 'bigint'
+ *         columnType: 'PgBigSerial64'
+ *         data: bigint
+ *         driverParam: string
+ *         enumValues: undefined
+ *       }
+ *     >
+ *   >
+ * >
  */

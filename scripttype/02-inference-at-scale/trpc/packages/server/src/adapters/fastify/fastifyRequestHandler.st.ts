@@ -15,18 +15,24 @@ declare const FastifyReply: any
 declare const FastifyRequest: any
 declare const HTTPBaseHandlerOptions: any
 declare const NodeHTTPCreateContextOption: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FastifyReply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FastifyRequest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPBaseHandlerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeHTTPCreateContextOption<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FastifyReply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FastifyRequest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTTPBaseHandlerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeHTTPCreateContextOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FastifyHandlerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FastifyHandlerOptions(TRouter: AnyRouter, TRequest: FastifyRequest, TResponse: FastifyReply) {
   return HTTPBaseHandlerOptions(TRouter, TRequest) & NodeHTTPCreateContextOption(TRouter, TRequest, TResponse)
 }
 /* compiles to:
- * export type FastifyHandlerOptions<TRouter extends AnyRouter, TRequest extends FastifyRequest, TResponse extends FastifyReply> = HTTPBaseHandlerOptions<TRouter, TRequest> & NodeHTTPCreateContextOption<TRouter, TRequest, TResponse>
+ * export type FastifyHandlerOptions<
+ *   TRouter extends AnyRouter,
+ *   TRequest extends FastifyRequest,
+ *   TResponse extends FastifyReply
+ * > =
+ *   & HTTPBaseHandlerOptions<TRouter, TRequest>
+ *   & NodeHTTPCreateContextOption<TRouter, TRequest, TResponse>
  */
 
 // ✓ FastifyRequestHandlerOptions: verified type-identical to the original
@@ -35,5 +41,11 @@ export function FastifyRequestHandlerOptions(TRouter: AnyRouter, TRequest: Fasti
   return merge(FastifyHandlerOptions(TRouter, TRequest, TResponse), { req: TRequest, res: TResponse, path: string })
 }
 /* compiles to:
- * export type FastifyRequestHandlerOptions<TRouter extends AnyRouter, TRequest extends FastifyRequest, TResponse extends FastifyReply> = FastifyHandlerOptions<TRouter, TRequest, TResponse> & { req: TRequest; res: TResponse; path: string }
+ * export type FastifyRequestHandlerOptions<
+ *   TRouter extends AnyRouter,
+ *   TRequest extends FastifyRequest,
+ *   TResponse extends FastifyReply
+ * > =
+ *   & FastifyHandlerOptions<TRouter, TRequest, TResponse>
+ *   & { req: TRequest; res: TResponse; path: string }
  */

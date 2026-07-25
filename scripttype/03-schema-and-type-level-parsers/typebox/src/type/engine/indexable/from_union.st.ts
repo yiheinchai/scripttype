@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TFromType: any
 declare const TSchema: any
-type TFromType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromUnion(Types: TSchema[]) {
@@ -31,5 +31,8 @@ export function TFromUnion(Types: TSchema[]) {
 }
 /* compiles to:
  * export type TFromUnion<Types extends TSchema[]> = TFromUnion__loop<Types, []>
- * type TFromUnion__loop<Types extends TSchema[], Result extends any[]> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TFromUnion__loop<Right, [...Result, ...TFromType<Left>]> : Result
+ * type TFromUnion__loop<Types extends TSchema[], Result extends any[]> =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TFromUnion__loop<Right, [...Result, ...TFromType<Left>]>
+ *     : Result
  */

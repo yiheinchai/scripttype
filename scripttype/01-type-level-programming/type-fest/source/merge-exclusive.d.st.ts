@@ -17,7 +17,9 @@ export function Without(FirstType, SecondType) {
   return out
 }
 /* compiles to:
- * export type Without<FirstType, SecondType> = { [KeyType in Exclude<keyof FirstType, keyof SecondType>]?: never }
+ * export type Without<FirstType, SecondType> = {
+ *   [KeyType in Exclude<keyof FirstType, keyof SecondType>]?: never
+ * }
  */
 
 // ✓ MergeExclusive: verified type-identical to the original
@@ -29,5 +31,8 @@ export function MergeExclusive(FirstType, SecondType) {
   return FirstType | SecondType
 }
 /* compiles to:
- * export type MergeExclusive<FirstType, SecondType> = FirstType | SecondType extends object ? Without<FirstType, SecondType> & SecondType | Without<SecondType, FirstType> & FirstType : FirstType | SecondType
+ * export type MergeExclusive<FirstType, SecondType> =
+ *   FirstType | SecondType extends object
+ *     ? Without<FirstType, SecondType> & SecondType | Without<SecondType, FirstType> & FirstType
+ *     : FirstType | SecondType
  */

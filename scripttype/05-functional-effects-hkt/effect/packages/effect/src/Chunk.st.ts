@@ -17,13 +17,13 @@ declare const IEmpty: any
 declare const ISingleton: any
 declare const ISlice: any
 declare const NonEmptyChunk: any
-type Chunk<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IConcat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IEmpty<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ISingleton<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ISlice<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonEmptyChunk<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Chunk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IConcat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IEmpty<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ISingleton<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ISlice<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonEmptyChunk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Backing: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Backing(A) {
@@ -56,7 +56,8 @@ export function With(S: Chunk<any>, A) {
   return Chunk(A)
 }
 /* compiles to:
- * export type With<S extends Chunk<any>, A> = S extends NonEmptyChunk<any> ? NonEmptyChunk<A> : Chunk<A>
+ * export type With<S extends Chunk<any>, A> =
+ *   S extends NonEmptyChunk<any> ? NonEmptyChunk<A> : Chunk<A>
  */
 
 // ✗ OrNonEmpty: compiles but is not type-identical yet
@@ -72,7 +73,10 @@ export function OrNonEmpty(S: Chunk<any>, T: Chunk<any>, A) {
   return Chunk(A)
 }
 /* compiles to:
- * export type OrNonEmpty<S extends Chunk<any>, T extends Chunk<any>, A> = S extends NonEmptyChunk<any> ? NonEmptyChunk<A> : T extends NonEmptyChunk<any> ? NonEmptyChunk<A> : Chunk<A>
+ * export type OrNonEmpty<S extends Chunk<any>, T extends Chunk<any>, A> =
+ *   S extends NonEmptyChunk<any> ? NonEmptyChunk<A>
+ *   : T extends NonEmptyChunk<any> ? NonEmptyChunk<A>
+ *   : Chunk<A>
  */
 
 // ✗ AndNonEmpty: compiles but is not type-identical yet
@@ -88,7 +92,10 @@ export function AndNonEmpty(S: Chunk<any>, T: Chunk<any>, A) {
   return Chunk(A)
 }
 /* compiles to:
- * export type AndNonEmpty<S extends Chunk<any>, T extends Chunk<any>, A> = S extends NonEmptyChunk<any> ? T extends NonEmptyChunk<any> ? NonEmptyChunk<A> : Chunk<A> : Chunk<A>
+ * export type AndNonEmpty<S extends Chunk<any>, T extends Chunk<any>, A> =
+ *   S extends NonEmptyChunk<any>
+ *     ? T extends NonEmptyChunk<any> ? NonEmptyChunk<A> : Chunk<A>
+ *     : Chunk<A>
  */
 
 // ✗ Flatten: compiles but is not type-identical yet
@@ -106,5 +113,8 @@ export function Flatten(T: Chunk<Chunk<any>>) {
   return never
 }
 /* compiles to:
- * export type Flatten<T extends Chunk<Chunk<any>>> = T extends NonEmptyChunk<NonEmptyChunk<infer A>> ? NonEmptyChunk<A> : T extends Chunk<Chunk<infer A>> ? Chunk<A> : never
+ * export type Flatten<T extends Chunk<Chunk<any>>> =
+ *   T extends NonEmptyChunk<NonEmptyChunk<infer A>> ? NonEmptyChunk<A>
+ *   : T extends Chunk<Chunk<infer A>> ? Chunk<A>
+ *   : never
  */

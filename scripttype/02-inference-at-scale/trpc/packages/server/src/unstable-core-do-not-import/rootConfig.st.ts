@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const RootTypes: any
-type RootTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type RootTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateRootTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CreateRootTypes(TGenerics: RootTypes) {
@@ -30,7 +30,8 @@ export function PartialIf(TCondition: boolean, TType) {
   return TType
 }
 /* compiles to:
- * export type PartialIf<TCondition extends boolean, TType> = TCondition extends true ? Partial<TType> : TType
+ * export type PartialIf<TCondition extends boolean, TType> =
+ *   TCondition extends true ? Partial<TType> : TType
  */
 
 // ✓ CreateContextCallback: verified type-identical to the original
@@ -39,5 +40,8 @@ export function CreateContextCallback(TContext, TFunction: (...args: any[]) => a
   return PartialIf(matches<typeof TContext>(object) ? true : false, { createContext: TFunction })
 }
 /* compiles to:
- * export type CreateContextCallback<TContext, TFunction extends (...args: any[]) => any> = PartialIf<object extends TContext ? true : false, { createContext: TFunction }>
+ * export type CreateContextCallback<TContext, TFunction extends (...args: any[]) => any> = PartialIf<
+ *   object extends TContext ? true : false,
+ *   { createContext: TFunction }
+ * >
  */

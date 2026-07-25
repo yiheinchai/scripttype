@@ -16,19 +16,23 @@ declare const TRPCSubscriptionErrorResult: any
 declare const TRPCSubscriptionIdleResult: any
 declare const TRPCSubscriptionOptionsOut: any
 declare const TRPCSubscriptionPendingResult: any
-type FeatureFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSubscriptionConnectingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSubscriptionErrorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSubscriptionIdleResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSubscriptionOptionsOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSubscriptionPendingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSubscriptionConnectingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSubscriptionErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSubscriptionIdleResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSubscriptionOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSubscriptionPendingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCSubscriptionResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRPCSubscriptionResult(TOutput, TError) {
   return TRPCSubscriptionIdleResult(TOutput) | TRPCSubscriptionConnectingResult(TOutput, TError) | TRPCSubscriptionErrorResult(TOutput, TError) | TRPCSubscriptionPendingResult(TOutput)
 }
 /* compiles to:
- * export type TRPCSubscriptionResult<TOutput, TError> = TRPCSubscriptionIdleResult<TOutput> | TRPCSubscriptionConnectingResult<TOutput, TError> | TRPCSubscriptionErrorResult<TOutput, TError> | TRPCSubscriptionPendingResult<TOutput>
+ * export type TRPCSubscriptionResult<TOutput, TError> =
+ *   | TRPCSubscriptionIdleResult<TOutput>
+ *   | TRPCSubscriptionConnectingResult<TOutput, TError>
+ *   | TRPCSubscriptionErrorResult<TOutput, TError>
+ *   | TRPCSubscriptionPendingResult<TOutput>
  */
 
 // ✓ AnyTRPCSubscriptionOptionsOut: verified type-identical to the original
@@ -37,5 +41,9 @@ export function AnyTRPCSubscriptionOptionsOut(TFeatureFlags: FeatureFlags) {
   return TRPCSubscriptionOptionsOut(unknown, unknown, TFeatureFlags)
 }
 /* compiles to:
- * export type AnyTRPCSubscriptionOptionsOut<TFeatureFlags extends FeatureFlags> = TRPCSubscriptionOptionsOut<unknown, unknown, TFeatureFlags>
+ * export type AnyTRPCSubscriptionOptionsOut<TFeatureFlags extends FeatureFlags> = TRPCSubscriptionOptionsOut<
+ *   unknown,
+ *   unknown,
+ *   TFeatureFlags
+ * >
  */

@@ -17,7 +17,8 @@ export function TEscape0(Index: string) {
   return Index
 }
 /* compiles to:
- * export type TEscape0<Index extends string> = Index extends `${infer Left}~0${infer Right}` ? `${Left}~${TEscape<Right>}` : Index
+ * export type TEscape0<Index extends string> =
+ *   Index extends `${infer Left}~0${infer Right}` ? `${Left}~${TEscape<Right>}` : Index
  */
 
 // ✓ TEscape1: verified type-identical to the original
@@ -30,7 +31,8 @@ export function TEscape1(Index: string) {
   return Index
 }
 /* compiles to:
- * export type TEscape1<Index extends string> = Index extends `${infer Left}~1${infer Right}` ? `${Left}/${TEscape<Right>}` : Index
+ * export type TEscape1<Index extends string> =
+ *   Index extends `${infer Left}~1${infer Right}` ? `${Left}/${TEscape<Right>}` : Index
  */
 
 // ✓ TEscape: verified type-identical to the original
@@ -39,7 +41,12 @@ export function TEscape(Index: string, Escaped0: string = TEscape0(Index), Escap
   return Escaped1
 }
 /* compiles to:
- * export type TEscape<Index extends string, Escaped0 extends string = TEscape0<Index>, Escaped1 extends string = TEscape1<Escaped0>> = Escaped1
+ * export type TEscape<
+ *   Index extends string,
+ *   Escaped0 extends string = TEscape0<Index>,
+ *   Escaped1 extends string = TEscape1<Escaped0>
+ * > =
+ *   Escaped1
  */
 
 // ✓ IndicesReduce: verified type-identical to the original
@@ -55,7 +62,12 @@ export function IndicesReduce(Pointer: string, Result: string[] = []) {
   return [...Result, TEscape(Pointer)]
 }
 /* compiles to:
- * export type IndicesReduce<Pointer extends string, Result extends string[] = []> = Pointer extends `${infer Left extends string}/${infer Right extends string}` ? Left extends '' ? IndicesReduce<Right, Result> : IndicesReduce<Right, [...Result, TEscape<Left>]> : [...Result, TEscape<Pointer>]
+ * export type IndicesReduce<Pointer extends string, Result extends string[] = []> =
+ *   Pointer extends `${infer Left extends string}/${infer Right extends string}`
+ *     ? Left extends ''
+ *       ? IndicesReduce<Right, Result>
+ *       : IndicesReduce<Right, [...Result, TEscape<Left>]>
+ *     : [...Result, TEscape<Pointer>]
  */
 
 // ✓ TIndices: verified type-identical to the original
@@ -64,7 +76,11 @@ export function TIndices(Pointer: string, Result: string[] = matches<''>(Pointer
   return Result
 }
 /* compiles to:
- * export type TIndices<Pointer extends string, Result extends string[] = Pointer extends '' ? [] : IndicesReduce<Pointer>> = Result
+ * export type TIndices<
+ *   Pointer extends string,
+ *   Result extends string[] = Pointer extends '' ? [] : IndicesReduce<Pointer>
+ * > =
+ *   Result
  */
 
 // ✗ TResolve: the ScriptType does not itself typecheck as TypeScript
@@ -73,7 +89,7 @@ export function TIndices(Pointer: string, Result: string[] = matches<''>(Pointer
 export function TResolve(Value: unknown, Indices: string[]) {
   const m1 = matches<[ Hole<"Left", string>, ...Hole<"Right", string[]> ]>(Indices)
   if (m1) {
-    if (matches<keyof typeof Value>(m1.Left)) {
+    if (m1.Left in Value) {
       return TResolve(Value[m1.Left], m1.Right)
     }
     return Undefined
@@ -81,7 +97,10 @@ export function TResolve(Value: unknown, Indices: string[]) {
   return Value
 }
 /* compiles to:
- * export type TResolve<Value, Indices extends string[]> = Indices extends [infer Left extends string, ...(infer Right extends string[])] ? Left extends keyof Value ? TResolve<Value[Left], Right> : undefined : Value
+ * export type TResolve<Value, Indices extends string[]> =
+ *   Indices extends [infer Left extends string, ...infer Right extends string[]]
+ *     ? Left extends keyof Value ? TResolve<Value[Left], Right> : undefined
+ *     : Value
  */
 
 // ✓ XPointerGet: verified type-identical to the original
@@ -90,5 +109,11 @@ export function XPointerGet(Value: unknown, Pointer: string, Indices: string[] =
   return Result
 }
 /* compiles to:
- * export type XPointerGet<Value, Pointer extends string, Indices extends string[] = TIndices<Pointer>, Result = TResolve<Value, Indices>> = Result
+ * export type XPointerGet<
+ *   Value,
+ *   Pointer extends string,
+ *   Indices extends string[] = TIndices<Pointer>,
+ *   Result = TResolve<Value, Indices>
+ * > =
+ *   Result
  */

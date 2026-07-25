@@ -15,16 +15,36 @@ declare const BaseSchema: any
 declare const BaseSchemaAsync: any
 declare const IssueDotPath: any
 declare const Prettify: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IssueDotPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IssueDotPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FlatErrors: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FlatErrors(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>> | undefined) {
   return Prettify({ root: readonlyProp(optional([string, ...arrayOf(string)])), nested: readonlyProp(optional(Prettify(Readonly(Partial(Record(matches<BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>>(TSchema) ? IssueDotPath(TSchema) : string, [string, ...arrayOf(string)])))))), other: readonlyProp(optional([string, ...arrayOf(string)])) })
 }
 /* compiles to:
- * export type FlatErrors<TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>> | undefined> = Prettify<{ readonly root?: [string, ...string[]]; readonly nested?: Prettify<Readonly<Partial<Record<TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>> ? IssueDotPath<TSchema> : string, [string, ...string[]]>>>>; readonly other?: [string, ...string[]] }>
+ * export type FlatErrors<
+ *   TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>> | undefined
+ * > =
+ *   Prettify<
+ *     {
+ *       readonly root?: [string, ...string[]]
+ *       readonly nested?: Prettify<
+ *         Readonly<
+ *           Partial<
+ *             Record<
+ *               TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>
+ *                 ? IssueDotPath<TSchema>
+ *                 : string,
+ *               [string, ...string[]]
+ *             >
+ *           >
+ *         >
+ *       >
+ *       readonly other?: [string, ...string[]]
+ *     }
+ *   >
  */

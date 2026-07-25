@@ -13,16 +13,22 @@
 declare const XSchema: any
 declare const XStaticElements: any
 declare const XStaticSchema: any
-type XSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type XStaticElements<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type XStaticSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type XStaticElements<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type XStaticSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XFromSized: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function XFromSized(Stack: string[], Root: XSchema, Schema: XSchema, Items: XSchema[]) {
   return XStaticElements(Stack, Root, Schema, Items)
 }
 /* compiles to:
- * export type XFromSized<Stack extends string[], Root extends XSchema, Schema extends XSchema, Items extends XSchema[]> = XStaticElements<Stack, Root, Schema, Items>
+ * export type XFromSized<
+ *   Stack extends string[],
+ *   Root extends XSchema,
+ *   Schema extends XSchema,
+ *   Items extends XSchema[]
+ * > =
+ *   XStaticElements<Stack, Root, Schema, Items>
  */
 
 // ✓ XFromUnsized: verified type-identical to the original
@@ -31,7 +37,12 @@ export function XFromUnsized(Stack: string[], Root: XSchema, Schema: XSchema) {
   return arrayOf(XStaticSchema(Stack, Root, Schema))
 }
 /* compiles to:
- * export type XFromUnsized<Stack extends string[], Root extends XSchema, Schema extends XSchema> = XStaticSchema<Stack, Root, Schema>[]
+ * export type XFromUnsized<
+ *   Stack extends string[],
+ *   Root extends XSchema,
+ *   Schema extends XSchema
+ * > =
+ *   XStaticSchema<Stack, Root, Schema>[]
  */
 
 // ✓ XStaticItems: verified type-identical to the original
@@ -40,5 +51,12 @@ export function XStaticItems(Stack: string[], Root: XSchema, Schema: XSchema, It
   return Result
 }
 /* compiles to:
- * export type XStaticItems<Stack extends string[], Root extends XSchema, Schema extends XSchema, Items extends XSchema[] | XSchema, Result = Items extends XSchema[] ? XFromSized<Stack, Root, Schema, [...Items]> : Items extends XSchema ? XFromUnsized<Stack, Root, Items> : never> = Result
+ * export type XStaticItems<
+ *   Stack extends string[],
+ *   Root extends XSchema,
+ *   Schema extends XSchema,
+ *   Items extends XSchema[] | XSchema,
+ *   Result = Items extends XSchema[] ? XFromSized<Stack, Root, Schema, [...Items]> : Items extends XSchema ? XFromUnsized<Stack, Root, Items> : never
+ * > =
+ *   Result
  */

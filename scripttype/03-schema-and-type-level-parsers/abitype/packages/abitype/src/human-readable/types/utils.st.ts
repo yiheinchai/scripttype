@@ -40,36 +40,36 @@ declare const head: any
 declare const nameOrModifier: any
 declare const parameter: any
 declare const parameters: any
-type AbiParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiStateMutability<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultParseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventModifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FallbackSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FunctionModifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FunctionSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsConstructorSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsErrorSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEventSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsFunctionSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Modifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pretty<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReceiveSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolvedRegister<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scope<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SolidityFixedArrayRange<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StructLookup<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Trim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidateName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type head<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type nameOrModifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parameters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiStateMutability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultParseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventModifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FallbackSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FunctionModifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FunctionSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsConstructorSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsErrorSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEventSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsFunctionSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Modifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pretty<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReceiveSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolvedRegister<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SolidityFixedArrayRange<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StructLookup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Trim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidateName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type nameOrModifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParseSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ParseSignature(signature: string, structs: StructLookup | unknown = unknown) {
@@ -81,7 +81,86 @@ export function ParseSignature(signature: string, structs: StructLookup | unknow
   return (matches<true>(IsErrorSignature(signature)) ? (m1 ? { name: readonlyProp(m1.name), type: readonlyProp('error'), inputs: readonlyProp(ParseAbiParameters(SplitParameters(m1.parameters), { structs: structs })) } : never) : never) | (matches<true>(IsEventSignature(signature)) ? (m2 ? { name: readonlyProp(m2.name), type: readonlyProp('event'), inputs: readonlyProp(ParseAbiParameters(SplitParameters(m2.parameters), { modifier: EventModifier, structs: structs })) } : never) : never) | (matches<true>(IsFunctionSignature(signature)) ? (m3 ? { name: readonlyProp(m3.name), type: readonlyProp('function'), stateMutability: readonlyProp(_ParseFunctionParametersAndStateMutability(signature)['StateMutability']), inputs: readonlyProp(ParseAbiParameters(SplitParameters(_ParseFunctionParametersAndStateMutability(signature)['Inputs']), { modifier: FunctionModifier, structs: structs })), outputs: readonlyProp(m4 ? ParseAbiParameters(SplitParameters(m4.returns), { modifier: FunctionModifier, structs: structs }) : asReadonly([])) } : never) : never) | (matches<true>(IsConstructorSignature(signature)) ? { type: readonlyProp('constructor'), stateMutability: readonlyProp(_ParseConstructorParametersAndStateMutability(signature)['StateMutability']), inputs: readonlyProp(ParseAbiParameters(SplitParameters(_ParseConstructorParametersAndStateMutability(signature)['Inputs']), { structs: structs })) } : never) | (m5 ? { type: readonlyProp('fallback'), stateMutability: readonlyProp(matches<`${string}payable`>(m5.stateMutability) ? 'payable' : 'nonpayable') } : never) | (matches<ReceiveSignature>(signature) ? { type: readonlyProp('receive'), stateMutability: readonlyProp('payable') } : never)
 }
 /* compiles to:
- * export type ParseSignature<signature extends string, structs extends StructLookup | unknown = unknown> = (IsErrorSignature<signature> extends true ? signature extends ErrorSignature<infer name, infer parameters> ? { readonly name: name; readonly type: 'error'; readonly inputs: ParseAbiParameters<SplitParameters<parameters>, { structs: structs }> } : never : never) | (IsEventSignature<signature> extends true ? signature extends EventSignature<infer name, infer parameters> ? { readonly name: name; readonly type: 'event'; readonly inputs: ParseAbiParameters<SplitParameters<parameters>, { modifier: EventModifier; structs: structs }> } : never : never) | (IsFunctionSignature<signature> extends true ? signature extends FunctionSignature<infer name, infer tail> ? { readonly name: name; readonly type: 'function'; readonly stateMutability: _ParseFunctionParametersAndStateMutability<signature>['StateMutability']; readonly inputs: ParseAbiParameters<SplitParameters<_ParseFunctionParametersAndStateMutability<signature>['Inputs']>, { modifier: FunctionModifier; structs: structs }>; readonly outputs: tail extends `${string}returns (${infer returns})` | `${string}returns(${infer returns})` ? ParseAbiParameters<SplitParameters<returns>, { modifier: FunctionModifier; structs: structs }> : readonly [] } : never : never) | (IsConstructorSignature<signature> extends true ? { readonly type: 'constructor'; readonly stateMutability: _ParseConstructorParametersAndStateMutability<signature>['StateMutability']; readonly inputs: ParseAbiParameters<SplitParameters<_ParseConstructorParametersAndStateMutability<signature>['Inputs']>, { structs: structs }> } : never) | (signature extends FallbackSignature<infer stateMutability> ? { readonly type: 'fallback'; readonly stateMutability: stateMutability extends `${string}payable` ? 'payable' : 'nonpayable' } : never) | (signature extends ReceiveSignature ? { readonly type: 'receive'; readonly stateMutability: 'payable' } : never)
+ * export type ParseSignature<
+ *   signature extends string,
+ *   structs extends StructLookup | unknown = unknown
+ * > =
+ *   | (
+ *       IsErrorSignature<signature> extends true
+ *         ? signature extends ErrorSignature<infer name, infer parameters>
+ *           ? {
+ *             readonly name: name
+ *             readonly type: 'error'
+ *             readonly inputs: ParseAbiParameters<
+ *               SplitParameters<parameters>,
+ *               { structs: structs }
+ *             >
+ *           }
+ *           : never
+ *         : never
+ *     )
+ *   | (
+ *       IsEventSignature<signature> extends true
+ *         ? signature extends EventSignature<infer name, infer parameters>
+ *           ? {
+ *             readonly name: name
+ *             readonly type: 'event'
+ *             readonly inputs: ParseAbiParameters<
+ *               SplitParameters<parameters>,
+ *               { modifier: EventModifier; structs: structs }
+ *             >
+ *           }
+ *           : never
+ *         : never
+ *     )
+ *   | (
+ *       IsFunctionSignature<signature> extends true
+ *         ? signature extends FunctionSignature<infer name, infer tail>
+ *           ? {
+ *             readonly name: name
+ *             readonly type: 'function'
+ *             readonly stateMutability: _ParseFunctionParametersAndStateMutability<signature>['StateMutability']
+ *             readonly inputs: ParseAbiParameters<
+ *               SplitParameters<_ParseFunctionParametersAndStateMutability<signature>['Inputs']>,
+ *               { modifier: FunctionModifier; structs: structs }
+ *             >
+ *             readonly outputs: tail extends `${string}returns (${infer returns})` | `${string}returns(${infer returns})`
+ *               ? ParseAbiParameters<
+ *                 SplitParameters<returns>,
+ *                 { modifier: FunctionModifier; structs: structs }
+ *               >
+ *               : readonly []
+ *           }
+ *           : never
+ *         : never
+ *     )
+ *   | (
+ *       IsConstructorSignature<signature> extends true
+ *         ? {
+ *           readonly type: 'constructor'
+ *           readonly stateMutability: _ParseConstructorParametersAndStateMutability<signature>['StateMutability']
+ *           readonly inputs: ParseAbiParameters<
+ *             SplitParameters<_ParseConstructorParametersAndStateMutability<signature>['Inputs']>,
+ *             { structs: structs }
+ *           >
+ *         }
+ *         : never
+ *     )
+ *   | (
+ *       signature extends FallbackSignature<infer stateMutability>
+ *         ? {
+ *           readonly type: 'fallback'
+ *           readonly stateMutability: stateMutability extends `${string}payable`
+ *             ? 'payable'
+ *             : 'nonpayable'
+ *         }
+ *         : never
+ *     )
+ *   | (
+ *       signature extends ReceiveSignature
+ *         ? { readonly type: 'receive'; readonly stateMutability: 'payable' }
+ *         : never
+ *     )
  */
 
 // ✓ ParseAbiParameters: verified type-identical to the original
@@ -97,7 +176,13 @@ export function ParseAbiParameters(signatures: readonly string[], options: Parse
   return asReadonly([...out])
 }
 /* compiles to:
- * export type ParseAbiParameters<signatures extends readonly string[], options extends ParseOptions = DefaultParseOptions> = signatures extends [''] ? readonly [] : readonly [...{ [Key in keyof signatures]: ParseAbiParameter<signatures[Key], options> }]
+ * export type ParseAbiParameters<
+ *   signatures extends readonly string[],
+ *   options extends ParseOptions = DefaultParseOptions
+ * > =
+ *   signatures extends ['']
+ *     ? readonly []
+ *     : readonly [...{ [Key in keyof signatures]: ParseAbiParameter<signatures[Key], options> }]
  */
 
 // ✗ ParseAbiParameter: the ScriptType does not itself typecheck as TypeScript
@@ -109,7 +194,7 @@ export function ParseAbiParameter(signature: string, options: ParseOptions = Def
   const m3 = matches<Hole<"shallowParameter", AbiParameter & { type: string; indexed?: boolean; }>>(matches<`(${string})${string}`>(signature) ? _ParseTuple(signature, options) : (m1 ? (m2 ? (merge({ type: readonlyProp(Trim(m1.type)) }, _SplitNameOrModifier(m2.trimmed, options))) : never) : { type: readonlyProp(signature) }))
   if (m3) {
     const m4 = matches<`${Hole<"type", string & keyof options['structs']>}[${Hole<"tail">}]`>(m3.shallowParameter['type'])
-    const m5 = matches<Hole<"Parameter", AbiParameter & { type: string; indexed?: boolean; }>>(matches<keyof (typeof options)['structs']>(m3.shallowParameter['type']) ? (merge({ type: readonlyProp('tuple'), components: readonlyProp(options['structs'][m3.shallowParameter['type']]) }, matches<false>(IsUnknown(m3.shallowParameter['name'])) ? { name: readonlyProp(m3.shallowParameter['name']) } : object, matches<true>(m3.shallowParameter['indexed']) ? { indexed: readonlyProp(true) } : object)) : (m4 ? (merge({ type: readonlyProp(`tuple[${m4.tail}]`), components: readonlyProp(options['structs'][m4.type]) }, matches<false>(IsUnknown(m3.shallowParameter['name'])) ? { name: readonlyProp(m3.shallowParameter['name']) } : object, matches<true>(m3.shallowParameter['indexed']) ? { indexed: readonlyProp(true) } : object)) : m3.shallowParameter))
+    const m5 = matches<Hole<"Parameter", AbiParameter & { type: string; indexed?: boolean; }>>(m3.shallowParameter['type'] in options['structs'] ? (merge({ type: readonlyProp('tuple'), components: readonlyProp(options['structs'][m3.shallowParameter['type']]) }, matches<false>(IsUnknown(m3.shallowParameter['name'])) ? { name: readonlyProp(m3.shallowParameter['name']) } : object, matches<true>(m3.shallowParameter['indexed']) ? { indexed: readonlyProp(true) } : object)) : (m4 ? (merge({ type: readonlyProp(`tuple[${m4.tail}]`), components: readonlyProp(options['structs'][m4.type]) }, matches<false>(IsUnknown(m3.shallowParameter['name'])) ? { name: readonlyProp(m3.shallowParameter['name']) } : object, matches<true>(m3.shallowParameter['indexed']) ? { indexed: readonlyProp(true) } : object)) : m3.shallowParameter))
     if (m5) {
       return Pretty(_ValidateAbiParameter(m5.Parameter))
     }
@@ -118,7 +203,15 @@ export function ParseAbiParameter(signature: string, options: ParseOptions = Def
   return never
 }
 /* compiles to:
- * export type ParseAbiParameter<signature extends string, options extends ParseOptions = DefaultParseOptions> = (signature extends `(${string})${string}` ? _ParseTuple<signature, options> : signature extends `${infer type} ${infer tail}` ? Trim<tail> extends (infer trimmed extends string) ? { readonly type: Trim<type> } & _SplitNameOrModifier<trimmed, options> : never : { readonly type: signature }) extends (infer shallowParameter extends AbiParameter & { type: string; indexed?: boolean; }) ? (shallowParameter['type'] extends keyof options['structs'] ? { readonly type: 'tuple'; readonly components: options['structs'][shallowParameter['type']] } & (IsUnknown<shallowParameter['name']> extends false ? { readonly name: shallowParameter['name'] } : object) & (shallowParameter['indexed'] extends true ? { readonly indexed: true } : object) : shallowParameter['type'] extends `${infer type extends string & keyof options['structs']}[${infer tail}]` ? { readonly type: `tuple[${tail}]`; readonly components: options['structs'][type] } & (IsUnknown<shallowParameter['name']> extends false ? { readonly name: shallowParameter['name'] } : object) & (shallowParameter['indexed'] extends true ? { readonly indexed: true } : object) : shallowParameter) extends (infer Parameter extends AbiParameter & { type: string; indexed?: boolean; }) ? Pretty<_ValidateAbiParameter<Parameter>> : never : never
+ * export type ParseAbiParameter<
+ *   signature extends string,
+ *   options extends ParseOptions = DefaultParseOptions
+ * > =
+ *   (signature extends `(${string})${string}` ? _ParseTuple<signature, options> : signature extends `${infer type} ${infer tail}` ? Trim<tail> extends (infer trimmed extends string) ? { readonly type: Trim<type> } & _SplitNameOrModifier<trimmed, options> : never : { readonly type: signature }) extends (infer shallowParameter extends AbiParameter & { type: string; indexed?: boolean; })
+ *     ? (shallowParameter['type'] extends keyof options['structs'] ? { readonly type: 'tuple'; readonly components: options['structs'][shallowParameter['type']] } & (IsUnknown<shallowParameter['name']> extends false ? { readonly name: shallowParameter['name'] } : object) & (shallowParameter['indexed'] extends true ? { readonly indexed: true } : object) : shallowParameter['type'] extends `${infer type extends string & keyof options['structs']}[${infer tail}]` ? { readonly type: `tuple[${tail}]`; readonly components: options['structs'][type] } & (IsUnknown<shallowParameter['name']> extends false ? { readonly name: shallowParameter['name'] } : object) & (shallowParameter['indexed'] extends true ? { readonly indexed: true } : object) : shallowParameter) extends (infer Parameter extends AbiParameter & { type: string; indexed?: boolean; })
+ *       ? Pretty<_ValidateAbiParameter<Parameter>>
+ *       : never
+ *     : never
  */
 
 // ✗ SplitParameters: the ScriptType does not itself typecheck as TypeScript
@@ -156,7 +249,28 @@ export function SplitParameters(signature: string, result: unknown[] = [], curre
   return []
 }
 /* compiles to:
- * export type SplitParameters<signature extends string, result extends unknown[] = [], current extends string = '', depth extends readonly number[] = []> = signature extends '' ? current extends '' ? [...result] : depth['length'] extends 0 ? [...result, Trim<current>] : Error<`Unbalanced parentheses. "${current}" has too many opening parentheses.`> : signature extends `${infer char}${infer tail}` ? char extends ',' ? depth['length'] extends 0 ? SplitParameters<tail, [...result, Trim<current>], ''> : SplitParameters<tail, result, `${current}${char}`, depth> : char extends '(' ? SplitParameters<tail, result, `${current}${char}`, [...depth, 1]> : char extends ')' ? depth['length'] extends 0 ? Error<`Unbalanced parentheses. "${current}" has too many closing parentheses.`> : SplitParameters<tail, result, `${current}${char}`, Pop<depth>> : SplitParameters<tail, result, `${current}${char}`, depth> : []
+ * export type SplitParameters<
+ *   signature extends string,
+ *   result extends unknown[] = [],
+ *   current extends string = '',
+ *   depth extends readonly number[] = []
+ * > =
+ *   signature extends ''
+ *     ? current extends '' ? [...result]
+ *     : depth['length'] extends 0 ? [...result, Trim<current>]
+ *     : Error<`Unbalanced parentheses. "${current}" has too many opening parentheses.`>
+ *   : signature extends `${infer char}${infer tail}`
+ *     ? char extends ','
+ *       ? depth['length'] extends 0
+ *         ? SplitParameters<tail, [...result, Trim<current>], ''>
+ *         : SplitParameters<tail, result, `${current}${char}`, depth>
+ *     : char extends '(' ? SplitParameters<tail, result, `${current}${char}`, [...depth, 1]>
+ *     : char extends ')'
+ *       ? depth['length'] extends 0
+ *         ? Error<`Unbalanced parentheses. "${current}" has too many closing parentheses.`>
+ *         : SplitParameters<tail, result, `${current}${char}`, Pop<depth>>
+ *     : SplitParameters<tail, result, `${current}${char}`, depth>
+ *   : []
  */
 
 // ✓ Pop: verified type-identical to the original
@@ -192,7 +306,14 @@ export function _ValidateAbiParameter(abiParameter: AbiParameter) {
   return never
 }
 /* compiles to:
- * export type _ValidateAbiParameter<abiParameter extends AbiParameter> = (abiParameter extends { name: string; } ? ValidateName<abiParameter['name']> extends infer name ? name extends abiParameter['name'] ? abiParameter : Merge<abiParameter, { readonly name: name }> : never : abiParameter) extends infer parameter ? (ResolvedRegister['strictAbiType'] extends true ? parameter extends { type: AbiType; } ? parameter : Merge<parameter, { readonly type: Error<`Type "${typeof m2.parameter extends { type: string; } ? (typeof m2.parameter)['type'] : string}" is not a valid ABI type.`> }> : parameter) extends (infer parameter2 extends { type: unknown; }) ? parameter2['type'] extends `${infer prefix extends 'u' | ''}int${infer suffix extends `[${string}]` | ''}` ? Pretty<Merge<parameter2, { readonly type: `${prefix}int256${suffix}` }>> : parameter2 : never : never
+ * export type _ValidateAbiParameter<abiParameter extends AbiParameter> =
+ *   (abiParameter extends { name: string; } ? ValidateName<abiParameter['name']> extends infer name ? name extends abiParameter['name'] ? abiParameter : Merge<abiParameter, { readonly name: name }> : never : abiParameter) extends infer parameter
+ *     ? (ResolvedRegister['strictAbiType'] extends true ? parameter extends { type: AbiType; } ? parameter : Merge<parameter, { readonly type: Error<`Type "${typeof m2.parameter extends { type: string; } ? (typeof m2.parameter)['type'] : string}" is not a valid ABI type.`> }> : parameter) extends (infer parameter2 extends { type: unknown; })
+ *       ? parameter2['type'] extends `${infer prefix extends 'u' | ''}int${infer suffix extends `[${string}]` | ''}`
+ *         ? Pretty<Merge<parameter2, { readonly type: `${prefix}int256${suffix}` }>>
+ *         : parameter2
+ *       : never
+ *     : never
  */
 
 // ✓ _ParseFunctionParametersAndStateMutability: verified type-identical to the original
@@ -213,8 +334,21 @@ export function _ParseFunctionParametersAndStateMutability(signature: string) {
   return m2 ? { Inputs: m2.parameters, StateMutability: 'nonpayable' } : (m3 ? { Inputs: m3.parameters, StateMutability: _ParseStateMutability(m3.scopeOrStateMutability) } : (m4 ? (m5 ? { Inputs: m5.parameters, StateMutability: _ParseStateMutability(m5.scopeOrStateMutability) } : never) : never))
 }
 /* compiles to:
- * export type _ParseFunctionParametersAndStateMutability<signature extends string> = _ParseFunctionParametersAndStateMutability__loop<signature>
- * type _ParseFunctionParametersAndStateMutability__loop<Signature_ extends string> = Signature_ extends `${infer head}returns (${string})` | `${infer head}returns(${string})` ? _ParseFunctionParametersAndStateMutability__loop<Trim<head>> : Signature_ extends `function ${string}(${infer parameters})` ? { Inputs: parameters; StateMutability: 'nonpayable' } : Signature_ extends `function ${string}(${infer parameters}) ${infer scopeOrStateMutability extends Scope | AbiStateMutability | `${Scope} ${AbiStateMutability}`}` ? { Inputs: parameters; StateMutability: _ParseStateMutability<scopeOrStateMutability> } : Signature_ extends `function ${string}(${infer tail}` ? _UnwrapNameOrModifier<tail> extends { nameOrModifier: infer scopeOrStateMutability extends string; End: infer parameters; } ? { Inputs: parameters; StateMutability: _ParseStateMutability<scopeOrStateMutability> } : never : never
+ * export type _ParseFunctionParametersAndStateMutability<signature extends string> = _ParseFunctionParametersAndStateMutability__loop<
+ *   signature
+ * >
+ * type _ParseFunctionParametersAndStateMutability__loop<Signature_ extends string> =
+ *   Signature_ extends `${infer head}returns (${string})` | `${infer head}returns(${string})`
+ *     ? _ParseFunctionParametersAndStateMutability__loop<Trim<head>>
+ *   : Signature_ extends `function ${string}(${infer parameters})`
+ *     ? { Inputs: parameters; StateMutability: 'nonpayable' }
+ *   : Signature_ extends `function ${string}(${infer parameters}) ${infer scopeOrStateMutability extends Scope | AbiStateMutability | `${Scope} ${AbiStateMutability}`}`
+ *     ? { Inputs: parameters; StateMutability: _ParseStateMutability<scopeOrStateMutability> }
+ *   : Signature_ extends `function ${string}(${infer tail}`
+ *     ? _UnwrapNameOrModifier<tail> extends { nameOrModifier: infer scopeOrStateMutability extends string; End: infer parameters; }
+ *       ? { Inputs: parameters; StateMutability: _ParseStateMutability<scopeOrStateMutability> }
+ *       : never
+ *   : never
  */
 
 // ✓ _ParseStateMutability: verified type-identical to the original
@@ -230,7 +364,11 @@ export function _ParseStateMutability(signature: string) {
   return 'nonpayable'
 }
 /* compiles to:
- * export type _ParseStateMutability<signature extends string> = signature extends `${Scope} ${infer stateMutability extends AbiStateMutability}` ? stateMutability : signature extends AbiStateMutability ? signature : 'nonpayable'
+ * export type _ParseStateMutability<signature extends string> =
+ *   signature extends `${Scope} ${infer stateMutability extends AbiStateMutability}`
+ *     ? stateMutability
+ *   : signature extends AbiStateMutability ? signature
+ *   : 'nonpayable'
  */
 
 // ✓ _ParseConstructorParametersAndStateMutability: verified type-identical to the original
@@ -247,7 +385,12 @@ export function _ParseConstructorParametersAndStateMutability(signature: string)
   return never
 }
 /* compiles to:
- * export type _ParseConstructorParametersAndStateMutability<signature extends string> = signature extends `constructor(${infer parameters}) payable` ? { Inputs: parameters; StateMutability: 'payable' } : signature extends `constructor(${infer parameters})` ? { Inputs: parameters; StateMutability: 'nonpayable' } : never
+ * export type _ParseConstructorParametersAndStateMutability<signature extends string> =
+ *   signature extends `constructor(${infer parameters}) payable`
+ *     ? { Inputs: parameters; StateMutability: 'payable' }
+ *   : signature extends `constructor(${infer parameters})`
+ *     ? { Inputs: parameters; StateMutability: 'nonpayable' }
+ *   : never
  */
 
 // ✓ _ParseTuple: verified type-identical to the original
@@ -294,7 +437,71 @@ export function _ParseTuple(signature: `(${string})${string}`, options: ParseOpt
   return never
 }
 /* compiles to:
- * export type _ParseTuple<signature extends `(${string})${string}`, options extends ParseOptions = DefaultParseOptions> = signature extends `(${infer parameters})` ? { readonly type: 'tuple'; readonly components: ParseAbiParameters<SplitParameters<parameters>, Omit<options, 'modifier'>> } : signature extends `(${infer head})[${'' | `${SolidityFixedArrayRange}`}]` ? signature extends `(${head})[${infer size}]` ? { readonly type: `tuple[${size}]`; readonly components: ParseAbiParameters<SplitParameters<head>, Omit<options, 'modifier'>> } : never : signature extends `(${infer parameters})[${'' | `${SolidityFixedArrayRange}`}] ${infer nameOrModifier}` ? signature extends `(${parameters})[${infer size}] ${nameOrModifier}` ? nameOrModifier extends `${string}) ${string}` ? _UnwrapNameOrModifier<nameOrModifier> extends (infer parts extends { nameOrModifier: string; End: string; }) ? { readonly type: 'tuple'; readonly components: ParseAbiParameters<SplitParameters<`${parameters})[${size}] ${parts['End']}`>, Omit<options, 'modifier'>> } & _SplitNameOrModifier<parts['nameOrModifier'], options> : never : { readonly type: `tuple[${size}]`; readonly components: ParseAbiParameters<SplitParameters<parameters>, Omit<options, 'modifier'>> } & _SplitNameOrModifier<nameOrModifier, options> : never : signature extends `(${infer parameters}) ${infer nameOrModifier}` ? nameOrModifier extends `${string}) ${string}` ? _UnwrapNameOrModifier<nameOrModifier> extends (infer parts extends { nameOrModifier: string; End: string; }) ? { readonly type: 'tuple'; readonly components: ParseAbiParameters<SplitParameters<`${parameters}) ${parts['End']}`>, Omit<options, 'modifier'>> } & _SplitNameOrModifier<parts['nameOrModifier'], options> : never : { readonly type: 'tuple'; readonly components: ParseAbiParameters<SplitParameters<parameters>, Omit<options, 'modifier'>> } & _SplitNameOrModifier<nameOrModifier, options> : never
+ * export type _ParseTuple<
+ *   signature extends `(${string})${string}`,
+ *   options extends ParseOptions = DefaultParseOptions
+ * > =
+ *   signature extends `(${infer parameters})`
+ *     ? {
+ *       readonly type: 'tuple'
+ *       readonly components: ParseAbiParameters<
+ *         SplitParameters<parameters>,
+ *         Omit<options, 'modifier'>
+ *       >
+ *     }
+ *   : signature extends `(${infer head})[${'' | `${SolidityFixedArrayRange}`}]`
+ *     ? signature extends `(${head})[${infer size}]`
+ *       ? {
+ *         readonly type: `tuple[${size}]`
+ *         readonly components: ParseAbiParameters<
+ *           SplitParameters<head>,
+ *           Omit<options, 'modifier'>
+ *         >
+ *       }
+ *       : never
+ *   : signature extends `(${infer parameters})[${'' | `${SolidityFixedArrayRange}`}] ${infer nameOrModifier}`
+ *     ? signature extends `(${parameters})[${infer size}] ${nameOrModifier}`
+ *       ? nameOrModifier extends `${string}) ${string}`
+ *         ? _UnwrapNameOrModifier<nameOrModifier> extends (infer parts extends { nameOrModifier: string; End: string; })
+ *           ? & {
+ *               readonly type: 'tuple'
+ *               readonly components: ParseAbiParameters<
+ *                 SplitParameters<`${parameters})[${size}] ${parts['End']}`>,
+ *                 Omit<options, 'modifier'>
+ *               >
+ *             }
+ *           & _SplitNameOrModifier<parts['nameOrModifier'], options>
+ *           : never
+ *         : & {
+ *             readonly type: `tuple[${size}]`
+ *             readonly components: ParseAbiParameters<
+ *               SplitParameters<parameters>,
+ *               Omit<options, 'modifier'>
+ *             >
+ *           }
+ *         & _SplitNameOrModifier<nameOrModifier, options>
+ *       : never
+ *   : signature extends `(${infer parameters}) ${infer nameOrModifier}`
+ *     ? nameOrModifier extends `${string}) ${string}`
+ *       ? _UnwrapNameOrModifier<nameOrModifier> extends (infer parts extends { nameOrModifier: string; End: string; })
+ *         ? & {
+ *             readonly type: 'tuple'
+ *             readonly components: ParseAbiParameters<
+ *               SplitParameters<`${parameters}) ${parts['End']}`>,
+ *               Omit<options, 'modifier'>
+ *             >
+ *           }
+ *         & _SplitNameOrModifier<parts['nameOrModifier'], options>
+ *         : never
+ *       : & {
+ *           readonly type: 'tuple'
+ *           readonly components: ParseAbiParameters<
+ *             SplitParameters<parameters>,
+ *             Omit<options, 'modifier'>
+ *           >
+ *         }
+ *       & _SplitNameOrModifier<nameOrModifier, options>
+ *   : never
  */
 
 // ✗ _SplitNameOrModifier: the ScriptType does not itself typecheck as TypeScript
@@ -321,7 +528,22 @@ export function _SplitNameOrModifier(signature: string, options: ParseOptions = 
   return never
 }
 /* compiles to:
- * export type _SplitNameOrModifier<signature extends string, options extends ParseOptions = DefaultParseOptions> = Trim<signature> extends infer trimmed ? options extends { modifier: Modifier; } ? trimmed extends `${infer mod extends options['modifier']} ${infer name}` ? Pretty<{ readonly name: Trim<name> } & (mod extends 'indexed' ? { readonly indexed: true } : object)> : trimmed extends options['modifier'] ? trimmed extends 'indexed' ? { readonly indexed: true } : object : { readonly name: trimmed } : { readonly name: trimmed } : never
+ * export type _SplitNameOrModifier<
+ *   signature extends string,
+ *   options extends ParseOptions = DefaultParseOptions
+ * > =
+ *   Trim<signature> extends infer trimmed
+ *     ? options extends { modifier: Modifier; }
+ *       ? trimmed extends `${infer mod extends options['modifier']} ${infer name}`
+ *         ? Pretty<
+ *           & { readonly name: Trim<name> }
+ *           & (mod extends 'indexed' ? { readonly indexed: true } : object)
+ *         >
+ *       : trimmed extends options['modifier']
+ *         ? trimmed extends 'indexed' ? { readonly indexed: true } : object
+ *       : { readonly name: trimmed }
+ *       : { readonly name: trimmed }
+ *     : never
  */
 
 // ✓ _UnwrapNameOrModifier: verified type-identical to the original
@@ -340,6 +562,12 @@ export function _UnwrapNameOrModifier(signature: string) {
   return { End: Trim(current), nameOrModifier: Trim(signature_) }
 }
 /* compiles to:
- * export type _UnwrapNameOrModifier<signature extends string> = _UnwrapNameOrModifier__loop<signature, ''>
- * type _UnwrapNameOrModifier__loop<Signature_ extends string, Current extends string> = Signature_ extends `${infer head}) ${infer tail}` ? _UnwrapNameOrModifier__loop<tail, `${Current}${Current extends '' ? '' : ') '}${head}`> : { End: Trim<Current>; nameOrModifier: Trim<Signature_> }
+ * export type _UnwrapNameOrModifier<signature extends string> = _UnwrapNameOrModifier__loop<
+ *   signature,
+ *   ''
+ * >
+ * type _UnwrapNameOrModifier__loop<Signature_ extends string, Current extends string> =
+ *   Signature_ extends `${infer head}) ${infer tail}`
+ *     ? _UnwrapNameOrModifier__loop<tail, `${Current}${Current extends '' ? '' : ') '}${head}`>
+ *     : { End: Trim<Current>; nameOrModifier: Trim<Signature_> }
  */

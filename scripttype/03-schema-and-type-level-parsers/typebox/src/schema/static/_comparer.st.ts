@@ -10,7 +10,7 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
-type XBuildTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type XBuildTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XBuildTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function XBuildTuple(Size: number) {
@@ -25,7 +25,8 @@ export function XBuildTuple(Size: number) {
 }
 /* compiles to:
  * export type XBuildTuple<Size extends number> = XBuildTuple__loop<[], Size>
- * type XBuildTuple__loop<Tuple extends any[], Size extends number> = Tuple['length'] extends Size ? Tuple : XBuildTuple__loop<[...Tuple, unknown], Size>
+ * type XBuildTuple__loop<Tuple extends any[], Size extends number> =
+ *   Tuple['length'] extends Size ? Tuple : XBuildTuple__loop<[...Tuple, unknown], Size>
  */
 
 // ✓ XLessThan: verified type-identical to the original
@@ -41,7 +42,10 @@ export function XLessThan(Left: number, Right: number) {
   return true
 }
 /* compiles to:
- * export type XLessThan<Left extends number, Right extends number> = Left extends Right ? false : XBuildTuple<Left> extends [...XBuildTuple<Right>, ...unknown[]] ? false : true
+ * export type XLessThan<Left extends number, Right extends number> =
+ *   Left extends Right ? false
+ *   : XBuildTuple<Left> extends [...XBuildTuple<Right>, ...unknown[]] ? false
+ *   : true
  */
 
 // ✓ XLessThanEqual: verified type-identical to the original
@@ -53,7 +57,8 @@ export function XLessThanEqual(Left: number, Right: number) {
   return XLessThan(Left, Right)
 }
 /* compiles to:
- * export type XLessThanEqual<Left extends number, Right extends number> = Left extends Right ? true : XLessThan<Left, Right>
+ * export type XLessThanEqual<Left extends number, Right extends number> =
+ *   Left extends Right ? true : XLessThan<Left, Right>
  */
 
 // ✓ XGreaterThan: verified type-identical to the original
@@ -71,5 +76,8 @@ export function XGreaterThanEqual(Left: number, Right: number) {
   return XLessThanEqual(Right, Left)
 }
 /* compiles to:
- * export type XGreaterThanEqual<Left extends number, Right extends number> = XLessThanEqual<Right, Left>
+ * export type XGreaterThanEqual<Left extends number, Right extends number> = XLessThanEqual<
+ *   Right,
+ *   Left
+ * >
  */

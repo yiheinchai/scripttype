@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Impl {
+  export type Entries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type FromEntries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AssignFn: any
 declare const Call: any
 declare const CreateFn: any
@@ -34,30 +38,30 @@ declare const RequiredFn: any
 declare const UpdateFn: any
 declare const _: any
 declare const unset: any
-type AssignFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Call<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GetFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Impl<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsArrayStrict<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutableDeepFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutableFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialDeepFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PickFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyDeepFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RecordFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredDeepFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AssignFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Impl<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsArrayStrict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutableDeepFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutableFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialDeepFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PickFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyDeepFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RecordFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredDeepFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ MapValuesImpl: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -83,7 +87,9 @@ export function MapKeysImpl(T, fn: Fn) {
   return out
 }
 /* compiles to:
- * export type MapKeysImpl<T, fn extends Fn> = { [K in keyof T as Extract<Call<fn, K>, PropertyKey>]: T[K] }
+ * export type MapKeysImpl<T, fn extends Fn> = {
+ *   [K in keyof T as Extract<Call<fn, K>, PropertyKey>]: T[K]
+ * }
  */
 
 // ✗ MapKeysDeepImpl: the ScriptType does not itself typecheck as TypeScript
@@ -103,7 +109,13 @@ export function MapKeysDeepImpl(T, fn: Fn) {
   return T
 }
 /* compiles to:
- * export type MapKeysDeepImpl<T, fn extends Fn> = IsArrayStrict<T> extends true ? MapKeysDeepImpl<Extract<T, readonly any[]>[number], fn>[] : T extends object ? { [K in keyof T as Extract<Call<fn, K>, PropertyKey>]: Prettify<MapKeysDeepImpl<T[K], fn>> } : T
+ * export type MapKeysDeepImpl<T, fn extends Fn> =
+ *   IsArrayStrict<T> extends true ? MapKeysDeepImpl<Extract<T, readonly any[]>[number], fn>[]
+ *   : T extends object
+ *     ? {
+ *       [K in keyof T as Extract<Call<fn, K>, PropertyKey>]: Prettify<MapKeysDeepImpl<T[K], fn>>
+ *     }
+ *   : T
  */
 
 // ✗ Pick: does not compile yet
@@ -161,7 +173,9 @@ export function PickByImpl(T, fn: Fn) {
   return Impl.FromEntries(PickEntriesImpl(Impl.Entries(T), fn))
 }
 /* compiles to:
- * export type PickByImpl<T, fn extends Fn> = Impl.FromEntries<PickEntriesImpl<Impl.Entries<T>, fn>>
+ * export type PickByImpl<T, fn extends Fn> = Impl.FromEntries<
+ *   PickEntriesImpl<Impl.Entries<T>, fn>
+ * >
  */
 
 // ✗ PickEntriesImpl: compiles but is not type-identical yet
@@ -177,7 +191,8 @@ export function PickEntriesImpl(entries: [ PropertyKey, any ], fn: Fn) {
   return never
 }
 /* compiles to:
- * export type PickEntriesImpl<entries extends [PropertyKey, any], fn extends Fn> = entries extends any ? Call<fn, entries[1], entries[0]> extends true ? entries : never : never
+ * export type PickEntriesImpl<entries extends [PropertyKey, any], fn extends Fn> =
+ *   entries extends any ? Call<fn, entries[1], entries[0]> extends true ? entries : never : never
  */
 
 // ✗ OmitByImpl: does not compile yet
@@ -187,7 +202,9 @@ export function OmitByImpl(T, fn: Fn) {
   return Impl.FromEntries(OmitEntriesImpl(Impl.Entries(T), fn))
 }
 /* compiles to:
- * export type OmitByImpl<T, fn extends Fn> = Impl.FromEntries<OmitEntriesImpl<Impl.Entries<T>, fn>>
+ * export type OmitByImpl<T, fn extends Fn> = Impl.FromEntries<
+ *   OmitEntriesImpl<Impl.Entries<T>, fn>
+ * >
  */
 
 // ✗ OmitEntriesImpl: compiles but is not type-identical yet
@@ -203,7 +220,8 @@ export function OmitEntriesImpl(entries: [ PropertyKey, any ], fn: Fn) {
   return never
 }
 /* compiles to:
- * export type OmitEntriesImpl<entries extends [PropertyKey, any], fn extends Fn> = entries extends any ? Call<fn, entries[1], entries[0]> extends true ? never : entries : never
+ * export type OmitEntriesImpl<entries extends [PropertyKey, any], fn extends Fn> =
+ *   entries extends any ? Call<fn, entries[1], entries[0]> extends true ? never : entries : never
  */
 
 // ✗ Assign: does not compile yet
@@ -213,7 +231,10 @@ export function Assign(arg1 = unset, arg2 = unset, arg3 = unset, arg4 = unset, a
   return PartialApply(AssignFn, [arg1, arg2, arg3, arg4, arg5])
 }
 /* compiles to:
- * export type Assign<arg1 = unset, arg2 = unset, arg3 = unset, arg4 = unset, arg5 = unset> = PartialApply<AssignFn, [arg1, arg2, arg3, arg4, arg5]>
+ * export type Assign<arg1 = unset, arg2 = unset, arg3 = unset, arg4 = unset, arg5 = unset> = PartialApply<
+ *   AssignFn,
+ *   [arg1, arg2, arg3, arg4, arg5]
+ * >
  */
 
 // ✗ Readonly: does not compile yet
@@ -303,7 +324,10 @@ export function Get(path: string | number | _ | unset = unset, obj = unset) {
   return PartialApply(GetFn, [path, obj])
 }
 /* compiles to:
- * export type Get<path extends string | number | _ | unset = unset, obj = unset> = PartialApply<GetFn, [path, obj]>
+ * export type Get<path extends string | number | _ | unset = unset, obj = unset> = PartialApply<
+ *   GetFn,
+ *   [path, obj]
+ * >
  */
 
 // ✗ Update: does not compile yet
@@ -313,7 +337,12 @@ export function Update(path: string | number | _ | unset = unset, fnOrValue = un
   return PartialApply(UpdateFn, [path, fnOrValue, obj])
 }
 /* compiles to:
- * export type Update<path extends string | number | _ | unset = unset, fnOrValue = unset, obj = unset> = PartialApply<UpdateFn, [path, fnOrValue, obj]>
+ * export type Update<
+ *   path extends string | number | _ | unset = unset,
+ *   fnOrValue = unset,
+ *   obj = unset
+ * > =
+ *   PartialApply<UpdateFn, [path, fnOrValue, obj]>
  */
 
 // ✗ Create: does not compile yet
@@ -323,7 +352,10 @@ export function Create(pattern = unset, arg0 = unset, arg1 = unset, arg2 = unset
   return PartialApply(CreateFn, [pattern, arg0, arg1, arg2, arg3])
 }
 /* compiles to:
- * export type Create<pattern = unset, arg0 = unset, arg1 = unset, arg2 = unset, arg3 = unset> = PartialApply<CreateFn, [pattern, arg0, arg1, arg2, arg3]>
+ * export type Create<pattern = unset, arg0 = unset, arg1 = unset, arg2 = unset, arg3 = unset> = PartialApply<
+ *   CreateFn,
+ *   [pattern, arg0, arg1, arg2, arg3]
+ * >
  */
 
 // ✗ Record: does not compile yet
@@ -333,5 +365,8 @@ export function Record(union: string | _ | unset = unset, value = unset) {
   return PartialApply(RecordFn, [union, value])
 }
 /* compiles to:
- * export type Record<union extends string | _ | unset = unset, value = unset> = PartialApply<RecordFn, [union, value]>
+ * export type Record<union extends string | _ | unset = unset, value = unset> = PartialApply<
+ *   RecordFn,
+ *   [union, value]
+ * >
  */

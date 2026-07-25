@@ -16,12 +16,12 @@ declare const BaseSchemaAsync: any
 declare const DefaultAsync: any
 declare const DefaultValue: any
 declare const InferOutput: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferUndefinedableOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InferUndefinedableOutput(TWrapped: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, TDefault: DefaultAsync<typeof TWrapped, undefined>) {
@@ -31,5 +31,11 @@ export function InferUndefinedableOutput(TWrapped: BaseSchema<unknown, unknown, 
   return InferOutput(TWrapped) | Extract(DefaultValue(TDefault), Undefined)
 }
 /* compiles to:
- * export type InferUndefinedableOutput<TWrapped extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, TDefault extends DefaultAsync<TWrapped, undefined>> = undefined extends TDefault ? InferOutput<TWrapped> | undefined : InferOutput<TWrapped> | Extract<DefaultValue<TDefault>, undefined>
+ * export type InferUndefinedableOutput<
+ *   TWrapped extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>,
+ *   TDefault extends DefaultAsync<TWrapped, undefined>
+ * > =
+ *   undefined extends TDefault
+ *     ? InferOutput<TWrapped> | undefined
+ *     : InferOutput<TWrapped> | Extract<DefaultValue<TDefault>, undefined>
  */

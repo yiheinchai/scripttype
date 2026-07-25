@@ -19,20 +19,20 @@ declare const Or: any
 declare const PositiveInfinity: any
 declare const PositiveNumericStringGt: any
 declare const R: any
-type Absolute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type And<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNegative<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Or<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveNumericStringGt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type R<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Absolute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveNumericStringGt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GreaterThan: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GreaterThan(A: number, B: number) {
-  if (matches<number>(A)) {
-    if (matches<number>(B)) {
+  if (typeof A === 'number') {
+    if (typeof B === 'number') {
       if (matches<typeof A | typeof B>(number)) {
         return boolean
       }
@@ -69,5 +69,23 @@ export function GreaterThan(A: number, B: number) {
   return never
 }
 /* compiles to:
- * export type GreaterThan<A extends number, B extends number> = A extends number ? B extends number ? number extends A | B ? boolean : [IsEqual<A, PositiveInfinity>, IsEqual<A, NegativeInfinity>, IsEqual<B, PositiveInfinity>, IsEqual<B, NegativeInfinity>] extends (infer R extends [boolean, boolean, boolean, boolean]) ? Or<And<IsEqual<R[0], true>, IsEqual<R[2], false>>, And<IsEqual<R[3], true>, IsEqual<R[1], false>>> extends true ? true : Or<And<IsEqual<R[1], true>, IsEqual<R[3], false>>, And<IsEqual<R[2], true>, IsEqual<R[0], false>>> extends true ? false : true extends R[number] ? false : [IsNegative<A>, IsNegative<B>] extends (infer R extends [boolean, boolean]) ? [true, false] extends R ? false : [false, true] extends R ? true : [false, false] extends R ? PositiveNumericStringGt<`${A}`, `${B}`> : PositiveNumericStringGt<`${Absolute<B>}`, `${Absolute<A>}`> : never : never : never : never
+ * export type GreaterThan<A extends number, B extends number> =
+ *   A extends number
+ *     ? B extends number
+ *       ? number extends A | B ? boolean
+ *       : [IsEqual<A, PositiveInfinity>, IsEqual<A, NegativeInfinity>, IsEqual<B, PositiveInfinity>, IsEqual<B, NegativeInfinity>] extends (infer R extends [boolean, boolean, boolean, boolean])
+ *         ? Or<And<IsEqual<R[0], true>, IsEqual<R[2], false>>, And<IsEqual<R[3], true>, IsEqual<R[1], false>>> extends true
+ *           ? true
+ *         : Or<And<IsEqual<R[1], true>, IsEqual<R[3], false>>, And<IsEqual<R[2], true>, IsEqual<R[0], false>>> extends true
+ *           ? false
+ *         : true extends R[number] ? false
+ *         : [IsNegative<A>, IsNegative<B>] extends (infer R extends [boolean, boolean])
+ *           ? [true, false] extends R ? false
+ *           : [false, true] extends R ? true
+ *           : [false, false] extends R ? PositiveNumericStringGt<`${A}`, `${B}`>
+ *           : PositiveNumericStringGt<`${Absolute<B>}`, `${Absolute<A>}`>
+ *         : never
+ *       : never
+ *       : never
+ *     : never
  */

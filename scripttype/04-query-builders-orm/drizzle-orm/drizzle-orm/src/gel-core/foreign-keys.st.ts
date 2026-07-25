@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const AnyGelColumn: any
 declare const GelColumn: any
-type AnyGelColumn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelColumn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyGelColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ColumnsWithTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ColumnsWithTable(TTableName: string, TColumns: GelColumn[]) {
@@ -24,5 +24,7 @@ export function ColumnsWithTable(TTableName: string, TColumns: GelColumn[]) {
   return out
 }
 /* compiles to:
- * export type ColumnsWithTable<TTableName extends string, TColumns extends GelColumn[]> = { [Key in keyof TColumns]: AnyGelColumn<{ tableName: TTableName }> }
+ * export type ColumnsWithTable<TTableName extends string, TColumns extends GelColumn[]> = {
+ *   [Key in keyof TColumns]: AnyGelColumn<{ tableName: TTableName }>
+ * }
  */

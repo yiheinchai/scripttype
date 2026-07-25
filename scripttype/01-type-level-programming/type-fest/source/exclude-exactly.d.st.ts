@@ -15,18 +15,25 @@ declare const IfNotAnyOrNever: any
 declare const IsAny: any
 declare const IsEqual: any
 declare const IsNever: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExcludeExactly: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExcludeExactly(Union, Delete) {
   return IfNotAnyOrNever(Union, { ifNot: _ExcludeExactly(Union, Delete), ifAny: If(IsAny(Delete), never, Union), ifNever: If(IsNever(Delete), never, Union) })
 }
 /* compiles to:
- * export type ExcludeExactly<Union, Delete> = IfNotAnyOrNever<Union, { ifNot: _ExcludeExactly<Union, Delete>; ifAny: If<IsAny<Delete>, never, Union>; ifNever: If<IsNever<Delete>, never, Union> }>
+ * export type ExcludeExactly<Union, Delete> = IfNotAnyOrNever<
+ *   Union,
+ *   {
+ *     ifNot: _ExcludeExactly<Union, Delete>
+ *     ifAny: If<IsAny<Delete>, never, Union>
+ *     ifNever: If<IsNever<Delete>, never, Union>
+ *   }
+ * >
  */
 
 // ✓ _ExcludeExactly: verified type-identical to the original
@@ -35,5 +42,16 @@ export function _ExcludeExactly(Union, Delete) {
   return IfNotAnyOrNever(Delete, { ifNot: matches<unknown>(Union) ? (matches<[ never ]>([matches<unknown>(Delete) ? If(IsEqual(Union, Delete), true, never) : never]) ? Union : never) : never, ifAny: Union, ifNever: Union })
 }
 /* compiles to:
- * export type _ExcludeExactly<Union, Delete> = IfNotAnyOrNever<Delete, { ifNot: Union extends unknown ? [Delete extends unknown ? If<IsEqual<Union, Delete>, true, never> : never] extends [never] ? Union : never : never; ifAny: Union; ifNever: Union }>
+ * export type _ExcludeExactly<Union, Delete> = IfNotAnyOrNever<
+ *   Delete,
+ *   {
+ *     ifNot: Union extends unknown
+ *       ? [Delete extends unknown ? If<IsEqual<Union, Delete>, true, never> : never] extends [never]
+ *         ? Union
+ *         : never
+ *       : never
+ *     ifAny: Union
+ *     ifNever: Union
+ *   }
+ * >
  */

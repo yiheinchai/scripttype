@@ -16,19 +16,25 @@ declare const GraphQLClient: any
 declare const PrepareHeaders: any
 declare const PromiseLike: any
 declare const RequestHeaders: any
-type ClientError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GraphQLClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PrepareHeaders<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PromiseLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequestHeaders<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ClientError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GraphQLClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PrepareHeaders<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PromiseLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequestHeaders<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GraphqlRequestBaseQueryArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GraphqlRequestBaseQueryArgs(E = ErrorResponse) {
   return merge(anyOf({ url: string }, { client: GraphQLClient }), { requestHeaders: optional(RequestHeaders), prepareHeaders: optional(PrepareHeaders), customErrors: optional(fnType([ClientError], E)) })
 }
 /* compiles to:
- * export type GraphqlRequestBaseQueryArgs<E = ErrorResponse> = ({ url: string } | { client: GraphQLClient }) & { requestHeaders?: RequestHeaders; prepareHeaders?: PrepareHeaders; customErrors?: (a0: ClientError) => E }
+ * export type GraphqlRequestBaseQueryArgs<E = ErrorResponse> =
+ *   & ({ url: string } | { client: GraphQLClient })
+ *   & {
+ *       requestHeaders?: RequestHeaders
+ *       prepareHeaders?: PrepareHeaders
+ *       customErrors?: (a0: ClientError) => E
+ *     }
  */
 
 // ✓ QueryReturnValue: verified type-identical to the original
@@ -37,7 +43,8 @@ export function QueryReturnValue(T = unknown, E = unknown, M = unknown) {
   return anyOf({ error: E, data: optional(Undefined), meta: optional(M) }, { error: optional(Undefined), data: T, meta: optional(M) })
 }
 /* compiles to:
- * export type QueryReturnValue<T = unknown, E = unknown, M = unknown> = { error: E; data?: undefined; meta?: M } | { error?: undefined; data: T; meta?: M }
+ * export type QueryReturnValue<T = unknown, E = unknown, M = unknown> =
+ *   { error: E; data?: undefined; meta?: M } | { error?: undefined; data: T; meta?: M }
  */
 
 // ✗ MaybePromise: the ScriptType does not itself typecheck as TypeScript

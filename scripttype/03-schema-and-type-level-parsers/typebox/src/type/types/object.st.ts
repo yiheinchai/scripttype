@@ -13,14 +13,22 @@
 declare const StaticDirection: any
 declare const StaticProperties: any
 declare const TProperties: any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticObject(Stack: string[], Direction: StaticDirection, Context: TProperties, _This: TProperties, Properties: TProperties, Result = matches<never>(keyof(Properties)) ? object : StaticProperties(Stack, Direction, Context, Properties, Properties)) {
   return Result
 }
 /* compiles to:
- * export type StaticObject<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, _This extends TProperties, Properties extends TProperties, Result = keyof Properties extends never ? object : StaticProperties<Stack, Direction, Context, Properties, Properties>> = Result
+ * export type StaticObject<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   _This extends TProperties,
+ *   Properties extends TProperties,
+ *   Result = keyof Properties extends never ? object : StaticProperties<Stack, Direction, Context, Properties, Properties>
+ * > =
+ *   Result
  */

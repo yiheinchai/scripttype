@@ -10,14 +10,23 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Effect {
+  export type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Schema {
+  export type Constraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Id<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Constraint: any
 declare const Effect: any
 declare const Schema: any
 declare const m1: any
-type Constraint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Effect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Schema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type m1<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Constraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type m1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidateCompletions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValidateCompletions(Completions, Keys: string) {
@@ -28,11 +37,13 @@ export function ValidateCompletions(Completions, Keys: string) {
   return Completions & out
 }
 /* compiles to:
- * export type ValidateCompletions<Completions, Keys extends string> = Completions & { readonly [K in keyof Completions]: K extends Keys ? (a0: string) => any : never }
+ * export type ValidateCompletions<Completions, Keys extends string> =
+ *   & Completions
+ *   & { readonly [K in keyof Completions]: K extends Keys ? (a0: string) => any : never }
  */
 
 // ✗ ResourceCompletions: the ScriptType does not itself typecheck as TypeScript
-//   ResourceCompletions.st.ts(2:60) TS2702: 'Schema' only refers to a type, but is being used as a namespace here.
+//   ResourceCompletions.st.ts(5:106) TS2537: Type 'readonly any[]' has no matching index signature for type 'string'.
 /* @scripttype preserveParamNames */
 export function ResourceCompletions(Schemas: ReadonlyArray<Schema.Constraint>) {
   const out = emptyObject
@@ -42,5 +53,9 @@ export function ResourceCompletions(Schemas: ReadonlyArray<Schema.Constraint>) {
   return out
 }
 /* compiles to:
- * export type ResourceCompletions<Schemas extends ReadonlyArray<Schema.Constraint>> = { readonly [K in Extract<keyof Schemas, `${number}`> as m1 extends true ? m1.Id : `param${K}`]: (a0: string) => Effect.Effect<Array<Schemas[K]['Type']>, any, any> }
+ * export type ResourceCompletions<Schemas extends ReadonlyArray<Schema.Constraint>> = {
+ *   readonly [K in Extract<keyof Schemas, `${number}`> as m1 extends true ? m1.Id : `param${K}`]: (
+ *     a0: string
+ *   ) => Effect.Effect<Array<Schemas[K]['Type']>, any, any>
+ * }
  */

@@ -42,39 +42,39 @@ declare const RoutePaths: any
 declare const RouteToPath: any
 declare const ToPath: any
 declare const Updater: any
-type AllParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CatchAllPaths<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConstrainLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CurrentPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Expand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FullSearchSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FullSearchSchemaInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HistoryState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LinkOptionsProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeDifferenceOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeOptionalPathParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeOptionalSearchParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeRequiredPathParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeRequiredSearchParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaskOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NavigateOptionProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NoInfer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonNullableUpdater<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalToOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParamVariant<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParentPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParsePathParamsResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParsedHistoryState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredToOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolveRelativeToParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteByPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteByToPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RoutePaths<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteToPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Updater<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AllParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CatchAllPaths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConstrainLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CurrentPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Expand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FullSearchSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FullSearchSchemaInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HistoryState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LinkOptionsProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeDifferenceOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeOptionalPathParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeOptionalSearchParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeRequiredPathParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeRequiredSearchParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaskOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NavigateOptionProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NoInfer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonNullableUpdater<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalToOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParamVariant<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParentPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParsePathParamsResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParsedHistoryState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredToOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolveRelativeToParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteByPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteByToPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RoutePaths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteToPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Updater<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsRequiredParams: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsRequiredParams(TParams) {
@@ -101,7 +101,22 @@ export function ParsePathParamsBoundaryStart(T: string) {
   return never
 }
 /* compiles to:
- * export type ParsePathParamsBoundaryStart<T extends string> = T extends `${infer TLeft}{-${infer TRight}` ? ParsePathParamsResult<ParsePathParams<TLeft>['required'], ParsePathParams<TLeft>['optional'] | ParsePathParams<TRight>['required'] | ParsePathParams<TRight>['optional'], ParsePathParams<TRight>['rest']> : T extends `${infer TLeft}{${infer TRight}` ? ParsePathParamsResult<ParsePathParams<TLeft>['required'] | ParsePathParams<TRight>['required'], ParsePathParams<TLeft>['optional'] | ParsePathParams<TRight>['optional'], ParsePathParams<TRight>['rest']> : never
+ * export type ParsePathParamsBoundaryStart<T extends string> =
+ *   T extends `${infer TLeft}{-${infer TRight}`
+ *     ? ParsePathParamsResult<
+ *       ParsePathParams<TLeft>['required'],
+ *       | ParsePathParams<TLeft>['optional']
+ *       | ParsePathParams<TRight>['required']
+ *       | ParsePathParams<TRight>['optional'],
+ *       ParsePathParams<TRight>['rest']
+ *     >
+ *   : T extends `${infer TLeft}{${infer TRight}`
+ *     ? ParsePathParamsResult<
+ *       ParsePathParams<TLeft>['required'] | ParsePathParams<TRight>['required'],
+ *       ParsePathParams<TLeft>['optional'] | ParsePathParams<TRight>['optional'],
+ *       ParsePathParams<TRight>['rest']
+ *     >
+ *   : never
  */
 
 // ✓ ParsePathParamsSymbol: verified type-identical to the original
@@ -127,7 +142,23 @@ export function ParsePathParamsSymbol(T: string) {
   return never
 }
 /* compiles to:
- * export type ParsePathParamsSymbol<T extends string> = T extends `${string}$${infer TRight}` ? TRight extends `${infer TParam}/${infer TRest}` ? TParam extends '' ? ParsePathParamsResult<ParsePathParams<TRest>['required'], '_splat' | ParsePathParams<TRest>['optional'], ParsePathParams<TRest>['rest']> : ParsePathParamsResult<TParam | ParsePathParams<TRest>['required'], ParsePathParams<TRest>['optional'], ParsePathParams<TRest>['rest']> : TRight extends '' ? ParsePathParamsResult<never, '_splat', never> : ParsePathParamsResult<TRight, never, never> : never
+ * export type ParsePathParamsSymbol<T extends string> =
+ *   T extends `${string}$${infer TRight}`
+ *     ? TRight extends `${infer TParam}/${infer TRest}`
+ *       ? TParam extends ''
+ *         ? ParsePathParamsResult<
+ *           ParsePathParams<TRest>['required'],
+ *           '_splat' | ParsePathParams<TRest>['optional'],
+ *           ParsePathParams<TRest>['rest']
+ *         >
+ *         : ParsePathParamsResult<
+ *           TParam | ParsePathParams<TRest>['required'],
+ *           ParsePathParams<TRest>['optional'],
+ *           ParsePathParams<TRest>['rest']
+ *         >
+ *     : TRight extends '' ? ParsePathParamsResult<never, '_splat', never>
+ *     : ParsePathParamsResult<TRight, never, never>
+ *     : never
  */
 
 // ✓ ParsePathParamsBoundaryEnd: verified type-identical to the original
@@ -140,7 +171,14 @@ export function ParsePathParamsBoundaryEnd(T: string) {
   return never
 }
 /* compiles to:
- * export type ParsePathParamsBoundaryEnd<T extends string> = T extends `${infer TLeft}}${infer TRight}` ? ParsePathParamsResult<ParsePathParams<TLeft>['required'] | ParsePathParams<TRight>['required'], ParsePathParams<TLeft>['optional'] | ParsePathParams<TRight>['optional'], ParsePathParams<TRight>['rest']> : never
+ * export type ParsePathParamsBoundaryEnd<T extends string> =
+ *   T extends `${infer TLeft}}${infer TRight}`
+ *     ? ParsePathParamsResult<
+ *       ParsePathParams<TLeft>['required'] | ParsePathParams<TRight>['required'],
+ *       ParsePathParams<TLeft>['optional'] | ParsePathParams<TRight>['optional'],
+ *       ParsePathParams<TRight>['rest']
+ *     >
+ *     : never
  */
 
 // ✓ ParsePathParamsEscapeStart: verified type-identical to the original
@@ -153,7 +191,14 @@ export function ParsePathParamsEscapeStart(T: string) {
   return never
 }
 /* compiles to:
- * export type ParsePathParamsEscapeStart<T extends string> = T extends `${infer TLeft}[${infer TRight}` ? ParsePathParamsResult<ParsePathParams<TLeft>['required'] | ParsePathParams<TRight>['required'], ParsePathParams<TLeft>['optional'] | ParsePathParams<TRight>['optional'], ParsePathParams<TRight>['rest']> : never
+ * export type ParsePathParamsEscapeStart<T extends string> =
+ *   T extends `${infer TLeft}[${infer TRight}`
+ *     ? ParsePathParamsResult<
+ *       ParsePathParams<TLeft>['required'] | ParsePathParams<TRight>['required'],
+ *       ParsePathParams<TLeft>['optional'] | ParsePathParams<TRight>['optional'],
+ *       ParsePathParams<TRight>['rest']
+ *     >
+ *     : never
  */
 
 // ✓ ParsePathParamsEscapeEnd: verified type-identical to the original
@@ -166,7 +211,8 @@ export function ParsePathParamsEscapeEnd(T: string) {
   return never
 }
 /* compiles to:
- * export type ParsePathParamsEscapeEnd<T extends string> = T extends `${string}]${infer TRight}` ? ParsePathParams<TRight> : never
+ * export type ParsePathParamsEscapeEnd<T extends string> =
+ *   T extends `${string}]${infer TRight}` ? ParsePathParams<TRight> : never
  */
 
 // ✓ ParsePathParams: verified type-identical to the original
@@ -190,7 +236,13 @@ export function ParsePathParams(T: string) {
   return never
 }
 /* compiles to:
- * export type ParsePathParams<T extends string> = T extends `${string}[${string}` ? ParsePathParamsEscapeStart<T> : T extends `${string}]${string}` ? ParsePathParamsEscapeEnd<T> : T extends `${string}}${string}` ? ParsePathParamsBoundaryEnd<T> : T extends `${string}{${string}` ? ParsePathParamsBoundaryStart<T> : T extends `${string}$${string}` ? ParsePathParamsSymbol<T> : never
+ * export type ParsePathParams<T extends string> =
+ *   T extends `${string}[${string}` ? ParsePathParamsEscapeStart<T>
+ *   : T extends `${string}]${string}` ? ParsePathParamsEscapeEnd<T>
+ *   : T extends `${string}}${string}` ? ParsePathParamsBoundaryEnd<T>
+ *   : T extends `${string}{${string}` ? ParsePathParamsBoundaryStart<T>
+ *   : T extends `${string}$${string}` ? ParsePathParamsSymbol<T>
+ *   : never
  */
 
 // ✓ AddTrailingSlash: verified type-identical to the original
@@ -218,7 +270,8 @@ export function RemoveTrailingSlashes(T) {
   return T
 }
 /* compiles to:
- * export type RemoveTrailingSlashes<T> = T & `${string}/` extends never ? T : T extends `${infer R}/` ? R : T
+ * export type RemoveTrailingSlashes<T> =
+ *   T & `${string}/` extends never ? T : T extends `${infer R}/` ? R : T
  */
 
 // ✓ AddLeadingSlash: verified type-identical to the original
@@ -246,7 +299,8 @@ export function RemoveLeadingSlashes(T) {
   return T
 }
 /* compiles to:
- * export type RemoveLeadingSlashes<T> = T & `/${string}` extends never ? T : T extends `/${infer R}` ? R : T
+ * export type RemoveLeadingSlashes<T> =
+ *   T & `/${string}` extends never ? T : T extends `/${infer R}` ? R : T
  */
 
 // ✓ JoinPath: verified type-identical to the original
@@ -261,7 +315,10 @@ export function JoinPath(TLeft: string, TRight: string) {
   return `${RemoveTrailingSlashes(TLeft)}/${RemoveLeadingSlashes(TRight)}`
 }
 /* compiles to:
- * export type JoinPath<TLeft extends string, TRight extends string> = TRight extends '' ? TLeft : TLeft extends '' ? TRight : `${RemoveTrailingSlashes<TLeft>}/${RemoveLeadingSlashes<TRight>}`
+ * export type JoinPath<TLeft extends string, TRight extends string> =
+ *   TRight extends '' ? TLeft
+ *   : TLeft extends '' ? TRight
+ *   : `${RemoveTrailingSlashes<TLeft>}/${RemoveLeadingSlashes<TRight>}`
  */
 
 // ✓ RemoveLastSegment: verified type-identical to the original
@@ -280,7 +337,12 @@ export function RemoveLastSegment(T: string, TAcc: string = '') {
   return TAcc
 }
 /* compiles to:
- * export type RemoveLastSegment<T extends string, TAcc extends string = ''> = T extends `${infer TSegment}/${infer TRest}` ? TRest & `${string}/${string}` extends never ? TRest extends '' ? TAcc : `${TAcc}${TSegment}` : RemoveLastSegment<TRest, `${TAcc}${TSegment}/`> : TAcc
+ * export type RemoveLastSegment<T extends string, TAcc extends string = ''> =
+ *   T extends `${infer TSegment}/${infer TRest}`
+ *     ? TRest & `${string}/${string}` extends never
+ *       ? TRest extends '' ? TAcc : `${TAcc}${TSegment}`
+ *       : RemoveLastSegment<TRest, `${TAcc}${TSegment}/`>
+ *     : TAcc
  */
 
 // ✓ ResolveCurrentPath: verified type-identical to the original
@@ -302,7 +364,12 @@ export function ResolveCurrentPath(TFrom: string, TTo: string) {
   return never
 }
 /* compiles to:
- * export type ResolveCurrentPath<TFrom extends string, TTo extends string> = TTo extends '.' ? TFrom : TTo extends './' ? AddTrailingSlash<TFrom> : TTo & `./${string}` extends never ? never : TTo extends `./${infer TRest}` ? AddLeadingSlash<JoinPath<TFrom, TRest>> : never
+ * export type ResolveCurrentPath<TFrom extends string, TTo extends string> =
+ *   TTo extends '.' ? TFrom
+ *   : TTo extends './' ? AddTrailingSlash<TFrom>
+ *   : TTo & `./${string}` extends never ? never
+ *   : TTo extends `./${infer TRest}` ? AddLeadingSlash<JoinPath<TFrom, TRest>>
+ *   : never
  */
 
 // ✓ ResolveParentPath: verified type-identical to the original
@@ -327,7 +394,13 @@ export function ResolveParentPath(TFrom: string, TTo: string) {
   return AddLeadingSlash(JoinPath(TFrom, TTo))
 }
 /* compiles to:
- * export type ResolveParentPath<TFrom extends string, TTo extends string> = TTo extends '../' | '..' ? TFrom extends '' | '/' ? never : AddLeadingSlash<RemoveLastSegment<TFrom>> : TTo & `../${string}` extends never ? AddLeadingSlash<JoinPath<TFrom, TTo>> : TFrom extends '' | '/' ? never : TTo extends `../${infer ToRest}` ? ResolveParentPath<RemoveLastSegment<TFrom>, ToRest> : AddLeadingSlash<JoinPath<TFrom, TTo>>
+ * export type ResolveParentPath<TFrom extends string, TTo extends string> =
+ *   TTo extends '../' | '..'
+ *     ? TFrom extends '' | '/' ? never : AddLeadingSlash<RemoveLastSegment<TFrom>>
+ *   : TTo & `../${string}` extends never ? AddLeadingSlash<JoinPath<TFrom, TTo>>
+ *   : TFrom extends '' | '/' ? never
+ *   : TTo extends `../${infer ToRest}` ? ResolveParentPath<RemoveLastSegment<TFrom>, ToRest>
+ *   : AddLeadingSlash<JoinPath<TFrom, TTo>>
  */
 
 // ✓ ResolveRelativePath: verified type-identical to the original
@@ -342,8 +415,8 @@ export function ResolveRelativePath(TFrom, TTo = '.') {
   if (matches<typeof TTo>(Undefined)) {
     return TFrom
   }
-  if (matches<string>(TTo)) {
-    if (matches<string>(TFrom)) {
+  if (typeof TTo === 'string') {
+    if (typeof TFrom === 'string') {
       if (matches<`/${string}`>(TTo)) {
         return TTo
       }
@@ -360,7 +433,18 @@ export function ResolveRelativePath(TFrom, TTo = '.') {
   return never
 }
 /* compiles to:
- * export type ResolveRelativePath<TFrom, TTo = '.'> = string extends TFrom ? TTo : string extends TTo ? TFrom : undefined extends TTo ? TFrom : TTo extends string ? TFrom extends string ? TTo extends `/${string}` ? TTo : TTo extends `..${string}` ? ResolveParentPath<TFrom, TTo> : TTo extends `.${string}` ? ResolveCurrentPath<TFrom, TTo> : AddLeadingSlash<JoinPath<TFrom, TTo>> : never : never
+ * export type ResolveRelativePath<TFrom, TTo = '.'> =
+ *   string extends TFrom ? TTo
+ *   : string extends TTo ? TFrom
+ *   : undefined extends TTo ? TFrom
+ *   : TTo extends string
+ *     ? TFrom extends string
+ *       ? TTo extends `/${string}` ? TTo
+ *       : TTo extends `..${string}` ? ResolveParentPath<TFrom, TTo>
+ *       : TTo extends `.${string}` ? ResolveCurrentPath<TFrom, TTo>
+ *       : AddLeadingSlash<JoinPath<TFrom, TTo>>
+ *       : never
+ *   : never
  */
 
 // ✓ FindDescendantToPaths: verified type-identical to the original
@@ -369,7 +453,8 @@ export function FindDescendantToPaths(TRouter: AnyRouter, TPrefix: string) {
   return merge(`${TPrefix}/${string}`, RouteToPath(TRouter))
 }
 /* compiles to:
- * export type FindDescendantToPaths<TRouter extends AnyRouter, TPrefix extends string> = `${TPrefix}/${string}` & RouteToPath<TRouter>
+ * export type FindDescendantToPaths<TRouter extends AnyRouter, TPrefix extends string> =
+ *   `${TPrefix}/${string}` & RouteToPath<TRouter>
  */
 
 // ✓ InferDescendantToPaths: verified type-identical to the original
@@ -385,7 +470,14 @@ export function InferDescendantToPaths(TRouter: AnyRouter, TPrefix: string, TPat
   return never
 }
 /* compiles to:
- * export type InferDescendantToPaths<TRouter extends AnyRouter, TPrefix extends string, TPaths = FindDescendantToPaths<TRouter, TPrefix>> = TPaths extends `${TPrefix}/` ? never : TPaths extends `${TPrefix}/${infer TRest}` ? TRest : never
+ * export type InferDescendantToPaths<
+ *   TRouter extends AnyRouter,
+ *   TPrefix extends string,
+ *   TPaths = FindDescendantToPaths<TRouter, TPrefix>
+ * > =
+ *   TPaths extends `${TPrefix}/` ? never
+ *   : TPaths extends `${TPrefix}/${infer TRest}` ? TRest
+ *   : never
  */
 
 // ✓ RelativeToPath: verified type-identical to the original
@@ -394,7 +486,13 @@ export function RelativeToPath(TRouter: AnyRouter, TTo: string, TResolvedPath: s
   return anyOf(matches<never>(merge(TResolvedPath, RouteToPath(TRouter))) ? never : ToPath(TRouter, TTo), `${RemoveTrailingSlashes(TTo)}/${InferDescendantToPaths(TRouter, RemoveTrailingSlashes(TResolvedPath))}`)
 }
 /* compiles to:
- * export type RelativeToPath<TRouter extends AnyRouter, TTo extends string, TResolvedPath extends string> = (TResolvedPath & RouteToPath<TRouter> extends never ? never : ToPath<TRouter, TTo>) | `${RemoveTrailingSlashes<TTo>}/${InferDescendantToPaths<TRouter, RemoveTrailingSlashes<TResolvedPath>>}`
+ * export type RelativeToPath<
+ *   TRouter extends AnyRouter,
+ *   TTo extends string,
+ *   TResolvedPath extends string
+ * > =
+ *   | (TResolvedPath & RouteToPath<TRouter> extends never ? never : ToPath<TRouter, TTo>)
+ *   | `${RemoveTrailingSlashes<TTo>}/${InferDescendantToPaths<TRouter, RemoveTrailingSlashes<TResolvedPath>>}`
  */
 
 // ✓ RelativeToParentPath: verified type-identical to the original
@@ -403,7 +501,21 @@ export function RelativeToParentPath(TRouter: AnyRouter, TFrom: string, TTo: str
   return RelativeToPath(TRouter, TTo, TResolvedPath) | (matches<`${string}..` | `${string}../`>(TTo) ? (matches<'/' | ''>(TResolvedPath) ? never : (matches<never>(FindDescendantToPaths(TRouter, RemoveTrailingSlashes(TResolvedPath))) ? never : `${RemoveTrailingSlashes(TTo)}/${ParentPath(TRouter)}`)) : never)
 }
 /* compiles to:
- * export type RelativeToParentPath<TRouter extends AnyRouter, TFrom extends string, TTo extends string, TResolvedPath extends string = ResolveRelativePath<TFrom, TTo>> = RelativeToPath<TRouter, TTo, TResolvedPath> | (TTo extends `${string}..` | `${string}../` ? TResolvedPath extends '/' | '' ? never : FindDescendantToPaths<TRouter, RemoveTrailingSlashes<TResolvedPath>> extends never ? never : `${RemoveTrailingSlashes<TTo>}/${ParentPath<TRouter>}` : never)
+ * export type RelativeToParentPath<
+ *   TRouter extends AnyRouter,
+ *   TFrom extends string,
+ *   TTo extends string,
+ *   TResolvedPath extends string = ResolveRelativePath<TFrom, TTo>
+ * > =
+ *   | RelativeToPath<TRouter, TTo, TResolvedPath>
+ *   | (
+ *       TTo extends `${string}..` | `${string}../`
+ *         ? TResolvedPath extends '/' | '' ? never
+ *         : FindDescendantToPaths<TRouter, RemoveTrailingSlashes<TResolvedPath>> extends never
+ *           ? never
+ *         : `${RemoveTrailingSlashes<TTo>}/${ParentPath<TRouter>}`
+ *         : never
+ *     )
  */
 
 // ✓ RelativeToCurrentPath: verified type-identical to the original
@@ -412,7 +524,13 @@ export function RelativeToCurrentPath(TRouter: AnyRouter, TFrom: string, TTo: st
   return RelativeToPath(TRouter, TTo, TResolvedPath) | CurrentPath(TRouter)
 }
 /* compiles to:
- * export type RelativeToCurrentPath<TRouter extends AnyRouter, TFrom extends string, TTo extends string, TResolvedPath extends string = ResolveRelativePath<TFrom, TTo>> = RelativeToPath<TRouter, TTo, TResolvedPath> | CurrentPath<TRouter>
+ * export type RelativeToCurrentPath<
+ *   TRouter extends AnyRouter,
+ *   TFrom extends string,
+ *   TTo extends string,
+ *   TResolvedPath extends string = ResolveRelativePath<TFrom, TTo>
+ * > =
+ *   RelativeToPath<TRouter, TTo, TResolvedPath> | CurrentPath<TRouter>
  */
 
 // ✓ AbsoluteToPath: verified type-identical to the original
@@ -421,7 +539,23 @@ export function AbsoluteToPath(TRouter: AnyRouter, TFrom: string) {
   return (matches<typeof TFrom>(string) ? CurrentPath(TRouter) : (matches<`/`>(TFrom) ? never : CurrentPath(TRouter))) | (matches<typeof TFrom>(string) ? ParentPath(TRouter) : (matches<`/`>(TFrom) ? never : ParentPath(TRouter))) | RouteToPath(TRouter) | (matches<'/'>(TFrom) ? never : (matches<typeof TFrom>(string) ? never : InferDescendantToPaths(TRouter, RemoveTrailingSlashes(TFrom))))
 }
 /* compiles to:
- * export type AbsoluteToPath<TRouter extends AnyRouter, TFrom extends string> = (string extends TFrom ? CurrentPath<TRouter> : TFrom extends `/` ? never : CurrentPath<TRouter>) | (string extends TFrom ? ParentPath<TRouter> : TFrom extends `/` ? never : ParentPath<TRouter>) | RouteToPath<TRouter> | (TFrom extends '/' ? never : string extends TFrom ? never : InferDescendantToPaths<TRouter, RemoveTrailingSlashes<TFrom>>)
+ * export type AbsoluteToPath<TRouter extends AnyRouter, TFrom extends string> =
+ *   | (
+ *       string extends TFrom ? CurrentPath<TRouter>
+ *       : TFrom extends `/` ? never
+ *       : CurrentPath<TRouter>
+ *     )
+ *   | (
+ *       string extends TFrom ? ParentPath<TRouter>
+ *       : TFrom extends `/` ? never
+ *       : ParentPath<TRouter>
+ *     )
+ *   | RouteToPath<TRouter>
+ *   | (
+ *       TFrom extends '/' ? never
+ *       : string extends TFrom ? never
+ *       : InferDescendantToPaths<TRouter, RemoveTrailingSlashes<TFrom>>
+ *     )
  */
 
 // ✓ RelativeToPathAutoComplete: verified type-identical to the original
@@ -442,7 +576,18 @@ export function RelativeToPathAutoComplete(TRouter: AnyRouter, TFrom: string, TT
   return RelativeToParentPath(TRouter, TFrom, TTo)
 }
 /* compiles to:
- * export type RelativeToPathAutoComplete<TRouter extends AnyRouter, TFrom extends string, TTo extends string> = string extends TTo ? string : string extends TFrom ? AbsoluteToPath<TRouter, TFrom> : TTo & `..${string}` extends never ? TTo & `.${string}` extends never ? AbsoluteToPath<TRouter, TFrom> : RelativeToCurrentPath<TRouter, TFrom, TTo> : RelativeToParentPath<TRouter, TFrom, TTo>
+ * export type RelativeToPathAutoComplete<
+ *   TRouter extends AnyRouter,
+ *   TFrom extends string,
+ *   TTo extends string
+ * > =
+ *   string extends TTo ? string
+ *   : string extends TFrom ? AbsoluteToPath<TRouter, TFrom>
+ *   : TTo & `..${string}` extends never
+ *     ? TTo & `.${string}` extends never
+ *       ? AbsoluteToPath<TRouter, TFrom>
+ *       : RelativeToCurrentPath<TRouter, TFrom, TTo>
+ *   : RelativeToParentPath<TRouter, TFrom, TTo>
  */
 
 // ✓ NavigateOptions: verified type-identical to the original
@@ -451,7 +596,14 @@ export function NavigateOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: st
   return ToOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo) & NavigateOptionProps
 }
 /* compiles to:
- * export type NavigateOptions<TRouter extends AnyRouter = RegisteredRouter, TFrom extends string = string, TTo extends string | undefined = '.', TMaskFrom extends string = TFrom, TMaskTo extends string = '.'> = ToOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo> & NavigateOptionProps
+ * export type NavigateOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string | undefined = '.',
+ *   TMaskFrom extends string = TFrom,
+ *   TMaskTo extends string = '.'
+ * > =
+ *   ToOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo> & NavigateOptionProps
  */
 
 // ✓ ToOptions: verified type-identical to the original
@@ -460,7 +612,14 @@ export function ToOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: string =
   return ToSubOptions(TRouter, TFrom, TTo) & MaskOptions(TRouter, TMaskFrom, TMaskTo)
 }
 /* compiles to:
- * export type ToOptions<TRouter extends AnyRouter = RegisteredRouter, TFrom extends string = string, TTo extends string | undefined = '.', TMaskFrom extends string = TFrom, TMaskTo extends string = '.'> = ToSubOptions<TRouter, TFrom, TTo> & MaskOptions<TRouter, TMaskFrom, TMaskTo>
+ * export type ToOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string | undefined = '.',
+ *   TMaskFrom extends string = TFrom,
+ *   TMaskTo extends string = '.'
+ * > =
+ *   ToSubOptions<TRouter, TFrom, TTo> & MaskOptions<TRouter, TMaskFrom, TMaskTo>
  */
 
 // ✓ ToMaskOptions: verified type-identical to the original
@@ -469,7 +628,12 @@ export function ToMaskOptions(TRouter: AnyRouter = RegisteredRouter, TMaskFrom: 
   return merge(ToSubOptions(TRouter, TMaskFrom, TMaskTo), { unmaskOnReload: optional(boolean) })
 }
 /* compiles to:
- * export type ToMaskOptions<TRouter extends AnyRouter = RegisteredRouter, TMaskFrom extends string = string, TMaskTo extends string = '.'> = ToSubOptions<TRouter, TMaskFrom, TMaskTo> & { unmaskOnReload?: boolean }
+ * export type ToMaskOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TMaskFrom extends string = string,
+ *   TMaskTo extends string = '.'
+ * > =
+ *   ToSubOptions<TRouter, TMaskFrom, TMaskTo> & { unmaskOnReload?: boolean }
  */
 
 // ✓ ToSubOptions: verified type-identical to the original
@@ -478,7 +642,14 @@ export function ToSubOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: strin
   return ToSubOptionsProps(TRouter, TFrom, TTo) & SearchParamOptions(TRouter, TFrom, TTo) & PathParamOptions(TRouter, TFrom, TTo)
 }
 /* compiles to:
- * export type ToSubOptions<TRouter extends AnyRouter = RegisteredRouter, TFrom extends string = string, TTo extends string | undefined = '.'> = ToSubOptionsProps<TRouter, TFrom, TTo> & SearchParamOptions<TRouter, TFrom, TTo> & PathParamOptions<TRouter, TFrom, TTo>
+ * export type ToSubOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string | undefined = '.'
+ * > =
+ *   & ToSubOptionsProps<TRouter, TFrom, TTo>
+ *   & SearchParamOptions<TRouter, TFrom, TTo>
+ *   & PathParamOptions<TRouter, TFrom, TTo>
  */
 
 // ✓ MakeToRequired: verified type-identical to the original
@@ -496,7 +667,16 @@ export function MakeToRequired(TRouter: AnyRouter, TFrom: string, TTo: string | 
   return OptionalToOptions(TRouter, TFrom, TTo)
 }
 /* compiles to:
- * export type MakeToRequired<TRouter extends AnyRouter, TFrom extends string, TTo extends string | undefined> = string extends TFrom ? string extends TTo ? OptionalToOptions<TRouter, TFrom, TTo> : TTo & CatchAllPaths<TRouter> extends never ? RequiredToOptions<TRouter, TFrom, TTo> : OptionalToOptions<TRouter, TFrom, TTo> : OptionalToOptions<TRouter, TFrom, TTo>
+ * export type MakeToRequired<
+ *   TRouter extends AnyRouter,
+ *   TFrom extends string,
+ *   TTo extends string | undefined
+ * > =
+ *   string extends TFrom
+ *     ? string extends TTo ? OptionalToOptions<TRouter, TFrom, TTo>
+ *     : TTo & CatchAllPaths<TRouter> extends never ? RequiredToOptions<TRouter, TFrom, TTo>
+ *     : OptionalToOptions<TRouter, TFrom, TTo>
+ *     : OptionalToOptions<TRouter, TFrom, TTo>
  */
 
 // ✓ ToSubOptionsProps: verified type-identical to the original
@@ -505,7 +685,18 @@ export function ToSubOptionsProps(TRouter: AnyRouter = RegisteredRouter, TFrom: 
   return merge(MakeToRequired(TRouter, TFrom, TTo), { hash: optional(anyOf(true, Updater(string))), state: optional(anyOf(true, NonNullableUpdater(ParsedHistoryState, HistoryState))), from: optional(merge(FromPathOption(TRouter, TFrom), {})), unsafeRelative: optional('path') })
 }
 /* compiles to:
- * export type ToSubOptionsProps<TRouter extends AnyRouter = RegisteredRouter, TFrom extends RoutePaths<TRouter['routeTree']> | string = string, TTo extends string | undefined = '.'> = MakeToRequired<TRouter, TFrom, TTo> & { hash?: true | Updater<string>; state?: true | NonNullableUpdater<ParsedHistoryState, HistoryState>; from?: FromPathOption<TRouter, TFrom> & {}; unsafeRelative?: 'path' }
+ * export type ToSubOptionsProps<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends RoutePaths<TRouter['routeTree']> | string = string,
+ *   TTo extends string | undefined = '.'
+ * > =
+ *   & MakeToRequired<TRouter, TFrom, TTo>
+ *   & {
+ *       hash?: true | Updater<string>
+ *       state?: true | NonNullableUpdater<ParsedHistoryState, HistoryState>
+ *       from?: FromPathOption<TRouter, TFrom> & {}
+ *       unsafeRelative?: 'path'
+ *     }
  */
 
 // ✓ ParamsReducerFn: verified type-identical to the original
@@ -514,7 +705,15 @@ export function ParamsReducerFn(TRouter: AnyRouter, TParamVariant: ParamVariant,
   return fnType([Expand(ResolveFromParams(TRouter, TParamVariant, TFrom))], Expand(ResolveRelativeToParams(TRouter, TParamVariant, TFrom, TTo)))
 }
 /* compiles to:
- * export type ParamsReducerFn<TRouter extends AnyRouter, TParamVariant extends ParamVariant, TFrom, TTo> = (a0: Expand<ResolveFromParams<TRouter, TParamVariant, TFrom>>) => Expand<ResolveRelativeToParams<TRouter, TParamVariant, TFrom, TTo>>
+ * export type ParamsReducerFn<
+ *   TRouter extends AnyRouter,
+ *   TParamVariant extends ParamVariant,
+ *   TFrom,
+ *   TTo
+ * > =
+ *   (a0: Expand<ResolveFromParams<TRouter, TParamVariant, TFrom>>) => Expand<
+ *     ResolveRelativeToParams<TRouter, TParamVariant, TFrom, TTo>
+ *   >
  */
 
 // ✓ ParamsReducer: verified type-identical to the original
@@ -523,13 +722,20 @@ export function ParamsReducer(TRouter: AnyRouter, TParamVariant: ParamVariant, T
   return anyOf(Expand(ResolveRelativeToParams(TRouter, TParamVariant, TFrom, TTo)), merge(ParamsReducerFn(TRouter, TParamVariant, TFrom, TTo), {}))
 }
 /* compiles to:
- * export type ParamsReducer<TRouter extends AnyRouter, TParamVariant extends ParamVariant, TFrom, TTo> = Expand<ResolveRelativeToParams<TRouter, TParamVariant, TFrom, TTo>> | ParamsReducerFn<TRouter, TParamVariant, TFrom, TTo> & {}
+ * export type ParamsReducer<
+ *   TRouter extends AnyRouter,
+ *   TParamVariant extends ParamVariant,
+ *   TFrom,
+ *   TTo
+ * > =
+ *   | Expand<ResolveRelativeToParams<TRouter, TParamVariant, TFrom, TTo>>
+ *   | ParamsReducerFn<TRouter, TParamVariant, TFrom, TTo> & {}
  */
 
 // ✓ ResolveRoute: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ResolveRoute(TRouter: AnyRouter, TFrom, TTo, TPath = ResolveRelativePath(TFrom, TTo)) {
-  if (matches<string>(TPath)) {
+  if (typeof TPath === 'string') {
     if (matches<typeof TPath>(TFrom)) {
       return RouteByPath(TRouter['routeTree'], TPath)
     }
@@ -538,7 +744,17 @@ export function ResolveRoute(TRouter: AnyRouter, TFrom, TTo, TPath = ResolveRela
   return never
 }
 /* compiles to:
- * export type ResolveRoute<TRouter extends AnyRouter, TFrom, TTo, TPath = ResolveRelativePath<TFrom, TTo>> = TPath extends string ? TFrom extends TPath ? RouteByPath<TRouter['routeTree'], TPath> : RouteByToPath<TRouter, TPath> : never
+ * export type ResolveRoute<
+ *   TRouter extends AnyRouter,
+ *   TFrom,
+ *   TTo,
+ *   TPath = ResolveRelativePath<TFrom, TTo>
+ * > =
+ *   TPath extends string
+ *     ? TFrom extends TPath
+ *       ? RouteByPath<TRouter['routeTree'], TPath>
+ *       : RouteByToPath<TRouter, TPath>
+ *     : never
  */
 
 // ✓ ResolveFromParamType: verified type-identical to the original
@@ -550,7 +766,8 @@ export function ResolveFromParamType(TParamVariant: ParamVariant) {
   return 'fullSearchSchema'
 }
 /* compiles to:
- * export type ResolveFromParamType<TParamVariant extends ParamVariant> = TParamVariant extends 'PATH' ? 'allParams' : 'fullSearchSchema'
+ * export type ResolveFromParamType<TParamVariant extends ParamVariant> =
+ *   TParamVariant extends 'PATH' ? 'allParams' : 'fullSearchSchema'
  */
 
 // ✓ ResolveFromAllParams: verified type-identical to the original
@@ -562,7 +779,13 @@ export function ResolveFromAllParams(TRouter: AnyRouter, TParamVariant: ParamVar
   return FullSearchSchema(TRouter['routeTree'])
 }
 /* compiles to:
- * export type ResolveFromAllParams<TRouter extends AnyRouter, TParamVariant extends ParamVariant> = TParamVariant extends 'PATH' ? AllParams<TRouter['routeTree']> : FullSearchSchema<TRouter['routeTree']>
+ * export type ResolveFromAllParams<
+ *   TRouter extends AnyRouter,
+ *   TParamVariant extends ParamVariant
+ * > =
+ *   TParamVariant extends 'PATH'
+ *     ? AllParams<TRouter['routeTree']>
+ *     : FullSearchSchema<TRouter['routeTree']>
  */
 
 // ✓ ResolveFromParams: verified type-identical to the original
@@ -574,7 +797,14 @@ export function ResolveFromParams(TRouter: AnyRouter, TParamVariant: ParamVarian
   return RouteByPath(TRouter['routeTree'], TFrom)['types'][ResolveFromParamType(TParamVariant)]
 }
 /* compiles to:
- * export type ResolveFromParams<TRouter extends AnyRouter, TParamVariant extends ParamVariant, TFrom> = string extends TFrom ? ResolveFromAllParams<TRouter, TParamVariant> : RouteByPath<TRouter['routeTree'], TFrom>['types'][ResolveFromParamType<TParamVariant>]
+ * export type ResolveFromParams<
+ *   TRouter extends AnyRouter,
+ *   TParamVariant extends ParamVariant,
+ *   TFrom
+ * > =
+ *   string extends TFrom
+ *     ? ResolveFromAllParams<TRouter, TParamVariant>
+ *     : RouteByPath<TRouter['routeTree'], TFrom>['types'][ResolveFromParamType<TParamVariant>]
  */
 
 // ✓ ResolveToParamType: verified type-identical to the original
@@ -586,7 +816,8 @@ export function ResolveToParamType(TParamVariant: ParamVariant) {
   return 'fullSearchSchemaInput'
 }
 /* compiles to:
- * export type ResolveToParamType<TParamVariant extends ParamVariant> = TParamVariant extends 'PATH' ? 'allParams' : 'fullSearchSchemaInput'
+ * export type ResolveToParamType<TParamVariant extends ParamVariant> =
+ *   TParamVariant extends 'PATH' ? 'allParams' : 'fullSearchSchemaInput'
  */
 
 // ✓ ResolveAllToParams: verified type-identical to the original
@@ -598,7 +829,10 @@ export function ResolveAllToParams(TRouter: AnyRouter, TParamVariant: ParamVaria
   return FullSearchSchemaInput(TRouter['routeTree'])
 }
 /* compiles to:
- * export type ResolveAllToParams<TRouter extends AnyRouter, TParamVariant extends ParamVariant> = TParamVariant extends 'PATH' ? AllParams<TRouter['routeTree']> : FullSearchSchemaInput<TRouter['routeTree']>
+ * export type ResolveAllToParams<TRouter extends AnyRouter, TParamVariant extends ParamVariant> =
+ *   TParamVariant extends 'PATH'
+ *     ? AllParams<TRouter['routeTree']>
+ *     : FullSearchSchemaInput<TRouter['routeTree']>
  */
 
 // ✓ ResolveToParams: verified type-identical to the original
@@ -620,7 +854,18 @@ export function ResolveToParams(TRouter: AnyRouter, TParamVariant: ParamVariant,
   return never
 }
 /* compiles to:
- * export type ResolveToParams<TRouter extends AnyRouter, TParamVariant extends ParamVariant, TFrom, TTo> = ResolveRelativePath<TFrom, TTo> extends infer TPath ? undefined extends TPath ? never : string extends TPath ? ResolveAllToParams<TRouter, TParamVariant> : TPath extends CatchAllPaths<TRouter> ? ResolveAllToParams<TRouter, TParamVariant> : ResolveRoute<TRouter, TFrom, TTo>['types'][ResolveToParamType<TParamVariant>] : never
+ * export type ResolveToParams<
+ *   TRouter extends AnyRouter,
+ *   TParamVariant extends ParamVariant,
+ *   TFrom,
+ *   TTo
+ * > =
+ *   ResolveRelativePath<TFrom, TTo> extends infer TPath
+ *     ? undefined extends TPath ? never
+ *     : string extends TPath ? ResolveAllToParams<TRouter, TParamVariant>
+ *     : TPath extends CatchAllPaths<TRouter> ? ResolveAllToParams<TRouter, TParamVariant>
+ *     : ResolveRoute<TRouter, TFrom, TTo>['types'][ResolveToParamType<TParamVariant>]
+ *     : never
  */
 
 // ✓ ResolveRelativeToParams: verified type-identical to the original
@@ -635,7 +880,16 @@ export function ResolveRelativeToParams(TRouter: AnyRouter, TParamVariant: Param
   return MakeDifferenceOptional(ResolveFromParams(TRouter, TParamVariant, TFrom), TToParams)
 }
 /* compiles to:
- * export type ResolveRelativeToParams<TRouter extends AnyRouter, TParamVariant extends ParamVariant, TFrom, TTo, TToParams = ResolveToParams<TRouter, TParamVariant, TFrom, TTo>> = TParamVariant extends 'SEARCH' ? TToParams : string extends TFrom ? TToParams : MakeDifferenceOptional<ResolveFromParams<TRouter, TParamVariant, TFrom>, TToParams>
+ * export type ResolveRelativeToParams<
+ *   TRouter extends AnyRouter,
+ *   TParamVariant extends ParamVariant,
+ *   TFrom,
+ *   TTo,
+ *   TToParams = ResolveToParams<TRouter, TParamVariant, TFrom, TTo>
+ * > =
+ *   TParamVariant extends 'SEARCH' ? TToParams
+ *   : string extends TFrom ? TToParams
+ *   : MakeDifferenceOptional<ResolveFromParams<TRouter, TParamVariant, TFrom>, TToParams>
  */
 
 // ✓ MakeRequiredParamsReducer: verified type-identical to the original
@@ -644,7 +898,19 @@ export function MakeRequiredParamsReducer(TRouter: AnyRouter, TParamVariant: Par
   return anyOf(matches<typeof TFrom>(string) ? never : (matches<ResolveRelativeToParams<typeof TRouter, typeof TParamVariant, typeof TFrom, typeof TTo>>(ResolveFromParams(TRouter, TParamVariant, TFrom)) ? true : never), merge(ParamsReducer(TRouter, TParamVariant, TFrom, TTo), {}))
 }
 /* compiles to:
- * export type MakeRequiredParamsReducer<TRouter extends AnyRouter, TParamVariant extends ParamVariant, TFrom, TTo> = (string extends TFrom ? never : ResolveFromParams<TRouter, TParamVariant, TFrom> extends ResolveRelativeToParams<TRouter, TParamVariant, TFrom, TTo> ? true : never) | ParamsReducer<TRouter, TParamVariant, TFrom, TTo> & {}
+ * export type MakeRequiredParamsReducer<
+ *   TRouter extends AnyRouter,
+ *   TParamVariant extends ParamVariant,
+ *   TFrom,
+ *   TTo
+ * > =
+ *   | (
+ *       string extends TFrom ? never
+ *       : ResolveFromParams<TRouter, TParamVariant, TFrom> extends ResolveRelativeToParams<TRouter, TParamVariant, TFrom, TTo>
+ *         ? true
+ *       : never
+ *     )
+ *   | ParamsReducer<TRouter, TParamVariant, TFrom, TTo> & {}
  */
 
 // ✓ IsRequired: verified type-identical to the original
@@ -663,7 +929,17 @@ export function IsRequired(TRouter: AnyRouter, TParamVariant: ParamVariant, TFro
   return never
 }
 /* compiles to:
- * export type IsRequired<TRouter extends AnyRouter, TParamVariant extends ParamVariant, TFrom, TTo> = ResolveRelativePath<TFrom, TTo> extends infer TPath ? undefined extends TPath ? never : TPath extends CatchAllPaths<TRouter> ? never : IsRequiredParams<ResolveRelativeToParams<TRouter, TParamVariant, TFrom, TTo>> : never
+ * export type IsRequired<
+ *   TRouter extends AnyRouter,
+ *   TParamVariant extends ParamVariant,
+ *   TFrom,
+ *   TTo
+ * > =
+ *   ResolveRelativePath<TFrom, TTo> extends infer TPath
+ *     ? undefined extends TPath ? never
+ *     : TPath extends CatchAllPaths<TRouter> ? never
+ *     : IsRequiredParams<ResolveRelativeToParams<TRouter, TParamVariant, TFrom, TTo>>
+ *     : never
  */
 
 // ✓ SearchParamOptions: verified type-identical to the original
@@ -675,7 +951,10 @@ export function SearchParamOptions(TRouter: AnyRouter, TFrom, TTo) {
   return MakeRequiredSearchParams(TRouter, TFrom, TTo)
 }
 /* compiles to:
- * export type SearchParamOptions<TRouter extends AnyRouter, TFrom, TTo> = IsRequired<TRouter, 'SEARCH', TFrom, TTo> extends never ? MakeOptionalSearchParams<TRouter, TFrom, TTo> : MakeRequiredSearchParams<TRouter, TFrom, TTo>
+ * export type SearchParamOptions<TRouter extends AnyRouter, TFrom, TTo> =
+ *   IsRequired<TRouter, 'SEARCH', TFrom, TTo> extends never
+ *     ? MakeOptionalSearchParams<TRouter, TFrom, TTo>
+ *     : MakeRequiredSearchParams<TRouter, TFrom, TTo>
  */
 
 // ✓ PathParamOptions: verified type-identical to the original
@@ -687,7 +966,10 @@ export function PathParamOptions(TRouter: AnyRouter, TFrom, TTo) {
   return MakeRequiredPathParams(TRouter, TFrom, TTo)
 }
 /* compiles to:
- * export type PathParamOptions<TRouter extends AnyRouter, TFrom, TTo> = IsRequired<TRouter, 'PATH', TFrom, TTo> extends never ? MakeOptionalPathParams<TRouter, TFrom, TTo> : MakeRequiredPathParams<TRouter, TFrom, TTo>
+ * export type PathParamOptions<TRouter extends AnyRouter, TFrom, TTo> =
+ *   IsRequired<TRouter, 'PATH', TFrom, TTo> extends never
+ *     ? MakeOptionalPathParams<TRouter, TFrom, TTo>
+ *     : MakeRequiredPathParams<TRouter, TFrom, TTo>
  */
 
 // ✗ ToPathOption: the ScriptType does not itself typecheck as TypeScript
@@ -697,7 +979,19 @@ export function ToPathOption(TRouter: AnyRouter = AnyRouter, TFrom: string = str
   return ConstrainLiteral(TTo, RelativeToPathAutoComplete(TRouter, matches<string>(NoInfer(TFrom)) ? NoInfer(TFrom) : '', NoInfer(TTo) & string))
 }
 /* compiles to:
- * export type ToPathOption<TRouter extends AnyRouter = AnyRouter, TFrom extends string = string, TTo extends string | undefined = string> = ConstrainLiteral<TTo, RelativeToPathAutoComplete<TRouter, NoInfer<TFrom> extends string ? NoInfer<TFrom> : '', NoInfer<TTo> & string>>
+ * export type ToPathOption<
+ *   TRouter extends AnyRouter = AnyRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string | undefined = string
+ * > =
+ *   ConstrainLiteral<
+ *     TTo,
+ *     RelativeToPathAutoComplete<
+ *       TRouter,
+ *       NoInfer<TFrom> extends string ? NoInfer<TFrom> : '',
+ *       NoInfer<TTo> & string
+ *     >
+ *   >
  */
 
 // ✓ FromPathOption: verified type-identical to the original
@@ -706,7 +1000,10 @@ export function FromPathOption(TRouter: AnyRouter, TFrom) {
   return ConstrainLiteral(TFrom, RoutePaths(TRouter['routeTree']))
 }
 /* compiles to:
- * export type FromPathOption<TRouter extends AnyRouter, TFrom> = ConstrainLiteral<TFrom, RoutePaths<TRouter['routeTree']>>
+ * export type FromPathOption<TRouter extends AnyRouter, TFrom> = ConstrainLiteral<
+ *   TFrom,
+ *   RoutePaths<TRouter['routeTree']>
+ * >
  */
 
 // ✓ LinkOptions: verified type-identical to the original
@@ -715,5 +1012,12 @@ export function LinkOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: string
   return NavigateOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo) & LinkOptionsProps
 }
 /* compiles to:
- * export type LinkOptions<TRouter extends AnyRouter = RegisteredRouter, TFrom extends string = string, TTo extends string | undefined = '.', TMaskFrom extends string = TFrom, TMaskTo extends string = '.'> = NavigateOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo> & LinkOptionsProps
+ * export type LinkOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string | undefined = '.',
+ *   TMaskFrom extends string = TFrom,
+ *   TMaskTo extends string = '.'
+ * > =
+ *   NavigateOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo> & LinkOptionsProps
  */

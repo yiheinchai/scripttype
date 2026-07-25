@@ -14,10 +14,10 @@ declare const TObject: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TTuple: any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTupleElementsToProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TTupleElementsToProperties(Types: TSchema[], Result: TProperties = {}) {
@@ -29,14 +29,20 @@ export function TTupleElementsToProperties(Types: TSchema[], Result: TProperties
     }
     return TTupleElementsToProperties(m2.Left, merge(out3, Result))
   }
-  const out = emptyObject
+  const out4 = emptyObject
   for (const Key in keyof(Result)) {
-    out[Key] = Result[Key]
+    out4[Key] = Result[Key]
   }
-  return out
+  return out4
 }
 /* compiles to:
- * export type TTupleElementsToProperties<Types extends TSchema[], Result extends TProperties = {}> = Types extends [...(infer Left extends TSchema[]), infer Right extends TSchema] ? TTupleElementsToProperties<Left, { [_ in Left['length']]: Right } & Result> : { [Key in keyof Result]: Result[Key] }
+ * export type TTupleElementsToProperties<
+ *   Types extends TSchema[],
+ *   Result extends TProperties = {}
+ * > =
+ *   Types extends [...infer Left extends TSchema[], infer Right extends TSchema]
+ *     ? TTupleElementsToProperties<Left, { [_ in Left['length']]: Right } & Result>
+ *     : { [Key in keyof Result]: Result[Key] }
  */
 
 // ✓ TTupleToObject: verified type-identical to the original
@@ -45,5 +51,10 @@ export function TTupleToObject(Type: TTuple, Properties: TProperties = TTupleEle
   return Result
 }
 /* compiles to:
- * export type TTupleToObject<Type extends TTuple, Properties extends TProperties = TTupleElementsToProperties<Type['items']>, Result extends TSchema = TObject<Properties>> = Result
+ * export type TTupleToObject<
+ *   Type extends TTuple,
+ *   Properties extends TProperties = TTupleElementsToProperties<Type['items']>,
+ *   Result extends TSchema = TObject<Properties>
+ * > =
+ *   Result
  */

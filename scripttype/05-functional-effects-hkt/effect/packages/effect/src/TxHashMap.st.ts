@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TxHashMap: any
-type TxHashMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TxHashMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Key: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Key(T: TxHashMap<any, any>) {
@@ -49,5 +49,6 @@ export function Entry(T: TxHashMap<any, any>) {
   return never
 }
 /* compiles to:
- * export type Entry<T extends TxHashMap<any, any>> = T extends TxHashMap<infer K, infer V> ? readonly [K, V] : never
+ * export type Entry<T extends TxHashMap<any, any>> =
+ *   T extends TxHashMap<infer K, infer V> ? readonly [K, V] : never
  */

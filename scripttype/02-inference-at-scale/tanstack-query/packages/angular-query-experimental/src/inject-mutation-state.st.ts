@@ -13,14 +13,17 @@
 declare const Mutation: any
 declare const MutationFilters: any
 declare const MutationState: any
-type Mutation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationFilters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Mutation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationFilters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MutationStateOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MutationStateOptions(TResult = MutationState) {
   return { filters: optional(MutationFilters), select: optional(fnType([Mutation], TResult)) }
 }
 /* compiles to:
- * export type MutationStateOptions<TResult = MutationState> = { filters?: MutationFilters; select?: (a0: Mutation) => TResult }
+ * export type MutationStateOptions<TResult = MutationState> = {
+ *   filters?: MutationFilters
+ *   select?: (a0: Mutation) => TResult
+ * }
  */

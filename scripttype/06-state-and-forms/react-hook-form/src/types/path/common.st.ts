@@ -17,13 +17,13 @@ declare const Key: any
 declare const PathString: any
 declare const PathTuple: any
 declare const Traversable: any
-type ArrayKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PathString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PathTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Traversable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ArrayKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PathString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PathTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Traversable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsTuple(T: ReadonlyArray<any>) {
@@ -76,7 +76,8 @@ export function UnionToIntersection(U) {
   return never
 }
 /* compiles to:
- * export type UnionToIntersection<U> = (U extends any ? (a0: U) => any : never) extends (_: infer I) => any ? I : never
+ * export type UnionToIntersection<U> =
+ *   (U extends any ? (a0: U) => any : never) extends (_: infer I) => any ? I : never
  */
 
 // ✓ AppendNonBlankKey: verified type-identical to the original
@@ -88,7 +89,8 @@ export function AppendNonBlankKey(PT: PathTuple, K: Key) {
   return [...PT, K]
 }
 /* compiles to:
- * export type AppendNonBlankKey<PT extends PathTuple, K extends Key> = K extends '' ? PT : [...PT, K]
+ * export type AppendNonBlankKey<PT extends PathTuple, K extends Key> =
+ *   K extends '' ? PT : [...PT, K]
  */
 
 // ✓ SplitPathStringImpl: verified type-identical to the original
@@ -107,8 +109,14 @@ export function SplitPathStringImpl(PS: PathString, PT: PathTuple) {
   return AppendNonBlankKey(pT, pS)
 }
 /* compiles to:
- * export type SplitPathStringImpl<PS extends PathString, PT extends PathTuple> = SplitPathStringImpl__loop<PS, PT>
- * type SplitPathStringImpl__loop<PS extends PathString, PT extends PathTuple> = PS extends `${infer K}.${infer R}` ? SplitPathStringImpl__loop<R, AppendNonBlankKey<PT, K>> : AppendNonBlankKey<PT, PS>
+ * export type SplitPathStringImpl<PS extends PathString, PT extends PathTuple> = SplitPathStringImpl__loop<
+ *   PS,
+ *   PT
+ * >
+ * type SplitPathStringImpl__loop<PS extends PathString, PT extends PathTuple> =
+ *   PS extends `${infer K}.${infer R}`
+ *     ? SplitPathStringImpl__loop<R, AppendNonBlankKey<PT, K>>
+ *     : AppendNonBlankKey<PT, PS>
  */
 
 // ✓ SplitPathString: verified type-identical to the original
@@ -136,8 +144,14 @@ export function JoinPathTupleImpl(PT: PathTuple, PS: PathString) {
   return pS
 }
 /* compiles to:
- * export type JoinPathTupleImpl<PT extends PathTuple, PS extends PathString> = JoinPathTupleImpl__loop<PT, PS>
- * type JoinPathTupleImpl__loop<PT extends PathTuple, PS extends PathString> = PT extends [infer K, ...infer R] ? JoinPathTupleImpl__loop<AsPathTuple<R>, `${PS}.${AsKey<K>}`> : PS
+ * export type JoinPathTupleImpl<PT extends PathTuple, PS extends PathString> = JoinPathTupleImpl__loop<
+ *   PT,
+ *   PS
+ * >
+ * type JoinPathTupleImpl__loop<PT extends PathTuple, PS extends PathString> =
+ *   PT extends [infer K, ...infer R]
+ *     ? JoinPathTupleImpl__loop<AsPathTuple<R>, `${PS}.${AsKey<K>}`>
+ *     : PS
  */
 
 // ✓ JoinPathTuple: verified type-identical to the original
@@ -150,7 +164,8 @@ export function JoinPathTuple(PT: PathTuple) {
   return never
 }
 /* compiles to:
- * export type JoinPathTuple<PT extends PathTuple> = PT extends [infer K, ...infer R] ? JoinPathTupleImpl<AsPathTuple<R>, AsKey<K>> : never
+ * export type JoinPathTuple<PT extends PathTuple> =
+ *   PT extends [infer K, ...infer R] ? JoinPathTupleImpl<AsPathTuple<R>, AsKey<K>> : never
  */
 
 // ✓ MapKeys: verified type-identical to the original
@@ -169,7 +184,7 @@ export function MapKeys(T) {
 // ✓ TryAccess: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TryAccess(T, K) {
-  if (matches<keyof typeof T>(K)) {
+  if (K in T) {
     return T[K]
   }
   if (matches<null>(T)) {
@@ -190,7 +205,8 @@ export function TryAccessArray(T: ReadonlyArray<any>, K: Key) {
   return TryAccess(T, K)
 }
 /* compiles to:
- * export type TryAccessArray<T extends ReadonlyArray<any>, K extends Key> = K extends `${ArrayKey}` ? T[number] : TryAccess<T, K>
+ * export type TryAccessArray<T extends ReadonlyArray<any>, K extends Key> =
+ *   K extends `${ArrayKey}` ? T[number] : TryAccess<T, K>
  */
 
 // ✓ EvaluateKey: verified type-identical to the original
@@ -205,7 +221,10 @@ export function EvaluateKey(T, K: Key) {
   return TryAccess(MapKeys(T), K)
 }
 /* compiles to:
- * export type EvaluateKey<T, K extends Key> = T extends ReadonlyArray<any> ? IsTuple<T> extends true ? TryAccess<T, K> : TryAccessArray<T, K> : TryAccess<MapKeys<T>, K>
+ * export type EvaluateKey<T, K extends Key> =
+ *   T extends ReadonlyArray<any>
+ *     ? IsTuple<T> extends true ? TryAccess<T, K> : TryAccessArray<T, K>
+ *     : TryAccess<MapKeys<T>, K>
  */
 
 // ✓ EvaluatePath: verified type-identical to the original
@@ -225,7 +244,10 @@ export function EvaluatePath(T, PT: PathTuple) {
 }
 /* compiles to:
  * export type EvaluatePath<T, PT extends PathTuple> = EvaluatePath__loop<T, PT>
- * type EvaluatePath__loop<T, PT extends PathTuple> = PT extends [infer K, ...infer R] ? EvaluatePath__loop<EvaluateKey<T, AsKey<K>>, AsPathTuple<R>> : T
+ * type EvaluatePath__loop<T, PT extends PathTuple> =
+ *   PT extends [infer K, ...infer R]
+ *     ? EvaluatePath__loop<EvaluateKey<T, AsKey<K>>, AsPathTuple<R>>
+ *     : T
  */
 
 // ✓ TupleKeys: verified type-identical to the original
@@ -243,7 +265,9 @@ export function NumericObjectKeys(T: Traversable) {
   return ToKey(Extract(keyof(T), anyOf(ArrayKey, `${ArrayKey}`)))
 }
 /* compiles to:
- * export type NumericObjectKeys<T extends Traversable> = ToKey<Extract<keyof T, ArrayKey | `${ArrayKey}`>>
+ * export type NumericObjectKeys<T extends Traversable> = ToKey<
+ *   Extract<keyof T, ArrayKey | `${ArrayKey}`>
+ * >
  */
 
 // ✓ NumericKeys: verified type-identical to the original
@@ -252,7 +276,12 @@ export function NumericKeys(T: Traversable) {
   return UnionToIntersection(matches<ReadonlyArray<any>>(T) ? (matches<true>(IsTuple(T)) ? [TupleKeys(T)] : [ToKey(ArrayKey)]) : [NumericObjectKeys(T)])[never]
 }
 /* compiles to:
- * export type NumericKeys<T extends Traversable> = UnionToIntersection<T extends ReadonlyArray<any> ? IsTuple<T> extends true ? [TupleKeys<T>] : [ToKey<ArrayKey>] : [NumericObjectKeys<T>]>[never]
+ * export type NumericKeys<T extends Traversable> =
+ *   UnionToIntersection<
+ *     T extends ReadonlyArray<any>
+ *       ? IsTuple<T> extends true ? [TupleKeys<T>] : [ToKey<ArrayKey>]
+ *       : [NumericObjectKeys<T>]
+ *   >[never]
  */
 
 // ✓ ObjectKeys: verified type-identical to the original
@@ -261,7 +290,10 @@ export function ObjectKeys(T: Traversable) {
   return Exclude(ToKey(keyof(T)), anyOf(`${string}.${string}`, ''))
 }
 /* compiles to:
- * export type ObjectKeys<T extends Traversable> = Exclude<ToKey<keyof T>, `${string}.${string}` | ''>
+ * export type ObjectKeys<T extends Traversable> = Exclude<
+ *   ToKey<keyof T>,
+ *   `${string}.${string}` | ''
+ * >
  */
 
 // ✓ CheckKeyConstraint: verified type-identical to the original
@@ -276,7 +308,8 @@ export function CheckKeyConstraint(T, K: Key, U) {
   return never
 }
 /* compiles to:
- * export type CheckKeyConstraint<T, K extends Key, U> = K extends any ? EvaluateKey<T, K> extends U ? K : never : never
+ * export type CheckKeyConstraint<T, K extends Key, U> =
+ *   K extends any ? EvaluateKey<T, K> extends U ? K : never : never
  */
 
 // ✓ ContainsIndexable: verified type-identical to the original
@@ -288,7 +321,8 @@ export function ContainsIndexable(T) {
   return true
 }
 /* compiles to:
- * export type ContainsIndexable<T> = IsNever<Extract<T, ReadonlyArray<any>>> extends true ? false : true
+ * export type ContainsIndexable<T> =
+ *   IsNever<Extract<T, ReadonlyArray<any>>> extends true ? false : true
  */
 
 // ✓ KeysImpl: verified type-identical to the original
@@ -303,7 +337,10 @@ export function KeysImpl(T) {
   return never
 }
 /* compiles to:
- * export type KeysImpl<T> = [T] extends [Traversable] ? ContainsIndexable<T> extends true ? NumericKeys<T> : ObjectKeys<T> : never
+ * export type KeysImpl<T> =
+ *   [T] extends [Traversable]
+ *     ? ContainsIndexable<T> extends true ? NumericKeys<T> : ObjectKeys<T>
+ *     : never
  */
 
 // ✓ Keys: verified type-identical to the original
@@ -321,7 +358,11 @@ export function Keys(T, U = unknown) {
   return CheckKeyConstraint(T, KeysImpl(NonNullable(T)), U)
 }
 /* compiles to:
- * export type Keys<T, U = unknown> = IsAny<T> extends true ? Key : IsNever<T> extends true ? Key : IsNever<NonNullable<T>> extends true ? never : CheckKeyConstraint<T, KeysImpl<NonNullable<T>>, U>
+ * export type Keys<T, U = unknown> =
+ *   IsAny<T> extends true ? Key
+ *   : IsNever<T> extends true ? Key
+ *   : IsNever<NonNullable<T>> extends true ? never
+ *   : CheckKeyConstraint<T, KeysImpl<NonNullable<T>>, U>
  */
 
 // ✓ HasKey: verified type-identical to the original
@@ -346,7 +387,12 @@ export function ValidPathPrefixImpl(T, PT: PathTuple, VPT: PathTuple) {
   return VPT
 }
 /* compiles to:
- * export type ValidPathPrefixImpl<T, PT extends PathTuple, VPT extends PathTuple> = PT extends [infer K, ...infer R] ? HasKey<T, AsKey<K>> extends true ? ValidPathPrefixImpl<EvaluateKey<T, AsKey<K>>, AsPathTuple<R>, AsPathTuple<[...VPT, K]>> : VPT : VPT
+ * export type ValidPathPrefixImpl<T, PT extends PathTuple, VPT extends PathTuple> =
+ *   PT extends [infer K, ...infer R]
+ *     ? HasKey<T, AsKey<K>> extends true
+ *       ? ValidPathPrefixImpl<EvaluateKey<T, AsKey<K>>, AsPathTuple<R>, AsPathTuple<[...VPT, K]>>
+ *       : VPT
+ *     : VPT
  */
 
 // ✓ ValidPathPrefix: verified type-identical to the original

@@ -19,15 +19,15 @@ declare const Prettify: any
 declare const Schema: any
 declare const SchemaWithPipe: any
 declare const SchemaWithPipeAsync: any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BasicPipeItem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MetadataAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Schema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SchemaWithPipe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SchemaWithPipeAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BasicPipeItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MetadataAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SchemaWithPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SchemaWithPipeAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RecursiveMerge: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RecursiveMerge(TRootPipe: readonly BasicPipeItem[], TCollectedMetadata: Record<string, unknown> = {}) {
@@ -46,7 +46,17 @@ export function RecursiveMerge(TRootPipe: readonly BasicPipeItem[], TCollectedMe
   return TCollectedMetadata
 }
 /* compiles to:
- * export type RecursiveMerge<TRootPipe extends readonly BasicPipeItem[], TCollectedMetadata extends Record<string, unknown> = {}> = TRootPipe extends readonly [infer TFirstItem, ...(infer TPipeRest extends readonly BasicPipeItem[])] ? TFirstItem extends SchemaWithPipe<infer TNestedPipe> | SchemaWithPipeAsync<infer TNestedPipe> ? RecursiveMerge<TPipeRest, RecursiveMerge<TNestedPipe, TCollectedMetadata>> : TFirstItem extends MetadataAction<unknown, infer TCurrentMetadata> ? RecursiveMerge<TPipeRest, Merge<TCollectedMetadata, TCurrentMetadata>> : RecursiveMerge<TPipeRest, TCollectedMetadata> : TCollectedMetadata
+ * export type RecursiveMerge<
+ *   TRootPipe extends readonly BasicPipeItem[],
+ *   TCollectedMetadata extends Record<string, unknown> = {}
+ * > =
+ *   TRootPipe extends readonly [infer TFirstItem, ...infer TPipeRest extends readonly BasicPipeItem[]]
+ *     ? TFirstItem extends SchemaWithPipe<infer TNestedPipe> | SchemaWithPipeAsync<infer TNestedPipe>
+ *       ? RecursiveMerge<TPipeRest, RecursiveMerge<TNestedPipe, TCollectedMetadata>>
+ *     : TFirstItem extends MetadataAction<unknown, infer TCurrentMetadata>
+ *       ? RecursiveMerge<TPipeRest, Merge<TCollectedMetadata, TCurrentMetadata>>
+ *     : RecursiveMerge<TPipeRest, TCollectedMetadata>
+ *     : TCollectedMetadata
  */
 
 // ✓ InferMetadata: verified type-identical to the original
@@ -65,5 +75,10 @@ export function InferMetadata(TSchema: Schema) {
   return {}
 }
 /* compiles to:
- * export type InferMetadata<TSchema extends Schema> = BaseSchema<any, any, any> extends TSchema ? Record<string, unknown> : BaseSchemaAsync<any, any, any> extends TSchema ? Record<string, unknown> : TSchema extends SchemaWithPipe<infer TPipe> | SchemaWithPipeAsync<infer TPipe> ? Prettify<RecursiveMerge<TPipe>> : {}
+ * export type InferMetadata<TSchema extends Schema> =
+ *   BaseSchema<any, any, any> extends TSchema ? Record<string, unknown>
+ *   : BaseSchemaAsync<any, any, any> extends TSchema ? Record<string, unknown>
+ *   : TSchema extends SchemaWithPipe<infer TPipe> | SchemaWithPipeAsync<infer TPipe>
+ *     ? Prettify<RecursiveMerge<TPipe>>
+ *   : {}
  */

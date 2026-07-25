@@ -13,17 +13,21 @@
 declare const DrainOuterGeneric: any
 declare const IsNever: any
 declare const IsNullable: any
-type ColumnType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DrainOuterGeneric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNullable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ColumnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ColumnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ColumnType(SelectType, InsertType = SelectType, UpdateType = SelectType) {
   return { __select__: readonlyProp(SelectType), __insert__: readonlyProp(InsertType), __update__: readonlyProp(UpdateType) }
 }
 /* compiles to:
- * export type ColumnType<SelectType, InsertType = SelectType, UpdateType = SelectType> = { readonly __select__: SelectType; readonly __insert__: InsertType; readonly __update__: UpdateType }
+ * export type ColumnType<SelectType, InsertType = SelectType, UpdateType = SelectType> = {
+ *   readonly __select__: SelectType
+ *   readonly __insert__: InsertType
+ *   readonly __update__: UpdateType
+ * }
  */
 
 // ✓ Generated: verified type-identical to the original
@@ -50,7 +54,12 @@ export function JSONColumnType(SelectType: object | null, InsertType = string, U
   return ColumnType(SelectType, InsertType, UpdateType)
 }
 /* compiles to:
- * export type JSONColumnType<SelectType extends object | null, InsertType = string, UpdateType = string> = ColumnType<SelectType, InsertType, UpdateType>
+ * export type JSONColumnType<
+ *   SelectType extends object | null,
+ *   InsertType = string,
+ *   UpdateType = string
+ * > =
+ *   ColumnType<SelectType, InsertType, UpdateType>
  */
 
 // ✓ IfNullable: verified type-identical to the original
@@ -190,7 +199,9 @@ export function Selectable(R) {
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type Selectable<R> = DrainOuterGeneric<{ [K in NonNeverSelectKeys<R>]: SelectType<R[K]> }>
+ * export type Selectable<R> = DrainOuterGeneric<
+ *   { [K in NonNeverSelectKeys<R>]: SelectType<R[K]> }
+ * >
  */
 
 // ✓ Insertable: verified type-identical to the original
@@ -207,7 +218,11 @@ export function Insertable(R) {
   return DrainOuterGeneric(object & out & out2)
 }
 /* compiles to:
- * export type Insertable<R> = DrainOuterGeneric<object & { [K in NonNullableInsertKeys<R>]: InsertType<R[K]> } & { [K1 in NullableInsertKeys<R>]?: InsertType<R[K1]> }>
+ * export type Insertable<R> = DrainOuterGeneric<
+ *   & object
+ *   & { [K in NonNullableInsertKeys<R>]: InsertType<R[K]> }
+ *   & { [K1 in NullableInsertKeys<R>]?: InsertType<R[K1]> }
+ * >
  */
 
 // ✓ Updateable: verified type-identical to the original
@@ -220,7 +235,9 @@ export function Updateable(R) {
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type Updateable<R> = DrainOuterGeneric<{ [K in UpdateKeys<R>]?: UpdateType<R[K]> | undefined }>
+ * export type Updateable<R> = DrainOuterGeneric<
+ *   { [K in UpdateKeys<R>]?: UpdateType<R[K]> | undefined }
+ * >
  */
 
 // ✓ NonDehydrateable: verified type-identical to the original
@@ -233,5 +250,8 @@ export function NonDehydrateable(T) {
   return merge(T, { __kysely_dehydrate__: optional(false) })
 }
 /* compiles to:
- * export type NonDehydrateable<T> = [T] extends [ColumnType<infer S, infer I, infer U>] ? ColumnType<S & { __kysely_dehydrate__?: false }, I, U> : T & { __kysely_dehydrate__?: false }
+ * export type NonDehydrateable<T> =
+ *   [T] extends [ColumnType<infer S, infer I, infer U>]
+ *     ? ColumnType<S & { __kysely_dehydrate__?: false }, I, U>
+ *     : T & { __kysely_dehydrate__?: false }
  */

@@ -16,13 +16,13 @@ declare const K: any
 declare const ReadonlyMap: any
 declare const ReadonlySet: any
 declare const V: any
-type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type F<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type K<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndefinedOnPartialDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type V<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type F<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type K<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndefinedOnPartialDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ UndefinedOnPartialDeep: the ScriptType does not itself typecheck as TypeScript
 //   UndefinedOnPartialDeep.st.ts(15:12) TS2693: 'ReadonlyMap' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -59,7 +59,20 @@ export function UndefinedOnPartialDeep(T) {
   return T
 }
 /* compiles to:
- * export type UndefinedOnPartialDeep<T> = T extends BuiltIns | Function ? T : T extends readonly unknown[] ? UndefinedOnPartialList<T> : T extends Map<infer K, infer V> ? Map<K, UndefinedOnPartialDeep<V>> : T extends ReadonlyMap<infer K, infer V> ? ReadonlyMap<K, UndefinedOnPartialDeep<V>> : T extends Set<infer K> ? Set<UndefinedOnPartialDeep<K>> : T extends ReadonlySet<infer K> ? ReadonlySet<UndefinedOnPartialDeep<K>> : T extends Record<any, any> ? { [KeyType in keyof T]: undefined extends T[KeyType] ? UndefinedOnPartialDeep<T[KeyType]> | undefined : UndefinedOnPartialDeep<T[KeyType]> } : T
+ * export type UndefinedOnPartialDeep<T> =
+ *   T extends BuiltIns | Function ? T
+ *   : T extends readonly unknown[] ? UndefinedOnPartialList<T>
+ *   : T extends Map<infer K, infer V> ? Map<K, UndefinedOnPartialDeep<V>>
+ *   : T extends ReadonlyMap<infer K, infer V> ? ReadonlyMap<K, UndefinedOnPartialDeep<V>>
+ *   : T extends Set<infer K> ? Set<UndefinedOnPartialDeep<K>>
+ *   : T extends ReadonlySet<infer K> ? ReadonlySet<UndefinedOnPartialDeep<K>>
+ *   : T extends Record<any, any>
+ *     ? {
+ *       [KeyType in keyof T]: undefined extends T[KeyType]
+ *         ? UndefinedOnPartialDeep<T[KeyType]> | undefined
+ *         : UndefinedOnPartialDeep<T[KeyType]>
+ *     }
+ *   : T
  */
 
 // ✓ UndefinedOnPartialList: verified type-identical to the original
@@ -87,5 +100,12 @@ export function UndefinedOnPartialList(T: readonly unknown[]) {
   return never
 }
 /* compiles to:
- * export type UndefinedOnPartialList<T extends readonly unknown[]> = T extends [] ? [] : T extends [infer F, ...infer R] ? [UndefinedOnPartialDeep<F>, ...UndefinedOnPartialDeep<R>] : T extends readonly [infer F, ...infer R] ? readonly [UndefinedOnPartialDeep<F>, ...UndefinedOnPartialDeep<R>] : T extends Array<infer F> ? Array<UndefinedOnPartialDeep<F>> : T extends ReadonlyArray<infer F> ? ReadonlyArray<UndefinedOnPartialDeep<F>> : never
+ * export type UndefinedOnPartialList<T extends readonly unknown[]> =
+ *   T extends [] ? []
+ *   : T extends [infer F, ...infer R] ? [UndefinedOnPartialDeep<F>, ...UndefinedOnPartialDeep<R>]
+ *   : T extends readonly [infer F, ...infer R]
+ *     ? readonly [UndefinedOnPartialDeep<F>, ...UndefinedOnPartialDeep<R>]
+ *   : T extends Array<infer F> ? Array<UndefinedOnPartialDeep<F>>
+ *   : T extends ReadonlyArray<infer F> ? ReadonlyArray<UndefinedOnPartialDeep<F>>
+ *   : never
  */

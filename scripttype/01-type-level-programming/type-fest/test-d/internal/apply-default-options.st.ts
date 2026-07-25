@@ -15,18 +15,20 @@ declare const DefaultPathsOptions: any
 declare const DefaultSomeTypeOptions: any
 declare const PathsOptions: any
 declare const SomeTypeOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultPathsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultSomeTypeOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PathsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SomeTypeOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultPathsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultSomeTypeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PathsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SomeTypeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SomeType: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SomeType(Options: PathsOptions = {}) {
   return _SomeType(ApplyDefaultOptions(PathsOptions, DefaultPathsOptions, Options))
 }
 /* compiles to:
- * export type SomeType<Options extends PathsOptions = {}> = _SomeType<ApplyDefaultOptions<PathsOptions, DefaultPathsOptions, Options>>
+ * export type SomeType<Options extends PathsOptions = {}> = _SomeType<
+ *   ApplyDefaultOptions<PathsOptions, DefaultPathsOptions, Options>
+ * >
  */
 
 // ✓ _SomeType: verified type-identical to the original
@@ -45,7 +47,9 @@ export function SomeType2(Options: PathsOptions = {}) {
   return _SomeType2(ApplyDefaultOptions(PathsOptions, DefaultPathsOptions, Options))
 }
 /* compiles to:
- * export type SomeType2<Options extends PathsOptions = {}> = _SomeType2<ApplyDefaultOptions<PathsOptions, DefaultPathsOptions, Options>>
+ * export type SomeType2<Options extends PathsOptions = {}> = _SomeType2<
+ *   ApplyDefaultOptions<PathsOptions, DefaultPathsOptions, Options>
+ * >
  */
 
 // ✓ _SomeType2: verified type-identical to the original
@@ -63,7 +67,9 @@ export function SomeType3(Options: SomeTypeOptions) {
   return _SomeType3(ApplyDefaultOptions(SomeTypeOptions, DefaultSomeTypeOptions, Options))
 }
 /* compiles to:
- * export type SomeType3<Options extends SomeTypeOptions> = _SomeType3<ApplyDefaultOptions<SomeTypeOptions, DefaultSomeTypeOptions, Options>>
+ * export type SomeType3<Options extends SomeTypeOptions> = _SomeType3<
+ *   ApplyDefaultOptions<SomeTypeOptions, DefaultSomeTypeOptions, Options>
+ * >
  */
 
 // ✓ _SomeType3: verified type-identical to the original
@@ -82,7 +88,9 @@ export function SomeType4(Options: SomeTypeOptions) {
   return _SomeType4(ApplyDefaultOptions(SomeTypeOptions, DefaultSomeTypeOptions, Options))
 }
 /* compiles to:
- * export type SomeType4<Options extends SomeTypeOptions> = _SomeType4<ApplyDefaultOptions<SomeTypeOptions, DefaultSomeTypeOptions, Options>>
+ * export type SomeType4<Options extends SomeTypeOptions> = _SomeType4<
+ *   ApplyDefaultOptions<SomeTypeOptions, DefaultSomeTypeOptions, Options>
+ * >
  */
 
 // ✓ _SomeType4: verified type-identical to the original

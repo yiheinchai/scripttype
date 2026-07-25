@@ -14,15 +14,19 @@ declare const ApplyDefaultOptions: any
 declare const DelimiterCase: any
 declare const WordsOptions: any
 declare const _DefaultDelimiterCaseOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DelimiterCase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WordsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _DefaultDelimiterCaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DelimiterCase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WordsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _DefaultDelimiterCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ KebabCase: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function KebabCase(Value, Options: WordsOptions = {}) {
   return DelimiterCase(Value, '-', ApplyDefaultOptions(WordsOptions, _DefaultDelimiterCaseOptions, Options))
 }
 /* compiles to:
- * export type KebabCase<Value, Options extends WordsOptions = {}> = DelimiterCase<Value, '-', ApplyDefaultOptions<WordsOptions, _DefaultDelimiterCaseOptions, Options>>
+ * export type KebabCase<Value, Options extends WordsOptions = {}> = DelimiterCase<
+ *   Value,
+ *   '-',
+ *   ApplyDefaultOptions<WordsOptions, _DefaultDelimiterCaseOptions, Options>
+ * >
  */

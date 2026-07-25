@@ -13,16 +13,19 @@
 declare const Fn: any
 declare const array: any
 declare const conform: any
-type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type conform<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type conform<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ stringifyUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function stringifyUnion(t: string, delimiter: string = ', ') {
   return join(unionToTuple(t), delimiter)
 }
 /* compiles to:
- * export type stringifyUnion<t extends string, delimiter extends string = ', '> = Join<unionToTuple<t>, delimiter>
+ * export type stringifyUnion<t extends string, delimiter extends string = ', '> = Join<
+ *   unionToTuple<t>,
+ *   delimiter
+ * >
  */
 
 // ✓ unionToTuple: verified type-identical to the original
@@ -35,7 +38,8 @@ export function unionToTuple(t) {
   return never
 }
 /* compiles to:
- * export type unionToTuple<t> = _unionToTuple<t, []> extends infer result ? conform<result, t[]> : never
+ * export type unionToTuple<t> =
+ *   _unionToTuple<t, []> extends infer result ? conform<result, t[]> : never
  */
 
 // ✓ _unionToTuple: verified type-identical to the original
@@ -51,7 +55,10 @@ export function _unionToTuple(t, result: unknown[]) {
   return never
 }
 /* compiles to:
- * export type _unionToTuple<t, result extends unknown[]> = getLastBranch<t> extends infer current ? [t] extends [never] ? result : _unionToTuple<Exclude<t, current>, [current, ...result]> : never
+ * export type _unionToTuple<t, result extends unknown[]> =
+ *   getLastBranch<t> extends infer current
+ *     ? [t] extends [never] ? result : _unionToTuple<Exclude<t, current>, [current, ...result]>
+ *     : never
  */
 
 // ✓ getLastBranch: verified type-identical to the original
@@ -64,7 +71,10 @@ export function getLastBranch(t) {
   return never
 }
 /* compiles to:
- * export type getLastBranch<t> = intersectUnion<t extends unknown ? (a0: t) => void : never> extends (x: infer branch) => void ? branch : never
+ * export type getLastBranch<t> =
+ *   intersectUnion<t extends unknown ? (a0: t) => void : never> extends (x: infer branch) => void
+ *     ? branch
+ *     : never
  */
 
 // ✓ intersectUnion: verified type-identical to the original
@@ -77,7 +87,10 @@ export function intersectUnion(t) {
   return never
 }
 /* compiles to:
- * export type intersectUnion<t> = (t extends unknown ? (a0: t) => void : never) extends (_: infer intersection) => void ? intersection : never
+ * export type intersectUnion<t> =
+ *   (t extends unknown ? (a0: t) => void : never) extends (_: infer intersection) => void
+ *     ? intersection
+ *     : never
  */
 
 // ✓ intersectOverloadReturns: verified type-identical to the original
@@ -95,7 +108,10 @@ export function overloadOf(fn: Fn, givenArgs: array = array) {
   return Exclude(collectSignatures(merge(fnType([], never), fn), givenArgs, unknown), matches<() => never>(fn) ? never : fnType([], never))
 }
 /* compiles to:
- * export type overloadOf<fn extends Fn, givenArgs extends array = array> = Exclude<collectSignatures<(() => never) & fn, givenArgs, unknown>, fn extends () => never ? never : () => never>
+ * export type overloadOf<fn extends Fn, givenArgs extends array = array> = Exclude<
+ *   collectSignatures<(() => never) & fn, givenArgs, unknown>,
+ *   fn extends () => never ? never : () => never
+ * >
  */
 
 // ✓ collectSignatures: verified type-identical to the original
@@ -111,5 +127,11 @@ export function collectSignatures(fn, givenArgs: array, result) {
   return never
 }
 /* compiles to:
- * export type collectSignatures<fn, givenArgs extends array, result> = result & fn extends (...args: infer args) => infer returns ? result extends fn ? never : collectSignatures<fn, givenArgs, Pick<fn, keyof fn> & result & ((a0: args) => returns)> | (args extends givenArgs ? (a0: args) => returns : never) : never
+ * export type collectSignatures<fn, givenArgs extends array, result> =
+ *   result & fn extends (...args: infer args) => infer returns
+ *     ? result extends fn
+ *       ? never
+ *       : | collectSignatures<fn, givenArgs, Pick<fn, keyof fn> & result & ((a0: args) => returns)>
+ *       | (args extends givenArgs ? (a0: args) => returns : never)
+ *     : never
  */

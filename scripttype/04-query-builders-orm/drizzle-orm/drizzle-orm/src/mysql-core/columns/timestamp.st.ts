@@ -12,15 +12,24 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const MySqlTimestampBuilder: any
 declare const MySqlTimestampStringBuilder: any
-type MySqlTimestampBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlTimestampStringBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MySqlTimestampBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlTimestampStringBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlTimestampBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySqlTimestampBuilderInitial(TName: string) {
   return MySqlTimestampBuilder({ name: TName, dataType: 'date', columnType: 'MySqlTimestamp', data: t<Date>(), driverParam: string | number, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlTimestampBuilderInitial<TName extends string> = MySqlTimestampBuilder<{ name: TName; dataType: 'date'; columnType: 'MySqlTimestamp'; data: Date; driverParam: string | number; enumValues: undefined }>
+ * export type MySqlTimestampBuilderInitial<TName extends string> = MySqlTimestampBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'date'
+ *     columnType: 'MySqlTimestamp'
+ *     data: Date
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ MySqlTimestampStringBuilderInitial: verified type-identical to the original
@@ -29,5 +38,14 @@ export function MySqlTimestampStringBuilderInitial(TName: string) {
   return MySqlTimestampStringBuilder({ name: TName, dataType: 'string', columnType: 'MySqlTimestampString', data: string, driverParam: string | number, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlTimestampStringBuilderInitial<TName extends string> = MySqlTimestampStringBuilder<{ name: TName; dataType: 'string'; columnType: 'MySqlTimestampString'; data: string; driverParam: string | number; enumValues: undefined }>
+ * export type MySqlTimestampStringBuilderInitial<TName extends string> = MySqlTimestampStringBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'MySqlTimestampString'
+ *     data: string
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *   }
+ * >
  */

@@ -10,14 +10,20 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Option {
+  export type Option<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Rpc {
+  export type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Any: any
 declare const Option: any
 declare const Rpc: any
-type Any<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Option<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Rpc<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Option<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Rpc<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ SaveResult: the ScriptType does not itself typecheck as TypeScript
-//   SaveResult.st.ts(2:31) TS2702: 'Rpc' only refers to a type, but is being used as a namespace here.
+//   SaveResult.st.ts(3:21) TS2339: Property 'Success' does not exist on type '(R: any) => any'.
 /* @scripttype preserveParamNames */
 export function SaveResult(R: Rpc.Any) {
   return SaveResult.Success | SaveResult.Duplicate(R)
@@ -32,7 +38,11 @@ export function EncodedUnprocessedOptions(A) {
   return { existingShards: readonlyProp(t<Array<number>>()), newShards: readonlyProp(t<Array<number>>()), cursor: readonlyProp(Option.Option(A)) }
 }
 /* compiles to:
- * export type EncodedUnprocessedOptions<A> = { readonly existingShards: Array<number>; readonly newShards: Array<number>; readonly cursor: Option.Option<A> }
+ * export type EncodedUnprocessedOptions<A> = {
+ *   readonly existingShards: Array<number>
+ *   readonly newShards: Array<number>
+ *   readonly cursor: Option.Option<A>
+ * }
  */
 
 // ✓ EncodedRepliesOptions: verified type-identical to the original
@@ -41,5 +51,9 @@ export function EncodedRepliesOptions(A) {
   return { existingRequests: readonlyProp(t<Array<string>>()), newRequests: readonlyProp(t<Array<string>>()), cursor: readonlyProp(Option.Option(A)) }
 }
 /* compiles to:
- * export type EncodedRepliesOptions<A> = { readonly existingRequests: Array<string>; readonly newRequests: Array<string>; readonly cursor: Option.Option<A> }
+ * export type EncodedRepliesOptions<A> = {
+ *   readonly existingRequests: Array<string>
+ *   readonly newRequests: Array<string>
+ *   readonly cursor: Option.Option<A>
+ * }
  */

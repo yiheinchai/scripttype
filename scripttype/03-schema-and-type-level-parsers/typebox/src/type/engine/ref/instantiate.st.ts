@@ -14,21 +14,34 @@ declare const TInstantiateType: any
 declare const TProperties: any
 declare const TRef: any
 declare const TState: any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRefInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRefInstantiate(Context: TProperties, State: TState, Type: TRef, Ref: string) {
   if (matches<(typeof State)['visited'][number]>(Ref)) {
     return Type
   }
-  if (matches<keyof typeof Context>(Ref)) {
+  if (Ref in Context) {
     return TInstantiateType(Context, TState(State['callstack'], [...State['visited'], Ref]), Context[Ref])
   }
   return Type
 }
 /* compiles to:
- * export type TRefInstantiate<Context extends TProperties, State extends TState, Type extends TRef, Ref extends string> = Ref extends State['visited'][number] ? Type : Ref extends keyof Context ? TInstantiateType<Context, TState<State['callstack'], [...State['visited'], Ref]>, Context[Ref]> : Type
+ * export type TRefInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TRef,
+ *   Ref extends string
+ * > =
+ *   Ref extends State['visited'][number] ? Type
+ *   : Ref extends keyof Context
+ *     ? TInstantiateType<
+ *       Context,
+ *       TState<State['callstack'], [...State['visited'], Ref]>,
+ *       Context[Ref]
+ *     >
+ *   : Type
  */

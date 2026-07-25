@@ -13,23 +13,34 @@
 declare const ApplyDefaultOptions: any
 declare const DefaultReplaceOptions: any
 declare const ReplaceOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultReplaceOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReplaceOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultReplaceOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReplaceOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Replace: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Replace(Input: string, Search: string, Replacement: string, Options: ReplaceOptions = {}) {
   return _Replace(Input, Search, Replacement, ApplyDefaultOptions(ReplaceOptions, DefaultReplaceOptions, Options))
 }
 /* compiles to:
- * export type Replace<Input extends string, Search extends string, Replacement extends string, Options extends ReplaceOptions = {}> = _Replace<Input, Search, Replacement, ApplyDefaultOptions<ReplaceOptions, DefaultReplaceOptions, Options>>
+ * export type Replace<
+ *   Input extends string,
+ *   Search extends string,
+ *   Replacement extends string,
+ *   Options extends ReplaceOptions = {}
+ * > =
+ *   _Replace<
+ *     Input,
+ *     Search,
+ *     Replacement,
+ *     ApplyDefaultOptions<ReplaceOptions, DefaultReplaceOptions, Options>
+ *   >
  */
 
 // ✓ _Replace: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _Replace(Input: string, Search: string, Replacement: string, Options: Required<ReplaceOptions>, Accumulator: string = '') {
-  if (matches<string>(Search)) {
-    if (matches<string>(Replacement)) {
+  if (typeof Search === 'string') {
+    if (typeof Replacement === 'string') {
       const m1 = matches<`${Hole<"Head">}${typeof Search}${Hole<"Tail">}`>(Input)
       if (m1) {
         if (matches<true>(Options['all'])) {
@@ -44,5 +55,20 @@ export function _Replace(Input: string, Search: string, Replacement: string, Opt
   return never
 }
 /* compiles to:
- * export type _Replace<Input extends string, Search extends string, Replacement extends string, Options extends Required<ReplaceOptions>, Accumulator extends string = ''> = Search extends string ? Replacement extends string ? Input extends `${infer Head}${Search}${infer Tail}` ? Options['all'] extends true ? _Replace<Tail, Search, Replacement, Options, `${Accumulator}${Head}${Replacement}`> : `${Head}${Replacement}${Tail}` : `${Accumulator}${Input}` : never : never
+ * export type _Replace<
+ *   Input extends string,
+ *   Search extends string,
+ *   Replacement extends string,
+ *   Options extends Required<ReplaceOptions>,
+ *   Accumulator extends string = ''
+ * > =
+ *   Search extends string
+ *     ? Replacement extends string
+ *       ? Input extends `${infer Head}${Search}${infer Tail}`
+ *         ? Options['all'] extends true
+ *           ? _Replace<Tail, Search, Replacement, Options, `${Accumulator}${Head}${Replacement}`>
+ *           : `${Head}${Replacement}${Tail}`
+ *         : `${Accumulator}${Input}`
+ *       : never
+ *     : never
  */

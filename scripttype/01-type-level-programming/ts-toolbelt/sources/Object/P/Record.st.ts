@@ -17,13 +17,13 @@ declare const List: any
 declare const Modx: any
 declare const Next: any
 declare const Pos: any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LastKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Modx<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LastKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Modx<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Record_RR: the ScriptType does not itself typecheck as TypeScript
 //   Record_RR.st.ts(2:38) TS2304: Cannot find name 'Key'.
 /* @scripttype preserveParamNames */
@@ -35,7 +35,13 @@ export function Record_RR(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
   return merge(out, {})
 }
 /* compiles to:
- * export type Record_RR<Path extends List<Key>, A, I extends Iteration = IterationOf<0>> = { readonly [Key in Path[Pos<I>]]: Pos<I> extends LastKey<Path> ? A : Record_RR<Path, A, Next<I>> } & {}
+ * export type Record_RR<Path extends List<Key>, A, I extends Iteration = IterationOf<0>> =
+ *   & {
+ *       readonly [Key in Path[Pos<I>]]: Pos<I> extends LastKey<Path>
+ *         ? A
+ *         : Record_RR<Path, A, Next<I>>
+ *     }
+ *   & {}
  */
 
 // ✗ Record_RW: the ScriptType does not itself typecheck as TypeScript
@@ -49,7 +55,8 @@ export function Record_RW(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
   return merge(out, {})
 }
 /* compiles to:
- * export type Record_RW<Path extends List<Key>, A, I extends Iteration = IterationOf<0>> = { [Key in Path[Pos<I>]]: Pos<I> extends LastKey<Path> ? A : Record_RW<Path, A, Next<I>> } & {}
+ * export type Record_RW<Path extends List<Key>, A, I extends Iteration = IterationOf<0>> =
+ *   { [Key in Path[Pos<I>]]: Pos<I> extends LastKey<Path> ? A : Record_RW<Path, A, Next<I>> } & {}
  */
 
 // ✗ Record_OR: the ScriptType does not itself typecheck as TypeScript
@@ -63,7 +70,13 @@ export function Record_OR(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
   return merge(out, {})
 }
 /* compiles to:
- * export type Record_OR<Path extends List<Key>, A, I extends Iteration = IterationOf<0>> = { readonly [Key in Path[Pos<I>]]?: Pos<I> extends LastKey<Path> ? A : Record_OR<Path, A, Next<I>> } & {}
+ * export type Record_OR<Path extends List<Key>, A, I extends Iteration = IterationOf<0>> =
+ *   & {
+ *       readonly [Key in Path[Pos<I>]]?: Pos<I> extends LastKey<Path>
+ *         ? A
+ *         : Record_OR<Path, A, Next<I>>
+ *     }
+ *   & {}
  */
 
 // ✗ Record_OW: the ScriptType does not itself typecheck as TypeScript
@@ -77,7 +90,9 @@ export function Record_OW(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
   return merge(out, {})
 }
 /* compiles to:
- * export type Record_OW<Path extends List<Key>, A, I extends Iteration = IterationOf<0>> = { [Key in Path[Pos<I>]]?: Pos<I> extends LastKey<Path> ? A : Record_OW<Path, A, Next<I>> } & {}
+ * export type Record_OW<Path extends List<Key>, A, I extends Iteration = IterationOf<0>> =
+ *   & { [Key in Path[Pos<I>]]?: Pos<I> extends LastKey<Path> ? A : Record_OW<Path, A, Next<I>> }
+ *   & {}
  */
 
 // ✓ Record: verified type-identical to the original
@@ -86,5 +101,9 @@ export function Record(Path: List<Key>, A, modx: Modx = ['!', 'W']) {
   return { '!': { 'R': Record_RR(Path, A), 'W': Record_RW(Path, A) }, '?': { 'R': Record_OR(Path, A), 'W': Record_OW(Path, A) } }[modx[0]][modx[1]]
 }
 /* compiles to:
- * export type Record<Path extends List<Key>, A, modx extends Modx = ['!', 'W']> = { '!': { R: Record_RR<Path, A>; W: Record_RW<Path, A> }; '?': { R: Record_OR<Path, A>; W: Record_OW<Path, A> } }[modx[0]][modx[1]]
+ * export type Record<Path extends List<Key>, A, modx extends Modx = ['!', 'W']> =
+ *   {
+ *     '!': { R: Record_RR<Path, A>; W: Record_RW<Path, A> }
+ *     '?': { R: Record_OR<Path, A>; W: Record_OW<Path, A> }
+ *   }[modx[0]][modx[1]]
  */

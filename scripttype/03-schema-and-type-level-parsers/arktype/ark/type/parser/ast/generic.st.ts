@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Hkt {
+  export type apply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ErrorMessage: any
 declare const GenericAst: any
 declare const GenericParamAst: any
@@ -23,26 +26,30 @@ declare const inferExpression: any
 declare const typeToString: any
 declare const validateAst: any
 declare const writeUnsatisfiedParameterConstraintMessage: any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GenericAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GenericParamAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Hkt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnparsedScope<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type astToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferAstRoot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type typeToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnsatisfiedParameterConstraintMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GenericAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GenericParamAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Hkt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnparsedScope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type astToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferAstRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type typeToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnsatisfiedParameterConstraintMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GenericInstantiationAst: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GenericInstantiationAst(generic: GenericAst = GenericAst, argAsts: unknown[] = arrayOf(unknown)) {
   return [generic, '<>', argAsts]
 }
 /* compiles to:
- * export type GenericInstantiationAst<generic extends GenericAst = GenericAst, argAsts extends unknown[] = unknown[]> = [generic, '<>', argAsts]
+ * export type GenericInstantiationAst<
+ *   generic extends GenericAst = GenericAst,
+ *   argAsts extends unknown[] = unknown[]
+ * > =
+ *   [generic, '<>', argAsts]
  */
 
 // ✓ inferGenericInstantiation: verified type-identical to the original
@@ -62,7 +69,25 @@ export function inferGenericInstantiation(g: GenericAst, argAsts: unknown[], $, 
   return inferDefinition(g['bodyDef'], resolveScope(g['$'], $), out2)
 }
 /* compiles to:
- * export type inferGenericInstantiation<g extends GenericAst, argAsts extends unknown[], $, args> = g['bodyDef'] extends Hkt ? Hkt.apply<g['bodyDef'], { [I in keyof argAsts]: inferExpression<argAsts[I], $, args> }> : inferDefinition<g['bodyDef'], resolveScope<g['$'], $>, { [I1 in keyof g['names'] & `${number}` as g['names'][I1]]: inferExpression<argAsts[I1 & keyof argAsts], resolveScope<g['arg$'], $>, args> }>
+ * export type inferGenericInstantiation<
+ *   g extends GenericAst,
+ *   argAsts extends unknown[],
+ *   $,
+ *   args
+ * > =
+ *   g['bodyDef'] extends Hkt
+ *     ? Hkt.apply<g['bodyDef'], { [I in keyof argAsts]: inferExpression<argAsts[I], $, args> }>
+ *     : inferDefinition<
+ *       g['bodyDef'],
+ *       resolveScope<g['$'], $>,
+ *       {
+ *         [I1 in keyof g['names'] & `${number}` as g['names'][I1]]: inferExpression<
+ *           argAsts[I1 & keyof argAsts],
+ *           resolveScope<g['arg$'], $>,
+ *           args
+ *         >
+ *       }
+ *     >
  */
 
 // ✓ validateGenericInstantiation: verified type-identical to the original
@@ -71,7 +96,13 @@ export function validateGenericInstantiation(g: GenericAst, argAsts: unknown[], 
   return validateGenericArgs(g['paramsAst'], argAsts, $, args, [])
 }
 /* compiles to:
- * export type validateGenericInstantiation<g extends GenericAst, argAsts extends unknown[], $, args> = validateGenericArgs<g['paramsAst'], argAsts, $, args, []>
+ * export type validateGenericInstantiation<
+ *   g extends GenericAst,
+ *   argAsts extends unknown[],
+ *   $,
+ *   args
+ * > =
+ *   validateGenericArgs<g['paramsAst'], argAsts, $, args, []>
  */
 
 // ✓ validateGenericArgs: verified type-identical to the original
@@ -91,7 +122,25 @@ export function validateGenericArgs(params: array<GenericParamAst>, argAsts: arr
   return Undefined
 }
 /* compiles to:
- * export type validateGenericArgs<params extends array<GenericParamAst>, argAsts extends array, $, args, indices extends 1[]> = argAsts extends readonly [infer arg, ...infer argsTail] ? validateAst<arg, $, args> extends (infer e extends ErrorMessage) ? e : inferAstRoot<arg, $, args> extends params[indices['length']][1] ? validateGenericArgs<params, argsTail, $, args, [...indices, 1]> : ErrorMessage<writeUnsatisfiedParameterConstraintMessage<params[indices['length']][0], typeToString<params[indices['length']][1]>, astToString<arg>>> : undefined
+ * export type validateGenericArgs<
+ *   params extends array<GenericParamAst>,
+ *   argAsts extends array,
+ *   $,
+ *   args,
+ *   indices extends 1[]
+ * > =
+ *   argAsts extends readonly [infer arg, ...infer argsTail]
+ *     ? validateAst<arg, $, args> extends (infer e extends ErrorMessage) ? e
+ *     : inferAstRoot<arg, $, args> extends params[indices['length']][1]
+ *       ? validateGenericArgs<params, argsTail, $, args, [...indices, 1]>
+ *     : ErrorMessage<
+ *       writeUnsatisfiedParameterConstraintMessage<
+ *         params[indices['length']][0],
+ *         typeToString<params[indices['length']][1]>,
+ *         astToString<arg>
+ *       >
+ *     >
+ *     : undefined
  */
 
 // ✓ resolveScope: verified type-identical to the original

@@ -10,25 +10,31 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace State {
+  export type initialize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ErrorMessage: any
 declare const Flags: any
 declare const Regex: any
 declare const RegexContext: any
 declare const State: any
 declare const parseState: any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Flags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Regex<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegexContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type State<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Flags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Regex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegexContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type State<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ regex: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function regex(pattern: string = string, ctx: RegexContext = RegexContext) {
   return Regex(pattern, ctx)
 }
 /* compiles to:
- * export type regex<pattern extends string = string, ctx extends RegexContext = RegexContext> = Regex<pattern, ctx>
+ * export type regex<pattern extends string = string, ctx extends RegexContext = RegexContext> = Regex<
+ *   pattern,
+ *   ctx
+ * >
  */
 
 // ✗ infer: does not compile yet
@@ -42,7 +48,8 @@ export function infer(src: string, flags: Flags = '') {
   return never
 }
 /* compiles to:
- * export type infer<src extends string, flags extends Flags = ''> = parse<src, flags> extends Regex<infer pattern> ? pattern : never
+ * export type infer<src extends string, flags extends Flags = ''> =
+ *   parse<src, flags> extends Regex<infer pattern> ? pattern : never
  */
 
 // ✗ validate: does not compile yet
@@ -56,7 +63,8 @@ export function validate(src: string, flags: Flags = '') {
   return src
 }
 /* compiles to:
- * export type validate<src extends string, flags extends Flags = ''> = parse<src, flags> extends (infer e extends ErrorMessage) ? e : src
+ * export type validate<src extends string, flags extends Flags = ''> =
+ *   parse<src, flags> extends (infer e extends ErrorMessage) ? e : src
  */
 
 // ✗ parse: compiles but is not type-identical yet
@@ -66,5 +74,7 @@ export function parse(src: string, flags: Flags = '') {
   return parseState(State.initialize(src, flags))
 }
 /* compiles to:
- * export type parse<src extends string, flags extends Flags = ''> = parseState<State.initialize<src, flags>>
+ * export type parse<src extends string, flags extends Flags = ''> = parseState<
+ *   State.initialize<src, flags>
+ * >
  */

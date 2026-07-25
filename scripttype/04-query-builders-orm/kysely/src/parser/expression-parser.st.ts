@@ -14,17 +14,18 @@ declare const AliasedExpression: any
 declare const Expression: any
 declare const ExpressionBuilder: any
 declare const SelectQueryBuilderExpression: any
-type AliasedExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Expression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExpressionBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectQueryBuilderExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AliasedExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectQueryBuilderExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OperandExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OperandExpression(V) {
   return Expression(V) | SelectQueryBuilderExpression(Record(string, V))
 }
 /* compiles to:
- * export type OperandExpression<V> = Expression<V> | SelectQueryBuilderExpression<Record<string, V>>
+ * export type OperandExpression<V> =
+ *   Expression<V> | SelectQueryBuilderExpression<Record<string, V>>
  */
 
 // ✓ ExpressionOrFactory: verified type-identical to the original
@@ -33,7 +34,8 @@ export function ExpressionOrFactory(DB, TB: keyof typeof DB, V) {
   return OperandExpression(V) | OperandExpressionFactory(DB, TB, V)
 }
 /* compiles to:
- * export type ExpressionOrFactory<DB, TB extends keyof DB, V> = OperandExpression<V> | OperandExpressionFactory<DB, TB, V>
+ * export type ExpressionOrFactory<DB, TB extends keyof DB, V> =
+ *   OperandExpression<V> | OperandExpressionFactory<DB, TB, V>
  */
 
 // ✓ AliasedExpressionOrFactory: verified type-identical to the original
@@ -42,7 +44,8 @@ export function AliasedExpressionOrFactory(DB, TB: keyof typeof DB) {
   return AliasedExpression(any, any) | AliasedExpressionFactory(DB, TB)
 }
 /* compiles to:
- * export type AliasedExpressionOrFactory<DB, TB extends keyof DB> = AliasedExpression<any, any> | AliasedExpressionFactory<DB, TB>
+ * export type AliasedExpressionOrFactory<DB, TB extends keyof DB> =
+ *   AliasedExpression<any, any> | AliasedExpressionFactory<DB, TB>
  */
 
 // ✓ ExpressionFactory: verified type-identical to the original
@@ -51,7 +54,8 @@ export function ExpressionFactory(DB, TB: keyof typeof DB, V) {
   return fnType([ExpressionBuilder(DB, TB)], Expression(V))
 }
 /* compiles to:
- * export type ExpressionFactory<DB, TB extends keyof DB, V> = (a0: ExpressionBuilder<DB, TB>) => Expression<V>
+ * export type ExpressionFactory<DB, TB extends keyof DB, V> =
+ *   (a0: ExpressionBuilder<DB, TB>) => Expression<V>
  */
 
 // ✓ OperandExpressionFactory: verified type-identical to the original
@@ -60,7 +64,8 @@ export function OperandExpressionFactory(DB, TB: keyof typeof DB, V) {
   return fnType([ExpressionBuilder(DB, TB)], OperandExpression(V))
 }
 /* compiles to:
- * export type OperandExpressionFactory<DB, TB extends keyof DB, V> = (a0: ExpressionBuilder<DB, TB>) => OperandExpression<V>
+ * export type OperandExpressionFactory<DB, TB extends keyof DB, V> =
+ *   (a0: ExpressionBuilder<DB, TB>) => OperandExpression<V>
  */
 
 // ✓ AliasedExpressionFactory: verified type-identical to the original
@@ -69,5 +74,6 @@ export function AliasedExpressionFactory(DB, TB: keyof typeof DB) {
   return fnType([ExpressionBuilder(DB, TB)], AliasedExpression(any, any))
 }
 /* compiles to:
- * export type AliasedExpressionFactory<DB, TB extends keyof DB> = (a0: ExpressionBuilder<DB, TB>) => AliasedExpression<any, any>
+ * export type AliasedExpressionFactory<DB, TB extends keyof DB> =
+ *   (a0: ExpressionBuilder<DB, TB>) => AliasedExpression<any, any>
  */

@@ -16,17 +16,24 @@ declare const TIsTemplateLiteralFinite: any
 declare const TParsePatternIntoTypes: any
 declare const TRecord: any
 declare const TSchema: any
-type TEvaluateTemplateLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TIsTemplateLiteralFinite<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TParsePatternIntoTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEvaluateTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TIsTemplateLiteralFinite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TParsePatternIntoTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromTemplateKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromTemplateKey(Pattern: string, Value: TSchema, Types: TSchema[] = TParsePatternIntoTypes(Pattern), Finite: boolean = TIsTemplateLiteralFinite(Types), Result: TSchema = matches<true>(Finite) ? TFromKey(TEvaluateTemplateLiteral(Pattern), Value) : TRecord(Pattern, Value)) {
   return Result
 }
 /* compiles to:
- * export type TFromTemplateKey<Pattern extends string, Value extends TSchema, Types extends TSchema[] = TParsePatternIntoTypes<Pattern>, Finite extends boolean = TIsTemplateLiteralFinite<Types>, Result extends TSchema = Finite extends true ? TFromKey<TEvaluateTemplateLiteral<Pattern>, Value> : TRecord<Pattern, Value>> = Result
+ * export type TFromTemplateKey<
+ *   Pattern extends string,
+ *   Value extends TSchema,
+ *   Types extends TSchema[] = TParsePatternIntoTypes<Pattern>,
+ *   Finite extends boolean = TIsTemplateLiteralFinite<Types>,
+ *   Result extends TSchema = Finite extends true ? TFromKey<TEvaluateTemplateLiteral<Pattern>, Value> : TRecord<Pattern, Value>
+ * > =
+ *   Result
  */

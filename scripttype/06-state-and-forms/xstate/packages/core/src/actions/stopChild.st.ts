@@ -15,16 +15,24 @@ declare const AnyActorRef: any
 declare const EventObject: any
 declare const MachineContext: any
 declare const ParameterizedObject: any
-type ActionArgs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyActorRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MachineContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParameterizedObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActionArgs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyActorRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParameterizedObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ResolvableActorRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ResolvableActorRef(TContext: MachineContext, TExpressionEvent: EventObject, TParams: ParameterizedObject['params'] | undefined, TEvent: EventObject) {
   return string | AnyActorRef | fnType([ActionArgs(TContext, TExpressionEvent, TEvent), TParams], AnyActorRef | string)
 }
 /* compiles to:
- * export type ResolvableActorRef<TContext extends MachineContext, TExpressionEvent extends EventObject, TParams extends ParameterizedObject['params'] | undefined, TEvent extends EventObject> = string | AnyActorRef | ((a0: ActionArgs<TContext, TExpressionEvent, TEvent>, a1: TParams) => AnyActorRef | string)
+ * export type ResolvableActorRef<
+ *   TContext extends MachineContext,
+ *   TExpressionEvent extends EventObject,
+ *   TParams extends ParameterizedObject['params'] | undefined,
+ *   TEvent extends EventObject
+ * > =
+ *   | string
+ *   | AnyActorRef
+ *   | ((a0: ActionArgs<TContext, TExpressionEvent, TEvent>, a1: TParams) => AnyActorRef | string)
  */

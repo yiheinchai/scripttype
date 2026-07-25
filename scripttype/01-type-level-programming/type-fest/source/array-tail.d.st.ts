@@ -14,10 +14,10 @@ declare const If: any
 declare const IfNotAnyOrNever: any
 declare const IsArrayReadonly: any
 declare const UnknownArray: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsArrayReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsArrayReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArrayTail: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ArrayTail(TArray: UnknownArray) {
@@ -25,7 +25,16 @@ export function ArrayTail(TArray: UnknownArray) {
   return IfNotAnyOrNever(TArray, { ifNot: matches<UnknownArray>(TArray) ? (m1 ? If(IsArrayReadonly(TArray), Readonly(m1.Result), m1.Result) : never) : never })
 }
 /* compiles to:
- * export type ArrayTail<TArray extends UnknownArray> = IfNotAnyOrNever<TArray, { ifNot: TArray extends UnknownArray ? _ArrayTail<TArray> extends infer Result ? If<IsArrayReadonly<TArray>, Readonly<Result>, Result> : never : never }>
+ * export type ArrayTail<TArray extends UnknownArray> = IfNotAnyOrNever<
+ *   TArray,
+ *   {
+ *     ifNot: TArray extends UnknownArray
+ *       ? _ArrayTail<TArray> extends infer Result
+ *         ? If<IsArrayReadonly<TArray>, Readonly<Result>, Result>
+ *         : never
+ *       : never
+ *   }
+ * >
  */
 
 // ✗ _ArrayTail: compiles but is not type-identical yet
@@ -45,5 +54,8 @@ export function _ArrayTail(TArray: UnknownArray) {
   return []
 }
 /* compiles to:
- * export type _ArrayTail<TArray extends UnknownArray> = TArray extends readonly [unknown, ...infer Tail] ? keyof TArray & `${number}` extends never ? TArray extends readonly [] ? [] : TArray : Tail : []
+ * export type _ArrayTail<TArray extends UnknownArray> =
+ *   TArray extends readonly [unknown, ...infer Tail]
+ *     ? keyof TArray & `${number}` extends never ? TArray extends readonly [] ? [] : TArray : Tail
+ *     : []
  */

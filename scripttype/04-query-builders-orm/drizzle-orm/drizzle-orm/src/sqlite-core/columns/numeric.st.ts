@@ -13,16 +13,25 @@
 declare const SQLiteNumericBigIntBuilder: any
 declare const SQLiteNumericBuilder: any
 declare const SQLiteNumericNumberBuilder: any
-type SQLiteNumericBigIntBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQLiteNumericBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQLiteNumericNumberBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SQLiteNumericBigIntBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQLiteNumericBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQLiteNumericNumberBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLiteNumericBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SQLiteNumericBuilderInitial(TName: string) {
   return SQLiteNumericBuilder({ name: TName, dataType: 'string', columnType: 'SQLiteNumeric', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteNumericBuilderInitial<TName extends string> = SQLiteNumericBuilder<{ name: TName; dataType: 'string'; columnType: 'SQLiteNumeric'; data: string; driverParam: string; enumValues: undefined }>
+ * export type SQLiteNumericBuilderInitial<TName extends string> = SQLiteNumericBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'SQLiteNumeric'
+ *     data: string
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ SQLiteNumericNumberBuilderInitial: verified type-identical to the original
@@ -31,7 +40,16 @@ export function SQLiteNumericNumberBuilderInitial(TName: string) {
   return SQLiteNumericNumberBuilder({ name: TName, dataType: 'number', columnType: 'SQLiteNumericNumber', data: number, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteNumericNumberBuilderInitial<TName extends string> = SQLiteNumericNumberBuilder<{ name: TName; dataType: 'number'; columnType: 'SQLiteNumericNumber'; data: number; driverParam: string; enumValues: undefined }>
+ * export type SQLiteNumericNumberBuilderInitial<TName extends string> = SQLiteNumericNumberBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'SQLiteNumericNumber'
+ *     data: number
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ SQLiteNumericBigIntBuilderInitial: verified type-identical to the original
@@ -40,7 +58,16 @@ export function SQLiteNumericBigIntBuilderInitial(TName: string) {
   return SQLiteNumericBigIntBuilder({ name: TName, dataType: 'bigint', columnType: 'SQLiteNumericBigInt', data: bigint, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteNumericBigIntBuilderInitial<TName extends string> = SQLiteNumericBigIntBuilder<{ name: TName; dataType: 'bigint'; columnType: 'SQLiteNumericBigInt'; data: bigint; driverParam: string; enumValues: undefined }>
+ * export type SQLiteNumericBigIntBuilderInitial<TName extends string> = SQLiteNumericBigIntBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'bigint'
+ *     columnType: 'SQLiteNumericBigInt'
+ *     data: bigint
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ SQLiteNumericConfig: verified type-identical to the original
@@ -49,5 +76,8 @@ export function SQLiteNumericConfig(T: 'string' | 'number' | 'bigint' = anyOf('s
   return { mode: T }
 }
 /* compiles to:
- * export type SQLiteNumericConfig<T extends 'string' | 'number' | 'bigint' = 'string' | 'number' | 'bigint'> = { mode: T }
+ * export type SQLiteNumericConfig<
+ *   T extends 'string' | 'number' | 'bigint' = 'string' | 'number' | 'bigint'
+ * > =
+ *   { mode: T }
  */

@@ -40,5 +40,10 @@ export function ConfigExport(TConfig) {
   return TConfig | t<Promise<typeof TConfig>>() | ConfigFnObject(TConfig) | ConfigFnPromise(TConfig) | ConfigFn(TConfig)
 }
 /* compiles to:
- * export type ConfigExport<TConfig> = TConfig | Promise<TConfig> | ConfigFnObject<TConfig> | ConfigFnPromise<TConfig> | ConfigFn<TConfig>
+ * export type ConfigExport<TConfig> =
+ *   | TConfig
+ *   | Promise<TConfig>
+ *   | ConfigFnObject<TConfig>
+ *   | ConfigFnPromise<TConfig>
+ *   | ConfigFn<TConfig>
  */

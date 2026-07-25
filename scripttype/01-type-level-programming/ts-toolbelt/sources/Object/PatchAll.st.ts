@@ -21,17 +21,17 @@ declare const List: any
 declare const Next: any
 declare const Patch: any
 declare const Pos: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Patch<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Patch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __PatchAll: does not compile yet
 //   Type 'Extends<Pos<I>, Length<Os>>' cannot be used to index type '{ '0': __PatchAll__st0<Patch<O, Os[Pos<I>], depth, ignore, fill>, Os, depth, ignore, fill, Next
 /* @scripttype preserveParamNames */
@@ -39,7 +39,18 @@ export function __PatchAll(O: object, Os: List<object>, depth: Depth, ignore: ob
   return { 0: __PatchAll(Patch(O, Os[Pos(I)], depth, ignore, fill), Os, depth, ignore, fill, Next(I)), 1: O }[Extends(Pos(I), Length(Os))]
 }
 /* compiles to:
- * export type __PatchAll<O extends object, Os extends List<object>, depth extends Depth, ignore extends object, fill extends any, I extends Iteration = IterationOf<0>> = { '0': __PatchAll<Patch<O, Os[Pos<I>], depth, ignore, fill>, Os, depth, ignore, fill, Next<I>>; '1': O }[Extends<Pos<I>, Length<Os>>]
+ * export type __PatchAll<
+ *   O extends object,
+ *   Os extends List<object>,
+ *   depth extends Depth,
+ *   ignore extends object,
+ *   fill extends any,
+ *   I extends Iteration = IterationOf<0>
+ * > =
+ *   {
+ *     '0': __PatchAll<Patch<O, Os[Pos<I>], depth, ignore, fill>, Os, depth, ignore, fill, Next<I>>
+ *     '1': O
+ *   }[Extends<Pos<I>, Length<Os>>]
  */
 
 // ✓ _PatchAll: verified type-identical to the original
@@ -52,7 +63,14 @@ export function _PatchAll(O: object, Os: List<object>, depth: Depth, ignore: obj
   return never
 }
 /* compiles to:
- * export type _PatchAll<O extends object, Os extends List<object>, depth extends Depth, ignore extends object, fill extends any> = __PatchAll<O, Os, depth, ignore, fill> extends infer X ? Cast<X, object> : never
+ * export type _PatchAll<
+ *   O extends object,
+ *   Os extends List<object>,
+ *   depth extends Depth,
+ *   ignore extends object,
+ *   fill extends any
+ * > =
+ *   __PatchAll<O, Os, depth, ignore, fill> extends infer X ? Cast<X, object> : never
  */
 
 // ✓ PatchAll: verified type-identical to the original
@@ -67,5 +85,12 @@ export function PatchAll(O: object, Os: List<object>, depth: Depth = 'flat', ign
   return never
 }
 /* compiles to:
- * export type PatchAll<O extends object, Os extends List<object>, depth extends Depth = 'flat', ignore extends object = BuiltIn, fill extends any = never> = O extends unknown ? Os extends unknown ? _PatchAll<O, Os, depth, ignore, fill> : never : never
+ * export type PatchAll<
+ *   O extends object,
+ *   Os extends List<object>,
+ *   depth extends Depth = 'flat',
+ *   ignore extends object = BuiltIn,
+ *   fill extends any = never
+ * > =
+ *   O extends unknown ? Os extends unknown ? _PatchAll<O, Os, depth, ignore, fill> : never : never
  */

@@ -18,21 +18,28 @@ declare const TProperties: any
 declare const TPropertyKeys: any
 declare const TSchema: any
 declare const TToIndexableKeys: any
-type TEvaluateUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExpandThis<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TPropertyKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TToIndexableKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEvaluateUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExpandThis<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TPropertyKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TToIndexableKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIndexProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TIndexProperty(Properties: TProperties, Key: string, CanonicalKey: string = matches<string | number>(keyof(Properties)) ? `${keyof(Properties)}` : never, SelectedType: TSchema = matches<typeof CanonicalKey>(Key) ? Properties[Key] : TNever, Result: TSchema = TExpandThis(Properties, SelectedType)) {
   return Result
 }
 /* compiles to:
- * export type TIndexProperty<Properties extends TProperties, Key extends string, CanonicalKey extends string = keyof Properties extends string | number ? `${keyof Properties}` : never, SelectedType extends TSchema = Key extends CanonicalKey ? Properties[Key] : TNever, Result extends TSchema = TExpandThis<Properties, SelectedType>> = Result
+ * export type TIndexProperty<
+ *   Properties extends TProperties,
+ *   Key extends string,
+ *   CanonicalKey extends string = keyof Properties extends string | number ? `${keyof Properties}` : never,
+ *   SelectedType extends TSchema = Key extends CanonicalKey ? Properties[Key] : TNever,
+ *   Result extends TSchema = TExpandThis<Properties, SelectedType>
+ * > =
+ *   Result
  */
 
 // ✓ TIndexProperties: verified type-identical to the original
@@ -51,8 +58,19 @@ export function TIndexProperties(Properties: TProperties, Keys: string[]) {
   return Result
 }
 /* compiles to:
- * export type TIndexProperties<Properties extends TProperties, Keys extends string[]> = TIndexProperties__loop<Keys, [], Properties>
- * type TIndexProperties__loop<Keys extends string[], Result extends any[], Properties extends TProperties> = Keys extends [infer Left extends string, ...(infer Right extends string[])] ? TIndexProperties__loop<Right, [...Result, TIndexProperty<Properties, Left>], Properties> : Result
+ * export type TIndexProperties<Properties extends TProperties, Keys extends string[]> = TIndexProperties__loop<
+ *   Keys,
+ *   [],
+ *   Properties
+ * >
+ * type TIndexProperties__loop<
+ *   Keys extends string[],
+ *   Result extends any[],
+ *   Properties extends TProperties
+ * > =
+ *   Keys extends [infer Left extends string, ...infer Right extends string[]]
+ *     ? TIndexProperties__loop<Right, [...Result, TIndexProperty<Properties, Left>], Properties>
+ *     : Result
  */
 
 // ✓ TFromIndexer: verified type-identical to the original
@@ -61,7 +79,14 @@ export function TFromIndexer(Properties: TProperties, Indexer: TSchema, Keys: st
   return Result
 }
 /* compiles to:
- * export type TFromIndexer<Properties extends TProperties, Indexer extends TSchema, Keys extends string[] = TToIndexableKeys<Indexer>, Variants extends TSchema[] = TIndexProperties<Properties, Keys>, Result extends TSchema = TEvaluateUnion<Variants>> = Result
+ * export type TFromIndexer<
+ *   Properties extends TProperties,
+ *   Indexer extends TSchema,
+ *   Keys extends string[] = TToIndexableKeys<Indexer>,
+ *   Variants extends TSchema[] = TIndexProperties<Properties, Keys>,
+ *   Result extends TSchema = TEvaluateUnion<Variants>
+ * > =
+ *   Result
  */
 
 // ✓ TNumericKeys: verified type-identical to the original
@@ -78,7 +103,12 @@ export function TNumericKeys(Keys: string[], Result: string[] = []) {
   return Result
 }
 /* compiles to:
- * export type TNumericKeys<Keys extends string[], Result extends string[] = []> = Keys extends [infer Left extends string, ...(infer Right extends string[])] ? Left extends `${number}` ? TNumericKeys<Right, [...Result, Left]> : TNumericKeys<Right, Result> : Result
+ * export type TNumericKeys<Keys extends string[], Result extends string[] = []> =
+ *   Keys extends [infer Left extends string, ...infer Right extends string[]]
+ *     ? Left extends `${number}`
+ *       ? TNumericKeys<Right, [...Result, Left]>
+ *       : TNumericKeys<Right, Result>
+ *     : Result
  */
 
 // ✓ TFromIndexerNumber: verified type-identical to the original
@@ -87,7 +117,14 @@ export function TFromIndexerNumber(Properties: TProperties, Keys: string[] = TPr
   return Result
 }
 /* compiles to:
- * export type TFromIndexerNumber<Properties extends TProperties, Keys extends string[] = TPropertyKeys<Properties>, NumericKeys extends string[] = TNumericKeys<Keys>, Variants extends TSchema[] = TIndexProperties<Properties, NumericKeys>, Result extends TSchema = TEvaluateUnion<Variants>> = Result
+ * export type TFromIndexerNumber<
+ *   Properties extends TProperties,
+ *   Keys extends string[] = TPropertyKeys<Properties>,
+ *   NumericKeys extends string[] = TNumericKeys<Keys>,
+ *   Variants extends TSchema[] = TIndexProperties<Properties, NumericKeys>,
+ *   Result extends TSchema = TEvaluateUnion<Variants>
+ * > =
+ *   Result
  */
 
 // ✓ TFromObject: verified type-identical to the original
@@ -96,5 +133,10 @@ export function TFromObject(Properties: TProperties, Indexer: TSchema, Result: T
   return Result
 }
 /* compiles to:
- * export type TFromObject<Properties extends TProperties, Indexer extends TSchema, Result extends TSchema = Indexer extends TNumber ? TFromIndexerNumber<Properties> : TFromIndexer<Properties, Indexer>> = Result
+ * export type TFromObject<
+ *   Properties extends TProperties,
+ *   Indexer extends TSchema,
+ *   Result extends TSchema = Indexer extends TNumber ? TFromIndexerNumber<Properties> : TFromIndexer<Properties, Indexer>
+ * > =
+ *   Result
  */

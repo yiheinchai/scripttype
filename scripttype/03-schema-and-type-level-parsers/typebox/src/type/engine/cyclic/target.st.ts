@@ -14,14 +14,14 @@ declare const TNever: any
 declare const TProperties: any
 declare const TRef: any
 declare const TSchema: any
-type TNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TResolve: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TResolve(Defs: TProperties, Ref: string) {
-  if (matches<keyof typeof Defs>(Ref)) {
+  if (Ref in Defs) {
     const m1 = matches<TRef<Hole<"Ref", string>>>(Defs[Ref])
     if (m1) {
       return TResolve(Defs, m1.Ref)
@@ -31,7 +31,10 @@ export function TResolve(Defs: TProperties, Ref: string) {
   return TNever
 }
 /* compiles to:
- * export type TResolve<Defs extends TProperties, Ref extends string> = Ref extends keyof Defs ? Defs[Ref] extends TRef<infer Ref extends string> ? TResolve<Defs, Ref> : Defs[Ref] : TNever
+ * export type TResolve<Defs extends TProperties, Ref extends string> =
+ *   Ref extends keyof Defs
+ *     ? Defs[Ref] extends TRef<infer Ref extends string> ? TResolve<Defs, Ref> : Defs[Ref]
+ *     : TNever
  */
 
 // ✓ TCyclicTarget: verified type-identical to the original
@@ -40,5 +43,10 @@ export function TCyclicTarget(Defs: TProperties, Ref: string, Result: TSchema = 
   return Result
 }
 /* compiles to:
- * export type TCyclicTarget<Defs extends TProperties, Ref extends string, Result extends TSchema = TResolve<Defs, Ref>> = Result
+ * export type TCyclicTarget<
+ *   Defs extends TProperties,
+ *   Ref extends string,
+ *   Result extends TSchema = TResolve<Defs, Ref>
+ * > =
+ *   Result
  */

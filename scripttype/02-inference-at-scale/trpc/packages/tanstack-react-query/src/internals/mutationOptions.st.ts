@@ -17,20 +17,29 @@ declare const ReservedOptions: any
 declare const TRPCMutationOptionsOut: any
 declare const TRPCQueryBaseOptions: any
 declare const UseMutationOptions: any
-type DistributiveOmit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FeatureFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KeyPrefixOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReservedOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCMutationOptionsOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCQueryBaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseMutationOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DistributiveOmit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KeyPrefixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReservedOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCMutationOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCQueryBaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseMutationOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCMutationOptionsIn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRPCMutationOptionsIn(TInput, TError, TOutput, TContext, TFeatureFlags: FeatureFlags) {
   return DistributiveOmit(UseMutationOptions(TOutput, TError, TInput, TContext), ReservedOptions) & TRPCQueryBaseOptions & KeyPrefixOptions(TFeatureFlags)
 }
 /* compiles to:
- * export type TRPCMutationOptionsIn<TInput, TError, TOutput, TContext, TFeatureFlags extends FeatureFlags> = DistributiveOmit<UseMutationOptions<TOutput, TError, TInput, TContext>, ReservedOptions> & TRPCQueryBaseOptions & KeyPrefixOptions<TFeatureFlags>
+ * export type TRPCMutationOptionsIn<
+ *   TInput,
+ *   TError,
+ *   TOutput,
+ *   TContext,
+ *   TFeatureFlags extends FeatureFlags
+ * > =
+ *   & DistributiveOmit<UseMutationOptions<TOutput, TError, TInput, TContext>, ReservedOptions>
+ *   & TRPCQueryBaseOptions
+ *   & KeyPrefixOptions<TFeatureFlags>
  */
 
 // ✓ AnyTRPCMutationOptionsIn: verified type-identical to the original
@@ -39,7 +48,13 @@ export function AnyTRPCMutationOptionsIn(TFeatureFlags: FeatureFlags) {
   return TRPCMutationOptionsIn(unknown, unknown, unknown, unknown, TFeatureFlags)
 }
 /* compiles to:
- * export type AnyTRPCMutationOptionsIn<TFeatureFlags extends FeatureFlags> = TRPCMutationOptionsIn<unknown, unknown, unknown, unknown, TFeatureFlags>
+ * export type AnyTRPCMutationOptionsIn<TFeatureFlags extends FeatureFlags> = TRPCMutationOptionsIn<
+ *   unknown,
+ *   unknown,
+ *   unknown,
+ *   unknown,
+ *   TFeatureFlags
+ * >
  */
 
 // ✓ AnyTRPCMutationOptionsOut: verified type-identical to the original
@@ -48,5 +63,11 @@ export function AnyTRPCMutationOptionsOut(TFeatureFlags: FeatureFlags) {
   return TRPCMutationOptionsOut(unknown, unknown, unknown, unknown, TFeatureFlags)
 }
 /* compiles to:
- * export type AnyTRPCMutationOptionsOut<TFeatureFlags extends FeatureFlags> = TRPCMutationOptionsOut<unknown, unknown, unknown, unknown, TFeatureFlags>
+ * export type AnyTRPCMutationOptionsOut<TFeatureFlags extends FeatureFlags> = TRPCMutationOptionsOut<
+ *   unknown,
+ *   unknown,
+ *   unknown,
+ *   unknown,
+ *   TFeatureFlags
+ * >
  */

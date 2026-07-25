@@ -18,21 +18,32 @@ declare const QueryFunction: any
 declare const QueryKey: any
 declare const SkipToken: any
 declare const UseQueryOptions: any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InitialDataFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonUndefinedGuard<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitKeyof<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SkipToken<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InitialDataFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonUndefinedGuard<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SkipToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UndefinedInitialDataOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UndefinedInitialDataOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
   return merge(UseQueryOptions(TQueryFnData, TError, TData, TQueryKey), { initialData: optional(anyOf(Undefined, InitialDataFunction(NonUndefinedGuard(TQueryFnData)), NonUndefinedGuard(TQueryFnData))) })
 }
 /* compiles to:
- * export type UndefinedInitialDataOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = UseQueryOptions<TQueryFnData, TError, TData, TQueryKey> & { initialData?: undefined | InitialDataFunction<NonUndefinedGuard<TQueryFnData>> | NonUndefinedGuard<TQueryFnData> }
+ * export type UndefinedInitialDataOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   & UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>
+ *   & {
+ *       initialData?: | undefined
+ *       | InitialDataFunction<NonUndefinedGuard<TQueryFnData>>
+ *       | NonUndefinedGuard<TQueryFnData>
+ *     }
  */
 
 // ✗ UnusedSkipTokenOptions: does not compile yet
@@ -42,7 +53,19 @@ export function UnusedSkipTokenOptions(TQueryFnData = unknown, TError = DefaultE
   return merge(OmitKeyof(UseQueryOptions(TQueryFnData, TError, TData, TQueryKey), 'queryFn'), { queryFn: optional(Exclude(UseQueryOptions(TQueryFnData, TError, TData, TQueryKey)['queryFn'], anyOf(SkipToken, Undefined))) })
 }
 /* compiles to:
- * export type UnusedSkipTokenOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = OmitKeyof<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryFn'> & { queryFn?: Exclude<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>['queryFn'], SkipToken | undefined> }
+ * export type UnusedSkipTokenOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   & OmitKeyof<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryFn'>
+ *   & {
+ *       queryFn?: Exclude<
+ *         UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>['queryFn'],
+ *         SkipToken | undefined
+ *       >
+ *     }
  */
 
 // ✓ DefinedInitialDataOptions: verified type-identical to the original
@@ -51,5 +74,15 @@ export function DefinedInitialDataOptions(TQueryFnData = unknown, TError = Defau
   return merge(Omit(UseQueryOptions(TQueryFnData, TError, TData, TQueryKey), 'queryFn'), { initialData: NonUndefinedGuard(TQueryFnData) | fnType([], NonUndefinedGuard(TQueryFnData)), queryFn: optional(QueryFunction(TQueryFnData, TQueryKey)) })
 }
 /* compiles to:
- * export type DefinedInitialDataOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = Omit<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryFn'> & { initialData: NonUndefinedGuard<TQueryFnData> | (() => NonUndefinedGuard<TQueryFnData>); queryFn?: QueryFunction<TQueryFnData, TQueryKey> }
+ * export type DefinedInitialDataOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   & Omit<UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryFn'>
+ *   & {
+ *       initialData: NonUndefinedGuard<TQueryFnData> | (() => NonUndefinedGuard<TQueryFnData>)
+ *       queryFn?: QueryFunction<TQueryFnData, TQueryKey>
+ *     }
  */

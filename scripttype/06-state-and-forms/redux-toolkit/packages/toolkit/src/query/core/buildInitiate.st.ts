@@ -30,33 +30,36 @@ declare const SerializedError: any
 declare const StartQueryActionCreatorOptions: any
 declare const ThunkAction: any
 declare const UnknownAction: any
-type AnyActionCreatorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseQueryError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EndpointDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryArgFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryConfigOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryResultSelectorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PageParamFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryActionCreatorFields<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryArgFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryResultSelectorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResultTypeFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SafePromise<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SerializedError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StartQueryActionCreatorOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ThunkAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyActionCreatorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseQueryError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EndpointDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryArgFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryConfigOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryResultSelectorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PageParamFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryActionCreatorFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryArgFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryResultSelectorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResultTypeFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SafePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SerializedError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StartQueryActionCreatorOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ThunkAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildInitiateApiEndpointQuery: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BuildInitiateApiEndpointQuery(Definition: QueryDefinition<any, any, any, any, any>) {
   return { initiate: StartQueryActionCreator(Definition) }
 }
 /* compiles to:
- * export type BuildInitiateApiEndpointQuery<Definition extends QueryDefinition<any, any, any, any, any>> = { initiate: StartQueryActionCreator<Definition> }
+ * export type BuildInitiateApiEndpointQuery<
+ *   Definition extends QueryDefinition<any, any, any, any, any>
+ * > =
+ *   { initiate: StartQueryActionCreator<Definition> }
  */
 
 // ✓ BuildInitiateApiEndpointInfiniteQuery: verified type-identical to the original
@@ -65,7 +68,10 @@ export function BuildInitiateApiEndpointInfiniteQuery(Definition: InfiniteQueryD
   return { initiate: StartInfiniteQueryActionCreator(Definition) }
 }
 /* compiles to:
- * export type BuildInitiateApiEndpointInfiniteQuery<Definition extends InfiniteQueryDefinition<any, any, any, any, any>> = { initiate: StartInfiniteQueryActionCreator<Definition> }
+ * export type BuildInitiateApiEndpointInfiniteQuery<
+ *   Definition extends InfiniteQueryDefinition<any, any, any, any, any>
+ * > =
+ *   { initiate: StartInfiniteQueryActionCreator<Definition> }
  */
 
 // ✓ BuildInitiateApiEndpointMutation: verified type-identical to the original
@@ -74,7 +80,10 @@ export function BuildInitiateApiEndpointMutation(Definition: MutationDefinition<
   return { initiate: StartMutationActionCreator(Definition) }
 }
 /* compiles to:
- * export type BuildInitiateApiEndpointMutation<Definition extends MutationDefinition<any, any, any, any, any>> = { initiate: StartMutationActionCreator<Definition> }
+ * export type BuildInitiateApiEndpointMutation<
+ *   Definition extends MutationDefinition<any, any, any, any, any>
+ * > =
+ *   { initiate: StartMutationActionCreator<Definition> }
  */
 
 // ✓ StartInfiniteQueryActionCreatorOptions: verified type-identical to the original
@@ -83,7 +92,23 @@ export function StartInfiniteQueryActionCreatorOptions(D: InfiniteQueryDefinitio
   return merge(StartQueryActionCreatorOptions, { direction: optional(InfiniteQueryDirection), param: optional(unknown) }, Partial(Pick(Partial(InfiniteQueryConfigOptions(ResultTypeFrom(D), PageParamFrom(D), InfiniteQueryArgFrom(D))), anyOf('initialPageParam', 'refetchCachedPages'))))
 }
 /* compiles to:
- * export type StartInfiniteQueryActionCreatorOptions<D extends InfiniteQueryDefinition<any, any, any, any, any>> = StartQueryActionCreatorOptions & { direction?: InfiniteQueryDirection; param?: unknown } & Partial<Pick<Partial<InfiniteQueryConfigOptions<ResultTypeFrom<D>, PageParamFrom<D>, InfiniteQueryArgFrom<D>>>, 'initialPageParam' | 'refetchCachedPages'>>
+ * export type StartInfiniteQueryActionCreatorOptions<
+ *   D extends InfiniteQueryDefinition<any, any, any, any, any>
+ * > =
+ *   & StartQueryActionCreatorOptions
+ *   & { direction?: InfiniteQueryDirection; param?: unknown }
+ *   & Partial<
+ *       Pick<
+ *         Partial<
+ *           InfiniteQueryConfigOptions<
+ *             ResultTypeFrom<D>,
+ *             PageParamFrom<D>,
+ *             InfiniteQueryArgFrom<D>
+ *           >
+ *         >,
+ *         'initialPageParam' | 'refetchCachedPages'
+ *       >
+ *     >
  */
 
 // ✗ AnyQueryActionCreator: compiles but is not type-identical yet
@@ -93,7 +118,13 @@ export function AnyQueryActionCreator(D: EndpointDefinition<any, any, any, any>)
   return fnType([any, StartQueryActionCreatorOptions], ThunkAction(AnyActionCreatorResult, any, any, UnknownAction))
 }
 /* compiles to:
- * export type AnyQueryActionCreator<D extends EndpointDefinition<any, any, any, any>> = (a0: any, a1: StartQueryActionCreatorOptions) => ThunkAction<AnyActionCreatorResult, any, any, UnknownAction>
+ * export type AnyQueryActionCreator<D extends EndpointDefinition<any, any, any, any>> =
+ *   (a0: any, a1: StartQueryActionCreatorOptions) => ThunkAction<
+ *     AnyActionCreatorResult,
+ *     any,
+ *     any,
+ *     UnknownAction
+ *   >
  */
 
 // ✗ StartQueryActionCreator: compiles but is not type-identical yet
@@ -103,7 +134,13 @@ export function StartQueryActionCreator(D: QueryDefinition<any, any, any, any, a
   return fnType([QueryArgFrom(D), StartQueryActionCreatorOptions], ThunkAction(QueryActionCreatorResult(D), any, any, UnknownAction))
 }
 /* compiles to:
- * export type StartQueryActionCreator<D extends QueryDefinition<any, any, any, any, any>> = (a0: QueryArgFrom<D>, a1: StartQueryActionCreatorOptions) => ThunkAction<QueryActionCreatorResult<D>, any, any, UnknownAction>
+ * export type StartQueryActionCreator<D extends QueryDefinition<any, any, any, any, any>> =
+ *   (a0: QueryArgFrom<D>, a1: StartQueryActionCreatorOptions) => ThunkAction<
+ *     QueryActionCreatorResult<D>,
+ *     any,
+ *     any,
+ *     UnknownAction
+ *   >
  */
 
 // ✗ StartInfiniteQueryActionCreator: compiles but is not type-identical yet
@@ -113,7 +150,15 @@ export function StartInfiniteQueryActionCreator(D: InfiniteQueryDefinition<any, 
   return fnType([InfiniteQueryArgFrom(D), StartInfiniteQueryActionCreatorOptions(D)], ThunkAction(InfiniteQueryActionCreatorResult(D), any, any, UnknownAction))
 }
 /* compiles to:
- * export type StartInfiniteQueryActionCreator<D extends InfiniteQueryDefinition<any, any, any, any, any>> = (a0: InfiniteQueryArgFrom<D>, a1: StartInfiniteQueryActionCreatorOptions<D>) => ThunkAction<InfiniteQueryActionCreatorResult<D>, any, any, UnknownAction>
+ * export type StartInfiniteQueryActionCreator<
+ *   D extends InfiniteQueryDefinition<any, any, any, any, any>
+ * > =
+ *   (a0: InfiniteQueryArgFrom<D>, a1: StartInfiniteQueryActionCreatorOptions<D>) => ThunkAction<
+ *     InfiniteQueryActionCreatorResult<D>,
+ *     any,
+ *     any,
+ *     UnknownAction
+ *   >
  */
 
 // ✗ QueryActionCreatorResult: uses raw() — language gap, does not count as covered
@@ -137,7 +182,13 @@ export function StartMutationActionCreator(D: MutationDefinition<any, any, any, 
   return fnType([QueryArgFrom(D), { track: optional(boolean), fixedCacheKey: optional(string) }], ThunkAction(MutationActionCreatorResult(D), any, any, UnknownAction))
 }
 /* compiles to:
- * export type StartMutationActionCreator<D extends MutationDefinition<any, any, any, any>> = (a0: QueryArgFrom<D>, a1: { track?: boolean; fixedCacheKey?: string }) => ThunkAction<MutationActionCreatorResult<D>, any, any, UnknownAction>
+ * export type StartMutationActionCreator<D extends MutationDefinition<any, any, any, any>> =
+ *   (a0: QueryArgFrom<D>, a1: { track?: boolean; fixedCacheKey?: string }) => ThunkAction<
+ *     MutationActionCreatorResult<D>,
+ *     any,
+ *     any,
+ *     UnknownAction
+ *   >
  */
 
 // ✗ MutationActionCreatorResult: uses raw() — language gap, does not count as covered

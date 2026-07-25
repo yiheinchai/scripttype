@@ -19,15 +19,15 @@ declare const IsUppercase: any
 declare const WordSeparators: any
 declare const WordsOptions: any
 declare const _DefaultWordsOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AsciiPunctuation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FirstCharacter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsLowercase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNumeric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUppercase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WordSeparators<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WordsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _DefaultWordsOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AsciiPunctuation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FirstCharacter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsLowercase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNumeric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUppercase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WordSeparators<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WordsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _DefaultWordsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SkipEmptyWord: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SkipEmptyWord(Word: string) {
@@ -50,7 +50,8 @@ export function RemoveLastCharacter(Sentence: string, Character: string) {
   return never
 }
 /* compiles to:
- * export type RemoveLastCharacter<Sentence extends string, Character extends string> = Sentence extends `${infer LeftSide}${Character}` ? SkipEmptyWord<LeftSide> : never
+ * export type RemoveLastCharacter<Sentence extends string, Character extends string> =
+ *   Sentence extends `${infer LeftSide}${Character}` ? SkipEmptyWord<LeftSide> : never
  */
 
 // ✓ Words: verified type-identical to the original
@@ -59,7 +60,10 @@ export function Words(Sentence: string, Options: WordsOptions = {}) {
   return WordsImplementation(Sentence, ApplyDefaultOptions(WordsOptions, _DefaultWordsOptions, Options))
 }
 /* compiles to:
- * export type Words<Sentence extends string, Options extends WordsOptions = {}> = WordsImplementation<Sentence, ApplyDefaultOptions<WordsOptions, _DefaultWordsOptions, Options>>
+ * export type Words<Sentence extends string, Options extends WordsOptions = {}> = WordsImplementation<
+ *   Sentence,
+ *   ApplyDefaultOptions<WordsOptions, _DefaultWordsOptions, Options>
+ * >
  */
 
 // ✗ WordsImplementation: compiles but is not type-identical yet
@@ -100,5 +104,68 @@ export function WordsImplementation(Sentence: string, Options: Required<WordsOpt
   return [...SkipEmptyWord(CurrentWord)]
 }
 /* compiles to:
- * export type WordsImplementation<Sentence extends string, Options extends Required<WordsOptions>, LastCharacter extends string = '', CurrentWord extends string = ''> = Sentence extends `${infer FirstCharacter}${infer RemainingCharacters}` ? FirstCharacter extends WordSeparators | (typeof Options)['splitOnPunctuation'] extends true ? AsciiPunctuation : never ? [...SkipEmptyWord<CurrentWord>, ...WordsImplementation<RemainingCharacters, Options>] : LastCharacter extends '' ? WordsImplementation<RemainingCharacters, Options, FirstCharacter, FirstCharacter> : [false, true] extends [IsNumeric<LastCharacter>, IsNumeric<FirstCharacter>] ? Options['splitOnNumbers'] extends true ? [...SkipEmptyWord<CurrentWord>, ...WordsImplementation<RemainingCharacters, Options, FirstCharacter, FirstCharacter>] : WordsImplementation<RemainingCharacters, Options, FirstCharacter, `${CurrentWord}${FirstCharacter}`> : [true, false] extends [IsNumeric<LastCharacter>, IsNumeric<FirstCharacter>] ? Options['splitOnNumbers'] extends true ? [...SkipEmptyWord<CurrentWord>, ...WordsImplementation<RemainingCharacters, Options, FirstCharacter, FirstCharacter>] : WordsImplementation<RemainingCharacters, Options, FirstCharacter, `${CurrentWord}${FirstCharacter}`> : [true, true] extends [IsNumeric<LastCharacter>, IsNumeric<FirstCharacter>] ? WordsImplementation<RemainingCharacters, Options, FirstCharacter, `${CurrentWord}${FirstCharacter}`> : [true, true] extends [IsLowercase<LastCharacter>, IsUppercase<FirstCharacter>] ? [...SkipEmptyWord<CurrentWord>, ...WordsImplementation<RemainingCharacters, Options, FirstCharacter, FirstCharacter>] : [true, true] extends [IsUppercase<LastCharacter>, IsLowercase<FirstCharacter>] ? [...RemoveLastCharacter<CurrentWord, LastCharacter>, ...WordsImplementation<RemainingCharacters, Options, FirstCharacter, `${LastCharacter}${FirstCharacter}`>] : WordsImplementation<RemainingCharacters, Options, FirstCharacter, `${CurrentWord}${FirstCharacter}`> : [...SkipEmptyWord<CurrentWord>]
+ * export type WordsImplementation<
+ *   Sentence extends string,
+ *   Options extends Required<WordsOptions>,
+ *   LastCharacter extends string = '',
+ *   CurrentWord extends string = ''
+ * > =
+ *   Sentence extends `${infer FirstCharacter}${infer RemainingCharacters}`
+ *     ? FirstCharacter extends WordSeparators | (typeof Options)['splitOnPunctuation'] extends true ? AsciiPunctuation : never
+ *       ? [...SkipEmptyWord<CurrentWord>, ...WordsImplementation<RemainingCharacters, Options>]
+ *     : LastCharacter extends ''
+ *       ? WordsImplementation<RemainingCharacters, Options, FirstCharacter, FirstCharacter>
+ *     : [false, true] extends [IsNumeric<LastCharacter>, IsNumeric<FirstCharacter>]
+ *       ? Options['splitOnNumbers'] extends true
+ *         ? [
+ *           ...SkipEmptyWord<CurrentWord>,
+ *           ...WordsImplementation<RemainingCharacters, Options, FirstCharacter, FirstCharacter>
+ *         ]
+ *         : WordsImplementation<
+ *           RemainingCharacters,
+ *           Options,
+ *           FirstCharacter,
+ *           `${CurrentWord}${FirstCharacter}`
+ *         >
+ *     : [true, false] extends [IsNumeric<LastCharacter>, IsNumeric<FirstCharacter>]
+ *       ? Options['splitOnNumbers'] extends true
+ *         ? [
+ *           ...SkipEmptyWord<CurrentWord>,
+ *           ...WordsImplementation<RemainingCharacters, Options, FirstCharacter, FirstCharacter>
+ *         ]
+ *         : WordsImplementation<
+ *           RemainingCharacters,
+ *           Options,
+ *           FirstCharacter,
+ *           `${CurrentWord}${FirstCharacter}`
+ *         >
+ *     : [true, true] extends [IsNumeric<LastCharacter>, IsNumeric<FirstCharacter>]
+ *       ? WordsImplementation<
+ *         RemainingCharacters,
+ *         Options,
+ *         FirstCharacter,
+ *         `${CurrentWord}${FirstCharacter}`
+ *       >
+ *     : [true, true] extends [IsLowercase<LastCharacter>, IsUppercase<FirstCharacter>]
+ *       ? [
+ *         ...SkipEmptyWord<CurrentWord>,
+ *         ...WordsImplementation<RemainingCharacters, Options, FirstCharacter, FirstCharacter>
+ *       ]
+ *     : [true, true] extends [IsUppercase<LastCharacter>, IsLowercase<FirstCharacter>]
+ *       ? [
+ *         ...RemoveLastCharacter<CurrentWord, LastCharacter>,
+ *         ...WordsImplementation<
+ *           RemainingCharacters,
+ *           Options,
+ *           FirstCharacter,
+ *           `${LastCharacter}${FirstCharacter}`
+ *         >
+ *       ]
+ *     : WordsImplementation<
+ *       RemainingCharacters,
+ *       Options,
+ *       FirstCharacter,
+ *       `${CurrentWord}${FirstCharacter}`
+ *     >
+ *     : [...SkipEmptyWord<CurrentWord>]
  */

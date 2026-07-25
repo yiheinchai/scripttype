@@ -13,23 +13,41 @@
 declare const AllQueryKeys: any
 declare const DataFromAnyQueryDefinition: any
 declare const EndpointDefinitions: any
+declare const EndpointNames: any
+declare const NormalizedQueryUpsertEntryPayload: any
+declare const PayloadAction: any
 declare const QueryArgFromAnyQueryDefinition: any
-type AllQueryKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DataFromAnyQueryDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EndpointDefinitions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryArgFromAnyQueryDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AllQueryKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DataFromAnyQueryDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EndpointDefinitions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EndpointNames<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NormalizedQueryUpsertEntryPayload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PayloadAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryArgFromAnyQueryDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NormalizedQueryUpsertEntry: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NormalizedQueryUpsertEntry(Definitions: EndpointDefinitions, EndpointName: AllQueryKeys<typeof Definitions>) {
   return { endpointName: EndpointName, arg: QueryArgFromAnyQueryDefinition(Definitions, EndpointName), value: DataFromAnyQueryDefinition(Definitions, EndpointName) }
 }
 /* compiles to:
- * export type NormalizedQueryUpsertEntry<Definitions extends EndpointDefinitions, EndpointName extends AllQueryKeys<Definitions>> = { endpointName: EndpointName; arg: QueryArgFromAnyQueryDefinition<Definitions, EndpointName>; value: DataFromAnyQueryDefinition<Definitions, EndpointName> }
+ * export type NormalizedQueryUpsertEntry<
+ *   Definitions extends EndpointDefinitions,
+ *   EndpointName extends AllQueryKeys<Definitions>
+ * > =
+ *   {
+ *     endpointName: EndpointName
+ *     arg: QueryArgFromAnyQueryDefinition<Definitions, EndpointName>
+ *     value: DataFromAnyQueryDefinition<Definitions, EndpointName>
+ *   }
  */
 
 // ✗ UpsertEntries: uses raw() — language gap, does not count as covered
-//   gap: generic function type; type node FirstTypeNode
+//   gap: type node FirstTypeNode
 /* @scripttype preserveParamNames */
 export function UpsertEntries(Definitions: EndpointDefinitions) {
-  return merge(raw('<EndpointNames extends Array<AllQueryKeys<Definitions>>>(entries: [ ...{ [I in keyof EndpointNames]: NormalizedQueryUpsertEntry<Definitions, EndpointNames[I]>; } ]) => PayloadAction<NormalizedQueryUpsertEntryPayload[]>'), { match: fnType([unknown], raw('action is PayloadAction<NormalizedQueryUpsertEntryPayload[]>')) })
+  const out = emptyObject
+  for (const I in keyof(EndpointNames)) {
+    out[I] = NormalizedQueryUpsertEntry(Definitions, EndpointNames[I])
+  }
+  return merge(genericFnType(['EndpointNames extends Array<AllQueryKeys<Definitions>>'], [[...out]], PayloadAction(arrayOf(NormalizedQueryUpsertEntryPayload))), { match: fnType([unknown], raw('action is PayloadAction<NormalizedQueryUpsertEntryPayload[]>')) })
 }

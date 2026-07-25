@@ -18,21 +18,30 @@ declare const TMappedOperation: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TIdentifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TMappedDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TMappedOperation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TIdentifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TMappedDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TMappedOperation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TMappedAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TMappedAction(Context: TProperties, State: TState, Identifier: TIdentifier, Type: TSchema, As: TSchema, Property: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type])) ? TMappedOperation(Context, State, Identifier, Type, As, Property) : TMappedDeferred(Identifier, Type, As, Property)) {
   return Result
 }
 /* compiles to:
- * export type TMappedAction<Context extends TProperties, State extends TState, Identifier extends TIdentifier, Type extends TSchema, As extends TSchema, Property extends TSchema, Result extends TSchema = TCanInstantiate<[Type]> extends true ? TMappedOperation<Context, State, Identifier, Type, As, Property> : TMappedDeferred<Identifier, Type, As, Property>> = Result
+ * export type TMappedAction<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Identifier extends TIdentifier,
+ *   Type extends TSchema,
+ *   As extends TSchema,
+ *   Property extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type]> extends true ? TMappedOperation<Context, State, Identifier, Type, As, Property> : TMappedDeferred<Identifier, Type, As, Property>
+ * > =
+ *   Result
  */
 
 // ✓ TMappedInstantiate: verified type-identical to the original
@@ -41,5 +50,14 @@ export function TMappedInstantiate(Context: TProperties, State: TState, Identifi
   return TMappedAction(Context, State, Identifier, InstaniatedType, As, Property)
 }
 /* compiles to:
- * export type TMappedInstantiate<Context extends TProperties, State extends TState, Identifier extends TIdentifier, Type extends TSchema, As extends TSchema, Property extends TSchema, InstaniatedType extends TSchema = TInstantiateType<Context, State, Type>> = TMappedAction<Context, State, Identifier, InstaniatedType, As, Property>
+ * export type TMappedInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Identifier extends TIdentifier,
+ *   Type extends TSchema,
+ *   As extends TSchema,
+ *   Property extends TSchema,
+ *   InstaniatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TMappedAction<Context, State, Identifier, InstaniatedType, As, Property>
  */

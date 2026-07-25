@@ -16,12 +16,12 @@ declare const List: any
 declare const OAtLeast: any
 declare const ObjectOf: any
 declare const _ListOf: any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Keys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OAtLeast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _ListOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OAtLeast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _ListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AtLeast: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AtLeast(L: List, K: Key = Keys(L)) {
@@ -35,5 +35,8 @@ export function AtLeast(L: List, K: Key = Keys(L)) {
   return never
 }
 /* compiles to:
- * export type AtLeast<L extends List, K extends Key = Keys<L>> = OAtLeast<ObjectOf<L>, `${K & number}` | K> extends infer U ? U extends unknown ? _ListOf<U & {}> : never : never
+ * export type AtLeast<L extends List, K extends Key = Keys<L>> =
+ *   OAtLeast<ObjectOf<L>, `${K & number}` | K> extends infer U
+ *     ? U extends unknown ? _ListOf<U & {}> : never
+ *     : never
  */

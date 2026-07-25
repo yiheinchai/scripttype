@@ -19,28 +19,46 @@ declare const IsStringLiteral: any
 declare const Not: any
 declare const Or: any
 declare const RemoveSuffixOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultRemoveSuffixOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStringLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Not<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Or<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RemoveSuffixOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultRemoveSuffixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStringLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RemoveSuffixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RemoveSuffix: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RemoveSuffix(S: string, Suffix: string, Options: RemoveSuffixOptions = {}) {
   return IfNotAnyOrNever(S, { ifNot: If(IsNever(Suffix), S, _RemoveSuffix(S, Suffix, ApplyDefaultOptions(RemoveSuffixOptions, DefaultRemoveSuffixOptions, Options))) })
 }
 /* compiles to:
- * export type RemoveSuffix<S extends string, Suffix extends string, Options extends RemoveSuffixOptions = {}> = IfNotAnyOrNever<S, { ifNot: If<IsNever<Suffix>, S, _RemoveSuffix<S, Suffix, ApplyDefaultOptions<RemoveSuffixOptions, DefaultRemoveSuffixOptions, Options>>> }>
+ * export type RemoveSuffix<
+ *   S extends string,
+ *   Suffix extends string,
+ *   Options extends RemoveSuffixOptions = {}
+ * > =
+ *   IfNotAnyOrNever<
+ *     S,
+ *     {
+ *       ifNot: If<
+ *         IsNever<Suffix>,
+ *         S,
+ *         _RemoveSuffix<
+ *           S,
+ *           Suffix,
+ *           ApplyDefaultOptions<RemoveSuffixOptions, DefaultRemoveSuffixOptions, Options>
+ *         >
+ *       >
+ *     }
+ *   >
  */
 
 // ✓ _RemoveSuffix: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _RemoveSuffix(S: string, Suffix: string, Options: Required<RemoveSuffixOptions>) {
-  if (matches<string>(Suffix)) {
+  if (typeof Suffix === 'string') {
     if (matches<true>(Or(IsStringLiteral(Suffix), Not(Options['strict'])))) {
       const m1 = matches<`${Hole<"Rest">}${typeof Suffix}`>(S)
       if (m1) {
@@ -53,5 +71,14 @@ export function _RemoveSuffix(S: string, Suffix: string, Options: Required<Remov
   return never
 }
 /* compiles to:
- * export type _RemoveSuffix<S extends string, Suffix extends string, Options extends Required<RemoveSuffixOptions>> = Suffix extends string ? Or<IsStringLiteral<Suffix>, Not<Options['strict']>> extends true ? S extends `${infer Rest}${Suffix}` ? Rest : S : string : never
+ * export type _RemoveSuffix<
+ *   S extends string,
+ *   Suffix extends string,
+ *   Options extends Required<RemoveSuffixOptions>
+ * > =
+ *   Suffix extends string
+ *     ? Or<IsStringLiteral<Suffix>, Not<Options['strict']>> extends true
+ *       ? S extends `${infer Rest}${Suffix}` ? Rest : S
+ *       : string
+ *     : never
  */

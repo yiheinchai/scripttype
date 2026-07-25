@@ -14,17 +14,28 @@ declare const ApplyDefaultOptions: any
 declare const DefaultSetFieldTypeOptions: any
 declare const SetFieldTypeOptions: any
 declare const Simplify: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultSetFieldTypeOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SetFieldTypeOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultSetFieldTypeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SetFieldTypeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetFieldType: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetFieldType(BaseType, Keys: keyof typeof BaseType, NewType, Options: SetFieldTypeOptions = {}) {
   return _SetFieldType(BaseType, Keys, NewType, ApplyDefaultOptions(SetFieldTypeOptions, DefaultSetFieldTypeOptions, Options))
 }
 /* compiles to:
- * export type SetFieldType<BaseType, Keys extends keyof BaseType, NewType, Options extends SetFieldTypeOptions = {}> = _SetFieldType<BaseType, Keys, NewType, ApplyDefaultOptions<SetFieldTypeOptions, DefaultSetFieldTypeOptions, Options>>
+ * export type SetFieldType<
+ *   BaseType,
+ *   Keys extends keyof BaseType,
+ *   NewType,
+ *   Options extends SetFieldTypeOptions = {}
+ * > =
+ *   _SetFieldType<
+ *     BaseType,
+ *     Keys,
+ *     NewType,
+ *     ApplyDefaultOptions<SetFieldTypeOptions, DefaultSetFieldTypeOptions, Options>
+ *   >
  */
 
 // ✓ _SetFieldType: verified type-identical to the original
@@ -37,5 +48,14 @@ export function _SetFieldType(BaseType, Keys: keyof typeof BaseType, NewType, Op
   return Simplify(out & (matches<false>(Options['preservePropertyModifiers']) ? Record(Keys, NewType) : unknown))
 }
 /* compiles to:
- * export type _SetFieldType<BaseType, Keys extends keyof BaseType, NewType, Options extends Required<SetFieldTypeOptions>> = Simplify<{ [P in keyof BaseType]: P extends Keys ? NewType : BaseType[P] } & (Options['preservePropertyModifiers'] extends false ? Record<Keys, NewType> : unknown)>
+ * export type _SetFieldType<
+ *   BaseType,
+ *   Keys extends keyof BaseType,
+ *   NewType,
+ *   Options extends Required<SetFieldTypeOptions>
+ * > =
+ *   Simplify<
+ *     & { [P in keyof BaseType]: P extends Keys ? NewType : BaseType[P] }
+ *     & (Options['preservePropertyModifiers'] extends false ? Record<Keys, NewType> : unknown)
+ *   >
  */

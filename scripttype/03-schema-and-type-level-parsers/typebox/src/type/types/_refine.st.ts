@@ -12,18 +12,19 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TRefinement: any
 declare const TSchema: any
-type TRefinement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TRefinement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRefineAdd: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRefineAdd(Type: TSchema = TSchema) {
-  if (matches<keyof typeof Type>('~refine')) {
+  if ('~refine' in Type) {
     return Type
   }
   return TRefine(Type)
 }
 /* compiles to:
- * export type TRefineAdd<Type extends TSchema = TSchema> = '~refine' extends keyof Type ? Type : TRefine<Type>
+ * export type TRefineAdd<Type extends TSchema = TSchema> =
+ *   '~refine' extends keyof Type ? Type : TRefine<Type>
  */
 
 // ✓ TRefine: verified type-identical to the original
@@ -32,7 +33,8 @@ export function TRefine(Type: TSchema = TSchema) {
   return merge(Type, { '~refine': arrayOf(TRefinement(unknown)) })
 }
 /* compiles to:
- * export type TRefine<Type extends TSchema = TSchema> = Type & { '~refine': TRefinement<unknown>[] }
+ * export type TRefine<Type extends TSchema = TSchema> =
+ *   Type & { '~refine': TRefinement<unknown>[] }
  */
 
 // ✓ TRefineCheckCallback: verified type-identical to the original

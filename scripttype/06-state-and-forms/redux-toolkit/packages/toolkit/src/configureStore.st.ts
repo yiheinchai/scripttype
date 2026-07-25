@@ -18,14 +18,14 @@ declare const Middleware: any
 declare const Store: any
 declare const UnknownAction: any
 declare const UnknownIfNonSpecific: any
-type Action<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Enhancers<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractStateExtensions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractStoreExtensions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Middleware<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Store<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownIfNonSpecific<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Action<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Enhancers<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractStateExtensions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractStoreExtensions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Middleware<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Store<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownIfNonSpecific<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Middlewares: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Middlewares(S) {
@@ -41,5 +41,10 @@ export function EnhancedStore(S = any, A: Action = UnknownAction, E: Enhancers =
   return ExtractStoreExtensions(E) & Store(S, A, UnknownIfNonSpecific(ExtractStateExtensions(E)))
 }
 /* compiles to:
- * export type EnhancedStore<S = any, A extends Action = UnknownAction, E extends Enhancers = Enhancers> = ExtractStoreExtensions<E> & Store<S, A, UnknownIfNonSpecific<ExtractStateExtensions<E>>>
+ * export type EnhancedStore<
+ *   S = any,
+ *   A extends Action = UnknownAction,
+ *   E extends Enhancers = Enhancers
+ * > =
+ *   ExtractStoreExtensions<E> & Store<S, A, UnknownIfNonSpecific<ExtractStateExtensions<E>>>
  */

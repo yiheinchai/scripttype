@@ -13,9 +13,9 @@
 declare const Context: any
 declare const Response: any
 declare const WSEvents: any
-type Context<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Response<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WSEvents<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WSEvents<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ WebSocketHelperDefineHandler: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -23,5 +23,6 @@ export function WebSocketHelperDefineHandler(T, U) {
   return fnType([Context, WSEvents(T), U], t<Promise<Response | void>>() | Response | voidType())
 }
 /* compiles to:
- * export type WebSocketHelperDefineHandler<T, U> = (a0: Context, a1: WSEvents<T>, a2: U) => Promise<Response | void> | Response | void
+ * export type WebSocketHelperDefineHandler<T, U> =
+ *   (a0: Context, a1: WSEvents<T>, a2: U) => Promise<Response | void> | Response | void
  */

@@ -13,16 +13,25 @@
 declare const MySqlDecimalBigIntBuilder: any
 declare const MySqlDecimalBuilder: any
 declare const MySqlDecimalNumberBuilder: any
-type MySqlDecimalBigIntBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlDecimalBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlDecimalNumberBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MySqlDecimalBigIntBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlDecimalBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlDecimalNumberBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlDecimalBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySqlDecimalBuilderInitial(TName: string) {
   return MySqlDecimalBuilder({ name: TName, dataType: 'string', columnType: 'MySqlDecimal', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlDecimalBuilderInitial<TName extends string> = MySqlDecimalBuilder<{ name: TName; dataType: 'string'; columnType: 'MySqlDecimal'; data: string; driverParam: string; enumValues: undefined }>
+ * export type MySqlDecimalBuilderInitial<TName extends string> = MySqlDecimalBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'MySqlDecimal'
+ *     data: string
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ MySqlDecimalNumberBuilderInitial: verified type-identical to the original
@@ -31,7 +40,16 @@ export function MySqlDecimalNumberBuilderInitial(TName: string) {
   return MySqlDecimalNumberBuilder({ name: TName, dataType: 'number', columnType: 'MySqlDecimalNumber', data: number, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlDecimalNumberBuilderInitial<TName extends string> = MySqlDecimalNumberBuilder<{ name: TName; dataType: 'number'; columnType: 'MySqlDecimalNumber'; data: number; driverParam: string; enumValues: undefined }>
+ * export type MySqlDecimalNumberBuilderInitial<TName extends string> = MySqlDecimalNumberBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'MySqlDecimalNumber'
+ *     data: number
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ MySqlDecimalBigIntBuilderInitial: verified type-identical to the original
@@ -40,5 +58,14 @@ export function MySqlDecimalBigIntBuilderInitial(TName: string) {
   return MySqlDecimalBigIntBuilder({ name: TName, dataType: 'bigint', columnType: 'MySqlDecimalBigInt', data: bigint, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlDecimalBigIntBuilderInitial<TName extends string> = MySqlDecimalBigIntBuilder<{ name: TName; dataType: 'bigint'; columnType: 'MySqlDecimalBigInt'; data: bigint; driverParam: string; enumValues: undefined }>
+ * export type MySqlDecimalBigIntBuilderInitial<TName extends string> = MySqlDecimalBigIntBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'bigint'
+ *     columnType: 'MySqlDecimalBigInt'
+ *     data: bigint
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */

@@ -21,17 +21,17 @@ declare const List: any
 declare const Merge: any
 declare const Next: any
 declare const Pos: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Assign: does not compile yet
 //   Type 'Extends<Pos<I>, Length<Os>>' cannot be used to index type '{ '0': __Assign__st0<Merge<Os[Pos<I>], O, depth, ignore, fill>, Os, depth, ignore, fill, Next<I
 /* @scripttype preserveParamNames */
@@ -39,7 +39,18 @@ export function __Assign(O: object, Os: List<object>, depth: Depth, ignore: obje
   return { 0: __Assign(Merge(Os[Pos(I)], O, depth, ignore, fill), Os, depth, ignore, fill, Next(I)), 1: O }[Extends(Pos(I), Length(Os))]
 }
 /* compiles to:
- * export type __Assign<O extends object, Os extends List<object>, depth extends Depth, ignore extends object, fill extends any, I extends Iteration = IterationOf<0>> = { '0': __Assign<Merge<Os[Pos<I>], O, depth, ignore, fill>, Os, depth, ignore, fill, Next<I>>; '1': O }[Extends<Pos<I>, Length<Os>>]
+ * export type __Assign<
+ *   O extends object,
+ *   Os extends List<object>,
+ *   depth extends Depth,
+ *   ignore extends object,
+ *   fill extends any,
+ *   I extends Iteration = IterationOf<0>
+ * > =
+ *   {
+ *     '0': __Assign<Merge<Os[Pos<I>], O, depth, ignore, fill>, Os, depth, ignore, fill, Next<I>>
+ *     '1': O
+ *   }[Extends<Pos<I>, Length<Os>>]
  */
 
 // ✓ _Assign: verified type-identical to the original
@@ -52,7 +63,14 @@ export function _Assign(O: object, Os: List<object>, depth: Depth, ignore: objec
   return never
 }
 /* compiles to:
- * export type _Assign<O extends object, Os extends List<object>, depth extends Depth, ignore extends object, fill extends any> = __Assign<O, Os, depth, ignore, fill> extends infer X ? Cast<X, object> : never
+ * export type _Assign<
+ *   O extends object,
+ *   Os extends List<object>,
+ *   depth extends Depth,
+ *   ignore extends object,
+ *   fill extends any
+ * > =
+ *   __Assign<O, Os, depth, ignore, fill> extends infer X ? Cast<X, object> : never
  */
 
 // ✓ Assign: verified type-identical to the original
@@ -67,5 +85,12 @@ export function Assign(O: object, Os: List<object>, depth: Depth = 'flat', ignor
   return never
 }
 /* compiles to:
- * export type Assign<O extends object, Os extends List<object>, depth extends Depth = 'flat', ignore extends object = BuiltIn, fill extends any = undefined> = O extends unknown ? Os extends unknown ? _Assign<O, Os, depth, ignore, fill> : never : never
+ * export type Assign<
+ *   O extends object,
+ *   Os extends List<object>,
+ *   depth extends Depth = 'flat',
+ *   ignore extends object = BuiltIn,
+ *   fill extends any = undefined
+ * > =
+ *   O extends unknown ? Os extends unknown ? _Assign<O, Os, depth, ignore, fill> : never : never
  */

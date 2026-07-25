@@ -17,19 +17,19 @@ declare const Primitive: any
 declare const UnionToIntersection: any
 declare const arg: any
 declare const unset: any
-type Call<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Primitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReplaceArgsWithConstraint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionToIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type With<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type arg<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReplaceArgsWithConstraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type With<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type arg<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GetWithDefault: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GetWithDefault(Obj, K, Def) {
-  if (matches<keyof typeof Obj>(K)) {
+  if (K in Obj) {
     return Obj[K]
   }
   return Def
@@ -60,16 +60,24 @@ export function ReplaceArgsWithConstraint(pattern) {
     return arrayOf(ReplaceArgsWithConstraint(m2.V))
   }
   if (matches<object>(pattern)) {
-    const out = emptyObject
+    const out2 = emptyObject
     for (const key in keyof(pattern)) {
-      out[key] = ReplaceArgsWithConstraint(pattern[key])
+      out2[key] = ReplaceArgsWithConstraint(pattern[key])
     }
-    return out
+    return out2
   }
   return pattern
 }
 /* compiles to:
- * export type ReplaceArgsWithConstraint<pattern> = pattern extends arg<any, infer Constraint> ? Constraint : pattern extends Primitive ? pattern : pattern extends [any, ...any] ? { [Key in keyof pattern]: ReplaceArgsWithConstraint<pattern[Key]> } : pattern extends (infer V)[] ? ReplaceArgsWithConstraint<V>[] : pattern extends object ? { [Key1 in keyof pattern]: ReplaceArgsWithConstraint<pattern[Key1]> } : pattern
+ * export type ReplaceArgsWithConstraint<pattern> =
+ *   pattern extends arg<any, infer Constraint> ? Constraint
+ *   : pattern extends Primitive ? pattern
+ *   : pattern extends [any, ...any]
+ *     ? { [Key in keyof pattern]: ReplaceArgsWithConstraint<pattern[Key]> }
+ *   : pattern extends (infer V)[] ? ReplaceArgsWithConstraint<V>[]
+ *   : pattern extends object
+ *     ? { [Key1 in keyof pattern]: ReplaceArgsWithConstraint<pattern[Key1]> }
+ *   : pattern
  */
 
 // ✓ DoesMatch: verified type-identical to the original
@@ -81,7 +89,8 @@ export function DoesMatch(value, pattern) {
   return false
 }
 /* compiles to:
- * export type DoesMatch<value, pattern> = value extends ReplaceArgsWithConstraint<pattern> ? true : false
+ * export type DoesMatch<value, pattern> =
+ *   value extends ReplaceArgsWithConstraint<pattern> ? true : false
  */
 
 // ✓ ExtractArgObject: verified type-identical to the original
@@ -107,16 +116,27 @@ export function ExtractArgObject(value, pattern) {
     return ExtractArgObject(m3.valueFirst, m3.patternFirst)
   }
   if (matches<[ object, object ]>([value, pattern])) {
-    const out = emptyObject
+    const out2 = emptyObject
     for (const k in keySet(keyof(value) & keyof(pattern))) {
-      out[k] = ExtractArgObject(value[k], pattern[k])
+      out2[k] = ExtractArgObject(value[k], pattern[k])
     }
-    return UnionToIntersection(out[keyof(value) & keyof(pattern)])
+    return UnionToIntersection(out2[keyof(value) & keyof(pattern)])
   }
   return {}
 }
 /* compiles to:
- * export type ExtractArgObject<value, pattern> = pattern extends arg<infer N, any> ? { [K in N]: value } : pattern extends [] ? {} : [value, pattern] extends [[infer valueFirst, ...infer valueRest], [infer patternFirst, ...infer patternRest]] ? ExtractArgObject<valueRest, patternRest> & ExtractArgObject<valueFirst, patternFirst> : [value, pattern] extends [(infer valueFirst)[], (infer patternFirst)[]] ? ExtractArgObject<valueFirst, patternFirst> : [value, pattern] extends [object, object] ? UnionToIntersection<{ [K1 in keyof value & keyof pattern]: ExtractArgObject<value[K1], pattern[K1]> }[keyof value & keyof pattern]> : {}
+ * export type ExtractArgObject<value, pattern> =
+ *   pattern extends arg<infer N, any> ? { [K in N]: value }
+ *   : pattern extends [] ? {}
+ *   : [value, pattern] extends [[infer valueFirst, ...infer valueRest], [infer patternFirst, ...infer patternRest]]
+ *     ? ExtractArgObject<valueRest, patternRest> & ExtractArgObject<valueFirst, patternFirst>
+ *   : [value, pattern] extends [(infer valueFirst)[], (infer patternFirst)[]]
+ *     ? ExtractArgObject<valueFirst, patternFirst>
+ *   : [value, pattern] extends [object, object]
+ *     ? UnionToIntersection<
+ *       { [K1 in keyof value & keyof pattern]: ExtractArgObject<value[K1], pattern[K1]> }[keyof value & keyof pattern]
+ *     >
+ *   : {}
  */
 
 // ✓ WithDefaultArgs: verified type-identical to the original
@@ -128,7 +148,8 @@ export function WithDefaultArgs(Args: any[], Def) {
   return Args
 }
 /* compiles to:
- * export type WithDefaultArgs<Args extends any[], Def> = [Args[number]] extends [unset] ? Def : Args
+ * export type WithDefaultArgs<Args extends any[], Def> =
+ *   [Args[number]] extends [unset] ? Def : Args
  */
 
 // ✓ ArgObjectToArgs: verified type-identical to the original
@@ -137,7 +158,12 @@ export function ArgObjectToArgs(T) {
   return [GetWithDefault(T, 0, unset), GetWithDefault(T, 1, unset), GetWithDefault(T, 2, unset), GetWithDefault(T, 3, unset)]
 }
 /* compiles to:
- * export type ArgObjectToArgs<T> = [GetWithDefault<T, 0, unset>, GetWithDefault<T, 1, unset>, GetWithDefault<T, 2, unset>, GetWithDefault<T, 3, unset>]
+ * export type ArgObjectToArgs<T> = [
+ *   GetWithDefault<T, 0, unset>,
+ *   GetWithDefault<T, 1, unset>,
+ *   GetWithDefault<T, 2, unset>,
+ *   GetWithDefault<T, 3, unset>
+ * ]
  */
 
 // ✓ ExtractArgs: verified type-identical to the original
@@ -146,7 +172,10 @@ export function ExtractArgs(value, pattern) {
   return WithDefaultArgs(ArgObjectToArgs(ExtractArgObject(value, pattern)), [value])
 }
 /* compiles to:
- * export type ExtractArgs<value, pattern> = WithDefaultArgs<ArgObjectToArgs<ExtractArgObject<value, pattern>>, [value]>
+ * export type ExtractArgs<value, pattern> = WithDefaultArgs<
+ *   ArgObjectToArgs<ExtractArgObject<value, pattern>>,
+ *   [value]
+ * >
  */
 
 // ✓ Match: verified type-identical to the original
@@ -165,7 +194,14 @@ export function Match(value, patterns: With<any, any>[]) {
   return never
 }
 /* compiles to:
- * export type Match<value, patterns extends With<any, any>[]> = patterns extends [With<infer pattern, infer handler>, ...(infer restPatterns extends With<any, any>[])] ? DoesMatch<value, pattern> extends true ? handler extends Fn ? Call<PartialApply<Extract<handler, Fn>, ExtractArgs<value, pattern>>> : handler : Match<value, restPatterns> : never
+ * export type Match<value, patterns extends With<any, any>[]> =
+ *   patterns extends [With<infer pattern, infer handler>, ...infer restPatterns extends With<any, any>[]]
+ *     ? DoesMatch<value, pattern> extends true
+ *       ? handler extends Fn
+ *         ? Call<PartialApply<Extract<handler, Fn>, ExtractArgs<value, pattern>>>
+ *         : handler
+ *       : Match<value, restPatterns>
+ *     : never
  */
 
 // ✓ With: verified type-identical to the original

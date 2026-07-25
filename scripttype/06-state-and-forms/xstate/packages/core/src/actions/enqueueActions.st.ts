@@ -15,16 +15,30 @@ declare const EventObject: any
 declare const MachineContext: any
 declare const ParameterizedObject: any
 declare const ProvidedActor: any
-type CollectActionsArg<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MachineContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParameterizedObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProvidedActor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CollectActionsArg<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParameterizedObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProvidedActor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CollectActions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CollectActions(TContext: MachineContext, TExpressionEvent: EventObject, TParams: ParameterizedObject['params'] | undefined, TEvent: EventObject, TActor: ProvidedActor, TAction: ParameterizedObject, TGuard: ParameterizedObject, TDelay: string, TEmitted: EventObject) {
   return fnType([CollectActionsArg(TContext, TExpressionEvent, TEvent, TActor, TAction, TGuard, TDelay, TEmitted), TParams], voidType())
 }
 /* compiles to:
- * export type CollectActions<TContext extends MachineContext, TExpressionEvent extends EventObject, TParams extends ParameterizedObject['params'] | undefined, TEvent extends EventObject, TActor extends ProvidedActor, TAction extends ParameterizedObject, TGuard extends ParameterizedObject, TDelay extends string, TEmitted extends EventObject> = (a0: CollectActionsArg<TContext, TExpressionEvent, TEvent, TActor, TAction, TGuard, TDelay, TEmitted>, a1: TParams) => void
+ * export type CollectActions<
+ *   TContext extends MachineContext,
+ *   TExpressionEvent extends EventObject,
+ *   TParams extends ParameterizedObject['params'] | undefined,
+ *   TEvent extends EventObject,
+ *   TActor extends ProvidedActor,
+ *   TAction extends ParameterizedObject,
+ *   TGuard extends ParameterizedObject,
+ *   TDelay extends string,
+ *   TEmitted extends EventObject
+ * > =
+ *   (
+ *     a0: CollectActionsArg<TContext, TExpressionEvent, TEvent, TActor, TAction, TGuard, TDelay, TEmitted>,
+ *     a1: TParams
+ *   ) => void
  */

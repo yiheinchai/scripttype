@@ -14,10 +14,10 @@ declare const ApplyDefaultOptions: any
 declare const DefaultExceptOptions: any
 declare const ExceptOptions: any
 declare const IsEqual: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultExceptOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExceptOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultExceptOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExceptOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Filter: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Filter(KeyType, ExcludeType) {
@@ -30,7 +30,10 @@ export function Filter(KeyType, ExcludeType) {
   return KeyType
 }
 /* compiles to:
- * export type Filter<KeyType, ExcludeType> = IsEqual<KeyType, ExcludeType> extends true ? never : KeyType extends ExcludeType ? never : KeyType
+ * export type Filter<KeyType, ExcludeType> =
+ *   IsEqual<KeyType, ExcludeType> extends true ? never
+ *   : KeyType extends ExcludeType ? never
+ *   : KeyType
  */
 
 // ✓ Except: verified type-identical to the original
@@ -39,7 +42,16 @@ export function Except(ObjectType, KeysType: keyof typeof ObjectType, Options: E
   return _Except(ObjectType, KeysType, ApplyDefaultOptions(ExceptOptions, DefaultExceptOptions, Options))
 }
 /* compiles to:
- * export type Except<ObjectType, KeysType extends keyof ObjectType, Options extends ExceptOptions = {}> = _Except<ObjectType, KeysType, ApplyDefaultOptions<ExceptOptions, DefaultExceptOptions, Options>>
+ * export type Except<
+ *   ObjectType,
+ *   KeysType extends keyof ObjectType,
+ *   Options extends ExceptOptions = {}
+ * > =
+ *   _Except<
+ *     ObjectType,
+ *     KeysType,
+ *     ApplyDefaultOptions<ExceptOptions, DefaultExceptOptions, Options>
+ *   >
  */
 
 // ✓ _Except: verified type-identical to the original
@@ -52,5 +64,11 @@ export function _Except(ObjectType, KeysType: keyof typeof ObjectType, Options: 
   return out & (matches<true>(Options['requireExactProps']) ? Partial(Record(KeysType, never)) : {})
 }
 /* compiles to:
- * export type _Except<ObjectType, KeysType extends keyof ObjectType, Options extends Required<ExceptOptions>> = { [KeyType in keyof ObjectType as Filter<KeyType, KeysType>]: ObjectType[KeyType] } & (Options['requireExactProps'] extends true ? Partial<Record<KeysType, never>> : {})
+ * export type _Except<
+ *   ObjectType,
+ *   KeysType extends keyof ObjectType,
+ *   Options extends Required<ExceptOptions>
+ * > =
+ *   & { [KeyType in keyof ObjectType as Filter<KeyType, KeysType>]: ObjectType[KeyType] }
+ *   & (Options['requireExactProps'] extends true ? Partial<Record<KeysType, never>> : {})
  */

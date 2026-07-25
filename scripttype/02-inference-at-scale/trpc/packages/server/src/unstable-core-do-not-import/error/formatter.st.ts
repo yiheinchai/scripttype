@@ -14,15 +14,18 @@ declare const DefaultErrorShape: any
 declare const ProcedureType: any
 declare const TRPCError: any
 declare const TRPCErrorShape: any
-type DefaultErrorShape<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProcedureType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCErrorShape<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultErrorShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProcedureType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCErrorShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ErrorFormatter: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ErrorFormatter(TContext, TShape: TRPCErrorShape) {
   return fnType([{ error: TRPCError, type: anyOf(ProcedureType, 'unknown'), path: anyOf(string, Undefined), input: unknown, ctx: anyOf(TContext, Undefined), shape: DefaultErrorShape }], TShape)
 }
 /* compiles to:
- * export type ErrorFormatter<TContext, TShape extends TRPCErrorShape> = (a0: { error: TRPCError; type: ProcedureType | 'unknown'; path: string | undefined; input: unknown; ctx: TContext | undefined; shape: DefaultErrorShape }) => TShape
+ * export type ErrorFormatter<TContext, TShape extends TRPCErrorShape> =
+ *   (
+ *     a0: { error: TRPCError; type: ProcedureType | 'unknown'; path: string | undefined; input: unknown; ctx: TContext | undefined; shape: DefaultErrorShape }
+ *   ) => TShape
  */

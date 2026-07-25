@@ -14,10 +14,10 @@ declare const ApplyDefaultOptions: any
 declare const CamelCaseOptions: any
 declare const PascalCase: any
 declare const _DefaultCamelCaseOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CamelCaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PascalCase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _DefaultCamelCaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PascalCase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _DefaultCamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PascalCasedProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PascalCasedProperties(Value, Options: CamelCaseOptions = {}) {
@@ -35,5 +35,10 @@ export function PascalCasedProperties(Value, Options: CamelCaseOptions = {}) {
   return out
 }
 /* compiles to:
- * export type PascalCasedProperties<Value, Options extends CamelCaseOptions = {}> = Value extends Function ? Value : Value extends Array<unknown> ? Value : { [K in keyof Value as PascalCase<K, ApplyDefaultOptions<CamelCaseOptions, _DefaultCamelCaseOptions, Options>>]: Value[K] }
+ * export type PascalCasedProperties<Value, Options extends CamelCaseOptions = {}> =
+ *   Value extends Function ? Value
+ *   : Value extends Array<unknown> ? Value
+ *   : {
+ *     [K in keyof Value as PascalCase<K, ApplyDefaultOptions<CamelCaseOptions, _DefaultCamelCaseOptions, Options>>]: Value[K]
+ *   }
  */

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const AnyActorLogic: any
 declare const InputFrom: any
-type AnyActorLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InputFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InputFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequiredActorOptionsKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RequiredActorOptionsKeys(TLogic: AnyActorLogic) {
@@ -23,5 +23,6 @@ export function RequiredActorOptionsKeys(TLogic: AnyActorLogic) {
   return 'input'
 }
 /* compiles to:
- * export type RequiredActorOptionsKeys<TLogic extends AnyActorLogic> = undefined extends InputFrom<TLogic> ? never : 'input'
+ * export type RequiredActorOptionsKeys<TLogic extends AnyActorLogic> =
+ *   undefined extends InputFrom<TLogic> ? never : 'input'
  */

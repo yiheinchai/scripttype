@@ -15,16 +15,36 @@ declare const BaseSchema: any
 declare const BaseSchemaAsync: any
 declare const InferIssue: any
 declare const InferOutput: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SafeParseResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SafeParseResult(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>) {
   return anyOf({ typed: readonlyProp(true), success: readonlyProp(true), output: readonlyProp(InferOutput(TSchema)), issues: readonlyProp(Undefined) }, { typed: readonlyProp(true), success: readonlyProp(false), output: readonlyProp(InferOutput(TSchema)), issues: readonlyProp([InferIssue(TSchema), ...arrayOf(InferIssue(TSchema))]) }, { typed: readonlyProp(false), success: readonlyProp(false), output: readonlyProp(unknown), issues: readonlyProp([InferIssue(TSchema), ...arrayOf(InferIssue(TSchema))]) })
 }
 /* compiles to:
- * export type SafeParseResult<TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>> = { readonly typed: true; readonly success: true; readonly output: InferOutput<TSchema>; readonly issues: undefined } | { readonly typed: true; readonly success: false; readonly output: InferOutput<TSchema>; readonly issues: [InferIssue<TSchema>, ...InferIssue<TSchema>[]] } | { readonly typed: false; readonly success: false; readonly output: unknown; readonly issues: [InferIssue<TSchema>, ...InferIssue<TSchema>[]] }
+ * export type SafeParseResult<
+ *   TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>
+ * > =
+ *   | {
+ *       readonly typed: true
+ *       readonly success: true
+ *       readonly output: InferOutput<TSchema>
+ *       readonly issues: undefined
+ *     }
+ *   | {
+ *       readonly typed: true
+ *       readonly success: false
+ *       readonly output: InferOutput<TSchema>
+ *       readonly issues: [InferIssue<TSchema>, ...InferIssue<TSchema>[]]
+ *     }
+ *   | {
+ *       readonly typed: false
+ *       readonly success: false
+ *       readonly output: unknown
+ *       readonly issues: [InferIssue<TSchema>, ...InferIssue<TSchema>[]]
+ *     }
  */

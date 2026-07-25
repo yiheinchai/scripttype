@@ -12,13 +12,17 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TFromType: any
 declare const TSchema: any
-type TFromType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TToIndexableKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TToIndexableKeys(Indexer: TSchema, Result: string[] = TFromType(Indexer)) {
   return Result
 }
 /* compiles to:
- * export type TToIndexableKeys<Indexer extends TSchema, Result extends string[] = TFromType<Indexer>> = Result
+ * export type TToIndexableKeys<
+ *   Indexer extends TSchema,
+ *   Result extends string[] = TFromType<Indexer>
+ * > =
+ *   Result
  */

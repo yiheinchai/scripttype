@@ -14,10 +14,10 @@ declare const Buffer: any
 declare const SQLiteBigIntBuilder: any
 declare const SQLiteBlobBufferBuilder: any
 declare const SQLiteBlobJsonBuilder: any
-type Buffer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQLiteBigIntBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQLiteBlobBufferBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQLiteBlobJsonBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Buffer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQLiteBigIntBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQLiteBlobBufferBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQLiteBlobJsonBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ SQLiteBigIntBuilderInitial: does not compile yet
 //   Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
 /* @scripttype preserveParamNames */
@@ -25,7 +25,16 @@ export function SQLiteBigIntBuilderInitial(TName: string) {
   return SQLiteBigIntBuilder({ name: TName, dataType: 'bigint', columnType: 'SQLiteBigInt', data: bigint, driverParam: Buffer, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteBigIntBuilderInitial<TName extends string> = SQLiteBigIntBuilder<{ name: TName; dataType: 'bigint'; columnType: 'SQLiteBigInt'; data: bigint; driverParam: Buffer; enumValues: undefined }>
+ * export type SQLiteBigIntBuilderInitial<TName extends string> = SQLiteBigIntBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'bigint'
+ *     columnType: 'SQLiteBigInt'
+ *     data: bigint
+ *     driverParam: Buffer
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✗ SQLiteBlobJsonBuilderInitial: does not compile yet
@@ -35,7 +44,16 @@ export function SQLiteBlobJsonBuilderInitial(TName: string) {
   return SQLiteBlobJsonBuilder({ name: TName, dataType: 'json', columnType: 'SQLiteBlobJson', data: unknown, driverParam: Buffer, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteBlobJsonBuilderInitial<TName extends string> = SQLiteBlobJsonBuilder<{ name: TName; dataType: 'json'; columnType: 'SQLiteBlobJson'; data: unknown; driverParam: Buffer; enumValues: undefined }>
+ * export type SQLiteBlobJsonBuilderInitial<TName extends string> = SQLiteBlobJsonBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'json'
+ *     columnType: 'SQLiteBlobJson'
+ *     data: unknown
+ *     driverParam: Buffer
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✗ SQLiteBlobBufferBuilderInitial: does not compile yet
@@ -45,5 +63,14 @@ export function SQLiteBlobBufferBuilderInitial(TName: string) {
   return SQLiteBlobBufferBuilder({ name: TName, dataType: 'buffer', columnType: 'SQLiteBlobBuffer', data: Buffer, driverParam: Buffer, enumValues: Undefined })
 }
 /* compiles to:
- * export type SQLiteBlobBufferBuilderInitial<TName extends string> = SQLiteBlobBufferBuilder<{ name: TName; dataType: 'buffer'; columnType: 'SQLiteBlobBuffer'; data: Buffer; driverParam: Buffer; enumValues: undefined }>
+ * export type SQLiteBlobBufferBuilderInitial<TName extends string> = SQLiteBlobBufferBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'buffer'
+ *     columnType: 'SQLiteBlobBuffer'
+ *     data: Buffer
+ *     driverParam: Buffer
+ *     enumValues: undefined
+ *   }
+ * >
  */

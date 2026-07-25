@@ -13,9 +13,9 @@
 declare const ValidatorAdapter: any
 declare const ZodTypeLike: any
 declare const zodValidatorOptions: any
-type ValidatorAdapter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ZodTypeLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type zodValidatorOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ValidatorAdapter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ZodTypeLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type zodValidatorOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ zodValidatorInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function zodValidatorInput(TOptions: ZodTypeLike | zodValidatorOptions) {
@@ -31,7 +31,13 @@ export function zodValidatorInput(TOptions: ZodTypeLike | zodValidatorOptions) {
   return never
 }
 /* compiles to:
- * export type zodValidatorInput<TOptions extends ZodTypeLike | zodValidatorOptions> = TOptions extends zodValidatorOptions ? 'input' extends TOptions['input'] ? TOptions['schema']['_input'] : TOptions['schema']['_output'] : TOptions extends ZodTypeLike ? TOptions['_input'] : never
+ * export type zodValidatorInput<TOptions extends ZodTypeLike | zodValidatorOptions> =
+ *   TOptions extends zodValidatorOptions
+ *     ? 'input' extends TOptions['input']
+ *       ? TOptions['schema']['_input']
+ *       : TOptions['schema']['_output']
+ *   : TOptions extends ZodTypeLike ? TOptions['_input']
+ *   : never
  */
 
 // ✓ zodValidatorOutput: verified type-identical to the original
@@ -49,7 +55,13 @@ export function zodValidatorOutput(TOptions: ZodTypeLike | zodValidatorOptions) 
   return never
 }
 /* compiles to:
- * export type zodValidatorOutput<TOptions extends ZodTypeLike | zodValidatorOptions> = TOptions extends zodValidatorOptions ? 'output' extends TOptions['output'] ? TOptions['schema']['_output'] : TOptions['schema']['_input'] : TOptions extends ZodTypeLike ? TOptions['_output'] : never
+ * export type zodValidatorOutput<TOptions extends ZodTypeLike | zodValidatorOptions> =
+ *   TOptions extends zodValidatorOptions
+ *     ? 'output' extends TOptions['output']
+ *       ? TOptions['schema']['_output']
+ *       : TOptions['schema']['_input']
+ *   : TOptions extends ZodTypeLike ? TOptions['_output']
+ *   : never
  */
 
 // ✓ zodValidatorAdapter: verified type-identical to the original
@@ -58,5 +70,8 @@ export function zodValidatorAdapter(TOptions: ZodTypeLike | zodValidatorOptions)
   return ValidatorAdapter(zodValidatorInput(TOptions), zodValidatorOutput(TOptions))
 }
 /* compiles to:
- * export type zodValidatorAdapter<TOptions extends ZodTypeLike | zodValidatorOptions> = ValidatorAdapter<zodValidatorInput<TOptions>, zodValidatorOutput<TOptions>>
+ * export type zodValidatorAdapter<TOptions extends ZodTypeLike | zodValidatorOptions> = ValidatorAdapter<
+ *   zodValidatorInput<TOptions>,
+ *   zodValidatorOutput<TOptions>
+ * >
  */

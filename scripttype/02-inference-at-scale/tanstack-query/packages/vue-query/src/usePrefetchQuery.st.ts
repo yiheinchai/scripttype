@@ -14,15 +14,22 @@ declare const FetchQueryOptions: any
 declare const OmitKeyof: any
 declare const QueryKey: any
 declare const SkipToken: any
-type FetchQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitKeyof<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SkipToken<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FetchQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SkipToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UsePrefetchQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UsePrefetchQueryOptions(TQueryFnData, TError, TData, TQueryKey: QueryKey) {
   return merge(OmitKeyof(FetchQueryOptions(TQueryFnData, TError, TData, TQueryKey), 'queryFn'), { queryFn: optional(Exclude(FetchQueryOptions(TQueryFnData, TError, TData, TQueryKey)['queryFn'], SkipToken)) })
 }
 /* compiles to:
- * export type UsePrefetchQueryOptions<TQueryFnData, TError, TData, TQueryKey extends QueryKey> = OmitKeyof<FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryFn'> & { queryFn?: Exclude<FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>['queryFn'], SkipToken> }
+ * export type UsePrefetchQueryOptions<TQueryFnData, TError, TData, TQueryKey extends QueryKey> =
+ *   & OmitKeyof<FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>, 'queryFn'>
+ *   & {
+ *       queryFn?: Exclude<
+ *         FetchQueryOptions<TQueryFnData, TError, TData, TQueryKey>['queryFn'],
+ *         SkipToken
+ *       >
+ *     }
  */

@@ -17,13 +17,13 @@ declare const TRPCMutationKeyWithPrefix: any
 declare const TRPCMutationKeyWithoutPrefix: any
 declare const TRPCQueryKeyWithPrefix: any
 declare const TRPCQueryKeyWithoutPrefix: any
-type CursorInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FeatureFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCMutationKeyWithPrefix<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCMutationKeyWithoutPrefix<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCQueryKeyWithPrefix<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCQueryKeyWithoutPrefix<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CursorInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCMutationKeyWithPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCMutationKeyWithoutPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCQueryKeyWithPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCQueryKeyWithoutPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WithRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function WithRequired(TObj, TKey: keyof typeof TObj) {
@@ -55,7 +55,10 @@ export function TRPCInfiniteData(TInput, TOutput) {
   return InfiniteData(TOutput, NonNullable(ExtractCursorType(TInput)) | Null)
 }
 /* compiles to:
- * export type TRPCInfiniteData<TInput, TOutput> = InfiniteData<TOutput, NonNullable<ExtractCursorType<TInput>> | null>
+ * export type TRPCInfiniteData<TInput, TOutput> = InfiniteData<
+ *   TOutput,
+ *   NonNullable<ExtractCursorType<TInput>> | null
+ * >
  */
 
 // ✓ TRPCQueryKey: verified type-identical to the original
@@ -67,7 +70,8 @@ export function TRPCQueryKey(TPrefixEnabled: boolean = false) {
   return TRPCQueryKeyWithoutPrefix
 }
 /* compiles to:
- * export type TRPCQueryKey<TPrefixEnabled extends boolean = false> = TPrefixEnabled extends true ? TRPCQueryKeyWithPrefix : TRPCQueryKeyWithoutPrefix
+ * export type TRPCQueryKey<TPrefixEnabled extends boolean = false> =
+ *   TPrefixEnabled extends true ? TRPCQueryKeyWithPrefix : TRPCQueryKeyWithoutPrefix
  */
 
 // ✓ TRPCMutationKey: verified type-identical to the original
@@ -79,7 +83,8 @@ export function TRPCMutationKey(TPrefixEnabled: boolean = false) {
   return TRPCMutationKeyWithoutPrefix
 }
 /* compiles to:
- * export type TRPCMutationKey<TPrefixEnabled extends boolean = false> = TPrefixEnabled extends true ? TRPCMutationKeyWithPrefix : TRPCMutationKeyWithoutPrefix
+ * export type TRPCMutationKey<TPrefixEnabled extends boolean = false> =
+ *   TPrefixEnabled extends true ? TRPCMutationKeyWithPrefix : TRPCMutationKeyWithoutPrefix
  */
 
 // ✓ ofFeatureFlags: verified type-identical to the original
@@ -100,5 +105,6 @@ export function KeyPrefixOptions(TFeatureFlags: FeatureFlags) {
   return { keyPrefix: optional(never) }
 }
 /* compiles to:
- * export type KeyPrefixOptions<TFeatureFlags extends FeatureFlags> = TFeatureFlags['keyPrefix'] extends true ? { keyPrefix: string } : { keyPrefix?: never }
+ * export type KeyPrefixOptions<TFeatureFlags extends FeatureFlags> =
+ *   TFeatureFlags['keyPrefix'] extends true ? { keyPrefix: string } : { keyPrefix?: never }
  */

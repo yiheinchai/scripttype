@@ -14,15 +14,18 @@ declare const Cast: any
 declare const Key: any
 declare const List: any
 declare const OUpdate: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OUpdate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OUpdate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Update: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Update(L: List, K: Key, A: any) {
   return Cast(OUpdate(L, anyOf(`${merge(K, number)}`, K), A), List)
 }
 /* compiles to:
- * export type Update<L extends List, K extends Key, A extends any> = Cast<OUpdate<L, `${K & number}` | K, A>, List>
+ * export type Update<L extends List, K extends Key, A extends any> = Cast<
+ *   OUpdate<L, `${K & number}` | K, A>,
+ *   List
+ * >
  */

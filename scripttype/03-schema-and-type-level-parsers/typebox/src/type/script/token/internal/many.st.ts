@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Left: any
 declare const TTake: any
-type Left<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTake<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIsDiscard: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TIsDiscard(Discard: string[], Input: string) {
@@ -27,7 +27,10 @@ export function TIsDiscard(Discard: string[], Input: string) {
   return false
 }
 /* compiles to:
- * export type TIsDiscard<Discard extends string[], Input extends string> = Discard extends [infer Left extends string, ...(infer Right extends string[])] ? Input extends Left ? true : TIsDiscard<Right, Input> : false
+ * export type TIsDiscard<Discard extends string[], Input extends string> =
+ *   Discard extends [infer Left extends string, ...infer Right extends string[]]
+ *     ? Input extends Left ? true : TIsDiscard<Right, Input>
+ *     : false
  */
 
 // ✓ TMany: verified type-identical to the original
@@ -43,5 +46,15 @@ export function TMany(Allowed: string[], Discard: string[], Input: string, Resul
   return [Result, Input]
 }
 /* compiles to:
- * export type TMany<Allowed extends string[], Discard extends string[], Input extends string, Result extends string = ''> = TTake<Allowed, Input> extends [infer Char extends string, infer Rest extends string] ? TIsDiscard<Discard, Char> extends true ? TMany<Allowed, Discard, Rest, Result> : TMany<Allowed, Discard, Rest, `${Result}${Char}`> : [Result, Input]
+ * export type TMany<
+ *   Allowed extends string[],
+ *   Discard extends string[],
+ *   Input extends string,
+ *   Result extends string = ''
+ * > =
+ *   TTake<Allowed, Input> extends [infer Char extends string, infer Rest extends string]
+ *     ? TIsDiscard<Discard, Char> extends true
+ *       ? TMany<Allowed, Discard, Rest, Result>
+ *       : TMany<Allowed, Discard, Rest, `${Result}${Char}`>
+ *     : [Result, Input]
  */

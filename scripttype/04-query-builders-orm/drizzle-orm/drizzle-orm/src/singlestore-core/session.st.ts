@@ -16,19 +16,20 @@ declare const SingleStorePreparedQuery: any
 declare const SingleStorePreparedQueryConfig: any
 declare const SingleStorePreparedQueryHKT: any
 declare const SingleStoreQueryResultHKT: any
-type Assume<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Equal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStorePreparedQuery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStorePreparedQueryConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStorePreparedQueryHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStorePreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStorePreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStorePreparedQueryHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreQueryResultKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreQueryResultKind(TKind: SingleStoreQueryResultHKT, TRow) {
   return (merge(TKind, { row: readonlyProp(TRow) }))['type']
 }
 /* compiles to:
- * export type SingleStoreQueryResultKind<TKind extends SingleStoreQueryResultHKT, TRow> = (TKind & { readonly row: TRow })['type']
+ * export type SingleStoreQueryResultKind<TKind extends SingleStoreQueryResultHKT, TRow> =
+ *   (TKind & { readonly row: TRow })['type']
  */
 
 // ✓ PreparedQueryKind: verified type-identical to the original
@@ -40,5 +41,12 @@ export function PreparedQueryKind(TKind: SingleStorePreparedQueryHKT, TConfig: S
   return (merge(TKind, { config: readonlyProp(TConfig) }))['type']
 }
 /* compiles to:
- * export type PreparedQueryKind<TKind extends SingleStorePreparedQueryHKT, TConfig extends SingleStorePreparedQueryConfig, TAssume extends boolean = false> = Equal<TAssume, true> extends true ? Assume<(TKind & { readonly config: TConfig })['type'], SingleStorePreparedQuery<TConfig>> : (TKind & { readonly config: TConfig })['type']
+ * export type PreparedQueryKind<
+ *   TKind extends SingleStorePreparedQueryHKT,
+ *   TConfig extends SingleStorePreparedQueryConfig,
+ *   TAssume extends boolean = false
+ * > =
+ *   Equal<TAssume, true> extends true
+ *     ? Assume<(TKind & { readonly config: TConfig })['type'], SingleStorePreparedQuery<TConfig>>
+ *     : (TKind & { readonly config: TConfig })['type']
  */

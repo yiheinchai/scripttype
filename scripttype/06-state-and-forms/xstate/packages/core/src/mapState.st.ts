@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const AnyMachineSnapshot: any
 declare const StateSchema: any
-type AnyMachineSnapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StateSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyMachineSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StateSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StateSchemaMapper: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StateSchemaMapper(TSnapshot: AnyMachineSnapshot, T: StateSchema, TResult) {
@@ -24,5 +24,17 @@ export function StateSchemaMapper(TSnapshot: AnyMachineSnapshot, T: StateSchema,
   return { map: optional(fnType([TSnapshot], TResult)), states: optional(out) }
 }
 /* compiles to:
- * export type StateSchemaMapper<TSnapshot extends AnyMachineSnapshot, T extends StateSchema, TResult> = { map?: (a0: TSnapshot) => TResult; states?: { [K in keyof T['states']]?: T['states'][K] extends StateSchema ? StateSchemaMapper<TSnapshot, T['states'][K], TResult> : never } }
+ * export type StateSchemaMapper<
+ *   TSnapshot extends AnyMachineSnapshot,
+ *   T extends StateSchema,
+ *   TResult
+ * > =
+ *   {
+ *     map?: (a0: TSnapshot) => TResult
+ *     states?: {
+ *       [K in keyof T['states']]?: T['states'][K] extends StateSchema
+ *         ? StateSchemaMapper<TSnapshot, T['states'][K], TResult>
+ *         : never
+ *     }
+ *   }
  */

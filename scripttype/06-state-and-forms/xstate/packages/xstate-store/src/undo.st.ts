@@ -15,16 +15,24 @@ declare const EventPayloadMap: any
 declare const StoreContext: any
 declare const UndoRedoEventOptions: any
 declare const UndoRedoSnapshotOptions: any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventPayloadMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndoRedoEventOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndoRedoSnapshotOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventPayloadMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndoRedoEventOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndoRedoSnapshotOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UndoRedoStrategyOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UndoRedoStrategyOptions(TContext: StoreContext, TEvent: EventObject, TEmitted: EventObject, TEventPayloadMap: EventPayloadMap) {
   return anyOf(merge({ strategy: optional('event') }, UndoRedoEventOptions(TContext, TEvent)), merge({ strategy: 'snapshot' }, UndoRedoSnapshotOptions(TContext, TEvent, TEmitted, TEventPayloadMap)))
 }
 /* compiles to:
- * export type UndoRedoStrategyOptions<TContext extends StoreContext, TEvent extends EventObject, TEmitted extends EventObject, TEventPayloadMap extends EventPayloadMap> = { strategy?: 'event' } & UndoRedoEventOptions<TContext, TEvent> | { strategy: 'snapshot' } & UndoRedoSnapshotOptions<TContext, TEvent, TEmitted, TEventPayloadMap>
+ * export type UndoRedoStrategyOptions<
+ *   TContext extends StoreContext,
+ *   TEvent extends EventObject,
+ *   TEmitted extends EventObject,
+ *   TEventPayloadMap extends EventPayloadMap
+ * > =
+ *   | { strategy?: 'event' } & UndoRedoEventOptions<TContext, TEvent>
+ *   | & { strategy: 'snapshot' }
+ *     & UndoRedoSnapshotOptions<TContext, TEvent, TEmitted, TEventPayloadMap>
  */

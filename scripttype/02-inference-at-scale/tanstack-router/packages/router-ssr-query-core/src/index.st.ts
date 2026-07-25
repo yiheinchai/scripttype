@@ -14,15 +14,21 @@ declare const AnyRouter: any
 declare const DehydrateOptions: any
 declare const HydrateOptions: any
 declare const QueryClient: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DehydrateOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HydrateOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DehydrateOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HydrateOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RouterSsrQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RouterSsrQueryOptions(TRouter: AnyRouter) {
   return { router: TRouter, queryClient: QueryClient, dehydrateOptions: optional(DehydrateOptions), hydrateOptions: optional(HydrateOptions), handleRedirects: optional(boolean) }
 }
 /* compiles to:
- * export type RouterSsrQueryOptions<TRouter extends AnyRouter> = { router: TRouter; queryClient: QueryClient; dehydrateOptions?: DehydrateOptions; hydrateOptions?: HydrateOptions; handleRedirects?: boolean }
+ * export type RouterSsrQueryOptions<TRouter extends AnyRouter> = {
+ *   router: TRouter
+ *   queryClient: QueryClient
+ *   dehydrateOptions?: DehydrateOptions
+ *   hydrateOptions?: HydrateOptions
+ *   handleRedirects?: boolean
+ * }
  */

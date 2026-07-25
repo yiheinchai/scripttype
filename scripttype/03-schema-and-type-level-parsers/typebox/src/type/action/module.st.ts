@@ -14,17 +14,20 @@ declare const TDeferred: any
 declare const TModuleInstantiate: any
 declare const TProperties: any
 declare const TState: any
-type TDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TModuleInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TModuleInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TModuleDeferred: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TModuleDeferred(Declarations: TProperties) {
   return TDeferred('Module', [Declarations])
 }
 /* compiles to:
- * export type TModuleDeferred<Declarations extends TProperties> = TDeferred<'Module', [Declarations]>
+ * export type TModuleDeferred<Declarations extends TProperties> = TDeferred<
+ *   'Module',
+ *   [Declarations]
+ * >
  */
 
 // ✓ TModule: verified type-identical to the original
@@ -33,5 +36,9 @@ export function TModule(Declarations: TProperties) {
   return TModuleInstantiate({}, TState([], []), Declarations)
 }
 /* compiles to:
- * export type TModule<Declarations extends TProperties> = TModuleInstantiate<{}, TState<[], []>, Declarations>
+ * export type TModule<Declarations extends TProperties> = TModuleInstantiate<
+ *   {},
+ *   TState<[], []>,
+ *   Declarations
+ * >
  */

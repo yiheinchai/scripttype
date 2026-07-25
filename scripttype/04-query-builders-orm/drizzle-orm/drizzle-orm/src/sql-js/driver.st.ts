@@ -11,12 +11,16 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const BaseSQLiteDatabase: any
-type BaseSQLiteDatabase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseSQLiteDatabase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLJsDatabase: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SQLJsDatabase(TSchema: Record<string, unknown> = Record(string, never)) {
   return BaseSQLiteDatabase('sync', voidType(), TSchema)
 }
 /* compiles to:
- * export type SQLJsDatabase<TSchema extends Record<string, unknown> = Record<string, never>> = BaseSQLiteDatabase<'sync', void, TSchema>
+ * export type SQLJsDatabase<TSchema extends Record<string, unknown> = Record<string, never>> = BaseSQLiteDatabase<
+ *   'sync',
+ *   void,
+ *   TSchema
+ * >
  */

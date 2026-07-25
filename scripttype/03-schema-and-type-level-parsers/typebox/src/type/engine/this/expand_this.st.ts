@@ -20,16 +20,16 @@ declare const TSchema: any
 declare const TThis: any
 declare const TTuple: any
 declare const TUnion: any
-type TArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TConstructor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TThis<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TThis<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromTypes(Properties: TProperties, Types: TSchema[]) {
@@ -46,8 +46,19 @@ export function TFromTypes(Properties: TProperties, Types: TSchema[]) {
   return Result
 }
 /* compiles to:
- * export type TFromTypes<Properties extends TProperties, Types extends TSchema[]> = TFromTypes__loop<Types, [], Properties>
- * type TFromTypes__loop<Types extends TSchema[], Result extends any[], Properties extends TProperties> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TFromTypes__loop<Right, [...Result, TFromType<Properties, Left>], Properties> : Result
+ * export type TFromTypes<Properties extends TProperties, Types extends TSchema[]> = TFromTypes__loop<
+ *   Types,
+ *   [],
+ *   Properties
+ * >
+ * type TFromTypes__loop<
+ *   Types extends TSchema[],
+ *   Result extends any[],
+ *   Properties extends TProperties
+ * > =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TFromTypes__loop<Right, [...Result, TFromType<Properties, Left>], Properties>
+ *     : Result
  */
 
 // ✓ TFromType: verified type-identical to the original
@@ -83,7 +94,18 @@ export function TFromType(Properties: TProperties, Type: TSchema) {
   return Type
 }
 /* compiles to:
- * export type TFromType<Properties extends TProperties, Type extends TSchema> = Type extends TArray<infer Type extends TSchema> ? TArray<TFromType<Properties, Type>> : Type extends TConstructor<infer Parameters extends TSchema[], infer InstanceType extends TSchema> ? TConstructor<TFromTypes<Properties, Parameters>, TFromType<Properties, InstanceType>> : Type extends TFunction<infer Parameters extends TSchema[], infer ReturnType extends TSchema> ? TFunction<TFromTypes<Properties, Parameters>, TFromType<Properties, ReturnType>> : Type extends TTuple<infer Types extends TSchema[]> ? TTuple<TFromTypes<Properties, Types>> : Type extends TUnion<infer Types extends TSchema[]> ? TUnion<TFromTypes<Properties, Types>> : Type extends TIntersect<infer Types extends TSchema[]> ? TIntersect<TFromTypes<Properties, Types>> : Type extends TThis ? TObject<Properties> : Type
+ * export type TFromType<Properties extends TProperties, Type extends TSchema> =
+ *   Type extends TArray<infer Type extends TSchema> ? TArray<TFromType<Properties, Type>>
+ *   : Type extends TConstructor<infer Parameters extends TSchema[], infer InstanceType extends TSchema>
+ *     ? TConstructor<TFromTypes<Properties, Parameters>, TFromType<Properties, InstanceType>>
+ *   : Type extends TFunction<infer Parameters extends TSchema[], infer ReturnType extends TSchema>
+ *     ? TFunction<TFromTypes<Properties, Parameters>, TFromType<Properties, ReturnType>>
+ *   : Type extends TTuple<infer Types extends TSchema[]> ? TTuple<TFromTypes<Properties, Types>>
+ *   : Type extends TUnion<infer Types extends TSchema[]> ? TUnion<TFromTypes<Properties, Types>>
+ *   : Type extends TIntersect<infer Types extends TSchema[]>
+ *     ? TIntersect<TFromTypes<Properties, Types>>
+ *   : Type extends TThis ? TObject<Properties>
+ *   : Type
  */
 
 // ✓ TExpandThis: verified type-identical to the original
@@ -92,5 +114,10 @@ export function TExpandThis(Properties: TProperties, Type: TSchema, Result: TSch
   return Result
 }
 /* compiles to:
- * export type TExpandThis<Properties extends TProperties, Type extends TSchema, Result extends TSchema = TFromType<Properties, Type>> = Result
+ * export type TExpandThis<
+ *   Properties extends TProperties,
+ *   Type extends TSchema,
+ *   Result extends TSchema = TFromType<Properties, Type>
+ * > =
+ *   Result
  */

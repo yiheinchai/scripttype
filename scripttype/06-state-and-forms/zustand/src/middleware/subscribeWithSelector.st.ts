@@ -26,7 +26,8 @@ export function WithSelectorSubscribe(S) {
   return never
 }
 /* compiles to:
- * export type WithSelectorSubscribe<S> = S extends { getState: () => infer T; } ? Write<S, StoreSubscribeWithSelector<T>> : never
+ * export type WithSelectorSubscribe<S> =
+ *   S extends { getState: () => infer T; } ? Write<S, StoreSubscribeWithSelector<T>> : never
  */
 
 // ✗ StoreSubscribeWithSelector: uses raw() — language gap, does not count as covered

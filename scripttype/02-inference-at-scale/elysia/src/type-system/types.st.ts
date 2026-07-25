@@ -14,10 +14,10 @@ declare const ElysiaFormData: any
 declare const TObject: any
 declare const TProperties: any
 declare const TUnsafe: any
-type ElysiaFormData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnsafe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ElysiaFormData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnsafe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NonEmptyArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonEmptyArray(T) {
@@ -33,7 +33,9 @@ export function TForm(T: TProperties = TProperties) {
   return TUnsafe(ElysiaFormData(TObject(T)['static']))
 }
 /* compiles to:
- * export type TForm<T extends TProperties = TProperties> = TUnsafe<ElysiaFormData<TObject<T>['static']>>
+ * export type TForm<T extends TProperties = TProperties> = TUnsafe<
+ *   ElysiaFormData<TObject<T>['static']>
+ * >
  */
 
 // ✓ TransformFunction: verified type-identical to the original
@@ -50,10 +52,15 @@ export function TransformFunction(T = any, U = any) {
 export function AssertNumericEnum(T: Record<string, string | number>) {
   const out = emptyObject
   for (const K in keyof(T)) {
-    out[K] = matches<number>(K) ? string : (matches<`${number}`>(K) ? string : (matches<string>(K) ? number : never))
+    out[K] = typeof K === 'number' ? string : (matches<`${number}`>(K) ? string : (typeof K === 'string' ? number : never))
   }
   return out
 }
 /* compiles to:
- * export type AssertNumericEnum<T extends Record<string, string | number>> = { [K in keyof T]: K extends number ? string : K extends `${number}` ? string : K extends string ? number : never }
+ * export type AssertNumericEnum<T extends Record<string, string | number>> = {
+ *   [K in keyof T]: K extends number ? string
+ *   : K extends `${number}` ? string
+ *   : K extends string ? number
+ *   : never
+ * }
  */

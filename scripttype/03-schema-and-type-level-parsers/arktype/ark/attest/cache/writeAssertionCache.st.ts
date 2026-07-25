@@ -13,9 +13,9 @@
 declare const TypeAssertionKind: any
 declare const TypeBenchmarkingAssertionData: any
 declare const TypeRelationshipAssertionData: any
-type TypeAssertionKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypeBenchmarkingAssertionData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypeRelationshipAssertionData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TypeAssertionKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypeBenchmarkingAssertionData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypeRelationshipAssertionData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TypeAssertionData: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TypeAssertionData(kind: TypeAssertionKind = TypeAssertionKind) {
@@ -25,5 +25,6 @@ export function TypeAssertionData(kind: TypeAssertionKind = TypeAssertionKind) {
   return TypeRelationshipAssertionData
 }
 /* compiles to:
- * export type TypeAssertionData<kind extends TypeAssertionKind = TypeAssertionKind> = kind extends 'bench' ? TypeBenchmarkingAssertionData : TypeRelationshipAssertionData
+ * export type TypeAssertionData<kind extends TypeAssertionKind = TypeAssertionKind> =
+ *   kind extends 'bench' ? TypeBenchmarkingAssertionData : TypeRelationshipAssertionData
  */

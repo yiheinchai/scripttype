@@ -22,18 +22,18 @@ declare const StoreDefinition: any
 declare const StoreFromStoreConfig: any
 declare const StoreFromStoreLogicCreator: any
 declare const ValueFromAtomConfig: any
-type AnyAtomConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyStoreConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyStoreLogicCreator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AtomDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseAtom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InputFromAtomConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InputFromStoreLogicCreator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Ref<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreFromStoreConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreFromStoreLogicCreator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueFromAtomConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyAtomConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyStoreConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyStoreLogicCreator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AtomDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseAtom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InputFromAtomConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InputFromStoreLogicCreator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Ref<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreFromStoreConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreFromStoreLogicCreator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueFromAtomConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StoreFromStoreDefinition: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StoreFromStoreDefinition(TDefinition: StoreDefinition) {
@@ -46,7 +46,10 @@ export function StoreFromStoreDefinition(TDefinition: StoreDefinition) {
   return never
 }
 /* compiles to:
- * export type StoreFromStoreDefinition<TDefinition extends StoreDefinition> = TDefinition extends AnyStoreLogicCreator ? StoreFromStoreLogicCreator<TDefinition> : TDefinition extends AnyStoreConfig ? StoreFromStoreConfig<TDefinition> : never
+ * export type StoreFromStoreDefinition<TDefinition extends StoreDefinition> =
+ *   TDefinition extends AnyStoreLogicCreator ? StoreFromStoreLogicCreator<TDefinition>
+ *   : TDefinition extends AnyStoreConfig ? StoreFromStoreConfig<TDefinition>
+ *   : never
  */
 
 // ✓ UseStoreArgs: verified type-identical to the original
@@ -61,7 +64,12 @@ export function UseStoreArgs(TDefinition: StoreDefinition) {
   return [TDefinition]
 }
 /* compiles to:
- * export type UseStoreArgs<TDefinition extends StoreDefinition> = TDefinition extends AnyStoreLogicCreator ? undefined extends InputFromStoreLogicCreator<TDefinition> ? [TDefinition, InputFromStoreLogicCreator<TDefinition>] : [TDefinition, InputFromStoreLogicCreator<TDefinition>] : [TDefinition]
+ * export type UseStoreArgs<TDefinition extends StoreDefinition> =
+ *   TDefinition extends AnyStoreLogicCreator
+ *     ? undefined extends InputFromStoreLogicCreator<TDefinition>
+ *       ? [TDefinition, InputFromStoreLogicCreator<TDefinition>]
+ *       : [TDefinition, InputFromStoreLogicCreator<TDefinition>]
+ *     : [TDefinition]
  */
 
 // ✓ AtomStateFromDefinition: verified type-identical to the original
@@ -77,7 +85,14 @@ export function AtomStateFromDefinition(TDefinition: AtomDefinition) {
   return never
 }
 /* compiles to:
- * export type AtomStateFromDefinition<TDefinition extends AtomDefinition> = TDefinition extends AnyAtomConfig ? readonly [Readonly<Ref<ValueFromAtomConfig<TDefinition>>>, ReturnType<TDefinition['createAtom']>] : TDefinition extends BaseAtom<infer TValue> ? readonly [Readonly<Ref<TValue>>, TDefinition] : never
+ * export type AtomStateFromDefinition<TDefinition extends AtomDefinition> =
+ *   TDefinition extends AnyAtomConfig
+ *     ? readonly [
+ *       Readonly<Ref<ValueFromAtomConfig<TDefinition>>>,
+ *       ReturnType<TDefinition['createAtom']>
+ *     ]
+ *   : TDefinition extends BaseAtom<infer TValue> ? readonly [Readonly<Ref<TValue>>, TDefinition]
+ *   : never
  */
 
 // ✓ UseAtomStateArgs: verified type-identical to the original
@@ -92,7 +107,12 @@ export function UseAtomStateArgs(TDefinition: AtomDefinition) {
   return [TDefinition]
 }
 /* compiles to:
- * export type UseAtomStateArgs<TDefinition extends AtomDefinition> = TDefinition extends AnyAtomConfig ? undefined extends InputFromAtomConfig<TDefinition> ? [TDefinition, InputFromAtomConfig<TDefinition>] : [TDefinition, InputFromAtomConfig<TDefinition>] : [TDefinition]
+ * export type UseAtomStateArgs<TDefinition extends AtomDefinition> =
+ *   TDefinition extends AnyAtomConfig
+ *     ? undefined extends InputFromAtomConfig<TDefinition>
+ *       ? [TDefinition, InputFromAtomConfig<TDefinition>]
+ *       : [TDefinition, InputFromAtomConfig<TDefinition>]
+ *     : [TDefinition]
  */
 
 // ✗ AtomConfigInput: compiles but is not type-identical yet

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Is: any
 declare const Match: any
-type Is<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Is<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _Replace: does not compile yet
 //   Type 'Is<M, O[K], match>' cannot be used to index type '{ '1': A; '0': O[K]; }'.
 /* @scripttype preserveParamNames */
@@ -25,7 +25,8 @@ export function _Replace(O: object, M: any, A: any, match: Match) {
   return merge(out, {})
 }
 /* compiles to:
- * export type _Replace<O extends object, M extends any, A extends any, match extends Match> = { [K in keyof O]: { '1': A; '0': O[K] }[Is<M, O[K], match>] } & {}
+ * export type _Replace<O extends object, M extends any, A extends any, match extends Match> =
+ *   { [K in keyof O]: { '1': A; '0': O[K] }[Is<M, O[K], match>] } & {}
  */
 
 // ✓ Replace: verified type-identical to the original
@@ -37,5 +38,11 @@ export function Replace(O: object, M: any, A: any, match: Match = 'default') {
   return never
 }
 /* compiles to:
- * export type Replace<O extends object, M extends any, A extends any, match extends Match = 'default'> = O extends unknown ? _Replace<O, M, A, match> : never
+ * export type Replace<
+ *   O extends object,
+ *   M extends any,
+ *   A extends any,
+ *   match extends Match = 'default'
+ * > =
+ *   O extends unknown ? _Replace<O, M, A, match> : never
  */

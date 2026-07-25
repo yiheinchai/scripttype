@@ -18,14 +18,14 @@ declare const TNever: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TConstructor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstanceTypeDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstanceTypeDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TInstanceTypeOperation: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TInstanceTypeOperation(Type: TSchema) {
@@ -35,7 +35,8 @@ export function TInstanceTypeOperation(Type: TSchema) {
   return TNever
 }
 /* compiles to:
- * export type TInstanceTypeOperation<Type extends TSchema> = Type extends TConstructor ? Type['instanceType'] : TNever
+ * export type TInstanceTypeOperation<Type extends TSchema> =
+ *   Type extends TConstructor ? Type['instanceType'] : TNever
  */
 
 // ✓ TInstanceTypeAction: verified type-identical to the original
@@ -44,7 +45,11 @@ export function TInstanceTypeAction(Type: TSchema, Result: TSchema = matches<tru
   return Result
 }
 /* compiles to:
- * export type TInstanceTypeAction<Type extends TSchema, Result extends TSchema = TCanInstantiate<[Type]> extends true ? TInstanceTypeOperation<Type> : TInstanceTypeDeferred<Type>> = Result
+ * export type TInstanceTypeAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type]> extends true ? TInstanceTypeOperation<Type> : TInstanceTypeDeferred<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TInstanceTypeInstantiate: verified type-identical to the original
@@ -53,5 +58,11 @@ export function TInstanceTypeInstantiate(Context: TProperties, State: TState, Ty
   return TInstanceTypeAction(InstantiatedType)
 }
 /* compiles to:
- * export type TInstanceTypeInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>> = TInstanceTypeAction<InstantiatedType>
+ * export type TInstanceTypeInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TInstanceTypeAction<InstantiatedType>
  */

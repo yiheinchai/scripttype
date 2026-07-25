@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Scanner {
+  export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Anchor: any
 declare const AnchorMarker: any
 declare const Backslash: any
@@ -24,20 +27,20 @@ declare const parseEscape: any
 declare const parseGroup: any
 declare const parsePossibleRange: any
 declare const shift: any
-type Anchor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnchorMarker<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Backslash<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QuantifyingChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scanner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type State<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionTree<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseBuiltinQuantifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseCharset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseEscape<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseGroup<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parsePossibleRange<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type shift<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Anchor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnchorMarker<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Backslash<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QuantifyingChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type State<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionTree<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseBuiltinQuantifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseCharset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseEscape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseGroup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parsePossibleRange<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseState: does not compile yet
 //   only direct calls are supported
 /* @scripttype preserveParamNames */
@@ -101,5 +104,8 @@ export function maybeSplitCasing(caseInsensitive: boolean, char: string) {
   return UnionTree([Lowercase(char), Capitalize(char)])
 }
 /* compiles to:
- * export type maybeSplitCasing<caseInsensitive extends boolean, char extends string> = caseInsensitive extends false ? char : Lowercase<char> extends Uppercase<char> ? char : UnionTree<[Lowercase<char>, Capitalize<char>]>
+ * export type maybeSplitCasing<caseInsensitive extends boolean, char extends string> =
+ *   caseInsensitive extends false ? char
+ *   : Lowercase<char> extends Uppercase<char> ? char
+ *   : UnionTree<[Lowercase<char>, Capitalize<char>]>
  */

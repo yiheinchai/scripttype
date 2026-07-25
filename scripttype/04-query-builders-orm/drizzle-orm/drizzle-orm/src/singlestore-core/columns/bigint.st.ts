@@ -12,15 +12,24 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SingleStoreBigInt53Builder: any
 declare const SingleStoreBigInt64Builder: any
-type SingleStoreBigInt53Builder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreBigInt64Builder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SingleStoreBigInt53Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreBigInt64Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreBigInt53BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreBigInt53BuilderInitial(TName: string) {
   return SingleStoreBigInt53Builder({ name: TName, dataType: 'number', columnType: 'SingleStoreBigInt53', data: number, driverParam: number | string, enumValues: Undefined })
 }
 /* compiles to:
- * export type SingleStoreBigInt53BuilderInitial<TName extends string> = SingleStoreBigInt53Builder<{ name: TName; dataType: 'number'; columnType: 'SingleStoreBigInt53'; data: number; driverParam: number | string; enumValues: undefined }>
+ * export type SingleStoreBigInt53BuilderInitial<TName extends string> = SingleStoreBigInt53Builder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'SingleStoreBigInt53'
+ *     data: number
+ *     driverParam: number | string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ SingleStoreBigInt64BuilderInitial: verified type-identical to the original
@@ -29,5 +38,15 @@ export function SingleStoreBigInt64BuilderInitial(TName: string) {
   return SingleStoreBigInt64Builder({ name: TName, dataType: 'bigint', columnType: 'SingleStoreBigInt64', data: bigint, driverParam: string, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreBigInt64BuilderInitial<TName extends string> = SingleStoreBigInt64Builder<{ name: TName; dataType: 'bigint'; columnType: 'SingleStoreBigInt64'; data: bigint; driverParam: string; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreBigInt64BuilderInitial<TName extends string> = SingleStoreBigInt64Builder<
+ *   {
+ *     name: TName
+ *     dataType: 'bigint'
+ *     columnType: 'SingleStoreBigInt64'
+ *     data: bigint
+ *     driverParam: string
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */

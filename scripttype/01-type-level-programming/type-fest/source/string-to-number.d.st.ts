@@ -14,17 +14,20 @@ declare const IfNotAnyOrNever: any
 declare const N: any
 declare const NegativeInfinity: any
 declare const PositiveInfinity: any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type N<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type N<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringToNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StringToNumber(S: string) {
   return IfNotAnyOrNever(S, { ifNot: _StringToNumber(S), ifAny: number })
 }
 /* compiles to:
- * export type StringToNumber<S extends string> = IfNotAnyOrNever<S, { ifNot: _StringToNumber<S>; ifAny: number }>
+ * export type StringToNumber<S extends string> = IfNotAnyOrNever<
+ *   S,
+ *   { ifNot: _StringToNumber<S>; ifAny: number }
+ * >
  */
 
 // ✓ _StringToNumber: verified type-identical to the original
@@ -52,5 +55,11 @@ export function _StringToNumber(S: string) {
   return never
 }
 /* compiles to:
- * export type _StringToNumber<S extends string> = S extends `${infer N extends number}` ? number extends N ? `${number}` extends S ? N : never : N : string extends S ? number : S extends 'Infinity' ? PositiveInfinity : S extends '-Infinity' ? NegativeInfinity : never
+ * export type _StringToNumber<S extends string> =
+ *   S extends `${infer N extends number}`
+ *     ? number extends N ? `${number}` extends S ? N : never : N
+ *   : string extends S ? number
+ *   : S extends 'Infinity' ? PositiveInfinity
+ *   : S extends '-Infinity' ? NegativeInfinity
+ *   : never
  */

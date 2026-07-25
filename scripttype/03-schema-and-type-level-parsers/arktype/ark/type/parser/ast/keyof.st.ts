@@ -15,11 +15,11 @@ declare const inferAstRoot: any
 declare const typeToString: any
 declare const validateAst: any
 declare const writeNonStructuralOperandMessage: any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferAstRoot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type typeToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeNonStructuralOperandMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferAstRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type typeToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeNonStructuralOperandMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validateKeyof: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function validateKeyof(operandAst, $, args) {
@@ -33,5 +33,10 @@ export function validateKeyof(operandAst, $, args) {
   return never
 }
 /* compiles to:
- * export type validateKeyof<operandAst, $, args> = inferAstRoot<operandAst, $, args> extends infer data ? [data] extends [object] ? validateAst<operandAst, $, args> : ErrorMessage<writeNonStructuralOperandMessage<'keyof', typeToString<data>>> : never
+ * export type validateKeyof<operandAst, $, args> =
+ *   inferAstRoot<operandAst, $, args> extends infer data
+ *     ? [data] extends [object]
+ *       ? validateAst<operandAst, $, args>
+ *       : ErrorMessage<writeNonStructuralOperandMessage<'keyof', typeToString<data>>>
+ *     : never
  */

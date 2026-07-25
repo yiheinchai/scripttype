@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Narrowable: any
-type Narrowable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Narrowable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Exact: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Exact(A, W) {
@@ -22,7 +22,7 @@ export function Exact(A, W) {
       }
       const out = emptyObject
       for (const K in keyof(A)) {
-        out[K] = matches<keyof typeof W>(K) ? Exact(A[K], W[K]) : never
+        out[K] = K in W ? Exact(A[K], W[K]) : never
       }
       return out
     }
@@ -31,5 +31,12 @@ export function Exact(A, W) {
   return never
 }
 /* compiles to:
- * export type Exact<A, W> = W extends unknown ? A extends W ? A extends Narrowable ? A : { [K in keyof A]: K extends keyof W ? Exact<A[K], W[K]> : never } : W : never
+ * export type Exact<A, W> =
+ *   W extends unknown
+ *     ? A extends W
+ *       ? A extends Narrowable
+ *         ? A
+ *         : { [K in keyof A]: K extends keyof W ? Exact<A[K], W[K]> : never }
+ *       : W
+ *     : never
  */

@@ -18,7 +18,10 @@ export function UnionToIntersectionFn(T) {
   return never
 }
 /* compiles to:
- * export type UnionToIntersectionFn<T> = (T extends unknown ? (a0: () => T) => void : never) extends (k: infer Intersection) => void ? Intersection : never
+ * export type UnionToIntersectionFn<T> =
+ *   (T extends unknown ? (a0: () => T) => void : never) extends (k: infer Intersection) => void
+ *     ? Intersection
+ *     : never
  */
 
 // ✗ GetUnionLast: does not compile yet
@@ -51,7 +54,13 @@ export function UnionToTuple(T) {
 }
 /* compiles to:
  * export type UnionToTuple<T> = UnionToTuple__loop<T, []>
- * type UnionToTuple__loop<T, Tuple extends any[]> = [T] extends [never] ? Tuple : UnionToTuple__loop<Exclude<T, GetUnionLast<T>>, [GetUnionLast<Exclude<T, GetUnionLast<T>>>, ...Tuple]>
+ * type UnionToTuple__loop<T, Tuple extends any[]> =
+ *   [T] extends [never]
+ *     ? Tuple
+ *     : UnionToTuple__loop<
+ *       Exclude<T, GetUnionLast<T>>,
+ *       [GetUnionLast<Exclude<T, GetUnionLast<T>>>, ...Tuple]
+ *     >
  */
 
 // ✓ CastToStringTuple: verified type-identical to the original

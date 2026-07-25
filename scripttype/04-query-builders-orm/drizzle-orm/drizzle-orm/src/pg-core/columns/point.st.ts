@@ -12,15 +12,24 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PgPointObjectBuilder: any
 declare const PgPointTupleBuilder: any
-type PgPointObjectBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgPointTupleBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgPointObjectBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgPointTupleBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgPointTupleBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgPointTupleBuilderInitial(TName: string) {
   return PgPointTupleBuilder({ name: TName, dataType: 'array', columnType: 'PgPointTuple', data: [number, number], driverParam: number | string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgPointTupleBuilderInitial<TName extends string> = PgPointTupleBuilder<{ name: TName; dataType: 'array'; columnType: 'PgPointTuple'; data: [number, number]; driverParam: number | string; enumValues: undefined }>
+ * export type PgPointTupleBuilderInitial<TName extends string> = PgPointTupleBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'array'
+ *     columnType: 'PgPointTuple'
+ *     data: [number, number]
+ *     driverParam: number | string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ PgPointObjectBuilderInitial: verified type-identical to the original
@@ -29,5 +38,14 @@ export function PgPointObjectBuilderInitial(TName: string) {
   return PgPointObjectBuilder({ name: TName, dataType: 'json', columnType: 'PgPointObject', data: { x: number, y: number }, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgPointObjectBuilderInitial<TName extends string> = PgPointObjectBuilder<{ name: TName; dataType: 'json'; columnType: 'PgPointObject'; data: { x: number; y: number }; driverParam: string; enumValues: undefined }>
+ * export type PgPointObjectBuilderInitial<TName extends string> = PgPointObjectBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'json'
+ *     columnType: 'PgPointObject'
+ *     data: { x: number; y: number }
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */

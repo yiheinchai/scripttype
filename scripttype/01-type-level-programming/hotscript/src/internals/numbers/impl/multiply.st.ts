@@ -21,24 +21,27 @@ declare const Sign: any
 declare const ToDigitNumber: any
 declare const ToNumber: any
 declare const ToString: any
-type DigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FromDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MulDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MulSign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Normalize<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Num<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Sign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FromDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MulDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MulSign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Normalize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Sign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MulDigitNumbers: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MulDigitNumbers(T: DigitNumber, U: DigitNumber) {
   return MakeDigitNumber(MulSign(Sign(T), Sign(U)), MulDigits(Num(T), Num(U)))
 }
 /* compiles to:
- * export type MulDigitNumbers<T extends DigitNumber, U extends DigitNumber> = MakeDigitNumber<MulSign<Sign<T>, Sign<U>>, MulDigits<Num<T>, Num<U>>>
+ * export type MulDigitNumbers<T extends DigitNumber, U extends DigitNumber> = MakeDigitNumber<
+ *   MulSign<Sign<T>, Sign<U>>,
+ *   MulDigits<Num<T>, Num<U>>
+ * >
  */
 
 // ✓ Mul: verified type-identical to the original
@@ -47,5 +50,9 @@ export function Mul(T: number | bigint, U: number | bigint) {
   return ToNumber(FromDigitNumber(Normalize(MulDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U))))))
 }
 /* compiles to:
- * export type Mul<T extends number | bigint, U extends number | bigint> = ToNumber<FromDigitNumber<Normalize<MulDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>>>>
+ * export type Mul<T extends number | bigint, U extends number | bigint> = ToNumber<
+ *   FromDigitNumber<
+ *     Normalize<MulDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>>
+ *   >
+ * >
  */

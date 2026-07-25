@@ -10,12 +10,16 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace IndexedDbTable {
+  export type TableSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type WithName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Any: any
 declare const IndexedDbTable: any
 declare const IndexedDbVersion: any
-type Any<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IndexedDbTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IndexedDbVersion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IndexedDbTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IndexedDbVersion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Tables: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Tables(Db: Any) {
@@ -26,7 +30,8 @@ export function Tables(Db: Any) {
   return never
 }
 /* compiles to:
- * export type Tables<Db extends Any> = Db extends IndexedDbVersion<infer _Tables> ? _Tables : never
+ * export type Tables<Db extends Any> =
+ *   Db extends IndexedDbVersion<infer _Tables> ? _Tables : never
  */
 
 // ✓ TableWithName: verified type-identical to the original
@@ -35,7 +40,10 @@ export function TableWithName(Db: Any, TableName: string) {
   return IndexedDbTable.WithName(Tables(Db), TableName)
 }
 /* compiles to:
- * export type TableWithName<Db extends Any, TableName extends string> = IndexedDbTable.WithName<Tables<Db>, TableName>
+ * export type TableWithName<Db extends Any, TableName extends string> = IndexedDbTable.WithName<
+ *   Tables<Db>,
+ *   TableName
+ * >
  */
 
 // ✓ SchemaWithName: verified type-identical to the original
@@ -44,5 +52,7 @@ export function SchemaWithName(Db: Any, TableName: string) {
   return IndexedDbTable.TableSchema(IndexedDbTable.WithName(Tables(Db), TableName))
 }
 /* compiles to:
- * export type SchemaWithName<Db extends Any, TableName extends string> = IndexedDbTable.TableSchema<IndexedDbTable.WithName<Tables<Db>, TableName>>
+ * export type SchemaWithName<Db extends Any, TableName extends string> = IndexedDbTable.TableSchema<
+ *   IndexedDbTable.WithName<Tables<Db>, TableName>
+ * >
  */

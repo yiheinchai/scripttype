@@ -15,11 +15,11 @@ declare const IfNotAnyOrNever: any
 declare const IsExactOptionalPropertyTypesEnabled: any
 declare const SplitOnRestElement: any
 declare const UnknownArray: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsExactOptionalPropertyTypesEnabled<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SplitOnRestElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsExactOptionalPropertyTypesEnabled<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SplitOnRestElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ LastArrayElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function LastArrayElement(TArray: UnknownArray) {
@@ -27,7 +27,16 @@ export function LastArrayElement(TArray: UnknownArray) {
   return IfNotAnyOrNever(TArray, { ifNot: matches<UnknownArray>(TArray) ? (m1 ? _LastArrayElement(m1.BeforeRest, m1.Rest, m1.AfterRest) : never) : never })
 }
 /* compiles to:
- * export type LastArrayElement<TArray extends UnknownArray> = IfNotAnyOrNever<TArray, { ifNot: TArray extends UnknownArray ? SplitOnRestElement<TArray> extends readonly [infer BeforeRest extends UnknownArray, infer Rest extends UnknownArray, infer AfterRest extends UnknownArray] ? _LastArrayElement<BeforeRest, Rest, AfterRest> : never : never }>
+ * export type LastArrayElement<TArray extends UnknownArray> = IfNotAnyOrNever<
+ *   TArray,
+ *   {
+ *     ifNot: TArray extends UnknownArray
+ *       ? SplitOnRestElement<TArray> extends readonly [infer BeforeRest extends UnknownArray, infer Rest extends UnknownArray, infer AfterRest extends UnknownArray]
+ *         ? _LastArrayElement<BeforeRest, Rest, AfterRest>
+ *         : never
+ *       : never
+ *   }
+ * >
  */
 
 // ✓ _LastArrayElement: verified type-identical to the original
@@ -40,7 +49,14 @@ export function _LastArrayElement(BeforeRest: UnknownArray, Rest: UnknownArray, 
   return Rest[number] | BeforeRestLastElement(BeforeRest)
 }
 /* compiles to:
- * export type _LastArrayElement<BeforeRest extends UnknownArray, Rest extends UnknownArray, AfterRest extends UnknownArray> = AfterRest extends readonly [...any, infer Last] ? Last : Rest[number] | BeforeRestLastElement<BeforeRest>
+ * export type _LastArrayElement<
+ *   BeforeRest extends UnknownArray,
+ *   Rest extends UnknownArray,
+ *   AfterRest extends UnknownArray
+ * > =
+ *   AfterRest extends readonly [...any, infer Last]
+ *     ? Last
+ *     : Rest[number] | BeforeRestLastElement<BeforeRest>
  */
 
 // ✓ BeforeRestLastElement: verified type-identical to the original
@@ -60,5 +76,13 @@ export function BeforeRestLastElement(BeforeRest: UnknownArray, Accumulator = ne
   return never
 }
 /* compiles to:
- * export type BeforeRestLastElement<BeforeRest extends UnknownArray, Accumulator = never> = BeforeRest extends readonly [] ? Accumulator | undefined : BeforeRest extends readonly [...any, infer Last] ? Last | Accumulator : BeforeRest extends readonly [...infer Rest, infer Last] ? BeforeRestLastElement<Rest, Last | Accumulator | If<IsExactOptionalPropertyTypesEnabled, never, undefined>> : never
+ * export type BeforeRestLastElement<BeforeRest extends UnknownArray, Accumulator = never> =
+ *   BeforeRest extends readonly [] ? Accumulator | undefined
+ *   : BeforeRest extends readonly [...any, infer Last] ? Last | Accumulator
+ *   : BeforeRest extends readonly [...infer Rest, infer Last]
+ *     ? BeforeRestLastElement<
+ *       Rest,
+ *       Last | Accumulator | If<IsExactOptionalPropertyTypesEnabled, never, undefined>
+ *     >
+ *   : never
  */

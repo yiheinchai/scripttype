@@ -10,12 +10,16 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace StandardTypedV1 {
+  export type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const FailureResult: any
 declare const StandardTypedV1: any
 declare const SuccessResult: any
-type FailureResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StandardTypedV1<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SuccessResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FailureResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StandardTypedV1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SuccessResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ InferInput: does not compile yet
 //   'StandardTypedV1' has no exported member named 'InferInput__st5'. Did you mean 'InferInput__st0'?
 /* @scripttype preserveParamNames */
@@ -23,7 +27,8 @@ export function InferInput(Schema: StandardTypedV1) {
   return NonNullable(Schema['~standard']['types'])['input']
 }
 /* compiles to:
- * export type InferInput<Schema extends StandardTypedV1> = NonNullable<Schema['~standard']['types']>['input']
+ * export type InferInput<Schema extends StandardTypedV1> =
+ *   NonNullable<Schema['~standard']['types']>['input']
  */
 
 // ✗ InferOutput: does not compile yet
@@ -33,7 +38,8 @@ export function InferOutput(Schema: StandardTypedV1) {
   return NonNullable(Schema['~standard']['types'])['output']
 }
 /* compiles to:
- * export type InferOutput<Schema extends StandardTypedV1> = NonNullable<Schema['~standard']['types']>['output']
+ * export type InferOutput<Schema extends StandardTypedV1> =
+ *   NonNullable<Schema['~standard']['types']>['output']
  */
 
 // ✗ Result: does not compile yet

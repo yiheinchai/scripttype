@@ -18,14 +18,14 @@ declare const GenericSchema: any
 declare const IsEnumDefined: any
 declare const IsNever: any
 declare const JsonSchema: any
-type Assume<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Buffer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BufferSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Column<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GenericSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsEnumDefined<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JsonSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Buffer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BufferSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GenericSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsEnumDefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JsonSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ HasBaseColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HasBaseColumn(TColumn) {
@@ -38,7 +38,10 @@ export function HasBaseColumn(TColumn) {
   return false
 }
 /* compiles to:
- * export type HasBaseColumn<TColumn> = TColumn extends { _: { baseColumn: Column | undefined; }; } ? IsNever<TColumn['_']['baseColumn']> extends false ? true : false : false
+ * export type HasBaseColumn<TColumn> =
+ *   TColumn extends { _: { baseColumn: Column | undefined; }; }
+ *     ? IsNever<TColumn['_']['baseColumn']> extends false ? true : false
+ *     : false
  */
 
 // ✓ EnumValuesToEnum: verified type-identical to the original
@@ -51,7 +54,9 @@ export function EnumValuesToEnum(TEnumValues: [ string, ...string[] ]) {
   return out
 }
 /* compiles to:
- * export type EnumValuesToEnum<TEnumValues extends [string, ...string[]]> = { [K in TEnumValues[number]]: K }
+ * export type EnumValuesToEnum<TEnumValues extends [string, ...string[]]> = {
+ *   [K in TEnumValues[number]]: K
+ * }
  */
 
 // ✗ GetTypeboxType: the ScriptType does not itself typecheck as TypeScript
@@ -105,29 +110,58 @@ export function GetTypeboxType(TColumn: Column) {
   return GetTypeboxPrimitiveType(TColumn['_']['data'])
 }
 /* compiles to:
- * export type GetTypeboxType<TColumn extends Column> = TColumn['_']['columnType'] extends 'MySqlTinyInt' | 'SingleStoreTinyInt' | 'PgSmallInt' | 'PgSmallSerial' | 'MySqlSmallInt' | 'MySqlMediumInt' | 'SingleStoreSmallInt' | 'SingleStoreMediumInt' | 'PgInteger' | 'PgSerial' | 'MySqlInt' | 'SingleStoreInt' | 'PgBigInt53' | 'PgBigSerial53' | 'MySqlBigInt53' | 'MySqlSerial' | 'SingleStoreBigInt53' | 'SingleStoreSerial' | 'SQLiteInteger' | 'MySqlYear' | 'SingleStoreYear' ? t.TInteger : TColumn['_']['columnType'] extends 'PgBinaryVector' ? t.TRegExp : HasBaseColumn<TColumn> extends true ? t.TArray<GetTypeboxType<Assume<TColumn['_']['baseColumn'], Column>>> : IsEnumDefined<TColumn['_']['enumValues']> extends true ? t.TEnum<{ [K in Assume<TColumn['_']['enumValues'], string[]>[number]]: K }> : TColumn['_']['columnType'] extends 'PgGeometry' | 'PgPointTuple' ? t.TTuple<[t.TNumber, t.TNumber]> : TColumn['_']['columnType'] extends 'PgLine' ? t.TTuple<[t.TNumber, t.TNumber, t.TNumber]> : TColumn['_']['data'] extends Date ? t.TDate : TColumn['_']['data'] extends Buffer ? BufferSchema : TColumn['_']['dataType'] extends 'array' ? t.TArray<GetTypeboxPrimitiveType<Assume<TColumn['_']['data'], any[]>[number]>> : TColumn['_']['data'] extends Record<string, any> ? TColumn['_']['columnType'] extends 'PgJson' | 'PgJsonb' | 'MySqlJson' | 'SingleStoreJson' | 'SQLiteTextJson' | 'SQLiteBlobJson' ? GenericSchema<TColumn['_']['data']> : t.TObject<{ [K1 in keyof TColumn['_']['data']]: GetTypeboxPrimitiveType<TColumn['_']['data'][K1]> }> : TColumn['_']['dataType'] extends 'json' ? JsonSchema : GetTypeboxPrimitiveType<TColumn['_']['data']>
+ * export type GetTypeboxType<TColumn extends Column> =
+ *   TColumn['_']['columnType'] extends 'MySqlTinyInt' | 'SingleStoreTinyInt' | 'PgSmallInt' | 'PgSmallSerial' | 'MySqlSmallInt' | 'MySqlMediumInt' | 'SingleStoreSmallInt' | 'SingleStoreMediumInt' | 'PgInteger' | 'PgSerial' | 'MySqlInt' | 'SingleStoreInt' | 'PgBigInt53' | 'PgBigSerial53' | 'MySqlBigInt53' | 'MySqlSerial' | 'SingleStoreBigInt53' | 'SingleStoreSerial' | 'SQLiteInteger' | 'MySqlYear' | 'SingleStoreYear'
+ *     ? t.TInteger
+ *   : TColumn['_']['columnType'] extends 'PgBinaryVector' ? t.TRegExp
+ *   : HasBaseColumn<TColumn> extends true
+ *     ? t.TArray<GetTypeboxType<Assume<TColumn['_']['baseColumn'], Column>>>
+ *   : IsEnumDefined<TColumn['_']['enumValues']> extends true
+ *     ? t.TEnum<{ [K in Assume<TColumn['_']['enumValues'], string[]>[number]]: K }>
+ *   : TColumn['_']['columnType'] extends 'PgGeometry' | 'PgPointTuple'
+ *     ? t.TTuple<[t.TNumber, t.TNumber]>
+ *   : TColumn['_']['columnType'] extends 'PgLine' ? t.TTuple<[t.TNumber, t.TNumber, t.TNumber]>
+ *   : TColumn['_']['data'] extends Date ? t.TDate
+ *   : TColumn['_']['data'] extends Buffer ? BufferSchema
+ *   : TColumn['_']['dataType'] extends 'array'
+ *     ? t.TArray<GetTypeboxPrimitiveType<Assume<TColumn['_']['data'], any[]>[number]>>
+ *   : TColumn['_']['data'] extends Record<string, any>
+ *     ? TColumn['_']['columnType'] extends 'PgJson' | 'PgJsonb' | 'MySqlJson' | 'SingleStoreJson' | 'SQLiteTextJson' | 'SQLiteBlobJson'
+ *       ? GenericSchema<TColumn['_']['data']>
+ *       : t.TObject<
+ *         {
+ *           [K1 in keyof TColumn['_']['data']]: GetTypeboxPrimitiveType<TColumn['_']['data'][K1]>
+ *         }
+ *       >
+ *   : TColumn['_']['dataType'] extends 'json' ? JsonSchema
+ *   : GetTypeboxPrimitiveType<TColumn['_']['data']>
  */
 
 // ✗ GetTypeboxPrimitiveType: the ScriptType does not itself typecheck as TypeScript
 //   GetTypeboxPrimitiveType.st.ts(4:14) TS2339: Property 'TNumber' does not exist on type '<T = any>() => any'.
 /* @scripttype preserveParamNames */
 export function GetTypeboxPrimitiveType(TData) {
-  if (matches<number>(TData)) {
+  if (typeof TData === 'number') {
     return t.TNumber
   }
-  if (matches<bigint>(TData)) {
+  if (typeof TData === 'bigint') {
     return t.TBigInt
   }
-  if (matches<boolean>(TData)) {
+  if (typeof TData === 'boolean') {
     return t.TBoolean
   }
-  if (matches<string>(TData)) {
+  if (typeof TData === 'string') {
     return t.TString
   }
   return t.TAny
 }
 /* compiles to:
- * export type GetTypeboxPrimitiveType<TData> = TData extends number ? t.TNumber : TData extends bigint ? t.TBigInt : TData extends boolean ? t.TBoolean : TData extends string ? t.TString : t.TAny
+ * export type GetTypeboxPrimitiveType<TData> =
+ *   TData extends number ? t.TNumber
+ *   : TData extends bigint ? t.TBigInt
+ *   : TData extends boolean ? t.TBoolean
+ *   : TData extends string ? t.TString
+ *   : t.TAny
  */
 
 // ✗ HandleSelectColumn: the ScriptType does not itself typecheck as TypeScript
@@ -140,7 +174,8 @@ export function HandleSelectColumn(TSchema: t.TSchema, TColumn: Column) {
   return t.Union([TSchema, t.TNull])
 }
 /* compiles to:
- * export type HandleSelectColumn<TSchema extends t.TSchema, TColumn extends Column> = TColumn['_']['notNull'] extends true ? TSchema : t.Union<[TSchema, t.TNull]>
+ * export type HandleSelectColumn<TSchema extends t.TSchema, TColumn extends Column> =
+ *   TColumn['_']['notNull'] extends true ? TSchema : t.Union<[TSchema, t.TNull]>
  */
 
 // ✗ HandleInsertColumn: the ScriptType does not itself typecheck as TypeScript
@@ -156,7 +191,10 @@ export function HandleInsertColumn(TSchema: t.TSchema, TColumn: Column) {
   return t.TOptional(t.Union([TSchema, t.TNull]))
 }
 /* compiles to:
- * export type HandleInsertColumn<TSchema extends t.TSchema, TColumn extends Column> = TColumn['_']['notNull'] extends true ? TColumn['_']['hasDefault'] extends true ? t.TOptional<TSchema> : TSchema : t.TOptional<t.Union<[TSchema, t.TNull]>>
+ * export type HandleInsertColumn<TSchema extends t.TSchema, TColumn extends Column> =
+ *   TColumn['_']['notNull'] extends true
+ *     ? TColumn['_']['hasDefault'] extends true ? t.TOptional<TSchema> : TSchema
+ *     : t.TOptional<t.Union<[TSchema, t.TNull]>>
  */
 
 // ✗ HandleUpdateColumn: the ScriptType does not itself typecheck as TypeScript
@@ -169,7 +207,10 @@ export function HandleUpdateColumn(TSchema: t.TSchema, TColumn: Column) {
   return t.TOptional(t.Union([TSchema, t.TNull]))
 }
 /* compiles to:
- * export type HandleUpdateColumn<TSchema extends t.TSchema, TColumn extends Column> = TColumn['_']['notNull'] extends true ? t.TOptional<TSchema> : t.TOptional<t.Union<[TSchema, t.TNull]>>
+ * export type HandleUpdateColumn<TSchema extends t.TSchema, TColumn extends Column> =
+ *   TColumn['_']['notNull'] extends true
+ *     ? t.TOptional<TSchema>
+ *     : t.TOptional<t.Union<[TSchema, t.TNull]>>
  */
 
 // ✓ HandleColumn: verified type-identical to the original
@@ -187,5 +228,12 @@ export function HandleColumn(TType: 'select' | 'insert' | 'update', TColumn: Col
   return GetTypeboxType(TColumn)
 }
 /* compiles to:
- * export type HandleColumn<TType extends 'select' | 'insert' | 'update', TColumn extends Column> = TType extends 'select' ? HandleSelectColumn<GetTypeboxType<TColumn>, TColumn> : TType extends 'insert' ? HandleInsertColumn<GetTypeboxType<TColumn>, TColumn> : TType extends 'update' ? HandleUpdateColumn<GetTypeboxType<TColumn>, TColumn> : GetTypeboxType<TColumn>
+ * export type HandleColumn<
+ *   TType extends 'select' | 'insert' | 'update',
+ *   TColumn extends Column
+ * > =
+ *   TType extends 'select' ? HandleSelectColumn<GetTypeboxType<TColumn>, TColumn>
+ *   : TType extends 'insert' ? HandleInsertColumn<GetTypeboxType<TColumn>, TColumn>
+ *   : TType extends 'update' ? HandleUpdateColumn<GetTypeboxType<TColumn>, TColumn>
+ *   : GetTypeboxType<TColumn>
  */

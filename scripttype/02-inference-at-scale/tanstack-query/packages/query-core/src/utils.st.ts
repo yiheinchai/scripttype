@@ -17,7 +17,8 @@ export function DropLast(T: ReadonlyArray<unknown>) {
   return never
 }
 /* compiles to:
- * export type DropLast<T extends ReadonlyArray<unknown>> = T extends readonly [...infer R, unknown] ? readonly [...R] : never
+ * export type DropLast<T extends ReadonlyArray<unknown>> =
+ *   T extends readonly [...infer R, unknown] ? readonly [...R] : never
  */
 
 // ✓ TuplePrefixes: verified type-identical to the original
@@ -29,7 +30,8 @@ export function TuplePrefixes(T: ReadonlyArray<unknown>) {
   return anyOf(TuplePrefixes(DropLast(T)), T)
 }
 /* compiles to:
- * export type TuplePrefixes<T extends ReadonlyArray<unknown>> = T extends readonly [] ? readonly [] : TuplePrefixes<DropLast<T>> | T
+ * export type TuplePrefixes<T extends ReadonlyArray<unknown>> =
+ *   T extends readonly [] ? readonly [] : TuplePrefixes<DropLast<T>> | T
  */
 
 // ✓ Updater: verified type-identical to the original

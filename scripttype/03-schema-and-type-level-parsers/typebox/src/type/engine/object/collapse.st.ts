@@ -14,15 +14,20 @@ declare const TFromType: any
 declare const TObject: any
 declare const TProperties: any
 declare const TSchema: any
-type TFromType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCollapseToObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TCollapseToObject(Type: TSchema, Properties: TProperties = TFromType(Type), Result: TSchema = TObject(Properties)) {
   return Result
 }
 /* compiles to:
- * export type TCollapseToObject<Type extends TSchema, Properties extends TProperties = TFromType<Type>, Result extends TSchema = TObject<Properties>> = Result
+ * export type TCollapseToObject<
+ *   Type extends TSchema,
+ *   Properties extends TProperties = TFromType<Type>,
+ *   Result extends TSchema = TObject<Properties>
+ * > =
+ *   Result
  */

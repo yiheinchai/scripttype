@@ -12,15 +12,25 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SingleStoreTimestampBuilder: any
 declare const SingleStoreTimestampStringBuilder: any
-type SingleStoreTimestampBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreTimestampStringBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SingleStoreTimestampBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreTimestampStringBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreTimestampBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreTimestampBuilderInitial(TName: string) {
   return SingleStoreTimestampBuilder({ name: TName, dataType: 'date', columnType: 'SingleStoreTimestamp', data: t<Date>(), driverParam: string | number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreTimestampBuilderInitial<TName extends string> = SingleStoreTimestampBuilder<{ name: TName; dataType: 'date'; columnType: 'SingleStoreTimestamp'; data: Date; driverParam: string | number; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreTimestampBuilderInitial<TName extends string> = SingleStoreTimestampBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'date'
+ *     columnType: 'SingleStoreTimestamp'
+ *     data: Date
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */
 
 // ✓ SingleStoreTimestampStringBuilderInitial: verified type-identical to the original
@@ -29,5 +39,15 @@ export function SingleStoreTimestampStringBuilderInitial(TName: string) {
   return SingleStoreTimestampStringBuilder({ name: TName, dataType: 'string', columnType: 'SingleStoreTimestampString', data: string, driverParam: string | number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
- * export type SingleStoreTimestampStringBuilderInitial<TName extends string> = SingleStoreTimestampStringBuilder<{ name: TName; dataType: 'string'; columnType: 'SingleStoreTimestampString'; data: string; driverParam: string | number; enumValues: undefined; generated: undefined }>
+ * export type SingleStoreTimestampStringBuilderInitial<TName extends string> = SingleStoreTimestampStringBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'SingleStoreTimestampString'
+ *     data: string
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *     generated: undefined
+ *   }
+ * >
  */

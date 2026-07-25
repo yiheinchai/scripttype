@@ -16,12 +16,12 @@ declare const Digit: any
 declare const Digits: any
 declare const SubDigits: any
 declare const TrimZeros: any
-type AddDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CompareDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Digit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Digits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SubDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TrimZeros<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AddDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CompareDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Digits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SubDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TrimZeros<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Rest: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Rest(T: Digit[]) {
@@ -32,7 +32,7 @@ export function Rest(T: Digit[]) {
   return never
 }
 /* compiles to:
- * export type Rest<T extends Digit[]> = T extends [Digit, ...(infer R extends Digit[])] ? R : never
+ * export type Rest<T extends Digit[]> = T extends [Digit, ...infer R extends Digit[]] ? R : never
  */
 
 // ✓ TruncateWith: verified type-identical to the original
@@ -48,7 +48,11 @@ export function TruncateWith(T: Digit[], U: Digit[], Acc: Digit[] = []) {
   return [T, Acc]
 }
 /* compiles to:
- * export type TruncateWith<T extends Digit[], U extends Digit[], Acc extends Digit[] = []> = U extends [] ? [T, Acc] : T extends [infer D extends Digit, ...(infer DR extends Digit[])] ? TruncateWith<DR, Rest<U>, [...Acc, D]> : [T, Acc]
+ * export type TruncateWith<T extends Digit[], U extends Digit[], Acc extends Digit[] = []> =
+ *   U extends [] ? [T, Acc]
+ *   : T extends [infer D extends Digit, ...infer DR extends Digit[]]
+ *     ? TruncateWith<DR, Rest<U>, [...Acc, D]>
+ *   : [T, Acc]
  */
 
 // ✓ DivModByDigit: verified type-identical to the original
@@ -67,7 +71,19 @@ export function DivModByDigit(D: Digit[], M: Digit[], Mul: Digit[] = [0], IterTa
   return never
 }
 /* compiles to:
- * export type DivModByDigit<D extends Digit[], M extends Digit[], Mul extends Digit[] = [0], IterTable extends Digit[] = Digits, NextMul extends Digit[] = AddDigits<M, Mul>, Comp = CompareDigits<D, NextMul>> = IterTable extends [infer Iteration extends Digit, ...(infer Next extends Digit[])] ? Comp extends 0 ? { Quotient: Next[0]; Remainder: [0] } : Comp extends 1 ? DivModByDigit<D, M, NextMul, Next> : { Quotient: Iteration; Remainder: SubDigits<D, Mul> } : never
+ * export type DivModByDigit<
+ *   D extends Digit[],
+ *   M extends Digit[],
+ *   Mul extends Digit[] = [0],
+ *   IterTable extends Digit[] = Digits,
+ *   NextMul extends Digit[] = AddDigits<M, Mul>,
+ *   Comp = CompareDigits<D, NextMul>
+ * > =
+ *   IterTable extends [infer Iteration extends Digit, ...infer Next extends Digit[]]
+ *     ? Comp extends 0 ? { Quotient: Next[0]; Remainder: [0] }
+ *     : Comp extends 1 ? DivModByDigit<D, M, NextMul, Next>
+ *     : { Quotient: Iteration; Remainder: SubDigits<D, Mul> }
+ *     : never
  */
 
 // ✓ _DivModDigits: verified type-identical to the original
@@ -84,7 +100,17 @@ export function _DivModDigits(A: Digit[], D: Digit[], M: Digit[], Q: Digit[] = [
   return never
 }
 /* compiles to:
- * export type _DivModDigits<A extends Digit[], D extends Digit[], M extends Digit[], Q extends Digit[] = []> = DivModByDigit<D, M> extends { Quotient: infer B extends Digit; Remainder: infer R extends Digit[]; } ? A extends [infer A1 extends Digit, ...(infer AR extends Digit[])] ? _DivModDigits<AR, TrimZeros<[...R, A1]>, M, [...Q, B]> : { Quotient: [...Q, B]; Remainder: R } : never
+ * export type _DivModDigits<
+ *   A extends Digit[],
+ *   D extends Digit[],
+ *   M extends Digit[],
+ *   Q extends Digit[] = []
+ * > =
+ *   DivModByDigit<D, M> extends { Quotient: infer B extends Digit; Remainder: infer R extends Digit[]; }
+ *     ? A extends [infer A1 extends Digit, ...infer AR extends Digit[]]
+ *       ? _DivModDigits<AR, TrimZeros<[...R, A1]>, M, [...Q, B]>
+ *       : { Quotient: [...Q, B]; Remainder: R }
+ *     : never
  */
 
 // ✓ DivDigits: verified type-identical to the original
@@ -97,7 +123,10 @@ export function DivDigits(N: Digit[], M: Digit[]) {
   return never
 }
 /* compiles to:
- * export type DivDigits<N extends Digit[], M extends Digit[]> = TruncateWith<N, M> extends [infer A extends Digit[], infer D extends Digit[]] ? _DivModDigits<A, D, M>['Quotient'] : never
+ * export type DivDigits<N extends Digit[], M extends Digit[]> =
+ *   TruncateWith<N, M> extends [infer A extends Digit[], infer D extends Digit[]]
+ *     ? _DivModDigits<A, D, M>['Quotient']
+ *     : never
  */
 
 // ✓ ModDigits: verified type-identical to the original
@@ -110,7 +139,10 @@ export function ModDigits(N: Digit[], M: Digit[]) {
   return never
 }
 /* compiles to:
- * export type ModDigits<N extends Digit[], M extends Digit[]> = TruncateWith<N, M> extends [infer A extends Digit[], infer D extends Digit[]] ? _DivModDigits<A, D, M>['Remainder'] : never
+ * export type ModDigits<N extends Digit[], M extends Digit[]> =
+ *   TruncateWith<N, M> extends [infer A extends Digit[], infer D extends Digit[]]
+ *     ? _DivModDigits<A, D, M>['Remainder']
+ *     : never
  */
 
 // ✓ DivModDigits: verified type-identical to the original
@@ -123,5 +155,8 @@ export function DivModDigits(N: Digit[], M: Digit[]) {
   return never
 }
 /* compiles to:
- * export type DivModDigits<N extends Digit[], M extends Digit[]> = TruncateWith<N, M> extends [infer A extends Digit[], infer D extends Digit[]] ? _DivModDigits<A, D, M> : never
+ * export type DivModDigits<N extends Digit[], M extends Digit[]> =
+ *   TruncateWith<N, M> extends [infer A extends Digit[], infer D extends Digit[]]
+ *     ? _DivModDigits<A, D, M>
+ *     : never
  */

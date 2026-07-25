@@ -18,21 +18,26 @@ declare const Middleware: any
 declare const ReactReduxContextValue: any
 declare const TSHelpersExtractDispatchExtensions: any
 declare const UnknownAction: any
-type Action<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Context<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Dispatch<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DynamicMiddlewareInstance<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Middleware<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReactReduxContextValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSHelpersExtractDispatchExtensions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Action<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Dispatch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DynamicMiddlewareInstance<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Middleware<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReactReduxContextValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSHelpersExtractDispatchExtensions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseDispatchWithMiddlewareHook: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseDispatchWithMiddlewareHook(Middlewares: Middleware<any, typeof State, typeof DispatchType>[] = [], State = any, DispatchType: Dispatch<UnknownAction> = Dispatch(UnknownAction)) {
   return fnType([], merge(TSHelpersExtractDispatchExtensions(Middlewares), DispatchType))
 }
 /* compiles to:
- * export type UseDispatchWithMiddlewareHook<Middlewares extends Middleware<any, State, DispatchType>[] = [], State = any, DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>> = () => TSHelpersExtractDispatchExtensions<Middlewares> & DispatchType
+ * export type UseDispatchWithMiddlewareHook<
+ *   Middlewares extends Middleware<any, State, DispatchType>[] = [],
+ *   State = any,
+ *   DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>
+ * > =
+ *   () => TSHelpersExtractDispatchExtensions<Middlewares> & DispatchType
  */
 
 // ✗ CreateDispatchWithMiddlewareHook: uses raw() — language gap, does not count as covered
@@ -52,7 +57,8 @@ export function ActionFromDispatch(DispatchType: Dispatch<Action>) {
   return never
 }
 /* compiles to:
- * export type ActionFromDispatch<DispatchType extends Dispatch<Action>> = DispatchType extends Dispatch<infer Action> ? Action : never
+ * export type ActionFromDispatch<DispatchType extends Dispatch<Action>> =
+ *   DispatchType extends Dispatch<infer Action> ? Action : never
  */
 
 // ✓ ReactDynamicMiddlewareInstance: verified type-identical to the original
@@ -61,5 +67,15 @@ export function ReactDynamicMiddlewareInstance(State = any, DispatchType: Dispat
   return merge(DynamicMiddlewareInstance(State, DispatchType), { createDispatchWithMiddlewareHookFactory: fnType([Context(ReactReduxContextValue(State, ActionFromDispatch(DispatchType)) | Null)], CreateDispatchWithMiddlewareHook(State, DispatchType)), createDispatchWithMiddlewareHook: CreateDispatchWithMiddlewareHook(State, DispatchType) })
 }
 /* compiles to:
- * export type ReactDynamicMiddlewareInstance<State = any, DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>> = DynamicMiddlewareInstance<State, DispatchType> & { createDispatchWithMiddlewareHookFactory: (a0: Context<ReactReduxContextValue<State, ActionFromDispatch<DispatchType>> | null>) => CreateDispatchWithMiddlewareHook<State, DispatchType>; createDispatchWithMiddlewareHook: CreateDispatchWithMiddlewareHook<State, DispatchType> }
+ * export type ReactDynamicMiddlewareInstance<
+ *   State = any,
+ *   DispatchType extends Dispatch<UnknownAction> = Dispatch<UnknownAction>
+ * > =
+ *   & DynamicMiddlewareInstance<State, DispatchType>
+ *   & {
+ *       createDispatchWithMiddlewareHookFactory: (
+ *         a0: Context<ReactReduxContextValue<State, ActionFromDispatch<DispatchType>> | null>
+ *       ) => CreateDispatchWithMiddlewareHook<State, DispatchType>
+ *       createDispatchWithMiddlewareHook: CreateDispatchWithMiddlewareHook<State, DispatchType>
+ *     }
  */

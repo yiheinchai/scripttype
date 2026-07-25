@@ -8,19 +8,27 @@
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
 // ✗ TaggedUnion: the ScriptType does not itself typecheck as TypeScript
-//   TaggedUnion.st.ts(5:17) TS2304: Cannot find name 'Name'.
+//   TaggedUnion.st.ts(12:49) TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
 /* @scripttype preserveParamNames */
-export function TaggedUnion(TagKey: string, UnionMembers: Record<string, Record<string, unknown>>) {
-  const out2 = emptyObject
+export function TaggedUnion__v1(TagKey, Name) {
+  const out = emptyObject
   for (const Key in keySet(TagKey)) {
-    out2[Key] = Name
+    out[Key] = Name
   }
+  return out
+}
+export function TaggedUnion(TagKey: string, UnionMembers: Record<string, Record<string, unknown>>) {
   const out = emptyObject
   for (const Name in keyof(UnionMembers)) {
-    out[Name] = out2 & UnionMembers[Name]
+    out[Name] = TaggedUnion__v1(TagKey, Name) & UnionMembers[Name]
   }
   return out[keyof(UnionMembers)]
 }
 /* compiles to:
- * export type TaggedUnion<TagKey extends string, UnionMembers extends Record<string, Record<string, unknown>>> = { [Name in keyof UnionMembers]: { [Key in TagKey]: Name } & UnionMembers[Name] }[keyof UnionMembers]
+ * export type TaggedUnion__v1<TagKey, Name> = { [Key in TagKey]: Name }
+ * export type TaggedUnion<
+ *   TagKey extends string,
+ *   UnionMembers extends Record<string, Record<string, unknown>>
+ * > =
+ *   { [Name in keyof UnionMembers]: TaggedUnion__v1<TagKey, Name> & UnionMembers[Name] }[keyof UnionMembers]
  */

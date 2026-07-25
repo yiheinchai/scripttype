@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Whitespace: any
-type Whitespace<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Whitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TrimLeft: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TrimLeft(V: string) {
@@ -27,7 +27,8 @@ export function TrimLeft(V: string) {
 }
 /* compiles to:
  * export type TrimLeft<V extends string> = TrimLeft__loop<V>
- * type TrimLeft__loop<V extends string> = V extends `${Whitespace}${infer R}` ? TrimLeft__loop<R> : V
+ * type TrimLeft__loop<V extends string> =
+ *   V extends `${Whitespace}${infer R}` ? TrimLeft__loop<R> : V
  */
 
 // ✓ TrimRight: verified type-identical to the original
@@ -45,7 +46,8 @@ export function TrimRight(V: string) {
 }
 /* compiles to:
  * export type TrimRight<V extends string> = TrimRight__loop<V>
- * type TrimRight__loop<V extends string> = V extends `${infer R}${Whitespace}` ? TrimRight__loop<R> : V
+ * type TrimRight__loop<V extends string> =
+ *   V extends `${infer R}${Whitespace}` ? TrimRight__loop<R> : V
  */
 
 // ✓ Trim: verified type-identical to the original

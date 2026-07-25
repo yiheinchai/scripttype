@@ -14,21 +14,21 @@ declare const AliasedExpression: any
 declare const ShallowRecord: any
 declare const TableExpression: any
 declare const WheneableMergeQueryBuilder: any
-type AliasedExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ShallowRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WheneableMergeQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AliasedExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WheneableMergeQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtractWheneableMergeQueryBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExtractWheneableMergeQueryBuilder(DB, TT: keyof typeof DB, TE: TableExpression<typeof DB, typeof TT>, O) {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return UsingBuilder(DB, TT, m1.A, DB[m1.T], O)
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return WheneableMergeQueryBuilder(DB, TT, TE, O)
   }
   const m2 = matches<AliasedExpression<Hole<"QO">, Hole<"QA">>>(TE)
@@ -42,17 +42,32 @@ export function ExtractWheneableMergeQueryBuilder(DB, TT: keyof typeof DB, TE: T
   return never
 }
 /* compiles to:
- * export type ExtractWheneableMergeQueryBuilder<DB, TT extends keyof DB, TE extends TableExpression<DB, TT>, O> = TE extends `${infer T} as ${infer A}` ? T extends keyof DB ? UsingBuilder<DB, TT, A, DB[T], O> : never : TE extends keyof DB ? WheneableMergeQueryBuilder<DB, TT, TE, O> : TE extends AliasedExpression<infer QO, infer QA> ? UsingBuilder<DB, TT, QA, QO, O> : TE extends (qb: any) => AliasedExpression<infer QO, infer QA> ? UsingBuilder<DB, TT, QA, QO, O> : never
+ * export type ExtractWheneableMergeQueryBuilder<
+ *   DB,
+ *   TT extends keyof DB,
+ *   TE extends TableExpression<DB, TT>,
+ *   O
+ * > =
+ *   TE extends `${infer T} as ${infer A}`
+ *     ? T extends keyof DB ? UsingBuilder<DB, TT, A, DB[T], O> : never
+ *   : TE extends keyof DB ? WheneableMergeQueryBuilder<DB, TT, TE, O>
+ *   : TE extends AliasedExpression<infer QO, infer QA> ? UsingBuilder<DB, TT, QA, QO, O>
+ *   : TE extends (qb: any) => AliasedExpression<infer QO, infer QA>
+ *     ? UsingBuilder<DB, TT, QA, QO, O>
+ *   : never
  */
 
 // ✓ UsingBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UsingBuilder(DB, TT: keyof typeof DB, A: string, R, O) {
-  if (matches<keyof typeof DB>(A)) {
+  if (A in DB) {
     return WheneableMergeQueryBuilder(DB, TT, A, O)
   }
   return WheneableMergeQueryBuilder(DB & ShallowRecord(A, R), TT, A, O)
 }
 /* compiles to:
- * export type UsingBuilder<DB, TT extends keyof DB, A extends string, R, O> = A extends keyof DB ? WheneableMergeQueryBuilder<DB, TT, A, O> : WheneableMergeQueryBuilder<DB & ShallowRecord<A, R>, TT, A, O>
+ * export type UsingBuilder<DB, TT extends keyof DB, A extends string, R, O> =
+ *   A extends keyof DB
+ *     ? WheneableMergeQueryBuilder<DB, TT, A, O>
+ *     : WheneableMergeQueryBuilder<DB & ShallowRecord<A, R>, TT, A, O>
  */

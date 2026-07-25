@@ -14,19 +14,23 @@ declare const AliasedDynamicTableBuilder: any
 declare const AliasedExpression: any
 declare const AliasedExpressionOrFactory: any
 declare const DrainOuterGeneric: any
-type AliasedDynamicTableBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AliasedExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AliasedExpressionOrFactory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DrainOuterGeneric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractAliasFromTableExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AliasedDynamicTableBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AliasedExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AliasedExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractAliasFromTableExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TableExpression(DB, TB: keyof typeof DB) {
   return AnyAliasedTable(DB) | AnyTable(DB) | AliasedExpressionOrFactory(DB, TB) | AliasedDynamicTableBuilder(any, any)
 }
 /* compiles to:
- * export type TableExpression<DB, TB extends keyof DB> = AnyAliasedTable<DB> | AnyTable<DB> | AliasedExpressionOrFactory<DB, TB> | AliasedDynamicTableBuilder<any, any>
+ * export type TableExpression<DB, TB extends keyof DB> =
+ *   | AnyAliasedTable<DB>
+ *   | AnyTable<DB>
+ *   | AliasedExpressionOrFactory<DB, TB>
+ *   | AliasedDynamicTableBuilder<any, any>
  */
 
 // ✓ TableExpressionOrList: verified type-identical to the original
@@ -35,7 +39,8 @@ export function TableExpressionOrList(DB, TB: keyof typeof DB) {
   return TableExpression(DB, TB) | t<ReadonlyArray<TableExpression<typeof DB, typeof TB>>>()
 }
 /* compiles to:
- * export type TableExpressionOrList<DB, TB extends keyof DB> = TableExpression<DB, TB> | ReadonlyArray<TableExpression<DB, TB>>
+ * export type TableExpressionOrList<DB, TB extends keyof DB> =
+ *   TableExpression<DB, TB> | ReadonlyArray<TableExpression<DB, TB>>
  */
 
 // ✓ SimpleTableReference: verified type-identical to the original
@@ -70,12 +75,19 @@ export function AnyTable(DB) {
 export function From(DB, TE) {
   const out = emptyObject
   for (const C in keySet(keyof(DB) | ExtractAliasFromTableExpression(DB, TE))) {
-    out[C] = matches<ExtractAliasFromTableExpression<typeof DB, typeof TE>>(C) ? ExtractRowTypeFromTableExpression(DB, TE, C) : (matches<keyof typeof DB>(C) ? DB[C] : never)
+    out[C] = matches<ExtractAliasFromTableExpression<typeof DB, typeof TE>>(C) ? ExtractRowTypeFromTableExpression(DB, TE, C) : (C in DB ? DB[C] : never)
   }
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type From<DB, TE> = DrainOuterGeneric<{ [C in keyof DB | ExtractAliasFromTableExpression<DB, TE>]: C extends ExtractAliasFromTableExpression<DB, TE> ? ExtractRowTypeFromTableExpression<DB, TE, C> : C extends keyof DB ? DB[C] : never }>
+ * export type From<DB, TE> = DrainOuterGeneric<
+ *   {
+ *     [C in keyof DB | ExtractAliasFromTableExpression<DB, TE>]: C extends ExtractAliasFromTableExpression<DB, TE>
+ *       ? ExtractRowTypeFromTableExpression<DB, TE, C>
+ *     : C extends keyof DB ? DB[C]
+ *     : never
+ *   }
+ * >
  */
 
 // ✓ FromTables: verified type-identical to the original
@@ -84,7 +96,9 @@ export function FromTables(DB, TB: keyof typeof DB, TE) {
   return DrainOuterGeneric(anyOf(TB, ExtractAliasFromTableExpression(DB, TE)))
 }
 /* compiles to:
- * export type FromTables<DB, TB extends keyof DB, TE> = DrainOuterGeneric<TB | ExtractAliasFromTableExpression<DB, TE>>
+ * export type FromTables<DB, TB extends keyof DB, TE> = DrainOuterGeneric<
+ *   TB | ExtractAliasFromTableExpression<DB, TE>
+ * >
  */
 
 // ✓ ExtractTableAlias: verified type-identical to the original
@@ -92,29 +106,32 @@ export function FromTables(DB, TB: keyof typeof DB, TE) {
 export function ExtractTableAlias(DB, TE) {
   const m1 = matches<`${string} as ${Hole<"TA">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.TA)) {
+    if (m1.TA in DB) {
       return m1.TA
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return TE
   }
   return never
 }
 /* compiles to:
- * export type ExtractTableAlias<DB, TE> = TE extends `${string} as ${infer TA}` ? TA extends keyof DB ? TA : never : TE extends keyof DB ? TE : never
+ * export type ExtractTableAlias<DB, TE> =
+ *   TE extends `${string} as ${infer TA}` ? TA extends keyof DB ? TA : never
+ *   : TE extends keyof DB ? TE
+ *   : never
  */
 
 // ✓ ExtractAliasFromTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExtractAliasFromTableExpression(DB, TE) {
-  if (matches<string>(TE)) {
+  if (typeof TE === 'string') {
     const m1 = matches<`${string} as ${Hole<"TA">}`>(TE)
     if (m1) {
       return m1.TA
     }
-    if (matches<keyof typeof DB>(TE)) {
+    if (TE in DB) {
       return TE
     }
     return never
@@ -134,7 +151,13 @@ export function ExtractAliasFromTableExpression(DB, TE) {
   return never
 }
 /* compiles to:
- * export type ExtractAliasFromTableExpression<DB, TE> = TE extends string ? TE extends `${string} as ${infer TA}` ? TA : TE extends keyof DB ? TE : never : TE extends AliasedExpression<any, infer QA> ? QA : TE extends (qb: any) => AliasedExpression<any, infer QA> ? QA : TE extends AliasedDynamicTableBuilder<any, infer DA> ? DA : never
+ * export type ExtractAliasFromTableExpression<DB, TE> =
+ *   TE extends string
+ *     ? TE extends `${string} as ${infer TA}` ? TA : TE extends keyof DB ? TE : never
+ *   : TE extends AliasedExpression<any, infer QA> ? QA
+ *   : TE extends (qb: any) => AliasedExpression<any, infer QA> ? QA
+ *   : TE extends AliasedDynamicTableBuilder<any, infer DA> ? DA
+ *   : never
  */
 
 // ✓ ExtractRowTypeFromTableExpression: verified type-identical to the original
@@ -143,7 +166,7 @@ export function ExtractRowTypeFromTableExpression(DB, TE, A: keyof any) {
   const m1 = matches<`${Hole<"T">} as ${Hole<"TA">}`>(TE)
   if (m1) {
     if (matches<typeof A>(m1.TA)) {
-      if (matches<keyof typeof DB>(m1.T)) {
+      if (m1.T in DB) {
         return DB[m1.T]
       }
       return never
@@ -151,7 +174,7 @@ export function ExtractRowTypeFromTableExpression(DB, TE, A: keyof any) {
     return never
   }
   if (matches<typeof A>(TE)) {
-    if (matches<keyof typeof DB>(TE)) {
+    if (TE in DB) {
       return DB[TE]
     }
     return never
@@ -173,7 +196,7 @@ export function ExtractRowTypeFromTableExpression(DB, TE, A: keyof any) {
   const m4 = matches<AliasedDynamicTableBuilder<Hole<"T">, Hole<"DA">>>(TE)
   if (m4) {
     if (matches<typeof A>(m4.DA)) {
-      if (matches<keyof typeof DB>(m4.T)) {
+      if (m4.T in DB) {
         return DB[m4.T]
       }
       return never
@@ -183,5 +206,13 @@ export function ExtractRowTypeFromTableExpression(DB, TE, A: keyof any) {
   return never
 }
 /* compiles to:
- * export type ExtractRowTypeFromTableExpression<DB, TE, A extends keyof any> = TE extends `${infer T} as ${infer TA}` ? TA extends A ? T extends keyof DB ? DB[T] : never : never : TE extends A ? TE extends keyof DB ? DB[TE] : never : TE extends AliasedExpression<infer O, infer QA> ? QA extends A ? O : never : TE extends (qb: any) => AliasedExpression<infer O, infer QA> ? QA extends A ? O : never : TE extends AliasedDynamicTableBuilder<infer T, infer DA> ? DA extends A ? T extends keyof DB ? DB[T] : never : never : never
+ * export type ExtractRowTypeFromTableExpression<DB, TE, A extends keyof any> =
+ *   TE extends `${infer T} as ${infer TA}`
+ *     ? TA extends A ? T extends keyof DB ? DB[T] : never : never
+ *   : TE extends A ? TE extends keyof DB ? DB[TE] : never
+ *   : TE extends AliasedExpression<infer O, infer QA> ? QA extends A ? O : never
+ *   : TE extends (qb: any) => AliasedExpression<infer O, infer QA> ? QA extends A ? O : never
+ *   : TE extends AliasedDynamicTableBuilder<infer T, infer DA>
+ *     ? DA extends A ? T extends keyof DB ? DB[T] : never : never
+ *   : never
  */

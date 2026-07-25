@@ -30,7 +30,8 @@ export function MapValue(BaseType) {
   return never
 }
 /* compiles to:
- * export type MapValue<BaseType> = BaseType extends Map<unknown, infer ValueType> ? ValueType : never
+ * export type MapValue<BaseType> =
+ *   BaseType extends Map<unknown, infer ValueType> ? ValueType : never
  */
 
 // ✓ _ArrayEntry: verified type-identical to the original
@@ -70,7 +71,8 @@ export function _SetEntry(BaseType) {
   return never
 }
 /* compiles to:
- * export type _SetEntry<BaseType> = BaseType extends Set<infer ItemType> ? [ItemType, ItemType] : never
+ * export type _SetEntry<BaseType> =
+ *   BaseType extends Set<infer ItemType> ? [ItemType, ItemType] : never
  */
 
 // ✓ Entry: verified type-identical to the original
@@ -91,5 +93,10 @@ export function Entry(BaseType) {
   return never
 }
 /* compiles to:
- * export type Entry<BaseType> = BaseType extends Map<unknown, unknown> ? _MapEntry<BaseType> : BaseType extends Set<unknown> ? _SetEntry<BaseType> : BaseType extends readonly unknown[] ? _ArrayEntry<BaseType> : BaseType extends object ? _ObjectEntry<BaseType> : never
+ * export type Entry<BaseType> =
+ *   BaseType extends Map<unknown, unknown> ? _MapEntry<BaseType>
+ *   : BaseType extends Set<unknown> ? _SetEntry<BaseType>
+ *   : BaseType extends readonly unknown[] ? _ArrayEntry<BaseType>
+ *   : BaseType extends object ? _ObjectEntry<BaseType>
+ *   : never
  */

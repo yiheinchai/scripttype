@@ -20,16 +20,16 @@ declare const List: any
 declare const Naked: any
 declare const Next: any
 declare const Pos: any
-type Append<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Naked<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Append<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Naked<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Zip: does not compile yet
 //   Type 'Extends<Pos<I>, Length<L>>' cannot be used to index type '{ '0': __Zip__st0<L, L1, [...LN, [L[Pos<I>], L1[Pos<I>]]], Next<I>>; '1': LN; }'.
 /* @scripttype preserveParamNames */
@@ -37,7 +37,13 @@ export function __Zip(L: List, L1: List, LN: List = [], I: Iteration = Iteration
   return { 0: __Zip(L, L1, Append(LN, [L[Pos(I)], L1[Pos(I)]]), Next(I)), 1: LN }[Extends(Pos(I), Length(L))]
 }
 /* compiles to:
- * export type __Zip<L extends List, L1 extends List, LN extends List = [], I extends Iteration = IterationOf<0>> = { '0': __Zip<L, L1, Append<LN, [L[Pos<I>], L1[Pos<I>]]>, Next<I>>; '1': LN }[Extends<Pos<I>, Length<L>>]
+ * export type __Zip<
+ *   L extends List,
+ *   L1 extends List,
+ *   LN extends List = [],
+ *   I extends Iteration = IterationOf<0>
+ * > =
+ *   { '0': __Zip<L, L1, Append<LN, [L[Pos<I>], L1[Pos<I>]]>, Next<I>>; '1': LN }[Extends<Pos<I>, Length<L>>]
  */
 
 // ✓ _Zip: verified type-identical to the original
@@ -50,7 +56,8 @@ export function _Zip(L: List, L1: List) {
   return never
 }
 /* compiles to:
- * export type _Zip<L extends List, L1 extends List> = __Zip<Naked<L>, L1> extends infer X ? Cast<X, List> : never
+ * export type _Zip<L extends List, L1 extends List> =
+ *   __Zip<Naked<L>, L1> extends infer X ? Cast<X, List> : never
  */
 
 // ✓ Zip: verified type-identical to the original
@@ -65,5 +72,6 @@ export function Zip(L: List, L1: List) {
   return never
 }
 /* compiles to:
- * export type Zip<L extends List, L1 extends List> = L extends unknown ? L1 extends unknown ? _Zip<L, L1> : never : never
+ * export type Zip<L extends List, L1 extends List> =
+ *   L extends unknown ? L1 extends unknown ? _Zip<L, L1> : never : never
  */

@@ -16,12 +16,12 @@ declare const TObject: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TUnknown: any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CyclicStackLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CyclicStackLength(Stack: unknown[], MaxLength: number, Buffer: unknown[] = []) {
@@ -35,7 +35,16 @@ export function CyclicStackLength(Stack: unknown[], MaxLength: number, Buffer: u
   return true
 }
 /* compiles to:
- * export type CyclicStackLength<Stack extends unknown[], MaxLength extends number, Buffer extends unknown[] = []> = Stack extends [infer Left, ...infer Right] ? Buffer['length'] extends MaxLength ? false : CyclicStackLength<Right, MaxLength, [...Buffer, Left]> : true
+ * export type CyclicStackLength<
+ *   Stack extends unknown[],
+ *   MaxLength extends number,
+ *   Buffer extends unknown[] = []
+ * > =
+ *   Stack extends [infer Left, ...infer Right]
+ *     ? Buffer['length'] extends MaxLength
+ *       ? false
+ *       : CyclicStackLength<Right, MaxLength, [...Buffer, Left]>
+ *     : true
  */
 
 // ✓ CyclicGuard: verified type-identical to the original
@@ -47,7 +56,8 @@ export function CyclicGuard(Stack: unknown[], Ref: string) {
   return true
 }
 /* compiles to:
- * export type CyclicGuard<Stack extends unknown[], Ref extends string> = Ref extends Stack[number] ? CyclicStackLength<Stack, 2> : true
+ * export type CyclicGuard<Stack extends unknown[], Ref extends string> =
+ *   Ref extends Stack[number] ? CyclicStackLength<Stack, 2> : true
  */
 
 // ✓ StaticGuardedRef: verified type-identical to the original
@@ -59,14 +69,33 @@ export function StaticGuardedRef(Stack: string[], Direction: StaticDirection, Co
   return any
 }
 /* compiles to:
- * export type StaticGuardedRef<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Ref extends string, Type extends TSchema> = CyclicGuard<Stack, Ref> extends true ? StaticType<[...Stack, Ref], Direction, Context, This, Type> : any
+ * export type StaticGuardedRef<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Ref extends string,
+ *   Type extends TSchema
+ * > =
+ *   CyclicGuard<Stack, Ref> extends true
+ *     ? StaticType<[...Stack, Ref], Direction, Context, This, Type>
+ *     : any
  */
 
 // ✓ StaticRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticRef(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Ref: string, Target: TSchema = matches<keyof typeof Context>(Ref) ? Context[Ref] : TUnknown, Result: unknown = matches<TObject>(Target) ? StaticType([], Direction, Context, This, Target) : StaticGuardedRef(Stack, Direction, Context, This, Ref, Target)) {
+export function StaticRef(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Ref: string, Target: TSchema = Ref in Context ? Context[Ref] : TUnknown, Result: unknown = matches<TObject>(Target) ? StaticType([], Direction, Context, This, Target) : StaticGuardedRef(Stack, Direction, Context, This, Ref, Target)) {
   return Result
 }
 /* compiles to:
- * export type StaticRef<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Ref extends string, Target extends TSchema = Ref extends keyof Context ? Context[Ref] : TUnknown, Result = Target extends TObject ? StaticType<[], Direction, Context, This, Target> : StaticGuardedRef<Stack, Direction, Context, This, Ref, Target>> = Result
+ * export type StaticRef<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Ref extends string,
+ *   Target extends TSchema = Ref extends keyof Context ? Context[Ref] : TUnknown,
+ *   Result = Target extends TObject ? StaticType<[], Direction, Context, This, Target> : StaticGuardedRef<Stack, Direction, Context, This, Ref, Target>
+ * > =
+ *   Result
  */

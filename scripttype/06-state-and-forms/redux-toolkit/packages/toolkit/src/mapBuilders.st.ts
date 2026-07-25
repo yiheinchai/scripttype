@@ -13,16 +13,39 @@
 declare const AsyncThunk: any
 declare const AsyncThunkConfig: any
 declare const CaseReducer: any
-type AsyncThunk<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AsyncThunkConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CaseReducer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AsyncThunk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AsyncThunkConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CaseReducer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AsyncThunkReducers: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AsyncThunkReducers(State, ThunkArg: any, Returned = unknown, ThunkApiConfig: AsyncThunkConfig = {}) {
   return { pending: optional(CaseReducer(State, ReturnType(AsyncThunk(Returned, ThunkArg, ThunkApiConfig)['pending']))), rejected: optional(CaseReducer(State, ReturnType(AsyncThunk(Returned, ThunkArg, ThunkApiConfig)['rejected']))), fulfilled: optional(CaseReducer(State, ReturnType(AsyncThunk(Returned, ThunkArg, ThunkApiConfig)['fulfilled']))), settled: optional(CaseReducer(State, ReturnType(AsyncThunk(Returned, ThunkArg, ThunkApiConfig)[anyOf('rejected', 'fulfilled')]))) }
 }
 /* compiles to:
- * export type AsyncThunkReducers<State, ThunkArg extends any, Returned = unknown, ThunkApiConfig extends AsyncThunkConfig = {}> = { pending?: CaseReducer<State, ReturnType<AsyncThunk<Returned, ThunkArg, ThunkApiConfig>['pending']>>; rejected?: CaseReducer<State, ReturnType<AsyncThunk<Returned, ThunkArg, ThunkApiConfig>['rejected']>>; fulfilled?: CaseReducer<State, ReturnType<AsyncThunk<Returned, ThunkArg, ThunkApiConfig>['fulfilled']>>; settled?: CaseReducer<State, ReturnType<AsyncThunk<Returned, ThunkArg, ThunkApiConfig>['rejected' | 'fulfilled']>> }
+ * export type AsyncThunkReducers<
+ *   State,
+ *   ThunkArg extends any,
+ *   Returned = unknown,
+ *   ThunkApiConfig extends AsyncThunkConfig = {}
+ * > =
+ *   {
+ *     pending?: CaseReducer<
+ *       State,
+ *       ReturnType<AsyncThunk<Returned, ThunkArg, ThunkApiConfig>['pending']>
+ *     >
+ *     rejected?: CaseReducer<
+ *       State,
+ *       ReturnType<AsyncThunk<Returned, ThunkArg, ThunkApiConfig>['rejected']>
+ *     >
+ *     fulfilled?: CaseReducer<
+ *       State,
+ *       ReturnType<AsyncThunk<Returned, ThunkArg, ThunkApiConfig>['fulfilled']>
+ *     >
+ *     settled?: CaseReducer<
+ *       State,
+ *       ReturnType<AsyncThunk<Returned, ThunkArg, ThunkApiConfig>['rejected' | 'fulfilled']>
+ *     >
+ *   }
  */
 
 // ✗ TypedActionCreator: uses raw() — language gap, does not count as covered

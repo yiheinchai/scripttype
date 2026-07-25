@@ -14,10 +14,10 @@ declare const StaticDirection: any
 declare const StaticType: any
 declare const TProperties: any
 declare const TSchema: any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticIntersect: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticIntersect(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Types: TSchema[]) {
@@ -34,6 +34,30 @@ export function StaticIntersect(Stack: string[], Direction: StaticDirection, Con
   return Result
 }
 /* compiles to:
- * export type StaticIntersect<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Types extends TSchema[]> = StaticIntersect__loop<Types, unknown, Stack, Direction, Context, This>
- * type StaticIntersect__loop<Types extends TSchema[], Result, Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? StaticIntersect__loop<Right, Result & StaticType<Stack, Direction, Context, This, Left>, Stack, Direction, Context, This> : Result
+ * export type StaticIntersect<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Types extends TSchema[]
+ * > =
+ *   StaticIntersect__loop<Types, unknown, Stack, Direction, Context, This>
+ * type StaticIntersect__loop<
+ *   Types extends TSchema[],
+ *   Result,
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties
+ * > =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? StaticIntersect__loop<
+ *       Right,
+ *       Result & StaticType<Stack, Direction, Context, This, Left>,
+ *       Stack,
+ *       Direction,
+ *       Context,
+ *       This
+ *     >
+ *     : Result
  */

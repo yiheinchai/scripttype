@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Solid {
+  export type JSX<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyRouter: any
 declare const DeepPartial: any
 declare const Expand: any
@@ -22,25 +25,36 @@ declare const RegisteredRouter: any
 declare const ResolveRoute: any
 declare const Solid: any
 declare const ToSubOptionsProps: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DeepPartial<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Expand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeOptionalPathParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeOptionalSearchParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeRouteMatchUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaskOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MatchRouteOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolveRoute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Solid<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToSubOptionsProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DeepPartial<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Expand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeOptionalPathParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeOptionalSearchParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeRouteMatchUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaskOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MatchRouteOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolveRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Solid<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToSubOptionsProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseMatchRouteOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = '') {
   return ToSubOptionsProps(TRouter, TFrom, TTo) & DeepPartial(MakeOptionalSearchParams(TRouter, TFrom, TTo)) & DeepPartial(MakeOptionalPathParams(TRouter, TFrom, TTo)) & MaskOptions(TRouter, TMaskFrom, TMaskTo) & MatchRouteOptions
 }
 /* compiles to:
- * export type UseMatchRouteOptions<TRouter extends AnyRouter = RegisteredRouter, TFrom extends string = string, TTo extends string | undefined = undefined, TMaskFrom extends string = TFrom, TMaskTo extends string = ''> = ToSubOptionsProps<TRouter, TFrom, TTo> & DeepPartial<MakeOptionalSearchParams<TRouter, TFrom, TTo>> & DeepPartial<MakeOptionalPathParams<TRouter, TFrom, TTo>> & MaskOptions<TRouter, TMaskFrom, TMaskTo> & MatchRouteOptions
+ * export type UseMatchRouteOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string | undefined = undefined,
+ *   TMaskFrom extends string = TFrom,
+ *   TMaskTo extends string = ''
+ * > =
+ *   & ToSubOptionsProps<TRouter, TFrom, TTo>
+ *   & DeepPartial<MakeOptionalSearchParams<TRouter, TFrom, TTo>>
+ *   & DeepPartial<MakeOptionalPathParams<TRouter, TFrom, TTo>>
+ *   & MaskOptions<TRouter, TMaskFrom, TMaskTo>
+ *   & MatchRouteOptions
  */
 
 // ✓ MakeMatchRouteOptions: verified type-identical to the original
@@ -49,7 +63,18 @@ export function MakeMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFr
   return merge(UseMatchRouteOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo), { children: optional(fnType([Expand(ResolveRoute(TRouter, TFrom, TTo)['types']['allParams'])], Solid.JSX.Element) | Solid.JSX.Element) })
 }
 /* compiles to:
- * export type MakeMatchRouteOptions<TRouter extends AnyRouter = RegisteredRouter, TFrom extends string = string, TTo extends string | undefined = undefined, TMaskFrom extends string = TFrom, TMaskTo extends string = ''> = UseMatchRouteOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo> & { children?: ((a0: Expand<ResolveRoute<TRouter, TFrom, TTo>['types']['allParams']>) => Solid.JSX.Element) | Solid.JSX.Element }
+ * export type MakeMatchRouteOptions<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TFrom extends string = string,
+ *   TTo extends string | undefined = undefined,
+ *   TMaskFrom extends string = TFrom,
+ *   TMaskTo extends string = ''
+ * > =
+ *   & UseMatchRouteOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo>
+ *   & {
+ *       children?: | ((a0: Expand<ResolveRoute<TRouter, TFrom, TTo>['types']['allParams']>) => Solid.JSX.Element)
+ *       | Solid.JSX.Element
+ *     }
  */
 
 // ✓ UseMatchesResult: verified type-identical to the original
@@ -61,5 +86,6 @@ export function UseMatchesResult(TRouter: AnyRouter, TSelected) {
   return TSelected
 }
 /* compiles to:
- * export type UseMatchesResult<TRouter extends AnyRouter, TSelected> = unknown extends TSelected ? Array<MakeRouteMatchUnion<TRouter>> : TSelected
+ * export type UseMatchesResult<TRouter extends AnyRouter, TSelected> =
+ *   unknown extends TSelected ? Array<MakeRouteMatchUnion<TRouter>> : TSelected
  */

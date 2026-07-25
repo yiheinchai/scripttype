@@ -10,6 +10,14 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Strings {
+  export type Split<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Tuples {
+  export type Drop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Join<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Take<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AppendFn: any
 declare const CompareFn: any
 declare const ComposeLeft: any
@@ -32,28 +40,28 @@ declare const TrimRightFn: any
 declare const Tuples: any
 declare const _: any
 declare const unset: any
-type AppendFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CompareFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ComposeLeft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EndsWithFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GreaterThanFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GreaterThanOrEqualFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LengthFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LessThanFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LessThanOrEqualFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PrependFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RepeatFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReplaceFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SplitFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StartsWithFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Strings<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TrimFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TrimLeftFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TrimRightFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tuples<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AppendFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CompareFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComposeLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EndsWithFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GreaterThanFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GreaterThanOrEqualFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LengthFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LessThanFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LessThanOrEqualFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PrependFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RepeatFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReplaceFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SplitFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StartsWithFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Strings<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TrimFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TrimLeftFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TrimRightFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tuples<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Length: does not compile yet
 //   Cannot find name 'LengthFn'.
 /* @scripttype preserveParamNames */
@@ -71,7 +79,10 @@ export function TrimLeft(Sep: string | _ = ' ', Str = unset) {
   return PartialApply(TrimLeftFn, [Sep, Str])
 }
 /* compiles to:
- * export type TrimLeft<Sep extends string | _ = ' ', Str = unset> = PartialApply<TrimLeftFn, [Sep, Str]>
+ * export type TrimLeft<Sep extends string | _ = ' ', Str = unset> = PartialApply<
+ *   TrimLeftFn,
+ *   [Sep, Str]
+ * >
  */
 
 // ✗ TrimRight: does not compile yet
@@ -81,7 +92,10 @@ export function TrimRight(Sep: string | _ = ' ', Str = unset) {
   return PartialApply(TrimRightFn, [Sep, Str])
 }
 /* compiles to:
- * export type TrimRight<Sep extends string | _ = ' ', Str = unset> = PartialApply<TrimRightFn, [Sep, Str]>
+ * export type TrimRight<Sep extends string | _ = ' ', Str = unset> = PartialApply<
+ *   TrimRightFn,
+ *   [Sep, Str]
+ * >
  */
 
 // ✗ Trim: does not compile yet
@@ -101,7 +115,12 @@ export function Replace(from: string | unset | _ = unset, to: string | unset | _
   return PartialApply(ReplaceFn, [from, to, str])
 }
 /* compiles to:
- * export type Replace<from extends string | unset | _ = unset, to extends string | unset | _ = unset, str = unset> = PartialApply<ReplaceFn, [from, to, str]>
+ * export type Replace<
+ *   from extends string | unset | _ = unset,
+ *   to extends string | unset | _ = unset,
+ *   str = unset
+ * > =
+ *   PartialApply<ReplaceFn, [from, to, str]>
  */
 
 // ✗ Slice: does not compile yet
@@ -111,7 +130,11 @@ export function Slice(start: number | unset | _ = unset, end: number | unset | _
   return ComposeLeft([Strings.Split(''), Tuples.Take(end), Tuples.Drop(start), Tuples.Join('')])
 }
 /* compiles to:
- * export type Slice<start extends number | unset | _ = unset, end extends number | unset | _ = unset> = ComposeLeft<[Strings.Split<''>, Tuples.Take<end>, Tuples.Drop<start>, Tuples.Join<''>]>
+ * export type Slice<
+ *   start extends number | unset | _ = unset,
+ *   end extends number | unset | _ = unset
+ * > =
+ *   ComposeLeft<[Strings.Split<''>, Tuples.Take<end>, Tuples.Drop<start>, Tuples.Join<''>]>
  */
 
 // ✗ Split: does not compile yet
@@ -121,7 +144,11 @@ export function Split(Sep: string | unset | _ = unset, Str: string | unset | _ =
   return PartialApply(SplitFn, [Sep, Str])
 }
 /* compiles to:
- * export type Split<Sep extends string | unset | _ = unset, Str extends string | unset | _ = unset> = PartialApply<SplitFn, [Sep, Str]>
+ * export type Split<
+ *   Sep extends string | unset | _ = unset,
+ *   Str extends string | unset | _ = unset
+ * > =
+ *   PartialApply<SplitFn, [Sep, Str]>
  */
 
 // ✗ Repeat: does not compile yet
@@ -131,7 +158,11 @@ export function Repeat(Times: number | _ | unset = unset, Str: string | _ | unse
   return PartialApply(RepeatFn, [Times, Str])
 }
 /* compiles to:
- * export type Repeat<Times extends number | _ | unset = unset, Str extends string | _ | unset = unset> = PartialApply<RepeatFn, [Times, Str]>
+ * export type Repeat<
+ *   Times extends number | _ | unset = unset,
+ *   Str extends string | _ | unset = unset
+ * > =
+ *   PartialApply<RepeatFn, [Times, Str]>
  */
 
 // ✗ StartsWith: does not compile yet
@@ -141,7 +172,11 @@ export function StartsWith(Start: string | _ | unset = unset, Str: string | _ | 
   return PartialApply(StartsWithFn, [Start, Str])
 }
 /* compiles to:
- * export type StartsWith<Start extends string | _ | unset = unset, Str extends string | _ | unset = unset> = PartialApply<StartsWithFn, [Start, Str]>
+ * export type StartsWith<
+ *   Start extends string | _ | unset = unset,
+ *   Str extends string | _ | unset = unset
+ * > =
+ *   PartialApply<StartsWithFn, [Start, Str]>
  */
 
 // ✗ EndsWith: does not compile yet
@@ -151,7 +186,11 @@ export function EndsWith(End: string | _ | unset = unset, Str: string | _ | unse
   return PartialApply(EndsWithFn, [End, Str])
 }
 /* compiles to:
- * export type EndsWith<End extends string | _ | unset = unset, Str extends string | _ | unset = unset> = PartialApply<EndsWithFn, [End, Str]>
+ * export type EndsWith<
+ *   End extends string | _ | unset = unset,
+ *   Str extends string | _ | unset = unset
+ * > =
+ *   PartialApply<EndsWithFn, [End, Str]>
  */
 
 // ✗ Prepend: does not compile yet
@@ -161,7 +200,11 @@ export function Prepend(Start: string | _ | unset = unset, Str: string | _ | uns
   return PartialApply(PrependFn, [Start, Str])
 }
 /* compiles to:
- * export type Prepend<Start extends string | _ | unset = unset, Str extends string | _ | unset = unset> = PartialApply<PrependFn, [Start, Str]>
+ * export type Prepend<
+ *   Start extends string | _ | unset = unset,
+ *   Str extends string | _ | unset = unset
+ * > =
+ *   PartialApply<PrependFn, [Start, Str]>
  */
 
 // ✗ Append: does not compile yet
@@ -171,7 +214,11 @@ export function Append(End: string | _ | unset = unset, Str: string | _ | unset 
   return PartialApply(AppendFn, [End, Str])
 }
 /* compiles to:
- * export type Append<End extends string | _ | unset = unset, Str extends string | _ | unset = unset> = PartialApply<AppendFn, [End, Str]>
+ * export type Append<
+ *   End extends string | _ | unset = unset,
+ *   Str extends string | _ | unset = unset
+ * > =
+ *   PartialApply<AppendFn, [End, Str]>
  */
 
 // ✗ Compare: does not compile yet
@@ -181,7 +228,11 @@ export function Compare(n1: string | _ | unset = unset, n2: string | _ | unset =
   return PartialApply(CompareFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type Compare<n1 extends string | _ | unset = unset, n2 extends string | _ | unset = unset> = PartialApply<CompareFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type Compare<
+ *   n1 extends string | _ | unset = unset,
+ *   n2 extends string | _ | unset = unset
+ * > =
+ *   PartialApply<CompareFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ LessThan: does not compile yet
@@ -191,7 +242,11 @@ export function LessThan(n1: string | _ | unset = unset, n2: string | _ | unset 
   return PartialApply(LessThanFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type LessThan<n1 extends string | _ | unset = unset, n2 extends string | _ | unset = unset> = PartialApply<LessThanFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type LessThan<
+ *   n1 extends string | _ | unset = unset,
+ *   n2 extends string | _ | unset = unset
+ * > =
+ *   PartialApply<LessThanFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ LessThanOrEqual: does not compile yet
@@ -201,7 +256,11 @@ export function LessThanOrEqual(n1: string | _ | unset = unset, n2: string | _ |
   return PartialApply(LessThanOrEqualFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type LessThanOrEqual<n1 extends string | _ | unset = unset, n2 extends string | _ | unset = unset> = PartialApply<LessThanOrEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type LessThanOrEqual<
+ *   n1 extends string | _ | unset = unset,
+ *   n2 extends string | _ | unset = unset
+ * > =
+ *   PartialApply<LessThanOrEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ GreaterThan: does not compile yet
@@ -211,7 +270,11 @@ export function GreaterThan(n1: string | _ | unset = unset, n2: string | _ | uns
   return PartialApply(GreaterThanFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type GreaterThan<n1 extends string | _ | unset = unset, n2 extends string | _ | unset = unset> = PartialApply<GreaterThanFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type GreaterThan<
+ *   n1 extends string | _ | unset = unset,
+ *   n2 extends string | _ | unset = unset
+ * > =
+ *   PartialApply<GreaterThanFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */
 
 // ✗ GreaterThanOrEqual: does not compile yet
@@ -221,5 +284,9 @@ export function GreaterThanOrEqual(n1: string | _ | unset = unset, n2: string | 
   return PartialApply(GreaterThanOrEqualFn, matches<unset>(n2) ? [unset, n1] : [n1, n2])
 }
 /* compiles to:
- * export type GreaterThanOrEqual<n1 extends string | _ | unset = unset, n2 extends string | _ | unset = unset> = PartialApply<GreaterThanOrEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
+ * export type GreaterThanOrEqual<
+ *   n1 extends string | _ | unset = unset,
+ *   n2 extends string | _ | unset = unset
+ * > =
+ *   PartialApply<GreaterThanOrEqualFn, n2 extends unset ? [unset, n1] : [n1, n2]>
  */

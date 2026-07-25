@@ -22,18 +22,18 @@ declare const Ok: any
 declare const PromiseLike: any
 declare const Result: any
 declare const ResultAsync: any
-type Combine<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Dedup<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EmptyArrayToNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractErrAsyncTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractOkAsyncTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsLiteralArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MemberListOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MembersToUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Ok<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PromiseLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Result<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResultAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Combine<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Dedup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EmptyArrayToNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractErrAsyncTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractOkAsyncTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsLiteralArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MemberListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MembersToUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Ok<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PromiseLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResultAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CombineResultAsyncs: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CombineResultAsyncs(T: readonly ResultAsync<unknown, unknown>[]) {
@@ -43,7 +43,10 @@ export function CombineResultAsyncs(T: readonly ResultAsync<unknown, unknown>[])
   return ResultAsync(ExtractOkAsyncTypes(T), ExtractErrAsyncTypes(T)[number])
 }
 /* compiles to:
- * export type CombineResultAsyncs<T extends readonly ResultAsync<unknown, unknown>[]> = IsLiteralArray<T> extends 1 ? TraverseAsync<UnwrapAsync<T>> : ResultAsync<ExtractOkAsyncTypes<T>, ExtractErrAsyncTypes<T>[number]>
+ * export type CombineResultAsyncs<T extends readonly ResultAsync<unknown, unknown>[]> =
+ *   IsLiteralArray<T> extends 1
+ *     ? TraverseAsync<UnwrapAsync<T>>
+ *     : ResultAsync<ExtractOkAsyncTypes<T>, ExtractErrAsyncTypes<T>[number]>
  */
 
 // ✓ CombineResultsWithAllErrorsArrayAsync: verified type-identical to the original
@@ -55,7 +58,12 @@ export function CombineResultsWithAllErrorsArrayAsync(T: readonly ResultAsync<un
   return ResultAsync(ExtractOkAsyncTypes(T), arrayOf(ExtractErrAsyncTypes(T)[number]))
 }
 /* compiles to:
- * export type CombineResultsWithAllErrorsArrayAsync<T extends readonly ResultAsync<unknown, unknown>[]> = IsLiteralArray<T> extends 1 ? TraverseWithAllErrorsAsync<UnwrapAsync<T>> : ResultAsync<ExtractOkAsyncTypes<T>, ExtractErrAsyncTypes<T>[number][]>
+ * export type CombineResultsWithAllErrorsArrayAsync<
+ *   T extends readonly ResultAsync<unknown, unknown>[]
+ * > =
+ *   IsLiteralArray<T> extends 1
+ *     ? TraverseWithAllErrorsAsync<UnwrapAsync<T>>
+ *     : ResultAsync<ExtractOkAsyncTypes<T>, ExtractErrAsyncTypes<T>[number][]>
  */
 
 // ✓ UnwrapAsync: verified type-identical to the original
@@ -90,7 +98,18 @@ export function UnwrapAsync(T) {
   return never
 }
 /* compiles to:
- * export type UnwrapAsync<T> = IsLiteralArray<T> extends 1 ? Writable<T> extends [infer H, ...infer Rest] ? H extends PromiseLike<infer HI> ? HI extends Result<unknown, unknown> ? [Dedup<HI>, ...UnwrapAsync<Rest>] : never : never : [] : T extends Array<infer A> ? A extends PromiseLike<infer HI> ? HI extends Result<infer L, infer R> ? Ok<L, R>[] : never : never : never
+ * export type UnwrapAsync<T> =
+ *   IsLiteralArray<T> extends 1
+ *     ? Writable<T> extends [infer H, ...infer Rest]
+ *       ? H extends PromiseLike<infer HI>
+ *         ? HI extends Result<unknown, unknown> ? [Dedup<HI>, ...UnwrapAsync<Rest>] : never
+ *         : never
+ *       : []
+ *   : T extends Array<infer A>
+ *     ? A extends PromiseLike<infer HI>
+ *       ? HI extends Result<infer L, infer R> ? Ok<L, R>[] : never
+ *       : never
+ *   : never
  */
 
 // ✓ TraverseAsync: verified type-identical to the original
@@ -123,7 +142,21 @@ export function TraverseAsync(T, Depth: number = 5) {
   return never
 }
 /* compiles to:
- * export type TraverseAsync<T, Depth extends number = 5> = IsLiteralArray<T> extends 1 ? Combine<T, Depth> extends [infer Oks, infer Errs] ? ResultAsync<EmptyArrayToNever<Oks>, MembersToUnion<Errs>> : never : T extends Array<infer I> ? Combine<MemberListOf<I>, Depth> extends [infer Oks, infer Errs] ? Oks extends unknown[] ? Errs extends unknown[] ? ResultAsync<EmptyArrayToNever<Oks[number][]>, MembersToUnion<Errs[number][]>> : ResultAsync<EmptyArrayToNever<Oks[number][]>, Errs> : Errs extends unknown[] ? ResultAsync<Oks, MembersToUnion<Errs[number][]>> : ResultAsync<Oks, Errs> : never : never
+ * export type TraverseAsync<T, Depth extends number = 5> =
+ *   IsLiteralArray<T> extends 1
+ *     ? Combine<T, Depth> extends [infer Oks, infer Errs]
+ *       ? ResultAsync<EmptyArrayToNever<Oks>, MembersToUnion<Errs>>
+ *       : never
+ *   : T extends Array<infer I>
+ *     ? Combine<MemberListOf<I>, Depth> extends [infer Oks, infer Errs]
+ *       ? Oks extends unknown[]
+ *         ? Errs extends unknown[]
+ *           ? ResultAsync<EmptyArrayToNever<Oks[number][]>, MembersToUnion<Errs[number][]>>
+ *           : ResultAsync<EmptyArrayToNever<Oks[number][]>, Errs>
+ *       : Errs extends unknown[] ? ResultAsync<Oks, MembersToUnion<Errs[number][]>>
+ *       : ResultAsync<Oks, Errs>
+ *       : never
+ *   : never
  */
 
 // ✓ TraverseWithAllErrorsAsync: verified type-identical to the original
@@ -136,7 +169,10 @@ export function TraverseWithAllErrorsAsync(T, Depth: number = 5) {
   return never
 }
 /* compiles to:
- * export type TraverseWithAllErrorsAsync<T, Depth extends number = 5> = TraverseAsync<T, Depth> extends ResultAsync<infer Oks, infer Errs> ? ResultAsync<Oks, Errs[]> : never
+ * export type TraverseWithAllErrorsAsync<T, Depth extends number = 5> =
+ *   TraverseAsync<T, Depth> extends ResultAsync<infer Oks, infer Errs>
+ *     ? ResultAsync<Oks, Errs[]>
+ *     : never
  */
 
 // ✓ Writable: verified type-identical to the original

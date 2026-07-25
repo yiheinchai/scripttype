@@ -10,10 +10,13 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Exit {
+  export type Exit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Exit: any
 declare const Request: any
-type Exit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Request<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Exit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Request<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Error: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Error(T: Request<any, any, any>) {
@@ -24,7 +27,8 @@ export function Error(T: Request<any, any, any>) {
   return never
 }
 /* compiles to:
- * export type Error<T extends Request<any, any, any>> = [T] extends [Request<unknown, infer _E, unknown>] ? _E : never
+ * export type Error<T extends Request<any, any, any>> =
+ *   [T] extends [Request<unknown, infer _E, unknown>] ? _E : never
  */
 
 // ✓ Success: verified type-identical to the original
@@ -37,7 +41,8 @@ export function Success(T: Request<any, any, any>) {
   return never
 }
 /* compiles to:
- * export type Success<T extends Request<any, any, any>> = [T] extends [Request<infer _A, unknown, unknown>] ? _A : never
+ * export type Success<T extends Request<any, any, any>> =
+ *   [T] extends [Request<infer _A, unknown, unknown>] ? _A : never
  */
 
 // ✓ Services: verified type-identical to the original
@@ -50,7 +55,8 @@ export function Services(T: Request<any, any, any>) {
   return never
 }
 /* compiles to:
- * export type Services<T extends Request<any, any, any>> = [T] extends [Request<unknown, unknown, infer _R>] ? _R : never
+ * export type Services<T extends Request<any, any, any>> =
+ *   [T] extends [Request<unknown, unknown, infer _R>] ? _R : never
  */
 
 // ✓ Result: verified type-identical to the original
@@ -63,5 +69,6 @@ export function Result(T: Request<any, any, any>) {
   return never
 }
 /* compiles to:
- * export type Result<T extends Request<any, any, any>> = T extends Request<infer A, infer E, unknown> ? Exit.Exit<A, E> : never
+ * export type Result<T extends Request<any, any, any>> =
+ *   T extends Request<infer A, infer E, unknown> ? Exit.Exit<A, E> : never
  */

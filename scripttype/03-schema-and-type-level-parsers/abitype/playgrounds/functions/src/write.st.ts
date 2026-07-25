@@ -13,16 +13,21 @@
 declare const Abi: any
 declare const ContractParameters: any
 declare const ContractReturnType: any
-type Abi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ContractParameters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ContractReturnType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ContractParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ContractReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WriteParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function WriteParameters(abi: Abi | readonly unknown[], functionName: string, args: readonly unknown[] | undefined = anyOf(readonlyArrayOf(unknown), Undefined)) {
   return merge({ abi: abi }, ContractParameters(abi, functionName, anyOf('nonpayable', 'payable'), args))
 }
 /* compiles to:
- * export type WriteParameters<abi extends Abi | readonly unknown[], functionName extends string, args extends readonly unknown[] | undefined = readonly unknown[] | undefined> = { abi: abi } & ContractParameters<abi, functionName, 'nonpayable' | 'payable', args>
+ * export type WriteParameters<
+ *   abi extends Abi | readonly unknown[],
+ *   functionName extends string,
+ *   args extends readonly unknown[] | undefined = readonly unknown[] | undefined
+ * > =
+ *   { abi: abi } & ContractParameters<abi, functionName, 'nonpayable' | 'payable', args>
  */
 
 // ✓ WriteReturnType: verified type-identical to the original
@@ -31,5 +36,10 @@ export function WriteReturnType(abi: Abi | readonly unknown[], functionName: str
   return ContractReturnType(abi, functionName, args)
 }
 /* compiles to:
- * export type WriteReturnType<abi extends Abi | readonly unknown[], functionName extends string, args extends readonly unknown[] | undefined> = ContractReturnType<abi, functionName, args>
+ * export type WriteReturnType<
+ *   abi extends Abi | readonly unknown[],
+ *   functionName extends string,
+ *   args extends readonly unknown[] | undefined
+ * > =
+ *   ContractReturnType<abi, functionName, args>
  */

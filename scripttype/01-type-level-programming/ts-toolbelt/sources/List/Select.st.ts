@@ -15,16 +15,18 @@ declare const ListOf: any
 declare const Match: any
 declare const OSelect: any
 declare const ObjectOf: any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ListOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OSelect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OSelect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Select: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Select(L: List, M: any, match: Match = 'default') {
   return ListOf(OSelect(ObjectOf(L), M, match))
 }
 /* compiles to:
- * export type Select<L extends List, M extends any, match extends Match = 'default'> = ListOf<OSelect<ObjectOf<L>, M, match>>
+ * export type Select<L extends List, M extends any, match extends Match = 'default'> = ListOf<
+ *   OSelect<ObjectOf<L>, M, match>
+ * >
  */

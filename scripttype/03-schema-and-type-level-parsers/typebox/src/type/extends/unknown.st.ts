@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Result {
+  export type TExtendsFalse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExtendsTrue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Result: any
 declare const TAny: any
 declare const TExtendsRight: any
@@ -17,13 +21,13 @@ declare const TInfer: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TUnknown: any
-type Result<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExtendsRight<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInfer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExtendsRight<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInfer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsUnknown: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TExtendsUnknown(Inferred: TProperties, Left: TUnknown, Right: TSchema) {
@@ -39,5 +43,13 @@ export function TExtendsUnknown(Inferred: TProperties, Left: TUnknown, Right: TS
   return Result.TExtendsFalse
 }
 /* compiles to:
- * export type TExtendsUnknown<Inferred extends TProperties, Left extends TUnknown, Right extends TSchema> = Right extends TInfer ? TExtendsRight<Inferred, Left, Right> : Right extends TAny ? Result.TExtendsTrue<Inferred> : Right extends TUnknown ? Result.TExtendsTrue<Inferred> : Result.TExtendsFalse
+ * export type TExtendsUnknown<
+ *   Inferred extends TProperties,
+ *   Left extends TUnknown,
+ *   Right extends TSchema
+ * > =
+ *   Right extends TInfer ? TExtendsRight<Inferred, Left, Right>
+ *   : Right extends TAny ? Result.TExtendsTrue<Inferred>
+ *   : Right extends TUnknown ? Result.TExtendsTrue<Inferred>
+ *   : Result.TExtendsFalse
  */

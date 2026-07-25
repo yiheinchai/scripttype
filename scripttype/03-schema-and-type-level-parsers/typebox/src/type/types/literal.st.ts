@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TLiteralValue: any
-type TLiteralValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticLiteral(Value: TLiteralValue) {
@@ -24,20 +24,25 @@ export function StaticLiteral(Value: TLiteralValue) {
 // ✓ TLiteralTypeName: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TLiteralTypeName(Value: TLiteralValue) {
-  if (matches<bigint>(Value)) {
+  if (typeof Value === 'bigint') {
     return 'bigint'
   }
-  if (matches<boolean>(Value)) {
+  if (typeof Value === 'boolean') {
     return 'boolean'
   }
-  if (matches<number>(Value)) {
+  if (typeof Value === 'number') {
     return 'number'
   }
-  if (matches<string>(Value)) {
+  if (typeof Value === 'string') {
     return 'string'
   }
   return never
 }
 /* compiles to:
- * export type TLiteralTypeName<Value extends TLiteralValue> = Value extends bigint ? 'bigint' : Value extends boolean ? 'boolean' : Value extends number ? 'number' : Value extends string ? 'string' : never
+ * export type TLiteralTypeName<Value extends TLiteralValue> =
+ *   Value extends bigint ? 'bigint'
+ *   : Value extends boolean ? 'boolean'
+ *   : Value extends number ? 'number'
+ *   : Value extends string ? 'string'
+ *   : never
  */

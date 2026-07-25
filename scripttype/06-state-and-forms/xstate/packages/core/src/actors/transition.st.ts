@@ -16,12 +16,12 @@ declare const AnyActorSystem: any
 declare const EventObject: any
 declare const NonReducibleUnknown: any
 declare const Snapshot: any
-type ActorLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ActorRefFromLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyActorSystem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonReducibleUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Snapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ActorRefFromLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyActorSystem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonReducibleUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Snapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TransitionSnapshot: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TransitionSnapshot(TContext) {
@@ -37,7 +37,13 @@ export function TransitionActorLogic(TContext, TEvent: EventObject, TInput: NonR
   return ActorLogic(TransitionSnapshot(TContext), TEvent, TInput, AnyActorSystem, TEmitted)
 }
 /* compiles to:
- * export type TransitionActorLogic<TContext, TEvent extends EventObject, TInput extends NonReducibleUnknown, TEmitted extends EventObject = EventObject> = ActorLogic<TransitionSnapshot<TContext>, TEvent, TInput, AnyActorSystem, TEmitted>
+ * export type TransitionActorLogic<
+ *   TContext,
+ *   TEvent extends EventObject,
+ *   TInput extends NonReducibleUnknown,
+ *   TEmitted extends EventObject = EventObject
+ * > =
+ *   ActorLogic<TransitionSnapshot<TContext>, TEvent, TInput, AnyActorSystem, TEmitted>
  */
 
 // ✓ TransitionActorRef: verified type-identical to the original
@@ -46,5 +52,7 @@ export function TransitionActorRef(TContext, TEvent: EventObject) {
   return ActorRefFromLogic(TransitionActorLogic(TransitionSnapshot(TContext), TEvent, unknown))
 }
 /* compiles to:
- * export type TransitionActorRef<TContext, TEvent extends EventObject> = ActorRefFromLogic<TransitionActorLogic<TransitionSnapshot<TContext>, TEvent, unknown>>
+ * export type TransitionActorRef<TContext, TEvent extends EventObject> = ActorRefFromLogic<
+ *   TransitionActorLogic<TransitionSnapshot<TContext>, TEvent, unknown>
+ * >
  */

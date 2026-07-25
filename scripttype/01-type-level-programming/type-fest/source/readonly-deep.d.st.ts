@@ -14,12 +14,12 @@ declare const BuiltIns: any
 declare const HasMultipleCallSignatures: any
 declare const ReadonlyMap: any
 declare const ReadonlySet: any
-type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HasMultipleCallSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _ReadonlyObjectDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HasMultipleCallSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _ReadonlyObjectDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadonlyDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyDeep(T) {
@@ -67,7 +67,22 @@ export function ReadonlyDeep(T) {
   return unknown
 }
 /* compiles to:
- * export type ReadonlyDeep<T> = T extends BuiltIns ? T : T extends new (...arguments_: any[]) => unknown ? T : T extends (...arguments_: any[]) => unknown ? {} extends _ReadonlyObjectDeep<T> ? T : HasMultipleCallSignatures<T> extends true ? T : ((a0: Parameters<T>) => ReturnType<T>) & _ReadonlyObjectDeep<T> : T extends Readonly<ReadonlyMap<infer KeyType, infer ValueType>> ? ReadonlyMapDeep<KeyType, ValueType> : T extends Readonly<ReadonlySet<infer ItemType>> ? ReadonlySetDeep<ItemType> : T extends readonly [] | readonly [...never[]] ? readonly [] : T extends readonly [infer U, ...infer V] ? readonly [ReadonlyDeep<U>, ...ReadonlyDeep<V>] : T extends readonly [...infer U, infer V] ? readonly [...ReadonlyDeep<U>, ReadonlyDeep<V>] : T extends ReadonlyArray<infer ItemType> ? ReadonlyArray<ReadonlyDeep<ItemType>> : T extends object ? _ReadonlyObjectDeep<T> : unknown
+ * export type ReadonlyDeep<T> =
+ *   T extends BuiltIns ? T
+ *   : T extends new (...arguments_: any[]) => unknown ? T
+ *   : T extends (...arguments_: any[]) => unknown
+ *     ? {} extends _ReadonlyObjectDeep<T> ? T
+ *     : HasMultipleCallSignatures<T> extends true ? T
+ *     : ((a0: Parameters<T>) => ReturnType<T>) & _ReadonlyObjectDeep<T>
+ *   : T extends Readonly<ReadonlyMap<infer KeyType, infer ValueType>>
+ *     ? ReadonlyMapDeep<KeyType, ValueType>
+ *   : T extends Readonly<ReadonlySet<infer ItemType>> ? ReadonlySetDeep<ItemType>
+ *   : T extends readonly [] | readonly [...never[]] ? readonly []
+ *   : T extends readonly [infer U, ...infer V] ? readonly [ReadonlyDeep<U>, ...ReadonlyDeep<V>]
+ *   : T extends readonly [...infer U, infer V] ? readonly [...ReadonlyDeep<U>, ReadonlyDeep<V>]
+ *   : T extends ReadonlyArray<infer ItemType> ? ReadonlyArray<ReadonlyDeep<ItemType>>
+ *   : T extends object ? _ReadonlyObjectDeep<T>
+ *   : unknown
  */
 
 // ✗ ReadonlyMapDeep: the ScriptType does not itself typecheck as TypeScript
@@ -77,7 +92,8 @@ export function ReadonlyMapDeep(KeyType, ValueType) {
   return merge({}, Readonly(ReadonlyMap(ReadonlyDeep(KeyType), ReadonlyDeep(ValueType))))
 }
 /* compiles to:
- * export type ReadonlyMapDeep<KeyType, ValueType> = {} & Readonly<ReadonlyMap<ReadonlyDeep<KeyType>, ReadonlyDeep<ValueType>>>
+ * export type ReadonlyMapDeep<KeyType, ValueType> =
+ *   {} & Readonly<ReadonlyMap<ReadonlyDeep<KeyType>, ReadonlyDeep<ValueType>>>
  */
 
 // ✗ ReadonlySetDeep: the ScriptType does not itself typecheck as TypeScript
@@ -100,5 +116,7 @@ export function _ReadonlyObjectDeep(ObjectType: object) {
   return out
 }
 /* compiles to:
- * export type _ReadonlyObjectDeep<ObjectType extends object> = { readonly [KeyType in keyof ObjectType]: ReadonlyDeep<ObjectType[KeyType]> }
+ * export type _ReadonlyObjectDeep<ObjectType extends object> = {
+ *   readonly [KeyType in keyof ObjectType]: ReadonlyDeep<ObjectType[KeyType]>
+ * }
  */

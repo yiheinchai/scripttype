@@ -12,13 +12,16 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const KeySet: any
 declare const List: any
-type KeySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type KeySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Remove: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Remove(L: List, From: number, To: number) {
   return Omit(L, KeySet(From, To))
 }
 /* compiles to:
- * export type Remove<L extends List, From extends number, To extends number> = Omit<L, KeySet<From, To>>
+ * export type Remove<L extends List, From extends number, To extends number> = Omit<
+ *   L,
+ *   KeySet<From, To>
+ * >
  */

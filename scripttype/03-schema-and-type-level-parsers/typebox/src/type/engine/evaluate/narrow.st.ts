@@ -17,13 +17,13 @@ declare const TCompare: any
 declare const TCompareResult: any
 declare const TNever: any
 declare const TSchema: any
-type ResultEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResultLeftInside<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResultRightInside<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCompare<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCompareResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ResultEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResultLeftInside<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResultRightInside<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCompare<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCompareResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TNarrow: does not compile yet
 //   'ResultLeftInside' refers to a value, but is being used as a type here. Did you mean 'typeof ResultLeftInside'?
 /* @scripttype preserveParamNames */
@@ -40,5 +40,13 @@ export function TNarrow(Left: TSchema, Right: TSchema, Result: TCompareResult = 
   return TNever
 }
 /* compiles to:
- * export type TNarrow<Left extends TSchema, Right extends TSchema, Result extends TCompareResult = TCompare<Left, Right>> = Result extends ResultLeftInside ? Left : Result extends ResultRightInside ? Right : Result extends ResultEqual ? Right : TNever
+ * export type TNarrow<
+ *   Left extends TSchema,
+ *   Right extends TSchema,
+ *   Result extends TCompareResult = TCompare<Left, Right>
+ * > =
+ *   Result extends ResultLeftInside ? Left
+ *   : Result extends ResultRightInside ? Right
+ *   : Result extends ResultEqual ? Right
+ *   : TNever
  */

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const anyOrNever: any
 declare const arkKind: any
-type anyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type arkKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type arkKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ parseConfigurableFlatAlias: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function parseConfigurableFlatAlias(k: string, v) {
@@ -30,5 +30,9 @@ export function parseConfigurableFlatAlias(k: string, v) {
   return k
 }
 /* compiles to:
- * export type parseConfigurableFlatAlias<k extends string, v> = [v] extends [anyOrNever] ? k : v extends { [arkKind]: "generic" | "module"; } ? never : k extends `${infer prefix}.root` ? prefix : k
+ * export type parseConfigurableFlatAlias<k extends string, v> =
+ *   [v] extends [anyOrNever] ? k
+ *   : v extends { [arkKind]: "generic" | "module"; } ? never
+ *   : k extends `${infer prefix}.root` ? prefix
+ *   : k
  */

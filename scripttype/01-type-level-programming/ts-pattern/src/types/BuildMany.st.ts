@@ -18,15 +18,15 @@ declare const a: any
 declare const head: any
 declare const tail: any
 declare const v: any
-type IsOptionalKeysOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iterator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SetDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateAt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type a<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type head<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type tail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type v<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsOptionalKeysOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iterator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SetDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateAt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type a<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type v<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildMany: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BuildMany(data, xs: readonly any[]) {
@@ -36,7 +36,8 @@ export function BuildMany(data, xs: readonly any[]) {
   return never
 }
 /* compiles to:
- * export type BuildMany<data, xs extends readonly any[]> = xs extends any ? BuildOne<data, xs> : never
+ * export type BuildMany<data, xs extends readonly any[]> =
+ *   xs extends any ? BuildOne<data, xs> : never
  */
 
 // ✓ BuildOne: verified type-identical to the original
@@ -56,7 +57,10 @@ export function BuildOne(data, xs: readonly any[]) {
 }
 /* compiles to:
  * export type BuildOne<data, xs extends readonly any[]> = BuildOne__loop<data, xs>
- * type BuildOne__loop<Data_, Xs_ extends readonly any[]> = Xs_ extends [[infer value, infer path], ...infer tail] ? BuildOne__loop<SetDeep<Data_, value, path>, tail> : Data_
+ * type BuildOne__loop<Data_, Xs_ extends readonly any[]> =
+ *   Xs_ extends [[infer value, infer path], ...infer tail]
+ *     ? BuildOne__loop<SetDeep<Data_, value, path>, tail>
+ *     : Data_
  */
 
 // ✓ SetDeep: verified type-identical to the original
@@ -66,7 +70,7 @@ export function SetDeep(data, value, path) {
   if (m1) {
     if (matches<readonly any[]>(data)) {
       if (matches<readonly [ any, ...any ]>(data)) {
-        if (matches<number>(m1.head)) {
+        if (typeof m1.head === 'number') {
           return UpdateAt(data, t<Iterator<typeof m1.head>>(), SetDeep(data[m1.head], value, m1.tail))
         }
         return never
@@ -81,7 +85,7 @@ export function SetDeep(data, value, path) {
     if (m3) {
       return t<Map<typeof m3.k, SetDeep<typeof m3.v, typeof value, typeof m1.tail>>>()
     }
-    if (matches<keyof typeof data>(m1.head)) {
+    if (m1.head in data) {
       if (matches<[ true, [ ], typeof value ]>([IsOptionalKeysOf(data, m1.head), m1.tail, Undefined])) {
         const out = emptyObject
         for (const k in keyof(data)) {
@@ -89,16 +93,33 @@ export function SetDeep(data, value, path) {
         }
         return out
       }
-      const out = emptyObject
+      const out2 = emptyObject
       for (const k in keyof(data)) {
-        out[k] = required(matches<typeof m1.head>(k) ? SetDeep(data[m1.head], value, m1.tail) : data[k])
+        out2[k] = required(matches<typeof m1.head>(k) ? SetDeep(data[m1.head], value, m1.tail) : data[k])
       }
-      return out
+      return out2
     }
     return data
   }
   return value
 }
 /* compiles to:
- * export type SetDeep<data, value, path> = path extends readonly [infer head, ...infer tail] ? data extends readonly any[] ? data extends readonly [any, ...any] ? head extends number ? UpdateAt<data, Iterator<head>, SetDeep<data[head], value, tail>> : never : SetDeep<ValueOf<data>, value, tail>[] : data extends Set<infer a> ? Set<SetDeep<a, value, tail>> : data extends Map<infer k, infer v> ? Map<k, SetDeep<v, value, tail>> : head extends keyof data ? [IsOptionalKeysOf<data, head>, tail, undefined] extends [true, [], value] ? { [K in keyof data]: K extends head ? value : data[K] } : { [K1 in keyof data]-?: K1 extends head ? SetDeep<data[head], value, tail> : data[K1] } : data : value
+ * export type SetDeep<data, value, path> =
+ *   path extends readonly [infer head, ...infer tail]
+ *     ? data extends readonly any[]
+ *       ? data extends readonly [any, ...any]
+ *         ? head extends number
+ *           ? UpdateAt<data, Iterator<head>, SetDeep<data[head], value, tail>>
+ *           : never
+ *         : SetDeep<ValueOf<data>, value, tail>[]
+ *     : data extends Set<infer a> ? Set<SetDeep<a, value, tail>>
+ *     : data extends Map<infer k, infer v> ? Map<k, SetDeep<v, value, tail>>
+ *     : head extends keyof data
+ *       ? [IsOptionalKeysOf<data, head>, tail, undefined] extends [true, [], value]
+ *         ? { [K in keyof data]: K extends head ? value : data[K] }
+ *         : {
+ *           [K1 in keyof data]-?: K1 extends head ? SetDeep<data[head], value, tail> : data[K1]
+ *         }
+ *     : data
+ *     : value
  */

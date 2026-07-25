@@ -19,16 +19,16 @@ declare const ReadonlyMap: any
 declare const ReadonlySet: any
 declare const Simplify: any
 declare const ValueType: any
-type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HasMultipleCallSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ItemType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KeyType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonNullableDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HasMultipleCallSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ItemType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KeyType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonNullableDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ NonNullableDeep: the ScriptType does not itself typecheck as TypeScript
 //   NonNullableDeep.st.ts(16:12) TS2693: 'ReadonlyMap' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -80,5 +80,23 @@ export function NonNullableDeep(T) {
   return unknown
 }
 /* compiles to:
- * export type NonNullableDeep<T> = T extends BuiltIns | new (...arguments_: any[]) => unknown ? Exclude<T, null | undefined> : T extends Map<infer KeyType, infer ValueType> ? Map<NonNullableDeep<KeyType>, NonNullableDeep<ValueType>> : T extends Set<infer ItemType> ? Set<NonNullableDeep<ItemType>> : T extends ReadonlyMap<infer KeyType, infer ValueType> ? ReadonlyMap<NonNullableDeep<KeyType>, NonNullableDeep<ValueType>> : T extends ReadonlySet<infer ItemType> ? ReadonlySet<NonNullableDeep<ItemType>> : T extends WeakMap<infer KeyType, infer ValueType> ? WeakMap<NonNullableDeep<KeyType>, NonNullableDeep<ValueType>> : T extends WeakSet<infer ItemType> ? WeakSet<NonNullableDeep<ItemType>> : T extends Promise<infer ValueType> ? Promise<NonNullableDeep<ValueType>> : T extends (...arguments_: any[]) => unknown ? HasMultipleCallSignatures<T> extends true ? T : ((a0: NonNullableDeep<Parameters<T>>) => NonNullableDeep<ReturnType<T>>) & (IsNever<keyof T> extends true ? unknown : NonNullableDeep<Simplify<T>>) : T extends object ? { [P in keyof T]: NonNullableDeep<T[P]> } : unknown
+ * export type NonNullableDeep<T> =
+ *   T extends BuiltIns | new (...arguments_: any[]) => unknown ? Exclude<T, null | undefined>
+ *   : T extends Map<infer KeyType, infer ValueType>
+ *     ? Map<NonNullableDeep<KeyType>, NonNullableDeep<ValueType>>
+ *   : T extends Set<infer ItemType> ? Set<NonNullableDeep<ItemType>>
+ *   : T extends ReadonlyMap<infer KeyType, infer ValueType>
+ *     ? ReadonlyMap<NonNullableDeep<KeyType>, NonNullableDeep<ValueType>>
+ *   : T extends ReadonlySet<infer ItemType> ? ReadonlySet<NonNullableDeep<ItemType>>
+ *   : T extends WeakMap<infer KeyType, infer ValueType>
+ *     ? WeakMap<NonNullableDeep<KeyType>, NonNullableDeep<ValueType>>
+ *   : T extends WeakSet<infer ItemType> ? WeakSet<NonNullableDeep<ItemType>>
+ *   : T extends Promise<infer ValueType> ? Promise<NonNullableDeep<ValueType>>
+ *   : T extends (...arguments_: any[]) => unknown
+ *     ? HasMultipleCallSignatures<T> extends true
+ *       ? T
+ *       : & ((a0: NonNullableDeep<Parameters<T>>) => NonNullableDeep<ReturnType<T>>)
+ *       & (IsNever<keyof T> extends true ? unknown : NonNullableDeep<Simplify<T>>)
+ *   : T extends object ? { [P in keyof T]: NonNullableDeep<T[P]> }
+ *   : unknown
  */

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const NegativeExpectTypeOf: any
 declare const PositiveExpectTypeOf: any
-type NegativeExpectTypeOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveExpectTypeOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type NegativeExpectTypeOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveExpectTypeOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExpectTypeOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExpectTypeOf(Actual, Options: { positive: boolean; }) {
@@ -23,5 +23,6 @@ export function ExpectTypeOf(Actual, Options: { positive: boolean; }) {
   return NegativeExpectTypeOf(Actual)
 }
 /* compiles to:
- * export type ExpectTypeOf<Actual, Options extends { positive: boolean; }> = Options['positive'] extends true ? PositiveExpectTypeOf<Actual> : NegativeExpectTypeOf<Actual>
+ * export type ExpectTypeOf<Actual, Options extends { positive: boolean; }> =
+ *   Options['positive'] extends true ? PositiveExpectTypeOf<Actual> : NegativeExpectTypeOf<Actual>
  */

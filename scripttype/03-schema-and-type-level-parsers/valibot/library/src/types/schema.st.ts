@@ -13,16 +13,21 @@
 declare const BaseIssue: any
 declare const BaseSchema: any
 declare const BaseSchemaAsync: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GenericSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GenericSchema(TInput = unknown, TOutput = TInput, TIssue: BaseIssue<unknown> = BaseIssue(unknown)) {
   return BaseSchema(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericSchema<TInput = unknown, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = BaseSchema<TInput, TOutput, TIssue>
+ * export type GenericSchema<
+ *   TInput = unknown,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   BaseSchema<TInput, TOutput, TIssue>
  */
 
 // ✓ GenericSchemaAsync: verified type-identical to the original
@@ -31,5 +36,10 @@ export function GenericSchemaAsync(TInput = unknown, TOutput = TInput, TIssue: B
   return BaseSchemaAsync(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericSchemaAsync<TInput = unknown, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = BaseSchemaAsync<TInput, TOutput, TIssue>
+ * export type GenericSchemaAsync<
+ *   TInput = unknown,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   BaseSchemaAsync<TInput, TOutput, TIssue>
  */

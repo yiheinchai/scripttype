@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const AllExtend: any
-type AllExtend<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AllExtend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsUppercase: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsUppercase(S: string) {
@@ -38,7 +38,10 @@ export function _IsUppercase(S: string) {
 }
 /* compiles to:
  * export type _IsUppercase<S extends string> = _IsUppercase__loop<S, []>
- * type _IsUppercase__loop<S extends string, Accumulator extends any[]> = S extends `${infer First}${infer Rest}` ? _IsUppercase__loop<Rest, [...Accumulator, IsUppercaseHelper<First>]> : [...Accumulator, IsUppercaseHelper<S>]
+ * type _IsUppercase__loop<S extends string, Accumulator extends any[]> =
+ *   S extends `${infer First}${infer Rest}`
+ *     ? _IsUppercase__loop<Rest, [...Accumulator, IsUppercaseHelper<First>]>
+ *     : [...Accumulator, IsUppercaseHelper<S>]
  */
 
 // ✓ IsUppercaseHelper: verified type-identical to the original
@@ -53,5 +56,9 @@ export function IsUppercaseHelper(S: string) {
   return boolean
 }
 /* compiles to:
- * export type IsUppercaseHelper<S extends string> = S extends Uppercase<string> ? true : S extends Lowercase<string> | Uncapitalize<string> | `${string}${Lowercase<string>}${string}` ? false : boolean
+ * export type IsUppercaseHelper<S extends string> =
+ *   S extends Uppercase<string> ? true
+ *   : S extends Lowercase<string> | Uncapitalize<string> | `${string}${Lowercase<string>}${string}`
+ *     ? false
+ *   : boolean
  */

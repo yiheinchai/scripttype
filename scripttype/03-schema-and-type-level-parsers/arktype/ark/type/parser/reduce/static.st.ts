@@ -29,26 +29,26 @@ declare const writeOpenRangeMessage: any
 declare const writeUnclosedGroupMessage: any
 declare const writeUnmatchedGroupCloseMessage: any
 declare const writeUnpairableComparatorMessage: any
-type BranchOperator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BranchState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Comparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Completion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FinalizingLookahead<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InvertedComparators<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LimitLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaxComparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MinComparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringifiablePrefixOperator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type defined<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type initialBranches<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type popGroup<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeMultipleLeftBoundsMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeOpenRangeMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnclosedGroupMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnmatchedGroupCloseMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnpairableComparatorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BranchOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BranchState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Completion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FinalizingLookahead<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InvertedComparators<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LimitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaxComparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MinComparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringifiablePrefixOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type defined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type initialBranches<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type popGroup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeMultipleLeftBoundsMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeOpenRangeMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnclosedGroupMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnmatchedGroupCloseMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnpairableComparatorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ initialize: does not compile yet
 //   Cannot find name 'from'.
 /* @scripttype preserveParamNames */
@@ -56,7 +56,16 @@ export function initialize(def: string) {
   return from({ root: Undefined, branches: initialBranches, groups: [], finalizer: Undefined, scanned: '', unscanned: def })
 }
 /* compiles to:
- * export type initialize<def extends string> = from<{ root: undefined; branches: initialBranches; groups: []; finalizer: undefined; scanned: ''; unscanned: def }>
+ * export type initialize<def extends string> = from<
+ *   {
+ *     root: undefined
+ *     branches: initialBranches
+ *     groups: []
+ *     finalizer: undefined
+ *     scanned: ''
+ *     unscanned: def
+ *   }
+ * >
  */
 
 // ✗ error: does not compile yet
@@ -66,7 +75,16 @@ export function error(message: string) {
   return from({ root: ErrorMessage(message), branches: initialBranches, groups: [], finalizer: ErrorMessage(message), scanned: '', unscanned: '' })
 }
 /* compiles to:
- * export type error<message extends string> = from<{ root: ErrorMessage<message>; branches: initialBranches; groups: []; finalizer: ErrorMessage<message>; scanned: ''; unscanned: '' }>
+ * export type error<message extends string> = from<
+ *   {
+ *     root: ErrorMessage<message>
+ *     branches: initialBranches
+ *     groups: []
+ *     finalizer: ErrorMessage<message>
+ *     scanned: ''
+ *     unscanned: ''
+ *   }
+ * >
  */
 
 // ✗ completion: does not compile yet
@@ -76,7 +94,16 @@ export function completion(text: string) {
   return from({ root: Completion(text), branches: initialBranches, groups: [], finalizer: Completion(text), scanned: '', unscanned: '' })
 }
 /* compiles to:
- * export type completion<text extends string> = from<{ root: Completion<text>; branches: initialBranches; groups: []; finalizer: Completion<text>; scanned: ''; unscanned: '' }>
+ * export type completion<text extends string> = from<
+ *   {
+ *     root: Completion<text>
+ *     branches: initialBranches
+ *     groups: []
+ *     finalizer: Completion<text>
+ *     scanned: ''
+ *     unscanned: ''
+ *   }
+ * >
  */
 
 // ✗ updateScanned: compiles but is not type-identical yet
@@ -90,7 +117,14 @@ export function updateScanned(previousScanned: string, previousUnscanned: string
   return previousScanned
 }
 /* compiles to:
- * export type updateScanned<previousScanned extends string, previousUnscanned extends string, updatedUnscanned extends string> = previousUnscanned extends `${infer justScanned}${updatedUnscanned}` ? `${previousScanned}${justScanned}` : previousScanned
+ * export type updateScanned<
+ *   previousScanned extends string,
+ *   previousUnscanned extends string,
+ *   updatedUnscanned extends string
+ * > =
+ *   previousUnscanned extends `${infer justScanned}${updatedUnscanned}`
+ *     ? `${previousScanned}${justScanned}`
+ *     : previousScanned
  */
 
 // ✗ setRoot: does not compile yet
@@ -100,7 +134,16 @@ export function setRoot(s: StaticState, root, unscanned: string = s['unscanned']
   return from({ root: root, branches: s['branches'], groups: s['groups'], finalizer: s['finalizer'], scanned: updateScanned(s['scanned'], s['unscanned'], unscanned), unscanned: unscanned })
 }
 /* compiles to:
- * export type setRoot<s extends StaticState, root, unscanned extends string = s['unscanned']> = from<{ root: root; branches: s['branches']; groups: s['groups']; finalizer: s['finalizer']; scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>; unscanned: unscanned }>
+ * export type setRoot<s extends StaticState, root, unscanned extends string = s['unscanned']> = from<
+ *   {
+ *     root: root
+ *     branches: s['branches']
+ *     groups: s['groups']
+ *     finalizer: s['finalizer']
+ *     scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>
+ *     unscanned: unscanned
+ *   }
+ * >
  */
 
 // ✗ addPrefix: does not compile yet
@@ -110,7 +153,27 @@ export function addPrefix(s: StaticState, prefix: StringifiablePrefixOperator, u
   return from({ root: s['root'], branches: { prefixes: [...s['branches']['prefixes'], prefix], leftBound: s['branches']['leftBound'], intersection: s['branches']['intersection'], pipe: s['branches']['pipe'], union: s['branches']['union'] }, groups: s['groups'], finalizer: s['finalizer'], scanned: updateScanned(s['scanned'], s['unscanned'], unscanned), unscanned: unscanned })
 }
 /* compiles to:
- * export type addPrefix<s extends StaticState, prefix extends StringifiablePrefixOperator, unscanned extends string = s['unscanned']> = from<{ root: s['root']; branches: { prefixes: [...s['branches']['prefixes'], prefix]; leftBound: s['branches']['leftBound']; intersection: s['branches']['intersection']; pipe: s['branches']['pipe']; union: s['branches']['union'] }; groups: s['groups']; finalizer: s['finalizer']; scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>; unscanned: unscanned }>
+ * export type addPrefix<
+ *   s extends StaticState,
+ *   prefix extends StringifiablePrefixOperator,
+ *   unscanned extends string = s['unscanned']
+ * > =
+ *   from<
+ *     {
+ *       root: s['root']
+ *       branches: {
+ *         prefixes: [...s['branches']['prefixes'], prefix]
+ *         leftBound: s['branches']['leftBound']
+ *         intersection: s['branches']['intersection']
+ *         pipe: s['branches']['pipe']
+ *         union: s['branches']['union']
+ *       }
+ *       groups: s['groups']
+ *       finalizer: s['finalizer']
+ *       scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>
+ *       unscanned: unscanned
+ *     }
+ *   >
  */
 
 // ✗ reduceBranch: does not compile yet
@@ -123,7 +186,31 @@ export function reduceBranch(s: StaticState, token: BranchOperator, unscanned: s
   return from({ root: Undefined, branches: { prefixes: [], leftBound: Undefined, intersection: matches<"&">(token) ? mergeToIntersection(s) : Undefined, union: matches<"|">(token) ? mergeToUnion(s) : (matches<"|>">(token) ? Undefined : s['branches']['union']), pipe: matches<"|>">(token) ? mergeToPipe(s) : s['branches']['pipe'] }, groups: s['groups'], finalizer: s['finalizer'], scanned: updateScanned(s['scanned'], s['unscanned'], unscanned), unscanned: unscanned })
 }
 /* compiles to:
- * export type reduceBranch<s extends StaticState, token extends BranchOperator, unscanned extends string> = s['branches']['leftBound'] extends {} ? openRangeError<s['branches']['leftBound']> : from<{ root: undefined; branches: { prefixes: []; leftBound: undefined; intersection: token extends '&' ? mergeToIntersection<s> : undefined; union: token extends '|' ? mergeToUnion<s> : token extends '|>' ? undefined : s['branches']['union']; pipe: token extends '|>' ? mergeToPipe<s> : s['branches']['pipe'] }; groups: s['groups']; finalizer: s['finalizer']; scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>; unscanned: unscanned }>
+ * export type reduceBranch<
+ *   s extends StaticState,
+ *   token extends BranchOperator,
+ *   unscanned extends string
+ * > =
+ *   s['branches']['leftBound'] extends {}
+ *     ? openRangeError<s['branches']['leftBound']>
+ *     : from<
+ *       {
+ *         root: undefined
+ *         branches: {
+ *           prefixes: []
+ *           leftBound: undefined
+ *           intersection: token extends '&' ? mergeToIntersection<s> : undefined
+ *           union: token extends '|' ? mergeToUnion<s>
+ *           : token extends '|>' ? undefined
+ *           : s['branches']['union']
+ *           pipe: token extends '|>' ? mergeToPipe<s> : s['branches']['pipe']
+ *         }
+ *         groups: s['groups']
+ *         finalizer: s['finalizer']
+ *         scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>
+ *         unscanned: unscanned
+ *       }
+ *     >
  */
 
 // ✗ reduceLeftBound: does not compile yet
@@ -157,39 +244,48 @@ export function reduceSingleBound(s: StaticState, comparator: Comparator, limit:
 //   Cannot find name 'mergePrefixes'.
 /* @scripttype preserveParamNames */
 export function mergeToIntersection(s: StaticState) {
-  if (matches<undefined>(s['branches']['intersection'])) {
+  if (typeof s['branches']['intersection'] === 'undefined') {
     return mergePrefixes(s)
   }
   return [s['branches']['intersection'], '&', mergePrefixes(s)]
 }
 /* compiles to:
- * export type mergeToIntersection<s extends StaticState> = s['branches']['intersection'] extends undefined ? mergePrefixes<s> : [s['branches']['intersection'], '&', mergePrefixes<s>]
+ * export type mergeToIntersection<s extends StaticState> =
+ *   s['branches']['intersection'] extends undefined
+ *     ? mergePrefixes<s>
+ *     : [s['branches']['intersection'], '&', mergePrefixes<s>]
  */
 
 // ✗ mergeToUnion: does not compile yet
 //   Cannot find name 'mergeToIntersection'.
 /* @scripttype preserveParamNames */
 export function mergeToUnion(s: StaticState) {
-  if (matches<undefined>(s['branches']['union'])) {
+  if (typeof s['branches']['union'] === 'undefined') {
     return mergeToIntersection(s)
   }
   return [s['branches']['union'], '|', mergeToIntersection(s)]
 }
 /* compiles to:
- * export type mergeToUnion<s extends StaticState> = s['branches']['union'] extends undefined ? mergeToIntersection<s> : [s['branches']['union'], '|', mergeToIntersection<s>]
+ * export type mergeToUnion<s extends StaticState> =
+ *   s['branches']['union'] extends undefined
+ *     ? mergeToIntersection<s>
+ *     : [s['branches']['union'], '|', mergeToIntersection<s>]
  */
 
 // ✗ mergeToPipe: does not compile yet
 //   Cannot find name 'mergeToUnion'.
 /* @scripttype preserveParamNames */
 export function mergeToPipe(s: StaticState) {
-  if (matches<undefined>(s['branches']['pipe'])) {
+  if (typeof s['branches']['pipe'] === 'undefined') {
     return mergeToUnion(s)
   }
   return [s['branches']['pipe'], '|>', mergeToUnion(s)]
 }
 /* compiles to:
- * export type mergeToPipe<s extends StaticState> = s['branches']['pipe'] extends undefined ? mergeToUnion<s> : [s['branches']['pipe'], '|>', mergeToUnion<s>]
+ * export type mergeToPipe<s extends StaticState> =
+ *   s['branches']['pipe'] extends undefined
+ *     ? mergeToUnion<s>
+ *     : [s['branches']['pipe'], '|>', mergeToUnion<s>]
  */
 
 // ✗ mergePrefixes: compiles but is not type-identical yet
@@ -203,7 +299,11 @@ export function mergePrefixes(s: StaticState, remaining: unknown[] = s['branches
   return s['root']
 }
 /* compiles to:
- * export type mergePrefixes<s extends StaticState, remaining extends unknown[] = s['branches']['prefixes']> = remaining extends [infer head, ...infer tail] ? [head, mergePrefixes<s, tail>] : s['root']
+ * export type mergePrefixes<
+ *   s extends StaticState,
+ *   remaining extends unknown[] = s['branches']['prefixes']
+ * > =
+ *   remaining extends [infer head, ...infer tail] ? [head, mergePrefixes<s, tail>] : s['root']
  */
 
 // ✗ popGroup: compiles but is not type-identical yet
@@ -237,7 +337,16 @@ export function reduceGroupOpen(s: StaticState, unscanned: string) {
   return from({ groups: [...s['groups'], s['branches']], branches: initialBranches, root: Undefined, finalizer: s['finalizer'], scanned: updateScanned(s['scanned'], s['unscanned'], unscanned), unscanned: unscanned })
 }
 /* compiles to:
- * export type reduceGroupOpen<s extends StaticState, unscanned extends string> = from<{ groups: [...s['groups'], s['branches']]; branches: initialBranches; root: undefined; finalizer: s['finalizer']; scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>; unscanned: unscanned }>
+ * export type reduceGroupOpen<s extends StaticState, unscanned extends string> = from<
+ *   {
+ *     groups: [...s['groups'], s['branches']]
+ *     branches: initialBranches
+ *     root: undefined
+ *     finalizer: s['finalizer']
+ *     scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>
+ *     unscanned: unscanned
+ *   }
+ * >
  */
 
 // ✗ finalize: does not compile yet
@@ -260,7 +369,9 @@ export function openRangeError(range: defined<BranchState["leftBound"]>) {
   return s.error(writeOpenRangeMessage(range['limit'], range['comparator']))
 }
 /* compiles to:
- * export type openRangeError<range extends defined<BranchState['leftBound']>> = s.error<writeOpenRangeMessage<range['limit'], range['comparator']>>
+ * export type openRangeError<range extends defined<BranchState['leftBound']>> = s.error<
+ *   writeOpenRangeMessage<range['limit'], range['comparator']>
+ * >
  */
 
 // ✗ previousOperator: compiles but is not type-identical yet
@@ -283,7 +394,12 @@ export function previousOperator(s: StaticState) {
   return Undefined
 }
 /* compiles to:
- * export type previousOperator<s extends StaticState> = s['branches']['leftBound'] extends {} ? s['branches']['leftBound']['comparator'] : s['branches']['prefixes'] extends [...unknown[], infer tail extends string] ? tail : s['branches']['intersection'] extends {} ? '&' : s['branches']['union'] extends {} ? '|' : undefined
+ * export type previousOperator<s extends StaticState> =
+ *   s['branches']['leftBound'] extends {} ? s['branches']['leftBound']['comparator']
+ *   : s['branches']['prefixes'] extends [...unknown[], infer tail extends string] ? tail
+ *   : s['branches']['intersection'] extends {} ? '&'
+ *   : s['branches']['union'] extends {} ? '|'
+ *   : undefined
  */
 
 // ✗ scanTo: does not compile yet
@@ -293,7 +409,16 @@ export function scanTo(s: StaticState, unscanned: string) {
   return from({ root: s['root'], branches: s['branches'], groups: s['groups'], finalizer: s['finalizer'], scanned: updateScanned(s['scanned'], s['unscanned'], unscanned), unscanned: unscanned })
 }
 /* compiles to:
- * export type scanTo<s extends StaticState, unscanned extends string> = from<{ root: s['root']; branches: s['branches']; groups: s['groups']; finalizer: s['finalizer']; scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>; unscanned: unscanned }>
+ * export type scanTo<s extends StaticState, unscanned extends string> = from<
+ *   {
+ *     root: s['root']
+ *     branches: s['branches']
+ *     groups: s['groups']
+ *     finalizer: s['finalizer']
+ *     scanned: updateScanned<s['scanned'], s['unscanned'], unscanned>
+ *     unscanned: unscanned
+ *   }
+ * >
  */
 
 // ✗ from: compiles but is not type-identical yet

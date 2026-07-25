@@ -14,17 +14,21 @@ declare const TDeferred: any
 declare const TInterfaceAction: any
 declare const TProperties: any
 declare const TSchema: any
-type TDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInterfaceAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInterfaceAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TInterfaceDeferred: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TInterfaceDeferred(Heritage: TSchema[] = arrayOf(TSchema), Properties: TProperties = TProperties) {
   return TDeferred('Interface', [Heritage, Properties])
 }
 /* compiles to:
- * export type TInterfaceDeferred<Heritage extends TSchema[] = TSchema[], Properties extends TProperties = TProperties> = TDeferred<'Interface', [Heritage, Properties]>
+ * export type TInterfaceDeferred<
+ *   Heritage extends TSchema[] = TSchema[],
+ *   Properties extends TProperties = TProperties
+ * > =
+ *   TDeferred<'Interface', [Heritage, Properties]>
  */
 
 // ✓ TInterface: verified type-identical to the original
@@ -33,5 +37,8 @@ export function TInterface(Heritage: TSchema[], Properties: TProperties) {
   return TInterfaceAction(Heritage, Properties)
 }
 /* compiles to:
- * export type TInterface<Heritage extends TSchema[], Properties extends TProperties> = TInterfaceAction<Heritage, Properties>
+ * export type TInterface<Heritage extends TSchema[], Properties extends TProperties> = TInterfaceAction<
+ *   Heritage,
+ *   Properties
+ * >
  */

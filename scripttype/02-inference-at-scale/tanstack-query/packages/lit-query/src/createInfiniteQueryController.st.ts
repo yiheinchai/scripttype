@@ -16,19 +16,26 @@ declare const InfiniteQueryObserverOptions: any
 declare const InfiniteQueryObserverResult: any
 declare const QueryKey: any
 declare const ValueAccessor: any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueAccessor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueAccessor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateInfiniteQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CreateInfiniteQueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = InfiniteData(TQueryFnData), TQueryKey: QueryKey = QueryKey, TPageParam = unknown) {
   return InfiniteQueryObserverOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam)
 }
 /* compiles to:
- * export type CreateInfiniteQueryOptions<TQueryFnData = unknown, TError = DefaultError, TData = InfiniteData<TQueryFnData>, TQueryKey extends QueryKey = QueryKey, TPageParam = unknown> = InfiniteQueryObserverOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>
+ * export type CreateInfiniteQueryOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = InfiniteData<TQueryFnData>,
+ *   TQueryKey extends QueryKey = QueryKey,
+ *   TPageParam = unknown
+ * > =
+ *   InfiniteQueryObserverOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>
  */
 
 // ✓ InfiniteQueryResultAccessor: verified type-identical to the original
@@ -37,5 +44,12 @@ export function InfiniteQueryResultAccessor(TData, TError) {
   return merge(ValueAccessor(InfiniteQueryObserverResult(TData, TError)), { refetch: InfiniteQueryObserverResult(TData, TError)['refetch'], fetchNextPage: InfiniteQueryObserverResult(TData, TError)['fetchNextPage'], fetchPreviousPage: InfiniteQueryObserverResult(TData, TError)['fetchPreviousPage'], destroy: fnType([], voidType()) })
 }
 /* compiles to:
- * export type InfiniteQueryResultAccessor<TData, TError> = ValueAccessor<InfiniteQueryObserverResult<TData, TError>> & { refetch: InfiniteQueryObserverResult<TData, TError>['refetch']; fetchNextPage: InfiniteQueryObserverResult<TData, TError>['fetchNextPage']; fetchPreviousPage: InfiniteQueryObserverResult<TData, TError>['fetchPreviousPage']; destroy: () => void }
+ * export type InfiniteQueryResultAccessor<TData, TError> =
+ *   & ValueAccessor<InfiniteQueryObserverResult<TData, TError>>
+ *   & {
+ *       refetch: InfiniteQueryObserverResult<TData, TError>['refetch']
+ *       fetchNextPage: InfiniteQueryObserverResult<TData, TError>['fetchNextPage']
+ *       fetchPreviousPage: InfiniteQueryObserverResult<TData, TError>['fetchPreviousPage']
+ *       destroy: () => void
+ *     }
  */

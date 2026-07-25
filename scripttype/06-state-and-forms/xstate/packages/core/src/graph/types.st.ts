@@ -17,13 +17,13 @@ declare const Snapshot: any
 declare const StatePath: any
 declare const Step: any
 declare const TraversalConfig: any
-type ActorLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SerializationConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Snapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StatePath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Step<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TraversalConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SerializationConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Snapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StatePath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Step<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TraversalConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ JSONSerializable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function JSONSerializable(T: object, U) {
@@ -39,7 +39,9 @@ export function Steps(TSnapshot: Snapshot<unknown>, TEvent: EventObject) {
   return t<Array<Step<typeof TSnapshot, typeof TEvent>>>()
 }
 /* compiles to:
- * export type Steps<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject> = Array<Step<TSnapshot, TEvent>>
+ * export type Steps<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject> = Array<
+ *   Step<TSnapshot, TEvent>
+ * >
  */
 
 // ✗ ExtractEvent: does not compile yet
@@ -52,7 +54,8 @@ export function ExtractEvent(TEvent: EventObject, TType: (typeof TEvent)['type']
   return never
 }
 /* compiles to:
- * export type ExtractEvent<TEvent extends EventObject, TType extends TEvent['type']> = TEvent extends { type: typeof TType; } ? TEvent : never
+ * export type ExtractEvent<TEvent extends EventObject, TType extends TEvent['type']> =
+ *   TEvent extends { type: typeof TType; } ? TEvent : never
  */
 
 // ✓ SerializationOptions: verified type-identical to the original
@@ -61,7 +64,11 @@ export function SerializationOptions(TSnapshot: Snapshot<unknown>, TEvent: Event
   return Partial(Pick(SerializationConfig(TSnapshot, TEvent), anyOf('serializeState', 'serializeEvent')))
 }
 /* compiles to:
- * export type SerializationOptions<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject> = Partial<Pick<SerializationConfig<TSnapshot, TEvent>, 'serializeState' | 'serializeEvent'>>
+ * export type SerializationOptions<
+ *   TSnapshot extends Snapshot<unknown>,
+ *   TEvent extends EventObject
+ * > =
+ *   Partial<Pick<SerializationConfig<TSnapshot, TEvent>, 'serializeState' | 'serializeEvent'>>
  */
 
 // ✓ TraversalOptions: verified type-identical to the original
@@ -70,7 +77,19 @@ export function TraversalOptions(TSnapshot: Snapshot<unknown>, TEvent: EventObje
   return merge({ input: optional(TInput) }, SerializationOptions(TSnapshot, TEvent), Partial(Pick(TraversalConfig(TSnapshot, TEvent), anyOf('events', 'filterEvents', 'limit', 'fromState', 'stopWhen', 'toState'))))
 }
 /* compiles to:
- * export type TraversalOptions<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject, TInput> = { input?: TInput } & SerializationOptions<TSnapshot, TEvent> & Partial<Pick<TraversalConfig<TSnapshot, TEvent>, 'events' | 'filterEvents' | 'limit' | 'fromState' | 'stopWhen' | 'toState'>>
+ * export type TraversalOptions<
+ *   TSnapshot extends Snapshot<unknown>,
+ *   TEvent extends EventObject,
+ *   TInput
+ * > =
+ *   & { input?: TInput }
+ *   & SerializationOptions<TSnapshot, TEvent>
+ *   & Partial<
+ *       Pick<
+ *         TraversalConfig<TSnapshot, TEvent>,
+ *         'events' | 'filterEvents' | 'limit' | 'fromState' | 'stopWhen' | 'toState'
+ *       >
+ *     >
  */
 
 // ✓ Brand: verified type-identical to the original
@@ -88,7 +107,8 @@ export function EventExecutor(TSnapshot: Snapshot<unknown>, TEvent: EventObject)
   return fnType([Step(TSnapshot, TEvent)], t<Promise<any>>() | voidType())
 }
 /* compiles to:
- * export type EventExecutor<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject> = (a0: Step<TSnapshot, TEvent>) => Promise<any> | void
+ * export type EventExecutor<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject> =
+ *   (a0: Step<TSnapshot, TEvent>) => Promise<any> | void
  */
 
 // ✓ PathGenerator: verified type-identical to the original
@@ -97,5 +117,13 @@ export function PathGenerator(TSnapshot: Snapshot<unknown>, TEvent: EventObject,
   return fnType([ActorLogic(TSnapshot, TEvent, TInput), TraversalOptions(TSnapshot, TEvent, TInput)], t<Array<StatePath<typeof TSnapshot, typeof TEvent>>>())
 }
 /* compiles to:
- * export type PathGenerator<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject, TInput> = (a0: ActorLogic<TSnapshot, TEvent, TInput>, a1: TraversalOptions<TSnapshot, TEvent, TInput>) => Array<StatePath<TSnapshot, TEvent>>
+ * export type PathGenerator<
+ *   TSnapshot extends Snapshot<unknown>,
+ *   TEvent extends EventObject,
+ *   TInput
+ * > =
+ *   (
+ *     a0: ActorLogic<TSnapshot, TEvent, TInput>,
+ *     a1: TraversalOptions<TSnapshot, TEvent, TInput>
+ *   ) => Array<StatePath<TSnapshot, TEvent>>
  */

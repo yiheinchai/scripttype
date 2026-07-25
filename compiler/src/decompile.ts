@@ -303,7 +303,15 @@ class Decompiler {
       lines.push(`${INDENT}if (${loop.recursiveOnTrue ? '!' : ''}${marker}) {`)
     } else {
       // No bindings: test the guard inline.
-      lines.push(`${INDENT}if (${loop.recursiveOnTrue ? '!' : ''}matches<${pattern}>(${check})) {`)
+      const natural = this.naturalGuard(check, loop.pattern)
+      // A natural guard is an operator expression, so negating it needs parentheses:
+      // `!typeof x === 'string'` would parse as `(!typeof x) === 'string'`.
+      const inline = natural
+        ? loop.recursiveOnTrue
+          ? `!(${natural})`
+          : natural
+        : `${loop.recursiveOnTrue ? '!' : ''}matches<${pattern}>(${check})`
+      lines.push(`${INDENT}if (${inline}) {`)
     }
     lines.push(`${INDENT}${INDENT}break`)
     lines.push(`${INDENT}}`)
@@ -411,9 +419,10 @@ class Decompiler {
       if (!holes.length) {
         const thenStmts = this.statements(t.trueType, depth + 1)
         const elseStmts = this.statements(t.falseType, depth)
+        const guard = this.naturalGuard(check, t.extendsType) ?? `matches<${pattern}>(${check})`
         return [
           ...lines,
-          `if (matches<${pattern}>(${check})) {`,
+          `if (${guard}) {`,
           ...thenStmts.map((l) => INDENT + l),
           `}`,
           ...elseStmts,
@@ -491,6 +500,52 @@ class Decompiler {
       `${INDENT}${varName}[${key}] = ${value}`,
       `}`,
     ]
+  }
+
+  /**
+   * The natural JavaScript spelling of a binding-free guard, when there is one.
+   *
+   * `matches<string>(t)` is a correct lowering of `T extends string`, but no JavaScript
+   * programmer writes it that way — they write `typeof t === 'string'`, which compiles
+   * to the same thing. Since the readability case is the whole argument for the
+   * language, the decompiler should produce the spelling a reader already knows.
+   *
+   * Only exact, unambiguous correspondences are mapped. Anything else keeps
+   * `matches<…>`, which is explicit about being an `extends` test.
+   */
+  private naturalGuard(check: string, ext: ts.TypeNode): string | undefined {
+    const t = unwrapParens(ext)
+
+    const TYPEOF_TAG: Partial<Record<ts.SyntaxKind, string>> = {
+      [ts.SyntaxKind.StringKeyword]: 'string',
+      [ts.SyntaxKind.NumberKeyword]: 'number',
+      [ts.SyntaxKind.BooleanKeyword]: 'boolean',
+      [ts.SyntaxKind.BigIntKeyword]: 'bigint',
+      [ts.SyntaxKind.SymbolKeyword]: 'symbol',
+      [ts.SyntaxKind.UndefinedKeyword]: 'undefined',
+    }
+    const tag = TYPEOF_TAG[t.kind]
+    // A parenthesised check would read as `typeof (a | b) === …`, which is not the
+    // same test, so only a simple operand qualifies.
+    if (tag && isSimpleOperand(check)) return `typeof ${check} === '${tag}'`
+
+    // `T extends any[]` — but not `string[]`, whose runtime test would be weaker than
+    // the type test it replaces.
+    if (
+      ts.isArrayTypeNode(t) &&
+      t.elementType.kind === ts.SyntaxKind.AnyKeyword &&
+      isSimpleOperand(check)
+    ) {
+      return `Array.isArray(${check})`
+    }
+
+    // `'k' extends keyof O` is exactly what `'k' in o` means.
+    if (ts.isTypeOperatorNode(t) && t.operator === ts.SyntaxKind.KeyOfKeyword) {
+      const obj = this.expr(t.type)
+      if (isSimpleOperand(obj)) return `${check} in ${obj}`
+    }
+
+    return undefined
   }
 
   /** Render a type node as a ScriptType *expression*. */
@@ -629,7 +684,8 @@ class Decompiler {
       const holes = inferNames(t.extendsType)
       const pattern = holePattern(t.extendsType, this.sf, this.params, this.holeScope)
       if (!holes.length) {
-        return `matches<${pattern}>(${check}) ? ${this.wrap(t.trueType)} : ${this.wrap(t.falseType)}`
+        const guard = this.naturalGuard(check, t.extendsType) ?? `matches<${pattern}>(${check})`
+        return `${guard} ? ${this.wrap(t.trueType)} : ${this.wrap(t.falseType)}`
       }
       if (this.noHoist > 0) return this.lift(t)
       const marker = `m${++this.markers}`
@@ -774,6 +830,16 @@ function inferNames(t: ts.TypeNode): string[] {
  * typechecks, and the compiler turns it back into `infer X`. Any inference constraint is
  * preserved as a second argument.
  */
+/**
+ * Whether an emitted expression can sit beside an operator without parentheses.
+ *
+ * `typeof a.b === 'string'` and `typeof x['k'] === 'string'` are fine; `typeof (a | b)`
+ * is a different test entirely, so anything with an operator in it is rejected.
+ */
+function isSimpleOperand(s: string): boolean {
+  return /^[A-Za-z_$][A-Za-z0-9_$]*(\.[A-Za-z_$][A-Za-z0-9_$]*|\[[^\][]*\])*$/.test(s)
+}
+
 function holePattern(
   t: ts.TypeNode,
   sf: ts.SourceFile,

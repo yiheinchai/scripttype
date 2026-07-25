@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const WhitespaceChar: any
-type WhitespaceChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type WhitespaceChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ firstChar: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function firstChar(s: string) {
@@ -51,7 +51,8 @@ export function lastChar(s: string) {
   return s
 }
 /* compiles to:
- * export type lastChar<s extends string> = s extends `${infer head}${infer tail}` ? tail extends '' ? head : lastChar<tail> : s
+ * export type lastChar<s extends string> =
+ *   s extends `${infer head}${infer tail}` ? tail extends '' ? head : lastChar<tail> : s
  */
 
 // ✓ charsBeforeLast: verified type-identical to the original
@@ -67,7 +68,10 @@ export function charsBeforeLast(s: string) {
   return ''
 }
 /* compiles to:
- * export type charsBeforeLast<s extends string> = s extends `${infer head}${infer tail}` ? tail extends '' ? '' : `${head}${charsBeforeLast<tail>}` : ''
+ * export type charsBeforeLast<s extends string> =
+ *   s extends `${infer head}${infer tail}`
+ *     ? tail extends '' ? '' : `${head}${charsBeforeLast<tail>}`
+ *     : ''
  */
 
 // ✓ contains: verified type-identical to the original
@@ -79,7 +83,8 @@ export function contains(s: string, sub: string) {
   return false
 }
 /* compiles to:
- * export type contains<s extends string, sub extends string> = s extends `${string}${sub}${string}` ? true : false
+ * export type contains<s extends string, sub extends string> =
+ *   s extends `${string}${sub}${string}` ? true : false
  */
 
 // ✓ trim: verified type-identical to the original
@@ -101,7 +106,8 @@ export function trimStart(s: string) {
   return s
 }
 /* compiles to:
- * export type trimStart<s extends string> = s extends `${WhitespaceChar}${infer tail}` ? trimEnd<tail> : s
+ * export type trimStart<s extends string> =
+ *   s extends `${WhitespaceChar}${infer tail}` ? trimEnd<tail> : s
  */
 
 // ✓ trimEnd: verified type-identical to the original
@@ -119,7 +125,8 @@ export function trimEnd(s: string) {
 }
 /* compiles to:
  * export type trimEnd<s extends string> = TrimEnd__loop<s>
- * type TrimEnd__loop<S_ extends string> = S_ extends `${infer init}${WhitespaceChar}` ? TrimEnd__loop<init> : S_
+ * type TrimEnd__loop<S_ extends string> =
+ *   S_ extends `${infer init}${WhitespaceChar}` ? TrimEnd__loop<init> : S_
  */
 
 // ✓ isStringLiteral: verified type-identical to the original
@@ -140,5 +147,11 @@ export function isStringLiteral(t) {
   return false
 }
 /* compiles to:
- * export type isStringLiteral<t> = [t] extends [string] ? [string] extends [t] ? false : Uppercase<t> extends Uppercase<Lowercase<t>> ? Lowercase<t> extends Lowercase<Uppercase<t>> ? true : false : false : false
+ * export type isStringLiteral<t> =
+ *   [t] extends [string]
+ *     ? [string] extends [t] ? false
+ *     : Uppercase<t> extends Uppercase<Lowercase<t>>
+ *       ? Lowercase<t> extends Lowercase<Uppercase<t>> ? true : false
+ *     : false
+ *     : false
  */

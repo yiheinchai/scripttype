@@ -13,16 +13,18 @@
 declare const SQLiteTable: any
 declare const TableConfig: any
 declare const UpdateTableConfig: any
-type SQLiteTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateTableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SQLiteTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateTableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnySQLiteTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AnySQLiteTable(TPartial: Partial<TableConfig> = {}) {
   return SQLiteTable(UpdateTableConfig(TableConfig, TPartial))
 }
 /* compiles to:
- * export type AnySQLiteTable<TPartial extends Partial<TableConfig> = {}> = SQLiteTable<UpdateTableConfig<TableConfig, TPartial>>
+ * export type AnySQLiteTable<TPartial extends Partial<TableConfig> = {}> = SQLiteTable<
+ *   UpdateTableConfig<TableConfig, TPartial>
+ * >
  */
 
 // ✓ SQLiteTableWithColumns: verified type-identical to the original
@@ -35,5 +37,6 @@ export function SQLiteTableWithColumns(T: TableConfig) {
   return SQLiteTable(T) & out
 }
 /* compiles to:
- * export type SQLiteTableWithColumns<T extends TableConfig> = SQLiteTable<T> & { [Key in keyof T['columns']]: T['columns'][Key] }
+ * export type SQLiteTableWithColumns<T extends TableConfig> =
+ *   SQLiteTable<T> & { [Key in keyof T['columns']]: T['columns'][Key] }
  */

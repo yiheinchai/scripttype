@@ -10,29 +10,37 @@
 // ✓ LiteralToPrimitive: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function LiteralToPrimitive(T) {
-  if (matches<number>(T)) {
+  if (typeof T === 'number') {
     return number
   }
-  if (matches<bigint>(T)) {
+  if (typeof T === 'bigint') {
     return bigint
   }
-  if (matches<string>(T)) {
+  if (typeof T === 'string') {
     return string
   }
-  if (matches<boolean>(T)) {
+  if (typeof T === 'boolean') {
     return boolean
   }
-  if (matches<symbol>(T)) {
+  if (typeof T === 'symbol') {
     return symbol
   }
   if (matches<null>(T)) {
     return Null
   }
-  if (matches<undefined>(T)) {
+  if (typeof T === 'undefined') {
     return Undefined
   }
   return never
 }
 /* compiles to:
- * export type LiteralToPrimitive<T> = T extends number ? number : T extends bigint ? bigint : T extends string ? string : T extends boolean ? boolean : T extends symbol ? symbol : T extends null ? null : T extends undefined ? undefined : never
+ * export type LiteralToPrimitive<T> =
+ *   T extends number ? number
+ *   : T extends bigint ? bigint
+ *   : T extends string ? string
+ *   : T extends boolean ? boolean
+ *   : T extends symbol ? symbol
+ *   : T extends null ? null
+ *   : T extends undefined ? undefined
+ *   : never
  */

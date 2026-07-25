@@ -13,9 +13,9 @@
 declare const Prettify: any
 declare const RouteSchema: any
 declare const SingletonBase: any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingletonBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingletonBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TraceProcess: uses raw() — language gap, does not count as covered
 //   gap: object member MethodSignature
 /* @scripttype preserveParamNames */

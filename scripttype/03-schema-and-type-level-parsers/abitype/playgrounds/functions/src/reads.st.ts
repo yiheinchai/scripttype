@@ -17,21 +17,23 @@ declare const MAXIMUM_DEPTH: any
 declare const ReadParameters: any
 declare const ReadsStateMutability: any
 declare const UninferrableContracts: any
-type Abi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Contract<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ContractParameters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ContractReturnType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MAXIMUM_DEPTH<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadParameters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadsStateMutability<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UninferrableContracts<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Contract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ContractParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ContractReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MAXIMUM_DEPTH<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadsStateMutability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UninferrableContracts<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadsParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadsParameters(contracts: Contract[]) {
   return { contracts: asReadonly([...ContractsParameters(contracts)]) }
 }
 /* compiles to:
- * export type ReadsParameters<contracts extends Contract[]> = { contracts: readonly [...ContractsParameters<contracts>] }
+ * export type ReadsParameters<contracts extends Contract[]> = {
+ *   contracts: readonly [...ContractsParameters<contracts>]
+ * }
  */
 
 // ✓ ReadsResult: verified type-identical to the original
@@ -49,7 +51,12 @@ export function Contract(abi: Abi | readonly unknown[] = Abi | readonlyArrayOf(u
   return { abi: abi, functionName: functionName, args: optional(args) }
 }
 /* compiles to:
- * export type Contract<abi extends Abi | readonly unknown[] = Abi | readonly unknown[], functionName extends string = string, args extends readonly unknown[] | undefined = readonly unknown[] | undefined> = { abi: abi; functionName: functionName; args?: args }
+ * export type Contract<
+ *   abi extends Abi | readonly unknown[] = Abi | readonly unknown[],
+ *   functionName extends string = string,
+ *   args extends readonly unknown[] | undefined = readonly unknown[] | undefined
+ * > =
+ *   { abi: abi; functionName: functionName; args?: args }
  */
 
 // ✓ ContractsParameters: verified type-identical to the original
@@ -82,7 +89,27 @@ export function ContractsParameters(contracts: Contract[], result: any[] = [], d
   return UninferrableContracts
 }
 /* compiles to:
- * export type ContractsParameters<contracts extends Contract[], result extends any[] = [], depth extends readonly number[] = []> = depth['length'] extends MAXIMUM_DEPTH ? UninferrableContracts : contracts extends [] ? [] : contracts extends [infer head extends Contract] ? [...result, ReadParameters<head['abi'], head['functionName'], head['args']>] : contracts extends [infer head extends Contract, ...(infer tail extends Contract[])] ? ContractsParameters<[...tail], [...result, ReadParameters<head['abi'], head['functionName'], head['args']>], [...depth, 1]> : unknown[] extends contracts ? contracts : contracts extends { abi: infer abi extends Abi | readonly unknown[]; functionName: infer functionName extends string; args?: infer args extends readonly unknown[] | undefined; }[] ? string extends functionName ? UninferrableContracts : (ContractParameters<abi, functionName, ReadsStateMutability, args> & { abi: abi })[] : UninferrableContracts
+ * export type ContractsParameters<
+ *   contracts extends Contract[],
+ *   result extends any[] = [],
+ *   depth extends readonly number[] = []
+ * > =
+ *   depth['length'] extends MAXIMUM_DEPTH ? UninferrableContracts
+ *   : contracts extends [] ? []
+ *   : contracts extends [infer head extends Contract]
+ *     ? [...result, ReadParameters<head['abi'], head['functionName'], head['args']>]
+ *   : contracts extends [infer head extends Contract, ...infer tail extends Contract[]]
+ *     ? ContractsParameters<
+ *       [...tail],
+ *       [...result, ReadParameters<head['abi'], head['functionName'], head['args']>],
+ *       [...depth, 1]
+ *     >
+ *   : unknown[] extends contracts ? contracts
+ *   : contracts extends { abi: infer abi extends Abi | readonly unknown[]; functionName: infer functionName extends string; args?: infer args extends readonly unknown[] | undefined; }[]
+ *     ? string extends functionName
+ *       ? UninferrableContracts
+ *       : (ContractParameters<abi, functionName, ReadsStateMutability, args> & { abi: abi })[]
+ *   : UninferrableContracts
  */
 
 // ✓ ContractsReturnType: verified type-identical to the original
@@ -109,5 +136,22 @@ export function ContractsReturnType(contracts: Contract[], result: any[] = [], d
   return arrayOf(ContractReturnType)
 }
 /* compiles to:
- * export type ContractsReturnType<contracts extends Contract[], result extends any[] = [], depth extends readonly number[] = []> = depth['length'] extends MAXIMUM_DEPTH ? ContractReturnType[] : contracts extends [] ? [] : contracts extends [infer head extends Contract] ? [...result, ContractReturnType<head['abi'], head['functionName'], head['args']>] : contracts extends [infer head extends Contract, ...(infer tail extends Contract[])] ? ContractsReturnType<[...tail], [...result, ContractReturnType<head['abi'], head['functionName'], head['args']>], [...depth, 1]> : contracts extends { abi: infer abi extends Abi | readonly unknown[]; functionName: infer functionName extends string; args?: infer args extends readonly unknown[] | undefined; }[] ? ContractReturnType<abi, functionName, args>[] : ContractReturnType[]
+ * export type ContractsReturnType<
+ *   contracts extends Contract[],
+ *   result extends any[] = [],
+ *   depth extends readonly number[] = []
+ * > =
+ *   depth['length'] extends MAXIMUM_DEPTH ? ContractReturnType[]
+ *   : contracts extends [] ? []
+ *   : contracts extends [infer head extends Contract]
+ *     ? [...result, ContractReturnType<head['abi'], head['functionName'], head['args']>]
+ *   : contracts extends [infer head extends Contract, ...infer tail extends Contract[]]
+ *     ? ContractsReturnType<
+ *       [...tail],
+ *       [...result, ContractReturnType<head['abi'], head['functionName'], head['args']>],
+ *       [...depth, 1]
+ *     >
+ *   : contracts extends { abi: infer abi extends Abi | readonly unknown[]; functionName: infer functionName extends string; args?: infer args extends readonly unknown[] | undefined; }[]
+ *     ? ContractReturnType<abi, functionName, args>[]
+ *   : ContractReturnType[]
  */

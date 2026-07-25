@@ -16,13 +16,13 @@ declare const NegativeInfinity: any
 declare const PositiveInfinity: any
 declare const Zero: any
 declare const _Numeric: any
-type IsFloat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsInteger<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Negative<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Zero<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Numeric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsFloat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Negative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Zero<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Numeric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Finite: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Finite(T: number) {
@@ -86,7 +86,8 @@ export function Negative(T: _Numeric) {
   return never
 }
 /* compiles to:
- * export type Negative<T extends _Numeric> = T extends Zero ? never : `${T}` extends `-${string}` ? T : never
+ * export type Negative<T extends _Numeric> =
+ *   T extends Zero ? never : `${T}` extends `-${string}` ? T : never
  */
 
 // ✓ NegativeInteger: verified type-identical to the original
@@ -110,7 +111,8 @@ export function NonNegative(T: _Numeric) {
   return never
 }
 /* compiles to:
- * export type NonNegative<T extends _Numeric> = T extends Zero ? T : Negative<T> extends never ? T : never
+ * export type NonNegative<T extends _Numeric> =
+ *   T extends Zero ? T : Negative<T> extends never ? T : never
  */
 
 // ✓ NonNegativeInteger: verified type-identical to the original

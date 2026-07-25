@@ -15,11 +15,11 @@ declare const Extends: any
 declare const Last: any
 declare const List: any
 declare const Prepend: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Last<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prepend<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prepend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _ListOf: does not compile yet
 //   Type '[U] extends [never] ? 1 : 0' cannot be used to index type '{ '0': _ListOf__st0<Exclude<U, LastU>, [LastU, ...LN], Last<Exclude<U, LastU>>>; '1': LN; }'.
 /* @scripttype preserveParamNames */
@@ -27,7 +27,8 @@ export function _ListOf(U, LN: List = [], LastU = Last(U)) {
   return { 0: _ListOf(Exclude(U, LastU), Prepend(LN, LastU)), 1: LN }[Extends([U], [never])]
 }
 /* compiles to:
- * export type _ListOf<U, LN extends List = [], LastU = Last<U>> = { '0': _ListOf<Exclude<U, LastU>, Prepend<LN, LastU>>; '1': LN }[Extends<[U], [never]>]
+ * export type _ListOf<U, LN extends List = [], LastU = Last<U>> =
+ *   { '0': _ListOf<Exclude<U, LastU>, Prepend<LN, LastU>>; '1': LN }[Extends<[U], [never]>]
  */
 
 // ✓ ListOf: verified type-identical to the original

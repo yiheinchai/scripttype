@@ -12,13 +12,16 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ExcludeKeys: any
 declare const Match: any
-type ExcludeKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExcludeKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Exclude: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Exclude(O: object, O1: object, match: Match = 'default') {
   return Pick(O, ExcludeKeys(O, O1, match))
 }
 /* compiles to:
- * export type Exclude<O extends object, O1 extends object, match extends Match = 'default'> = Pick<O, ExcludeKeys<O, O1, match>>
+ * export type Exclude<O extends object, O1 extends object, match extends Match = 'default'> = Pick<
+ *   O,
+ *   ExcludeKeys<O, O1, match>
+ * >
  */

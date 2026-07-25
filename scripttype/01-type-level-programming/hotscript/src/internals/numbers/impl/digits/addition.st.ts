@@ -13,9 +13,9 @@
 declare const AddDigitCarryTable: any
 declare const AddDigitTable: any
 declare const Digit: any
-type AddDigitCarryTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AddDigitTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Digit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AddDigitCarryTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AddDigitTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AddDigit: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AddDigit(T: Digit, U: Digit, Carry: 0 | 1 = 0) {
@@ -55,5 +55,18 @@ export function AddDigits(T: Digit[], U: Digit[], Carry: 0 | 1 = 0, Acc: Digit[]
   return Acc
 }
 /* compiles to:
- * export type AddDigits<T extends Digit[], U extends Digit[], Carry extends 0 | 1 = 0, Acc extends Digit[] = []> = T extends [...(infer R extends Digit[]), infer N extends Digit] ? U extends [...(infer S extends Digit[]), infer M extends Digit] ? AddDigits<R, S, AddCarryDigit<N, M, Carry>, [AddDigit<N, M, Carry>, ...Acc]> : AddDigits<R, [], AddCarryDigit<N, 0, Carry>, [AddDigit<N, 0, Carry>, ...Acc]> : U extends [...(infer S extends Digit[]), infer M extends Digit] ? AddDigits<[], S, AddCarryDigit<0, M, Carry>, [AddDigit<0, M, Carry>, ...Acc]> : Carry extends 1 ? [1, ...Acc] : Acc
+ * export type AddDigits<
+ *   T extends Digit[],
+ *   U extends Digit[],
+ *   Carry extends 0 | 1 = 0,
+ *   Acc extends Digit[] = []
+ * > =
+ *   T extends [...infer R extends Digit[], infer N extends Digit]
+ *     ? U extends [...infer S extends Digit[], infer M extends Digit]
+ *       ? AddDigits<R, S, AddCarryDigit<N, M, Carry>, [AddDigit<N, M, Carry>, ...Acc]>
+ *       : AddDigits<R, [], AddCarryDigit<N, 0, Carry>, [AddDigit<N, 0, Carry>, ...Acc]>
+ *   : U extends [...infer S extends Digit[], infer M extends Digit]
+ *     ? AddDigits<[], S, AddCarryDigit<0, M, Carry>, [AddDigit<0, M, Carry>, ...Acc]>
+ *   : Carry extends 1 ? [1, ...Acc]
+ *   : Acc
  */

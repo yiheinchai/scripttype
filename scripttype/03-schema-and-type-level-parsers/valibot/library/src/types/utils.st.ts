@@ -58,7 +58,7 @@ export function NonNullish(TValue) {
 // ✓ NonOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonOptional(TValue) {
-  if (matches<undefined>(TValue)) {
+  if (typeof TValue === 'undefined') {
     return never
   }
   return TValue
@@ -89,7 +89,10 @@ export function DeepReadonly(TValue) {
   return TValue
 }
 /* compiles to:
- * export type DeepReadonly<TValue> = TValue extends Record<string, unknown> | readonly unknown[] ? { readonly [TKey in keyof TValue]: DeepReadonly<TValue[TKey]> } : TValue
+ * export type DeepReadonly<TValue> =
+ *   TValue extends Record<string, unknown> | readonly unknown[]
+ *     ? { readonly [TKey in keyof TValue]: DeepReadonly<TValue[TKey]> }
+ *     : TValue
  */
 
 // ✓ MaybeDeepReadonly: verified type-identical to the original
@@ -133,7 +136,8 @@ export function MarkOptional(TObject, TKeys: keyof typeof TObject) {
   return out & Omit(TObject, TKeys) & Partial(Pick(TObject, TKeys))
 }
 /* compiles to:
- * export type MarkOptional<TObject, TKeys extends keyof TObject> = { [TKey in keyof TObject]?: unknown } & Omit<TObject, TKeys> & Partial<Pick<TObject, TKeys>>
+ * export type MarkOptional<TObject, TKeys extends keyof TObject> =
+ *   { [TKey in keyof TObject]?: unknown } & Omit<TObject, TKeys> & Partial<Pick<TObject, TKeys>>
  */
 
 // ✓ Merge: verified type-identical to the original
@@ -142,7 +146,8 @@ export function Merge(TFirstObject, TSecondObject) {
   return Omit(TFirstObject, keyof(TFirstObject) & keyof(TSecondObject)) & TSecondObject
 }
 /* compiles to:
- * export type Merge<TFirstObject, TSecondObject> = Omit<TFirstObject, keyof TFirstObject & keyof TSecondObject> & TSecondObject
+ * export type Merge<TFirstObject, TSecondObject> =
+ *   Omit<TFirstObject, keyof TFirstObject & keyof TSecondObject> & TSecondObject
  */
 
 // ✓ FirstTupleItem: verified type-identical to the original
@@ -174,7 +179,10 @@ export function UnionToIntersect(TUnion) {
   return never
 }
 /* compiles to:
- * export type UnionToIntersect<TUnion> = (TUnion extends any ? (a0: TUnion) => void : never) extends (arg: infer Intersect) => void ? Intersect : never
+ * export type UnionToIntersect<TUnion> =
+ *   (TUnion extends any ? (a0: TUnion) => void : never) extends (arg: infer Intersect) => void
+ *     ? Intersect
+ *     : never
  */
 
 // ✓ UnionToTupleHelper: verified type-identical to the original
@@ -193,8 +201,14 @@ export function UnionToTupleHelper(TUnion, TResult: unknown[]) {
   return tResult
 }
 /* compiles to:
- * export type UnionToTupleHelper<TUnion, TResult extends unknown[]> = UnionToTupleHelper__loop<TUnion, TResult>
- * type UnionToTupleHelper__loop<TUnion, TResult extends unknown[]> = UnionToIntersect<TUnion extends never ? never : () => TUnion> extends () => infer TLast ? UnionToTupleHelper__loop<Exclude<TUnion, TLast>, [TLast, ...TResult]> : TResult
+ * export type UnionToTupleHelper<TUnion, TResult extends unknown[]> = UnionToTupleHelper__loop<
+ *   TUnion,
+ *   TResult
+ * >
+ * type UnionToTupleHelper__loop<TUnion, TResult extends unknown[]> =
+ *   UnionToIntersect<TUnion extends never ? never : () => TUnion> extends () => infer TLast
+ *     ? UnionToTupleHelper__loop<Exclude<TUnion, TLast>, [TLast, ...TResult]>
+ *     : TResult
  */
 
 // ✓ UnionToTuple: verified type-identical to the original

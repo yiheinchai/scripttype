@@ -13,16 +13,19 @@
 declare const CollapseLiterals: any
 declare const IfNotAnyOrNever: any
 declare const UnwrapBrand: any
-type CollapseLiterals<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnwrapBrand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CollapseLiterals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnwrapBrand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsBooleanLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsBooleanLiteral(T) {
   return IfNotAnyOrNever(T, { ifNot: _IsBooleanLiteral(CollapseLiterals(UnwrapBrand(T))), ifAny: false, ifNever: false })
 }
 /* compiles to:
- * export type IsBooleanLiteral<T> = IfNotAnyOrNever<T, { ifNot: _IsBooleanLiteral<CollapseLiterals<UnwrapBrand<T>>>; ifAny: false; ifNever: false }>
+ * export type IsBooleanLiteral<T> = IfNotAnyOrNever<
+ *   T,
+ *   { ifNot: _IsBooleanLiteral<CollapseLiterals<UnwrapBrand<T>>>; ifAny: false; ifNever: false }
+ * >
  */
 
 // ✓ _IsBooleanLiteral: verified type-identical to the original
@@ -31,7 +34,7 @@ export function _IsBooleanLiteral(T) {
   if (matches<typeof T>(boolean)) {
     return false
   }
-  if (matches<boolean>(T)) {
+  if (typeof T === 'boolean') {
     return true
   }
   return false

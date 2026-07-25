@@ -16,12 +16,12 @@ declare const Key: any
 declare const List: any
 declare const OReadonly: any
 declare const Tail: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadonlyAt: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyAt(O, Path: List<Key>, depth: Depth) {
@@ -44,7 +44,13 @@ export function ReadonlyAt(O, Path: List<Key>, depth: Depth) {
   return out
 }
 /* compiles to:
- * export type ReadonlyAt<O, Path extends List<Key>, depth extends Depth> = O extends BuiltIn ? O : Path extends [Key] ? O extends List ? OReadonly<O, Path[0], depth> : O extends object ? OReadonly<O, Path[0], depth> : O : { [K in keyof O]: K extends Path[0] ? ReadonlyAt<O[K], Tail<Path>, depth> : O[K] }
+ * export type ReadonlyAt<O, Path extends List<Key>, depth extends Depth> =
+ *   O extends BuiltIn ? O
+ *   : Path extends [Key]
+ *     ? O extends List ? OReadonly<O, Path[0], depth>
+ *     : O extends object ? OReadonly<O, Path[0], depth>
+ *     : O
+ *   : { [K in keyof O]: K extends Path[0] ? ReadonlyAt<O[K], Tail<Path>, depth> : O[K] }
  */
 
 // ✓ Readonly: verified type-identical to the original
@@ -56,5 +62,6 @@ export function Readonly(O: object, Path: List<Key>, depth: Depth = 'flat') {
   return never
 }
 /* compiles to:
- * export type Readonly<O extends object, Path extends List<Key>, depth extends Depth = 'flat'> = Path extends unknown ? ReadonlyAt<O, Path, depth> : never
+ * export type Readonly<O extends object, Path extends List<Key>, depth extends Depth = 'flat'> =
+ *   Path extends unknown ? ReadonlyAt<O, Path, depth> : never
  */

@@ -14,10 +14,10 @@ declare const AnyRouter: any
 declare const OptionalStructuralSharing: any
 declare const RequiredStructuralSharing: any
 declare const ValidateJSON: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalStructuralSharing<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredStructuralSharing<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidateJSON<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalStructuralSharing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredStructuralSharing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidateJSON<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DefaultStructuralSharingEnabled: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DefaultStructuralSharingEnabled(TRouter: AnyRouter) {
@@ -27,7 +27,10 @@ export function DefaultStructuralSharingEnabled(TRouter: AnyRouter) {
   return NonNullable(TRouter['options']['defaultStructuralSharing'])
 }
 /* compiles to:
- * export type DefaultStructuralSharingEnabled<TRouter extends AnyRouter> = boolean extends TRouter['options']['defaultStructuralSharing'] ? false : NonNullable<TRouter['options']['defaultStructuralSharing']>
+ * export type DefaultStructuralSharingEnabled<TRouter extends AnyRouter> =
+ *   boolean extends TRouter['options']['defaultStructuralSharing']
+ *     ? false
+ *     : NonNullable<TRouter['options']['defaultStructuralSharing']>
  */
 
 // ✓ StructuralSharingOption: verified type-identical to the original
@@ -48,7 +51,15 @@ export function StructuralSharingOption(TRouter: AnyRouter, TSelected, TStructur
   return OptionalStructuralSharing(TStructuralSharing, false)
 }
 /* compiles to:
- * export type StructuralSharingOption<TRouter extends AnyRouter, TSelected, TStructuralSharing> = unknown extends TSelected ? OptionalStructuralSharing<TStructuralSharing, boolean> : unknown extends TRouter['routeTree'] ? OptionalStructuralSharing<TStructuralSharing, boolean> : TSelected extends ValidateJSON<TSelected> ? OptionalStructuralSharing<TStructuralSharing, boolean> : DefaultStructuralSharingEnabled<TRouter> extends true ? RequiredStructuralSharing<TStructuralSharing, false> : OptionalStructuralSharing<TStructuralSharing, false>
+ * export type StructuralSharingOption<TRouter extends AnyRouter, TSelected, TStructuralSharing> =
+ *   unknown extends TSelected ? OptionalStructuralSharing<TStructuralSharing, boolean>
+ *   : unknown extends TRouter['routeTree']
+ *     ? OptionalStructuralSharing<TStructuralSharing, boolean>
+ *   : TSelected extends ValidateJSON<TSelected>
+ *     ? OptionalStructuralSharing<TStructuralSharing, boolean>
+ *   : DefaultStructuralSharingEnabled<TRouter> extends true
+ *     ? RequiredStructuralSharing<TStructuralSharing, false>
+ *   : OptionalStructuralSharing<TStructuralSharing, false>
  */
 
 // ✓ StructuralSharingEnabled: verified type-identical to the original
@@ -60,7 +71,10 @@ export function StructuralSharingEnabled(TRouter: AnyRouter, TStructuralSharing)
   return TStructuralSharing
 }
 /* compiles to:
- * export type StructuralSharingEnabled<TRouter extends AnyRouter, TStructuralSharing> = boolean extends TStructuralSharing ? DefaultStructuralSharingEnabled<TRouter> : TStructuralSharing
+ * export type StructuralSharingEnabled<TRouter extends AnyRouter, TStructuralSharing> =
+ *   boolean extends TStructuralSharing
+ *     ? DefaultStructuralSharingEnabled<TRouter>
+ *     : TStructuralSharing
  */
 
 // ✓ ValidateSelected: verified type-identical to the original
@@ -72,5 +86,8 @@ export function ValidateSelected(TRouter: AnyRouter, TSelected, TStructuralShari
   return TSelected
 }
 /* compiles to:
- * export type ValidateSelected<TRouter extends AnyRouter, TSelected, TStructuralSharing> = StructuralSharingEnabled<TRouter, TStructuralSharing> extends true ? ValidateJSON<TSelected> : TSelected
+ * export type ValidateSelected<TRouter extends AnyRouter, TSelected, TStructuralSharing> =
+ *   StructuralSharingEnabled<TRouter, TStructuralSharing> extends true
+ *     ? ValidateJSON<TSelected>
+ *     : TSelected
  */

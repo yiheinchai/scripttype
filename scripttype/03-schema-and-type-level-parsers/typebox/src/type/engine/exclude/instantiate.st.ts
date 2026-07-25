@@ -17,20 +17,25 @@ declare const TInstantiateType: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExcludeDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExcludeOperation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExcludeDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExcludeOperation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExcludeAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TExcludeAction(Left: TSchema, Right: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Left, Right])) ? TExcludeOperation(Left, Right) : TExcludeDeferred(Left, Right)) {
   return Result
 }
 /* compiles to:
- * export type TExcludeAction<Left extends TSchema, Right extends TSchema, Result extends TSchema = TCanInstantiate<[Left, Right]> extends true ? TExcludeOperation<Left, Right> : TExcludeDeferred<Left, Right>> = Result
+ * export type TExcludeAction<
+ *   Left extends TSchema,
+ *   Right extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Left, Right]> extends true ? TExcludeOperation<Left, Right> : TExcludeDeferred<Left, Right>
+ * > =
+ *   Result
  */
 
 // ✓ TExcludeInstantiate: verified type-identical to the original
@@ -39,5 +44,13 @@ export function TExcludeInstantiate(Context: TProperties, State: TState, Left: T
   return TExcludeAction(InstantiatedLeft, InstantiatedRight)
 }
 /* compiles to:
- * export type TExcludeInstantiate<Context extends TProperties, State extends TState, Left extends TSchema, Right extends TSchema, InstantiatedLeft extends TSchema = TInstantiateType<Context, State, Left>, InstantiatedRight extends TSchema = TInstantiateType<Context, State, Right>> = TExcludeAction<InstantiatedLeft, InstantiatedRight>
+ * export type TExcludeInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Left extends TSchema,
+ *   Right extends TSchema,
+ *   InstantiatedLeft extends TSchema = TInstantiateType<Context, State, Left>,
+ *   InstantiatedRight extends TSchema = TInstantiateType<Context, State, Right>
+ * > =
+ *   TExcludeAction<InstantiatedLeft, InstantiatedRight>
  */

@@ -13,9 +13,9 @@
 declare const IsEqual: any
 declare const IsNever: any
 declare const Result: any
-type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Result<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsUnion(T) {
@@ -38,5 +38,8 @@ export function InternalIsUnion(T, U = T) {
   return never
 }
 /* compiles to:
- * export type InternalIsUnion<T, U = T> = (IsNever<T> extends true ? false : T extends any ? IsEqual<U, T> extends true ? false : true : never) extends infer Result ? boolean extends Result ? true : Result : never
+ * export type InternalIsUnion<T, U = T> =
+ *   (IsNever<T> extends true ? false : T extends any ? IsEqual<U, T> extends true ? false : true : never) extends infer Result
+ *     ? boolean extends Result ? true : Result
+ *     : never
  */

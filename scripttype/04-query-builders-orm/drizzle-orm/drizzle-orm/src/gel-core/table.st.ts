@@ -13,16 +13,18 @@
 declare const GelTable: any
 declare const TableConfig: any
 declare const UpdateTableConfig: any
-type GelTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateTableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type GelTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateTableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyGelTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AnyGelTable(TPartial: Partial<TableConfig> = {}) {
   return GelTable(UpdateTableConfig(TableConfig, TPartial))
 }
 /* compiles to:
- * export type AnyGelTable<TPartial extends Partial<TableConfig> = {}> = GelTable<UpdateTableConfig<TableConfig, TPartial>>
+ * export type AnyGelTable<TPartial extends Partial<TableConfig> = {}> = GelTable<
+ *   UpdateTableConfig<TableConfig, TPartial>
+ * >
  */
 
 // ✓ GelTableWithColumns: verified type-identical to the original
@@ -35,5 +37,8 @@ export function GelTableWithColumns(T: TableConfig) {
   return merge(GelTable(T), out, { enableRLS: fnType([], Omit(GelTableWithColumns(T), 'enableRLS')) })
 }
 /* compiles to:
- * export type GelTableWithColumns<T extends TableConfig> = GelTable<T> & { [Key in keyof T['columns']]: T['columns'][Key] } & { enableRLS: () => Omit<GelTableWithColumns<T>, 'enableRLS'> }
+ * export type GelTableWithColumns<T extends TableConfig> =
+ *   & GelTable<T>
+ *   & { [Key in keyof T['columns']]: T['columns'][Key] }
+ *   & { enableRLS: () => Omit<GelTableWithColumns<T>, 'enableRLS'> }
  */

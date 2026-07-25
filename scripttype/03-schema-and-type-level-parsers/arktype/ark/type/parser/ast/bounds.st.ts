@@ -23,19 +23,19 @@ declare const validateAst: any
 declare const writeConstrainedMorphMessage: any
 declare const writeInvalidLimitMessage: any
 declare const writeUnboundableMessage: any
-type BoundExpressionKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Comparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferredMorph<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LimitLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type astToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferAstRoot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type typeToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeConstrainedMorphMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeInvalidLimitMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnboundableMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BoundExpressionKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferredMorph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LimitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type astToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferAstRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type typeToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeConstrainedMorphMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeInvalidLimitMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnboundableMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validateRange: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function validateRange(l, comparator: Comparator, r, $, args) {
@@ -49,7 +49,11 @@ export function validateRange(l, comparator: Comparator, r, $, args) {
   return validateBound(l, comparator, r & LimitLiteral, 'right', $, args)
 }
 /* compiles to:
- * export type validateRange<l, comparator extends Comparator, r, $, args> = [l] extends [LimitLiteral] ? validateBound<r, comparator, l, 'left', $, args> : [l] extends [[infer leftAst, Comparator, unknown]] ? ErrorMessage<writeDoubleRightBoundMessage<astToString<leftAst>>> : validateBound<l, comparator, r & LimitLiteral, 'right', $, args>
+ * export type validateRange<l, comparator extends Comparator, r, $, args> =
+ *   [l] extends [LimitLiteral] ? validateBound<r, comparator, l, 'left', $, args>
+ *   : [l] extends [[infer leftAst, Comparator, unknown]]
+ *     ? ErrorMessage<writeDoubleRightBoundMessage<astToString<leftAst>>>
+ *   : validateBound<l, comparator, r & LimitLiteral, 'right', $, args>
  */
 
 // ✓ validateBound: verified type-identical to the original
@@ -58,7 +62,7 @@ export function validateBound(boundedAst, comparator: Comparator, limit: LimitLi
   const m1 = matches<Hole<"bounded">>(inferAstRoot(boundedAst, $, args))
   if (m1) {
     if (matches<true>(isNumericallyBoundable(m1.bounded))) {
-      if (matches<number>(limit)) {
+      if (typeof limit === 'number') {
         return validateAst(boundedAst, $, args)
       }
       return ErrorMessage(writeInvalidLimitMessage(comparator, limit, boundKind))
@@ -74,7 +78,23 @@ export function validateBound(boundedAst, comparator: Comparator, limit: LimitLi
   return never
 }
 /* compiles to:
- * export type validateBound<boundedAst, comparator extends Comparator, limit extends LimitLiteral, boundKind extends BoundExpressionKind, $, args> = inferAstRoot<boundedAst, $, args> extends infer bounded ? isNumericallyBoundable<bounded> extends true ? limit extends number ? validateAst<boundedAst, $, args> : ErrorMessage<writeInvalidLimitMessage<comparator, limit, boundKind>> : [bounded] extends [Date] ? validateAst<boundedAst, $, args> : [bounded] extends [InferredMorph] ? ErrorMessage<writeConstrainedMorphMessage<boundedAst>> : ErrorMessage<writeUnboundableMessage<typeToString<bounded>>> : never
+ * export type validateBound<
+ *   boundedAst,
+ *   comparator extends Comparator,
+ *   limit extends LimitLiteral,
+ *   boundKind extends BoundExpressionKind,
+ *   $,
+ *   args
+ * > =
+ *   inferAstRoot<boundedAst, $, args> extends infer bounded
+ *     ? isNumericallyBoundable<bounded> extends true
+ *       ? limit extends number
+ *         ? validateAst<boundedAst, $, args>
+ *         : ErrorMessage<writeInvalidLimitMessage<comparator, limit, boundKind>>
+ *     : [bounded] extends [Date] ? validateAst<boundedAst, $, args>
+ *     : [bounded] extends [InferredMorph] ? ErrorMessage<writeConstrainedMorphMessage<boundedAst>>
+ *     : ErrorMessage<writeUnboundableMessage<typeToString<bounded>>>
+ *     : never
  */
 
 // ✓ isNumericallyBoundable: verified type-identical to the original
@@ -92,7 +112,11 @@ export function isNumericallyBoundable(bounded) {
   return false
 }
 /* compiles to:
- * export type isNumericallyBoundable<bounded> = [bounded] extends [number] ? true : [bounded] extends [string] ? true : [bounded] extends [array] ? true : false
+ * export type isNumericallyBoundable<bounded> =
+ *   [bounded] extends [number] ? true
+ *   : [bounded] extends [string] ? true
+ *   : [bounded] extends [array] ? true
+ *   : false
  */
 
 // ✓ writeDoubleRightBoundMessage: verified type-identical to the original

@@ -11,12 +11,27 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PgCharBuilder: any
-type PgCharBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgCharBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgCharBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgCharBuilderInitial(TName: string, TEnum: [ string, ...string[] ], TLength: number | undefined) {
   return PgCharBuilder({ name: TName, dataType: 'string', columnType: 'PgChar', data: TEnum[number], enumValues: TEnum, driverParam: string, length: TLength })
 }
 /* compiles to:
- * export type PgCharBuilderInitial<TName extends string, TEnum extends [string, ...string[]], TLength extends number | undefined> = PgCharBuilder<{ name: TName; dataType: 'string'; columnType: 'PgChar'; data: TEnum[number]; enumValues: TEnum; driverParam: string; length: TLength }>
+ * export type PgCharBuilderInitial<
+ *   TName extends string,
+ *   TEnum extends [string, ...string[]],
+ *   TLength extends number | undefined
+ * > =
+ *   PgCharBuilder<
+ *     {
+ *       name: TName
+ *       dataType: 'string'
+ *       columnType: 'PgChar'
+ *       data: TEnum[number]
+ *       enumValues: TEnum
+ *       driverParam: string
+ *       length: TLength
+ *     }
+ *   >
  */

@@ -13,9 +13,9 @@
 declare const AddDigits: any
 declare const Digit: any
 declare const SubDigits: any
-type AddDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Digit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SubDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AddDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SubDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MulX2: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MulX2(T: Digit[]) {
@@ -130,7 +130,17 @@ export function MulByDigit(T: Digit[], U: Digit) {
   return MulX9(T)
 }
 /* compiles to:
- * export type MulByDigit<T extends Digit[], U extends Digit> = U extends 0 ? [0] : U extends 1 ? T : U extends 2 ? MulX2<T> : U extends 3 ? MulX3<T> : U extends 4 ? MulX4<T> : U extends 5 ? MulX5<T> : U extends 6 ? MulX6<T> : U extends 7 ? MulX7<T> : U extends 8 ? MulX8<T> : MulX9<T>
+ * export type MulByDigit<T extends Digit[], U extends Digit> =
+ *   U extends 0 ? [0]
+ *   : U extends 1 ? T
+ *   : U extends 2 ? MulX2<T>
+ *   : U extends 3 ? MulX3<T>
+ *   : U extends 4 ? MulX4<T>
+ *   : U extends 5 ? MulX5<T>
+ *   : U extends 6 ? MulX6<T>
+ *   : U extends 7 ? MulX7<T>
+ *   : U extends 8 ? MulX8<T>
+ *   : MulX9<T>
  */
 
 // ✓ MulDigits: verified type-identical to the original
@@ -150,5 +160,8 @@ export function MulDigits(T: Digit[], U: Digit[]) {
 }
 /* compiles to:
  * export type MulDigits<T extends Digit[], U extends Digit[]> = MulDigits__loop<U, [], T>
- * type MulDigits__loop<U extends Digit[], Acc extends any[], T extends Digit[]> = U extends [infer N extends Digit, ...(infer R extends Digit[])] ? MulDigits__loop<R, AddDigits<MulByDigit<T, N>, MulX10<Acc>>, T> : Acc
+ * type MulDigits__loop<U extends Digit[], Acc extends any[], T extends Digit[]> =
+ *   U extends [infer N extends Digit, ...infer R extends Digit[]]
+ *     ? MulDigits__loop<R, AddDigits<MulByDigit<T, N>, MulX10<Acc>>, T>
+ *     : Acc
  */

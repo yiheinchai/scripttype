@@ -13,9 +13,9 @@
 declare const Digit: any
 declare const SubDigitCarryTable: any
 declare const SubDigitTable: any
-type Digit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SubDigitCarryTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SubDigitTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SubDigitCarryTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SubDigitTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SubDigit: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SubDigit(T: Digit, U: Digit, Carry: 0 | 1 = 0) {
@@ -55,5 +55,18 @@ export function SubDigits(T: Digit[], U: Digit[], Carry: 0 | 1 = 0, Acc: Digit[]
   return Acc
 }
 /* compiles to:
- * export type SubDigits<T extends Digit[], U extends Digit[], Carry extends 0 | 1 = 0, Acc extends Digit[] = []> = T extends [...(infer R extends Digit[]), infer N extends Digit] ? U extends [...(infer S extends Digit[]), infer M extends Digit] ? SubDigits<R, S, SubCarryDigit<N, M, Carry>, [SubDigit<N, M, Carry>, ...Acc]> : SubDigits<R, [], SubCarryDigit<N, 0, Carry>, [SubDigit<N, 0, Carry>, ...Acc]> : U extends [...(infer S extends Digit[]), infer M extends Digit] ? SubDigits<[], S, SubCarryDigit<0, M, Carry>, [SubDigit<0, M, Carry>, ...Acc]> : Carry extends 1 ? [...Acc, 9] : Acc
+ * export type SubDigits<
+ *   T extends Digit[],
+ *   U extends Digit[],
+ *   Carry extends 0 | 1 = 0,
+ *   Acc extends Digit[] = []
+ * > =
+ *   T extends [...infer R extends Digit[], infer N extends Digit]
+ *     ? U extends [...infer S extends Digit[], infer M extends Digit]
+ *       ? SubDigits<R, S, SubCarryDigit<N, M, Carry>, [SubDigit<N, M, Carry>, ...Acc]>
+ *       : SubDigits<R, [], SubCarryDigit<N, 0, Carry>, [SubDigit<N, 0, Carry>, ...Acc]>
+ *   : U extends [...infer S extends Digit[], infer M extends Digit]
+ *     ? SubDigits<[], S, SubCarryDigit<0, M, Carry>, [SubDigit<0, M, Carry>, ...Acc]>
+ *   : Carry extends 1 ? [...Acc, 9]
+ *   : Acc
  */

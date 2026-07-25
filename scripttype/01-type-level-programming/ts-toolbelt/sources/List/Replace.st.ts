@@ -14,15 +14,21 @@ declare const Cast: any
 declare const List: any
 declare const Match: any
 declare const OReplace: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OReplace<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OReplace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Replace: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Replace(L: List, M: any, A: any, match: Match = 'default') {
   return Cast(OReplace(L, M, A, match), List)
 }
 /* compiles to:
- * export type Replace<L extends List, M extends any, A extends any, match extends Match = 'default'> = Cast<OReplace<L, M, A, match>, List>
+ * export type Replace<
+ *   L extends List,
+ *   M extends any,
+ *   A extends any,
+ *   match extends Match = 'default'
+ * > =
+ *   Cast<OReplace<L, M, A, match>, List>
  */

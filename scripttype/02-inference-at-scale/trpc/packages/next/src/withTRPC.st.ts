@@ -23,26 +23,29 @@ declare const TRPCPrepassHelper: any
 declare const TRPCUntypedClient: any
 declare const TransformerOptions: any
 declare const inferClientTypes: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateTRPCClientOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateTRPCReactOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateTRPCReactQueryClientConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NextPageContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResponseMeta<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCClientError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCPrepassHelper<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCUntypedClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TransformerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferClientTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateTRPCClientOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateTRPCReactOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateTRPCReactQueryClientConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NextPageContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResponseMeta<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCClientError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCPrepassHelper<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCUntypedClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TransformerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WithTRPCConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function WithTRPCConfig(TRouter: AnyRouter) {
   return merge(CreateTRPCClientOptions(TRouter), CreateTRPCReactQueryClientConfig, { abortOnUnmount: optional(boolean) })
 }
 /* compiles to:
- * export type WithTRPCConfig<TRouter extends AnyRouter> = CreateTRPCClientOptions<TRouter> & CreateTRPCReactQueryClientConfig & { abortOnUnmount?: boolean }
+ * export type WithTRPCConfig<TRouter extends AnyRouter> =
+ *   & CreateTRPCClientOptions<TRouter>
+ *   & CreateTRPCReactQueryClientConfig
+ *   & { abortOnUnmount?: boolean }
  */
 
 // ✓ WithTRPCOptions: verified type-identical to the original
@@ -51,7 +54,10 @@ export function WithTRPCOptions(TRouter: AnyRouter) {
   return merge(CreateTRPCReactOptions(TRouter), { config: fnType([{ ctx: optional(NextPageContext) }], WithTRPCConfig(TRouter)) }, TransformerOptions(inferClientTypes(TRouter)))
 }
 /* compiles to:
- * export type WithTRPCOptions<TRouter extends AnyRouter> = CreateTRPCReactOptions<TRouter> & { config: (a0: { ctx?: NextPageContext }) => WithTRPCConfig<TRouter> } & TransformerOptions<inferClientTypes<TRouter>>
+ * export type WithTRPCOptions<TRouter extends AnyRouter> =
+ *   & CreateTRPCReactOptions<TRouter>
+ *   & { config: (a0: { ctx?: NextPageContext }) => WithTRPCConfig<TRouter> }
+ *   & TransformerOptions<inferClientTypes<TRouter>>
  */
 
 // ✓ WithTRPCSSROptions: verified type-identical to the original
@@ -60,7 +66,15 @@ export function WithTRPCSSROptions(TRouter: AnyRouter) {
   return merge(WithTRPCOptions(TRouter), { ssr: anyOf(true, fnType([{ ctx: NextPageContext }], boolean | t<Promise<boolean>>())), responseMeta: optional(fnType([{ ctx: NextPageContext, clientErrors: arrayOf(TRPCClientError(TRouter)) }], ResponseMeta)), ssrPrepass: TRPCPrepassHelper })
 }
 /* compiles to:
- * export type WithTRPCSSROptions<TRouter extends AnyRouter> = WithTRPCOptions<TRouter> & { ssr: true | ((a0: { ctx: NextPageContext }) => boolean | Promise<boolean>); responseMeta?: (a0: { ctx: NextPageContext; clientErrors: TRPCClientError<TRouter>[] }) => ResponseMeta; ssrPrepass: TRPCPrepassHelper }
+ * export type WithTRPCSSROptions<TRouter extends AnyRouter> =
+ *   & WithTRPCOptions<TRouter>
+ *   & {
+ *       ssr: true | ((a0: { ctx: NextPageContext }) => boolean | Promise<boolean>)
+ *       responseMeta?: (
+ *         a0: { ctx: NextPageContext; clientErrors: TRPCClientError<TRouter>[] }
+ *       ) => ResponseMeta
+ *       ssrPrepass: TRPCPrepassHelper
+ *     }
  */
 
 // ✓ WithTRPCNoSSROptions: verified type-identical to the original
@@ -69,7 +83,8 @@ export function WithTRPCNoSSROptions(TRouter: AnyRouter) {
   return merge(WithTRPCOptions(TRouter), { ssr: optional(false) })
 }
 /* compiles to:
- * export type WithTRPCNoSSROptions<TRouter extends AnyRouter> = WithTRPCOptions<TRouter> & { ssr?: false }
+ * export type WithTRPCNoSSROptions<TRouter extends AnyRouter> =
+ *   WithTRPCOptions<TRouter> & { ssr?: false }
  */
 
 // ✓ TRPCPrepassProps: verified type-identical to the original
@@ -78,5 +93,15 @@ export function TRPCPrepassProps(TRouter: AnyRouter, TSSRContext: NextPageContex
   return { config: WithTRPCConfig(TRouter), queryClient: QueryClient, trpcClient: TRPCUntypedClient(TRouter) | TRPCClient(TRouter), ssrState: 'prepass', ssrContext: TSSRContext }
 }
 /* compiles to:
- * export type TRPCPrepassProps<TRouter extends AnyRouter, TSSRContext extends NextPageContext = NextPageContext> = { config: WithTRPCConfig<TRouter>; queryClient: QueryClient; trpcClient: TRPCUntypedClient<TRouter> | TRPCClient<TRouter>; ssrState: 'prepass'; ssrContext: TSSRContext }
+ * export type TRPCPrepassProps<
+ *   TRouter extends AnyRouter,
+ *   TSSRContext extends NextPageContext = NextPageContext
+ * > =
+ *   {
+ *     config: WithTRPCConfig<TRouter>
+ *     queryClient: QueryClient
+ *     trpcClient: TRPCUntypedClient<TRouter> | TRPCClient<TRouter>
+ *     ssrState: 'prepass'
+ *     ssrContext: TSSRContext
+ *   }
  */

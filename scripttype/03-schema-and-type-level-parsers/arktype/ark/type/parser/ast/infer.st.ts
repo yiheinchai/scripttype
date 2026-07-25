@@ -10,6 +10,14 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace distill {
+  export type In<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Out<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace type {
+  export type brand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type infer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Comparator: any
 declare const GenericInstantiationAst: any
 declare const InfixToken: any
@@ -25,23 +33,23 @@ declare const inferIntersection: any
 declare const inferPipe: any
 declare const type: any
 declare const withDefault: any
-type Comparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GenericInstantiationAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferredAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfixToken<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LimitLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PostfixToken<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PrefixOperator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type arkKeyOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type distill<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferGenericInstantiation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferPipe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type withDefault<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GenericInstantiationAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferredAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfixToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LimitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PostfixToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PrefixOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type arkKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type distill<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferGenericInstantiation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type withDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ inferAstRoot: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function inferAstRoot(ast, $, args) {
@@ -51,7 +59,8 @@ export function inferAstRoot(ast, $, args) {
   return never
 }
 /* compiles to:
- * export type inferAstRoot<ast, $, args> = ast extends array ? inferExpression<ast, $, args> : never
+ * export type inferAstRoot<ast, $, args> =
+ *   ast extends array ? inferExpression<ast, $, args> : never
  */
 
 // ✓ inferAstIn: verified type-identical to the original
@@ -149,7 +158,32 @@ export function inferExpression(ast, $, args) {
   return never
 }
 /* compiles to:
- * export type inferExpression<ast, $, args> = ast extends array ? ast extends InferredAst<infer resolution> ? resolution : ast extends DefAst<infer def> ? inferDefinition<def, $, args> : ast extends GenericInstantiationAst<infer g, infer argAsts> ? inferGenericInstantiation<g, argAsts, $, args> : ast[1] extends '[]' ? inferExpression<ast[0], $, args>[] : ast[1] extends '|' ? inferExpression<ast[0], $, args> | inferExpression<ast[2], $, args> : ast[1] extends '&' ? inferIntersection<inferExpression<ast[0], $, args>, inferExpression<ast[2], $, args>> : ast[1] extends '|>' ? inferPipe<inferExpression<ast[0], $, args>, inferExpression<ast[2], $, args>> : ast[1] extends '=' ? type.infer<ast[2]> extends infer defaultValue ? withDefault<inferExpression<ast[0], $, args>, defaultValue> : never : ast[1] extends '#' ? type.brand<inferExpression<ast[0], $, args>, ast[2]> : ast[1] extends Comparator ? ast[0] extends LimitLiteral ? inferExpression<ast[2], $, args> : inferExpression<ast[0], $, args> : ast[1] extends '%' ? inferExpression<ast[0], $, args> : ast[1] extends '?' ? inferExpression<ast[0], $, args> : ast[0] extends 'keyof' ? arkKeyOf<inferExpression<ast[1], $, args>> : never : never
+ * export type inferExpression<ast, $, args> =
+ *   ast extends array
+ *     ? ast extends InferredAst<infer resolution> ? resolution
+ *     : ast extends DefAst<infer def> ? inferDefinition<def, $, args>
+ *     : ast extends GenericInstantiationAst<infer g, infer argAsts>
+ *       ? inferGenericInstantiation<g, argAsts, $, args>
+ *     : ast[1] extends '[]' ? inferExpression<ast[0], $, args>[]
+ *     : ast[1] extends '|' ? inferExpression<ast[0], $, args> | inferExpression<ast[2], $, args>
+ *     : ast[1] extends '&'
+ *       ? inferIntersection<inferExpression<ast[0], $, args>, inferExpression<ast[2], $, args>>
+ *     : ast[1] extends '|>'
+ *       ? inferPipe<inferExpression<ast[0], $, args>, inferExpression<ast[2], $, args>>
+ *     : ast[1] extends '='
+ *       ? type.infer<ast[2]> extends infer defaultValue
+ *         ? withDefault<inferExpression<ast[0], $, args>, defaultValue>
+ *         : never
+ *     : ast[1] extends '#' ? type.brand<inferExpression<ast[0], $, args>, ast[2]>
+ *     : ast[1] extends Comparator
+ *       ? ast[0] extends LimitLiteral
+ *         ? inferExpression<ast[2], $, args>
+ *         : inferExpression<ast[0], $, args>
+ *     : ast[1] extends '%' ? inferExpression<ast[0], $, args>
+ *     : ast[1] extends '?' ? inferExpression<ast[0], $, args>
+ *     : ast[0] extends 'keyof' ? arkKeyOf<inferExpression<ast[1], $, args>>
+ *     : never
+ *     : never
  */
 
 // ✓ PrefixExpression: verified type-identical to the original
@@ -158,7 +192,11 @@ export function PrefixExpression(operator: PrefixOperator = PrefixOperator, oper
   return [operator, operand]
 }
 /* compiles to:
- * export type PrefixExpression<operator extends PrefixOperator = PrefixOperator, operand = unknown> = [operator, operand]
+ * export type PrefixExpression<
+ *   operator extends PrefixOperator = PrefixOperator,
+ *   operand = unknown
+ * > =
+ *   [operator, operand]
  */
 
 // ✓ PostfixExpression: verified type-identical to the original
@@ -167,7 +205,11 @@ export function PostfixExpression(operator: PostfixToken = PostfixToken, operand
   return asReadonly([operand, operator])
 }
 /* compiles to:
- * export type PostfixExpression<operator extends PostfixToken = PostfixToken, operand = unknown> = readonly [operand, operator]
+ * export type PostfixExpression<
+ *   operator extends PostfixToken = PostfixToken,
+ *   operand = unknown
+ * > =
+ *   readonly [operand, operator]
  */
 
 // ✓ InfixExpression: verified type-identical to the original
@@ -176,5 +218,10 @@ export function InfixExpression(operator: InfixToken = InfixToken, l = unknown, 
   return [l, operator, r]
 }
 /* compiles to:
- * export type InfixExpression<operator extends InfixToken = InfixToken, l = unknown, r = unknown> = [l, operator, r]
+ * export type InfixExpression<
+ *   operator extends InfixToken = InfixToken,
+ *   l = unknown,
+ *   r = unknown
+ * > =
+ *   [l, operator, r]
  */

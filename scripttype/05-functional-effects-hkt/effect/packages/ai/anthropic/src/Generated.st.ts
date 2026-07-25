@@ -10,10 +10,13 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace HttpClientResponse {
+  export type HttpClientResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const HttpClientResponse: any
 declare const OperationConfig: any
-type HttpClientResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OperationConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type HttpClientResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OperationConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WithOptionalResponse: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function WithOptionalResponse(A, Config: OperationConfig) {
@@ -23,5 +26,8 @@ export function WithOptionalResponse(A, Config: OperationConfig) {
   return A
 }
 /* compiles to:
- * export type WithOptionalResponse<A, Config extends OperationConfig> = Config extends { readonly includeResponse: true; } ? [A, HttpClientResponse.HttpClientResponse] : A
+ * export type WithOptionalResponse<A, Config extends OperationConfig> =
+ *   Config extends { readonly includeResponse: true; }
+ *     ? [A, HttpClientResponse.HttpClientResponse]
+ *     : A
  */

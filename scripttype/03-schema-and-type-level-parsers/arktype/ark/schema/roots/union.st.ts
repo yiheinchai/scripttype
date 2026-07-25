@@ -15,11 +15,11 @@ declare const CaseContext: any
 declare const DiscriminantKind: any
 declare const DiscriminantKinds: any
 declare const PropertyKey: any
-type BaseRoot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CaseContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DiscriminantKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DiscriminantKinds<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CaseContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DiscriminantKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DiscriminantKinds<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CaseKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CaseKey(kind: DiscriminantKind = DiscriminantKind) {
@@ -29,7 +29,8 @@ export function CaseKey(kind: DiscriminantKind = DiscriminantKind) {
   return anyOf(DiscriminantKinds[kind], 'default')
 }
 /* compiles to:
- * export type CaseKey<kind extends DiscriminantKind = DiscriminantKind> = DiscriminantKind extends kind ? string : DiscriminantKinds[kind] | 'default'
+ * export type CaseKey<kind extends DiscriminantKind = DiscriminantKind> =
+ *   DiscriminantKind extends kind ? string : DiscriminantKinds[kind] | 'default'
  */
 
 // ✗ DiscriminantLocation: the ScriptType does not itself typecheck as TypeScript
@@ -39,7 +40,11 @@ export function DiscriminantLocation(kind: DiscriminantKind = DiscriminantKind) 
   return { path: arrayOf(PropertyKey), optionallyChainedPropString: string, kind: kind }
 }
 /* compiles to:
- * export type DiscriminantLocation<kind extends DiscriminantKind = DiscriminantKind> = { path: PropertyKey[]; optionallyChainedPropString: string; kind: kind }
+ * export type DiscriminantLocation<kind extends DiscriminantKind = DiscriminantKind> = {
+ *   path: PropertyKey[]
+ *   optionallyChainedPropString: string
+ *   kind: kind
+ * }
  */
 
 // ✗ DiscriminantCandidate: the ScriptType does not itself typecheck as TypeScript
@@ -49,7 +54,11 @@ export function DiscriminantCandidate(kind: DiscriminantKind = DiscriminantKind)
   return { path: arrayOf(PropertyKey), kind: kind, cases: CandidateCases(kind) }
 }
 /* compiles to:
- * export type DiscriminantCandidate<kind extends DiscriminantKind = DiscriminantKind> = { path: PropertyKey[]; kind: kind; cases: CandidateCases<kind> }
+ * export type DiscriminantCandidate<kind extends DiscriminantKind = DiscriminantKind> = {
+ *   path: PropertyKey[]
+ *   kind: kind
+ *   cases: CandidateCases<kind>
+ * }
  */
 
 // ✗ CandidateCases: does not compile yet
@@ -63,7 +72,9 @@ export function CandidateCases(kind: DiscriminantKind = DiscriminantKind) {
   return out
 }
 /* compiles to:
- * export type CandidateCases<kind extends DiscriminantKind = DiscriminantKind> = { [CaseKey in CaseKey<kind>]: CaseContext }
+ * export type CandidateCases<kind extends DiscriminantKind = DiscriminantKind> = {
+ *   [CaseKey in CaseKey<kind>]: CaseContext
+ * }
  */
 
 // ✗ DiscriminatedCases: does not compile yet
@@ -77,5 +88,7 @@ export function DiscriminatedCases(kind: DiscriminantKind = DiscriminantKind) {
   return out
 }
 /* compiles to:
- * export type DiscriminatedCases<kind extends DiscriminantKind = DiscriminantKind> = { [CaseKey in CaseKey<kind>]: BaseRoot | true }
+ * export type DiscriminatedCases<kind extends DiscriminantKind = DiscriminantKind> = {
+ *   [CaseKey in CaseKey<kind>]: BaseRoot | true
+ * }
  */

@@ -17,5 +17,7 @@ export function PickIndexSignature(ObjectType) {
   return out
 }
 /* compiles to:
- * export type PickIndexSignature<ObjectType> = { [KeyType in keyof ObjectType as {} extends Record<KeyType, unknown> ? KeyType : never]: ObjectType[KeyType] }
+ * export type PickIndexSignature<ObjectType> = {
+ *   [KeyType in keyof ObjectType as {} extends Record<KeyType, unknown> ? KeyType : never]: ObjectType[KeyType]
+ * }
  */

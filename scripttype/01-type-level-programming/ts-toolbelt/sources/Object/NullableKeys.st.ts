@@ -17,7 +17,8 @@ export function _NullableKeys(O: object) {
   return out[keyof(O)]
 }
 /* compiles to:
- * export type _NullableKeys<O extends object> = { [K in keyof O]-?: [O[K] & (undefined | null)] extends [never] ? never : K }[keyof O]
+ * export type _NullableKeys<O extends object> =
+ *   { [K in keyof O]-?: [O[K] & (undefined | null)] extends [never] ? never : K }[keyof O]
  */
 
 // ✓ NullableKeys: verified type-identical to the original

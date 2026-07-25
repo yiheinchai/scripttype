@@ -17,5 +17,10 @@ export function Narrow(type) {
   return (matches<typeof type>(unknown) ? unknown : never) | (matches<Function>(type) ? type : never) | (matches<bigint | boolean | number | string>(type) ? type : never) | (matches<[ ]>(type) ? [] : never) | out
 }
 /* compiles to:
- * export type Narrow<type> = (unknown extends type ? unknown : never) | (type extends Function ? type : never) | (type extends bigint | boolean | number | string ? type : never) | (type extends [] ? [] : never) | { [K in keyof type]: Narrow<type[K]> }
+ * export type Narrow<type> =
+ *   | (unknown extends type ? unknown : never)
+ *   | (type extends Function ? type : never)
+ *   | (type extends bigint | boolean | number | string ? type : never)
+ *   | (type extends [] ? [] : never)
+ *   | { [K in keyof type]: Narrow<type[K]> }
  */

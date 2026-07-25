@@ -41,7 +41,10 @@ export function CallableOptions(attachments: object) {
   return { attach: optional(attachments), bind: optional(object) }
 }
 /* compiles to:
- * export type CallableOptions<attachments extends object> = { attach?: attachments; bind?: object }
+ * export type CallableOptions<attachments extends object> = {
+ *   attach?: attachments
+ *   bind?: object
+ * }
  */
 
 // ✗ GuardablePredicate: uses raw() — language gap, does not count as covered

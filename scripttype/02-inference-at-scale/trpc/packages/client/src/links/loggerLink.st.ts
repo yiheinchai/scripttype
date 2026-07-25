@@ -15,18 +15,24 @@ declare const InferrableClientTypes: any
 declare const Operation: any
 declare const OperationResultEnvelope: any
 declare const TRPCClientError: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferrableClientTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Operation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OperationResultEnvelope<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCClientError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferrableClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Operation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OperationResultEnvelope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCClientError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ EnableFnOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function EnableFnOptions(TRouter: InferrableClientTypes) {
   return anyOf({ direction: 'down', result: OperationResultEnvelope(unknown, TRPCClientError(TRouter)) | TRPCClientError(TRouter) }, merge(Operation, { direction: 'up' }))
 }
 /* compiles to:
- * export type EnableFnOptions<TRouter extends InferrableClientTypes> = { direction: 'down'; result: OperationResultEnvelope<unknown, TRPCClientError<TRouter>> | TRPCClientError<TRouter> } | Operation & { direction: 'up' }
+ * export type EnableFnOptions<TRouter extends InferrableClientTypes> =
+ *   | {
+ *       direction: 'down'
+ *       result: | OperationResultEnvelope<unknown, TRPCClientError<TRouter>>
+ *       | TRPCClientError<TRouter>
+ *     }
+ *   | Operation & { direction: 'up' }
  */
 
 // ✓ EnabledFn: verified type-identical to the original
@@ -44,7 +50,17 @@ export function LoggerLinkFnOptions(TRouter: AnyRouter) {
   return merge(Operation, anyOf({ direction: 'down', result: OperationResultEnvelope(unknown, TRPCClientError(TRouter)) | TRPCClientError(TRouter), elapsedMs: number }, { direction: 'up' }))
 }
 /* compiles to:
- * export type LoggerLinkFnOptions<TRouter extends AnyRouter> = Operation & ({ direction: 'down'; result: OperationResultEnvelope<unknown, TRPCClientError<TRouter>> | TRPCClientError<TRouter>; elapsedMs: number } | { direction: 'up' })
+ * export type LoggerLinkFnOptions<TRouter extends AnyRouter> =
+ *   & Operation
+ *   & (
+ *       | {
+ *           direction: 'down'
+ *           result: | OperationResultEnvelope<unknown, TRPCClientError<TRouter>>
+ *           | TRPCClientError<TRouter>
+ *           elapsedMs: number
+ *         }
+ *       | { direction: 'up' }
+ *     )
  */
 
 // ✓ LoggerLinkFn: verified type-identical to the original

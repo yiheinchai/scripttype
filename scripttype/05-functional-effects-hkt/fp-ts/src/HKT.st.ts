@@ -18,14 +18,14 @@ declare const URItoKind: any
 declare const URItoKind2: any
 declare const URItoKind3: any
 declare const URItoKind4: any
-type URIS<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URIS2<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URIS3<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URIS4<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URItoKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URItoKind2<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URItoKind3<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URItoKind4<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type URIS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URIS2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URIS3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URIS4<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URItoKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URItoKind2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URItoKind3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URItoKind4<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Kind: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Kind(URI: URIS, A) {
@@ -59,7 +59,8 @@ export function Kind3(URI: URIS3, R, E, A) {
   return any
 }
 /* compiles to:
- * export type Kind3<URI extends URIS3, R, E, A> = URI extends URIS3 ? URItoKind3<R, E, A>[URI] : any
+ * export type Kind3<URI extends URIS3, R, E, A> =
+ *   URI extends URIS3 ? URItoKind3<R, E, A>[URI] : any
  */
 
 // ✓ Kind4: verified type-identical to the original
@@ -71,5 +72,6 @@ export function Kind4(URI: URIS4, S, R, E, A) {
   return any
 }
 /* compiles to:
- * export type Kind4<URI extends URIS4, S, R, E, A> = URI extends URIS4 ? URItoKind4<S, R, E, A>[URI] : any
+ * export type Kind4<URI extends URIS4, S, R, E, A> =
+ *   URI extends URIS4 ? URItoKind4<S, R, E, A>[URI] : any
  */

@@ -19,15 +19,15 @@ declare const GelTable: any
 declare const PreparedQueryConfig: any
 declare const SelectResultFields: any
 declare const SelectedFieldsFlat: any
-type AnyGelDeleteBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelDeleteBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelPreparedQuery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelQueryResultKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreparedQueryConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectResultFields<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectedFieldsFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyGelDeleteBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelDeleteBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelPreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectResultFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectedFieldsFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GelDeleteWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GelDeleteWithout(T: AnyGelDeleteBase, TDynamic: boolean, K: keyof typeof T & string) {
@@ -37,7 +37,23 @@ export function GelDeleteWithout(T: AnyGelDeleteBase, TDynamic: boolean, K: keyo
   return Omit(GelDeleteBase(T['_']['table'], T['_']['queryResult'], T['_']['returning'], TDynamic, anyOf(T['_']['excludedMethods'], K)), anyOf(T['_']['excludedMethods'], K))
 }
 /* compiles to:
- * export type GelDeleteWithout<T extends AnyGelDeleteBase, TDynamic extends boolean, K extends keyof T & string> = TDynamic extends true ? T : Omit<GelDeleteBase<T['_']['table'], T['_']['queryResult'], T['_']['returning'], TDynamic, T['_']['excludedMethods'] | K>, T['_']['excludedMethods'] | K>
+ * export type GelDeleteWithout<
+ *   T extends AnyGelDeleteBase,
+ *   TDynamic extends boolean,
+ *   K extends keyof T & string
+ * > =
+ *   TDynamic extends true
+ *     ? T
+ *     : Omit<
+ *       GelDeleteBase<
+ *         T['_']['table'],
+ *         T['_']['queryResult'],
+ *         T['_']['returning'],
+ *         TDynamic,
+ *         T['_']['excludedMethods'] | K
+ *       >,
+ *       T['_']['excludedMethods'] | K
+ *     >
  */
 
 // ✓ GelDelete: verified type-identical to the original
@@ -46,7 +62,12 @@ export function GelDelete(TTable: GelTable = GelTable, TQueryResult: GelQueryRes
   return GelDeleteBase(TTable, TQueryResult, TReturning, true, never)
 }
 /* compiles to:
- * export type GelDelete<TTable extends GelTable = GelTable, TQueryResult extends GelQueryResultHKT = GelQueryResultHKT, TReturning extends Record<string, unknown> | undefined = Record<string, unknown> | undefined> = GelDeleteBase<TTable, TQueryResult, TReturning, true, never>
+ * export type GelDelete<
+ *   TTable extends GelTable = GelTable,
+ *   TQueryResult extends GelQueryResultHKT = GelQueryResultHKT,
+ *   TReturning extends Record<string, unknown> | undefined = Record<string, unknown> | undefined
+ * > =
+ *   GelDeleteBase<TTable, TQueryResult, TReturning, true, never>
  */
 
 // ✓ GelDeleteReturningAll: verified type-identical to the original
@@ -55,7 +76,17 @@ export function GelDeleteReturningAll(T: AnyGelDeleteBase, TDynamic: boolean) {
   return GelDeleteWithout(GelDeleteBase(T['_']['table'], T['_']['queryResult'], T['_']['table']['$inferSelect'], TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
- * export type GelDeleteReturningAll<T extends AnyGelDeleteBase, TDynamic extends boolean> = GelDeleteWithout<GelDeleteBase<T['_']['table'], T['_']['queryResult'], T['_']['table']['$inferSelect'], TDynamic, T['_']['excludedMethods']>, TDynamic, 'returning'>
+ * export type GelDeleteReturningAll<T extends AnyGelDeleteBase, TDynamic extends boolean> = GelDeleteWithout<
+ *   GelDeleteBase<
+ *     T['_']['table'],
+ *     T['_']['queryResult'],
+ *     T['_']['table']['$inferSelect'],
+ *     TDynamic,
+ *     T['_']['excludedMethods']
+ *   >,
+ *   TDynamic,
+ *   'returning'
+ * >
  */
 
 // ✓ GelDeleteReturning: verified type-identical to the original
@@ -64,16 +95,38 @@ export function GelDeleteReturning(T: AnyGelDeleteBase, TDynamic: boolean, TSele
   return GelDeleteWithout(GelDeleteBase(T['_']['table'], T['_']['queryResult'], SelectResultFields(TSelectedFields), TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
- * export type GelDeleteReturning<T extends AnyGelDeleteBase, TDynamic extends boolean, TSelectedFields extends SelectedFieldsFlat> = GelDeleteWithout<GelDeleteBase<T['_']['table'], T['_']['queryResult'], SelectResultFields<TSelectedFields>, TDynamic, T['_']['excludedMethods']>, TDynamic, 'returning'>
+ * export type GelDeleteReturning<
+ *   T extends AnyGelDeleteBase,
+ *   TDynamic extends boolean,
+ *   TSelectedFields extends SelectedFieldsFlat
+ * > =
+ *   GelDeleteWithout<
+ *     GelDeleteBase<
+ *       T['_']['table'],
+ *       T['_']['queryResult'],
+ *       SelectResultFields<TSelectedFields>,
+ *       TDynamic,
+ *       T['_']['excludedMethods']
+ *     >,
+ *     TDynamic,
+ *     'returning'
+ *   >
  */
 
 // ✓ GelDeletePrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GelDeletePrepare(T: AnyGelDeleteBase) {
-  return GelPreparedQuery(merge(PreparedQueryConfig, { execute: matches<undefined>(T['_']['returning']) ? GelQueryResultKind(T['_']['queryResult'], never) : arrayOf(T['_']['returning']) }))
+  return GelPreparedQuery(merge(PreparedQueryConfig, { execute: typeof T['_']['returning'] === 'undefined' ? GelQueryResultKind(T['_']['queryResult'], never) : arrayOf(T['_']['returning']) }))
 }
 /* compiles to:
- * export type GelDeletePrepare<T extends AnyGelDeleteBase> = GelPreparedQuery<PreparedQueryConfig & { execute: T['_']['returning'] extends undefined ? GelQueryResultKind<T['_']['queryResult'], never> : T['_']['returning'][] }>
+ * export type GelDeletePrepare<T extends AnyGelDeleteBase> = GelPreparedQuery<
+ *   & PreparedQueryConfig
+ *   & {
+ *       execute: T['_']['returning'] extends undefined
+ *         ? GelQueryResultKind<T['_']['queryResult'], never>
+ *         : T['_']['returning'][]
+ *     }
+ * >
  */
 
 // ✓ GelDeleteDynamic: verified type-identical to the original
@@ -82,5 +135,9 @@ export function GelDeleteDynamic(T: AnyGelDeleteBase) {
   return GelDelete(T['_']['table'], T['_']['queryResult'], T['_']['returning'])
 }
 /* compiles to:
- * export type GelDeleteDynamic<T extends AnyGelDeleteBase> = GelDelete<T['_']['table'], T['_']['queryResult'], T['_']['returning']>
+ * export type GelDeleteDynamic<T extends AnyGelDeleteBase> = GelDelete<
+ *   T['_']['table'],
+ *   T['_']['queryResult'],
+ *   T['_']['returning']
+ * >
  */

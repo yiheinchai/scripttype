@@ -14,15 +14,16 @@ declare const HierarchyFacts: any
 declare const IterationStatement: any
 declare const LabeledStatement: any
 declare const Statement: any
-type HierarchyFacts<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationStatement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LabeledStatement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Statement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type HierarchyFacts<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationStatement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LabeledStatement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Statement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ LoopConverter: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function LoopConverter(T: IterationStatement) {
   return fnType([T, anyOf(LabeledStatement, Undefined), anyOf(arrayOf(Statement), Undefined), HierarchyFacts], Statement)
 }
 /* compiles to:
- * export type LoopConverter<T extends IterationStatement> = (a0: T, a1: LabeledStatement | undefined, a2: Statement[] | undefined, a3: HierarchyFacts) => Statement
+ * export type LoopConverter<T extends IterationStatement> =
+ *   (a0: T, a1: LabeledStatement | undefined, a2: Statement[] | undefined, a3: HierarchyFacts) => Statement
  */

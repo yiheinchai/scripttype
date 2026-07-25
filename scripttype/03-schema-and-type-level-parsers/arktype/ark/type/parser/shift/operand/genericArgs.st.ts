@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace s {
+  export type error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type initialize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ErrorMessage: any
 declare const GenericAst: any
 declare const StaticState: any
@@ -18,21 +22,28 @@ declare const genericParamNames: any
 declare const parseUntilFinalizer: any
 declare const s: any
 declare const writeUnclosedGroupMessage: any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GenericAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type genericParamNames<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseUntilFinalizer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type s<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnclosedGroupMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GenericAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type genericParamNames<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseUntilFinalizer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type s<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnclosedGroupMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ parseGenericArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function parseGenericArgs(name: string, g: GenericAst, unscanned: string, $, args) {
   return _parseGenericArgs(name, g, unscanned, $, args, [], [])
 }
 /* compiles to:
- * export type parseGenericArgs<name extends string, g extends GenericAst, unscanned extends string, $, args> = _parseGenericArgs<name, g, unscanned, $, args, [], []>
+ * export type parseGenericArgs<
+ *   name extends string,
+ *   g extends GenericAst,
+ *   unscanned extends string,
+ *   $,
+ *   args
+ * > =
+ *   _parseGenericArgs<name, g, unscanned, $, args, [], []>
  */
 
 // ✓ ParsedArgs: verified type-identical to the original
@@ -41,7 +52,11 @@ export function ParsedArgs(result: unknown[] = arrayOf(unknown), unscanned: stri
   return { result: result, unscanned: unscanned }
 }
 /* compiles to:
- * export type ParsedArgs<result extends unknown[] = unknown[], unscanned extends string = string> = { result: result; unscanned: unscanned }
+ * export type ParsedArgs<
+ *   result extends unknown[] = unknown[],
+ *   unscanned extends string = string
+ * > =
+ *   { result: result; unscanned: unscanned }
  */
 
 // ✓ _parseGenericArgs: verified type-identical to the original
@@ -71,7 +86,33 @@ export function _parseGenericArgs(name: string, g: GenericAst, unscanned: string
   return never
 }
 /* compiles to:
- * export type _parseGenericArgs<name extends string, g extends GenericAst, unscanned extends string, $, args, argDefs extends string[], argAsts extends unknown[]> = parseUntilFinalizer<s.initialize<unscanned>, $, args> extends (infer finalArgState extends StaticState) ? { defs: [...argDefs, finalArgState['scanned'] extends `${infer def}${',' | '>'}` ? def : finalArgState['scanned']]; asts: [...argAsts, finalArgState['root']]; unscanned: finalArgState['unscanned'] } extends { defs: infer nextDefs extends string[]; asts: infer nextAsts extends unknown[]; unscanned: infer nextUnscanned extends string; } ? finalArgState['finalizer'] extends '>' ? nextAsts['length'] extends g['paramsAst']['length'] ? ParsedArgs<nextAsts, nextUnscanned> : s.error<writeInvalidGenericArgCountMessage<name, genericParamNames<g['paramsAst']>, nextDefs>> : finalArgState['finalizer'] extends ',' ? _parseGenericArgs<name, g, nextUnscanned, $, args, nextDefs, nextAsts> : finalArgState['finalizer'] extends ErrorMessage ? finalArgState : s.error<writeUnclosedGroupMessage<'>'>> : never : never
+ * export type _parseGenericArgs<
+ *   name extends string,
+ *   g extends GenericAst,
+ *   unscanned extends string,
+ *   $,
+ *   args,
+ *   argDefs extends string[],
+ *   argAsts extends unknown[]
+ * > =
+ *   parseUntilFinalizer<s.initialize<unscanned>, $, args> extends (infer finalArgState extends StaticState)
+ *     ? { defs: [...argDefs, finalArgState['scanned'] extends `${infer def}${',' | '>'}` ? def : finalArgState['scanned']]; asts: [...argAsts, finalArgState['root']]; unscanned: finalArgState['unscanned'] } extends { defs: infer nextDefs extends string[]; asts: infer nextAsts extends unknown[]; unscanned: infer nextUnscanned extends string; }
+ *       ? finalArgState['finalizer'] extends '>'
+ *         ? nextAsts['length'] extends g['paramsAst']['length']
+ *           ? ParsedArgs<nextAsts, nextUnscanned>
+ *           : s.error<
+ *             writeInvalidGenericArgCountMessage<
+ *               name,
+ *               genericParamNames<g['paramsAst']>,
+ *               nextDefs
+ *             >
+ *           >
+ *       : finalArgState['finalizer'] extends ','
+ *         ? _parseGenericArgs<name, g, nextUnscanned, $, args, nextDefs, nextAsts>
+ *       : finalArgState['finalizer'] extends ErrorMessage ? finalArgState
+ *       : s.error<writeUnclosedGroupMessage<'>'>>
+ *       : never
+ *     : never
  */
 
 // ✗ writeInvalidGenericArgCountMessage: compiles but is not type-identical yet
@@ -81,5 +122,10 @@ export function writeInvalidGenericArgCountMessage(name: string, params: array<s
   return `${name}<${join(params, ', ')}> requires exactly ${params['length']} args (got ${argDefs['length']}${matches<(0)>(argDefs['length']) ? '' : `: ${join(argDefs, ',')}`})`
 }
 /* compiles to:
- * export type writeInvalidGenericArgCountMessage<name extends string, params extends array<string>, argDefs extends array<string>> = `${name}<${Join<params, ', '>}> requires exactly ${params['length']} args (got ${argDefs['length']}${argDefs['length'] extends 0 ? '' : `: ${Join<argDefs, ','>}`})`
+ * export type writeInvalidGenericArgCountMessage<
+ *   name extends string,
+ *   params extends array<string>,
+ *   argDefs extends array<string>
+ * > =
+ *   `${name}<${Join<params, ', '>}> requires exactly ${params['length']} args (got ${argDefs['length']}${argDefs['length'] extends 0 ? '' : `: ${Join<argDefs, ','>}`})`
  */

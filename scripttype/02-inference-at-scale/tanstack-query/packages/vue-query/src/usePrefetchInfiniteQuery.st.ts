@@ -17,20 +17,22 @@ declare const InitialPageParam: any
 declare const OmitKeyof: any
 declare const QueryKey: any
 declare const SkipToken: any
-type FetchQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GetNextPageParamFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InitialPageParam<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitKeyof<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SkipToken<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FetchQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetNextPageParamFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InitialPageParam<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SkipToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PrefetchInfinitePages: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PrefetchInfinitePages(TQueryFnData, TPageParam) {
   return anyOf({ pages: optional(never), getNextPageParam: optional(GetNextPageParamFunction(TPageParam, TQueryFnData)) }, { pages: number, getNextPageParam: GetNextPageParamFunction(TPageParam, TQueryFnData) })
 }
 /* compiles to:
- * export type PrefetchInfinitePages<TQueryFnData, TPageParam> = { pages?: never; getNextPageParam?: GetNextPageParamFunction<TPageParam, TQueryFnData> } | { pages: number; getNextPageParam: GetNextPageParamFunction<TPageParam, TQueryFnData> }
+ * export type PrefetchInfinitePages<TQueryFnData, TPageParam> =
+ *   | { pages?: never; getNextPageParam?: GetNextPageParamFunction<TPageParam, TQueryFnData> }
+ *   | { pages: number; getNextPageParam: GetNextPageParamFunction<TPageParam, TQueryFnData> }
  */
 
 // ✓ UsePrefetchInfiniteQueryOptions: verified type-identical to the original
@@ -39,5 +41,35 @@ export function UsePrefetchInfiniteQueryOptions(TQueryFnData, TError, TData, TQu
   return merge(OmitKeyof(FetchQueryOptions(TQueryFnData, TError, InfiniteData(TData, TPageParam), TQueryKey, TPageParam), anyOf('queryFn', 'initialPageParam')), InitialPageParam(TPageParam), { queryFn: optional(Exclude(FetchQueryOptions(TQueryFnData, TError, InfiniteData(TData, TPageParam), TQueryKey, TPageParam)['queryFn'], SkipToken)) }, PrefetchInfinitePages(TQueryFnData, TPageParam))
 }
 /* compiles to:
- * export type UsePrefetchInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey extends QueryKey, TPageParam> = OmitKeyof<FetchQueryOptions<TQueryFnData, TError, InfiniteData<TData, TPageParam>, TQueryKey, TPageParam>, 'queryFn' | 'initialPageParam'> & InitialPageParam<TPageParam> & { queryFn?: Exclude<FetchQueryOptions<TQueryFnData, TError, InfiniteData<TData, TPageParam>, TQueryKey, TPageParam>['queryFn'], SkipToken> } & PrefetchInfinitePages<TQueryFnData, TPageParam>
+ * export type UsePrefetchInfiniteQueryOptions<
+ *   TQueryFnData,
+ *   TError,
+ *   TData,
+ *   TQueryKey extends QueryKey,
+ *   TPageParam
+ * > =
+ *   & OmitKeyof<
+ *       FetchQueryOptions<
+ *         TQueryFnData,
+ *         TError,
+ *         InfiniteData<TData, TPageParam>,
+ *         TQueryKey,
+ *         TPageParam
+ *       >,
+ *       'queryFn' | 'initialPageParam'
+ *     >
+ *   & InitialPageParam<TPageParam>
+ *   & {
+ *       queryFn?: Exclude<
+ *         FetchQueryOptions<
+ *           TQueryFnData,
+ *           TError,
+ *           InfiniteData<TData, TPageParam>,
+ *           TQueryKey,
+ *           TPageParam
+ *         >['queryFn'],
+ *         SkipToken
+ *       >
+ *     }
+ *   & PrefetchInfinitePages<TQueryFnData, TPageParam>
  */

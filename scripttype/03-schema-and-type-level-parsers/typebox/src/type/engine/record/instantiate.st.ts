@@ -17,20 +17,25 @@ declare const TProperties: any
 declare const TRecordDeferred: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRecordDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRecordDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRecordAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRecordAction(Key: TSchema, Value: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Key])) ? TFromKey(Key, Value) : TRecordDeferred(Key, Value)) {
   return Result
 }
 /* compiles to:
- * export type TRecordAction<Key extends TSchema, Value extends TSchema, Result extends TSchema = TCanInstantiate<[Key]> extends true ? TFromKey<Key, Value> : TRecordDeferred<Key, Value>> = Result
+ * export type TRecordAction<
+ *   Key extends TSchema,
+ *   Value extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Key]> extends true ? TFromKey<Key, Value> : TRecordDeferred<Key, Value>
+ * > =
+ *   Result
  */
 
 // ✓ TRecordInstantiate: verified type-identical to the original
@@ -39,5 +44,13 @@ export function TRecordInstantiate(Context: TProperties, State: TState, Key: TSc
   return TRecordAction(InstantiatedKey, InstantiatedValue)
 }
 /* compiles to:
- * export type TRecordInstantiate<Context extends TProperties, State extends TState, Key extends TSchema, Value extends TSchema, InstantiatedKey extends TSchema = TInstantiateType<Context, State, Key>, InstantiatedValue extends TSchema = TInstantiateType<Context, State, Value>> = TRecordAction<InstantiatedKey, InstantiatedValue>
+ * export type TRecordInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Key extends TSchema,
+ *   Value extends TSchema,
+ *   InstantiatedKey extends TSchema = TInstantiateType<Context, State, Key>,
+ *   InstantiatedValue extends TSchema = TInstantiateType<Context, State, Value>
+ * > =
+ *   TRecordAction<InstantiatedKey, InstantiatedValue>
  */

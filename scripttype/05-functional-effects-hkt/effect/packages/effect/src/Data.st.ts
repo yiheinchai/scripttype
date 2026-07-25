@@ -10,19 +10,23 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Types {
+  export type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type VoidIfEmpty<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Types: any
 declare const WithGenerics: any
-type ChildrenAreTagged<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Types<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UntaggedChildren<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WithGenerics<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ChildrenAreTagged<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UntaggedChildren<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WithGenerics<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TaggedEnum: the ScriptType does not itself typecheck as TypeScript
 //   TaggedEnum.st.ts(2:28) TS2502: 'A' is referenced directly or indirectly in its own type annotation.
 /* @scripttype preserveParamNames */
 export function TaggedEnum(A: Record<string, Record<string, any>> & UntaggedChildren<typeof A>) {
   const m1 = matches<Hole<"Tag">>(keyof(A))
   if (m1) {
-    if (matches<keyof typeof A>(m1.Tag)) {
+    if (m1.Tag in A) {
       const out = emptyObject
       for (const K in keyof(A[m1.Tag])) {
         out[K] = readonlyProp(A[m1.Tag][K])
@@ -34,7 +38,12 @@ export function TaggedEnum(A: Record<string, Record<string, any>> & UntaggedChil
   return never
 }
 /* compiles to:
- * export type TaggedEnum<A extends Record<string, Record<string, any>> & UntaggedChildren<A>> = keyof A extends infer Tag ? Tag extends keyof A ? Types.Simplify<{ readonly _tag: Tag } & { readonly [K in keyof A[Tag]]: A[Tag][K] }> : never : never
+ * export type TaggedEnum<A extends Record<string, Record<string, any>> & UntaggedChildren<A>> =
+ *   keyof A extends infer Tag
+ *     ? Tag extends keyof A
+ *       ? Types.Simplify<{ readonly _tag: Tag } & { readonly [K in keyof A[Tag]]: A[Tag][K] }>
+ *       : never
+ *     : never
  */
 
 // ✓ ChildrenAreTagged: verified type-identical to the original
@@ -42,8 +51,8 @@ export function TaggedEnum(A: Record<string, Record<string, any>> & UntaggedChil
 export function ChildrenAreTagged(A) {
   const m1 = matches<Hole<"K">>(keyof(A))
   if (m1) {
-    if (matches<keyof typeof A>(m1.K)) {
-      if (matches<keyof (typeof A)[typeof m1.K]>('_tag')) {
+    if (m1.K in A) {
+      if ('_tag' in A[m1.K]) {
         return true
       }
       return false
@@ -53,7 +62,10 @@ export function ChildrenAreTagged(A) {
   return never
 }
 /* compiles to:
- * export type ChildrenAreTagged<A> = keyof A extends infer K ? K extends keyof A ? '_tag' extends keyof A[K] ? true : false : never : never
+ * export type ChildrenAreTagged<A> =
+ *   keyof A extends infer K
+ *     ? K extends keyof A ? '_tag' extends keyof A[K] ? true : false : never
+ *     : never
  */
 
 // ✓ UntaggedChildren: verified type-identical to the original
@@ -65,7 +77,10 @@ export function UntaggedChildren(A) {
   return unknown
 }
 /* compiles to:
- * export type UntaggedChildren<A> = true extends ChildrenAreTagged<A> ? 'It looks like you\'re trying to create a tagged enum, but one or more of its members already has a `_tag` property.' : unknown
+ * export type UntaggedChildren<A> =
+ *   true extends ChildrenAreTagged<A>
+ *     ? 'It looks like you\'re trying to create a tagged enum, but one or more of its members already has a `_tag` property.'
+ *     : unknown
  */
 
 // ✗ Kind: does not compile yet
@@ -75,7 +90,14 @@ export function Kind(Z: WithGenerics<number>, A = unknown, B = unknown, C = unkn
   return (merge(Z, { A: readonlyProp(A), B: readonlyProp(B), C: readonlyProp(C), D: readonlyProp(D) }))['taggedEnum']
 }
 /* compiles to:
- * export type Kind<Z extends WithGenerics<number>, A = unknown, B = unknown, C = unknown, D = unknown> = (Z & { readonly A: A; readonly B: B; readonly C: C; readonly D: D })['taggedEnum']
+ * export type Kind<
+ *   Z extends WithGenerics<number>,
+ *   A = unknown,
+ *   B = unknown,
+ *   C = unknown,
+ *   D = unknown
+ * > =
+ *   (Z & { readonly A: A; readonly B: B; readonly C: C; readonly D: D })['taggedEnum']
  */
 
 // ✗ Args: compiles but is not type-identical yet
@@ -93,7 +115,14 @@ export function Args(A: { readonly _tag: string; }, K: (typeof A)["_tag"], E = E
   return never
 }
 /* compiles to:
- * export type Args<A extends { readonly _tag: string; }, K extends A['_tag'], E = Extract<A, { readonly _tag: K }>> = { readonly [K1 in keyof E as K1 extends '_tag' ? never : K1]: E[K1] } extends infer T ? Types.VoidIfEmpty<T> : never
+ * export type Args<
+ *   A extends { readonly _tag: string; },
+ *   K extends A['_tag'],
+ *   E = Extract<A, { readonly _tag: K }>
+ * > =
+ *   { readonly [K1 in keyof E as K1 extends '_tag' ? never : K1]: E[K1] } extends infer T
+ *     ? Types.VoidIfEmpty<T>
+ *     : never
  */
 
 // ✗ Value: compiles but is not type-identical yet
@@ -103,18 +132,21 @@ export function Value(A: { readonly _tag: string; }, K: (typeof A)["_tag"]) {
   return Extract(A, { _tag: readonlyProp(K) })
 }
 /* compiles to:
- * export type Value<A extends { readonly _tag: string; }, K extends A['_tag']> = Extract<A, { readonly _tag: K }>
+ * export type Value<A extends { readonly _tag: string; }, K extends A['_tag']> = Extract<
+ *   A,
+ *   { readonly _tag: K }
+ * >
  */
 
 // ✗ Constructor: uses raw() — language gap, does not count as covered
-//   gap: generic function type; object member CallSignature
+//   gap: type node FirstTypeNode; object member CallSignature
 /* @scripttype preserveParamNames */
 export function Constructor(A: { readonly _tag: string; }) {
   const out = emptyObject
   for (const Tag in keySet(A['_tag'])) {
     out[Tag] = readonlyProp(ConstructorFrom(Extract(A, { _tag: readonlyProp(Tag) }), '_tag'))
   }
-  return Types.Simplify(merge(out, { $is: readonlyProp(raw('<Tag extends A["_tag"]>(tag: Tag) => (u: unknown) => u is Extract<A, { readonly _tag: Tag; }>')), $match: readonlyProp(raw('{ <Cases extends { readonly [Tag in A["_tag"]]: (args: Extract<A, { readonly _tag: Tag; }>) => any; }>(cases: Cases): (value: A) => Unify<ReturnType<Cases[A["_tag"]]>>; <Cases extends { readonly [Tag in A["_tag"]]: (args: Extract<A, { readonly _tag: Tag; }>) => any; }>(value: A, cases: Cases): Unify<ReturnType<Cases[A["_tag"]]>>; }')) }))
+  return Types.Simplify(merge(out, { $is: readonlyProp(genericFnType(['Tag extends A["_tag"]'], [Tag], fnType([unknown], raw('u is Extract<A, { readonly _tag: Tag; }>')))), $match: readonlyProp(raw('{ <Cases extends { readonly [Tag in A["_tag"]]: (args: Extract<A, { readonly _tag: Tag; }>) => any; }>(cases: Cases): (value: A) => Unify<ReturnType<Cases[A["_tag"]]>>; <Cases extends { readonly [Tag in A["_tag"]]: (args: Extract<A, { readonly _tag: Tag; }>) => any; }>(value: A, cases: Cases): Unify<ReturnType<Cases[A["_tag"]]>>; }')) }))
 }
 
 // ✗ ConstructorFrom: compiles but is not type-identical yet
@@ -128,5 +160,6 @@ export function ConstructorFrom(A, Tag: keyof typeof A = never) {
   return fnType([Types.VoidIfEmpty(out)], A)
 }
 /* compiles to:
- * export type ConstructorFrom<A, Tag extends keyof A = never> = (a0: Types.VoidIfEmpty<{ readonly [P in keyof A as P extends Tag ? never : P]: A[P] }>) => A
+ * export type ConstructorFrom<A, Tag extends keyof A = never> =
+ *   (a0: Types.VoidIfEmpty<{ readonly [P in keyof A as P extends Tag ? never : P]: A[P] }>) => A
  */

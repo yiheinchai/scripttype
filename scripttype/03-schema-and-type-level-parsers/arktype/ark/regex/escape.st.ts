@@ -10,6 +10,11 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Scanner {
+  export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type shiftUntilNot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BoundaryChar: any
 declare const Control: any
 declare const ErrorMessage: any
@@ -27,23 +32,23 @@ declare const missingBackreferenceNameMessage: any
 declare const shift: any
 declare const shiftResult: any
 declare const trailingBackslashMessage: any
-type BoundaryChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Control<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonZeroDigit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReferenceNode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegexClassChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scanner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type State<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringDigit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringEscapableChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnicodePropertyChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WhitespaceChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type caretNotationMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type missingBackreferenceNameMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type shift<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type shiftResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type trailingBackslashMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BoundaryChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Control<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonZeroDigit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReferenceNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegexClassChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type State<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringDigit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringEscapableChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnicodePropertyChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WhitespaceChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type caretNotationMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type missingBackreferenceNameMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type trailingBackslashMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseEscape: does not compile yet
 //   only direct calls are supported
 /* @scripttype preserveParamNames */
@@ -138,7 +143,15 @@ export function parseEscapedChar(char: string) {
   return ErrorMessage(writeUnnecessaryEscapeMessage(char))
 }
 /* compiles to:
- * export type parseEscapedChar<char extends string> = char extends RegexClassChar ? string : char extends 'd' ? `${number}` : char extends 's' ? WhitespaceChar : char extends BoundaryChar ? '' : char extends Control ? char : char extends 'c' ? ErrorMessage<caretNotationMessage> : char extends StringEscapableChar ? ErrorMessage<writeStringEscapableMessage<char>> : ErrorMessage<writeUnnecessaryEscapeMessage<char>>
+ * export type parseEscapedChar<char extends string> =
+ *   char extends RegexClassChar ? string
+ *   : char extends 'd' ? `${number}`
+ *   : char extends 's' ? WhitespaceChar
+ *   : char extends BoundaryChar ? ''
+ *   : char extends Control ? char
+ *   : char extends 'c' ? ErrorMessage<caretNotationMessage>
+ *   : char extends StringEscapableChar ? ErrorMessage<writeStringEscapableMessage<char>>
+ *   : ErrorMessage<writeUnnecessaryEscapeMessage<char>>
  */
 
 // ✓ writeUnresolvableBackreferenceMessage: verified type-identical to the original
@@ -175,6 +188,7 @@ export function writeStringEscapableMessage(char: StringEscapableChar) {
 ')`
 }
 /* compiles to:
- * export type writeStringEscapableMessage<char extends StringEscapableChar> = `\\${char} should be specified with a single backslash like regex('
+ * export type writeStringEscapableMessage<char extends StringEscapableChar> =
+ *   `\\${char} should be specified with a single backslash like regex('
  * ')`
  */

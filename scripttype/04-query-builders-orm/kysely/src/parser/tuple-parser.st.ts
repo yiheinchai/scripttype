@@ -13,16 +13,21 @@
 declare const DrainOuterGeneric: any
 declare const ExtractTypeFromReferenceExpression: any
 declare const ExtractTypeFromValueExpression: any
-type DrainOuterGeneric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractTypeFromReferenceExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractTypeFromValueExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractTypeFromReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractTypeFromValueExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RefTuple2: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RefTuple2(DB, TB: keyof typeof DB, R1, R2) {
   return DrainOuterGeneric([ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2)])
 }
 /* compiles to:
- * export type RefTuple2<DB, TB extends keyof DB, R1, R2> = DrainOuterGeneric<[ExtractTypeFromReferenceExpression<DB, TB, R1>, ExtractTypeFromReferenceExpression<DB, TB, R2>]>
+ * export type RefTuple2<DB, TB extends keyof DB, R1, R2> = DrainOuterGeneric<
+ *   [
+ *     ExtractTypeFromReferenceExpression<DB, TB, R1>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R2>
+ *   ]
+ * >
  */
 
 // ✓ RefTuple3: verified type-identical to the original
@@ -31,7 +36,13 @@ export function RefTuple3(DB, TB: keyof typeof DB, R1, R2, R3) {
   return DrainOuterGeneric([ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3)])
 }
 /* compiles to:
- * export type RefTuple3<DB, TB extends keyof DB, R1, R2, R3> = DrainOuterGeneric<[ExtractTypeFromReferenceExpression<DB, TB, R1>, ExtractTypeFromReferenceExpression<DB, TB, R2>, ExtractTypeFromReferenceExpression<DB, TB, R3>]>
+ * export type RefTuple3<DB, TB extends keyof DB, R1, R2, R3> = DrainOuterGeneric<
+ *   [
+ *     ExtractTypeFromReferenceExpression<DB, TB, R1>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R2>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R3>
+ *   ]
+ * >
  */
 
 // ✓ RefTuple4: verified type-identical to the original
@@ -40,7 +51,14 @@ export function RefTuple4(DB, TB: keyof typeof DB, R1, R2, R3, R4) {
   return DrainOuterGeneric([ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3), ExtractTypeFromReferenceExpression(DB, TB, R4)])
 }
 /* compiles to:
- * export type RefTuple4<DB, TB extends keyof DB, R1, R2, R3, R4> = DrainOuterGeneric<[ExtractTypeFromReferenceExpression<DB, TB, R1>, ExtractTypeFromReferenceExpression<DB, TB, R2>, ExtractTypeFromReferenceExpression<DB, TB, R3>, ExtractTypeFromReferenceExpression<DB, TB, R4>]>
+ * export type RefTuple4<DB, TB extends keyof DB, R1, R2, R3, R4> = DrainOuterGeneric<
+ *   [
+ *     ExtractTypeFromReferenceExpression<DB, TB, R1>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R2>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R3>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R4>
+ *   ]
+ * >
  */
 
 // ✓ RefTuple5: verified type-identical to the original
@@ -49,7 +67,15 @@ export function RefTuple5(DB, TB: keyof typeof DB, R1, R2, R3, R4, R5) {
   return DrainOuterGeneric([ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3), ExtractTypeFromReferenceExpression(DB, TB, R4), ExtractTypeFromReferenceExpression(DB, TB, R5)])
 }
 /* compiles to:
- * export type RefTuple5<DB, TB extends keyof DB, R1, R2, R3, R4, R5> = DrainOuterGeneric<[ExtractTypeFromReferenceExpression<DB, TB, R1>, ExtractTypeFromReferenceExpression<DB, TB, R2>, ExtractTypeFromReferenceExpression<DB, TB, R3>, ExtractTypeFromReferenceExpression<DB, TB, R4>, ExtractTypeFromReferenceExpression<DB, TB, R5>]>
+ * export type RefTuple5<DB, TB extends keyof DB, R1, R2, R3, R4, R5> = DrainOuterGeneric<
+ *   [
+ *     ExtractTypeFromReferenceExpression<DB, TB, R1>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R2>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R3>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R4>,
+ *     ExtractTypeFromReferenceExpression<DB, TB, R5>
+ *   ]
+ * >
  */
 
 // ✓ ValTuple2: verified type-identical to the original
@@ -58,7 +84,9 @@ export function ValTuple2(V1, V2) {
   return DrainOuterGeneric([ExtractTypeFromValueExpression(V1), ExtractTypeFromValueExpression(V2)])
 }
 /* compiles to:
- * export type ValTuple2<V1, V2> = DrainOuterGeneric<[ExtractTypeFromValueExpression<V1>, ExtractTypeFromValueExpression<V2>]>
+ * export type ValTuple2<V1, V2> = DrainOuterGeneric<
+ *   [ExtractTypeFromValueExpression<V1>, ExtractTypeFromValueExpression<V2>]
+ * >
  */
 
 // ✓ ValTuple3: verified type-identical to the original
@@ -67,7 +95,13 @@ export function ValTuple3(V1, V2, V3) {
   return DrainOuterGeneric([ExtractTypeFromValueExpression(V1), ExtractTypeFromValueExpression(V2), ExtractTypeFromValueExpression(V3)])
 }
 /* compiles to:
- * export type ValTuple3<V1, V2, V3> = DrainOuterGeneric<[ExtractTypeFromValueExpression<V1>, ExtractTypeFromValueExpression<V2>, ExtractTypeFromValueExpression<V3>]>
+ * export type ValTuple3<V1, V2, V3> = DrainOuterGeneric<
+ *   [
+ *     ExtractTypeFromValueExpression<V1>,
+ *     ExtractTypeFromValueExpression<V2>,
+ *     ExtractTypeFromValueExpression<V3>
+ *   ]
+ * >
  */
 
 // ✓ ValTuple4: verified type-identical to the original
@@ -76,7 +110,14 @@ export function ValTuple4(V1, V2, V3, V4) {
   return DrainOuterGeneric([ExtractTypeFromValueExpression(V1), ExtractTypeFromValueExpression(V2), ExtractTypeFromValueExpression(V3), ExtractTypeFromValueExpression(V4)])
 }
 /* compiles to:
- * export type ValTuple4<V1, V2, V3, V4> = DrainOuterGeneric<[ExtractTypeFromValueExpression<V1>, ExtractTypeFromValueExpression<V2>, ExtractTypeFromValueExpression<V3>, ExtractTypeFromValueExpression<V4>]>
+ * export type ValTuple4<V1, V2, V3, V4> = DrainOuterGeneric<
+ *   [
+ *     ExtractTypeFromValueExpression<V1>,
+ *     ExtractTypeFromValueExpression<V2>,
+ *     ExtractTypeFromValueExpression<V3>,
+ *     ExtractTypeFromValueExpression<V4>
+ *   ]
+ * >
  */
 
 // ✓ ValTuple5: verified type-identical to the original
@@ -85,5 +126,13 @@ export function ValTuple5(V1, V2, V3, V4, V5) {
   return DrainOuterGeneric([ExtractTypeFromValueExpression(V1), ExtractTypeFromValueExpression(V2), ExtractTypeFromValueExpression(V3), ExtractTypeFromValueExpression(V4), ExtractTypeFromValueExpression(V5)])
 }
 /* compiles to:
- * export type ValTuple5<V1, V2, V3, V4, V5> = DrainOuterGeneric<[ExtractTypeFromValueExpression<V1>, ExtractTypeFromValueExpression<V2>, ExtractTypeFromValueExpression<V3>, ExtractTypeFromValueExpression<V4>, ExtractTypeFromValueExpression<V5>]>
+ * export type ValTuple5<V1, V2, V3, V4, V5> = DrainOuterGeneric<
+ *   [
+ *     ExtractTypeFromValueExpression<V1>,
+ *     ExtractTypeFromValueExpression<V2>,
+ *     ExtractTypeFromValueExpression<V3>,
+ *     ExtractTypeFromValueExpression<V4>,
+ *     ExtractTypeFromValueExpression<V5>
+ *   ]
+ * >
  */

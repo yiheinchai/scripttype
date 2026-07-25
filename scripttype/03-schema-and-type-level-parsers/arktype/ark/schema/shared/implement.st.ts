@@ -34,31 +34,31 @@ declare const nodeOfKind: any
 declare const requireKeys: any
 declare const schemaKindOrRightOf: any
 declare const show: any
-type BaseErrorContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseNode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseNodeDeclaration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseNormalizedSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseRoot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CommonNodeImplementationInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConstraintKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Disjoint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Inner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IntersectionContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Json<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeParseContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PrecedenceByKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RightsByKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RootKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type errorContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type kindOrRightOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type listable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type makeRootAndArrayPropertiesMutable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type nodeOfKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type requireKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type schemaKindOrRightOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type show<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseErrorContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseNodeDeclaration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseNormalizedSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CommonNodeImplementationInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConstraintKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Disjoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Inner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IntersectionContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Json<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeParseContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PrecedenceByKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RightsByKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RootKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type errorContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type kindOrRightOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type listable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type makeRootAndArrayPropertiesMutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type nodeOfKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type requireKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type schemaKindOrRightOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type show<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ kindOrRightOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function kindOrRightOf(kind: NodeKind) {
@@ -100,7 +100,10 @@ export function accumulateRightKinds(remaining: readonly NodeKind[], result) {
   return result
 }
 /* compiles to:
- * export type accumulateRightKinds<remaining extends readonly NodeKind[], result> = remaining extends readonly [infer head extends NodeKind, ...(infer tail extends NodeKind[])] ? accumulateRightKinds<tail, result & { [K in head]: tail[number] }> : result
+ * export type accumulateRightKinds<remaining extends readonly NodeKind[], result> =
+ *   remaining extends readonly [infer head extends NodeKind, ...infer tail extends NodeKind[]]
+ *     ? accumulateRightKinds<tail, result & { [K in head]: tail[number] }>
+ *     : result
  */
 
 // ✓ ConstraintIntersection: verified type-identical to the original
@@ -109,7 +112,13 @@ export function ConstraintIntersection(lKind: ConstraintKind, rKind: kindOrRight
   return fnType([nodeOfKind(lKind), nodeOfKind(rKind), IntersectionContext], BaseNode | Disjoint | Null)
 }
 /* compiles to:
- * export type ConstraintIntersection<lKind extends ConstraintKind, rKind extends kindOrRightOf<lKind>> = (a0: nodeOfKind<lKind>, a1: nodeOfKind<rKind>, a2: IntersectionContext) => BaseNode | Disjoint | null
+ * export type ConstraintIntersection<
+ *   lKind extends ConstraintKind,
+ *   rKind extends kindOrRightOf<lKind>
+ * > =
+ *   (a0: nodeOfKind<lKind>, a1: nodeOfKind<rKind>, a2: IntersectionContext) => | BaseNode
+ *   | Disjoint
+ *   | null
  */
 
 // ✓ ConstraintIntersectionMap: verified type-identical to the original
@@ -126,7 +135,10 @@ export function ConstraintIntersectionMap(kind: ConstraintKind) {
   return show(out & out2)
 }
 /* compiles to:
- * export type ConstraintIntersectionMap<kind extends ConstraintKind> = show<{ [_ in kind]: ConstraintIntersection<kind, kind> } & { [RKind in kindRightOf<kind>]?: ConstraintIntersection<kind, RKind> }>
+ * export type ConstraintIntersectionMap<kind extends ConstraintKind> = show<
+ *   & { [_ in kind]: ConstraintIntersection<kind, kind> }
+ *   & { [RKind in kindRightOf<kind>]?: ConstraintIntersection<kind, RKind> }
+ * >
  */
 
 // ✓ RootIntersection: verified type-identical to the original
@@ -135,7 +147,11 @@ export function RootIntersection(lKind: RootKind, rKind: schemaKindOrRightOf<typ
   return fnType([nodeOfKind(lKind), nodeOfKind(rKind), IntersectionContext], BaseRoot | Disjoint)
 }
 /* compiles to:
- * export type RootIntersection<lKind extends RootKind, rKind extends schemaKindOrRightOf<lKind>> = (a0: nodeOfKind<lKind>, a1: nodeOfKind<rKind>, a2: IntersectionContext) => BaseRoot | Disjoint
+ * export type RootIntersection<
+ *   lKind extends RootKind,
+ *   rKind extends schemaKindOrRightOf<lKind>
+ * > =
+ *   (a0: nodeOfKind<lKind>, a1: nodeOfKind<rKind>, a2: IntersectionContext) => BaseRoot | Disjoint
  */
 
 // ✓ TypeIntersectionMap: verified type-identical to the original
@@ -148,7 +164,9 @@ export function TypeIntersectionMap(kind: RootKind) {
   return out
 }
 /* compiles to:
- * export type TypeIntersectionMap<kind extends RootKind> = { [RKind in schemaKindOrRightOf<kind>]: RootIntersection<kind, RKind> }
+ * export type TypeIntersectionMap<kind extends RootKind> = {
+ *   [RKind in schemaKindOrRightOf<kind>]: RootIntersection<kind, RKind>
+ * }
  */
 
 // ✓ IntersectionMap: verified type-identical to the original
@@ -160,7 +178,10 @@ export function IntersectionMap(kind: NodeKind) {
   return ConstraintIntersectionMap(merge(kind, ConstraintKind))
 }
 /* compiles to:
- * export type IntersectionMap<kind extends NodeKind> = kind extends RootKind ? TypeIntersectionMap<kind> : ConstraintIntersectionMap<kind & ConstraintKind>
+ * export type IntersectionMap<kind extends NodeKind> =
+ *   kind extends RootKind
+ *     ? TypeIntersectionMap<kind>
+ *     : ConstraintIntersectionMap<kind & ConstraintKind>
  */
 
 // ✓ precedenceOfKind: verified type-identical to the original
@@ -191,7 +212,9 @@ export function keySchemaDefinitions(d: BaseNodeDeclaration) {
   return out
 }
 /* compiles to:
- * export type keySchemaDefinitions<d extends BaseNodeDeclaration> = { [K in keyRequiringSchemaDefinition<d>]: NodeKeyImplementation<d, K> }
+ * export type keySchemaDefinitions<d extends BaseNodeDeclaration> = {
+ *   [K in keyRequiringSchemaDefinition<d>]: NodeKeyImplementation<d, K>
+ * }
  */
 
 // ✓ keyRequiringSchemaDefinition: verified type-identical to the original
@@ -200,16 +223,41 @@ export function keyRequiringSchemaDefinition(d: BaseNodeDeclaration) {
   return Exclude(keyof(d['normalizedSchema']), keyof(BaseNormalizedSchema))
 }
 /* compiles to:
- * export type keyRequiringSchemaDefinition<d extends BaseNodeDeclaration> = Exclude<keyof d['normalizedSchema'], keyof BaseNormalizedSchema>
+ * export type keyRequiringSchemaDefinition<d extends BaseNodeDeclaration> = Exclude<
+ *   keyof d['normalizedSchema'],
+ *   keyof BaseNormalizedSchema
+ * >
  */
 
 // ✓ NodeKeyImplementation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NodeKeyImplementation(d: BaseNodeDeclaration, k: keyof (typeof d)["normalizedSchema"], instantiated = matches<keyof (typeof d)["inner"]>(k) ? Exclude(d['inner'][k], Undefined) : never) {
+export function NodeKeyImplementation(d: BaseNodeDeclaration, k: keyof (typeof d)["normalizedSchema"], instantiated = k in d['inner'] ? Exclude(d['inner'][k], Undefined) : never) {
   return requireKeys({ preserveUndefined: optional(true), child: optional(boolean | fnType([instantiated], arrayOf(BaseNode))), serialize: optional(fnType([instantiated], Json)), reduceIo: optional(fnType([anyOf('in', 'out'), makeRootAndArrayPropertiesMutable(d['inner']), d['inner'][k]], voidType())), parse: optional(fnType([Exclude(d['normalizedSchema'][k], Undefined), NodeParseContext(d['kind'])], anyOf(instantiated, Undefined))) }, (matches<typeof instantiated | undefined>(d['normalizedSchema'][k]) ? never : 'parse') | (matches<[ listable<BaseNode> ]>([instantiated]) ? 'child' : never))
 }
 /* compiles to:
- * export type NodeKeyImplementation<d extends BaseNodeDeclaration, k extends keyof d['normalizedSchema'], instantiated = k extends keyof d['inner'] ? Exclude<d['inner'][k], undefined> : never> = requireKeys<{ preserveUndefined?: true; child?: boolean | ((a0: instantiated) => BaseNode[]); serialize?: (a0: instantiated) => Json; reduceIo?: (a0: 'in' | 'out', a1: makeRootAndArrayPropertiesMutable<d['inner']>, a2: d['inner'][k]) => void; parse?: (a0: Exclude<d['normalizedSchema'][k], undefined>, a1: NodeParseContext<d['kind']>) => instantiated | undefined }, (d['normalizedSchema'][k] extends instantiated | undefined ? never : 'parse') | ([instantiated] extends [listable<BaseNode>] ? 'child' : never)>
+ * export type NodeKeyImplementation<
+ *   d extends BaseNodeDeclaration,
+ *   k extends keyof d['normalizedSchema'],
+ *   instantiated = k extends keyof d['inner'] ? Exclude<d['inner'][k], undefined> : never
+ * > =
+ *   requireKeys<
+ *     {
+ *       preserveUndefined?: true
+ *       child?: boolean | ((a0: instantiated) => BaseNode[])
+ *       serialize?: (a0: instantiated) => Json
+ *       reduceIo?: (
+ *         a0: 'in' | 'out',
+ *         a1: makeRootAndArrayPropertiesMutable<d['inner']>,
+ *         a2: d['inner'][k]
+ *       ) => void
+ *       parse?: (
+ *         a0: Exclude<d['normalizedSchema'][k], undefined>,
+ *         a1: NodeParseContext<d['kind']>
+ *       ) => instantiated | undefined
+ *     },
+ *     | (d['normalizedSchema'][k] extends instantiated | undefined ? never : 'parse')
+ *     | ([instantiated] extends [listable<BaseNode>] ? 'child' : never)
+ *   >
  */
 
 // ✓ nodeImplementationOf: verified type-identical to the original
@@ -218,7 +266,13 @@ export function nodeImplementationOf(d: BaseNodeDeclaration) {
   return merge(nodeImplementationInputOf(d), { intersections: IntersectionMap(d['kind']), intersectionIsOpen: d['intersectionIsOpen'], defaults: Required(NodeConfig(d['kind'])) })
 }
 /* compiles to:
- * export type nodeImplementationOf<d extends BaseNodeDeclaration> = nodeImplementationInputOf<d> & { intersections: IntersectionMap<d['kind']>; intersectionIsOpen: d['intersectionIsOpen']; defaults: Required<NodeConfig<d['kind']>> }
+ * export type nodeImplementationOf<d extends BaseNodeDeclaration> =
+ *   & nodeImplementationInputOf<d>
+ *   & {
+ *       intersections: IntersectionMap<d['kind']>
+ *       intersectionIsOpen: d['intersectionIsOpen']
+ *       defaults: Required<NodeConfig<d['kind']>>
+ *     }
  */
 
 // ✓ nodeImplementationInputOf: verified type-identical to the original
@@ -227,7 +281,14 @@ export function nodeImplementationInputOf(d: BaseNodeDeclaration) {
   return merge(CommonNodeImplementationInput(d), { intersections: IntersectionMap(d['kind']), defaults: nodeSchemaaultsImplementationInputFor(d['kind']) }, matches<true>(d['intersectionIsOpen']) ? { intersectionIsOpen: true } : {}, matches<(typeof d)["kind"]>(d['reducibleTo']) ? {} : { reduce: {} })
 }
 /* compiles to:
- * export type nodeImplementationInputOf<d extends BaseNodeDeclaration> = CommonNodeImplementationInput<d> & { intersections: IntersectionMap<d['kind']>; defaults: nodeSchemaaultsImplementationInputFor<d['kind']> } & (d['intersectionIsOpen'] extends true ? { intersectionIsOpen: true } : {}) & (d['reducibleTo'] extends d['kind'] ? {} : { reduce: {} })
+ * export type nodeImplementationInputOf<d extends BaseNodeDeclaration> =
+ *   & CommonNodeImplementationInput<d>
+ *   & {
+ *       intersections: IntersectionMap<d['kind']>
+ *       defaults: nodeSchemaaultsImplementationInputFor<d['kind']>
+ *     }
+ *   & (d['intersectionIsOpen'] extends true ? { intersectionIsOpen: true } : {})
+ *   & (d['reducibleTo'] extends d['kind'] ? {} : { reduce: {} })
  */
 
 // ✓ nodeSchemaaultsImplementationInputFor: verified type-identical to the original
@@ -236,7 +297,15 @@ export function nodeSchemaaultsImplementationInputFor(kind: NodeKind) {
   return requireKeys(NodeConfig(kind), anyOf('description', matches<(Omit<errorContext<typeof kind>, keyof BaseErrorContext | "description">)>(Inner(kind)) ? never : (merge('expected', keyof(NodeConfig(kind))))))
 }
 /* compiles to:
- * export type nodeSchemaaultsImplementationInputFor<kind extends NodeKind> = requireKeys<NodeConfig<kind>, 'description' | (Inner<kind> extends Omit<errorContext<kind>, keyof BaseErrorContext | 'description'> ? never : 'expected' & keyof NodeConfig<kind>)>
+ * export type nodeSchemaaultsImplementationInputFor<kind extends NodeKind> = requireKeys<
+ *   NodeConfig<kind>,
+ *   | 'description'
+ *   | (
+ *       Inner<kind> extends Omit<errorContext<kind>, keyof BaseErrorContext | 'description'>
+ *         ? never
+ *         : 'expected' & keyof NodeConfig<kind>
+ *     )
+ * >
  */
 
 // ✓ DescriptionWriter: verified type-identical to the original

@@ -19,15 +19,15 @@ declare const TMappingType: any
 declare const TSchema: any
 declare const TTemplateLiteral: any
 declare const TUnion: any
-type TFromLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromTemplateLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteralValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TMappingType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTemplateLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TFromLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TMappingType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromType: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromType(Mapping: TMappingType, Type: TSchema) {
@@ -46,5 +46,10 @@ export function TFromType(Mapping: TMappingType, Type: TSchema) {
   return Type
 }
 /* compiles to:
- * export type TFromType<Mapping extends TMappingType, Type extends TSchema> = Type extends TLiteral<infer Value extends TLiteralValue> ? TFromLiteral<Mapping, Value> : Type extends TTemplateLiteral<infer Pattern extends string> ? TFromTemplateLiteral<Mapping, Pattern> : Type extends TUnion<infer Types extends TSchema[]> ? TFromUnion<Mapping, Types> : Type
+ * export type TFromType<Mapping extends TMappingType, Type extends TSchema> =
+ *   Type extends TLiteral<infer Value extends TLiteralValue> ? TFromLiteral<Mapping, Value>
+ *   : Type extends TTemplateLiteral<infer Pattern extends string>
+ *     ? TFromTemplateLiteral<Mapping, Pattern>
+ *   : Type extends TUnion<infer Types extends TSchema[]> ? TFromUnion<Mapping, Types>
+ *   : Type
  */

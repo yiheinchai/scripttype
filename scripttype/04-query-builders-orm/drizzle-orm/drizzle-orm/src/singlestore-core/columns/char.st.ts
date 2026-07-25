@@ -11,12 +11,28 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const SingleStoreCharBuilder: any
-type SingleStoreCharBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SingleStoreCharBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreCharBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreCharBuilderInitial(TName: string, TEnum: [ string, ...string[] ], TLength: number | undefined) {
   return SingleStoreCharBuilder({ name: TName, dataType: 'string', columnType: 'SingleStoreChar', data: TEnum[number], driverParam: number | string, enumValues: TEnum, generated: Undefined, length: TLength })
 }
 /* compiles to:
- * export type SingleStoreCharBuilderInitial<TName extends string, TEnum extends [string, ...string[]], TLength extends number | undefined> = SingleStoreCharBuilder<{ name: TName; dataType: 'string'; columnType: 'SingleStoreChar'; data: TEnum[number]; driverParam: number | string; enumValues: TEnum; generated: undefined; length: TLength }>
+ * export type SingleStoreCharBuilderInitial<
+ *   TName extends string,
+ *   TEnum extends [string, ...string[]],
+ *   TLength extends number | undefined
+ * > =
+ *   SingleStoreCharBuilder<
+ *     {
+ *       name: TName
+ *       dataType: 'string'
+ *       columnType: 'SingleStoreChar'
+ *       data: TEnum[number]
+ *       driverParam: number | string
+ *       enumValues: TEnum
+ *       generated: undefined
+ *       length: TLength
+ *     }
+ *   >
  */

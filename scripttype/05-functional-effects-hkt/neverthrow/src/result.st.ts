@@ -18,15 +18,15 @@ declare const L: any
 declare const Ok: any
 declare const Prev: any
 declare const RL: any
-type Err<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractErrTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractOkTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type H<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type L<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Ok<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prev<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RL<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Result<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Err<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractErrTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractOkTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type H<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type L<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Ok<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Result: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Result(T, E) {
@@ -53,7 +53,13 @@ export function CollectResults(T, Collected: unknown[] = [], Depth: number = 50)
   return Collected
 }
 /* compiles to:
- * export type CollectResults<T, Collected extends unknown[] = [], Depth extends number = 50> = [Depth] extends [never] ? [] : T extends [infer H, ...infer Rest] ? H extends Result<infer L, infer R> ? CollectResults<Rest, [...Collected, [L, R]], Prev[Depth]> : never : Collected
+ * export type CollectResults<T, Collected extends unknown[] = [], Depth extends number = 50> =
+ *   [Depth] extends [never] ? []
+ *   : T extends [infer H, ...infer Rest]
+ *     ? H extends Result<infer L, infer R>
+ *       ? CollectResults<Rest, [...Collected, [L, R]], Prev[Depth]>
+ *       : never
+ *   : Collected
  */
 
 // ✓ Transpose: verified type-identical to the original
@@ -80,7 +86,18 @@ export function Transpose(A, Transposed: unknown[][] = [], Depth: number = 10) {
   return Transposed
 }
 /* compiles to:
- * export type Transpose<A, Transposed extends unknown[][] = [], Depth extends number = 10> = A extends [infer T, ...infer Rest] ? T extends [infer L, infer R] ? Transposed extends [infer PL, infer PR] ? PL extends unknown[] ? PR extends unknown[] ? Transpose<Rest, [[...PL, L], [...PR, R]], Prev[Depth]> : never : never : Transpose<Rest, [[L], [R]], Prev[Depth]> : Transposed : Transposed
+ * export type Transpose<A, Transposed extends unknown[][] = [], Depth extends number = 10> =
+ *   A extends [infer T, ...infer Rest]
+ *     ? T extends [infer L, infer R]
+ *       ? Transposed extends [infer PL, infer PR]
+ *         ? PL extends unknown[]
+ *           ? PR extends unknown[]
+ *             ? Transpose<Rest, [[...PL, L], [...PR, R]], Prev[Depth]>
+ *             : never
+ *           : never
+ *         : Transpose<Rest, [[L], [R]], Prev[Depth]>
+ *       : Transposed
+ *     : Transposed
  */
 
 // ✓ Combine: verified type-identical to the original
@@ -96,7 +113,11 @@ export function Combine(T, Depth: number = 5) {
   return never
 }
 /* compiles to:
- * export type Combine<T, Depth extends number = 5> = Transpose<CollectResults<T>, [], Depth> extends [infer L, infer R] ? [UnknownMembersToNever<L>, UnknownMembersToNever<R>] : Transpose<CollectResults<T>, [], Depth> extends [] ? [[], []] : never
+ * export type Combine<T, Depth extends number = 5> =
+ *   Transpose<CollectResults<T>, [], Depth> extends [infer L, infer R]
+ *     ? [UnknownMembersToNever<L>, UnknownMembersToNever<R>]
+ *   : Transpose<CollectResults<T>, [], Depth> extends [] ? [[], []]
+ *   : never
  */
 
 // ✓ Dedup: verified type-identical to the original
@@ -112,7 +133,8 @@ export function Dedup(T) {
   return T
 }
 /* compiles to:
- * export type Dedup<T> = T extends Result<infer RL, infer RR> ? [unknown] extends [RL] ? Err<RL, RR> : Ok<RL, RR> : T
+ * export type Dedup<T> =
+ *   T extends Result<infer RL, infer RR> ? [unknown] extends [RL] ? Err<RL, RR> : Ok<RL, RR> : T
  */
 
 // ✓ MemberListOf: verified type-identical to the original
@@ -127,7 +149,10 @@ export function MemberListOf(T) {
   return []
 }
 /* compiles to:
- * export type MemberListOf<T> = ((T extends unknown ? (a0: T) => T : never) extends infer U ? (U extends unknown ? (a0: U) => unknown : never) extends (v: infer V) => unknown ? V : never : never) extends (_: unknown) => infer W ? [...MemberListOf<Exclude<T, W>>, W] : []
+ * export type MemberListOf<T> =
+ *   ((T extends unknown ? (a0: T) => T : never) extends infer U ? (U extends unknown ? (a0: U) => unknown : never) extends (v: infer V) => unknown ? V : never : never) extends (_: unknown) => infer W
+ *     ? [...MemberListOf<Exclude<T, W>>, W]
+ *     : []
  */
 
 // ✓ EmptyArrayToNever: verified type-identical to the original
@@ -149,7 +174,13 @@ export function EmptyArrayToNever(T, NeverArrayToNever: number = 0) {
   return T
 }
 /* compiles to:
- * export type EmptyArrayToNever<T, NeverArrayToNever extends number = 0> = T extends [] ? never : NeverArrayToNever extends 1 ? T extends [never, ...infer Rest] ? [EmptyArrayToNever<Rest>] extends [never] ? never : T : T : T
+ * export type EmptyArrayToNever<T, NeverArrayToNever extends number = 0> =
+ *   T extends [] ? never
+ *   : NeverArrayToNever extends 1
+ *     ? T extends [never, ...infer Rest]
+ *       ? [EmptyArrayToNever<Rest>] extends [never] ? never : T
+ *       : T
+ *   : T
  */
 
 // ✓ UnknownMembersToNever: verified type-identical to the original
@@ -162,7 +193,10 @@ export function UnknownMembersToNever(T) {
   return T
 }
 /* compiles to:
- * export type UnknownMembersToNever<T> = T extends [infer H, ...infer R] ? [[unknown] extends [H] ? never : H, ...UnknownMembersToNever<R>] : T
+ * export type UnknownMembersToNever<T> =
+ *   T extends [infer H, ...infer R]
+ *     ? [[unknown] extends [H] ? never : H, ...UnknownMembersToNever<R>]
+ *     : T
  */
 
 // ✓ MembersToUnion: verified type-identical to the original
@@ -182,7 +216,7 @@ export function MembersToUnion(T) {
 export function IsLiteralArray(T) {
   const m1 = matches<{ length: Hole<"L">; }>(T)
   if (m1) {
-    if (matches<number>(m1.L)) {
+    if (typeof m1.L === 'number') {
       if (matches<typeof m1.L>(number)) {
         return 0
       }
@@ -193,7 +227,8 @@ export function IsLiteralArray(T) {
   return 0
 }
 /* compiles to:
- * export type IsLiteralArray<T> = T extends { length: infer L; } ? L extends number ? number extends L ? 0 : 1 : 0 : 0
+ * export type IsLiteralArray<T> =
+ *   T extends { length: infer L; } ? L extends number ? number extends L ? 0 : 1 : 0 : 0
  */
 
 // ✓ Traverse: verified type-identical to the original
@@ -206,7 +241,10 @@ export function Traverse(T, Depth: number = 5) {
   return never
 }
 /* compiles to:
- * export type Traverse<T, Depth extends number = 5> = Combine<T, Depth> extends [infer Oks, infer Errs] ? Result<EmptyArrayToNever<Oks, 1>, MembersToUnion<Errs>> : never
+ * export type Traverse<T, Depth extends number = 5> =
+ *   Combine<T, Depth> extends [infer Oks, infer Errs]
+ *     ? Result<EmptyArrayToNever<Oks, 1>, MembersToUnion<Errs>>
+ *     : never
  */
 
 // ✓ TraverseWithAllErrors: verified type-identical to the original
@@ -219,7 +257,8 @@ export function TraverseWithAllErrors(T, Depth: number = 5) {
   return never
 }
 /* compiles to:
- * export type TraverseWithAllErrors<T, Depth extends number = 5> = Traverse<T, Depth> extends Result<infer Oks, infer Errs> ? Result<Oks, Errs[]> : never
+ * export type TraverseWithAllErrors<T, Depth extends number = 5> =
+ *   Traverse<T, Depth> extends Result<infer Oks, infer Errs> ? Result<Oks, Errs[]> : never
  */
 
 // ✓ CombineResults: verified type-identical to the original
@@ -231,7 +270,10 @@ export function CombineResults(T: readonly Result<unknown, unknown>[]) {
   return Result(ExtractOkTypes(T), ExtractErrTypes(T)[number])
 }
 /* compiles to:
- * export type CombineResults<T extends readonly Result<unknown, unknown>[]> = IsLiteralArray<T> extends 1 ? Traverse<T> : Result<ExtractOkTypes<T>, ExtractErrTypes<T>[number]>
+ * export type CombineResults<T extends readonly Result<unknown, unknown>[]> =
+ *   IsLiteralArray<T> extends 1
+ *     ? Traverse<T>
+ *     : Result<ExtractOkTypes<T>, ExtractErrTypes<T>[number]>
  */
 
 // ✓ CombineResultsWithAllErrorsArray: verified type-identical to the original
@@ -243,5 +285,8 @@ export function CombineResultsWithAllErrorsArray(T: readonly Result<unknown, unk
   return Result(ExtractOkTypes(T), arrayOf(ExtractErrTypes(T)[number]))
 }
 /* compiles to:
- * export type CombineResultsWithAllErrorsArray<T extends readonly Result<unknown, unknown>[]> = IsLiteralArray<T> extends 1 ? TraverseWithAllErrors<T> : Result<ExtractOkTypes<T>, ExtractErrTypes<T>[number][]>
+ * export type CombineResultsWithAllErrorsArray<T extends readonly Result<unknown, unknown>[]> =
+ *   IsLiteralArray<T> extends 1
+ *     ? TraverseWithAllErrors<T>
+ *     : Result<ExtractOkTypes<T>, ExtractErrTypes<T>[number][]>
  */

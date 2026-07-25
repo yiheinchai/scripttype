@@ -14,17 +14,19 @@ declare const AddAliasToSelection: any
 declare const ColumnsSelection: any
 declare const Subquery: any
 declare const WithSubquery: any
-type AddAliasToSelection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ColumnsSelection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Subquery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WithSubquery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AddAliasToSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WithSubquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SubqueryWithSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SubqueryWithSelection(TSelection: ColumnsSelection, TAlias: string) {
   return Subquery(TAlias, AddAliasToSelection(TSelection, TAlias, 'gel')) & AddAliasToSelection(TSelection, TAlias, 'gel')
 }
 /* compiles to:
- * export type SubqueryWithSelection<TSelection extends ColumnsSelection, TAlias extends string> = Subquery<TAlias, AddAliasToSelection<TSelection, TAlias, 'gel'>> & AddAliasToSelection<TSelection, TAlias, 'gel'>
+ * export type SubqueryWithSelection<TSelection extends ColumnsSelection, TAlias extends string> =
+ *   & Subquery<TAlias, AddAliasToSelection<TSelection, TAlias, 'gel'>>
+ *   & AddAliasToSelection<TSelection, TAlias, 'gel'>
  */
 
 // ✓ WithSubqueryWithSelection: verified type-identical to the original
@@ -33,5 +35,10 @@ export function WithSubqueryWithSelection(TSelection: ColumnsSelection, TAlias: 
   return WithSubquery(TAlias, AddAliasToSelection(TSelection, TAlias, 'gel')) & AddAliasToSelection(TSelection, TAlias, 'gel')
 }
 /* compiles to:
- * export type WithSubqueryWithSelection<TSelection extends ColumnsSelection, TAlias extends string> = WithSubquery<TAlias, AddAliasToSelection<TSelection, TAlias, 'gel'>> & AddAliasToSelection<TSelection, TAlias, 'gel'>
+ * export type WithSubqueryWithSelection<
+ *   TSelection extends ColumnsSelection,
+ *   TAlias extends string
+ * > =
+ *   & WithSubquery<TAlias, AddAliasToSelection<TSelection, TAlias, 'gel'>>
+ *   & AddAliasToSelection<TSelection, TAlias, 'gel'>
  */

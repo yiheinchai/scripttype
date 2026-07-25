@@ -17,13 +17,13 @@ declare const StructuralOperationName: any
 declare const UnknownRangeSchema: any
 declare const kindRightOf: any
 declare const reducibleKindOf: any
-type LimitSchemaValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RootKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StructuralOperationName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownRangeSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type kindRightOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type reducibleKindOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type LimitSchemaValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RootKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StructuralOperationName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownRangeSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type kindRightOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type reducibleKindOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ exclusivizeRangeSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function exclusivizeRangeSchema(schema: UnknownRangeSchema) {
@@ -33,7 +33,8 @@ export function exclusivizeRangeSchema(schema: UnknownRangeSchema) {
   return schema
 }
 /* compiles to:
- * export type exclusivizeRangeSchema<schema extends UnknownRangeSchema> = schema extends LimitSchemaValue ? { rule: schema; exclusive: true } : schema
+ * export type exclusivizeRangeSchema<schema extends UnknownRangeSchema> =
+ *   schema extends LimitSchemaValue ? { rule: schema; exclusive: true } : schema
  */
 
 // ✓ intersectRoot: verified type-identical to the original
@@ -45,7 +46,8 @@ export function intersectRoot(l: RootKind, r: NodeKind) {
   return asymmetricIntersectionOf(l, r) | asymmetricIntersectionOf(r, l)
 }
 /* compiles to:
- * export type intersectRoot<l extends RootKind, r extends NodeKind> = [l, r] extends [r, l] ? l : asymmetricIntersectionOf<l, r> | asymmetricIntersectionOf<r, l>
+ * export type intersectRoot<l extends RootKind, r extends NodeKind> =
+ *   [l, r] extends [r, l] ? l : asymmetricIntersectionOf<l, r> | asymmetricIntersectionOf<r, l>
  */
 
 // ✓ asymmetricIntersectionOf: verified type-identical to the original
@@ -60,7 +62,8 @@ export function asymmetricIntersectionOf(l: NodeKind, r: NodeKind) {
   return never
 }
 /* compiles to:
- * export type asymmetricIntersectionOf<l extends NodeKind, r extends NodeKind> = l extends unknown ? r extends kindRightOf<l> ? l | reducibleKindOf<l> : never : never
+ * export type asymmetricIntersectionOf<l extends NodeKind, r extends NodeKind> =
+ *   l extends unknown ? r extends kindRightOf<l> ? l | reducibleKindOf<l> : never : never
  */
 
 // ✓ schemaKindRightOf: verified type-identical to the original
@@ -87,5 +90,9 @@ export function writeNonStructuralOperandMessage(operation: StructuralOperationN
   return `${operation} operand must be an object (was ${operand})`
 }
 /* compiles to:
- * export type writeNonStructuralOperandMessage<operation extends StructuralOperationName, operand extends string> = `${operation} operand must be an object (was ${operand})`
+ * export type writeNonStructuralOperandMessage<
+ *   operation extends StructuralOperationName,
+ *   operand extends string
+ * > =
+ *   `${operation} operand must be an object (was ${operand})`
  */

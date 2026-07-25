@@ -13,16 +13,21 @@
 declare const BaseIssue: any
 declare const BaseValidation: any
 declare const BaseValidationAsync: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseValidation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseValidationAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseValidation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseValidationAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GenericValidation: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GenericValidation(TInput = any, TOutput = TInput, TIssue: BaseIssue<unknown> = BaseIssue(unknown)) {
   return BaseValidation(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericValidation<TInput = any, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = BaseValidation<TInput, TOutput, TIssue>
+ * export type GenericValidation<
+ *   TInput = any,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   BaseValidation<TInput, TOutput, TIssue>
  */
 
 // ✓ GenericValidationAsync: verified type-identical to the original
@@ -31,5 +36,10 @@ export function GenericValidationAsync(TInput = any, TOutput = TInput, TIssue: B
   return BaseValidationAsync(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericValidationAsync<TInput = any, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = BaseValidationAsync<TInput, TOutput, TIssue>
+ * export type GenericValidationAsync<
+ *   TInput = any,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   BaseValidationAsync<TInput, TOutput, TIssue>
  */

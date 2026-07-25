@@ -15,18 +15,18 @@ declare const IsLiteral: any
 declare const IsUnknown: any
 declare const PropertyKey: any
 declare const ToString: any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BaseKeyFilter: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BaseKeyFilter(Type, Key: keyof typeof Type) {
-  if (matches<symbol>(Key)) {
+  if (typeof Key === 'symbol') {
     return never
   }
-  if (matches<symbol>(Type[Key])) {
+  if (typeof Type[Key] === 'symbol') {
     return never
   }
   if (matches<Record<string, unknown>>(Type[Key])) {
@@ -38,7 +38,12 @@ export function BaseKeyFilter(Type, Key: keyof typeof Type) {
   return Key
 }
 /* compiles to:
- * export type BaseKeyFilter<Type, Key extends keyof Type> = Key extends symbol ? never : Type[Key] extends symbol ? never : Type[Key] extends Record<string, unknown> ? Key : [(a0: any[]) => any] extends [Type[Key]] ? never : Key
+ * export type BaseKeyFilter<Type, Key extends keyof Type> =
+ *   Key extends symbol ? never
+ *   : Type[Key] extends symbol ? never
+ *   : Type[Key] extends Record<string, unknown> ? Key
+ *   : [(a0: any[]) => any] extends [Type[Key]] ? never
+ *   : Key
  */
 
 // ✗ FilterDefinedKeys: the ScriptType does not itself typecheck as TypeScript
@@ -47,12 +52,21 @@ export function BaseKeyFilter(Type, Key: keyof typeof Type) {
 export function FilterDefinedKeys(T: object) {
   const out = emptyObject
   for (const Key in keyof(T)) {
-    out[Key] = matches<true>(IsAny(T[Key])) ? Key : (matches<true>(IsUnknown(T[Key])) ? Key : (matches<(typeof T)[typeof Key]>(Undefined) ? never : (matches<undefined>(T[Key]) ? never : BaseKeyFilter(T, Key))))
+    out[Key] = matches<true>(IsAny(T[Key])) ? Key : (matches<true>(IsUnknown(T[Key])) ? Key : (matches<(typeof T)[typeof Key]>(Undefined) ? never : (typeof T[Key] === 'undefined' ? never : BaseKeyFilter(T, Key))))
   }
   return Exclude(out[keyof(T)], Undefined)
 }
 /* compiles to:
- * export type FilterDefinedKeys<T extends object> = Exclude<{ [Key in keyof T]: IsAny<T[Key]> extends true ? Key : IsUnknown<T[Key]> extends true ? Key : undefined extends T[Key] ? never : T[Key] extends undefined ? never : BaseKeyFilter<T, Key> }[keyof T], undefined>
+ * export type FilterDefinedKeys<T extends object> = Exclude<
+ *   {
+ *     [Key in keyof T]: IsAny<T[Key]> extends true ? Key
+ *     : IsUnknown<T[Key]> extends true ? Key
+ *     : undefined extends T[Key] ? never
+ *     : T[Key] extends undefined ? never
+ *     : BaseKeyFilter<T, Key>
+ *   }[keyof T],
+ *   undefined
+ * >
  */
 
 // ✗ FilterOptionalKeys: the ScriptType does not itself typecheck as TypeScript
@@ -61,12 +75,19 @@ export function FilterDefinedKeys(T: object) {
 export function FilterOptionalKeys(T: object) {
   const out = emptyObject
   for (const Key in keyof(T)) {
-    out[Key] = matches<true>(IsAny(T[Key])) ? never : (matches<(typeof T)[typeof Key]>(Undefined) ? (matches<undefined>(T[Key]) ? never : BaseKeyFilter(T, Key)) : never)
+    out[Key] = matches<true>(IsAny(T[Key])) ? never : (matches<(typeof T)[typeof Key]>(Undefined) ? (typeof T[Key] === 'undefined' ? never : BaseKeyFilter(T, Key)) : never)
   }
   return Exclude(out[keyof(T)], Undefined)
 }
 /* compiles to:
- * export type FilterOptionalKeys<T extends object> = Exclude<{ [Key in keyof T]: IsAny<T[Key]> extends true ? never : undefined extends T[Key] ? T[Key] extends undefined ? never : BaseKeyFilter<T, Key> : never }[keyof T], undefined>
+ * export type FilterOptionalKeys<T extends object> = Exclude<
+ *   {
+ *     [Key in keyof T]: IsAny<T[Key]> extends true ? never
+ *     : undefined extends T[Key] ? T[Key] extends undefined ? never : BaseKeyFilter<T, Key>
+ *     : never
+ *   }[keyof T],
+ *   undefined
+ * >
  */
 
 // ✓ RequireNone: verified type-identical to the original
@@ -88,21 +109,22 @@ export function LiteralKeyOf(T) {
   return keyof(out)
 }
 /* compiles to:
- * export type LiteralKeyOf<T> = keyof { [K in keyof T as IsLiteral<K> extends true ? K : never]-?: never }
+ * export type LiteralKeyOf<T> =
+ *   keyof { [K in keyof T as IsLiteral<K> extends true ? K : never]-?: never }
  */
 
 // ✓ ExactKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExactKey(T: object, Key: PropertyKey) {
-  if (matches<keyof typeof T>(Key)) {
+  if (Key in T) {
     return Key
   }
-  if (matches<keyof typeof T>(ToString(Key))) {
+  if (ToString(Key) in T) {
     return ToString(Key)
   }
   const m1 = matches<`${Hole<"NumberKey", number>}`>(Key)
   if (m1) {
-    if (matches<keyof typeof T>(m1.NumberKey)) {
+    if (m1.NumberKey in T) {
       return m1.NumberKey
     }
     return never
@@ -110,5 +132,10 @@ export function ExactKey(T: object, Key: PropertyKey) {
   return never
 }
 /* compiles to:
- * export type ExactKey<T extends object, Key extends PropertyKey> = Key extends keyof T ? Key : ToString<Key> extends keyof T ? ToString<Key> : Key extends `${infer NumberKey extends number}` ? NumberKey extends keyof T ? NumberKey : never : never
+ * export type ExactKey<T extends object, Key extends PropertyKey> =
+ *   Key extends keyof T ? Key
+ *   : ToString<Key> extends keyof T ? ToString<Key>
+ *   : Key extends `${infer NumberKey extends number}`
+ *     ? NumberKey extends keyof T ? NumberKey : never
+ *   : never
  */

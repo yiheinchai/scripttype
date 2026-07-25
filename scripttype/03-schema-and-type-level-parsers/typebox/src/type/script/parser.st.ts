@@ -10,10 +10,141 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace S {
+  export type TBaseMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TDependentMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TElementBaseMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TElementListMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TElementMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TElementNamedMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TElementOptionalMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TElementReadonlyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TElementReadonlyOptionalMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExportKeywordMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExprMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExprPipeMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExprReadonlyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExprTailMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExprTermMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExprTermTailMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExtendsMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TFactorMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericCallArgumentListMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericCallArgumentsMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericCallMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericParameterEqualsMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericParameterExtendsEqualsMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericParameterExtendsMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericParameterIdentifierMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericParameterListMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericParameterMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericParametersMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TGenericTypeMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TIndexArrayMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TInferTypeMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TInterfaceDeclarationGenericMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TInterfaceDeclarationHeritageListMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TInterfaceDeclarationHeritageMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TInterfaceDeclarationMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeyOfMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordAnyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordBigIntMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordBooleanMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordIntegerMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordNeverMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordNullMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordNumberMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordObjectMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordStringMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordSymbolMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordThisMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordUndefinedMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordUnknownMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKeywordVoidMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TLiteralBigIntMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TLiteralBooleanMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TLiteralNumberMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TLiteralStringMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TMappedAsMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TMappedOptionalMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TMappedReadonlyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TModuleDeclarationDelimiterMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TModuleDeclarationListMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TModuleDeclarationMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TModuleMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TOptionalMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TOptionalSemiColonMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TParameterBaseMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TParameterListMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TParameterMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TParameterOptionalMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TParameterReadonlyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TParameterReadonlyOptionalMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TParameterTypeMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternBaseMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternBigIntMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternBodyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternGroupMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternIntegerMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternNeverMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternNumberMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternStringMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternTermMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternTextMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPatternUnionMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPropertiesMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPropertyDelimiterMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPropertyKeyIdentMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPropertyKeyIndexMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPropertyKeyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPropertyKeyNumberMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPropertyKeyQuotedMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPropertyListMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPropertyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TReadonlyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TReferenceMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TScriptMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TTemplateBodyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TTemplateInterpolateMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TTemplateLiteralMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TTemplateLiteralTypesMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TTemplateSpanMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TTypeAliasDeclarationGenericMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TTypeAliasDeclarationMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TTypeMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithArrayMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithBigIntMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithBooleanMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithElementListMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithNullMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithNumberMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithObjectMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithPropertyListMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithPropertyMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithStringMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithUndefinedMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWithValueMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T_Constructor_Mapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T_Function_Mapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T_Mapped_Mapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T_Object_Mapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T_Tuple_Mapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Token {
+  export type TBigInt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TConst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TIdent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TUntil<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TUntil_1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const S: any
 declare const Token: any
-type S<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Token<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type S<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Token<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TGenericParameterExtendsEquals: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TGenericParameterExtendsEquals(Input: string) {
@@ -29,7 +160,10 @@ export function TGenericParameterExtendsEquals(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericParameterExtendsEquals<Input extends string> = (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'extends', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TGenericParameterExtendsEqualsMapping<_0>, Input] : []
+ * export type TGenericParameterExtendsEquals<Input extends string> =
+ *   (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'extends', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TGenericParameterExtendsEqualsMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericParameterExtends: verified type-identical to the original
@@ -45,7 +179,10 @@ export function TGenericParameterExtends(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericParameterExtends<Input extends string> = (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'extends', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TGenericParameterExtendsMapping<_0>, Input] : []
+ * export type TGenericParameterExtends<Input extends string> =
+ *   (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'extends', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TGenericParameterExtendsMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericParameterEquals: verified type-identical to the original
@@ -61,7 +198,10 @@ export function TGenericParameterEquals(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericParameterEquals<Input extends string> = (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TGenericParameterEqualsMapping<_0>, Input] : []
+ * export type TGenericParameterEquals<Input extends string> =
+ *   (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TGenericParameterEqualsMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericParameterIdentifier: verified type-identical to the original
@@ -74,7 +214,10 @@ export function TGenericParameterIdentifier(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericParameterIdentifier<Input extends string> = Token.TIdent<Input> extends [infer _0 extends string, infer Input extends string] ? [S.TGenericParameterIdentifierMapping<_0>, Input] : []
+ * export type TGenericParameterIdentifier<Input extends string> =
+ *   Token.TIdent<Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TGenericParameterIdentifierMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericParameter: verified type-identical to the original
@@ -91,7 +234,10 @@ export function TGenericParameter(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericParameter<Input extends string> = (TGenericParameterExtendsEquals<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericParameterExtends<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericParameterEquals<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericParameterIdentifier<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string] ? [S.TGenericParameterMapping<_0>, Input] : []
+ * export type TGenericParameter<Input extends string> =
+ *   (TGenericParameterExtendsEquals<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericParameterExtends<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericParameterEquals<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericParameterIdentifier<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TGenericParameterMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericParameterList_0: verified type-identical to the original
@@ -106,7 +252,10 @@ export function TGenericParameterList_0(Input: string, Result: unknown[] = []) {
   return [Result, Input]
 }
 /* compiles to:
- * export type TGenericParameterList_0<Input extends string, Result extends unknown[] = []> = (TGenericParameter<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? TGenericParameterList_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TGenericParameterList_0<Input extends string, Result extends unknown[] = []> =
+ *   (TGenericParameter<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string]
+ *     ? TGenericParameterList_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TGenericParameterList: verified type-identical to the original
@@ -124,7 +273,10 @@ export function TGenericParameterList(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericParameterList<Input extends string> = (TGenericParameterList_0<Input> extends [infer _0, infer Input extends string] ? ((TGenericParameter<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TGenericParameterListMapping<_0>, Input] : []
+ * export type TGenericParameterList<Input extends string> =
+ *   (TGenericParameterList_0<Input> extends [infer _0, infer Input extends string] ? ((TGenericParameter<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TGenericParameterListMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericParameters: verified type-identical to the original
@@ -140,7 +292,10 @@ export function TGenericParameters(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericParameters<Input extends string> = (Token.TConst<'<', Input> extends [infer _0, infer Input extends string] ? TGenericParameterList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'>', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TGenericParametersMapping<_0>, Input] : []
+ * export type TGenericParameters<Input extends string> =
+ *   (Token.TConst<'<', Input> extends [infer _0, infer Input extends string] ? TGenericParameterList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'>', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TGenericParametersMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericCallArgumentList_0: verified type-identical to the original
@@ -155,7 +310,10 @@ export function TGenericCallArgumentList_0(Input: string, Result: unknown[] = []
   return [Result, Input]
 }
 /* compiles to:
- * export type TGenericCallArgumentList_0<Input extends string, Result extends unknown[] = []> = (TType<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? TGenericCallArgumentList_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TGenericCallArgumentList_0<Input extends string, Result extends unknown[] = []> =
+ *   (TType<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string]
+ *     ? TGenericCallArgumentList_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TGenericCallArgumentList: verified type-identical to the original
@@ -173,7 +331,10 @@ export function TGenericCallArgumentList(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericCallArgumentList<Input extends string> = (TGenericCallArgumentList_0<Input> extends [infer _0, infer Input extends string] ? ((TType<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TGenericCallArgumentListMapping<_0>, Input] : []
+ * export type TGenericCallArgumentList<Input extends string> =
+ *   (TGenericCallArgumentList_0<Input> extends [infer _0, infer Input extends string] ? ((TType<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TGenericCallArgumentListMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericCallArguments: verified type-identical to the original
@@ -189,7 +350,10 @@ export function TGenericCallArguments(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericCallArguments<Input extends string> = (Token.TConst<'<', Input> extends [infer _0, infer Input extends string] ? TGenericCallArgumentList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'>', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TGenericCallArgumentsMapping<_0>, Input] : []
+ * export type TGenericCallArguments<Input extends string> =
+ *   (Token.TConst<'<', Input> extends [infer _0, infer Input extends string] ? TGenericCallArgumentList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'>', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TGenericCallArgumentsMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericCall: verified type-identical to the original
@@ -204,7 +368,10 @@ export function TGenericCall(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericCall<Input extends string> = (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? TGenericCallArguments<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TGenericCallMapping<_0>, Input] : []
+ * export type TGenericCall<Input extends string> =
+ *   (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? TGenericCallArguments<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TGenericCallMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TOptionalSemiColon: verified type-identical to the original
@@ -220,7 +387,10 @@ export function TOptionalSemiColon(Input: string) {
   return []
 }
 /* compiles to:
- * export type TOptionalSemiColon<Input extends string> = ((Token.TConst<';', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string] ? [S.TOptionalSemiColonMapping<_0>, Input] : []
+ * export type TOptionalSemiColon<Input extends string> =
+ *   ((Token.TConst<';', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string]
+ *     ? [S.TOptionalSemiColonMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordString: verified type-identical to the original
@@ -233,7 +403,10 @@ export function TKeywordString(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordString<Input extends string> = Token.TConst<'string', Input> extends [infer _0 extends 'string', infer Input extends string] ? [S.TKeywordStringMapping<_0>, Input] : []
+ * export type TKeywordString<Input extends string> =
+ *   Token.TConst<'string', Input> extends [infer _0 extends 'string', infer Input extends string]
+ *     ? [S.TKeywordStringMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordNumber: verified type-identical to the original
@@ -246,7 +419,10 @@ export function TKeywordNumber(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordNumber<Input extends string> = Token.TConst<'number', Input> extends [infer _0 extends 'number', infer Input extends string] ? [S.TKeywordNumberMapping<_0>, Input] : []
+ * export type TKeywordNumber<Input extends string> =
+ *   Token.TConst<'number', Input> extends [infer _0 extends 'number', infer Input extends string]
+ *     ? [S.TKeywordNumberMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordBoolean: verified type-identical to the original
@@ -259,7 +435,10 @@ export function TKeywordBoolean(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordBoolean<Input extends string> = Token.TConst<'boolean', Input> extends [infer _0 extends 'boolean', infer Input extends string] ? [S.TKeywordBooleanMapping<_0>, Input] : []
+ * export type TKeywordBoolean<Input extends string> =
+ *   Token.TConst<'boolean', Input> extends [infer _0 extends 'boolean', infer Input extends string]
+ *     ? [S.TKeywordBooleanMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordUndefined: verified type-identical to the original
@@ -272,7 +451,10 @@ export function TKeywordUndefined(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordUndefined<Input extends string> = Token.TConst<'undefined', Input> extends [infer _0 extends 'undefined', infer Input extends string] ? [S.TKeywordUndefinedMapping<_0>, Input] : []
+ * export type TKeywordUndefined<Input extends string> =
+ *   Token.TConst<'undefined', Input> extends [infer _0 extends 'undefined', infer Input extends string]
+ *     ? [S.TKeywordUndefinedMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordNull: verified type-identical to the original
@@ -285,7 +467,10 @@ export function TKeywordNull(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordNull<Input extends string> = Token.TConst<'null', Input> extends [infer _0 extends 'null', infer Input extends string] ? [S.TKeywordNullMapping<_0>, Input] : []
+ * export type TKeywordNull<Input extends string> =
+ *   Token.TConst<'null', Input> extends [infer _0 extends 'null', infer Input extends string]
+ *     ? [S.TKeywordNullMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordInteger: verified type-identical to the original
@@ -298,7 +483,10 @@ export function TKeywordInteger(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordInteger<Input extends string> = Token.TConst<'integer', Input> extends [infer _0 extends 'integer', infer Input extends string] ? [S.TKeywordIntegerMapping<_0>, Input] : []
+ * export type TKeywordInteger<Input extends string> =
+ *   Token.TConst<'integer', Input> extends [infer _0 extends 'integer', infer Input extends string]
+ *     ? [S.TKeywordIntegerMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordBigInt: verified type-identical to the original
@@ -311,7 +499,10 @@ export function TKeywordBigInt(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordBigInt<Input extends string> = Token.TConst<'bigint', Input> extends [infer _0 extends 'bigint', infer Input extends string] ? [S.TKeywordBigIntMapping<_0>, Input] : []
+ * export type TKeywordBigInt<Input extends string> =
+ *   Token.TConst<'bigint', Input> extends [infer _0 extends 'bigint', infer Input extends string]
+ *     ? [S.TKeywordBigIntMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordUnknown: verified type-identical to the original
@@ -324,7 +515,10 @@ export function TKeywordUnknown(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordUnknown<Input extends string> = Token.TConst<'unknown', Input> extends [infer _0 extends 'unknown', infer Input extends string] ? [S.TKeywordUnknownMapping<_0>, Input] : []
+ * export type TKeywordUnknown<Input extends string> =
+ *   Token.TConst<'unknown', Input> extends [infer _0 extends 'unknown', infer Input extends string]
+ *     ? [S.TKeywordUnknownMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordAny: verified type-identical to the original
@@ -337,7 +531,10 @@ export function TKeywordAny(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordAny<Input extends string> = Token.TConst<'any', Input> extends [infer _0 extends 'any', infer Input extends string] ? [S.TKeywordAnyMapping<_0>, Input] : []
+ * export type TKeywordAny<Input extends string> =
+ *   Token.TConst<'any', Input> extends [infer _0 extends 'any', infer Input extends string]
+ *     ? [S.TKeywordAnyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordObject: verified type-identical to the original
@@ -350,7 +547,10 @@ export function TKeywordObject(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordObject<Input extends string> = Token.TConst<'object', Input> extends [infer _0 extends 'object', infer Input extends string] ? [S.TKeywordObjectMapping<_0>, Input] : []
+ * export type TKeywordObject<Input extends string> =
+ *   Token.TConst<'object', Input> extends [infer _0 extends 'object', infer Input extends string]
+ *     ? [S.TKeywordObjectMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordNever: verified type-identical to the original
@@ -363,7 +563,10 @@ export function TKeywordNever(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordNever<Input extends string> = Token.TConst<'never', Input> extends [infer _0 extends 'never', infer Input extends string] ? [S.TKeywordNeverMapping<_0>, Input] : []
+ * export type TKeywordNever<Input extends string> =
+ *   Token.TConst<'never', Input> extends [infer _0 extends 'never', infer Input extends string]
+ *     ? [S.TKeywordNeverMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordSymbol: verified type-identical to the original
@@ -376,7 +579,10 @@ export function TKeywordSymbol(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordSymbol<Input extends string> = Token.TConst<'symbol', Input> extends [infer _0 extends 'symbol', infer Input extends string] ? [S.TKeywordSymbolMapping<_0>, Input] : []
+ * export type TKeywordSymbol<Input extends string> =
+ *   Token.TConst<'symbol', Input> extends [infer _0 extends 'symbol', infer Input extends string]
+ *     ? [S.TKeywordSymbolMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordVoid: verified type-identical to the original
@@ -389,7 +595,10 @@ export function TKeywordVoid(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordVoid<Input extends string> = Token.TConst<'void', Input> extends [infer _0 extends 'void', infer Input extends string] ? [S.TKeywordVoidMapping<_0>, Input] : []
+ * export type TKeywordVoid<Input extends string> =
+ *   Token.TConst<'void', Input> extends [infer _0 extends 'void', infer Input extends string]
+ *     ? [S.TKeywordVoidMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeywordThis: verified type-identical to the original
@@ -402,7 +611,10 @@ export function TKeywordThis(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeywordThis<Input extends string> = Token.TConst<'this', Input> extends [infer _0 extends 'this', infer Input extends string] ? [S.TKeywordThisMapping<_0>, Input] : []
+ * export type TKeywordThis<Input extends string> =
+ *   Token.TConst<'this', Input> extends [infer _0 extends 'this', infer Input extends string]
+ *     ? [S.TKeywordThisMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TTemplateInterpolate: verified type-identical to the original
@@ -418,7 +630,10 @@ export function TTemplateInterpolate(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTemplateInterpolate<Input extends string> = (Token.TConst<'${', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'}', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TTemplateInterpolateMapping<_0>, Input] : []
+ * export type TTemplateInterpolate<Input extends string> =
+ *   (Token.TConst<'${', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'}', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TTemplateInterpolateMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TTemplateSpan: verified type-identical to the original
@@ -431,7 +646,10 @@ export function TTemplateSpan(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTemplateSpan<Input extends string> = Token.TUntil<['${', '`'], Input> extends [infer _0 extends string, infer Input extends string] ? [S.TTemplateSpanMapping<_0>, Input] : []
+ * export type TTemplateSpan<Input extends string> =
+ *   Token.TUntil<['${', '`'], Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TTemplateSpanMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TTemplateBody: verified type-identical to the original
@@ -452,7 +670,10 @@ export function TTemplateBody(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTemplateBody<Input extends string> = ((TTemplateSpan<Input> extends [infer _0, infer Input extends string] ? TTemplateInterpolate<Input> extends [infer _1, infer Input extends string] ? TTemplateBody<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TTemplateSpan<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TTemplateSpan<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | [unknown], infer Input extends string] ? [S.TTemplateBodyMapping<_0>, Input] : []
+ * export type TTemplateBody<Input extends string> =
+ *   ((TTemplateSpan<Input> extends [infer _0, infer Input extends string] ? TTemplateInterpolate<Input> extends [infer _1, infer Input extends string] ? TTemplateBody<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TTemplateSpan<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TTemplateSpan<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | [unknown], infer Input extends string]
+ *     ? [S.TTemplateBodyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TTemplateLiteralTypes: verified type-identical to the original
@@ -468,7 +689,10 @@ export function TTemplateLiteralTypes(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTemplateLiteralTypes<Input extends string> = (Token.TConst<'`', Input> extends [infer _0, infer Input extends string] ? TTemplateBody<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'`', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TTemplateLiteralTypesMapping<_0>, Input] : []
+ * export type TTemplateLiteralTypes<Input extends string> =
+ *   (Token.TConst<'`', Input> extends [infer _0, infer Input extends string] ? TTemplateBody<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'`', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TTemplateLiteralTypesMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TTemplateLiteral: verified type-identical to the original
@@ -481,7 +705,10 @@ export function TTemplateLiteral(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTemplateLiteral<Input extends string> = TTemplateLiteralTypes<Input> extends [infer _0 extends unknown, infer Input extends string] ? [S.TTemplateLiteralMapping<_0>, Input] : []
+ * export type TTemplateLiteral<Input extends string> =
+ *   TTemplateLiteralTypes<Input> extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TTemplateLiteralMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TDependent: verified type-identical to the original
@@ -506,7 +733,10 @@ export function TDependent(Input: string) {
   return []
 }
 /* compiles to:
- * export type TDependent<Input extends string> = ((Token.TConst<'if', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'then', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? Token.TConst<'else', Input> extends [infer _4, infer Input extends string] ? TType<Input> extends [infer _5, infer Input extends string] ? [[_0, _1, _2, _3, _4, _5], Input] : [] : [] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'if', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'then', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown, unknown] | [unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TDependentMapping<_0>, Input] : []
+ * export type TDependent<Input extends string> =
+ *   ((Token.TConst<'if', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'then', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? Token.TConst<'else', Input> extends [infer _4, infer Input extends string] ? TType<Input> extends [infer _5, infer Input extends string] ? [[_0, _1, _2, _3, _4, _5], Input] : [] : [] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'if', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'then', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown, unknown] | [unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TDependentMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TLiteralBigInt: verified type-identical to the original
@@ -519,7 +749,10 @@ export function TLiteralBigInt(Input: string) {
   return []
 }
 /* compiles to:
- * export type TLiteralBigInt<Input extends string> = Token.TBigInt<Input> extends [infer _0 extends string, infer Input extends string] ? [S.TLiteralBigIntMapping<_0>, Input] : []
+ * export type TLiteralBigInt<Input extends string> =
+ *   Token.TBigInt<Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TLiteralBigIntMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TLiteralBoolean: verified type-identical to the original
@@ -534,7 +767,10 @@ export function TLiteralBoolean(Input: string) {
   return []
 }
 /* compiles to:
- * export type TLiteralBoolean<Input extends string> = (Token.TConst<'true', Input> extends [infer _0, infer Input extends string] ? [_0, Input] : Token.TConst<'false', Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends 'true' | 'false', infer Input extends string] ? [S.TLiteralBooleanMapping<_0>, Input] : []
+ * export type TLiteralBoolean<Input extends string> =
+ *   (Token.TConst<'true', Input> extends [infer _0, infer Input extends string] ? [_0, Input] : Token.TConst<'false', Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends 'true' | 'false', infer Input extends string]
+ *     ? [S.TLiteralBooleanMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TLiteralNumber: verified type-identical to the original
@@ -547,7 +783,10 @@ export function TLiteralNumber(Input: string) {
   return []
 }
 /* compiles to:
- * export type TLiteralNumber<Input extends string> = Token.TNumber<Input> extends [infer _0 extends string, infer Input extends string] ? [S.TLiteralNumberMapping<_0>, Input] : []
+ * export type TLiteralNumber<Input extends string> =
+ *   Token.TNumber<Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TLiteralNumberMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TLiteralString: verified type-identical to the original
@@ -560,7 +799,10 @@ export function TLiteralString(Input: string) {
   return []
 }
 /* compiles to:
- * export type TLiteralString<Input extends string> = Token.TString<['\'', '"'], Input> extends [infer _0 extends string, infer Input extends string] ? [S.TLiteralStringMapping<_0>, Input] : []
+ * export type TLiteralString<Input extends string> =
+ *   Token.TString<['\'', '"'], Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TLiteralStringMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TKeyOf: verified type-identical to the original
@@ -576,7 +818,10 @@ export function TKeyOf(Input: string) {
   return []
 }
 /* compiles to:
- * export type TKeyOf<Input extends string> = ((Token.TConst<'keyof', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string] ? [S.TKeyOfMapping<_0>, Input] : []
+ * export type TKeyOf<Input extends string> =
+ *   ((Token.TConst<'keyof', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string]
+ *     ? [S.TKeyOfMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TIndexArray_0: verified type-identical to the original
@@ -596,7 +841,10 @@ export function TIndexArray_0(Input: string, Result: unknown[] = []) {
   return [Result, Input]
 }
 /* compiles to:
- * export type TIndexArray_0<Input extends string, Result extends unknown[] = []> = ((Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<']', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? Token.TConst<']', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0, infer Input extends string] ? TIndexArray_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TIndexArray_0<Input extends string, Result extends unknown[] = []> =
+ *   ((Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<']', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? Token.TConst<']', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0, infer Input extends string]
+ *     ? TIndexArray_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TIndexArray: verified type-identical to the original
@@ -609,7 +857,10 @@ export function TIndexArray(Input: string) {
   return []
 }
 /* compiles to:
- * export type TIndexArray<Input extends string> = TIndexArray_0<Input> extends [infer _0 extends ([unknown, unknown, unknown] | [unknown, unknown])[], infer Input extends string] ? [S.TIndexArrayMapping<_0>, Input] : []
+ * export type TIndexArray<Input extends string> =
+ *   TIndexArray_0<Input> extends [infer _0 extends ([unknown, unknown, unknown] | [unknown, unknown])[], infer Input extends string]
+ *     ? [S.TIndexArrayMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TExtends: verified type-identical to the original
@@ -630,7 +881,10 @@ export function TExtends(Input: string) {
   return []
 }
 /* compiles to:
- * export type TExtends<Input extends string> = ((Token.TConst<'extends', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? Token.TConst<':', Input> extends [infer _4, infer Input extends string] ? TType<Input> extends [infer _5, infer Input extends string] ? [[_0, _1, _2, _3, _4, _5], Input] : [] : [] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown, unknown] | [], infer Input extends string] ? [S.TExtendsMapping<_0>, Input] : []
+ * export type TExtends<Input extends string> =
+ *   ((Token.TConst<'extends', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? Token.TConst<':', Input> extends [infer _4, infer Input extends string] ? TType<Input> extends [infer _5, infer Input extends string] ? [[_0, _1, _2, _3, _4, _5], Input] : [] : [] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown, unknown] | [], infer Input extends string]
+ *     ? [S.TExtendsMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TBase: verified type-identical to the original
@@ -674,7 +928,10 @@ export function TBase(Input: string) {
   return []
 }
 /* compiles to:
- * export type TBase<Input extends string> = ((Token.TConst<'(', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<')', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordBoolean<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordUndefined<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordNull<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordInteger<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordBigInt<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordUnknown<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordAny<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordObject<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordNever<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordSymbol<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordVoid<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordThis<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TLiteralBigInt<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TLiteralBoolean<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TLiteralNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TLiteralString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TTemplateLiteral<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TDependent<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Object_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Tuple_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Constructor_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Function_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Mapped_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericCall<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TReference<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | unknown, infer Input extends string] ? [S.TBaseMapping<_0>, Input] : []
+ * export type TBase<Input extends string> =
+ *   ((Token.TConst<'(', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<')', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordBoolean<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordUndefined<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordNull<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordInteger<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordBigInt<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordUnknown<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordAny<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordObject<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordNever<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordSymbol<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordVoid<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordThis<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TLiteralBigInt<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TLiteralBoolean<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TLiteralNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TLiteralString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TTemplateLiteral<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TDependent<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Object_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Tuple_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Constructor_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Function_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : T_Mapped_<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericCall<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TReference<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | unknown, infer Input extends string]
+ *     ? [S.TBaseMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWith: verified type-identical to the original
@@ -691,7 +948,10 @@ export function TWith(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWith<Input extends string> = ((Token.TConst<'with', Input> extends [infer _0, infer Input extends string] ? TWithObject<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [], infer Input extends string] ? [S.TWithMapping<_0>, Input] : []
+ * export type TWith<Input extends string> =
+ *   ((Token.TConst<'with', Input> extends [infer _0, infer Input extends string] ? TWithObject<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [], infer Input extends string]
+ *     ? [S.TWithMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TFactor: verified type-identical to the original
@@ -709,7 +969,10 @@ export function TFactor(Input: string) {
   return []
 }
 /* compiles to:
- * export type TFactor<Input extends string> = (TKeyOf<Input> extends [infer _0, infer Input extends string] ? TBase<Input> extends [infer _1, infer Input extends string] ? TIndexArray<Input> extends [infer _2, infer Input extends string] ? TExtends<Input> extends [infer _3, infer Input extends string] ? TWith<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TFactorMapping<_0>, Input] : []
+ * export type TFactor<Input extends string> =
+ *   (TKeyOf<Input> extends [infer _0, infer Input extends string] ? TBase<Input> extends [infer _1, infer Input extends string] ? TIndexArray<Input> extends [infer _2, infer Input extends string] ? TExtends<Input> extends [infer _3, infer Input extends string] ? TWith<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TFactorMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TExprTermTail: verified type-identical to the original
@@ -727,7 +990,10 @@ export function TExprTermTail(Input: string) {
   return []
 }
 /* compiles to:
- * export type TExprTermTail<Input extends string> = ((Token.TConst<'&', Input> extends [infer _0, infer Input extends string] ? TFactor<Input> extends [infer _1, infer Input extends string] ? TExprTermTail<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | [], infer Input extends string] ? [S.TExprTermTailMapping<_0>, Input] : []
+ * export type TExprTermTail<Input extends string> =
+ *   ((Token.TConst<'&', Input> extends [infer _0, infer Input extends string] ? TFactor<Input> extends [infer _1, infer Input extends string] ? TExprTermTail<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | [], infer Input extends string]
+ *     ? [S.TExprTermTailMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TExprTerm: verified type-identical to the original
@@ -742,7 +1008,10 @@ export function TExprTerm(Input: string) {
   return []
 }
 /* compiles to:
- * export type TExprTerm<Input extends string> = (TFactor<Input> extends [infer _0, infer Input extends string] ? TExprTermTail<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TExprTermMapping<_0>, Input] : []
+ * export type TExprTerm<Input extends string> =
+ *   (TFactor<Input> extends [infer _0, infer Input extends string] ? TExprTermTail<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TExprTermMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TExprTail: verified type-identical to the original
@@ -760,7 +1029,10 @@ export function TExprTail(Input: string) {
   return []
 }
 /* compiles to:
- * export type TExprTail<Input extends string> = ((Token.TConst<'|', Input> extends [infer _0, infer Input extends string] ? TExprTerm<Input> extends [infer _1, infer Input extends string] ? TExprTail<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | [], infer Input extends string] ? [S.TExprTailMapping<_0>, Input] : []
+ * export type TExprTail<Input extends string> =
+ *   ((Token.TConst<'|', Input> extends [infer _0, infer Input extends string] ? TExprTerm<Input> extends [infer _1, infer Input extends string] ? TExprTail<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | [], infer Input extends string]
+ *     ? [S.TExprTailMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TExpr: verified type-identical to the original
@@ -775,7 +1047,10 @@ export function TExpr(Input: string) {
   return []
 }
 /* compiles to:
- * export type TExpr<Input extends string> = (TExprTerm<Input> extends [infer _0, infer Input extends string] ? TExprTail<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TExprMapping<_0>, Input] : []
+ * export type TExpr<Input extends string> =
+ *   (TExprTerm<Input> extends [infer _0, infer Input extends string] ? TExprTail<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TExprMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TExprReadonly: verified type-identical to the original
@@ -790,7 +1065,10 @@ export function TExprReadonly(Input: string) {
   return []
 }
 /* compiles to:
- * export type TExprReadonly<Input extends string> = (Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? TExpr<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TExprReadonlyMapping<_0>, Input] : []
+ * export type TExprReadonly<Input extends string> =
+ *   (Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? TExpr<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TExprReadonlyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TExprPipe: verified type-identical to the original
@@ -805,7 +1083,10 @@ export function TExprPipe(Input: string) {
   return []
 }
 /* compiles to:
- * export type TExprPipe<Input extends string> = (Token.TConst<'|', Input> extends [infer _0, infer Input extends string] ? TExpr<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TExprPipeMapping<_0>, Input] : []
+ * export type TExprPipe<Input extends string> =
+ *   (Token.TConst<'|', Input> extends [infer _0, infer Input extends string] ? TExpr<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TExprPipeMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TGenericType: verified type-identical to the original
@@ -821,7 +1102,10 @@ export function TGenericType(Input: string) {
   return []
 }
 /* compiles to:
- * export type TGenericType<Input extends string> = (TGenericParameters<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TGenericTypeMapping<_0>, Input] : []
+ * export type TGenericType<Input extends string> =
+ *   (TGenericParameters<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TGenericTypeMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TInferType: verified type-identical to the original
@@ -842,7 +1126,10 @@ export function TInferType(Input: string) {
   return []
 }
 /* compiles to:
- * export type TInferType<Input extends string> = ((Token.TConst<'infer', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'extends', Input> extends [infer _2, infer Input extends string] ? TExpr<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'infer', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown] | [unknown, unknown], infer Input extends string] ? [S.TInferTypeMapping<_0>, Input] : []
+ * export type TInferType<Input extends string> =
+ *   ((Token.TConst<'infer', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'extends', Input> extends [infer _2, infer Input extends string] ? TExpr<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'infer', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown] | [unknown, unknown], infer Input extends string]
+ *     ? [S.TInferTypeMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TType: verified type-identical to the original
@@ -859,7 +1146,10 @@ export function TType(Input: string) {
   return []
 }
 /* compiles to:
- * export type TType<Input extends string> = (TInferType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TExprPipe<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TExprReadonly<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TExpr<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string] ? [S.TTypeMapping<_0>, Input] : []
+ * export type TType<Input extends string> =
+ *   (TInferType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TExprPipe<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TExprReadonly<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TExpr<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TTypeMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPropertyKeyNumber: verified type-identical to the original
@@ -872,7 +1162,10 @@ export function TPropertyKeyNumber(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPropertyKeyNumber<Input extends string> = Token.TNumber<Input> extends [infer _0 extends string, infer Input extends string] ? [S.TPropertyKeyNumberMapping<_0>, Input] : []
+ * export type TPropertyKeyNumber<Input extends string> =
+ *   Token.TNumber<Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TPropertyKeyNumberMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPropertyKeyIdent: verified type-identical to the original
@@ -885,7 +1178,10 @@ export function TPropertyKeyIdent(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPropertyKeyIdent<Input extends string> = Token.TIdent<Input> extends [infer _0 extends string, infer Input extends string] ? [S.TPropertyKeyIdentMapping<_0>, Input] : []
+ * export type TPropertyKeyIdent<Input extends string> =
+ *   Token.TIdent<Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TPropertyKeyIdentMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPropertyKeyQuoted: verified type-identical to the original
@@ -898,7 +1194,10 @@ export function TPropertyKeyQuoted(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPropertyKeyQuoted<Input extends string> = Token.TString<['\'', '"'], Input> extends [infer _0 extends string, infer Input extends string] ? [S.TPropertyKeyQuotedMapping<_0>, Input] : []
+ * export type TPropertyKeyQuoted<Input extends string> =
+ *   Token.TString<['\'', '"'], Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TPropertyKeyQuotedMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPropertyKeyIndex: verified type-identical to the original
@@ -920,7 +1219,10 @@ export function TPropertyKeyIndex(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPropertyKeyIndex<Input extends string> = (Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? (TKeywordInteger<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordSymbol<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _3, infer Input extends string] ? Token.TConst<']', Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TPropertyKeyIndexMapping<_0>, Input] : []
+ * export type TPropertyKeyIndex<Input extends string> =
+ *   (Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? (TKeywordInteger<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TKeywordSymbol<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _3, infer Input extends string] ? Token.TConst<']', Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TPropertyKeyIndexMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPropertyKey: verified type-identical to the original
@@ -937,7 +1239,10 @@ export function TPropertyKey(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPropertyKey<Input extends string> = (TPropertyKeyNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPropertyKeyIdent<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPropertyKeyQuoted<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPropertyKeyIndex<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string] ? [S.TPropertyKeyMapping<_0>, Input] : []
+ * export type TPropertyKey<Input extends string> =
+ *   (TPropertyKeyNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPropertyKeyIdent<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPropertyKeyQuoted<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPropertyKeyIndex<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TPropertyKeyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TReadonly: verified type-identical to the original
@@ -953,7 +1258,10 @@ export function TReadonly(Input: string) {
   return []
 }
 /* compiles to:
- * export type TReadonly<Input extends string> = ((Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string] ? [S.TReadonlyMapping<_0>, Input] : []
+ * export type TReadonly<Input extends string> =
+ *   ((Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string]
+ *     ? [S.TReadonlyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TOptional: verified type-identical to the original
@@ -969,7 +1277,10 @@ export function TOptional(Input: string) {
   return []
 }
 /* compiles to:
- * export type TOptional<Input extends string> = ((Token.TConst<'?', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string] ? [S.TOptionalMapping<_0>, Input] : []
+ * export type TOptional<Input extends string> =
+ *   ((Token.TConst<'?', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string]
+ *     ? [S.TOptionalMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TProperty: verified type-identical to the original
@@ -987,11 +1298,14 @@ export function TProperty(Input: string) {
   return []
 }
 /* compiles to:
- * export type TProperty<Input extends string> = (TReadonly<Input> extends [infer _0, infer Input extends string] ? TPropertyKey<Input> extends [infer _1, infer Input extends string] ? TOptional<Input> extends [infer _2, infer Input extends string] ? Token.TConst<':', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TPropertyMapping<_0>, Input] : []
+ * export type TProperty<Input extends string> =
+ *   (TReadonly<Input> extends [infer _0, infer Input extends string] ? TPropertyKey<Input> extends [infer _1, infer Input extends string] ? TOptional<Input> extends [infer _2, infer Input extends string] ? Token.TConst<':', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TPropertyMapping<_0>, Input]
+ *     : []
  */
 
 // ✗ TPropertyDelimiter: does not compile yet
-//   ScriptType source must be valid TypeScript syntax at 4:75: Unterminated string literal.
+//   Unterminated string literal.
 /* @scripttype preserveParamNames */
 export function TPropertyDelimiter(Input: string) {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst(',', Input))
@@ -1028,7 +1342,10 @@ export function TPropertyList_0(Input: string, Result: unknown[] = []) {
   return [Result, Input]
 }
 /* compiles to:
- * export type TPropertyList_0<Input extends string, Result extends unknown[] = []> = (TProperty<Input> extends [infer _0, infer Input extends string] ? TPropertyDelimiter<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? TPropertyList_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TPropertyList_0<Input extends string, Result extends unknown[] = []> =
+ *   (TProperty<Input> extends [infer _0, infer Input extends string] ? TPropertyDelimiter<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string]
+ *     ? TPropertyList_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TPropertyList: verified type-identical to the original
@@ -1046,7 +1363,10 @@ export function TPropertyList(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPropertyList<Input extends string> = (TPropertyList_0<Input> extends [infer _0, infer Input extends string] ? ((TProperty<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TPropertyListMapping<_0>, Input] : []
+ * export type TPropertyList<Input extends string> =
+ *   (TPropertyList_0<Input> extends [infer _0, infer Input extends string] ? ((TProperty<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TPropertyListMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TProperties: verified type-identical to the original
@@ -1062,7 +1382,10 @@ export function TProperties(Input: string) {
   return []
 }
 /* compiles to:
- * export type TProperties<Input extends string> = (Token.TConst<'{', Input> extends [infer _0, infer Input extends string] ? TPropertyList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'}', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TPropertiesMapping<_0>, Input] : []
+ * export type TProperties<Input extends string> =
+ *   (Token.TConst<'{', Input> extends [infer _0, infer Input extends string] ? TPropertyList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'}', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TPropertiesMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ T_Object_: verified type-identical to the original
@@ -1075,7 +1398,10 @@ export function T_Object_(Input: string) {
   return []
 }
 /* compiles to:
- * export type T_Object_<Input extends string> = TProperties<Input> extends [infer _0 extends unknown, infer Input extends string] ? [S.T_Object_Mapping<_0>, Input] : []
+ * export type T_Object_<Input extends string> =
+ *   TProperties<Input> extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.T_Object_Mapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TElementNamed: verified type-identical to the original
@@ -1108,7 +1434,10 @@ export function TElementNamed(Input: string) {
   return []
 }
 /* compiles to:
- * export type TElementNamed<Input extends string> = ((Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown] | [unknown, unknown, unknown, unknown] | [unknown, unknown, unknown], infer Input extends string] ? [S.TElementNamedMapping<_0>, Input] : []
+ * export type TElementNamed<Input extends string> =
+ *   ((Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown] | [unknown, unknown, unknown, unknown] | [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TElementNamedMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TElementReadonlyOptional: verified type-identical to the original
@@ -1124,7 +1453,10 @@ export function TElementReadonlyOptional(Input: string) {
   return []
 }
 /* compiles to:
- * export type TElementReadonlyOptional<Input extends string> = (Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TElementReadonlyOptionalMapping<_0>, Input] : []
+ * export type TElementReadonlyOptional<Input extends string> =
+ *   (Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TElementReadonlyOptionalMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TElementReadonly: verified type-identical to the original
@@ -1139,7 +1471,10 @@ export function TElementReadonly(Input: string) {
   return []
 }
 /* compiles to:
- * export type TElementReadonly<Input extends string> = (Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TElementReadonlyMapping<_0>, Input] : []
+ * export type TElementReadonly<Input extends string> =
+ *   (Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TElementReadonlyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TElementOptional: verified type-identical to the original
@@ -1154,7 +1489,10 @@ export function TElementOptional(Input: string) {
   return []
 }
 /* compiles to:
- * export type TElementOptional<Input extends string> = (TType<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TElementOptionalMapping<_0>, Input] : []
+ * export type TElementOptional<Input extends string> =
+ *   (TType<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TElementOptionalMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TElementBase: verified type-identical to the original
@@ -1172,7 +1510,10 @@ export function TElementBase(Input: string) {
   return []
 }
 /* compiles to:
- * export type TElementBase<Input extends string> = (TElementNamed<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TElementReadonlyOptional<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TElementReadonly<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TElementOptional<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string] ? [S.TElementBaseMapping<_0>, Input] : []
+ * export type TElementBase<Input extends string> =
+ *   (TElementNamed<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TElementReadonlyOptional<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TElementReadonly<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TElementOptional<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TElementBaseMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TElement: verified type-identical to the original
@@ -1190,7 +1531,10 @@ export function TElement(Input: string) {
   return []
 }
 /* compiles to:
- * export type TElement<Input extends string> = ((Token.TConst<'...', Input> extends [infer _0, infer Input extends string] ? TElementBase<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TElementBase<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown], infer Input extends string] ? [S.TElementMapping<_0>, Input] : []
+ * export type TElement<Input extends string> =
+ *   ((Token.TConst<'...', Input> extends [infer _0, infer Input extends string] ? TElementBase<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TElementBase<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown], infer Input extends string]
+ *     ? [S.TElementMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TElementList_0: verified type-identical to the original
@@ -1205,7 +1549,10 @@ export function TElementList_0(Input: string, Result: unknown[] = []) {
   return [Result, Input]
 }
 /* compiles to:
- * export type TElementList_0<Input extends string, Result extends unknown[] = []> = (TElement<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? TElementList_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TElementList_0<Input extends string, Result extends unknown[] = []> =
+ *   (TElement<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string]
+ *     ? TElementList_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TElementList: verified type-identical to the original
@@ -1223,7 +1570,10 @@ export function TElementList(Input: string) {
   return []
 }
 /* compiles to:
- * export type TElementList<Input extends string> = (TElementList_0<Input> extends [infer _0, infer Input extends string] ? ((TElement<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TElementListMapping<_0>, Input] : []
+ * export type TElementList<Input extends string> =
+ *   (TElementList_0<Input> extends [infer _0, infer Input extends string] ? ((TElement<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TElementListMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ T_Tuple_: verified type-identical to the original
@@ -1239,7 +1589,10 @@ export function T_Tuple_(Input: string) {
   return []
 }
 /* compiles to:
- * export type T_Tuple_<Input extends string> = (Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? TElementList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<']', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.T_Tuple_Mapping<_0>, Input] : []
+ * export type T_Tuple_<Input extends string> =
+ *   (Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? TElementList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<']', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.T_Tuple_Mapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TParameterReadonlyOptional: verified type-identical to the original
@@ -1257,7 +1610,10 @@ export function TParameterReadonlyOptional(Input: string) {
   return []
 }
 /* compiles to:
- * export type TParameterReadonlyOptional<Input extends string> = (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TParameterReadonlyOptionalMapping<_0>, Input] : []
+ * export type TParameterReadonlyOptional<Input extends string> =
+ *   (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TParameterReadonlyOptionalMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TParameterReadonly: verified type-identical to the original
@@ -1274,7 +1630,10 @@ export function TParameterReadonly(Input: string) {
   return []
 }
 /* compiles to:
- * export type TParameterReadonly<Input extends string> = (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TParameterReadonlyMapping<_0>, Input] : []
+ * export type TParameterReadonly<Input extends string> =
+ *   (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TParameterReadonlyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TParameterOptional: verified type-identical to the original
@@ -1291,7 +1650,10 @@ export function TParameterOptional(Input: string) {
   return []
 }
 /* compiles to:
- * export type TParameterOptional<Input extends string> = (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TParameterOptionalMapping<_0>, Input] : []
+ * export type TParameterOptional<Input extends string> =
+ *   (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? Token.TConst<':', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TParameterOptionalMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TParameterType: verified type-identical to the original
@@ -1307,7 +1669,10 @@ export function TParameterType(Input: string) {
   return []
 }
 /* compiles to:
- * export type TParameterType<Input extends string> = (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TParameterTypeMapping<_0>, Input] : []
+ * export type TParameterType<Input extends string> =
+ *   (Token.TIdent<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? TType<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TParameterTypeMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TParameterBase: verified type-identical to the original
@@ -1324,7 +1689,10 @@ export function TParameterBase(Input: string) {
   return []
 }
 /* compiles to:
- * export type TParameterBase<Input extends string> = (TParameterReadonlyOptional<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TParameterReadonly<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TParameterOptional<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TParameterType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string] ? [S.TParameterBaseMapping<_0>, Input] : []
+ * export type TParameterBase<Input extends string> =
+ *   (TParameterReadonlyOptional<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TParameterReadonly<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TParameterOptional<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TParameterType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TParameterBaseMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TParameter: verified type-identical to the original
@@ -1342,7 +1710,10 @@ export function TParameter(Input: string) {
   return []
 }
 /* compiles to:
- * export type TParameter<Input extends string> = ((Token.TConst<'...', Input> extends [infer _0, infer Input extends string] ? TParameterBase<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TParameterBase<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown], infer Input extends string] ? [S.TParameterMapping<_0>, Input] : []
+ * export type TParameter<Input extends string> =
+ *   ((Token.TConst<'...', Input> extends [infer _0, infer Input extends string] ? TParameterBase<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TParameterBase<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown], infer Input extends string]
+ *     ? [S.TParameterMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TParameterList_0: verified type-identical to the original
@@ -1357,7 +1728,10 @@ export function TParameterList_0(Input: string, Result: unknown[] = []) {
   return [Result, Input]
 }
 /* compiles to:
- * export type TParameterList_0<Input extends string, Result extends unknown[] = []> = (TParameter<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? TParameterList_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TParameterList_0<Input extends string, Result extends unknown[] = []> =
+ *   (TParameter<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string]
+ *     ? TParameterList_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TParameterList: verified type-identical to the original
@@ -1375,7 +1749,10 @@ export function TParameterList(Input: string) {
   return []
 }
 /* compiles to:
- * export type TParameterList<Input extends string> = (TParameterList_0<Input> extends [infer _0, infer Input extends string] ? ((TParameter<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TParameterListMapping<_0>, Input] : []
+ * export type TParameterList<Input extends string> =
+ *   (TParameterList_0<Input> extends [infer _0, infer Input extends string] ? ((TParameter<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TParameterListMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ T_Function_: verified type-identical to the original
@@ -1393,7 +1770,10 @@ export function T_Function_(Input: string) {
   return []
 }
 /* compiles to:
- * export type T_Function_<Input extends string> = (Token.TConst<'(', Input> extends [infer _0, infer Input extends string] ? TParameterList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<')', Input> extends [infer _2, infer Input extends string] ? Token.TConst<'=>', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.T_Function_Mapping<_0>, Input] : []
+ * export type T_Function_<Input extends string> =
+ *   (Token.TConst<'(', Input> extends [infer _0, infer Input extends string] ? TParameterList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<')', Input> extends [infer _2, infer Input extends string] ? Token.TConst<'=>', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.T_Function_Mapping<_0>, Input]
+ *     : []
  */
 
 // ✓ T_Constructor_: verified type-identical to the original
@@ -1412,7 +1792,10 @@ export function T_Constructor_(Input: string) {
   return []
 }
 /* compiles to:
- * export type T_Constructor_<Input extends string> = (Token.TConst<'new', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'(', Input> extends [infer _1, infer Input extends string] ? TParameterList<Input> extends [infer _2, infer Input extends string] ? Token.TConst<')', Input> extends [infer _3, infer Input extends string] ? Token.TConst<'=>', Input> extends [infer _4, infer Input extends string] ? TType<Input> extends [infer _5, infer Input extends string] ? [[_0, _1, _2, _3, _4, _5], Input] : [] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.T_Constructor_Mapping<_0>, Input] : []
+ * export type T_Constructor_<Input extends string> =
+ *   (Token.TConst<'new', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'(', Input> extends [infer _1, infer Input extends string] ? TParameterList<Input> extends [infer _2, infer Input extends string] ? Token.TConst<')', Input> extends [infer _3, infer Input extends string] ? Token.TConst<'=>', Input> extends [infer _4, infer Input extends string] ? TType<Input> extends [infer _5, infer Input extends string] ? [[_0, _1, _2, _3, _4, _5], Input] : [] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.T_Constructor_Mapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TMappedReadonly: verified type-identical to the original
@@ -1434,7 +1817,10 @@ export function TMappedReadonly(Input: string) {
   return []
 }
 /* compiles to:
- * export type TMappedReadonly<Input extends string> = ((Token.TConst<'+', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'-', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown] | [], infer Input extends string] ? [S.TMappedReadonlyMapping<_0>, Input] : []
+ * export type TMappedReadonly<Input extends string> =
+ *   ((Token.TConst<'+', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'-', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'readonly', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'readonly', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown] | [], infer Input extends string]
+ *     ? [S.TMappedReadonlyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TMappedOptional: verified type-identical to the original
@@ -1456,7 +1842,10 @@ export function TMappedOptional(Input: string) {
   return []
 }
 /* compiles to:
- * export type TMappedOptional<Input extends string> = ((Token.TConst<'+', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'-', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'?', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown] | [], infer Input extends string] ? [S.TMappedOptionalMapping<_0>, Input] : []
+ * export type TMappedOptional<Input extends string> =
+ *   ((Token.TConst<'+', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'-', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'?', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'?', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown] | [], infer Input extends string]
+ *     ? [S.TMappedOptionalMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TMappedAs: verified type-identical to the original
@@ -1473,7 +1862,10 @@ export function TMappedAs(Input: string) {
   return []
 }
 /* compiles to:
- * export type TMappedAs<Input extends string> = ((Token.TConst<'as', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [], infer Input extends string] ? [S.TMappedAsMapping<_0>, Input] : []
+ * export type TMappedAs<Input extends string> =
+ *   ((Token.TConst<'as', Input> extends [infer _0, infer Input extends string] ? TType<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [], infer Input extends string]
+ *     ? [S.TMappedAsMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ T_Mapped_: verified type-identical to the original
@@ -1499,7 +1891,10 @@ export function T_Mapped_(Input: string) {
   return []
 }
 /* compiles to:
- * export type T_Mapped_<Input extends string> = (Token.TConst<'{', Input> extends [infer _0, infer Input extends string] ? TMappedReadonly<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'[', Input> extends [infer _2, infer Input extends string] ? Token.TIdent<Input> extends [infer _3, infer Input extends string] ? Token.TConst<'in', Input> extends [infer _4, infer Input extends string] ? TType<Input> extends [infer _5, infer Input extends string] ? TMappedAs<Input> extends [infer _6, infer Input extends string] ? Token.TConst<']', Input> extends [infer _7, infer Input extends string] ? TMappedOptional<Input> extends [infer _8, infer Input extends string] ? Token.TConst<':', Input> extends [infer _9, infer Input extends string] ? TType<Input> extends [infer _10, infer Input extends string] ? TOptionalSemiColon<Input> extends [infer _11, infer Input extends string] ? Token.TConst<'}', Input> extends [infer _12, infer Input extends string] ? [[_0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12], Input] : [] : [] : [] : [] : [] : [] : [] : [] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.T_Mapped_Mapping<_0>, Input] : []
+ * export type T_Mapped_<Input extends string> =
+ *   (Token.TConst<'{', Input> extends [infer _0, infer Input extends string] ? TMappedReadonly<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'[', Input> extends [infer _2, infer Input extends string] ? Token.TIdent<Input> extends [infer _3, infer Input extends string] ? Token.TConst<'in', Input> extends [infer _4, infer Input extends string] ? TType<Input> extends [infer _5, infer Input extends string] ? TMappedAs<Input> extends [infer _6, infer Input extends string] ? Token.TConst<']', Input> extends [infer _7, infer Input extends string] ? TMappedOptional<Input> extends [infer _8, infer Input extends string] ? Token.TConst<':', Input> extends [infer _9, infer Input extends string] ? TType<Input> extends [infer _10, infer Input extends string] ? TOptionalSemiColon<Input> extends [infer _11, infer Input extends string] ? Token.TConst<'}', Input> extends [infer _12, infer Input extends string] ? [[_0, _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12], Input] : [] : [] : [] : [] : [] : [] : [] : [] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.T_Mapped_Mapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TReference: verified type-identical to the original
@@ -1512,7 +1907,10 @@ export function TReference(Input: string) {
   return []
 }
 /* compiles to:
- * export type TReference<Input extends string> = Token.TIdent<Input> extends [infer _0 extends string, infer Input extends string] ? [S.TReferenceMapping<_0>, Input] : []
+ * export type TReference<Input extends string> =
+ *   Token.TIdent<Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TReferenceMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithBigInt: verified type-identical to the original
@@ -1525,7 +1923,10 @@ export function TWithBigInt(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithBigInt<Input extends string> = Token.TBigInt<Input> extends [infer _0 extends string, infer Input extends string] ? [S.TWithBigIntMapping<_0>, Input] : []
+ * export type TWithBigInt<Input extends string> =
+ *   Token.TBigInt<Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TWithBigIntMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithNumber: verified type-identical to the original
@@ -1538,7 +1939,10 @@ export function TWithNumber(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithNumber<Input extends string> = Token.TNumber<Input> extends [infer _0 extends string, infer Input extends string] ? [S.TWithNumberMapping<_0>, Input] : []
+ * export type TWithNumber<Input extends string> =
+ *   Token.TNumber<Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TWithNumberMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithBoolean: verified type-identical to the original
@@ -1553,7 +1957,10 @@ export function TWithBoolean(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithBoolean<Input extends string> = (Token.TConst<'true', Input> extends [infer _0, infer Input extends string] ? [_0, Input] : Token.TConst<'false', Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends 'true' | 'false', infer Input extends string] ? [S.TWithBooleanMapping<_0>, Input] : []
+ * export type TWithBoolean<Input extends string> =
+ *   (Token.TConst<'true', Input> extends [infer _0, infer Input extends string] ? [_0, Input] : Token.TConst<'false', Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends 'true' | 'false', infer Input extends string]
+ *     ? [S.TWithBooleanMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithString: verified type-identical to the original
@@ -1566,7 +1973,10 @@ export function TWithString(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithString<Input extends string> = Token.TString<['"', '\''], Input> extends [infer _0 extends string, infer Input extends string] ? [S.TWithStringMapping<_0>, Input] : []
+ * export type TWithString<Input extends string> =
+ *   Token.TString<['"', '\''], Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TWithStringMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithNull: verified type-identical to the original
@@ -1579,7 +1989,10 @@ export function TWithNull(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithNull<Input extends string> = Token.TConst<'null', Input> extends [infer _0 extends 'null', infer Input extends string] ? [S.TWithNullMapping<_0>, Input] : []
+ * export type TWithNull<Input extends string> =
+ *   Token.TConst<'null', Input> extends [infer _0 extends 'null', infer Input extends string]
+ *     ? [S.TWithNullMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithUndefined: verified type-identical to the original
@@ -1592,7 +2005,10 @@ export function TWithUndefined(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithUndefined<Input extends string> = Token.TConst<'undefined', Input> extends [infer _0 extends 'undefined', infer Input extends string] ? [S.TWithUndefinedMapping<_0>, Input] : []
+ * export type TWithUndefined<Input extends string> =
+ *   Token.TConst<'undefined', Input> extends [infer _0 extends 'undefined', infer Input extends string]
+ *     ? [S.TWithUndefinedMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithProperty: verified type-identical to the original
@@ -1608,7 +2024,10 @@ export function TWithProperty(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithProperty<Input extends string> = (TPropertyKey<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? TWithValue<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TWithPropertyMapping<_0>, Input] : []
+ * export type TWithProperty<Input extends string> =
+ *   (TPropertyKey<Input> extends [infer _0, infer Input extends string] ? Token.TConst<':', Input> extends [infer _1, infer Input extends string] ? TWithValue<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TWithPropertyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithPropertyList_0: verified type-identical to the original
@@ -1623,7 +2042,10 @@ export function TWithPropertyList_0(Input: string, Result: unknown[] = []) {
   return [Result, Input]
 }
 /* compiles to:
- * export type TWithPropertyList_0<Input extends string, Result extends unknown[] = []> = (TWithProperty<Input> extends [infer _0, infer Input extends string] ? TPropertyDelimiter<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? TWithPropertyList_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TWithPropertyList_0<Input extends string, Result extends unknown[] = []> =
+ *   (TWithProperty<Input> extends [infer _0, infer Input extends string] ? TPropertyDelimiter<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string]
+ *     ? TWithPropertyList_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TWithPropertyList: verified type-identical to the original
@@ -1641,7 +2063,10 @@ export function TWithPropertyList(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithPropertyList<Input extends string> = (TWithPropertyList_0<Input> extends [infer _0, infer Input extends string] ? ((TWithProperty<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TWithPropertyListMapping<_0>, Input] : []
+ * export type TWithPropertyList<Input extends string> =
+ *   (TWithPropertyList_0<Input> extends [infer _0, infer Input extends string] ? ((TWithProperty<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TWithPropertyListMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithObject: verified type-identical to the original
@@ -1657,7 +2082,10 @@ export function TWithObject(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithObject<Input extends string> = (Token.TConst<'{', Input> extends [infer _0, infer Input extends string] ? TWithPropertyList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'}', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TWithObjectMapping<_0>, Input] : []
+ * export type TWithObject<Input extends string> =
+ *   (Token.TConst<'{', Input> extends [infer _0, infer Input extends string] ? TWithPropertyList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'}', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TWithObjectMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithElementList_0: verified type-identical to the original
@@ -1672,7 +2100,10 @@ export function TWithElementList_0(Input: string, Result: unknown[] = []) {
   return [Result, Input]
 }
 /* compiles to:
- * export type TWithElementList_0<Input extends string, Result extends unknown[] = []> = (TWithValue<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? TWithElementList_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TWithElementList_0<Input extends string, Result extends unknown[] = []> =
+ *   (TWithValue<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string]
+ *     ? TWithElementList_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TWithElementList: verified type-identical to the original
@@ -1690,7 +2121,10 @@ export function TWithElementList(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithElementList<Input extends string> = (TWithElementList_0<Input> extends [infer _0, infer Input extends string] ? ((TWithValue<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TWithElementListMapping<_0>, Input] : []
+ * export type TWithElementList<Input extends string> =
+ *   (TWithElementList_0<Input> extends [infer _0, infer Input extends string] ? ((TWithValue<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TWithElementListMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithArray: verified type-identical to the original
@@ -1706,7 +2140,10 @@ export function TWithArray(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithArray<Input extends string> = (Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? TWithElementList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<']', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TWithArrayMapping<_0>, Input] : []
+ * export type TWithArray<Input extends string> =
+ *   (Token.TConst<'[', Input> extends [infer _0, infer Input extends string] ? TWithElementList<Input> extends [infer _1, infer Input extends string] ? Token.TConst<']', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TWithArrayMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TWithValue: verified type-identical to the original
@@ -1727,7 +2164,10 @@ export function TWithValue(Input: string) {
   return []
 }
 /* compiles to:
- * export type TWithValue<Input extends string> = (TWithBigInt<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithBoolean<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithNull<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithUndefined<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithObject<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithArray<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string] ? [S.TWithValueMapping<_0>, Input] : []
+ * export type TWithValue<Input extends string> =
+ *   (TWithBigInt<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithBoolean<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithNull<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithUndefined<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithObject<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TWithArray<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TWithValueMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternBigInt: verified type-identical to the original
@@ -1740,7 +2180,10 @@ export function TPatternBigInt(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternBigInt<Input extends string> = Token.TConst<'-?(?:0|[1-9][0-9]*)n', Input> extends [infer _0 extends '-?(?:0|[1-9][0-9]*)n', infer Input extends string] ? [S.TPatternBigIntMapping<_0>, Input] : []
+ * export type TPatternBigInt<Input extends string> =
+ *   Token.TConst<'-?(?:0|[1-9][0-9]*)n', Input> extends [infer _0 extends '-?(?:0|[1-9][0-9]*)n', infer Input extends string]
+ *     ? [S.TPatternBigIntMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternString: verified type-identical to the original
@@ -1753,7 +2196,10 @@ export function TPatternString(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternString<Input extends string> = Token.TConst<'.*', Input> extends [infer _0 extends '.*', infer Input extends string] ? [S.TPatternStringMapping<_0>, Input] : []
+ * export type TPatternString<Input extends string> =
+ *   Token.TConst<'.*', Input> extends [infer _0 extends '.*', infer Input extends string]
+ *     ? [S.TPatternStringMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternNumber: verified type-identical to the original
@@ -1766,7 +2212,10 @@ export function TPatternNumber(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternNumber<Input extends string> = Token.TConst<'-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', Input> extends [infer _0 extends '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', infer Input extends string] ? [S.TPatternNumberMapping<_0>, Input] : []
+ * export type TPatternNumber<Input extends string> =
+ *   Token.TConst<'-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', Input> extends [infer _0 extends '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', infer Input extends string]
+ *     ? [S.TPatternNumberMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternInteger: verified type-identical to the original
@@ -1779,7 +2228,10 @@ export function TPatternInteger(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternInteger<Input extends string> = Token.TConst<'-?(?:0|[1-9][0-9]*)', Input> extends [infer _0 extends '-?(?:0|[1-9][0-9]*)', infer Input extends string] ? [S.TPatternIntegerMapping<_0>, Input] : []
+ * export type TPatternInteger<Input extends string> =
+ *   Token.TConst<'-?(?:0|[1-9][0-9]*)', Input> extends [infer _0 extends '-?(?:0|[1-9][0-9]*)', infer Input extends string]
+ *     ? [S.TPatternIntegerMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternNever: verified type-identical to the original
@@ -1792,7 +2244,10 @@ export function TPatternNever(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternNever<Input extends string> = Token.TConst<'(?!)', Input> extends [infer _0 extends '(?!)', infer Input extends string] ? [S.TPatternNeverMapping<_0>, Input] : []
+ * export type TPatternNever<Input extends string> =
+ *   Token.TConst<'(?!)', Input> extends [infer _0 extends '(?!)', infer Input extends string]
+ *     ? [S.TPatternNeverMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternText: verified type-identical to the original
@@ -1805,7 +2260,10 @@ export function TPatternText(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternText<Input extends string> = Token.TUntil_1<['-?(?:0|[1-9][0-9]*)n', '.*', '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', '-?(?:0|[1-9][0-9]*)', '(?!)', '(', ')', '$', '|'], Input> extends [infer _0 extends string, infer Input extends string] ? [S.TPatternTextMapping<_0>, Input] : []
+ * export type TPatternText<Input extends string> =
+ *   Token.TUntil_1<['-?(?:0|[1-9][0-9]*)n', '.*', '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', '-?(?:0|[1-9][0-9]*)', '(?!)', '(', ')', '$', '|'], Input> extends [infer _0 extends string, infer Input extends string]
+ *     ? [S.TPatternTextMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternBase: verified type-identical to the original
@@ -1825,7 +2283,10 @@ export function TPatternBase(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternBase<Input extends string> = (TPatternBigInt<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternInteger<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternNever<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternGroup<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternText<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string] ? [S.TPatternBaseMapping<_0>, Input] : []
+ * export type TPatternBase<Input extends string> =
+ *   (TPatternBigInt<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternString<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternNumber<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternInteger<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternNever<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternGroup<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternText<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TPatternBaseMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternGroup: verified type-identical to the original
@@ -1841,7 +2302,10 @@ export function TPatternGroup(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternGroup<Input extends string> = (Token.TConst<'(', Input> extends [infer _0, infer Input extends string] ? TPatternBody<Input> extends [infer _1, infer Input extends string] ? Token.TConst<')', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TPatternGroupMapping<_0>, Input] : []
+ * export type TPatternGroup<Input extends string> =
+ *   (Token.TConst<'(', Input> extends [infer _0, infer Input extends string] ? TPatternBody<Input> extends [infer _1, infer Input extends string] ? Token.TConst<')', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TPatternGroupMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternUnion: verified type-identical to the original
@@ -1861,7 +2325,10 @@ export function TPatternUnion(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternUnion<Input extends string> = ((TPatternTerm<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'|', Input> extends [infer _1, infer Input extends string] ? TPatternUnion<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TPatternTerm<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | [unknown] | [], infer Input extends string] ? [S.TPatternUnionMapping<_0>, Input] : []
+ * export type TPatternUnion<Input extends string> =
+ *   ((TPatternTerm<Input> extends [infer _0, infer Input extends string] ? Token.TConst<'|', Input> extends [infer _1, infer Input extends string] ? TPatternUnion<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (TPatternTerm<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown, unknown] | [unknown] | [], infer Input extends string]
+ *     ? [S.TPatternUnionMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternTerm: verified type-identical to the original
@@ -1876,7 +2343,10 @@ export function TPatternTerm(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternTerm<Input extends string> = (TPatternBase<Input> extends [infer _0, infer Input extends string] ? TPatternBody<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TPatternTermMapping<_0>, Input] : []
+ * export type TPatternTerm<Input extends string> =
+ *   (TPatternBase<Input> extends [infer _0, infer Input extends string] ? TPatternBody<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TPatternTermMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPatternBody: verified type-identical to the original
@@ -1891,7 +2361,10 @@ export function TPatternBody(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPatternBody<Input extends string> = (TPatternUnion<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternTerm<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string] ? [S.TPatternBodyMapping<_0>, Input] : []
+ * export type TPatternBody<Input extends string> =
+ *   (TPatternUnion<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TPatternTerm<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TPatternBodyMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TPattern: verified type-identical to the original
@@ -1907,7 +2380,10 @@ export function TPattern(Input: string) {
   return []
 }
 /* compiles to:
- * export type TPattern<Input extends string> = (Token.TConst<'^', Input> extends [infer _0, infer Input extends string] ? TPatternBody<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'$', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TPatternMapping<_0>, Input] : []
+ * export type TPattern<Input extends string> =
+ *   (Token.TConst<'^', Input> extends [infer _0, infer Input extends string] ? TPatternBody<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'$', Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TPatternMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TInterfaceDeclarationHeritageList_0: verified type-identical to the original
@@ -1922,7 +2398,13 @@ export function TInterfaceDeclarationHeritageList_0(Input: string, Result: unkno
   return [Result, Input]
 }
 /* compiles to:
- * export type TInterfaceDeclarationHeritageList_0<Input extends string, Result extends unknown[] = []> = (TType<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? TInterfaceDeclarationHeritageList_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TInterfaceDeclarationHeritageList_0<
+ *   Input extends string,
+ *   Result extends unknown[] = []
+ * > =
+ *   (TType<Input> extends [infer _0, infer Input extends string] ? Token.TConst<',', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string]
+ *     ? TInterfaceDeclarationHeritageList_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TInterfaceDeclarationHeritageList: verified type-identical to the original
@@ -1940,7 +2422,10 @@ export function TInterfaceDeclarationHeritageList(Input: string) {
   return []
 }
 /* compiles to:
- * export type TInterfaceDeclarationHeritageList<Input extends string> = (TInterfaceDeclarationHeritageList_0<Input> extends [infer _0, infer Input extends string] ? ((TType<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TInterfaceDeclarationHeritageListMapping<_0>, Input] : []
+ * export type TInterfaceDeclarationHeritageList<Input extends string> =
+ *   (TInterfaceDeclarationHeritageList_0<Input> extends [infer _0, infer Input extends string] ? ((TType<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TInterfaceDeclarationHeritageListMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TInterfaceDeclarationHeritage: verified type-identical to the original
@@ -1957,7 +2442,10 @@ export function TInterfaceDeclarationHeritage(Input: string) {
   return []
 }
 /* compiles to:
- * export type TInterfaceDeclarationHeritage<Input extends string> = ((Token.TConst<'extends', Input> extends [infer _0, infer Input extends string] ? TInterfaceDeclarationHeritageList<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [], infer Input extends string] ? [S.TInterfaceDeclarationHeritageMapping<_0>, Input] : []
+ * export type TInterfaceDeclarationHeritage<Input extends string> =
+ *   ((Token.TConst<'extends', Input> extends [infer _0, infer Input extends string] ? TInterfaceDeclarationHeritageList<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [], infer Input extends string]
+ *     ? [S.TInterfaceDeclarationHeritageMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TInterfaceDeclarationGeneric: verified type-identical to the original
@@ -1975,7 +2463,10 @@ export function TInterfaceDeclarationGeneric(Input: string) {
   return []
 }
 /* compiles to:
- * export type TInterfaceDeclarationGeneric<Input extends string> = (Token.TConst<'interface', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? TGenericParameters<Input> extends [infer _2, infer Input extends string] ? TInterfaceDeclarationHeritage<Input> extends [infer _3, infer Input extends string] ? TProperties<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TInterfaceDeclarationGenericMapping<_0>, Input] : []
+ * export type TInterfaceDeclarationGeneric<Input extends string> =
+ *   (Token.TConst<'interface', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? TGenericParameters<Input> extends [infer _2, infer Input extends string] ? TInterfaceDeclarationHeritage<Input> extends [infer _3, infer Input extends string] ? TProperties<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TInterfaceDeclarationGenericMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TInterfaceDeclaration: verified type-identical to the original
@@ -1992,7 +2483,10 @@ export function TInterfaceDeclaration(Input: string) {
   return []
 }
 /* compiles to:
- * export type TInterfaceDeclaration<Input extends string> = (Token.TConst<'interface', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? TInterfaceDeclarationHeritage<Input> extends [infer _2, infer Input extends string] ? TProperties<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TInterfaceDeclarationMapping<_0>, Input] : []
+ * export type TInterfaceDeclaration<Input extends string> =
+ *   (Token.TConst<'interface', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? TInterfaceDeclarationHeritage<Input> extends [infer _2, infer Input extends string] ? TProperties<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TInterfaceDeclarationMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TTypeAliasDeclarationGeneric: verified type-identical to the original
@@ -2010,7 +2504,10 @@ export function TTypeAliasDeclarationGeneric(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTypeAliasDeclarationGeneric<Input extends string> = (Token.TConst<'type', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? TGenericParameters<Input> extends [infer _2, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TTypeAliasDeclarationGenericMapping<_0>, Input] : []
+ * export type TTypeAliasDeclarationGeneric<Input extends string> =
+ *   (Token.TConst<'type', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? TGenericParameters<Input> extends [infer _2, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _3, infer Input extends string] ? TType<Input> extends [infer _4, infer Input extends string] ? [[_0, _1, _2, _3, _4], Input] : [] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TTypeAliasDeclarationGenericMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TTypeAliasDeclaration: verified type-identical to the original
@@ -2027,7 +2524,10 @@ export function TTypeAliasDeclaration(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTypeAliasDeclaration<Input extends string> = (Token.TConst<'type', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown], infer Input extends string] ? [S.TTypeAliasDeclarationMapping<_0>, Input] : []
+ * export type TTypeAliasDeclaration<Input extends string> =
+ *   (Token.TConst<'type', Input> extends [infer _0, infer Input extends string] ? Token.TIdent<Input> extends [infer _1, infer Input extends string] ? Token.TConst<'=', Input> extends [infer _2, infer Input extends string] ? TType<Input> extends [infer _3, infer Input extends string] ? [[_0, _1, _2, _3], Input] : [] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TTypeAliasDeclarationMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TExportKeyword: verified type-identical to the original
@@ -2043,11 +2543,14 @@ export function TExportKeyword(Input: string) {
   return []
 }
 /* compiles to:
- * export type TExportKeyword<Input extends string> = ((Token.TConst<'export', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string] ? [S.TExportKeywordMapping<_0>, Input] : []
+ * export type TExportKeyword<Input extends string> =
+ *   ((Token.TConst<'export', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown] | [], infer Input extends string]
+ *     ? [S.TExportKeywordMapping<_0>, Input]
+ *     : []
  */
 
 // ✗ TModuleDeclarationDelimiter: does not compile yet
-//   ScriptType source must be valid TypeScript syntax at 4:75: Unterminated string literal.
+//   Unterminated string literal.
 /* @scripttype preserveParamNames */
 export function TModuleDeclarationDelimiter(Input: string) {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst(';', Input))
@@ -2078,7 +2581,10 @@ export function TModuleDeclarationList_0(Input: string, Result: unknown[] = []) 
   return [Result, Input]
 }
 /* compiles to:
- * export type TModuleDeclarationList_0<Input extends string, Result extends unknown[] = []> = (TModuleDeclaration<Input> extends [infer _0, infer Input extends string] ? TModuleDeclarationDelimiter<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? TModuleDeclarationList_0<Input, [...Result, _0]> : [Result, Input]
+ * export type TModuleDeclarationList_0<Input extends string, Result extends unknown[] = []> =
+ *   (TModuleDeclaration<Input> extends [infer _0, infer Input extends string] ? TModuleDeclarationDelimiter<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string]
+ *     ? TModuleDeclarationList_0<Input, [...Result, _0]>
+ *     : [Result, Input]
  */
 
 // ✓ TModuleDeclarationList: verified type-identical to the original
@@ -2096,7 +2602,10 @@ export function TModuleDeclarationList(Input: string) {
   return []
 }
 /* compiles to:
- * export type TModuleDeclarationList<Input extends string> = (TModuleDeclarationList_0<Input> extends [infer _0, infer Input extends string] ? ((TModuleDeclaration<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TModuleDeclarationListMapping<_0>, Input] : []
+ * export type TModuleDeclarationList<Input extends string> =
+ *   (TModuleDeclarationList_0<Input> extends [infer _0, infer Input extends string] ? ((TModuleDeclaration<Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : [[], Input] extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TModuleDeclarationListMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TModuleDeclaration: verified type-identical to the original
@@ -2116,7 +2625,10 @@ export function TModuleDeclaration(Input: string) {
   return []
 }
 /* compiles to:
- * export type TModuleDeclaration<Input extends string> = (TExportKeyword<Input> extends [infer _0, infer Input extends string] ? (TInterfaceDeclarationGeneric<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TInterfaceDeclaration<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TTypeAliasDeclarationGeneric<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TTypeAliasDeclaration<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? TOptionalSemiColon<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string] ? [S.TModuleDeclarationMapping<_0>, Input] : []
+ * export type TModuleDeclaration<Input extends string> =
+ *   (TExportKeyword<Input> extends [infer _0, infer Input extends string] ? (TInterfaceDeclarationGeneric<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TInterfaceDeclaration<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TTypeAliasDeclarationGeneric<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TTypeAliasDeclaration<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _1, infer Input extends string] ? TOptionalSemiColon<Input> extends [infer _2, infer Input extends string] ? [[_0, _1, _2], Input] : [] : [] : []) extends [infer _0 extends [unknown, unknown, unknown], infer Input extends string]
+ *     ? [S.TModuleDeclarationMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TModule: verified type-identical to the original
@@ -2131,7 +2643,10 @@ export function TModule(Input: string) {
   return []
 }
 /* compiles to:
- * export type TModule<Input extends string> = (TModuleDeclaration<Input> extends [infer _0, infer Input extends string] ? TModuleDeclarationList<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string] ? [S.TModuleMapping<_0>, Input] : []
+ * export type TModule<Input extends string> =
+ *   (TModuleDeclaration<Input> extends [infer _0, infer Input extends string] ? TModuleDeclarationList<Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0 extends [unknown, unknown], infer Input extends string]
+ *     ? [S.TModuleMapping<_0>, Input]
+ *     : []
  */
 
 // ✓ TScript: verified type-identical to the original
@@ -2147,5 +2662,8 @@ export function TScript(Input: string) {
   return []
 }
 /* compiles to:
- * export type TScript<Input extends string> = (TModule<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string] ? [S.TScriptMapping<_0>, Input] : []
+ * export type TScript<Input extends string> =
+ *   (TModule<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TGenericType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : TType<Input> extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends unknown, infer Input extends string]
+ *     ? [S.TScriptMapping<_0>, Input]
+ *     : []
  */

@@ -13,5 +13,6 @@ export function ContextualTests(ctx = unknown) {
   return fnType([fnType([string, fnType([ctx], voidType())], voidType())], voidType())
 }
 /* compiles to:
- * export type ContextualTests<ctx = unknown> = (a0: (a0: string, a1: (a0: ctx) => void) => void) => void
+ * export type ContextualTests<ctx = unknown> =
+ *   (a0: (a0: string, a1: (a0: ctx) => void) => void) => void
  */

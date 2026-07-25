@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace ws {
+  export type WebSocketServer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyRouter: any
 declare const BaseHandlerOptions: any
 declare const CreateContextCallback: any
@@ -19,22 +22,23 @@ declare const IncomingMessage: any
 declare const MaybePromise: any
 declare const inferRouterContext: any
 declare const ws: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseHandlerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateContextCallback<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateWSSContextFnOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Encoder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IncomingMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybePromise<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferRouterContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ws<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseHandlerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateContextCallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateWSSContextFnOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Encoder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IncomingMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferRouterContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ws<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateWSSContextFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CreateWSSContextFn(TRouter: AnyRouter) {
   return fnType([CreateWSSContextFnOptions], MaybePromise(inferRouterContext(TRouter)))
 }
 /* compiles to:
- * export type CreateWSSContextFn<TRouter extends AnyRouter> = (a0: CreateWSSContextFnOptions) => MaybePromise<inferRouterContext<TRouter>>
+ * export type CreateWSSContextFn<TRouter extends AnyRouter> =
+ *   (a0: CreateWSSContextFnOptions) => MaybePromise<inferRouterContext<TRouter>>
  */
 
 // ✓ WSConnectionHandlerOptions: verified type-identical to the original
@@ -43,7 +47,9 @@ export function WSConnectionHandlerOptions(TRouter: AnyRouter) {
   return BaseHandlerOptions(TRouter, IncomingMessage) & CreateContextCallback(inferRouterContext(TRouter), CreateWSSContextFn(TRouter))
 }
 /* compiles to:
- * export type WSConnectionHandlerOptions<TRouter extends AnyRouter> = BaseHandlerOptions<TRouter, IncomingMessage> & CreateContextCallback<inferRouterContext<TRouter>, CreateWSSContextFn<TRouter>>
+ * export type WSConnectionHandlerOptions<TRouter extends AnyRouter> =
+ *   & BaseHandlerOptions<TRouter, IncomingMessage>
+ *   & CreateContextCallback<inferRouterContext<TRouter>, CreateWSSContextFn<TRouter>>
  */
 
 // ✓ WSSHandlerOptions: verified type-identical to the original
@@ -52,5 +58,13 @@ export function WSSHandlerOptions(TRouter: AnyRouter) {
   return merge(WSConnectionHandlerOptions(TRouter), { wss: ws.WebSocketServer, prefix: optional(string), keepAlive: optional({ enabled: boolean, pingMs: optional(number), pongWaitMs: optional(number) }), dangerouslyDisablePong: optional(boolean), experimental_encoder: optional(Encoder) })
 }
 /* compiles to:
- * export type WSSHandlerOptions<TRouter extends AnyRouter> = WSConnectionHandlerOptions<TRouter> & { wss: ws.WebSocketServer; prefix?: string; keepAlive?: { enabled: boolean; pingMs?: number; pongWaitMs?: number }; dangerouslyDisablePong?: boolean; experimental_encoder?: Encoder }
+ * export type WSSHandlerOptions<TRouter extends AnyRouter> =
+ *   & WSConnectionHandlerOptions<TRouter>
+ *   & {
+ *       wss: ws.WebSocketServer
+ *       prefix?: string
+ *       keepAlive?: { enabled: boolean; pingMs?: number; pongWaitMs?: number }
+ *       dangerouslyDisablePong?: boolean
+ *       experimental_encoder?: Encoder
+ *     }
  */

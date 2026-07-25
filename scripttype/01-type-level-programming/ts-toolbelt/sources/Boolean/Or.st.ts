@@ -14,5 +14,6 @@ export function Or(B1: Boolean, B2: Boolean) {
   return { 0: { 0: 0, 1: 1 }, 1: { 0: 1, 1: 1 } }[B1][B2]
 }
 /* compiles to:
- * export type Or<B1 extends Boolean, B2 extends Boolean> = { '0': { '0': 0; '1': 1 }; '1': { '0': 1; '1': 1 } }[B1][B2]
+ * export type Or<B1 extends Boolean, B2 extends Boolean> =
+ *   { '0': { '0': 0; '1': 1 }; '1': { '0': 1; '1': 1 } }[B1][B2]
  */

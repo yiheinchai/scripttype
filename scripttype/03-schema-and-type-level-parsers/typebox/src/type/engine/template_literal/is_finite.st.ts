@@ -14,10 +14,10 @@ declare const TLiteral: any
 declare const TLiteralValue: any
 declare const TSchema: any
 declare const TUnion: any
-type TLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteralValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromLiteral(_Value: TLiteralValue) {
@@ -40,7 +40,10 @@ export function TFromTypesReduce(Types: TSchema[]) {
   return true
 }
 /* compiles to:
- * export type TFromTypesReduce<Types extends TSchema[]> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TFromType<Left> extends true ? TFromTypesReduce<Right> : false : true
+ * export type TFromTypesReduce<Types extends TSchema[]> =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TFromType<Left> extends true ? TFromTypesReduce<Right> : false
+ *     : true
  */
 
 // ✓ TFromTypes: verified type-identical to the original
@@ -49,7 +52,11 @@ export function TFromTypes(Types: TSchema[], Result: boolean = matches<[ ]>(Type
   return Result
 }
 /* compiles to:
- * export type TFromTypes<Types extends TSchema[], Result extends boolean = Types extends [] ? false : TFromTypesReduce<Types>> = Result
+ * export type TFromTypes<
+ *   Types extends TSchema[],
+ *   Result extends boolean = Types extends [] ? false : TFromTypesReduce<Types>
+ * > =
+ *   Result
  */
 
 // ✓ TFromType: verified type-identical to the original
@@ -66,7 +73,10 @@ export function TFromType(Type: TSchema) {
   return false
 }
 /* compiles to:
- * export type TFromType<Type extends TSchema> = Type extends TUnion<infer Types extends TSchema[]> ? TFromTypes<Types> : Type extends TLiteral<infer Value extends TLiteralValue> ? TFromLiteral<Value> : false
+ * export type TFromType<Type extends TSchema> =
+ *   Type extends TUnion<infer Types extends TSchema[]> ? TFromTypes<Types>
+ *   : Type extends TLiteral<infer Value extends TLiteralValue> ? TFromLiteral<Value>
+ *   : false
  */
 
 // ✓ TIsTemplateLiteralFinite: verified type-identical to the original
@@ -75,5 +85,9 @@ export function TIsTemplateLiteralFinite(Types: TSchema[], Result: boolean = TFr
   return Result
 }
 /* compiles to:
- * export type TIsTemplateLiteralFinite<Types extends TSchema[], Result extends boolean = TFromTypes<Types>> = Result
+ * export type TIsTemplateLiteralFinite<
+ *   Types extends TSchema[],
+ *   Result extends boolean = TFromTypes<Types>
+ * > =
+ *   Result
  */

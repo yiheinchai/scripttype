@@ -13,9 +13,9 @@
 declare const UnionToIntersection: any
 declare const end: any
 declare const start: any
-type UnionToIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type end<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type start<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type end<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type start<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Expand: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Expand(T) {
@@ -55,7 +55,8 @@ export function LastTupleElement(TArr: any[]) {
   return never
 }
 /* compiles to:
- * export type LastTupleElement<TArr extends any[]> = TArr extends [unknown, infer Last] ? Last : never
+ * export type LastTupleElement<TArr extends any[]> =
+ *   TArr extends [unknown, infer Last] ? Last : never
  */
 
 // ✓ UniqueArrayOfUnion: verified type-identical to the original
@@ -67,5 +68,8 @@ export function UniqueArrayOfUnion(TUnion, TArray: (typeof TUnion)[]) {
   return [...TArray, Exclude(TUnion, TArray[number])]
 }
 /* compiles to:
- * export type UniqueArrayOfUnion<TUnion, TArray extends TUnion[]> = Exclude<TUnion, TArray[number]> extends never ? [TUnion] : [...TArray, Exclude<TUnion, TArray[number]>]
+ * export type UniqueArrayOfUnion<TUnion, TArray extends TUnion[]> =
+ *   Exclude<TUnion, TArray[number]> extends never
+ *     ? [TUnion]
+ *     : [...TArray, Exclude<TUnion, TArray[number]>]
  */

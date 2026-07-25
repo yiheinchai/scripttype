@@ -19,16 +19,16 @@ declare const InferOutput: any
 declare const MarkOptional: any
 declare const Prettify: any
 declare const ReadonlyAction: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Brand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MarkOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WithQuestionMarks<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Brand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MarkOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WithQuestionMarks<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsLiteral(TKey: string | number | symbol) {
@@ -47,7 +47,12 @@ export function IsLiteral(TKey: string | number | symbol) {
   return true
 }
 /* compiles to:
- * export type IsLiteral<TKey extends string | number | symbol> = string extends TKey ? false : number extends TKey ? false : symbol extends TKey ? false : TKey extends Brand<string | number | symbol> ? false : true
+ * export type IsLiteral<TKey extends string | number | symbol> =
+ *   string extends TKey ? false
+ *   : number extends TKey ? false
+ *   : symbol extends TKey ? false
+ *   : TKey extends Brand<string | number | symbol> ? false
+ *   : true
  */
 
 // ✓ OptionalKeys: verified type-identical to the original
@@ -60,7 +65,8 @@ export function OptionalKeys(TObject: Record<string | number | symbol, unknown>)
   return out[keyof(TObject)]
 }
 /* compiles to:
- * export type OptionalKeys<TObject extends Record<string | number | symbol, unknown>> = { [TKey in keyof TObject]: IsLiteral<TKey> extends true ? TKey : never }[keyof TObject]
+ * export type OptionalKeys<TObject extends Record<string | number | symbol, unknown>> =
+ *   { [TKey in keyof TObject]: IsLiteral<TKey> extends true ? TKey : never }[keyof TObject]
  */
 
 // ✓ WithQuestionMarks: verified type-identical to the original
@@ -69,7 +75,10 @@ export function WithQuestionMarks(TObject: Record<string | number | symbol, unkn
   return MarkOptional(TObject, OptionalKeys(TObject))
 }
 /* compiles to:
- * export type WithQuestionMarks<TObject extends Record<string | number | symbol, unknown>> = MarkOptional<TObject, OptionalKeys<TObject>>
+ * export type WithQuestionMarks<TObject extends Record<string | number | symbol, unknown>> = MarkOptional<
+ *   TObject,
+ *   OptionalKeys<TObject>
+ * >
  */
 
 // ✓ WithReadonly: verified type-identical to the original
@@ -84,7 +93,13 @@ export function WithReadonly(TValue: BaseSchema<unknown, unknown, BaseIssue<unkn
   return TObject
 }
 /* compiles to:
- * export type WithReadonly<TValue extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, TObject extends WithQuestionMarks<Record<string | number | symbol, unknown>>> = TValue extends { readonly pipe: readonly unknown[]; } ? ReadonlyAction<any> extends TValue['pipe'][number] ? Readonly<TObject> : TObject : TObject
+ * export type WithReadonly<
+ *   TValue extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>,
+ *   TObject extends WithQuestionMarks<Record<string | number | symbol, unknown>>
+ * > =
+ *   TValue extends { readonly pipe: readonly unknown[]; }
+ *     ? ReadonlyAction<any> extends TValue['pipe'][number] ? Readonly<TObject> : TObject
+ *     : TObject
  */
 
 // ✓ InferRecordInput: verified type-identical to the original
@@ -93,7 +108,11 @@ export function InferRecordInput(TKey: BaseSchema<string, string | number | symb
   return Prettify(WithQuestionMarks(Record(InferInput(TKey), InferInput(TValue))))
 }
 /* compiles to:
- * export type InferRecordInput<TKey extends BaseSchema<string, string | number | symbol, BaseIssue<unknown>> | BaseSchemaAsync<string, string | number | symbol, BaseIssue<unknown>>, TValue extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>> = Prettify<WithQuestionMarks<Record<InferInput<TKey>, InferInput<TValue>>>>
+ * export type InferRecordInput<
+ *   TKey extends BaseSchema<string, string | number | symbol, BaseIssue<unknown>> | BaseSchemaAsync<string, string | number | symbol, BaseIssue<unknown>>,
+ *   TValue extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>
+ * > =
+ *   Prettify<WithQuestionMarks<Record<InferInput<TKey>, InferInput<TValue>>>>
  */
 
 // ✓ InferRecordOutput: verified type-identical to the original
@@ -102,5 +121,11 @@ export function InferRecordOutput(TKey: BaseSchema<string, string | number | sym
   return Prettify(WithReadonly(TValue, WithQuestionMarks(Record(InferOutput(TKey), InferOutput(TValue)))))
 }
 /* compiles to:
- * export type InferRecordOutput<TKey extends BaseSchema<string, string | number | symbol, BaseIssue<unknown>> | BaseSchemaAsync<string, string | number | symbol, BaseIssue<unknown>>, TValue extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>> = Prettify<WithReadonly<TValue, WithQuestionMarks<Record<InferOutput<TKey>, InferOutput<TValue>>>>>
+ * export type InferRecordOutput<
+ *   TKey extends BaseSchema<string, string | number | symbol, BaseIssue<unknown>> | BaseSchemaAsync<string, string | number | symbol, BaseIssue<unknown>>,
+ *   TValue extends BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>
+ * > =
+ *   Prettify<
+ *     WithReadonly<TValue, WithQuestionMarks<Record<InferOutput<TKey>, InferOutput<TValue>>>>
+ *   >
  */

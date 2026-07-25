@@ -16,12 +16,12 @@ declare const Key: any
 declare const PatchFlat: any
 declare const UNonNullable: any
 declare const _Pick: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PatchFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UNonNullable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Pick<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PatchFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UNonNullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NonNullableFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonNullableFlat(O) {
@@ -45,7 +45,9 @@ export function NonNullableDeep(O) {
   return out
 }
 /* compiles to:
- * export type NonNullableDeep<O> = { [K in keyof O]: O[K] extends BuiltIn ? O[K] : NonNullableDeep<UNonNullable<O[K]>> }
+ * export type NonNullableDeep<O> = {
+ *   [K in keyof O]: O[K] extends BuiltIn ? O[K] : NonNullableDeep<UNonNullable<O[K]>>
+ * }
  */
 
 // ✓ NonNullablePart: verified type-identical to the original
@@ -54,7 +56,8 @@ export function NonNullablePart(O: object, depth: Depth) {
   return { 'flat': NonNullableFlat(O), 'deep': NonNullableDeep(O) }[depth]
 }
 /* compiles to:
- * export type NonNullablePart<O extends object, depth extends Depth> = { flat: NonNullableFlat<O>; deep: NonNullableDeep<O> }[depth]
+ * export type NonNullablePart<O extends object, depth extends Depth> =
+ *   { flat: NonNullableFlat<O>; deep: NonNullableDeep<O> }[depth]
  */
 
 // ✓ _NonNullable: verified type-identical to the original
@@ -63,7 +66,10 @@ export function _NonNullable(O: object, K: Key, depth: Depth) {
   return PatchFlat(NonNullablePart(_Pick(O, K), depth), O)
 }
 /* compiles to:
- * export type _NonNullable<O extends object, K extends Key, depth extends Depth> = PatchFlat<NonNullablePart<_Pick<O, K>, depth>, O>
+ * export type _NonNullable<O extends object, K extends Key, depth extends Depth> = PatchFlat<
+ *   NonNullablePart<_Pick<O, K>, depth>,
+ *   O
+ * >
  */
 
 // ✓ NonNullable: verified type-identical to the original
@@ -75,5 +81,6 @@ export function NonNullable(O: object, K: Key = Key, depth: Depth = 'flat') {
   return never
 }
 /* compiles to:
- * export type NonNullable<O extends object, K extends Key = Key, depth extends Depth = 'flat'> = O extends unknown ? _NonNullable<O, K, depth> : never
+ * export type NonNullable<O extends object, K extends Key = Key, depth extends Depth = 'flat'> =
+ *   O extends unknown ? _NonNullable<O, K, depth> : never
  */

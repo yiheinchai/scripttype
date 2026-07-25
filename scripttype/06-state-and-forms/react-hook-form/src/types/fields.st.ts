@@ -20,16 +20,16 @@ declare const HTMLTextAreaElement: any
 declare const InternalFieldName: any
 declare const IsFlatObject: any
 declare const Noop: any
-type FieldValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FileList<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTMLElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTMLInputElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTMLOptionsCollection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTMLSelectElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTMLTextAreaElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InternalFieldName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsFlatObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Noop<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FileList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTMLElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTMLInputElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTMLOptionsCollection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTMLSelectElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTMLTextAreaElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InternalFieldName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsFlatObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Noop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FieldName: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FieldName(TFieldValues: FieldValues) {
@@ -39,7 +39,8 @@ export function FieldName(TFieldValues: FieldValues) {
   return string
 }
 /* compiles to:
- * export type FieldName<TFieldValues extends FieldValues> = IsFlatObject<TFieldValues> extends true ? Extract<keyof TFieldValues, string> : string
+ * export type FieldName<TFieldValues extends FieldValues> =
+ *   IsFlatObject<TFieldValues> extends true ? Extract<keyof TFieldValues, string> : string
  */
 
 // ✓ CustomElement: verified type-identical to the original
@@ -48,7 +49,18 @@ export function CustomElement(TFieldValues: FieldValues) {
   return merge(Partial(HTMLElement), { name: FieldName(TFieldValues), type: optional(string), value: optional(any), disabled: optional(boolean), checked: optional(boolean), options: optional(HTMLOptionsCollection), files: optional(FileList | Null), focus: optional(Noop) })
 }
 /* compiles to:
- * export type CustomElement<TFieldValues extends FieldValues> = Partial<HTMLElement> & { name: FieldName<TFieldValues>; type?: string; value?: any; disabled?: boolean; checked?: boolean; options?: HTMLOptionsCollection; files?: FileList | null; focus?: Noop }
+ * export type CustomElement<TFieldValues extends FieldValues> =
+ *   & Partial<HTMLElement>
+ *   & {
+ *       name: FieldName<TFieldValues>
+ *       type?: string
+ *       value?: any
+ *       disabled?: boolean
+ *       checked?: boolean
+ *       options?: HTMLOptionsCollection
+ *       files?: FileList | null
+ *       focus?: Noop
+ *     }
  */
 
 // ✓ FieldValue: verified type-identical to the original
@@ -66,5 +78,6 @@ export function FieldElement(TFieldValues: FieldValues = FieldValues) {
   return HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | CustomElement(TFieldValues)
 }
 /* compiles to:
- * export type FieldElement<TFieldValues extends FieldValues = FieldValues> = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | CustomElement<TFieldValues>
+ * export type FieldElement<TFieldValues extends FieldValues = FieldValues> =
+ *   HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | CustomElement<TFieldValues>
  */

@@ -14,10 +14,10 @@ declare const ExtendsStrict: any
 declare const IfNotAnyOrNever: any
 declare const TupleToObject: any
 declare const UnknownArray: any
-type ExtendsStrict<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleToObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExtendsStrict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleToObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ConditionalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ConditionalKeys(Base, Condition) {
@@ -28,7 +28,10 @@ export function ConditionalKeys(Base, Condition) {
   return never
 }
 /* compiles to:
- * export type ConditionalKeys<Base, Condition> = (Base extends UnknownArray ? TupleToObject<Base> : Base) extends infer _Base ? IfNotAnyOrNever<_Base, { ifNot: _ConditionalKeys<_Base, Condition>; ifAny: keyof _Base }> : never
+ * export type ConditionalKeys<Base, Condition> =
+ *   (Base extends UnknownArray ? TupleToObject<Base> : Base) extends infer _Base
+ *     ? IfNotAnyOrNever<_Base, { ifNot: _ConditionalKeys<_Base, Condition>; ifAny: keyof _Base }>
+ *     : never
  */
 
 // ✓ _ConditionalKeys: verified type-identical to the original
@@ -41,5 +44,8 @@ export function _ConditionalKeys(Base, Condition) {
   return keyof(out)
 }
 /* compiles to:
- * export type _ConditionalKeys<Base, Condition> = keyof { [Key in keyof Base & {} as ExtendsStrict<Base[Key], Condition> extends true ? Key : never]: never }
+ * export type _ConditionalKeys<Base, Condition> =
+ *   keyof {
+ *     [Key in keyof Base & {} as ExtendsStrict<Base[Key], Condition> extends true ? Key : never]: never
+ *   }
  */

@@ -7,13 +7,13 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type Input<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IntersectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Mode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PipeListAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PipeListSync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PipeMultiAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PipeMultiSync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IntersectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Mode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PipeListAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PipeListSync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PipeMultiAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PipeMultiSync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type Pipe<mode extends Mode = 'sync', input extends Input = 'multi'> = IntersectOf<{
     'sync' : {
         'multi': PipeMultiSync

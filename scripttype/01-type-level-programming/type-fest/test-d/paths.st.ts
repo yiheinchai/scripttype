@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Paths: any
-type Paths<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PathsConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PathsConstraint(T, _U: Paths<typeof T>) {
@@ -54,7 +54,10 @@ export function Test2(T, U) {
   return PathsConstraint(Generic2(T, U), anyOf('bar', 'bar.baz', 'bar.baz.qux', 'bar.fizz', 'bar.fizz.buzz'))
 }
 /* compiles to:
- * export type Test2<T, U> = PathsConstraint<Generic2<T, U>, 'bar' | 'bar.baz' | 'bar.baz.qux' | 'bar.fizz' | 'bar.fizz.buzz'>
+ * export type Test2<T, U> = PathsConstraint<
+ *   Generic2<T, U>,
+ *   'bar' | 'bar.baz' | 'bar.baz.qux' | 'bar.fizz' | 'bar.fizz.buzz'
+ * >
  */
 
 // ✓ LeavesOnlyPathsConstraint: verified type-identical to the original
@@ -157,7 +160,11 @@ export function BracketNotationPathsConstraint(T, _U: Paths<typeof T, { bracketN
   return never
 }
 /* compiles to:
- * export type BracketNotationPathsConstraint<T, _U extends Paths<T, { bracketNotation: true; }>> = never
+ * export type BracketNotationPathsConstraint<
+ *   T,
+ *   _U extends Paths<T, { bracketNotation: true; }>
+ * > =
+ *   never
  */
 
 // ✓ Generic5: verified type-identical to the original
@@ -175,7 +182,10 @@ export function Test9(T) {
   return BracketNotationPathsConstraint(Generic5(T), anyOf('[1]', '[1][2]', '[3]', '[3][0]'))
 }
 /* compiles to:
- * export type Test9<T> = BracketNotationPathsConstraint<Generic5<T>, '[1]' | '[1][2]' | '[3]' | '[3][0]'>
+ * export type Test9<T> = BracketNotationPathsConstraint<
+ *   Generic5<T>,
+ *   '[1]' | '[1][2]' | '[3]' | '[3][0]'
+ * >
  */
 
 // ✓ MaxRecursionDepthPathsConstraint: verified type-identical to the original
@@ -184,7 +194,11 @@ export function MaxRecursionDepthPathsConstraint(T, _U: Paths<typeof T, { maxRec
   return never
 }
 /* compiles to:
- * export type MaxRecursionDepthPathsConstraint<T, _U extends Paths<T, { maxRecursionDepth: 2; }>> = never
+ * export type MaxRecursionDepthPathsConstraint<
+ *   T,
+ *   _U extends Paths<T, { maxRecursionDepth: 2; }>
+ * > =
+ *   never
  */
 
 // ✓ Generic6: verified type-identical to the original
@@ -202,7 +216,10 @@ export function Test10(T) {
   return MaxRecursionDepthPathsConstraint(Generic6(T), anyOf('foo', 'foo.bar', 'baz', 'fizz', 'fizz.buzz', 'fizz.buzz.qux'))
 }
 /* compiles to:
- * export type Test10<T> = MaxRecursionDepthPathsConstraint<Generic6<T>, 'foo' | 'foo.bar' | 'baz' | 'fizz' | 'fizz.buzz' | 'fizz.buzz.qux'>
+ * export type Test10<T> = MaxRecursionDepthPathsConstraint<
+ *   Generic6<T>,
+ *   'foo' | 'foo.bar' | 'baz' | 'fizz' | 'fizz.buzz' | 'fizz.buzz.qux'
+ * >
  */
 
 // ✗ Test11: does not compile yet
@@ -221,7 +238,11 @@ export function LeavesOnlyAndDepthPathsConstraint(T, _U: Paths<typeof T, { leave
   return never
 }
 /* compiles to:
- * export type LeavesOnlyAndDepthPathsConstraint<T, _U extends Paths<T, { leavesOnly: true; depth: 1; }>> = never
+ * export type LeavesOnlyAndDepthPathsConstraint<
+ *   T,
+ *   _U extends Paths<T, { leavesOnly: true; depth: 1; }>
+ * > =
+ *   never
  */
 
 // ✓ Generic7: verified type-identical to the original

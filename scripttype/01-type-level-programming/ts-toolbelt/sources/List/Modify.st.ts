@@ -15,11 +15,11 @@ declare const Cast: any
 declare const List: any
 declare const Replace: any
 declare const x: any
-type At<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Replace<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type x<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Replace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type x<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Modify: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Modify(L: List, LMod: List) {
@@ -30,5 +30,8 @@ export function Modify(L: List, LMod: List) {
   return Cast(out, List)
 }
 /* compiles to:
- * export type Modify<L extends List, LMod extends List> = Cast<{ [K in keyof LMod]: Replace<LMod[K], x, Exclude<At<L, K>, undefined>> }, List>
+ * export type Modify<L extends List, LMod extends List> = Cast<
+ *   { [K in keyof LMod]: Replace<LMod[K], x, Exclude<At<L, K>, undefined>> },
+ *   List
+ * >
  */

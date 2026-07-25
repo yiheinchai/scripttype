@@ -17,27 +17,48 @@ declare const Modifier: any
 declare const ParseAbiParameters_: any
 declare const ParseStructs: any
 declare const SplitParameters: any
-type AbiParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Filter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStructSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Modifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseAbiParameters_<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseStructs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SplitParameters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Filter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStructSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Modifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseAbiParameters_<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseStructs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SplitParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParseAbiParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ParseAbiParameters(params: string | readonly string[] | readonly unknown[]) {
   const m1 = matches<Hole<"structs">>(ParseStructs(params))
   const out = emptyObject
   for (const key in keyof(params)) {
-    out[key] = matches<string>(params[key]) ? (matches<true>(IsStructSignature(params[key])) ? never : ParseAbiParameters_(SplitParameters(params[key]), { modifier: Modifier, structs: m1.structs })) : never
+    out[key] = typeof params[key] === 'string' ? (matches<true>(IsStructSignature(params[key])) ? never : ParseAbiParameters_(SplitParameters(params[key]), { modifier: Modifier, structs: m1.structs })) : never
   }
   const m2 = matches<Hole<"mapped", readonly unknown[]>>(out)
   const m3 = matches<readonly [ ...Hole<"content"> ]>(Filter(m2.mapped, never))
-  return (matches<string>(params) ? (matches<''>(params) ? never : (matches<typeof params>(string) ? readonlyArrayOf(AbiParameter) : ParseAbiParameters_(SplitParameters(params), { modifier: Modifier }))) : never) | (matches<readonly string[]>(params) ? (matches<typeof params>(arrayOf(string)) ? AbiParameter : (m1 ? (m2 ? (m3 ? (matches<0>(m3.content['length']) ? never : DeepFlatten(m3.content)) : never) : never) : never)) : never)
+  return (typeof params === 'string' ? (matches<''>(params) ? never : (matches<typeof params>(string) ? readonlyArrayOf(AbiParameter) : ParseAbiParameters_(SplitParameters(params), { modifier: Modifier }))) : never) | (matches<readonly string[]>(params) ? (matches<typeof params>(arrayOf(string)) ? AbiParameter : (m1 ? (m2 ? (m3 ? (matches<0>(m3.content['length']) ? never : DeepFlatten(m3.content)) : never) : never) : never)) : never)
 }
 /* compiles to:
- * export type ParseAbiParameters<params extends string | readonly string[] | readonly unknown[]> = (params extends string ? params extends '' ? never : string extends params ? readonly AbiParameter[] : ParseAbiParameters_<SplitParameters<params>, { modifier: Modifier }> : never) | (params extends readonly string[] ? string[] extends params ? AbiParameter : ParseStructs<params> extends infer structs ? { [Key in keyof params]: params[Key] extends string ? IsStructSignature<params[Key]> extends true ? never : ParseAbiParameters_<SplitParameters<params[Key]>, { modifier: Modifier; structs: structs }> : never } extends (infer mapped extends readonly unknown[]) ? Filter<mapped, never> extends readonly [...infer content] ? content['length'] extends 0 ? never : DeepFlatten<content> : never : never : never : never)
+ * export type ParseAbiParameters<
+ *   params extends string | readonly string[] | readonly unknown[]
+ * > =
+ *   | (
+ *       params extends string
+ *         ? params extends '' ? never
+ *         : string extends params ? readonly AbiParameter[]
+ *         : ParseAbiParameters_<SplitParameters<params>, { modifier: Modifier }>
+ *         : never
+ *     )
+ *   | (
+ *       params extends readonly string[]
+ *         ? string[] extends params ? AbiParameter
+ *         : ParseStructs<params> extends infer structs
+ *           ? { [Key in keyof params]: params[Key] extends string ? IsStructSignature<params[Key]> extends true ? never : ParseAbiParameters_<SplitParameters<params[Key]>, { modifier: Modifier; structs: structs }> : never } extends (infer mapped extends readonly unknown[])
+ *             ? Filter<mapped, never> extends readonly [...infer content]
+ *               ? content['length'] extends 0 ? never : DeepFlatten<content>
+ *               : never
+ *             : never
+ *         : never
+ *         : never
+ *     )
  */
 
 // ✓ DeepFlatten: verified type-identical to the original
@@ -45,7 +66,7 @@ export function ParseAbiParameters(params: string | readonly string[] | readonly
 export function DeepFlatten(T: readonly unknown[], Acc: readonly unknown[] = asReadonly([])) {
   const m1 = matches<readonly [ Hole<"head">, ...Hole<"tail"> ]>(T)
   if (m1) {
-    if (matches<undefined>(m1.tail)) {
+    if (typeof m1.tail === 'undefined') {
       return never
     }
     if (matches<readonly unknown[]>(m1.head)) {
@@ -56,5 +77,14 @@ export function DeepFlatten(T: readonly unknown[], Acc: readonly unknown[] = asR
   return Acc
 }
 /* compiles to:
- * export type DeepFlatten<T extends readonly unknown[], Acc extends readonly unknown[] = readonly []> = T extends readonly [infer head, ...infer tail] ? tail extends undefined ? never : head extends readonly unknown[] ? DeepFlatten<tail, readonly [...Acc, ...DeepFlatten<head>]> : DeepFlatten<tail, readonly [...Acc, head]> : Acc
+ * export type DeepFlatten<
+ *   T extends readonly unknown[],
+ *   Acc extends readonly unknown[] = readonly []
+ * > =
+ *   T extends readonly [infer head, ...infer tail]
+ *     ? tail extends undefined ? never
+ *     : head extends readonly unknown[]
+ *       ? DeepFlatten<tail, readonly [...Acc, ...DeepFlatten<head>]>
+ *     : DeepFlatten<tail, readonly [...Acc, head]>
+ *     : Acc
  */

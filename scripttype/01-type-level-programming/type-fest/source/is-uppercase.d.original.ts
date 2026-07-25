@@ -7,10 +7,10 @@
  */
 // Names imported from elsewhere in the library, declared here because relative
 // imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
-type AllExtend<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Lowercase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Uncapitalize<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Uppercase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AllExtend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Lowercase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Uncapitalize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Uppercase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 export type IsUppercaseHelper<S extends string> = S extends Uppercase<string>
 	? true
 	: S extends Lowercase<string> | Uncapitalize<string> | `${string}${Lowercase<string>}${string}`

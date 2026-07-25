@@ -13,16 +13,25 @@
 declare const PgNumericBigIntBuilder: any
 declare const PgNumericBuilder: any
 declare const PgNumericNumberBuilder: any
-type PgNumericBigIntBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgNumericBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgNumericNumberBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgNumericBigIntBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgNumericBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgNumericNumberBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgNumericBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgNumericBuilderInitial(TName: string) {
   return PgNumericBuilder({ name: TName, dataType: 'string', columnType: 'PgNumeric', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgNumericBuilderInitial<TName extends string> = PgNumericBuilder<{ name: TName; dataType: 'string'; columnType: 'PgNumeric'; data: string; driverParam: string; enumValues: undefined }>
+ * export type PgNumericBuilderInitial<TName extends string> = PgNumericBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'PgNumeric'
+ *     data: string
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ PgNumericNumberBuilderInitial: verified type-identical to the original
@@ -31,7 +40,16 @@ export function PgNumericNumberBuilderInitial(TName: string) {
   return PgNumericNumberBuilder({ name: TName, dataType: 'number', columnType: 'PgNumericNumber', data: number, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgNumericNumberBuilderInitial<TName extends string> = PgNumericNumberBuilder<{ name: TName; dataType: 'number'; columnType: 'PgNumericNumber'; data: number; driverParam: string; enumValues: undefined }>
+ * export type PgNumericNumberBuilderInitial<TName extends string> = PgNumericNumberBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'PgNumericNumber'
+ *     data: number
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ PgNumericBigIntBuilderInitial: verified type-identical to the original
@@ -40,7 +58,16 @@ export function PgNumericBigIntBuilderInitial(TName: string) {
   return PgNumericBigIntBuilder({ name: TName, dataType: 'bigint', columnType: 'PgNumericBigInt', data: bigint, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgNumericBigIntBuilderInitial<TName extends string> = PgNumericBigIntBuilder<{ name: TName; dataType: 'bigint'; columnType: 'PgNumericBigInt'; data: bigint; driverParam: string; enumValues: undefined }>
+ * export type PgNumericBigIntBuilderInitial<TName extends string> = PgNumericBigIntBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'bigint'
+ *     columnType: 'PgNumericBigInt'
+ *     data: bigint
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ PgNumericConfig: verified type-identical to the original
@@ -49,5 +76,10 @@ export function PgNumericConfig(T: 'string' | 'number' | 'bigint' = anyOf('strin
   return anyOf({ precision: number, scale: optional(number), mode: optional(T) }, { precision: optional(number), scale: number, mode: optional(T) }, { precision: optional(number), scale: optional(number), mode: T })
 }
 /* compiles to:
- * export type PgNumericConfig<T extends 'string' | 'number' | 'bigint' = 'string' | 'number' | 'bigint'> = { precision: number; scale?: number; mode?: T } | { precision?: number; scale: number; mode?: T } | { precision?: number; scale?: number; mode: T }
+ * export type PgNumericConfig<
+ *   T extends 'string' | 'number' | 'bigint' = 'string' | 'number' | 'bigint'
+ * > =
+ *   | { precision: number; scale?: number; mode?: T }
+ *   | { precision?: number; scale: number; mode?: T }
+ *   | { precision?: number; scale?: number; mode: T }
  */

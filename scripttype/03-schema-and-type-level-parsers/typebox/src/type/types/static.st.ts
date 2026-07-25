@@ -74,70 +74,70 @@ declare const TUnknown: any
 declare const TUnsafe: any
 declare const TVoid: any
 declare const XStatic: any
-type StaticAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticBigInt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticBoolean<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticCodec<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticConstructor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticCyclic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticDependent<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticEnum<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticInteger<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticNull<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticSymbol<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticTemplateLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticThis<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticUndefined<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticUnsafe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticVoid<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TBigInt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TBoolean<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCodec<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TConstructor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCyclic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TDependent<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TEnum<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TEnumValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInteger<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteralValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNull<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSymbol<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTemplateLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TThis<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUndefined<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnsafe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TVoid<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type XStatic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticBigInt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticBoolean<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticCodec<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticDependent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticNull<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticThis<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticUndefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticUnsafe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticVoid<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TBigInt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TBoolean<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCodec<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TDependent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TEnumValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNull<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TThis<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUndefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnsafe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TVoid<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type XStatic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticEvaluate: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticEvaluate(T) {
@@ -260,7 +260,55 @@ export function StaticType(Stack: string[], Direction: StaticDirection, Context:
   return XStatic(Type)
 }
 /* compiles to:
- * export type StaticType<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Type extends TSchema> = Type extends TCodec<infer Type extends TSchema, infer Decoded extends unknown> ? StaticCodec<Stack, Direction, Context, This, Type, Decoded> : Type extends TAny ? StaticAny : Type extends TArray<infer Items extends TSchema> ? StaticArray<Stack, Direction, Context, This, Type, Items> : Type extends TBigInt ? StaticBigInt : Type extends TBoolean ? StaticBoolean : Type extends TConstructor<infer Parameters extends TSchema[], infer ReturnType extends TSchema> ? StaticConstructor<Stack, Direction, Context, This, Parameters, ReturnType> : Type extends TEnum<infer Values extends TEnumValue[]> ? StaticEnum<Values> : Type extends TFunction<infer Parameters extends TSchema[], infer ReturnType extends TSchema> ? StaticFunction<Stack, Direction, Context, This, Parameters, ReturnType> : Type extends TDependent<infer If extends TSchema, infer Then extends TSchema, infer Else extends TSchema> ? StaticDependent<Stack, Direction, Context, This, If, Then, Else> : Type extends TInteger ? StaticInteger : Type extends TIntersect<infer Types extends TSchema[]> ? StaticIntersect<Stack, Direction, Context, This, Types> : Type extends TLiteral<infer Value extends TLiteralValue> ? StaticLiteral<Value> : Type extends TNever ? StaticNever : Type extends TNull ? StaticNull : Type extends TNumber ? StaticNumber : Type extends TObject<infer Properties extends TProperties> ? StaticObject<Stack, Direction, Context, This, Properties> : Type extends TRecord<infer Key extends string, infer Value extends TSchema> ? StaticRecord<Stack, Direction, Context, This, Key, Value> : Type extends TCyclic<infer Defs extends TProperties, infer Ref extends string> ? StaticCyclic<Stack, Direction, Context, This, Defs, Ref> : Type extends TRef<infer Ref extends string> ? StaticRef<Stack, Direction, Context, This, Ref> : Type extends TString ? StaticString : Type extends TSymbol ? StaticSymbol : Type extends TTemplateLiteral<infer Pattern extends string> ? StaticTemplateLiteral<Pattern> : Type extends TThis ? StaticThis<Stack, Direction, Context, This> : Type extends TTuple<infer Items extends TSchema[]> ? StaticTuple<Stack, Direction, Context, This, Type, Items> : Type extends TUndefined ? StaticUndefined : Type extends TUnion<infer Types extends TSchema[]> ? StaticUnion<Stack, Direction, Context, This, Types> : Type extends TUnknown ? StaticUnknown : Type extends TUnsafe<infer Type extends unknown> ? StaticUnsafe<Type> : Type extends TVoid ? StaticVoid : XStatic<Type>
+ * export type StaticType<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Type extends TSchema
+ * > =
+ *   Type extends TCodec<infer Type extends TSchema, infer Decoded extends unknown>
+ *     ? StaticCodec<Stack, Direction, Context, This, Type, Decoded>
+ *   : Type extends TAny ? StaticAny
+ *   : Type extends TArray<infer Items extends TSchema>
+ *     ? StaticArray<Stack, Direction, Context, This, Type, Items>
+ *   : Type extends TBigInt ? StaticBigInt
+ *   : Type extends TBoolean ? StaticBoolean
+ *   : Type extends TConstructor<infer Parameters extends TSchema[], infer ReturnType extends TSchema>
+ *     ? StaticConstructor<Stack, Direction, Context, This, Parameters, ReturnType>
+ *   : Type extends TEnum<infer Values extends TEnumValue[]> ? StaticEnum<Values>
+ *   : Type extends TFunction<infer Parameters extends TSchema[], infer ReturnType extends TSchema>
+ *     ? StaticFunction<Stack, Direction, Context, This, Parameters, ReturnType>
+ *   : Type extends TDependent<infer If extends TSchema, infer Then extends TSchema, infer Else extends TSchema>
+ *     ? StaticDependent<Stack, Direction, Context, This, If, Then, Else>
+ *   : Type extends TInteger ? StaticInteger
+ *   : Type extends TIntersect<infer Types extends TSchema[]>
+ *     ? StaticIntersect<Stack, Direction, Context, This, Types>
+ *   : Type extends TLiteral<infer Value extends TLiteralValue> ? StaticLiteral<Value>
+ *   : Type extends TNever ? StaticNever
+ *   : Type extends TNull ? StaticNull
+ *   : Type extends TNumber ? StaticNumber
+ *   : Type extends TObject<infer Properties extends TProperties>
+ *     ? StaticObject<Stack, Direction, Context, This, Properties>
+ *   : Type extends TRecord<infer Key extends string, infer Value extends TSchema>
+ *     ? StaticRecord<Stack, Direction, Context, This, Key, Value>
+ *   : Type extends TCyclic<infer Defs extends TProperties, infer Ref extends string>
+ *     ? StaticCyclic<Stack, Direction, Context, This, Defs, Ref>
+ *   : Type extends TRef<infer Ref extends string>
+ *     ? StaticRef<Stack, Direction, Context, This, Ref>
+ *   : Type extends TString ? StaticString
+ *   : Type extends TSymbol ? StaticSymbol
+ *   : Type extends TTemplateLiteral<infer Pattern extends string> ? StaticTemplateLiteral<Pattern>
+ *   : Type extends TThis ? StaticThis<Stack, Direction, Context, This>
+ *   : Type extends TTuple<infer Items extends TSchema[]>
+ *     ? StaticTuple<Stack, Direction, Context, This, Type, Items>
+ *   : Type extends TUndefined ? StaticUndefined
+ *   : Type extends TUnion<infer Types extends TSchema[]>
+ *     ? StaticUnion<Stack, Direction, Context, This, Types>
+ *   : Type extends TUnknown ? StaticUnknown
+ *   : Type extends TUnsafe<infer Type extends unknown> ? StaticUnsafe<Type>
+ *   : Type extends TVoid ? StaticVoid
+ *   : XStatic<Type>
  */
 
 // ✓ StaticParse: verified type-identical to the original
@@ -269,7 +317,12 @@ export function StaticParse(Type: TSchema, Context: TProperties = {}, Result: un
   return Result
 }
 /* compiles to:
- * export type StaticParse<Type extends TSchema, Context extends TProperties = {}, Result = StaticType<[], 'Encode', Context, {}, Type>> = Result
+ * export type StaticParse<
+ *   Type extends TSchema,
+ *   Context extends TProperties = {},
+ *   Result = StaticType<[], 'Encode', Context, {}, Type>
+ * > =
+ *   Result
  */
 
 // ✓ StaticDecode: verified type-identical to the original
@@ -278,7 +331,12 @@ export function StaticDecode(Type: TSchema, Context: TProperties = {}, Result: u
   return Result
 }
 /* compiles to:
- * export type StaticDecode<Type extends TSchema, Context extends TProperties = {}, Result = StaticType<[], 'Decode', Context, {}, Type>> = Result
+ * export type StaticDecode<
+ *   Type extends TSchema,
+ *   Context extends TProperties = {},
+ *   Result = StaticType<[], 'Decode', Context, {}, Type>
+ * > =
+ *   Result
  */
 
 // ✓ StaticEncode: verified type-identical to the original
@@ -287,7 +345,12 @@ export function StaticEncode(Type: TSchema, Context: TProperties = {}, Result: u
   return Result
 }
 /* compiles to:
- * export type StaticEncode<Type extends TSchema, Context extends TProperties = {}, Result = StaticType<[], 'Encode', Context, {}, Type>> = Result
+ * export type StaticEncode<
+ *   Type extends TSchema,
+ *   Context extends TProperties = {},
+ *   Result = StaticType<[], 'Encode', Context, {}, Type>
+ * > =
+ *   Result
  */
 
 // ✓ Static: verified type-identical to the original
@@ -296,5 +359,10 @@ export function Static(Type: TSchema, Context: TProperties = {}, Result: unknown
   return Result
 }
 /* compiles to:
- * export type Static<Type extends TSchema, Context extends TProperties = {}, Result = StaticType<[], 'Encode', Context, {}, Type>> = Result
+ * export type Static<
+ *   Type extends TSchema,
+ *   Context extends TProperties = {},
+ *   Result = StaticType<[], 'Encode', Context, {}, Type>
+ * > =
+ *   Result
  */

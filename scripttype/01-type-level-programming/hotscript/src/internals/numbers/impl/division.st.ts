@@ -24,27 +24,30 @@ declare const Sign: any
 declare const ToDigitNumber: any
 declare const ToNumber: any
 declare const ToString: any
-type Digit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DivDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DivModDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FromDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ModDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MulSign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Normalize<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Num<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Sign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DivDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DivModDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FromDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ModDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MulSign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Normalize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Sign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DivDigitNumbers: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DivDigitNumbers(T: DigitNumber, U: DigitNumber) {
   return MakeDigitNumber(MulSign(Sign(T), Sign(U)), DivDigits(Num(T), Num(U)))
 }
 /* compiles to:
- * export type DivDigitNumbers<T extends DigitNumber, U extends DigitNumber> = MakeDigitNumber<MulSign<Sign<T>, Sign<U>>, DivDigits<Num<T>, Num<U>>>
+ * export type DivDigitNumbers<T extends DigitNumber, U extends DigitNumber> = MakeDigitNumber<
+ *   MulSign<Sign<T>, Sign<U>>,
+ *   DivDigits<Num<T>, Num<U>>
+ * >
  */
 
 // ✓ Div: verified type-identical to the original
@@ -53,7 +56,11 @@ export function Div(T: number | bigint, U: number | bigint) {
   return ToNumber(FromDigitNumber(Normalize(DivDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U))))))
 }
 /* compiles to:
- * export type Div<T extends number | bigint, U extends number | bigint> = ToNumber<FromDigitNumber<Normalize<DivDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>>>>
+ * export type Div<T extends number | bigint, U extends number | bigint> = ToNumber<
+ *   FromDigitNumber<
+ *     Normalize<DivDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>>
+ *   >
+ * >
  */
 
 // ✓ ModDigitNumbers: verified type-identical to the original
@@ -62,7 +69,10 @@ export function ModDigitNumbers(T: DigitNumber, U: DigitNumber) {
   return MakeDigitNumber(Sign(T), ModDigits(Num(T), Num(U)))
 }
 /* compiles to:
- * export type ModDigitNumbers<T extends DigitNumber, U extends DigitNumber> = MakeDigitNumber<Sign<T>, ModDigits<Num<T>, Num<U>>>
+ * export type ModDigitNumbers<T extends DigitNumber, U extends DigitNumber> = MakeDigitNumber<
+ *   Sign<T>,
+ *   ModDigits<Num<T>, Num<U>>
+ * >
  */
 
 // ✓ Mod: verified type-identical to the original
@@ -71,7 +81,11 @@ export function Mod(T: number | bigint, U: number | bigint) {
   return ToNumber(FromDigitNumber(Normalize(ModDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U))))))
 }
 /* compiles to:
- * export type Mod<T extends number | bigint, U extends number | bigint> = ToNumber<FromDigitNumber<Normalize<ModDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>>>>
+ * export type Mod<T extends number | bigint, U extends number | bigint> = ToNumber<
+ *   FromDigitNumber<
+ *     Normalize<ModDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>>
+ *   >
+ * >
  */
 
 // ✓ DivModDigitNumbers: verified type-identical to the original
@@ -80,7 +94,15 @@ export function DivModDigitNumbers(T: DigitNumber, U: DigitNumber, DivMod: { Quo
   return { Quotient: MakeDigitNumber(MulSign(Sign(T), Sign(U)), DivMod['Quotient']), Remainder: MakeDigitNumber(Sign(T), DivMod['Remainder']) }
 }
 /* compiles to:
- * export type DivModDigitNumbers<T extends DigitNumber, U extends DigitNumber, DivMod extends { Quotient: Digit[]; Remainder: Digit[]; } = DivModDigits<Num<T>, Num<U>>> = { Quotient: MakeDigitNumber<MulSign<Sign<T>, Sign<U>>, DivMod['Quotient']>; Remainder: MakeDigitNumber<Sign<T>, DivMod['Remainder']> }
+ * export type DivModDigitNumbers<
+ *   T extends DigitNumber,
+ *   U extends DigitNumber,
+ *   DivMod extends { Quotient: Digit[]; Remainder: Digit[]; } = DivModDigits<Num<T>, Num<U>>
+ * > =
+ *   {
+ *     Quotient: MakeDigitNumber<MulSign<Sign<T>, Sign<U>>, DivMod['Quotient']>
+ *     Remainder: MakeDigitNumber<Sign<T>, DivMod['Remainder']>
+ *   }
  */
 
 // ✓ DivMod: verified type-identical to the original
@@ -89,5 +111,13 @@ export function DivMod(T: number | bigint, U: number | bigint, DivModNumbers: { 
   return { Quotient: ToNumber(FromDigitNumber(Normalize(DivModNumbers['Quotient']))), Remainder: ToNumber(FromDigitNumber(Normalize(DivModNumbers['Remainder']))) }
 }
 /* compiles to:
- * export type DivMod<T extends number | bigint, U extends number | bigint, DivModNumbers extends { Quotient: DigitNumber; Remainder: DigitNumber; } = DivModDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>> = { Quotient: ToNumber<FromDigitNumber<Normalize<DivModNumbers['Quotient']>>>; Remainder: ToNumber<FromDigitNumber<Normalize<DivModNumbers['Remainder']>>> }
+ * export type DivMod<
+ *   T extends number | bigint,
+ *   U extends number | bigint,
+ *   DivModNumbers extends { Quotient: DigitNumber; Remainder: DigitNumber; } = DivModDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>
+ * > =
+ *   {
+ *     Quotient: ToNumber<FromDigitNumber<Normalize<DivModNumbers['Quotient']>>>
+ *     Remainder: ToNumber<FromDigitNumber<Normalize<DivModNumbers['Remainder']>>>
+ *   }
  */

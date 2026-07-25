@@ -11,12 +11,21 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PgCidrBuilder: any
-type PgCidrBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgCidrBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgCidrBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgCidrBuilderInitial(TName: string) {
   return PgCidrBuilder({ name: TName, dataType: 'string', columnType: 'PgCidr', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgCidrBuilderInitial<TName extends string> = PgCidrBuilder<{ name: TName; dataType: 'string'; columnType: 'PgCidr'; data: string; driverParam: string; enumValues: undefined }>
+ * export type PgCidrBuilderInitial<TName extends string> = PgCidrBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'PgCidr'
+ *     data: string
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */

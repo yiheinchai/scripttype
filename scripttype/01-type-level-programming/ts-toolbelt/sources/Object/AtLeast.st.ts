@@ -17,13 +17,13 @@ declare const Keys: any
 declare const OptionalFlat: any
 declare const RequiredFlat: any
 declare const _Pick: any
-type ComputeRaw<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Keys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Pick<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ComputeRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequiredIfKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RequiredIfKeys(O: object, K: Key) {
@@ -33,19 +33,21 @@ export function RequiredIfKeys(O: object, K: Key) {
   return O
 }
 /* compiles to:
- * export type RequiredIfKeys<O extends object, K extends Key> = Extends<keyof O & K, K> extends 1 ? RequiredFlat<O> : O
+ * export type RequiredIfKeys<O extends object, K extends Key> =
+ *   Extends<keyof O & K, K> extends 1 ? RequiredFlat<O> : O
  */
 
 // ✓ __AtLeast: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function __AtLeast(O: object, K: Key) {
-  if (matches<keyof typeof O>(K)) {
+  if (K in O) {
     return _Pick(O, K) & OptionalFlat(O)
   }
   return O
 }
 /* compiles to:
- * export type __AtLeast<O extends object, K extends Key> = K extends keyof O ? _Pick<O, K> & OptionalFlat<O> : O
+ * export type __AtLeast<O extends object, K extends Key> =
+ *   K extends keyof O ? _Pick<O, K> & OptionalFlat<O> : O
  */
 
 // ✓ _AtLeast: verified type-identical to the original
@@ -54,7 +56,9 @@ export function _AtLeast(O: object, K: Key) {
   return ComputeRaw(__AtLeast(RequiredIfKeys(O, K), K))
 }
 /* compiles to:
- * export type _AtLeast<O extends object, K extends Key> = ComputeRaw<__AtLeast<RequiredIfKeys<O, K>, K>>
+ * export type _AtLeast<O extends object, K extends Key> = ComputeRaw<
+ *   __AtLeast<RequiredIfKeys<O, K>, K>
+ * >
  */
 
 // ✓ AtLeast: verified type-identical to the original
@@ -66,5 +70,6 @@ export function AtLeast(O: object, K: Key = Keys(O)) {
   return never
 }
 /* compiles to:
- * export type AtLeast<O extends object, K extends Key = Keys<O>> = O extends unknown ? _AtLeast<O, K> : never
+ * export type AtLeast<O extends object, K extends Key = Keys<O>> =
+ *   O extends unknown ? _AtLeast<O, K> : never
  */

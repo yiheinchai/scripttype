@@ -15,18 +15,19 @@ declare const ExtractRowFromCommonTableExpressionName: any
 declare const ExtractTableFromCommonTableExpressionName: any
 declare const ReadonlyQueryCreator: any
 declare const SelectQueryBuilder: any
-type Expression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractRowFromCommonTableExpressionName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractTableFromCommonTableExpressionName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyQueryCreator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractRowFromCommonTableExpressionName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractTableFromCommonTableExpressionName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyQueryCreator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadonlyCommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyCommonTableExpression(DB, CN) {
   return ReadonlyCommonTableExpressionOutput(DB, CN) | ReadonlyCommonTableExpressionFactory(DB, CN)
 }
 /* compiles to:
- * export type ReadonlyCommonTableExpression<DB, CN> = ReadonlyCommonTableExpressionOutput<DB, CN> | ReadonlyCommonTableExpressionFactory<DB, CN>
+ * export type ReadonlyCommonTableExpression<DB, CN> =
+ *   ReadonlyCommonTableExpressionOutput<DB, CN> | ReadonlyCommonTableExpressionFactory<DB, CN>
  */
 
 // ✓ ReadonlyCommonTableExpressionFactory: verified type-identical to the original
@@ -35,7 +36,8 @@ export function ReadonlyCommonTableExpressionFactory(DB, CN) {
   return fnType([ReadonlyQueryCreator(DB)], ReadonlyCommonTableExpressionOutput(DB, CN))
 }
 /* compiles to:
- * export type ReadonlyCommonTableExpressionFactory<DB, CN> = (a0: ReadonlyQueryCreator<DB>) => ReadonlyCommonTableExpressionOutput<DB, CN>
+ * export type ReadonlyCommonTableExpressionFactory<DB, CN> =
+ *   (a0: ReadonlyQueryCreator<DB>) => ReadonlyCommonTableExpressionOutput<DB, CN>
  */
 
 // ✓ ReadonlyRecursiveCommonTableExpression: verified type-identical to the original
@@ -48,7 +50,10 @@ export function ReadonlyRecursiveCommonTableExpression(DB, CN: string) {
   return fnType([ReadonlyQueryCreator(DB & out)], ReadonlyCommonTableExpressionOutput(DB, CN))
 }
 /* compiles to:
- * export type ReadonlyRecursiveCommonTableExpression<DB, CN extends string> = (a0: ReadonlyQueryCreator<DB & { [K in ExtractTableFromCommonTableExpressionName<CN>]: ExtractRowFromCommonTableExpressionName<CN> }>) => ReadonlyCommonTableExpressionOutput<DB, CN>
+ * export type ReadonlyRecursiveCommonTableExpression<DB, CN extends string> =
+ *   (
+ *     a0: ReadonlyQueryCreator<DB & { [K in ExtractTableFromCommonTableExpressionName<CN>]: ExtractRowFromCommonTableExpressionName<CN> }>
+ *   ) => ReadonlyCommonTableExpressionOutput<DB, CN>
  */
 
 // ✓ ReadonlyCommonTableExpressionOutput: verified type-identical to the original
@@ -57,7 +62,8 @@ export function ReadonlyCommonTableExpressionOutput(DB, CN) {
   return SelectQueryBuilder(DB, any, any) | Expression(ExtractRowFromCommonTableExpressionName(CN))
 }
 /* compiles to:
- * export type ReadonlyCommonTableExpressionOutput<DB, CN> = SelectQueryBuilder<DB, any, any> | Expression<ExtractRowFromCommonTableExpressionName<CN>>
+ * export type ReadonlyCommonTableExpressionOutput<DB, CN> =
+ *   SelectQueryBuilder<DB, any, any> | Expression<ExtractRowFromCommonTableExpressionName<CN>>
  */
 
 // ✓ ReadonlyQueryCreatorWithCommonTableExpression: verified type-identical to the original
@@ -70,7 +76,14 @@ export function ReadonlyQueryCreatorWithCommonTableExpression(DB, CN: string, CT
   return ReadonlyQueryCreator(DB & out)
 }
 /* compiles to:
- * export type ReadonlyQueryCreatorWithCommonTableExpression<DB, CN extends string, CTE> = ReadonlyQueryCreator<DB & { [K in ExtractTableFromCommonTableExpressionName<CN>]: ReadonlyExtractRowFromCommonTableExpression<CTE> }>
+ * export type ReadonlyQueryCreatorWithCommonTableExpression<DB, CN extends string, CTE> = ReadonlyQueryCreator<
+ *   & DB
+ *   & {
+ *       [K in ExtractTableFromCommonTableExpressionName<CN>]: ReadonlyExtractRowFromCommonTableExpression<
+ *         CTE
+ *       >
+ *     }
+ * >
  */
 
 // ✓ ReadonlyExtractRowFromCommonTableExpression: verified type-identical to the original
@@ -91,5 +104,9 @@ export function ReadonlyExtractRowFromCommonTableExpression(CTE) {
   return never
 }
 /* compiles to:
- * export type ReadonlyExtractRowFromCommonTableExpression<CTE> = CTE extends Expression<infer O> ? O : CTE extends (creator: ReadonlyQueryCreator<any>) => infer Q ? Q extends Expression<infer O> ? O : never : never
+ * export type ReadonlyExtractRowFromCommonTableExpression<CTE> =
+ *   CTE extends Expression<infer O> ? O
+ *   : CTE extends (creator: ReadonlyQueryCreator<any>) => infer Q
+ *     ? Q extends Expression<infer O> ? O : never
+ *   : never
  */

@@ -19,15 +19,15 @@ declare const PartialApply: any
 declare const ReturnTypeFn: any
 declare const _: any
 declare const unset: any
-type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MapParametersFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MapReturnTypeFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParameterFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParametersFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReturnTypeFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MapParametersFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MapReturnTypeFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParameterFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParametersFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReturnTypeFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ParametersImpl: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -49,7 +49,10 @@ export function Parameters(fn: ((...args: any[]) => any) | _ | unset = unset) {
   return PartialApply(ParametersFn, [fn])
 }
 /* compiles to:
- * export type Parameters<fn extends (...args: any[]) => any | _ | unset = unset> = PartialApply<ParametersFn, [fn]>
+ * export type Parameters<fn extends (...args: any[]) => any | _ | unset = unset> = PartialApply<
+ *   ParametersFn,
+ *   [fn]
+ * >
  */
 
 // ✗ Parameter: does not compile yet
@@ -59,7 +62,11 @@ export function Parameter(N: number | _ | unset = unset, fn: ((...args: any[]) =
   return PartialApply(ParameterFn, [fn, N])
 }
 /* compiles to:
- * export type Parameter<N extends number | _ | unset = unset, fn extends (...args: any[]) => any | _ | unset = unset> = PartialApply<ParameterFn, [fn, N]>
+ * export type Parameter<
+ *   N extends number | _ | unset = unset,
+ *   fn extends (...args: any[]) => any | _ | unset = unset
+ * > =
+ *   PartialApply<ParameterFn, [fn, N]>
  */
 
 // ✗ ReturnTypeImpl: compiles but is not type-identical yet
@@ -83,7 +90,10 @@ export function ReturnType(fn: ((...args: any[]) => any) | _ | unset = unset) {
   return PartialApply(ReturnTypeFn, [fn])
 }
 /* compiles to:
- * export type ReturnType<fn extends (...args: any[]) => any | _ | unset = unset> = PartialApply<ReturnTypeFn, [fn]>
+ * export type ReturnType<fn extends (...args: any[]) => any | _ | unset = unset> = PartialApply<
+ *   ReturnTypeFn,
+ *   [fn]
+ * >
  */
 
 // ✗ MapReturnType: does not compile yet
@@ -93,7 +103,11 @@ export function MapReturnType(fn: Fn | unset | _ = unset, fnValue: ((...args: an
   return PartialApply(MapReturnTypeFn, [fn, fnValue])
 }
 /* compiles to:
- * export type MapReturnType<fn extends Fn | unset | _ = unset, fnValue extends (...args: any[]) => any | _ | unset = unset> = PartialApply<MapReturnTypeFn, [fn, fnValue]>
+ * export type MapReturnType<
+ *   fn extends Fn | unset | _ = unset,
+ *   fnValue extends (...args: any[]) => any | _ | unset = unset
+ * > =
+ *   PartialApply<MapReturnTypeFn, [fn, fnValue]>
  */
 
 // ✗ MapParameters: does not compile yet
@@ -103,5 +117,9 @@ export function MapParameters(fn: Fn | unset | _ = unset, fnValue: ((...args: an
   return PartialApply(MapParametersFn, [fn, fnValue])
 }
 /* compiles to:
- * export type MapParameters<fn extends Fn | unset | _ = unset, fnValue extends (...args: any[]) => any | _ | unset = unset> = PartialApply<MapParametersFn, [fn, fnValue]>
+ * export type MapParameters<
+ *   fn extends Fn | unset | _ = unset,
+ *   fnValue extends (...args: any[]) => any | _ | unset = unset
+ * > =
+ *   PartialApply<MapParametersFn, [fn, fnValue]>
  */

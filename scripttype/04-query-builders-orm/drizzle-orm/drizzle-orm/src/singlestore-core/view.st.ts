@@ -12,13 +12,18 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ColumnsSelection: any
 declare const SingleStoreView: any
-type ColumnsSelection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreView<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreView<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreViewWithSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreViewWithSelection(TName: string, TExisting: boolean, TSelectedFields: ColumnsSelection) {
   return merge(SingleStoreView(TName, TExisting, TSelectedFields), TSelectedFields)
 }
 /* compiles to:
- * export type SingleStoreViewWithSelection<TName extends string, TExisting extends boolean, TSelectedFields extends ColumnsSelection> = SingleStoreView<TName, TExisting, TSelectedFields> & TSelectedFields
+ * export type SingleStoreViewWithSelection<
+ *   TName extends string,
+ *   TExisting extends boolean,
+ *   TSelectedFields extends ColumnsSelection
+ * > =
+ *   SingleStoreView<TName, TExisting, TSelectedFields> & TSelectedFields
  */

@@ -12,10 +12,11 @@
 export function Overwrite(O: object, O1: object) {
   const out = emptyObject
   for (const K in keyof(O)) {
-    out[K] = matches<keyof typeof O1>(K) ? O1[K] : O[K]
+    out[K] = K in O1 ? O1[K] : O[K]
   }
   return merge(out, {})
 }
 /* compiles to:
- * export type Overwrite<O extends object, O1 extends object> = { [K in keyof O]: K extends keyof O1 ? O1[K] : O[K] } & {}
+ * export type Overwrite<O extends object, O1 extends object> =
+ *   { [K in keyof O]: K extends keyof O1 ? O1[K] : O[K] } & {}
  */

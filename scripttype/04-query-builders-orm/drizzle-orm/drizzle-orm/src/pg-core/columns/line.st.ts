@@ -12,15 +12,24 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PgLineABCBuilder: any
 declare const PgLineBuilder: any
-type PgLineABCBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgLineBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgLineABCBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgLineBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgLineBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgLineBuilderInitial(TName: string) {
   return PgLineBuilder({ name: TName, dataType: 'array', columnType: 'PgLine', data: [number, number, number], driverParam: number | string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgLineBuilderInitial<TName extends string> = PgLineBuilder<{ name: TName; dataType: 'array'; columnType: 'PgLine'; data: [number, number, number]; driverParam: number | string; enumValues: undefined }>
+ * export type PgLineBuilderInitial<TName extends string> = PgLineBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'array'
+ *     columnType: 'PgLine'
+ *     data: [number, number, number]
+ *     driverParam: number | string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ PgLineABCBuilderInitial: verified type-identical to the original
@@ -29,5 +38,14 @@ export function PgLineABCBuilderInitial(TName: string) {
   return PgLineABCBuilder({ name: TName, dataType: 'json', columnType: 'PgLineABC', data: { a: number, b: number, c: number }, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgLineABCBuilderInitial<TName extends string> = PgLineABCBuilder<{ name: TName; dataType: 'json'; columnType: 'PgLineABC'; data: { a: number; b: number; c: number }; driverParam: string; enumValues: undefined }>
+ * export type PgLineABCBuilderInitial<TName extends string> = PgLineABCBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'json'
+ *     columnType: 'PgLineABC'
+ *     data: { a: number; b: number; c: number }
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */

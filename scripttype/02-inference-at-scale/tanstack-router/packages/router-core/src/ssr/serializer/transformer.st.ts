@@ -29,34 +29,37 @@ declare const TNext: any
 declare const TReturn: any
 declare const TValue: any
 declare const U: any
-type AnyRoute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnySerializationAdapter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AsyncGenerator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LooseReturnType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadableStream<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredConfigType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredReadableStream<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredSerializationAdapters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredSsr<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResolveAllSSR<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SSROption<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Serializable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SerializationError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TAwaited<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TItem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TReturn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type U<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidateSerializable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnySerializationAdapter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AsyncGenerator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LooseReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadableStream<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredConfigType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredReadableStream<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredSerializationAdapters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredSsr<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResolveAllSSR<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SSROption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Serializable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SerializationError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TAwaited<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TReturn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidateSerializable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnionizeSerializationAdaptersInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UnionizeSerializationAdaptersInput(TAdapters: ReadonlyArray<AnySerializationAdapter>) {
   return TAdapters[number]['~types']['input']
 }
 /* compiles to:
- * export type UnionizeSerializationAdaptersInput<TAdapters extends ReadonlyArray<AnySerializationAdapter>> = TAdapters[number]['~types']['input']
+ * export type UnionizeSerializationAdaptersInput<
+ *   TAdapters extends ReadonlyArray<AnySerializationAdapter>
+ * > =
+ *   TAdapters[number]['~types']['input']
  */
 
 // ✓ ValidateSerializable: verified type-identical to the original
@@ -95,7 +98,19 @@ export function ValidateSerializable(T, TSerializable) {
   return SerializationError('Type may not be serializable')
 }
 /* compiles to:
- * export type ValidateSerializable<T, TSerializable> = T extends TSerializable ? T : T extends (...args: Array<any>) => any ? SerializationError<'Function may not be serializable'> : T extends RegisteredReadableStream ? SerializationError<'JSX is not be serializable'> : T extends ReadonlyArray<any> ? ValidateSerializableArray<T, TSerializable> : T extends Promise<any> ? ValidateSerializablePromise<T, TSerializable> : T extends ReadableStream<any> ? ValidateReadableStream<T, TSerializable> : T extends Set<any> ? ValidateSerializableSet<T, TSerializable> : T extends Map<any, any> ? ValidateSerializableMap<T, TSerializable> : T extends AsyncGenerator<any, any> ? ValidateSerializableAsyncGenerator<T, TSerializable> : T extends object ? ValidateSerializableMapped<T, TSerializable> : SerializationError<'Type may not be serializable'>
+ * export type ValidateSerializable<T, TSerializable> =
+ *   T extends TSerializable ? T
+ *   : T extends (...args: Array<any>) => any
+ *     ? SerializationError<'Function may not be serializable'>
+ *   : T extends RegisteredReadableStream ? SerializationError<'JSX is not be serializable'>
+ *   : T extends ReadonlyArray<any> ? ValidateSerializableArray<T, TSerializable>
+ *   : T extends Promise<any> ? ValidateSerializablePromise<T, TSerializable>
+ *   : T extends ReadableStream<any> ? ValidateReadableStream<T, TSerializable>
+ *   : T extends Set<any> ? ValidateSerializableSet<T, TSerializable>
+ *   : T extends Map<any, any> ? ValidateSerializableMap<T, TSerializable>
+ *   : T extends AsyncGenerator<any, any> ? ValidateSerializableAsyncGenerator<T, TSerializable>
+ *   : T extends object ? ValidateSerializableMapped<T, TSerializable>
+ *   : SerializationError<'Type may not be serializable'>
  */
 
 // ✓ ValidateSerializableAsyncGenerator: verified type-identical to the original
@@ -108,7 +123,14 @@ export function ValidateSerializableAsyncGenerator(T, TSerializable) {
   return never
 }
 /* compiles to:
- * export type ValidateSerializableAsyncGenerator<T, TSerializable> = T extends AsyncGenerator<infer T, infer TReturn, infer TNext> ? AsyncGenerator<ValidateSerializable<T, TSerializable>, ValidateSerializable<TReturn, TSerializable>, TNext> : never
+ * export type ValidateSerializableAsyncGenerator<T, TSerializable> =
+ *   T extends AsyncGenerator<infer T, infer TReturn, infer TNext>
+ *     ? AsyncGenerator<
+ *       ValidateSerializable<T, TSerializable>,
+ *       ValidateSerializable<TReturn, TSerializable>,
+ *       TNext
+ *     >
+ *     : never
  */
 
 // ✓ ValidateSerializablePromise: verified type-identical to the original
@@ -121,7 +143,10 @@ export function ValidateSerializablePromise(T, TSerializable) {
   return never
 }
 /* compiles to:
- * export type ValidateSerializablePromise<T, TSerializable> = T extends Promise<infer TAwaited> ? Promise<ValidateSerializable<TAwaited, TSerializable>> : never
+ * export type ValidateSerializablePromise<T, TSerializable> =
+ *   T extends Promise<infer TAwaited>
+ *     ? Promise<ValidateSerializable<TAwaited, TSerializable>>
+ *     : never
  */
 
 // ✓ ValidateReadableStream: verified type-identical to the original
@@ -134,7 +159,10 @@ export function ValidateReadableStream(T, TSerializable) {
   return never
 }
 /* compiles to:
- * export type ValidateReadableStream<T, TSerializable> = T extends ReadableStream<infer TStreamed> ? ReadableStream<ValidateSerializable<TStreamed, TSerializable>> : never
+ * export type ValidateReadableStream<T, TSerializable> =
+ *   T extends ReadableStream<infer TStreamed>
+ *     ? ReadableStream<ValidateSerializable<TStreamed, TSerializable>>
+ *     : never
  */
 
 // ✓ ValidateSerializableSet: verified type-identical to the original
@@ -147,7 +175,8 @@ export function ValidateSerializableSet(T, TSerializable) {
   return never
 }
 /* compiles to:
- * export type ValidateSerializableSet<T, TSerializable> = T extends Set<infer TItem> ? Set<ValidateSerializable<TItem, TSerializable>> : never
+ * export type ValidateSerializableSet<T, TSerializable> =
+ *   T extends Set<infer TItem> ? Set<ValidateSerializable<TItem, TSerializable>> : never
  */
 
 // ✓ ValidateSerializableMap: verified type-identical to the original
@@ -160,7 +189,13 @@ export function ValidateSerializableMap(T, TSerializable) {
   return never
 }
 /* compiles to:
- * export type ValidateSerializableMap<T, TSerializable> = T extends Map<infer TKey, infer TValue> ? Map<ValidateSerializable<TKey, TSerializable>, ValidateSerializable<TValue, TSerializable>> : never
+ * export type ValidateSerializableMap<T, TSerializable> =
+ *   T extends Map<infer TKey, infer TValue>
+ *     ? Map<
+ *       ValidateSerializable<TKey, TSerializable>,
+ *       ValidateSerializable<TValue, TSerializable>
+ *     >
+ *     : never
  */
 
 // ✓ ValidateSerializableArray: verified type-identical to the original
@@ -180,7 +215,11 @@ export function ValidateSerializableArray(T, TSerializable) {
   return never
 }
 /* compiles to:
- * export type ValidateSerializableArray<T, TSerializable> = T extends readonly [any, ...Array<any>] ? ValidateSerializableMapped<T, TSerializable> : T extends Array<infer U> ? Array<ValidateSerializable<U, TSerializable>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<ValidateSerializable<U, TSerializable>> : never
+ * export type ValidateSerializableArray<T, TSerializable> =
+ *   T extends readonly [any, ...Array<any>] ? ValidateSerializableMapped<T, TSerializable>
+ *   : T extends Array<infer U> ? Array<ValidateSerializable<U, TSerializable>>
+ *   : T extends ReadonlyArray<infer U> ? ReadonlyArray<ValidateSerializable<U, TSerializable>>
+ *   : never
  */
 
 // ✓ ValidateSerializableMapped: verified type-identical to the original
@@ -193,7 +232,9 @@ export function ValidateSerializableMapped(T, TSerializable) {
   return out
 }
 /* compiles to:
- * export type ValidateSerializableMapped<T, TSerializable> = { [K in keyof T]: ValidateSerializable<T[K], TSerializable> }
+ * export type ValidateSerializableMapped<T, TSerializable> = {
+ *   [K in keyof T]: ValidateSerializable<T[K], TSerializable>
+ * }
  */
 
 // ✓ ValidateSerializableInput: verified type-identical to the original
@@ -202,7 +243,10 @@ export function ValidateSerializableInput(TRegister, T) {
   return ValidateSerializable(T, RegisteredSerializableInput(TRegister))
 }
 /* compiles to:
- * export type ValidateSerializableInput<TRegister, T> = ValidateSerializable<T, RegisteredSerializableInput<TRegister>>
+ * export type ValidateSerializableInput<TRegister, T> = ValidateSerializable<
+ *   T,
+ *   RegisteredSerializableInput<TRegister>
+ * >
  */
 
 // ✓ RegisteredSerializableInput: verified type-identical to the original
@@ -211,7 +255,14 @@ export function RegisteredSerializableInput(TRegister) {
   return (matches<RegisteredSerializationAdapters<typeof TRegister>>(unknown) ? never : (matches<ReadonlyArray<AnySerializationAdapter>>(RegisteredSerializationAdapters(TRegister)) ? RegisteredSerializationAdapters(TRegister)[number]['~types']['input'] : never)) | Serializable
 }
 /* compiles to:
- * export type RegisteredSerializableInput<TRegister> = (unknown extends RegisteredSerializationAdapters<TRegister> ? never : RegisteredSerializationAdapters<TRegister> extends ReadonlyArray<AnySerializationAdapter> ? RegisteredSerializationAdapters<TRegister>[number]['~types']['input'] : never) | Serializable
+ * export type RegisteredSerializableInput<TRegister> =
+ *   | (
+ *       unknown extends RegisteredSerializationAdapters<TRegister> ? never
+ *       : RegisteredSerializationAdapters<TRegister> extends ReadonlyArray<AnySerializationAdapter>
+ *         ? RegisteredSerializationAdapters<TRegister>[number]['~types']['input']
+ *       : never
+ *     )
+ *   | Serializable
  */
 
 // ✓ RegisteredSerializationAdapters: verified type-identical to the original
@@ -220,7 +271,10 @@ export function RegisteredSerializationAdapters(TRegister) {
   return RegisteredConfigType(TRegister, 'serializationAdapters')
 }
 /* compiles to:
- * export type RegisteredSerializationAdapters<TRegister> = RegisteredConfigType<TRegister, 'serializationAdapters'>
+ * export type RegisteredSerializationAdapters<TRegister> = RegisteredConfigType<
+ *   TRegister,
+ *   'serializationAdapters'
+ * >
  */
 
 // ✓ RegisteredSSROption: verified type-identical to the original
@@ -232,7 +286,10 @@ export function RegisteredSSROption(TRegister) {
   return RegisteredConfigType(TRegister, 'defaultSsr')
 }
 /* compiles to:
- * export type RegisteredSSROption<TRegister> = unknown extends RegisteredConfigType<TRegister, 'defaultSsr'> ? SSROption : RegisteredConfigType<TRegister, 'defaultSsr'>
+ * export type RegisteredSSROption<TRegister> =
+ *   unknown extends RegisteredConfigType<TRegister, 'defaultSsr'>
+ *     ? SSROption
+ *     : RegisteredConfigType<TRegister, 'defaultSsr'>
  */
 
 // ✓ ValidateSerializableLifecycleResult: verified type-identical to the original
@@ -248,7 +305,16 @@ export function ValidateSerializableLifecycleResult(TRegister, TParentRoute: Any
   return never
 }
 /* compiles to:
- * export type ValidateSerializableLifecycleResult<TRegister, TParentRoute extends AnyRoute, TSSR, TFn> = false extends RegisteredSsr<TRegister> ? any : ValidateSerializableLifecycleResultSSR<TRegister, TParentRoute, TSSR, TFn> extends infer TInput ? TInput : never
+ * export type ValidateSerializableLifecycleResult<
+ *   TRegister,
+ *   TParentRoute extends AnyRoute,
+ *   TSSR,
+ *   TFn
+ * > =
+ *   false extends RegisteredSsr<TRegister> ? any
+ *   : ValidateSerializableLifecycleResultSSR<TRegister, TParentRoute, TSSR, TFn> extends infer TInput
+ *     ? TInput
+ *   : never
  */
 
 // ✓ ValidateSerializableLifecycleResultSSR: verified type-identical to the original
@@ -263,5 +329,13 @@ export function ValidateSerializableLifecycleResultSSR(TRegister, TParentRoute: 
   return ValidateSerializableInput(TRegister, LooseReturnType(TFn))
 }
 /* compiles to:
- * export type ValidateSerializableLifecycleResultSSR<TRegister, TParentRoute extends AnyRoute, TSSR, TFn> = ResolveAllSSR<TParentRoute, TSSR> extends false ? any : RegisteredSSROption<TRegister> extends false ? any : ValidateSerializableInput<TRegister, LooseReturnType<TFn>>
+ * export type ValidateSerializableLifecycleResultSSR<
+ *   TRegister,
+ *   TParentRoute extends AnyRoute,
+ *   TSSR,
+ *   TFn
+ * > =
+ *   ResolveAllSSR<TParentRoute, TSSR> extends false ? any
+ *   : RegisteredSSROption<TRegister> extends false ? any
+ *   : ValidateSerializableInput<TRegister, LooseReturnType<TFn>>
  */

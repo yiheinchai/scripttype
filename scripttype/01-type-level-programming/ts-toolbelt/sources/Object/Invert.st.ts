@@ -13,9 +13,9 @@
 declare const ComputeRaw: any
 declare const IntersectOf: any
 declare const Key: any
-type ComputeRaw<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IntersectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ComputeRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IntersectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _Invert: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _Invert(O: Record<Key, Key>) {
@@ -26,7 +26,9 @@ export function _Invert(O: Record<Key, Key>) {
   return ComputeRaw(IntersectOf(out[keyof(O)]))
 }
 /* compiles to:
- * export type _Invert<O extends Record<Key, Key>> = ComputeRaw<IntersectOf<{ [K in keyof O]: Record<O[K], K> }[keyof O]>>
+ * export type _Invert<O extends Record<Key, Key>> = ComputeRaw<
+ *   IntersectOf<{ [K in keyof O]: Record<O[K], K> }[keyof O]>
+ * >
  */
 
 // ✗ Invert: the ScriptType does not itself typecheck as TypeScript

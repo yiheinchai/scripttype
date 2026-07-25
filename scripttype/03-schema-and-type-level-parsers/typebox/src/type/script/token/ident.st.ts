@@ -14,10 +14,10 @@ declare const TInitial: any
 declare const TRemaining: any
 declare const TTake: any
 declare const TTrim: any
-type TInitial<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRemaining<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTake<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTrim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TInitial<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRemaining<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TTakeInitial(Input: string) {
@@ -44,7 +44,10 @@ export function TTakeRemaining(Input: string) {
 }
 /* compiles to:
  * export type TTakeRemaining<Input extends string> = TTakeRemaining__loop<Input, ''>
- * type TTakeRemaining__loop<Input extends string, Result extends string> = TTake<TRemaining, Input> extends [infer Remaining extends string, infer RemainingRest extends string] ? TTakeRemaining__loop<RemainingRest, `${Result}${Remaining}`> : [Result, Input]
+ * type TTakeRemaining__loop<Input extends string, Result extends string> =
+ *   TTake<TRemaining, Input> extends [infer Remaining extends string, infer RemainingRest extends string]
+ *     ? TTakeRemaining__loop<RemainingRest, `${Result}${Remaining}`>
+ *     : [Result, Input]
  */
 
 // ✓ TTakeIdent: verified type-identical to the original
@@ -61,7 +64,12 @@ export function TTakeIdent(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTakeIdent<Input extends string> = TTakeInitial<Input> extends [infer Initial extends string, infer InitialRest extends string] ? TTakeRemaining<InitialRest> extends [infer Remaining extends string, infer RemainingRest extends string] ? [`${Initial}${Remaining}`, RemainingRest] : [] : []
+ * export type TTakeIdent<Input extends string> =
+ *   TTakeInitial<Input> extends [infer Initial extends string, infer InitialRest extends string]
+ *     ? TTakeRemaining<InitialRest> extends [infer Remaining extends string, infer RemainingRest extends string]
+ *       ? [`${Initial}${Remaining}`, RemainingRest]
+ *       : []
+ *     : []
  */
 
 // ✓ TIdent: verified type-identical to the original

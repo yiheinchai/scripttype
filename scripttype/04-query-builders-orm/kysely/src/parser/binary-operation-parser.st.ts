@@ -18,21 +18,25 @@ declare const SelectType: any
 declare const StringReference: any
 declare const ValueExpression: any
 declare const ValueExpressionOrList: any
-type ExtractTypeFromReferenceExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractTypeFromStringReference<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type KyselyTypeError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringReference<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueExpressionOrList<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExtractTypeFromReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractTypeFromStringReference<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type KyselyTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringReference<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueExpressionOrList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OperandValueExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OperandValueExpression(DB, TB: keyof typeof DB, RE) {
   return ValueExpression(DB, TB, ExtractTypeFromReferenceExpression(DB, TB, RE))
 }
 /* compiles to:
- * export type OperandValueExpression<DB, TB extends keyof DB, RE> = ValueExpression<DB, TB, ExtractTypeFromReferenceExpression<DB, TB, RE>>
+ * export type OperandValueExpression<DB, TB extends keyof DB, RE> = ValueExpression<
+ *   DB,
+ *   TB,
+ *   ExtractTypeFromReferenceExpression<DB, TB, RE>
+ * >
  */
 
 // ✓ OperandValueExpressionOrList: verified type-identical to the original
@@ -41,7 +45,11 @@ export function OperandValueExpressionOrList(DB, TB: keyof typeof DB, RE) {
   return ValueExpressionOrList(DB, TB, ExtractTypeFromReferenceExpression(DB, TB, RE) | Null)
 }
 /* compiles to:
- * export type OperandValueExpressionOrList<DB, TB extends keyof DB, RE> = ValueExpressionOrList<DB, TB, ExtractTypeFromReferenceExpression<DB, TB, RE> | null>
+ * export type OperandValueExpressionOrList<DB, TB extends keyof DB, RE> = ValueExpressionOrList<
+ *   DB,
+ *   TB,
+ *   ExtractTypeFromReferenceExpression<DB, TB, RE> | null
+ * >
  */
 
 // ✓ FilterObject: verified type-identical to the original
@@ -57,5 +65,16 @@ export function FilterObject(DB, TB: keyof typeof DB) {
   return out
 }
 /* compiles to:
- * export type FilterObject<DB, TB extends keyof DB> = IsNever<TB> extends true ? KyselyTypeError<'there are no tables in query context, so a filter object cannot be defined. try passing an array instead.'> : { [R in StringReference<DB, TB>]?: ValueExpressionOrList<DB, TB, SelectType<ExtractTypeFromStringReference<DB, TB, R>>> }
+ * export type FilterObject<DB, TB extends keyof DB> =
+ *   IsNever<TB> extends true
+ *     ? KyselyTypeError<
+ *       'there are no tables in query context, so a filter object cannot be defined. try passing an array instead.'
+ *     >
+ *     : {
+ *       [R in StringReference<DB, TB>]?: ValueExpressionOrList<
+ *         DB,
+ *         TB,
+ *         SelectType<ExtractTypeFromStringReference<DB, TB, R>>
+ *       >
+ *     }
  */

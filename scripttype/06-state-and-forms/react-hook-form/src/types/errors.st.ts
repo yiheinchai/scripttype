@@ -16,12 +16,12 @@ declare const FieldError: any
 declare const FieldValues: any
 declare const GlobalError: any
 declare const Merge: any
-type Blob<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BrowserNativeObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GlobalError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Blob<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BrowserNativeObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GlobalError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DeepRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DeepRequired(T) {
@@ -35,7 +35,10 @@ export function DeepRequired(T) {
   return out
 }
 /* compiles to:
- * export type DeepRequired<T> = T extends BrowserNativeObject | Blob ? T : { [K in keyof T]-?: NonNullable<DeepRequired<T[K]>> }
+ * export type DeepRequired<T> =
+ *   T extends BrowserNativeObject | Blob
+ *     ? T
+ *     : { [K in keyof T]-?: NonNullable<DeepRequired<T[K]>> }
  */
 
 // ✓ FieldErrorsImpl: verified type-identical to the original
@@ -48,7 +51,12 @@ export function FieldErrorsImpl(T: FieldValues = FieldValues) {
   return out
 }
 /* compiles to:
- * export type FieldErrorsImpl<T extends FieldValues = FieldValues> = { [K in keyof T]?: T[K] extends BrowserNativeObject | Blob ? FieldError : K extends 'root' | `root.${string}` ? GlobalError : T[K] extends object ? Merge<FieldError, FieldErrorsImpl<T[K]>> : FieldError }
+ * export type FieldErrorsImpl<T extends FieldValues = FieldValues> = {
+ *   [K in keyof T]?: T[K] extends BrowserNativeObject | Blob ? FieldError
+ *   : K extends 'root' | `root.${string}` ? GlobalError
+ *   : T[K] extends object ? Merge<FieldError, FieldErrorsImpl<T[K]>>
+ *   : FieldError
+ * }
  */
 
 // ✓ FieldErrors: verified type-identical to the original
@@ -57,5 +65,7 @@ export function FieldErrors(T: FieldValues = FieldValues) {
   return merge(Partial(FieldErrorsImpl(DeepRequired(T))), { root: optional(Record(string, GlobalError) & GlobalError), form: optional(GlobalError) })
 }
 /* compiles to:
- * export type FieldErrors<T extends FieldValues = FieldValues> = Partial<FieldErrorsImpl<DeepRequired<T>>> & { root?: Record<string, GlobalError> & GlobalError; form?: GlobalError }
+ * export type FieldErrors<T extends FieldValues = FieldValues> =
+ *   & Partial<FieldErrorsImpl<DeepRequired<T>>>
+ *   & { root?: Record<string, GlobalError> & GlobalError; form?: GlobalError }
  */

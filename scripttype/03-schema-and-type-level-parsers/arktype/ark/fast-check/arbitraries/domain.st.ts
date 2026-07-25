@@ -10,12 +10,15 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace fc {
+  export type Arbitrary<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Ctx: any
 declare const DomainInputNode: any
 declare const fc: any
-type Ctx<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DomainInputNode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type fc<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Ctx<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DomainInputNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type fc<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DomainArbitrary: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DomainArbitrary(t = unknown) {

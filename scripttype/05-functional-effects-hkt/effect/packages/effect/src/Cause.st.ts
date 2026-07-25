@@ -15,12 +15,12 @@ declare const Die: any
 declare const Done: any
 declare const Fail: any
 declare const Interrupt: any
-type Cause<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Die<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Done<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Fail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Interrupt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Reason<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cause<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Die<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Done<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Fail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Interrupt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Reason<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Reason: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Reason(E) {

@@ -14,14 +14,14 @@ declare const And: any
 declare const Extends: any
 declare const Kind: any
 declare const Or: any
-type And<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Kind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Or<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Kind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsStringLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsStringLiteral(A: any) {
-  if (matches<string>(A)) {
+  if (typeof A === 'string') {
     if (matches<typeof A>(string)) {
       return 0
     }
@@ -36,7 +36,7 @@ export function IsStringLiteral(A: any) {
 // ✓ IsNumberLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsNumberLiteral(A: any) {
-  if (matches<number>(A)) {
+  if (typeof A === 'number') {
     if (matches<typeof A>(number)) {
       return 0
     }
@@ -54,5 +54,8 @@ export function IsLiteral(A: any, kind: Kind = Kind) {
   return And(Or(IsStringLiteral(A), IsNumberLiteral(A)), Extends(A, kind))
 }
 /* compiles to:
- * export type IsLiteral<A extends any, kind extends Kind = Kind> = And<Or<IsStringLiteral<A>, IsNumberLiteral<A>>, Extends<A, kind>>
+ * export type IsLiteral<A extends any, kind extends Kind = Kind> = And<
+ *   Or<IsStringLiteral<A>, IsNumberLiteral<A>>,
+ *   Extends<A, kind>
+ * >
  */

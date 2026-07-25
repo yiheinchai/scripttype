@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Result {
+  export type TExtendsFalse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExtendsTrue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Result: any
 declare const TBigInt: any
 declare const TBoolean: any
@@ -21,17 +25,17 @@ declare const TProperties: any
 declare const TSchema: any
 declare const TString: any
 declare const TUnreachable: any
-type Result<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TBigInt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TBoolean<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExtendsRight<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteralValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnreachable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TBigInt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TBoolean<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExtendsRight<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnreachable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsLiteralValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TExtendsLiteralValue(Inferred: TProperties, Left: TLiteralValue, Right: TLiteralValue) {
@@ -41,7 +45,12 @@ export function TExtendsLiteralValue(Inferred: TProperties, Left: TLiteralValue,
   return Result.TExtendsFalse
 }
 /* compiles to:
- * export type TExtendsLiteralValue<Inferred extends TProperties, Left extends TLiteralValue, Right extends TLiteralValue> = Left extends Right ? Result.TExtendsTrue<Inferred> : Result.TExtendsFalse
+ * export type TExtendsLiteralValue<
+ *   Inferred extends TProperties,
+ *   Left extends TLiteralValue,
+ *   Right extends TLiteralValue
+ * > =
+ *   Left extends Right ? Result.TExtendsTrue<Inferred> : Result.TExtendsFalse
  */
 
 // ✓ TExtendsLiteralBigInt: verified type-identical to the original
@@ -57,7 +66,15 @@ export function TExtendsLiteralBigInt(Inferred: TProperties, Left: bigint, Right
   return TExtendsRight(Inferred, TLiteral(Left), Right)
 }
 /* compiles to:
- * export type TExtendsLiteralBigInt<Inferred extends TProperties, Left extends bigint, Right extends TSchema> = Right extends TLiteral<infer Value extends bigint> ? TExtendsLiteralValue<Inferred, Left, Value> : Right extends TBigInt ? Result.TExtendsTrue<Inferred> : TExtendsRight<Inferred, TLiteral<Left>, Right>
+ * export type TExtendsLiteralBigInt<
+ *   Inferred extends TProperties,
+ *   Left extends bigint,
+ *   Right extends TSchema
+ * > =
+ *   Right extends TLiteral<infer Value extends bigint>
+ *     ? TExtendsLiteralValue<Inferred, Left, Value>
+ *   : Right extends TBigInt ? Result.TExtendsTrue<Inferred>
+ *   : TExtendsRight<Inferred, TLiteral<Left>, Right>
  */
 
 // ✓ TExtendsLiteralBoolean: verified type-identical to the original
@@ -73,7 +90,15 @@ export function TExtendsLiteralBoolean(Inferred: TProperties, Left: boolean, Rig
   return TExtendsRight(Inferred, TLiteral(Left), Right)
 }
 /* compiles to:
- * export type TExtendsLiteralBoolean<Inferred extends TProperties, Left extends boolean, Right extends TSchema> = Right extends TLiteral<infer Value extends boolean> ? TExtendsLiteralValue<Inferred, Left, Value> : Right extends TBoolean ? Result.TExtendsTrue<Inferred> : TExtendsRight<Inferred, TLiteral<Left>, Right>
+ * export type TExtendsLiteralBoolean<
+ *   Inferred extends TProperties,
+ *   Left extends boolean,
+ *   Right extends TSchema
+ * > =
+ *   Right extends TLiteral<infer Value extends boolean>
+ *     ? TExtendsLiteralValue<Inferred, Left, Value>
+ *   : Right extends TBoolean ? Result.TExtendsTrue<Inferred>
+ *   : TExtendsRight<Inferred, TLiteral<Left>, Right>
  */
 
 // ✓ TExtendsLiteralNumber: verified type-identical to the original
@@ -89,7 +114,15 @@ export function TExtendsLiteralNumber(Inferred: TProperties, Left: number, Right
   return TExtendsRight(Inferred, TLiteral(Left), Right)
 }
 /* compiles to:
- * export type TExtendsLiteralNumber<Inferred extends TProperties, Left extends number, Right extends TSchema> = Right extends TLiteral<infer Value extends number> ? TExtendsLiteralValue<Inferred, Left, Value> : Right extends TNumber ? Result.TExtendsTrue<Inferred> : TExtendsRight<Inferred, TLiteral<Left>, Right>
+ * export type TExtendsLiteralNumber<
+ *   Inferred extends TProperties,
+ *   Left extends number,
+ *   Right extends TSchema
+ * > =
+ *   Right extends TLiteral<infer Value extends number>
+ *     ? TExtendsLiteralValue<Inferred, Left, Value>
+ *   : Right extends TNumber ? Result.TExtendsTrue<Inferred>
+ *   : TExtendsRight<Inferred, TLiteral<Left>, Right>
  */
 
 // ✓ TExtendsLiteralString: verified type-identical to the original
@@ -105,7 +138,15 @@ export function TExtendsLiteralString(Inferred: TProperties, Left: string, Right
   return TExtendsRight(Inferred, TLiteral(Left), Right)
 }
 /* compiles to:
- * export type TExtendsLiteralString<Inferred extends TProperties, Left extends string, Right extends TSchema> = Right extends TLiteral<infer Value extends string> ? TExtendsLiteralValue<Inferred, Left, Value> : Right extends TString ? Result.TExtendsTrue<Inferred> : TExtendsRight<Inferred, TLiteral<Left>, Right>
+ * export type TExtendsLiteralString<
+ *   Inferred extends TProperties,
+ *   Left extends string,
+ *   Right extends TSchema
+ * > =
+ *   Right extends TLiteral<infer Value extends string>
+ *     ? TExtendsLiteralValue<Inferred, Left, Value>
+ *   : Right extends TString ? Result.TExtendsTrue<Inferred>
+ *   : TExtendsRight<Inferred, TLiteral<Left>, Right>
  */
 
 // ✓ TExtendsLiteral: verified type-identical to the original
@@ -130,5 +171,18 @@ export function TExtendsLiteral(Inferred: TProperties, Left: TLiteral, Right: TS
   return TUnreachable
 }
 /* compiles to:
- * export type TExtendsLiteral<Inferred extends TProperties, Left extends TLiteral, Right extends TSchema> = Left extends TLiteral<infer Value extends bigint> ? TExtendsLiteralBigInt<Inferred, Value, Right> : Left extends TLiteral<infer Value extends boolean> ? TExtendsLiteralBoolean<Inferred, Value, Right> : Left extends TLiteral<infer Value extends number> ? TExtendsLiteralNumber<Inferred, Value, Right> : Left extends TLiteral<infer Value extends string> ? TExtendsLiteralString<Inferred, Value, Right> : TUnreachable
+ * export type TExtendsLiteral<
+ *   Inferred extends TProperties,
+ *   Left extends TLiteral,
+ *   Right extends TSchema
+ * > =
+ *   Left extends TLiteral<infer Value extends bigint>
+ *     ? TExtendsLiteralBigInt<Inferred, Value, Right>
+ *   : Left extends TLiteral<infer Value extends boolean>
+ *     ? TExtendsLiteralBoolean<Inferred, Value, Right>
+ *   : Left extends TLiteral<infer Value extends number>
+ *     ? TExtendsLiteralNumber<Inferred, Value, Right>
+ *   : Left extends TLiteral<infer Value extends string>
+ *     ? TExtendsLiteralString<Inferred, Value, Right>
+ *   : TUnreachable
  */

@@ -14,10 +14,10 @@ declare const Equal: any
 declare const IsNever: any
 declare const _: any
 declare const unset: any
-type Equal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExcludePlaceholders: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExcludePlaceholders(xs, output: any[] = []) {
@@ -31,7 +31,12 @@ export function ExcludePlaceholders(xs, output: any[] = []) {
   return output
 }
 /* compiles to:
- * export type ExcludePlaceholders<xs, output extends any[] = []> = xs extends [infer first, ...infer rest] ? Equal<first, _> extends true ? ExcludePlaceholders<rest, output> : ExcludePlaceholders<rest, [...output, first]> : output
+ * export type ExcludePlaceholders<xs, output extends any[] = []> =
+ *   xs extends [infer first, ...infer rest]
+ *     ? Equal<first, _> extends true
+ *       ? ExcludePlaceholders<rest, output>
+ *       : ExcludePlaceholders<rest, [...output, first]>
+ *     : output
  */
 
 // ✓ MergeArgsRec: verified type-identical to the original
@@ -54,7 +59,20 @@ export function MergeArgsRec(pipedArgs: any[], partialArgs: any[], output: any[]
   return [...output, ...pipedArgs]
 }
 /* compiles to:
- * export type MergeArgsRec<pipedArgs extends any[], partialArgs extends any[], output extends any[] = []> = partialArgs extends [infer partialFirst, ...infer partialRest] ? IsNever<partialFirst> extends true ? MergeArgsRec<pipedArgs, partialRest, [...output, partialFirst]> : [partialFirst] extends [_] ? pipedArgs extends [infer pipedFirst, ...infer pipedRest] ? MergeArgsRec<pipedRest, partialRest, [...output, pipedFirst]> : [...output, ...ExcludePlaceholders<partialRest>] : MergeArgsRec<pipedArgs, partialRest, [...output, partialFirst]> : [...output, ...pipedArgs]
+ * export type MergeArgsRec<
+ *   pipedArgs extends any[],
+ *   partialArgs extends any[],
+ *   output extends any[] = []
+ * > =
+ *   partialArgs extends [infer partialFirst, ...infer partialRest]
+ *     ? IsNever<partialFirst> extends true
+ *       ? MergeArgsRec<pipedArgs, partialRest, [...output, partialFirst]>
+ *     : [partialFirst] extends [_]
+ *       ? pipedArgs extends [infer pipedFirst, ...infer pipedRest]
+ *         ? MergeArgsRec<pipedRest, partialRest, [...output, pipedFirst]>
+ *         : [...output, ...ExcludePlaceholders<partialRest>]
+ *     : MergeArgsRec<pipedArgs, partialRest, [...output, partialFirst]>
+ *     : [...output, ...pipedArgs]
  */
 
 // ✓ EmptyIntoPlaceholder: verified type-identical to the original
@@ -69,7 +87,8 @@ export function EmptyIntoPlaceholder(x) {
   return x
 }
 /* compiles to:
- * export type EmptyIntoPlaceholder<x> = IsNever<x> extends true ? never : [x] extends [unset] ? _ : x
+ * export type EmptyIntoPlaceholder<x> =
+ *   IsNever<x> extends true ? never : [x] extends [unset] ? _ : x
  */
 
 // ✓ MapEmptyIntoPlaceholder: verified type-identical to the original
@@ -89,7 +108,10 @@ export function MapEmptyIntoPlaceholder(xs) {
 }
 /* compiles to:
  * export type MapEmptyIntoPlaceholder<xs> = MapEmptyIntoPlaceholder__loop<xs, []>
- * type MapEmptyIntoPlaceholder__loop<Xs_, Output extends any[]> = Xs_ extends [infer first, ...infer rest] ? MapEmptyIntoPlaceholder__loop<rest, [...Output, EmptyIntoPlaceholder<first>]> : Output
+ * type MapEmptyIntoPlaceholder__loop<Xs_, Output extends any[]> =
+ *   Xs_ extends [infer first, ...infer rest]
+ *     ? MapEmptyIntoPlaceholder__loop<rest, [...Output, EmptyIntoPlaceholder<first>]>
+ *     : Output
  */
 
 // ✓ MergeArgs: verified type-identical to the original
@@ -98,5 +120,8 @@ export function MergeArgs(pipedArgs: any[], partialArgs: any[]) {
   return MergeArgsRec(pipedArgs, MapEmptyIntoPlaceholder(partialArgs))
 }
 /* compiles to:
- * export type MergeArgs<pipedArgs extends any[], partialArgs extends any[]> = MergeArgsRec<pipedArgs, MapEmptyIntoPlaceholder<partialArgs>>
+ * export type MergeArgs<pipedArgs extends any[], partialArgs extends any[]> = MergeArgsRec<
+ *   pipedArgs,
+ *   MapEmptyIntoPlaceholder<partialArgs>
+ * >
  */

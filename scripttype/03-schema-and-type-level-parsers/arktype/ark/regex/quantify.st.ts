@@ -10,18 +10,24 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace ParsedRange {
+  export type from<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Scanner {
+  export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ParsedRange: any
 declare const QuantifyingChar: any
 declare const Scanner: any
 declare const State: any
 declare const parseNonNegativeInteger: any
 declare const shift: any
-type ParsedRange<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QuantifyingChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scanner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type State<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseNonNegativeInteger<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type shift<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ParsedRange<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QuantifyingChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type State<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseNonNegativeInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseBuiltinQuantifier: does not compile yet
 //   only direct calls are supported
 /* @scripttype preserveParamNames */
@@ -68,7 +74,8 @@ export function skipPossibleQuestionMark(unscanned: string) {
   return unscanned
 }
 /* compiles to:
- * export type skipPossibleQuestionMark<unscanned extends string> = unscanned extends `?${infer next}` ? next : unscanned
+ * export type skipPossibleQuestionMark<unscanned extends string> =
+ *   unscanned extends `?${infer next}` ? next : unscanned
  */
 
 // ✓ parsePossibleRangeString: verified type-identical to the original
@@ -89,7 +96,28 @@ export function parsePossibleRangeString(unscanned: string) {
   return Null
 }
 /* compiles to:
- * export type parsePossibleRangeString<unscanned extends string> = unscanned extends `${infer l extends `${number}`},${infer r extends `${number}`}}${infer next}` ? ParsedRange.from<{ min: parseNonNegativeInteger<l>; max: parseNonNegativeInteger<r>; unscanned: skipPossibleQuestionMark<next> }> : unscanned extends `${infer l extends `${number}`},}${infer next}` ? ParsedRange.from<{ min: parseNonNegativeInteger<l>; max: null; unscanned: skipPossibleQuestionMark<next> }> : unscanned extends `${infer l extends `${number}`}}${infer next}` ? ParsedRange.from<{ min: parseNonNegativeInteger<l>; max: parseNonNegativeInteger<l>; unscanned: skipPossibleQuestionMark<next> }> : null
+ * export type parsePossibleRangeString<unscanned extends string> =
+ *   unscanned extends `${infer l extends `${number}`},${infer r extends `${number}`}}${infer next}`
+ *     ? ParsedRange.from<
+ *       {
+ *         min: parseNonNegativeInteger<l>
+ *         max: parseNonNegativeInteger<r>
+ *         unscanned: skipPossibleQuestionMark<next>
+ *       }
+ *     >
+ *   : unscanned extends `${infer l extends `${number}`},}${infer next}`
+ *     ? ParsedRange.from<
+ *       { min: parseNonNegativeInteger<l>; max: null; unscanned: skipPossibleQuestionMark<next> }
+ *     >
+ *   : unscanned extends `${infer l extends `${number}`}}${infer next}`
+ *     ? ParsedRange.from<
+ *       {
+ *         min: parseNonNegativeInteger<l>
+ *         max: parseNonNegativeInteger<l>
+ *         unscanned: skipPossibleQuestionMark<next>
+ *       }
+ *     >
+ *   : null
  */
 
 // ✓ parseQuantifier: verified type-identical to the original
@@ -102,7 +130,8 @@ export function parseQuantifier(unscanned: string, parsed: ParsedRange) {
   return never
 }
 /* compiles to:
- * export type parseQuantifier<unscanned extends string, parsed extends ParsedRange> = unscanned extends `${infer range}${parsed['unscanned']}` ? `{${range}` : never
+ * export type parseQuantifier<unscanned extends string, parsed extends ParsedRange> =
+ *   unscanned extends `${infer range}${parsed['unscanned']}` ? `{${range}` : never
  */
 
 // ✗ parsePossibleRange: does not compile yet
@@ -128,7 +157,11 @@ export function quantify(pattern: string, min: number, max: number | null) {
   return tryFastPath(pattern, min, max)
 }
 /* compiles to:
- * export type quantify<pattern extends string, min extends number, max extends number | null> = tryFastPath<pattern, min, max>
+ * export type quantify<pattern extends string, min extends number, max extends number | null> = tryFastPath<
+ *   pattern,
+ *   min,
+ *   max
+ * >
  */
 
 // ✓ tryFastPath: verified type-identical to the original
@@ -150,7 +183,7 @@ export function tryFastPath(pattern: string, min: number, max: number | null) {
     if (matches<1>(max)) {
       return anyOf('', pattern)
     }
-    if (matches<number>(max)) {
+    if (typeof max === 'number') {
       return loopFromZero(pattern, max, '', [])
     }
     return anyOf('', `${pattern}${string}`)
@@ -158,7 +191,19 @@ export function tryFastPath(pattern: string, min: number, max: number | null) {
   return loopUntilMin(pattern, min, max, '', [])
 }
 /* compiles to:
- * export type tryFastPath<pattern extends string, min extends number, max extends number | null> = max extends 0 ? '' : string extends pattern ? string : `${number}` extends pattern ? min extends 0 ? '' | `${number}` : `${number}` : min extends 0 ? max extends 1 ? '' | pattern : max extends number ? loopFromZero<pattern, max, '', []> : '' | `${pattern}${string}` : loopUntilMin<pattern, min, max, '', []>
+ * export type tryFastPath<
+ *   pattern extends string,
+ *   min extends number,
+ *   max extends number | null
+ * > =
+ *   max extends 0 ? ''
+ *   : string extends pattern ? string
+ *   : `${number}` extends pattern ? min extends 0 ? '' | `${number}` : `${number}`
+ *   : min extends 0
+ *     ? max extends 1 ? '' | pattern
+ *     : max extends number ? loopFromZero<pattern, max, '', []>
+ *     : '' | `${pattern}${string}`
+ *   : loopUntilMin<pattern, min, max, '', []>
  */
 
 // ✓ loopFromZero: verified type-identical to the original
@@ -176,8 +221,22 @@ export function loopFromZero(base: string, max: number, acc: string, repetitions
   return acc_
 }
 /* compiles to:
- * export type loopFromZero<base extends string, max extends number, acc extends string, repetitions extends 1[]> = LoopFromZero__loop<acc, repetitions, max, base>
- * type LoopFromZero__loop<Acc_ extends string, Repetitions_ extends 1[], Max extends number, Base extends string> = Repetitions_['length'] extends Max ? Acc_ : LoopFromZero__loop<Acc_ | `${Acc_}${Base}`, [...Repetitions_, 1], Max, Base>
+ * export type loopFromZero<
+ *   base extends string,
+ *   max extends number,
+ *   acc extends string,
+ *   repetitions extends 1[]
+ * > =
+ *   LoopFromZero__loop<acc, repetitions, max, base>
+ * type LoopFromZero__loop<
+ *   Acc_ extends string,
+ *   Repetitions_ extends 1[],
+ *   Max extends number,
+ *   Base extends string
+ * > =
+ *   Repetitions_['length'] extends Max
+ *     ? Acc_
+ *     : LoopFromZero__loop<Acc_ | `${Acc_}${Base}`, [...Repetitions_, 1], Max, Base>
  */
 
 // ✓ loopUntilMin: verified type-identical to the original
@@ -192,11 +251,28 @@ export function loopUntilMin(base: string, min: number, max: number | null, acc:
     acc_ = `${acc_}${base}`
     repetitions_.push(1)
   }
-  return matches<number>(max) ? loopUntilMax(base, min, max, acc_, repetitions_) : (matches<0>(repetitions_['length']) ? (anyOf(acc_, `${acc_}${base}${string}`)) : `${acc_}${string}`)
+  return typeof max === 'number' ? loopUntilMax(base, min, max, acc_, repetitions_) : (matches<0>(repetitions_['length']) ? (anyOf(acc_, `${acc_}${base}${string}`)) : `${acc_}${string}`)
 }
 /* compiles to:
- * export type loopUntilMin<base extends string, min extends number, max extends number | null, acc extends string, repetitions extends 1[]> = LoopUntilMin__loop<acc, repetitions, min, base>
- * type LoopUntilMin__loop<Acc_ extends string, Repetitions_ extends 1[], Min extends number, Base extends string> = Repetitions_['length'] extends Min ? max extends number ? loopUntilMax<Base, Min, max, Acc_, Repetitions_> : Repetitions_['length'] extends 0 ? Acc_ | `${Acc_}${Base}${string}` : `${Acc_}${string}` : LoopUntilMin__loop<`${Acc_}${Base}`, [...Repetitions_, 1], Min, Base>
+ * export type loopUntilMin<
+ *   base extends string,
+ *   min extends number,
+ *   max extends number | null,
+ *   acc extends string,
+ *   repetitions extends 1[]
+ * > =
+ *   LoopUntilMin__loop<acc, repetitions, min, base>
+ * type LoopUntilMin__loop<
+ *   Acc_ extends string,
+ *   Repetitions_ extends 1[],
+ *   Min extends number,
+ *   Base extends string
+ * > =
+ *   Repetitions_['length'] extends Min
+ *     ? max extends number ? loopUntilMax<Base, Min, max, Acc_, Repetitions_>
+ *     : Repetitions_['length'] extends 0 ? Acc_ | `${Acc_}${Base}${string}`
+ *     : `${Acc_}${string}`
+ *     : LoopUntilMin__loop<`${Acc_}${Base}`, [...Repetitions_, 1], Min, Base>
  */
 
 // ✓ loopUntilMax: verified type-identical to the original
@@ -214,8 +290,23 @@ export function loopUntilMax(base: string, min: number, max: number, acc: string
   return acc_
 }
 /* compiles to:
- * export type loopUntilMax<base extends string, min extends number, max extends number, acc extends string, repetitions extends 1[]> = LoopUntilMax__loop<acc, repetitions, max, base>
- * type LoopUntilMax__loop<Acc_ extends string, Repetitions_ extends 1[], Max extends number, Base extends string> = Repetitions_['length'] extends Max ? Acc_ : LoopUntilMax__loop<Acc_ | `${Acc_}${Base}`, [...Repetitions_, 1], Max, Base>
+ * export type loopUntilMax<
+ *   base extends string,
+ *   min extends number,
+ *   max extends number,
+ *   acc extends string,
+ *   repetitions extends 1[]
+ * > =
+ *   LoopUntilMax__loop<acc, repetitions, max, base>
+ * type LoopUntilMax__loop<
+ *   Acc_ extends string,
+ *   Repetitions_ extends 1[],
+ *   Max extends number,
+ *   Base extends string
+ * > =
+ *   Repetitions_['length'] extends Max
+ *     ? Acc_
+ *     : LoopUntilMax__loop<Acc_ | `${Acc_}${Base}`, [...Repetitions_, 1], Max, Base>
  */
 
 // ✓ writeUnmatchedQuantifierError: verified type-identical to the original

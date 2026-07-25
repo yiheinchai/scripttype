@@ -34,39 +34,41 @@ declare const StrictObjectSchema: any
 declare const StrictObjectSchemaAsync: any
 declare const VariantOptionSchema: any
 declare const VariantOptionSchemaAsync: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LooseObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LooseObjectSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LooseObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybeReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectEntries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectEntriesAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectWithRestIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectWithRestSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectWithRestSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalEntrySchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalEntrySchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StrictObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StrictObjectSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StrictObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type VariantOptionSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type VariantOptionSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type VariantOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type VariantOptionsAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LooseObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LooseObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LooseObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybeReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectEntries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectEntriesAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectWithRestIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectWithRestSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectWithRestSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalEntrySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalEntrySchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StrictObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StrictObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StrictObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type VariantOptionSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type VariantOptionSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type VariantOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type VariantOptionsAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ VariantObjectEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function VariantObjectEntries(TKey: string) {
   return Record(TKey, BaseSchema(unknown, unknown, BaseIssue(unknown)) | OptionalEntrySchema) & ObjectEntries
 }
 /* compiles to:
- * export type VariantObjectEntries<TKey extends string> = Record<TKey, BaseSchema<unknown, unknown, BaseIssue<unknown>> | OptionalEntrySchema> & ObjectEntries
+ * export type VariantObjectEntries<TKey extends string> =
+ *   & Record<TKey, BaseSchema<unknown, unknown, BaseIssue<unknown>> | OptionalEntrySchema>
+ *   & ObjectEntries
  */
 
 // ✓ VariantObjectEntriesAsync: verified type-identical to the original
@@ -75,7 +77,15 @@ export function VariantObjectEntriesAsync(TKey: string) {
   return Record(TKey, BaseSchema(unknown, unknown, BaseIssue(unknown)) | BaseSchemaAsync(unknown, unknown, BaseIssue(unknown)) | OptionalEntrySchema | OptionalEntrySchemaAsync) & ObjectEntriesAsync
 }
 /* compiles to:
- * export type VariantObjectEntriesAsync<TKey extends string> = Record<TKey, BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>> | OptionalEntrySchema | OptionalEntrySchemaAsync> & ObjectEntriesAsync
+ * export type VariantObjectEntriesAsync<TKey extends string> =
+ *   & Record<
+ *       TKey,
+ *       | BaseSchema<unknown, unknown, BaseIssue<unknown>>
+ *       | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>
+ *       | OptionalEntrySchema
+ *       | OptionalEntrySchemaAsync
+ *     >
+ *   & ObjectEntriesAsync
  */
 
 // ✓ VariantOption: verified type-identical to the original
@@ -84,7 +94,16 @@ export function VariantOption(TKey: string) {
   return LooseObjectSchema(VariantObjectEntries(TKey), anyOf(ErrorMessage(LooseObjectIssue), Undefined)) | ObjectSchema(VariantObjectEntries(TKey), anyOf(ErrorMessage(ObjectIssue), Undefined)) | ObjectWithRestSchema(VariantObjectEntries(TKey), BaseSchema(unknown, unknown, BaseIssue(unknown)), anyOf(ErrorMessage(ObjectWithRestIssue), Undefined)) | StrictObjectSchema(VariantObjectEntries(TKey), anyOf(ErrorMessage(StrictObjectIssue), Undefined)) | VariantOptionSchema(TKey)
 }
 /* compiles to:
- * export type VariantOption<TKey extends string> = LooseObjectSchema<VariantObjectEntries<TKey>, ErrorMessage<LooseObjectIssue> | undefined> | ObjectSchema<VariantObjectEntries<TKey>, ErrorMessage<ObjectIssue> | undefined> | ObjectWithRestSchema<VariantObjectEntries<TKey>, BaseSchema<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | StrictObjectSchema<VariantObjectEntries<TKey>, ErrorMessage<StrictObjectIssue> | undefined> | VariantOptionSchema<TKey>
+ * export type VariantOption<TKey extends string> =
+ *   | LooseObjectSchema<VariantObjectEntries<TKey>, ErrorMessage<LooseObjectIssue> | undefined>
+ *   | ObjectSchema<VariantObjectEntries<TKey>, ErrorMessage<ObjectIssue> | undefined>
+ *   | ObjectWithRestSchema<
+ *       VariantObjectEntries<TKey>,
+ *       BaseSchema<unknown, unknown, BaseIssue<unknown>>,
+ *       ErrorMessage<ObjectWithRestIssue> | undefined
+ *     >
+ *   | StrictObjectSchema<VariantObjectEntries<TKey>, ErrorMessage<StrictObjectIssue> | undefined>
+ *   | VariantOptionSchema<TKey>
  */
 
 // ✓ VariantOptionAsync: verified type-identical to the original
@@ -93,7 +112,23 @@ export function VariantOptionAsync(TKey: string) {
   return LooseObjectSchemaAsync(VariantObjectEntriesAsync(TKey), anyOf(ErrorMessage(LooseObjectIssue), Undefined)) | ObjectSchemaAsync(VariantObjectEntriesAsync(TKey), anyOf(ErrorMessage(ObjectIssue), Undefined)) | ObjectWithRestSchemaAsync(VariantObjectEntriesAsync(TKey), BaseSchema(unknown, unknown, BaseIssue(unknown)) | BaseSchemaAsync(unknown, unknown, BaseIssue(unknown)), anyOf(ErrorMessage(ObjectWithRestIssue), Undefined)) | StrictObjectSchemaAsync(VariantObjectEntriesAsync(TKey), anyOf(ErrorMessage(StrictObjectIssue), Undefined)) | VariantOptionSchemaAsync(TKey)
 }
 /* compiles to:
- * export type VariantOptionAsync<TKey extends string> = LooseObjectSchemaAsync<VariantObjectEntriesAsync<TKey>, ErrorMessage<LooseObjectIssue> | undefined> | ObjectSchemaAsync<VariantObjectEntriesAsync<TKey>, ErrorMessage<ObjectIssue> | undefined> | ObjectWithRestSchemaAsync<VariantObjectEntriesAsync<TKey>, BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | StrictObjectSchemaAsync<VariantObjectEntriesAsync<TKey>, ErrorMessage<StrictObjectIssue> | undefined> | VariantOptionSchemaAsync<TKey>
+ * export type VariantOptionAsync<TKey extends string> =
+ *   | LooseObjectSchemaAsync<
+ *       VariantObjectEntriesAsync<TKey>,
+ *       ErrorMessage<LooseObjectIssue> | undefined
+ *     >
+ *   | ObjectSchemaAsync<VariantObjectEntriesAsync<TKey>, ErrorMessage<ObjectIssue> | undefined>
+ *   | ObjectWithRestSchemaAsync<
+ *       VariantObjectEntriesAsync<TKey>,
+ *       | BaseSchema<unknown, unknown, BaseIssue<unknown>>
+ *       | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>,
+ *       ErrorMessage<ObjectWithRestIssue> | undefined
+ *     >
+ *   | StrictObjectSchemaAsync<
+ *       VariantObjectEntriesAsync<TKey>,
+ *       ErrorMessage<StrictObjectIssue> | undefined
+ *     >
+ *   | VariantOptionSchemaAsync<TKey>
  */
 
 // ✓ VariantOptions: verified type-identical to the original
@@ -111,7 +146,9 @@ export function VariantOptionsAsync(TKey: string) {
   return MaybeReadonly(arrayOf(VariantOption(TKey) | VariantOptionAsync(TKey)))
 }
 /* compiles to:
- * export type VariantOptionsAsync<TKey extends string> = MaybeReadonly<(VariantOption<TKey> | VariantOptionAsync<TKey>)[]>
+ * export type VariantOptionsAsync<TKey extends string> = MaybeReadonly<
+ *   (VariantOption<TKey> | VariantOptionAsync<TKey>)[]
+ * >
  */
 
 // ✓ InferVariantIssue: verified type-identical to the original
@@ -120,5 +157,11 @@ export function InferVariantIssue(TOptions: VariantOptions<string> | VariantOpti
   return Exclude(InferIssue(TOptions[number]), { type: anyOf('loose_object', 'object', 'object_with_rest') })
 }
 /* compiles to:
- * export type InferVariantIssue<TOptions extends VariantOptions<string> | VariantOptionsAsync<string>> = Exclude<InferIssue<TOptions[number]>, { type: 'loose_object' | 'object' | 'object_with_rest' }>
+ * export type InferVariantIssue<
+ *   TOptions extends VariantOptions<string> | VariantOptionsAsync<string>
+ * > =
+ *   Exclude<
+ *     InferIssue<TOptions[number]>,
+ *     { type: 'loose_object' | 'object' | 'object_with_rest' }
+ *   >
  */

@@ -12,16 +12,17 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ExpressionBuilder: any
 declare const ReferenceExpression: any
-type ExpressionBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GroupByExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReferenceExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GroupByExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GroupByExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GroupByExpression(DB, TB: keyof typeof DB, O) {
   return anyOf(ReferenceExpression(DB, TB), keyof(O) & string)
 }
 /* compiles to:
- * export type GroupByExpression<DB, TB extends keyof DB, O> = ReferenceExpression<DB, TB> | keyof O & string
+ * export type GroupByExpression<DB, TB extends keyof DB, O> =
+ *   ReferenceExpression<DB, TB> | keyof O & string
  */
 
 // ✓ GroupByArg: verified type-identical to the original
@@ -30,5 +31,8 @@ export function GroupByArg(DB, TB: keyof typeof DB, O) {
   return GroupByExpression(DB, TB, O) | t<ReadonlyArray<GroupByExpression<typeof DB, typeof TB, typeof O>>>() | fnType([ExpressionBuilder(DB, TB)], t<ReadonlyArray<GroupByExpression<typeof DB, typeof TB, typeof O>>>())
 }
 /* compiles to:
- * export type GroupByArg<DB, TB extends keyof DB, O> = GroupByExpression<DB, TB, O> | ReadonlyArray<GroupByExpression<DB, TB, O>> | ((a0: ExpressionBuilder<DB, TB>) => ReadonlyArray<GroupByExpression<DB, TB, O>>)
+ * export type GroupByArg<DB, TB extends keyof DB, O> =
+ *   | GroupByExpression<DB, TB, O>
+ *   | ReadonlyArray<GroupByExpression<DB, TB, O>>
+ *   | ((a0: ExpressionBuilder<DB, TB>) => ReadonlyArray<GroupByExpression<DB, TB, O>>)
  */

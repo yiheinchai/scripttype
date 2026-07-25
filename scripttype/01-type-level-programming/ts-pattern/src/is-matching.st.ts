@@ -10,10 +10,13 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace P {
+  export type Pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const P: any
 declare const UnknownProperties: any
-type P<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type P<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PatternConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PatternConstraint(T) {
@@ -26,5 +29,8 @@ export function PatternConstraint(T) {
   return P.Pattern(T)
 }
 /* compiles to:
- * export type PatternConstraint<T> = T extends readonly any[] ? P.Pattern<T> : T extends object ? P.Pattern<T> & UnknownProperties : P.Pattern<T>
+ * export type PatternConstraint<T> =
+ *   T extends readonly any[] ? P.Pattern<T>
+ *   : T extends object ? P.Pattern<T> & UnknownProperties
+ *   : P.Pattern<T>
  */

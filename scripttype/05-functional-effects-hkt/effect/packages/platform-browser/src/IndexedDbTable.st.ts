@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Any: any
 declare const AnySchemaStruct: any
-type Any<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnySchemaStruct<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnySchemaStruct<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TableName: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TableName(Table: Any) {
@@ -56,7 +56,8 @@ export function Context(Table: Any) {
   return Table['tableSchema']['DecodingServices'] | Table['tableSchema']['EncodingServices']
 }
 /* compiles to:
- * export type Context<Table extends Any> = Table['tableSchema']['DecodingServices'] | Table['tableSchema']['EncodingServices']
+ * export type Context<Table extends Any> =
+ *   Table['tableSchema']['DecodingServices'] | Table['tableSchema']['EncodingServices']
  */
 
 // ✓ Encoded: verified type-identical to the original
@@ -83,14 +84,17 @@ export function WithName(Table: Any, TableName: string) {
   return Extract(Table, { tableName: readonlyProp(TableName) })
 }
 /* compiles to:
- * export type WithName<Table extends Any, TableName extends string> = Extract<Table, { readonly tableName: TableName }>
+ * export type WithName<Table extends Any, TableName extends string> = Extract<
+ *   Table,
+ *   { readonly tableName: TableName }
+ * >
  */
 
 // ✓ IsValidAutoIncrementKeyPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsValidAutoIncrementKeyPath(TableSchema: AnySchemaStruct, KeyPath) {
-  if (matches<keyof (typeof TableSchema)["Encoded"]>(KeyPath)) {
-    if (matches<number>(TableSchema['Encoded'][KeyPath])) {
+  if (KeyPath in TableSchema['Encoded']) {
+    if (typeof TableSchema['Encoded'][KeyPath] === 'number') {
       return true
     }
     return false
@@ -98,5 +102,8 @@ export function IsValidAutoIncrementKeyPath(TableSchema: AnySchemaStruct, KeyPat
   return false
 }
 /* compiles to:
- * export type IsValidAutoIncrementKeyPath<TableSchema extends AnySchemaStruct, KeyPath> = KeyPath extends keyof TableSchema['Encoded'] ? TableSchema['Encoded'][KeyPath] extends number ? true : false : false
+ * export type IsValidAutoIncrementKeyPath<TableSchema extends AnySchemaStruct, KeyPath> =
+ *   KeyPath extends keyof TableSchema['Encoded']
+ *     ? TableSchema['Encoded'][KeyPath] extends number ? true : false
+ *     : false
  */

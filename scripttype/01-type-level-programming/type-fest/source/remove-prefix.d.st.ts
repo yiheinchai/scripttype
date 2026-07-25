@@ -19,28 +19,46 @@ declare const IsStringLiteral: any
 declare const Not: any
 declare const Or: any
 declare const RemovePrefixOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultRemovePrefixOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStringLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Not<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Or<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RemovePrefixOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultRemovePrefixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStringLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RemovePrefixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RemovePrefix: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RemovePrefix(S: string, Prefix: string, Options: RemovePrefixOptions = {}) {
   return IfNotAnyOrNever(S, { ifNot: If(IsNever(Prefix), S, _RemovePrefix(S, Prefix, ApplyDefaultOptions(RemovePrefixOptions, DefaultRemovePrefixOptions, Options))) })
 }
 /* compiles to:
- * export type RemovePrefix<S extends string, Prefix extends string, Options extends RemovePrefixOptions = {}> = IfNotAnyOrNever<S, { ifNot: If<IsNever<Prefix>, S, _RemovePrefix<S, Prefix, ApplyDefaultOptions<RemovePrefixOptions, DefaultRemovePrefixOptions, Options>>> }>
+ * export type RemovePrefix<
+ *   S extends string,
+ *   Prefix extends string,
+ *   Options extends RemovePrefixOptions = {}
+ * > =
+ *   IfNotAnyOrNever<
+ *     S,
+ *     {
+ *       ifNot: If<
+ *         IsNever<Prefix>,
+ *         S,
+ *         _RemovePrefix<
+ *           S,
+ *           Prefix,
+ *           ApplyDefaultOptions<RemovePrefixOptions, DefaultRemovePrefixOptions, Options>
+ *         >
+ *       >
+ *     }
+ *   >
  */
 
 // ✓ _RemovePrefix: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _RemovePrefix(S: string, Prefix: string, Options: Required<RemovePrefixOptions>) {
-  if (matches<string>(Prefix)) {
+  if (typeof Prefix === 'string') {
     if (matches<true>(Or(IsStringLiteral(Prefix), Not(Options['strict'])))) {
       const m1 = matches<`${typeof Prefix}${Hole<"Rest">}`>(S)
       if (m1) {
@@ -53,5 +71,14 @@ export function _RemovePrefix(S: string, Prefix: string, Options: Required<Remov
   return never
 }
 /* compiles to:
- * export type _RemovePrefix<S extends string, Prefix extends string, Options extends Required<RemovePrefixOptions>> = Prefix extends string ? Or<IsStringLiteral<Prefix>, Not<Options['strict']>> extends true ? S extends `${Prefix}${infer Rest}` ? Rest : S : string : never
+ * export type _RemovePrefix<
+ *   S extends string,
+ *   Prefix extends string,
+ *   Options extends Required<RemovePrefixOptions>
+ * > =
+ *   Prefix extends string
+ *     ? Or<IsStringLiteral<Prefix>, Not<Options['strict']>> extends true
+ *       ? S extends `${Prefix}${infer Rest}` ? Rest : S
+ *       : string
+ *     : never
  */

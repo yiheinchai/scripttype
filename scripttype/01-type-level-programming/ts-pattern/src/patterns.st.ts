@@ -15,18 +15,22 @@ declare const ExtractPreciseValue: any
 declare const InvertPattern: any
 declare const NoInfer: any
 declare const matcher: any
-type CustomP<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractPreciseValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InvertPattern<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NoInfer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type matcher<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CustomP<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractPreciseValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InvertPattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NoInfer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type matcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ unstable_Matchable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function unstable_Matchable(narrowedOrFn, input = unknown, pattern = never) {
   return CustomP(input, pattern, narrowedOrFn)
 }
 /* compiles to:
- * export type unstable_Matchable<narrowedOrFn, input = unknown, pattern = never> = CustomP<input, pattern, narrowedOrFn>
+ * export type unstable_Matchable<narrowedOrFn, input = unknown, pattern = never> = CustomP<
+ *   input,
+ *   pattern,
+ *   narrowedOrFn
+ * >
  */
 
 // ✓ unstable_Matcher: verified type-identical to the original
@@ -35,7 +39,9 @@ export function unstable_Matcher(narrowedOrFn, input = unknown, pattern = never)
   return ReturnType(CustomP(input, pattern, narrowedOrFn)[matcher])
 }
 /* compiles to:
- * export type unstable_Matcher<narrowedOrFn, input = unknown, pattern = never> = ReturnType<CustomP<input, pattern, narrowedOrFn>[matcher]>
+ * export type unstable_Matcher<narrowedOrFn, input = unknown, pattern = never> = ReturnType<
+ *   CustomP<input, pattern, narrowedOrFn>[matcher]
+ * >
  */
 
 // ✗ infer: the ScriptType does not itself typecheck as TypeScript

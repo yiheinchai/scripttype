@@ -10,21 +10,29 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace React {
+  export type JSX<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const CoreHydrationStrategy: any
 declare const HydrateProps: any
 declare const HydrationWhen: any
 declare const React: any
-type CoreHydrationStrategy<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HydrateProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HydrationWhen<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type React<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CoreHydrationStrategy<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HydrateProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HydrationWhen<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type React<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReactHydrationStrategy: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReactHydrationStrategy(TWhen: HydrationWhen = HydrationWhen, TCanPrefetch: boolean = boolean) {
   return merge(CoreHydrationStrategy(TWhen, TCanPrefetch), { _h: fnType([ReactHydrationStrategy, HydrateProps], React.JSX.Element) })
 }
 /* compiles to:
- * export type ReactHydrationStrategy<TWhen extends HydrationWhen = HydrationWhen, TCanPrefetch extends boolean = boolean> = CoreHydrationStrategy<TWhen, TCanPrefetch> & { _h: (a0: ReactHydrationStrategy, a1: HydrateProps) => React.JSX.Element }
+ * export type ReactHydrationStrategy<
+ *   TWhen extends HydrationWhen = HydrationWhen,
+ *   TCanPrefetch extends boolean = boolean
+ * > =
+ *   & CoreHydrationStrategy<TWhen, TCanPrefetch>
+ *   & { _h: (a0: ReactHydrationStrategy, a1: HydrateProps) => React.JSX.Element }
  */
 
 // ✓ HydrationStrategy: verified type-identical to the original
@@ -33,5 +41,9 @@ export function HydrationStrategy(TWhen: HydrationWhen = HydrationWhen, TCanPref
   return ReactHydrationStrategy(TWhen, TCanPrefetch)
 }
 /* compiles to:
- * export type HydrationStrategy<TWhen extends HydrationWhen = HydrationWhen, TCanPrefetch extends boolean = boolean> = ReactHydrationStrategy<TWhen, TCanPrefetch>
+ * export type HydrationStrategy<
+ *   TWhen extends HydrationWhen = HydrationWhen,
+ *   TCanPrefetch extends boolean = boolean
+ * > =
+ *   ReactHydrationStrategy<TWhen, TCanPrefetch>
  */

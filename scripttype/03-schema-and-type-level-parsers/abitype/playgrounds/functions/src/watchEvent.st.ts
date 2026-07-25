@@ -15,16 +15,32 @@ declare const AbiEvent: any
 declare const AbiParametersToPrimitiveTypes: any
 declare const ExtractAbiEvent: any
 declare const ExtractAbiEventNames: any
-type Abi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiEvent<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiParametersToPrimitiveTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractAbiEvent<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractAbiEventNames<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiEvent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiParametersToPrimitiveTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractAbiEvent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractAbiEventNames<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WatchEventParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function WatchEventParameters(abi: Abi | readonly unknown[], eventName: string, eventNames: string = matches<Abi>(abi) ? ExtractAbiEventNames(abi) : string, abiEvent: AbiEvent = matches<Abi>(abi) ? ExtractAbiEvent(abi, eventName) : AbiEvent, primitiveTypes = AbiParametersToPrimitiveTypes(abiEvent['inputs'], 'inputs', true)) {
   return { abi: abi, eventName: anyOf(eventNames, matches<typeof eventNames>(eventName) ? eventName : never, matches<typeof abi>(Abi) ? string : never), onEmit: matches<typeof abi>(Abi) ? fnType([arrayOf(unknown)], voidType()) : (matches<Abi>(abi) ? fnType([matches<readonly unknown[]>(primitiveTypes) ? primitiveTypes : arrayOf(unknown)], voidType()) : fnType([arrayOf(unknown)], voidType())) }
 }
 /* compiles to:
- * export type WatchEventParameters<abi extends Abi | readonly unknown[], eventName extends string, eventNames extends string = abi extends Abi ? ExtractAbiEventNames<abi> : string, abiEvent extends AbiEvent = abi extends Abi ? ExtractAbiEvent<abi, eventName> : AbiEvent, primitiveTypes = AbiParametersToPrimitiveTypes<abiEvent['inputs'], 'inputs', true>> = { abi: abi; eventName: eventNames | (eventName extends eventNames ? eventName : never) | (Abi extends abi ? string : never); onEmit: Abi extends abi ? (a0: unknown[]) => void : abi extends Abi ? (a0: primitiveTypes extends readonly unknown[] ? primitiveTypes : unknown[]) => void : (a0: unknown[]) => void }
+ * export type WatchEventParameters<
+ *   abi extends Abi | readonly unknown[],
+ *   eventName extends string,
+ *   eventNames extends string = abi extends Abi ? ExtractAbiEventNames<abi> : string,
+ *   abiEvent extends AbiEvent = abi extends Abi ? ExtractAbiEvent<abi, eventName> : AbiEvent,
+ *   primitiveTypes = AbiParametersToPrimitiveTypes<abiEvent['inputs'], 'inputs', true>
+ * > =
+ *   {
+ *     abi: abi
+ *     eventName: | eventNames
+ *     | (eventName extends eventNames ? eventName : never)
+ *     | (Abi extends abi ? string : never)
+ *     onEmit: Abi extends abi ? (a0: unknown[]) => void
+ *     : abi extends Abi
+ *       ? (a0: primitiveTypes extends readonly unknown[] ? primitiveTypes : unknown[]) => void
+ *     : (a0: unknown[]) => void
+ *   }
  */

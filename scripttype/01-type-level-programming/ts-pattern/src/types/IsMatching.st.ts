@@ -19,16 +19,16 @@ declare const Length: any
 declare const Primitives: any
 declare const ValueOf: any
 declare const k: any
-type All<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Equal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsMatching<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsPlainObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Primitives<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type k<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type All<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsMatching<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsPlainObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Primitives<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type k<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsMatchingTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsMatchingTuple(a: readonly any[], b: readonly any[]) {
@@ -45,7 +45,11 @@ export function IsMatchingTuple(a: readonly any[], b: readonly any[]) {
   return false
 }
 /* compiles to:
- * export type IsMatchingTuple<a extends readonly any[], b extends readonly any[]> = [a, b] extends [readonly [], readonly []] ? true : [a, b] extends [readonly [infer a1, ...infer aRest], readonly [infer b1, ...infer bRest]] ? IsMatching<a1, b1> extends true ? IsMatchingTuple<aRest, bRest> : false : false
+ * export type IsMatchingTuple<a extends readonly any[], b extends readonly any[]> =
+ *   [a, b] extends [readonly [], readonly []] ? true
+ *   : [a, b] extends [readonly [infer a1, ...infer aRest], readonly [infer b1, ...infer bRest]]
+ *     ? IsMatching<a1, b1> extends true ? IsMatchingTuple<aRest, bRest> : false
+ *   : false
  */
 
 // ✓ IsMatchingArray: verified type-identical to the original
@@ -91,7 +95,21 @@ export function IsMatchingArray(a: readonly any[], b: readonly any[]) {
   return IsMatching(ValueOf(a), ValueOf(b))
 }
 /* compiles to:
- * export type IsMatchingArray<a extends readonly any[], b extends readonly any[]> = b extends readonly [] ? true : b extends readonly [infer b1, ...infer bRest] ? a extends readonly [infer a1, ...infer aRest] ? IsMatching<a1, b1> extends true ? IsMatchingArray<aRest, bRest> : false : a extends readonly [] ? false : IsMatching<ValueOf<a>, b1> extends true ? IsMatchingArray<a, bRest> : false : b extends readonly [...infer bInit, infer b1] ? a extends readonly [...infer aInit, infer a1] ? IsMatching<a1, b1> extends true ? IsMatchingArray<aInit, bInit> : false : a extends readonly [] ? false : IsMatching<ValueOf<a>, b1> extends true ? IsMatchingArray<a, bInit> : false : IsMatching<ValueOf<a>, ValueOf<b>>
+ * export type IsMatchingArray<a extends readonly any[], b extends readonly any[]> =
+ *   b extends readonly [] ? true
+ *   : b extends readonly [infer b1, ...infer bRest]
+ *     ? a extends readonly [infer a1, ...infer aRest]
+ *       ? IsMatching<a1, b1> extends true ? IsMatchingArray<aRest, bRest> : false
+ *     : a extends readonly [] ? false
+ *     : IsMatching<ValueOf<a>, b1> extends true ? IsMatchingArray<a, bRest>
+ *     : false
+ *   : b extends readonly [...infer bInit, infer b1]
+ *     ? a extends readonly [...infer aInit, infer a1]
+ *       ? IsMatching<a1, b1> extends true ? IsMatchingArray<aInit, bInit> : false
+ *     : a extends readonly [] ? false
+ *     : IsMatching<ValueOf<a>, b1> extends true ? IsMatchingArray<a, bInit>
+ *     : false
+ *   : IsMatching<ValueOf<a>, ValueOf<b>>
  */
 
 // ✗ IsMatching: does not compile yet
@@ -146,5 +164,25 @@ export function IsMatching(a, b) {
   return false
 }
 /* compiles to:
- * export type IsMatching<a, b> = true extends IsUnion<a> | IsUnion<b> ? true extends typeof b extends any ? (typeof a extends any ? IsMatching<typeof a, typeof b> : never) : never ? true : false : unknown extends b ? true : {} extends b ? true : b extends Primitives ? a extends b ? true : b extends a ? true : false : Equal<a, b> extends true ? true : b extends readonly any[] ? a extends readonly any[] ? All<[IsLiteral<Length<a>>, IsLiteral<Length<b>>]> extends true ? Equal<Length<a>, Length<b>> extends false ? false : IsMatchingTuple<a, b> : IsMatchingArray<a, b> : false : IsPlainObject<b> extends true ? true extends typeof a extends any ? [ keyof typeof b & keyof typeof a ] extends [ never ] ? false : { [k in keyof typeof b & keyof typeof a]: IsMatching<(typeof a)[k], (typeof b)[k]>; }[keyof typeof b & keyof typeof a] extends true ? true : false : never ? true : false : b extends a ? true : false
+ * export type IsMatching<a, b> =
+ *   true extends IsUnion<a> | IsUnion<b>
+ *     ? true extends typeof b extends any ? (typeof a extends any ? IsMatching<typeof a, typeof b> : never) : never
+ *       ? true
+ *       : false
+ *   : unknown extends b ? true
+ *   : {} extends b ? true
+ *   : b extends Primitives ? a extends b ? true : b extends a ? true : false
+ *   : Equal<a, b> extends true ? true
+ *   : b extends readonly any[]
+ *     ? a extends readonly any[]
+ *       ? All<[IsLiteral<Length<a>>, IsLiteral<Length<b>>]> extends true
+ *         ? Equal<Length<a>, Length<b>> extends false ? false : IsMatchingTuple<a, b>
+ *         : IsMatchingArray<a, b>
+ *       : false
+ *   : IsPlainObject<b> extends true
+ *     ? true extends typeof a extends any ? [ keyof typeof b & keyof typeof a ] extends [ never ] ? false : { [k in keyof typeof b & keyof typeof a]: IsMatching<(typeof a)[k], (typeof b)[k]>; }[keyof typeof b & keyof typeof a] extends true ? true : false : never
+ *       ? true
+ *       : false
+ *   : b extends a ? true
+ *   : false
  */

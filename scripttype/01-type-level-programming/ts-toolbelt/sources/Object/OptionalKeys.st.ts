@@ -18,7 +18,8 @@ export function _OptionalKeys(O: object) {
   return out[keyof(O)]
 }
 /* compiles to:
- * export type _OptionalKeys<O extends object> = { [K in keyof O]-?: {} extends Pick<O, K> ? K : never }[keyof O]
+ * export type _OptionalKeys<O extends object> =
+ *   { [K in keyof O]-?: {} extends Pick<O, K> ? K : never }[keyof O]
  */
 
 // ✓ OptionalKeys: verified type-identical to the original

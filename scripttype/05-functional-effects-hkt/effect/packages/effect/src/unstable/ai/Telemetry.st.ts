@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const First: any
-type First<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AttributesWithPrefix: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AttributesWithPrefix(Attributes: Record<string, any>, Prefix: string) {
@@ -22,13 +22,17 @@ export function AttributesWithPrefix(Attributes: Record<string, any>, Prefix: st
   return out
 }
 /* compiles to:
- * export type AttributesWithPrefix<Attributes extends Record<string, any>, Prefix extends string> = { [Name in keyof Attributes as `${Prefix}.${FormatAttributeName<Name>}`]: Attributes[Name] }
+ * export type AttributesWithPrefix<
+ *   Attributes extends Record<string, any>,
+ *   Prefix extends string
+ * > =
+ *   { [Name in keyof Attributes as `${Prefix}.${FormatAttributeName<Name>}`]: Attributes[Name] }
  */
 
 // ✓ FormatAttributeName: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FormatAttributeName(T: string | number | symbol) {
-  if (matches<string>(T)) {
+  if (typeof T === 'string') {
     const m1 = matches<`${Hole<"First">}${Hole<"Rest">}`>(T)
     if (m1) {
       return `${matches<Uppercase<typeof m1.First>>(m1.First) ? '_' : ''}${Lowercase(m1.First)}${FormatAttributeName(m1.Rest)}`
@@ -38,5 +42,10 @@ export function FormatAttributeName(T: string | number | symbol) {
   return never
 }
 /* compiles to:
- * export type FormatAttributeName<T extends string | number | symbol> = T extends string ? T extends `${infer First}${infer Rest}` ? `${First extends Uppercase<First> ? '_' : ''}${Lowercase<First>}${FormatAttributeName<Rest>}` : T : never
+ * export type FormatAttributeName<T extends string | number | symbol> =
+ *   T extends string
+ *     ? T extends `${infer First}${infer Rest}`
+ *       ? `${First extends Uppercase<First> ? '_' : ''}${Lowercase<First>}${FormatAttributeName<Rest>}`
+ *       : T
+ *     : never
  */

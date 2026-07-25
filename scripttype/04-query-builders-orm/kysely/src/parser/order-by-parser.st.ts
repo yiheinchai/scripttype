@@ -15,18 +15,22 @@ declare const ExpressionOrFactory: any
 declare const OrderByDirection: any
 declare const ReferenceExpression: any
 declare const StringReference: any
-type DynamicReferenceBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExpressionOrFactory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OrderByDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReferenceExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringReference<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DynamicReferenceBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OrderByDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringReference<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OrderByExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OrderByExpression(DB, TB: keyof typeof DB, O) {
   return anyOf(StringReference(DB, TB), keyof(O) & string, ExpressionOrFactory(DB, TB, any), DynamicReferenceBuilder(any))
 }
 /* compiles to:
- * export type OrderByExpression<DB, TB extends keyof DB, O> = StringReference<DB, TB> | keyof O & string | ExpressionOrFactory<DB, TB, any> | DynamicReferenceBuilder<any>
+ * export type OrderByExpression<DB, TB extends keyof DB, O> =
+ *   | StringReference<DB, TB>
+ *   | keyof O & string
+ *   | ExpressionOrFactory<DB, TB, any>
+ *   | DynamicReferenceBuilder<any>
  */
 
 // ✓ DirectedOrderByStringReference: verified type-identical to the original
@@ -44,5 +48,6 @@ export function UndirectedOrderByExpression(DB, TB: keyof typeof DB, O) {
   return anyOf(ReferenceExpression(DB, TB), keyof(O) & string)
 }
 /* compiles to:
- * export type UndirectedOrderByExpression<DB, TB extends keyof DB, O> = ReferenceExpression<DB, TB> | keyof O & string
+ * export type UndirectedOrderByExpression<DB, TB extends keyof DB, O> =
+ *   ReferenceExpression<DB, TB> | keyof O & string
  */

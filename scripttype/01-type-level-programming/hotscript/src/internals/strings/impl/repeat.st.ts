@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const DivMod: any
 declare const Sub: any
-type DivMod<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Sub<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DivMod<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Sub<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RepeatX2: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RepeatX2(T: string) {
@@ -38,5 +38,14 @@ export function Repeat(T: string, N: number, Acc: string = '', Calc: { Quotient:
   return Repeat(T, Sub(N, 1), `${Acc}${T}`)
 }
 /* compiles to:
- * export type Repeat<T extends string, N extends number, Acc extends string = '', Calc extends { Quotient: number; Remainder: number; } = DivMod<N, 2>> = N extends 0 ? Acc : N extends 1 ? `${Acc}${T}` : Calc['Remainder'] extends 0 ? Repeat<RepeatX2<T>, Calc['Quotient'], Acc> : Repeat<T, Sub<N, 1>, `${Acc}${T}`>
+ * export type Repeat<
+ *   T extends string,
+ *   N extends number,
+ *   Acc extends string = '',
+ *   Calc extends { Quotient: number; Remainder: number; } = DivMod<N, 2>
+ * > =
+ *   N extends 0 ? Acc
+ *   : N extends 1 ? `${Acc}${T}`
+ *   : Calc['Remainder'] extends 0 ? Repeat<RepeatX2<T>, Calc['Quotient'], Acc>
+ *   : Repeat<T, Sub<N, 1>, `${Acc}${T}`>
  */

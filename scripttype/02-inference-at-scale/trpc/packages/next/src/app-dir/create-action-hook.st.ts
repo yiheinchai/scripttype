@@ -17,13 +17,13 @@ declare const UseTRPCActionErrorResult: any
 declare const UseTRPCActionIdleResult: any
 declare const UseTRPCActionLoadingResult: any
 declare const UseTRPCActionSuccessResult: any
-type ActionHandlerDef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FormData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCProcedureOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseTRPCActionErrorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseTRPCActionIdleResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseTRPCActionLoadingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseTRPCActionSuccessResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActionHandlerDef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FormData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCProcedureOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseTRPCActionErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseTRPCActionIdleResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseTRPCActionLoadingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseTRPCActionSuccessResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ MutationArgs: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -34,7 +34,10 @@ export function MutationArgs(TDef: ActionHandlerDef) {
   return [FormData | TDef['input'], TRPCProcedureOptions]
 }
 /* compiles to:
- * export type MutationArgs<TDef extends ActionHandlerDef> = TDef['input'] extends void ? [undefined | void, TRPCProcedureOptions] : [FormData | TDef['input'], TRPCProcedureOptions]
+ * export type MutationArgs<TDef extends ActionHandlerDef> =
+ *   TDef['input'] extends void
+ *     ? [undefined | void, TRPCProcedureOptions]
+ *     : [FormData | TDef['input'], TRPCProcedureOptions]
  */
 
 // ✓ UseTRPCActionResult: verified type-identical to the original
@@ -43,5 +46,9 @@ export function UseTRPCActionResult(TDef: ActionHandlerDef) {
   return UseTRPCActionErrorResult(TDef) | UseTRPCActionIdleResult(TDef) | UseTRPCActionLoadingResult(TDef) | UseTRPCActionSuccessResult(TDef)
 }
 /* compiles to:
- * export type UseTRPCActionResult<TDef extends ActionHandlerDef> = UseTRPCActionErrorResult<TDef> | UseTRPCActionIdleResult<TDef> | UseTRPCActionLoadingResult<TDef> | UseTRPCActionSuccessResult<TDef>
+ * export type UseTRPCActionResult<TDef extends ActionHandlerDef> =
+ *   | UseTRPCActionErrorResult<TDef>
+ *   | UseTRPCActionIdleResult<TDef>
+ *   | UseTRPCActionLoadingResult<TDef>
+ *   | UseTRPCActionSuccessResult<TDef>
  */

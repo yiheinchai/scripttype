@@ -13,9 +13,9 @@
 declare const Cast: any
 declare const List: any
 declare const Literal: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Literal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Literal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _Join: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _Join(T: List, D: string) {
@@ -32,7 +32,11 @@ export function _Join(T: List, D: string) {
   return string
 }
 /* compiles to:
- * export type _Join<T extends List, D extends string> = T extends [] ? '' : T extends [Literal] ? `${T[0]}` : T extends [Literal, ...infer R] ? `${T[0]}${D}${_Join<R, D>}` : string
+ * export type _Join<T extends List, D extends string> =
+ *   T extends [] ? ''
+ *   : T extends [Literal] ? `${T[0]}`
+ *   : T extends [Literal, ...infer R] ? `${T[0]}${D}${_Join<R, D>}`
+ *   : string
  */
 
 // ✓ Join: verified type-identical to the original
@@ -45,5 +49,6 @@ export function Join(T: List<Literal>, D: string = '') {
   return never
 }
 /* compiles to:
- * export type Join<T extends List<Literal>, D extends string = ''> = _Join<T, D> extends infer X ? Cast<X, string> : never
+ * export type Join<T extends List<Literal>, D extends string = ''> =
+ *   _Join<T, D> extends infer X ? Cast<X, string> : never
  */

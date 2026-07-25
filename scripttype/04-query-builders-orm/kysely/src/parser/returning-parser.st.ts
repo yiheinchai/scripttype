@@ -17,13 +17,13 @@ declare const InsertResult: any
 declare const MergeResult: any
 declare const Selection: any
 declare const UpdateResult: any
-type AllSelection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CallbackSelection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DeleteResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InsertResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MergeResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Selection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AllSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CallbackSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DeleteResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InsertResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MergeResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Selection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReturningRow: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReturningRow(DB, TB: keyof typeof DB, O, SE) {
@@ -33,7 +33,10 @@ export function ReturningRow(DB, TB: keyof typeof DB, O, SE) {
   return O & Selection(DB, TB, SE)
 }
 /* compiles to:
- * export type ReturningRow<DB, TB extends keyof DB, O, SE> = O extends InsertResult | DeleteResult | UpdateResult | MergeResult ? Selection<DB, TB, SE> : O & Selection<DB, TB, SE>
+ * export type ReturningRow<DB, TB extends keyof DB, O, SE> =
+ *   O extends InsertResult | DeleteResult | UpdateResult | MergeResult
+ *     ? Selection<DB, TB, SE>
+ *     : O & Selection<DB, TB, SE>
  */
 
 // ✓ ReturningCallbackRow: verified type-identical to the original
@@ -45,7 +48,10 @@ export function ReturningCallbackRow(DB, TB: keyof typeof DB, O, CB) {
   return O & CallbackSelection(DB, TB, CB)
 }
 /* compiles to:
- * export type ReturningCallbackRow<DB, TB extends keyof DB, O, CB> = O extends InsertResult | DeleteResult | UpdateResult | MergeResult ? CallbackSelection<DB, TB, CB> : O & CallbackSelection<DB, TB, CB>
+ * export type ReturningCallbackRow<DB, TB extends keyof DB, O, CB> =
+ *   O extends InsertResult | DeleteResult | UpdateResult | MergeResult
+ *     ? CallbackSelection<DB, TB, CB>
+ *     : O & CallbackSelection<DB, TB, CB>
  */
 
 // ✓ ReturningAllRow: verified type-identical to the original
@@ -57,5 +63,8 @@ export function ReturningAllRow(DB, TB: keyof typeof DB, O) {
   return O & AllSelection(DB, TB)
 }
 /* compiles to:
- * export type ReturningAllRow<DB, TB extends keyof DB, O> = O extends InsertResult | DeleteResult | UpdateResult | MergeResult ? AllSelection<DB, TB> : O & AllSelection<DB, TB>
+ * export type ReturningAllRow<DB, TB extends keyof DB, O> =
+ *   O extends InsertResult | DeleteResult | UpdateResult | MergeResult
+ *     ? AllSelection<DB, TB>
+ *     : O & AllSelection<DB, TB>
  */

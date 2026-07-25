@@ -16,12 +16,12 @@ declare const LimitKind: any
 declare const LowerBoundKind: any
 declare const RangeKind: any
 declare const UpperBoundKind: any
-type BoundKindPairsByLower<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BoundKindPairsByUpper<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LimitKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LowerBoundKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RangeKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpperBoundKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BoundKindPairsByLower<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BoundKindPairsByUpper<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LimitKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LowerBoundKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RangeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpperBoundKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ LimitInnerValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function LimitInnerValue(kind: RangeKind = RangeKind) {
@@ -31,7 +31,8 @@ export function LimitInnerValue(kind: RangeKind = RangeKind) {
   return number
 }
 /* compiles to:
- * export type LimitInnerValue<kind extends RangeKind = RangeKind> = kind extends 'before' | 'after' ? Date : number
+ * export type LimitInnerValue<kind extends RangeKind = RangeKind> =
+ *   kind extends 'before' | 'after' ? Date : number
  */
 
 // ✓ RelativeComparator: verified type-identical to the original
@@ -40,7 +41,8 @@ export function RelativeComparator(kind: LimitKind = LimitKind) {
   return { lower: anyOf('>', '>='), upper: anyOf('<', '<=') }[kind]
 }
 /* compiles to:
- * export type RelativeComparator<kind extends LimitKind = LimitKind> = { lower: '>' | '>='; upper: '<' | '<=' }[kind]
+ * export type RelativeComparator<kind extends LimitKind = LimitKind> =
+ *   { lower: '>' | '>='; upper: '<' | '<=' }[kind]
  */
 
 // ✗ pairedRangeKind: does not compile yet
@@ -53,7 +55,10 @@ export function pairedRangeKind(kind: RangeKind) {
   return BoundKindPairsByUpper[merge(kind, UpperBoundKind)]
 }
 /* compiles to:
- * export type pairedRangeKind<kind extends RangeKind> = kind extends LowerBoundKind ? BoundKindPairsByLower[kind] : BoundKindPairsByUpper[kind & UpperBoundKind]
+ * export type pairedRangeKind<kind extends RangeKind> =
+ *   kind extends LowerBoundKind
+ *     ? BoundKindPairsByLower[kind]
+ *     : BoundKindPairsByUpper[kind & UpperBoundKind]
  */
 
 // ✓ writeUnboundableMessage: verified type-identical to the original

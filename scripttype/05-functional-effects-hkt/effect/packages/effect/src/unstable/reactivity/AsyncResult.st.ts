@@ -14,13 +14,13 @@ declare const Defect: any
 declare const Initial: any
 declare const Interrupt: any
 declare const Pipeable: any
-type AsyncResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Defect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Failure<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Initial<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Interrupt<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pipeable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Success<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AsyncResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Defect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Failure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Initial<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Interrupt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pipeable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Success<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AsyncResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AsyncResult(A, E = never) {
@@ -76,7 +76,11 @@ export function With(R: AsyncResult<any, any>, A, E) {
   return never
 }
 /* compiles to:
- * export type With<R extends AsyncResult<any, any>, A, E> = R extends Initial<unknown, unknown> ? Initial<A, E> : R extends Success<unknown, unknown> ? Success<A, E> : R extends Failure<unknown, unknown> ? Failure<A, E> : never
+ * export type With<R extends AsyncResult<any, any>, A, E> =
+ *   R extends Initial<unknown, unknown> ? Initial<A, E>
+ *   : R extends Success<unknown, unknown> ? Success<A, E>
+ *   : R extends Failure<unknown, unknown> ? Failure<A, E>
+ *   : never
  */
 
 // ✗ Builder: uses raw() — language gap, does not count as covered

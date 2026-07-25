@@ -21,21 +21,21 @@ declare const MetaObject: any
 declare const StateSchema: any
 declare const StateValue: any
 declare const StoppedMachineSnapshot: any
-type ActiveMachineSnapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyActorRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DoneMachineSnapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMachineSnapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MachineContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MetaObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StateSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StateValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoppedMachineSnapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActiveMachineSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyActorRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DoneMachineSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMachineSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MetaObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StateSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StateValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoppedMachineSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ToTestStateValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ToTestStateValue(TStateValue: StateValue) {
-  if (matches<string>(TStateValue)) {
+  if (typeof TStateValue === 'string') {
     return TStateValue
   }
   if (matches<true>(IsNever(keyof(TStateValue)))) {
@@ -48,7 +48,11 @@ export function ToTestStateValue(TStateValue: StateValue) {
   return keyof(TStateValue) | out
 }
 /* compiles to:
- * export type ToTestStateValue<TStateValue extends StateValue> = TStateValue extends string ? TStateValue : IsNever<keyof TStateValue> extends true ? never : keyof TStateValue | { [K in keyof TStateValue]?: ToTestStateValue<NonNullable<TStateValue[K]>> }
+ * export type ToTestStateValue<TStateValue extends StateValue> =
+ *   TStateValue extends string ? TStateValue
+ *   : IsNever<keyof TStateValue> extends true ? never
+ *   : | keyof TStateValue
+ *   | { [K in keyof TStateValue]?: ToTestStateValue<NonNullable<TStateValue[K]>> }
  */
 
 // ✓ MachineSnapshot: verified type-identical to the original
@@ -57,5 +61,54 @@ export function MachineSnapshot(TContext: MachineContext, TEvent: EventObject, T
   return ActiveMachineSnapshot(TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema) | DoneMachineSnapshot(TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema) | ErrorMachineSnapshot(TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema) | StoppedMachineSnapshot(TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema)
 }
 /* compiles to:
- * export type MachineSnapshot<TContext extends MachineContext, TEvent extends EventObject, TChildren extends Record<string, AnyActorRef | undefined>, TStateValue extends StateValue, TTag extends string, TOutput, TMeta extends MetaObject, TStateSchema extends StateSchema> = ActiveMachineSnapshot<TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema> | DoneMachineSnapshot<TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema> | ErrorMachineSnapshot<TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema> | StoppedMachineSnapshot<TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema>
+ * export type MachineSnapshot<
+ *   TContext extends MachineContext,
+ *   TEvent extends EventObject,
+ *   TChildren extends Record<string, AnyActorRef | undefined>,
+ *   TStateValue extends StateValue,
+ *   TTag extends string,
+ *   TOutput,
+ *   TMeta extends MetaObject,
+ *   TStateSchema extends StateSchema
+ * > =
+ *   | ActiveMachineSnapshot<
+ *       TContext,
+ *       TEvent,
+ *       TChildren,
+ *       TStateValue,
+ *       TTag,
+ *       TOutput,
+ *       TMeta,
+ *       TStateSchema
+ *     >
+ *   | DoneMachineSnapshot<
+ *       TContext,
+ *       TEvent,
+ *       TChildren,
+ *       TStateValue,
+ *       TTag,
+ *       TOutput,
+ *       TMeta,
+ *       TStateSchema
+ *     >
+ *   | ErrorMachineSnapshot<
+ *       TContext,
+ *       TEvent,
+ *       TChildren,
+ *       TStateValue,
+ *       TTag,
+ *       TOutput,
+ *       TMeta,
+ *       TStateSchema
+ *     >
+ *   | StoppedMachineSnapshot<
+ *       TContext,
+ *       TEvent,
+ *       TChildren,
+ *       TStateValue,
+ *       TTag,
+ *       TOutput,
+ *       TMeta,
+ *       TStateSchema
+ *     >
  */

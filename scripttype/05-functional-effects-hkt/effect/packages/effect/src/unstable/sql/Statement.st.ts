@@ -12,13 +12,39 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Custom: any
 declare const Dialect: any
-type Custom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Dialect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Custom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Dialect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CompilerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CompilerOptions(C: Custom<any, any, any, any> = any) {
   return { dialect: readonlyProp(Dialect), placeholder: readonlyProp(fnType([number, unknown], string)), onIdentifier: readonlyProp(fnType([string, boolean], string)), onRecordUpdate: readonlyProp(fnType([string, string, string, t<ReadonlyArray<ReadonlyArray<unknown>>>(), anyOf(asReadonly([string, t<ReadonlyArray<unknown>>()]), Undefined)], asReadonly([string, t<ReadonlyArray<unknown>>()]))), onCustom: readonlyProp(fnType([C, fnType([unknown], string), boolean], asReadonly([string, t<ReadonlyArray<unknown>>()]))), onInsert: readonlyProp(optional(fnType([t<ReadonlyArray<string>>(), string, t<ReadonlyArray<ReadonlyArray<unknown>>>(), anyOf(asReadonly([string, t<ReadonlyArray<unknown>>()]), Undefined)], asReadonly([string, t<ReadonlyArray<unknown>>()])))), onRecordUpdateSingle: readonlyProp(optional(fnType([t<ReadonlyArray<string>>(), t<ReadonlyArray<unknown>>(), anyOf(asReadonly([string, t<ReadonlyArray<unknown>>()]), Undefined)], asReadonly([string, t<ReadonlyArray<unknown>>()])))) }
 }
 /* compiles to:
- * export type CompilerOptions<C extends Custom<any, any, any, any> = any> = { readonly dialect: Dialect; readonly placeholder: (a0: number, a1: unknown) => string; readonly onIdentifier: (a0: string, a1: boolean) => string; readonly onRecordUpdate: (a0: string, a1: string, a2: string, a3: ReadonlyArray<ReadonlyArray<unknown>>, a4: readonly [string, ReadonlyArray<unknown>] | undefined) => readonly [string, ReadonlyArray<unknown>]; readonly onCustom: (a0: C, a1: (a0: unknown) => string, a2: boolean) => readonly [string, ReadonlyArray<unknown>]; readonly onInsert?: (a0: ReadonlyArray<string>, a1: string, a2: ReadonlyArray<ReadonlyArray<unknown>>, a3: readonly [string, ReadonlyArray<unknown>] | undefined) => readonly [string, ReadonlyArray<unknown>]; readonly onRecordUpdateSingle?: (a0: ReadonlyArray<string>, a1: ReadonlyArray<unknown>, a2: readonly [string, ReadonlyArray<unknown>] | undefined) => readonly [string, ReadonlyArray<unknown>] }
+ * export type CompilerOptions<C extends Custom<any, any, any, any> = any> = {
+ *   readonly dialect: Dialect
+ *   readonly placeholder: (a0: number, a1: unknown) => string
+ *   readonly onIdentifier: (a0: string, a1: boolean) => string
+ *   readonly onRecordUpdate: (
+ *     a0: string,
+ *     a1: string,
+ *     a2: string,
+ *     a3: ReadonlyArray<ReadonlyArray<unknown>>,
+ *     a4: readonly [string, ReadonlyArray<unknown>] | undefined
+ *   ) => readonly [string, ReadonlyArray<unknown>]
+ *   readonly onCustom: (a0: C, a1: (a0: unknown) => string, a2: boolean) => readonly [
+ *     string,
+ *     ReadonlyArray<unknown>
+ *   ]
+ *   readonly onInsert?: (
+ *     a0: ReadonlyArray<string>,
+ *     a1: string,
+ *     a2: ReadonlyArray<ReadonlyArray<unknown>>,
+ *     a3: readonly [string, ReadonlyArray<unknown>] | undefined
+ *   ) => readonly [string, ReadonlyArray<unknown>]
+ *   readonly onRecordUpdateSingle?: (
+ *     a0: ReadonlyArray<string>,
+ *     a1: ReadonlyArray<unknown>,
+ *     a2: readonly [string, ReadonlyArray<unknown>] | undefined
+ *   ) => readonly [string, ReadonlyArray<unknown>]
+ * }
  */

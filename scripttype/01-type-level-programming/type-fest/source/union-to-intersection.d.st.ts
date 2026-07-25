@@ -17,5 +17,8 @@ export function UnionToIntersection(Union) {
   return never
 }
 /* compiles to:
- * export type UnionToIntersection<Union> = (Union extends unknown ? (a0: Union) => void : never) extends (mergedIntersection: infer Intersection) => void ? Intersection & Union : never
+ * export type UnionToIntersection<Union> =
+ *   (Union extends unknown ? (a0: Union) => void : never) extends (mergedIntersection: infer Intersection) => void
+ *     ? Intersection & Union
+ *     : never
  */

@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const RemovePrefix: any
-type RemovePrefix<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type RemovePrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Assignability: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Assignability(S: string) {
@@ -27,7 +27,9 @@ export function Test1(S: string, Prefix: string) {
   return Assignability(RemovePrefix(S, Prefix))
 }
 /* compiles to:
- * export type Test1<S extends string, Prefix extends string> = Assignability<RemovePrefix<S, Prefix>>
+ * export type Test1<S extends string, Prefix extends string> = Assignability<
+ *   RemovePrefix<S, Prefix>
+ * >
  */
 
 // ✓ Test2: verified type-identical to the original
@@ -36,5 +38,7 @@ export function Test2(S: Uppercase<string>, Prefix: '-' | '/' | '#') {
   return Assignability(RemovePrefix(S, Prefix))
 }
 /* compiles to:
- * export type Test2<S extends Uppercase<string>, Prefix extends '-' | '/' | '#'> = Assignability<RemovePrefix<S, Prefix>>
+ * export type Test2<S extends Uppercase<string>, Prefix extends '-' | '/' | '#'> = Assignability<
+ *   RemovePrefix<S, Prefix>
+ * >
  */

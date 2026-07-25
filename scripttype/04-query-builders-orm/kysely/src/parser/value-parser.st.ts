@@ -13,10 +13,10 @@
 declare const Expression: any
 declare const ExpressionOrFactory: any
 declare const SelectQueryBuilderExpression: any
-type Expression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExpressionOrFactory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectQueryBuilderExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectQueryBuilderExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValueExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValueExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValueExpression(DB, TB: keyof typeof DB, V) {
@@ -32,7 +32,8 @@ export function ValueExpressionOrList(DB, TB: keyof typeof DB, V) {
   return ValueExpression(DB, TB, V) | t<ReadonlyArray<ValueExpression<typeof DB, typeof TB, typeof V>>>()
 }
 /* compiles to:
- * export type ValueExpressionOrList<DB, TB extends keyof DB, V> = ValueExpression<DB, TB, V> | ReadonlyArray<ValueExpression<DB, TB, V>>
+ * export type ValueExpressionOrList<DB, TB extends keyof DB, V> =
+ *   ValueExpression<DB, TB, V> | ReadonlyArray<ValueExpression<DB, TB, V>>
  */
 
 // ✓ ExtractTypeFromValueExpressionOrList: verified type-identical to the original
@@ -45,7 +46,10 @@ export function ExtractTypeFromValueExpressionOrList(VE) {
   return ExtractTypeFromValueExpression(VE)
 }
 /* compiles to:
- * export type ExtractTypeFromValueExpressionOrList<VE> = VE extends ReadonlyArray<infer AV> ? ExtractTypeFromValueExpression<AV> : ExtractTypeFromValueExpression<VE>
+ * export type ExtractTypeFromValueExpressionOrList<VE> =
+ *   VE extends ReadonlyArray<infer AV>
+ *     ? ExtractTypeFromValueExpression<AV>
+ *     : ExtractTypeFromValueExpression<VE>
  */
 
 // ✓ ExtractTypeFromValueExpression: verified type-identical to the original
@@ -62,5 +66,8 @@ export function ExtractTypeFromValueExpression(VE) {
   return VE
 }
 /* compiles to:
- * export type ExtractTypeFromValueExpression<VE> = VE extends SelectQueryBuilderExpression<Record<string, infer SV>> ? SV : VE extends Expression<infer V> ? V : VE
+ * export type ExtractTypeFromValueExpression<VE> =
+ *   VE extends SelectQueryBuilderExpression<Record<string, infer SV>> ? SV
+ *   : VE extends Expression<infer V> ? V
+ *   : VE
  */

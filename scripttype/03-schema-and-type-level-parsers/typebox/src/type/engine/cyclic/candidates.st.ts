@@ -13,9 +13,9 @@
 declare const TCyclicCheck: any
 declare const TProperties: any
 declare const TPropertyKeys: any
-type TCyclicCheck<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TPropertyKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCyclicCheck<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TPropertyKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TResolveCandidateKeys: the ScriptType does not itself typecheck as TypeScript
 //   TResolveCandidateKeys.st.ts(3:43) TS2749: 'Context' refers to a value, but is being used as a type here. Did you mean 'typeof Context'?
 /* @scripttype preserveParamNames */
@@ -30,7 +30,16 @@ export function TResolveCandidateKeys(Context: TProperties, Keys: (keyof typeof 
   return Result
 }
 /* compiles to:
- * export type TResolveCandidateKeys<Context extends TProperties, Keys extends (keyof Context)[], Result extends (keyof Context)[] = []> = Keys extends [infer Left extends keyof Context, ...(infer Right extends (keyof Context)[])] ? TCyclicCheck<[Left], Context, Context[Left]> extends true ? TResolveCandidateKeys<Context, Right, [...Result, Left]> : TResolveCandidateKeys<Context, Right, Result> : Result
+ * export type TResolveCandidateKeys<
+ *   Context extends TProperties,
+ *   Keys extends (keyof Context)[],
+ *   Result extends (keyof Context)[] = []
+ * > =
+ *   Keys extends [infer Left extends keyof Context, ...infer Right extends (keyof Context)[]]
+ *     ? TCyclicCheck<[Left], Context, Context[Left]> extends true
+ *       ? TResolveCandidateKeys<Context, Right, [...Result, Left]>
+ *       : TResolveCandidateKeys<Context, Right, Result>
+ *     : Result
  */
 
 // ✓ TCyclicCandidates: verified type-identical to the original
@@ -39,5 +48,10 @@ export function TCyclicCandidates(Context: TProperties, Keys: (keyof typeof Cont
   return Result
 }
 /* compiles to:
- * export type TCyclicCandidates<Context extends TProperties, Keys extends (keyof Context)[] = TPropertyKeys<Context>, Result extends (keyof Context)[] = TResolveCandidateKeys<Context, Keys>> = Result
+ * export type TCyclicCandidates<
+ *   Context extends TProperties,
+ *   Keys extends (keyof Context)[] = TPropertyKeys<Context>,
+ *   Result extends (keyof Context)[] = TResolveCandidateKeys<Context, Keys>
+ * > =
+ *   Result
  */

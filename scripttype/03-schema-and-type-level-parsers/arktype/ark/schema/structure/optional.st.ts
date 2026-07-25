@@ -13,5 +13,9 @@ export function writeUnassignableDefaultValueMessage(baseDef: string, defaultVal
   return `Default value ${defaultValue} must be assignable to ${baseDef}`
 }
 /* compiles to:
- * export type writeUnassignableDefaultValueMessage<baseDef extends string, defaultValue extends string> = `Default value ${defaultValue} must be assignable to ${baseDef}`
+ * export type writeUnassignableDefaultValueMessage<
+ *   baseDef extends string,
+ *   defaultValue extends string
+ * > =
+ *   `Default value ${defaultValue} must be assignable to ${baseDef}`
  */

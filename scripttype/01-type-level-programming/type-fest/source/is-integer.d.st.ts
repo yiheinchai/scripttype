@@ -14,17 +14,17 @@ declare const IsFloat: any
 declare const NegativeInfinity: any
 declare const Not: any
 declare const PositiveInfinity: any
-type IsFloat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Not<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IsFloat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsInteger(T) {
-  if (matches<bigint>(T)) {
+  if (typeof T === 'bigint') {
     return true
   }
-  if (matches<number>(T)) {
+  if (typeof T === 'number') {
     if (matches<typeof T>(number)) {
       return false
     }
@@ -36,5 +36,11 @@ export function IsInteger(T) {
   return false
 }
 /* compiles to:
- * export type IsInteger<T> = T extends bigint ? true : T extends number ? number extends T ? false : T extends PositiveInfinity | NegativeInfinity ? false : Not<IsFloat<T>> : false
+ * export type IsInteger<T> =
+ *   T extends bigint ? true
+ *   : T extends number
+ *     ? number extends T ? false
+ *     : T extends PositiveInfinity | NegativeInfinity ? false
+ *     : Not<IsFloat<T>>
+ *   : false
  */

@@ -14,15 +14,18 @@ declare const ColumnBaseConfig: any
 declare const ColumnDataType: any
 declare const SingleStoreColumn: any
 declare const Update: any
-type ColumnBaseConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ColumnDataType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreColumn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Update<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ColumnBaseConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ColumnDataType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Update<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnySingleStoreColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AnySingleStoreColumn(TPartial: Partial<ColumnBaseConfig<ColumnDataType, string>> = {}) {
   return SingleStoreColumn(Required(Update(ColumnBaseConfig(ColumnDataType, string), TPartial)))
 }
 /* compiles to:
- * export type AnySingleStoreColumn<TPartial extends Partial<ColumnBaseConfig<ColumnDataType, string>> = {}> = SingleStoreColumn<Required<Update<ColumnBaseConfig<ColumnDataType, string>, TPartial>>>
+ * export type AnySingleStoreColumn<
+ *   TPartial extends Partial<ColumnBaseConfig<ColumnDataType, string>> = {}
+ * > =
+ *   SingleStoreColumn<Required<Update<ColumnBaseConfig<ColumnDataType, string>, TPartial>>>
  */

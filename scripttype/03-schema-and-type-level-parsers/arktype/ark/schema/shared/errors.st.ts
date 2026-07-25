@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace ArkEnv {
+  export type meta<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ArkEnv: any
 declare const ArkError: any
 declare const ArkErrorCode: any
@@ -22,18 +25,18 @@ declare const PropertyKey: any
 declare const array: any
 declare const errorContext: any
 declare const propwiseXor: any
-type ArkEnv<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ArkError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ArkErrorCode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ArkErrorContextInputsByCode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ArkErrors<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DerivableErrorContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prerequisite<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type errorContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type propwiseXor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ArkEnv<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArkError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArkErrorCode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArkErrorContextInputsByCode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArkErrors<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DerivableErrorContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prerequisite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type errorContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type propwiseXor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Handler: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -51,7 +54,12 @@ export function DerivableErrorContextInput(code: ArkErrorCode = ArkErrorCode) {
   return Partial(DerivableErrorContext(code)) & propwiseXor({ path: optional(array(PropertyKey)) }, { relativePath: optional(array(PropertyKey)), prefixPath: optional(array(PropertyKey)) })
 }
 /* compiles to:
- * export type DerivableErrorContextInput<code extends ArkErrorCode = ArkErrorCode> = Partial<DerivableErrorContext<code>> & propwiseXor<{ path?: array<PropertyKey> }, { relativePath?: array<PropertyKey>; prefixPath?: array<PropertyKey> }>
+ * export type DerivableErrorContextInput<code extends ArkErrorCode = ArkErrorCode> =
+ *   & Partial<DerivableErrorContext<code>>
+ *   & propwiseXor<
+ *       { path?: array<PropertyKey> },
+ *       { relativePath?: array<PropertyKey>; prefixPath?: array<PropertyKey> }
+ *     >
  */
 
 // ✓ ArkErrorContextInput: verified type-identical to the original
@@ -60,7 +68,8 @@ export function ArkErrorContextInput(code: ArkErrorCode = ArkErrorCode) {
   return merge(ArkErrorContextInputsByCode[code], { meta: optional(ArkEnv.meta) })
 }
 /* compiles to:
- * export type ArkErrorContextInput<code extends ArkErrorCode = ArkErrorCode> = ArkErrorContextInputsByCode[code] & { meta?: ArkEnv.meta }
+ * export type ArkErrorContextInput<code extends ArkErrorCode = ArkErrorCode> =
+ *   ArkErrorContextInputsByCode[code] & { meta?: ArkEnv.meta }
  */
 
 // ✓ NodeErrorContextInput: verified type-identical to the original
@@ -69,7 +78,8 @@ export function NodeErrorContextInput(code: ArkErrorCode = ArkErrorCode) {
   return merge(ArkErrorContextInputsByCode[code], { meta: ArkEnv.meta })
 }
 /* compiles to:
- * export type NodeErrorContextInput<code extends ArkErrorCode = ArkErrorCode> = ArkErrorContextInputsByCode[code] & { meta: ArkEnv.meta }
+ * export type NodeErrorContextInput<code extends ArkErrorCode = ArkErrorCode> =
+ *   ArkErrorContextInputsByCode[code] & { meta: ArkEnv.meta }
  */
 
 // ✓ MessageContext: verified type-identical to the original
@@ -78,7 +88,10 @@ export function MessageContext(code: ArkErrorCode = ArkErrorCode) {
   return Omit(ArkError(code), 'message')
 }
 /* compiles to:
- * export type MessageContext<code extends ArkErrorCode = ArkErrorCode> = Omit<ArkError<code>, 'message'>
+ * export type MessageContext<code extends ArkErrorCode = ArkErrorCode> = Omit<
+ *   ArkError<code>,
+ *   'message'
+ * >
  */
 
 // ✓ ProblemContext: verified type-identical to the original
@@ -87,7 +100,10 @@ export function ProblemContext(code: ArkErrorCode = ArkErrorCode) {
   return Omit(MessageContext(code), 'problem')
 }
 /* compiles to:
- * export type ProblemContext<code extends ArkErrorCode = ArkErrorCode> = Omit<MessageContext<code>, 'problem'>
+ * export type ProblemContext<code extends ArkErrorCode = ArkErrorCode> = Omit<
+ *   MessageContext<code>,
+ *   'problem'
+ * >
  */
 
 // ✓ ProblemConfig: verified type-identical to the original
@@ -96,7 +112,8 @@ export function ProblemConfig(code: ArkErrorCode = ArkErrorCode) {
   return string | ProblemWriter(code)
 }
 /* compiles to:
- * export type ProblemConfig<code extends ArkErrorCode = ArkErrorCode> = string | ProblemWriter<code>
+ * export type ProblemConfig<code extends ArkErrorCode = ArkErrorCode> =
+ *   string | ProblemWriter<code>
  */
 
 // ✓ ProblemWriter: verified type-identical to the original
@@ -105,7 +122,8 @@ export function ProblemWriter(code: ArkErrorCode = ArkErrorCode) {
   return fnType([ProblemContext(code)], string)
 }
 /* compiles to:
- * export type ProblemWriter<code extends ArkErrorCode = ArkErrorCode> = (a0: ProblemContext<code>) => string
+ * export type ProblemWriter<code extends ArkErrorCode = ArkErrorCode> =
+ *   (a0: ProblemContext<code>) => string
  */
 
 // ✓ MessageConfig: verified type-identical to the original
@@ -114,7 +132,8 @@ export function MessageConfig(code: ArkErrorCode = ArkErrorCode) {
   return string | MessageWriter(code)
 }
 /* compiles to:
- * export type MessageConfig<code extends ArkErrorCode = ArkErrorCode> = string | MessageWriter<code>
+ * export type MessageConfig<code extends ArkErrorCode = ArkErrorCode> =
+ *   string | MessageWriter<code>
  */
 
 // ✓ MessageWriter: verified type-identical to the original
@@ -123,7 +142,8 @@ export function MessageWriter(code: ArkErrorCode = ArkErrorCode) {
   return fnType([MessageContext(code)], string)
 }
 /* compiles to:
- * export type MessageWriter<code extends ArkErrorCode = ArkErrorCode> = (a0: MessageContext<code>) => string
+ * export type MessageWriter<code extends ArkErrorCode = ArkErrorCode> =
+ *   (a0: MessageContext<code>) => string
  */
 
 // ✓ getAssociatedDataForError: verified type-identical to the original
@@ -135,7 +155,8 @@ export function getAssociatedDataForError(code: ArkErrorCode) {
   return unknown
 }
 /* compiles to:
- * export type getAssociatedDataForError<code extends ArkErrorCode> = code extends NodeKind ? Prerequisite<code> : unknown
+ * export type getAssociatedDataForError<code extends ArkErrorCode> =
+ *   code extends NodeKind ? Prerequisite<code> : unknown
  */
 
 // ✓ ExpectedConfig: verified type-identical to the original
@@ -144,7 +165,8 @@ export function ExpectedConfig(code: ArkErrorCode = ArkErrorCode) {
   return string | ExpectedWriter(code)
 }
 /* compiles to:
- * export type ExpectedConfig<code extends ArkErrorCode = ArkErrorCode> = string | ExpectedWriter<code>
+ * export type ExpectedConfig<code extends ArkErrorCode = ArkErrorCode> =
+ *   string | ExpectedWriter<code>
  */
 
 // ✓ ExpectedWriter: verified type-identical to the original
@@ -153,7 +175,8 @@ export function ExpectedWriter(code: ArkErrorCode = ArkErrorCode) {
   return fnType([errorContext(code)], string)
 }
 /* compiles to:
- * export type ExpectedWriter<code extends ArkErrorCode = ArkErrorCode> = (a0: errorContext<code>) => string
+ * export type ExpectedWriter<code extends ArkErrorCode = ArkErrorCode> =
+ *   (a0: errorContext<code>) => string
  */
 
 // ✓ ActualConfig: verified type-identical to the original
@@ -171,5 +194,6 @@ export function ActualWriter(code: ArkErrorCode = ArkErrorCode) {
   return fnType([getAssociatedDataForError(code)], string)
 }
 /* compiles to:
- * export type ActualWriter<code extends ArkErrorCode = ArkErrorCode> = (a0: getAssociatedDataForError<code>) => string
+ * export type ActualWriter<code extends ArkErrorCode = ArkErrorCode> =
+ *   (a0: getAssociatedDataForError<code>) => string
  */

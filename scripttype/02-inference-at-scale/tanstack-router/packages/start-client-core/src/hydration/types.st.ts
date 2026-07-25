@@ -14,17 +14,21 @@ declare const HydrationMarkerAttributes: any
 declare const HydrationPrefetchWhen: any
 declare const HydrationRuntimeContext: any
 declare const HydrationWhen: any
-type HydrationMarkerAttributes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HydrationPrefetchWhen<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HydrationRuntimeContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HydrationWhen<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type HydrationMarkerAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HydrationPrefetchWhen<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HydrationRuntimeContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HydrationWhen<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ HydrationStrategyTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HydrationStrategyTypes(TWhen: HydrationWhen = HydrationWhen, TCanPrefetch: boolean = boolean) {
   return { when: TWhen, canPrefetch: TCanPrefetch }
 }
 /* compiles to:
- * export type HydrationStrategyTypes<TWhen extends HydrationWhen = HydrationWhen, TCanPrefetch extends boolean = boolean> = { when: TWhen; canPrefetch: TCanPrefetch }
+ * export type HydrationStrategyTypes<
+ *   TWhen extends HydrationWhen = HydrationWhen,
+ *   TCanPrefetch extends boolean = boolean
+ * > =
+ *   { when: TWhen; canPrefetch: TCanPrefetch }
  */
 
 // ✓ HydrationStrategy: verified type-identical to the original
@@ -33,7 +37,18 @@ export function HydrationStrategy(TWhen: HydrationWhen = HydrationWhen, TCanPref
   return { _t: optional(TWhen), '~types': readonlyProp(optional(HydrationStrategyTypes(TWhen, TCanPrefetch))), _d: optional(fnType([], boolean)), _s: optional(fnType([HydrationRuntimeContext], voidType() | fnType([], voidType()))), _o: optional(fnType([string], voidType())), _a: optional(fnType([], anyOf(HydrationMarkerAttributes, Undefined))) }
 }
 /* compiles to:
- * export type HydrationStrategy<TWhen extends HydrationWhen = HydrationWhen, TCanPrefetch extends boolean = boolean> = { _t?: TWhen; readonly '~types'?: HydrationStrategyTypes<TWhen, TCanPrefetch>; _d?: () => boolean; _s?: (a0: HydrationRuntimeContext) => void | (() => void); _o?: (a0: string) => void; _a?: () => HydrationMarkerAttributes | undefined }
+ * export type HydrationStrategy<
+ *   TWhen extends HydrationWhen = HydrationWhen,
+ *   TCanPrefetch extends boolean = boolean
+ * > =
+ *   {
+ *     _t?: TWhen
+ *     readonly '~types'?: HydrationStrategyTypes<TWhen, TCanPrefetch>
+ *     _d?: () => boolean
+ *     _s?: (a0: HydrationRuntimeContext) => void | (() => void)
+ *     _o?: (a0: string) => void
+ *     _a?: () => HydrationMarkerAttributes | undefined
+ *   }
  */
 
 // ✓ HydrationPrefetchStrategy: verified type-identical to the original
@@ -42,5 +57,8 @@ export function HydrationPrefetchStrategy(TWhen: HydrationPrefetchWhen = Hydrati
   return HydrationStrategy(TWhen, true)
 }
 /* compiles to:
- * export type HydrationPrefetchStrategy<TWhen extends HydrationPrefetchWhen = HydrationPrefetchWhen> = HydrationStrategy<TWhen, true>
+ * export type HydrationPrefetchStrategy<
+ *   TWhen extends HydrationPrefetchWhen = HydrationPrefetchWhen
+ * > =
+ *   HydrationStrategy<TWhen, true>
  */

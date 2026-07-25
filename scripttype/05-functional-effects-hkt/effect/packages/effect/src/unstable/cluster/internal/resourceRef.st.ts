@@ -10,13 +10,19 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Scope {
+  export type Closeable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Scope: any
-type Scope<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Scope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ State: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function State(A) {
   return anyOf({ _tag: readonlyProp('Closed') }, { _tag: readonlyProp('Acquiring'), scope: readonlyProp(Scope.Closeable) }, { _tag: readonlyProp('Acquired'), scope: readonlyProp(Scope.Closeable), value: readonlyProp(A) })
 }
 /* compiles to:
- * export type State<A> = { readonly _tag: 'Closed' } | { readonly _tag: 'Acquiring'; readonly scope: Scope.Closeable } | { readonly _tag: 'Acquired'; readonly scope: Scope.Closeable; readonly value: A }
+ * export type State<A> =
+ *   | { readonly _tag: 'Closed' }
+ *   | { readonly _tag: 'Acquiring'; readonly scope: Scope.Closeable }
+ *   | { readonly _tag: 'Acquired'; readonly scope: Scope.Closeable; readonly value: A }
  */

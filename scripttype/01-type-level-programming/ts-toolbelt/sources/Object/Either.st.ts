@@ -15,11 +15,11 @@ declare const Key: any
 declare const Strict: any
 declare const _Omit: any
 declare const _Pick: any
-type ComputeRaw<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Strict<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Omit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Pick<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ComputeRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Strict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Omit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ __Either: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function __Either(O: object, K: Key) {
@@ -30,7 +30,8 @@ export function __Either(O: object, K: Key) {
   return _Omit(O, K) & out[K]
 }
 /* compiles to:
- * export type __Either<O extends object, K extends Key> = _Omit<O, K> & { [P in K]: _Pick<O, P> }[K]
+ * export type __Either<O extends object, K extends Key> =
+ *   _Omit<O, K> & { [P in K]: _Pick<O, P> }[K]
  */
 
 // ✓ EitherStrict: verified type-identical to the original
@@ -58,7 +59,8 @@ export function _Either(O: object, K: Key, strict: Boolean) {
   return { 1: EitherStrict(O, K), 0: EitherLoose(O, K) }[strict]
 }
 /* compiles to:
- * export type _Either<O extends object, K extends Key, strict extends Boolean> = { '1': EitherStrict<O, K>; '0': EitherLoose<O, K> }[strict]
+ * export type _Either<O extends object, K extends Key, strict extends Boolean> =
+ *   { '1': EitherStrict<O, K>; '0': EitherLoose<O, K> }[strict]
  */
 
 // ✗ Either: the ScriptType does not itself typecheck as TypeScript
@@ -71,5 +73,6 @@ export function Either(O: object, K: Key, strict: Boolean = 1) {
   return never
 }
 /* compiles to:
- * export type Either<O extends object, K extends Key, strict extends Boolean = 1> = O extends unknown ? _Either<O, K, strict> : never
+ * export type Either<O extends object, K extends Key, strict extends Boolean = 1> =
+ *   O extends unknown ? _Either<O, K, strict> : never
  */

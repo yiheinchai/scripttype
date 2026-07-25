@@ -20,17 +20,17 @@ declare const UseTRPCSuspenseQueryResult: any
 declare const inferProcedureInput: any
 declare const inferProcedureOutput: any
 declare const inferTransformedProcedureOutput: any
-type AnyProcedure<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyRootTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DecoratedQuery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCClientErrorLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseTRPCSuspenseQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferProcedureInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferProcedureOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferTransformedProcedureOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyRootTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DecoratedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCClientErrorLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseTRPCSuspenseQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferProcedureInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferProcedureOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferTransformedProcedureOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ QueryLike: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -38,7 +38,16 @@ export function QueryLike(TRoot: AnyRootTypes, TProcedure: AnyProcedure) {
   return { useQuery: fnType([inferProcedureInput(TProcedure), InferQueryOptions(TRoot, TProcedure, any)], InferQueryResult(TRoot, TProcedure)), useSuspenseQuery: fnType([inferProcedureInput(TProcedure), InferQueryOptions(TRoot, TProcedure, any)], UseTRPCSuspenseQueryResult(inferProcedureOutput(TProcedure), TRPCClientErrorLike(TRoot))) }
 }
 /* compiles to:
- * export type QueryLike<TRoot extends AnyRootTypes, TProcedure extends AnyProcedure> = { useQuery: (a0: inferProcedureInput<TProcedure>, a1: InferQueryOptions<TRoot, TProcedure, any>) => InferQueryResult<TRoot, TProcedure>; useSuspenseQuery: (a0: inferProcedureInput<TProcedure>, a1: InferQueryOptions<TRoot, TProcedure, any>) => UseTRPCSuspenseQueryResult<inferProcedureOutput<TProcedure>, TRPCClientErrorLike<TRoot>> }
+ * export type QueryLike<TRoot extends AnyRootTypes, TProcedure extends AnyProcedure> = {
+ *   useQuery: (
+ *     a0: inferProcedureInput<TProcedure>,
+ *     a1: InferQueryOptions<TRoot, TProcedure, any>
+ *   ) => InferQueryResult<TRoot, TProcedure>
+ *   useSuspenseQuery: (
+ *     a0: inferProcedureInput<TProcedure>,
+ *     a1: InferQueryOptions<TRoot, TProcedure, any>
+ *   ) => UseTRPCSuspenseQueryResult<inferProcedureOutput<TProcedure>, TRPCClientErrorLike<TRoot>>
+ * }
  */
 
 // ✗ InferQueryLikeInput: does not compile yet
@@ -56,7 +65,10 @@ export function InferQueryLikeInput(TQueryLike) {
   return never
 }
 /* compiles to:
- * export type InferQueryLikeInput<TQueryLike> = TQueryLike extends DecoratedQuery<infer $Def> ? $Def['input'] : TQueryLike extends QueryLike<any, infer TProcedure> ? inferProcedureInput<TProcedure> : never
+ * export type InferQueryLikeInput<TQueryLike> =
+ *   TQueryLike extends DecoratedQuery<infer $Def> ? $Def['input']
+ *   : TQueryLike extends QueryLike<any, infer TProcedure> ? inferProcedureInput<TProcedure>
+ *   : never
  */
 
 // ✗ InferQueryLikeData: does not compile yet
@@ -74,5 +86,9 @@ export function InferQueryLikeData(TQueryLike) {
   return never
 }
 /* compiles to:
- * export type InferQueryLikeData<TQueryLike> = TQueryLike extends DecoratedQuery<infer $Def> ? $Def['output'] : TQueryLike extends QueryLike<infer TRoot, infer TProcedure> ? inferTransformedProcedureOutput<TRoot, TProcedure> : never
+ * export type InferQueryLikeData<TQueryLike> =
+ *   TQueryLike extends DecoratedQuery<infer $Def> ? $Def['output']
+ *   : TQueryLike extends QueryLike<infer TRoot, infer TProcedure>
+ *     ? inferTransformedProcedureOutput<TRoot, TProcedure>
+ *   : never
  */

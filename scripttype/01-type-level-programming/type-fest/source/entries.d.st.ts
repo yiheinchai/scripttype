@@ -14,10 +14,10 @@ declare const _ArrayEntry: any
 declare const _MapEntry: any
 declare const _ObjectEntry: any
 declare const _SetEntry: any
-type _ArrayEntry<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _MapEntry<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _ObjectEntry<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _SetEntry<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type _ArrayEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _MapEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _ObjectEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _SetEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArrayEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ArrayEntries(BaseType: readonly unknown[]) {
@@ -72,5 +72,10 @@ export function Entries(BaseType) {
   return never
 }
 /* compiles to:
- * export type Entries<BaseType> = BaseType extends Map<unknown, unknown> ? MapEntries<BaseType> : BaseType extends Set<unknown> ? SetEntries<BaseType> : BaseType extends readonly unknown[] ? ArrayEntries<BaseType> : BaseType extends object ? ObjectEntries<BaseType> : never
+ * export type Entries<BaseType> =
+ *   BaseType extends Map<unknown, unknown> ? MapEntries<BaseType>
+ *   : BaseType extends Set<unknown> ? SetEntries<BaseType>
+ *   : BaseType extends readonly unknown[] ? ArrayEntries<BaseType>
+ *   : BaseType extends object ? ObjectEntries<BaseType>
+ *   : never
  */

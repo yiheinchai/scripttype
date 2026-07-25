@@ -16,12 +16,12 @@ declare const InferredAst: any
 declare const InfixExpression: any
 declare const PostfixExpression: any
 declare const Stringifiable: any
-type Comparator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferredAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfixExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PostfixExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Stringifiable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferredAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfixExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PostfixExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Stringifiable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ astToString: does not compile yet
 //   Type 'ast extends bigint ? `${ast}n` : ast' is not assignable to type 'string | number | bigint | boolean | null | undefined'.   Type 'ast | `${ast}n`' is not a
 /* @scripttype preserveParamNames */
@@ -44,12 +44,21 @@ export function astToString(ast) {
     return never
   }
   if (matches<Stringifiable>(ast)) {
-    return `${matches<bigint>(ast) ? `${ast}n` : ast}`
+    return `${typeof ast === 'bigint' ? `${ast}n` : ast}`
   }
   return '...'
 }
 /* compiles to:
- * export type astToString<ast> = ast extends InferredAst | DefAst ? ast[2] : ast extends PostfixExpression<infer operator, infer operand> ? operator extends '[]' ? `${astToString<operand>}[]` : never : ast extends InfixExpression<infer operator, infer l, infer r> ? operator extends '&' | '|' | '%' | Comparator ? `${astToString<l>} ${operator} ${astToString<r>}` : never : ast extends Stringifiable ? `${ast extends bigint ? `${ast}n` : ast}` : '...'
+ * export type astToString<ast> =
+ *   ast extends InferredAst | DefAst ? ast[2]
+ *   : ast extends PostfixExpression<infer operator, infer operand>
+ *     ? operator extends '[]' ? `${astToString<operand>}[]` : never
+ *   : ast extends InfixExpression<infer operator, infer l, infer r>
+ *     ? operator extends '&' | '|' | '%' | Comparator
+ *       ? `${astToString<l>} ${operator} ${astToString<r>}`
+ *       : never
+ *   : ast extends Stringifiable ? `${ast extends bigint ? `${ast}n` : ast}`
+ *   : '...'
  */
 
 // ✓ writeConstrainedMorphMessage: verified type-identical to the original
@@ -59,6 +68,7 @@ export function writeConstrainedMorphMessage(constrainedAst) {
 To constrain the input, intersect like myMorph.and('number > 0').`
 }
 /* compiles to:
- * export type writeConstrainedMorphMessage<constrainedAst> = `To constrain the output of ${astToString<constrainedAst>}, pipe like myMorph.to('number > 0').
+ * export type writeConstrainedMorphMessage<constrainedAst> =
+ *   `To constrain the output of ${astToString<constrainedAst>}, pipe like myMorph.to('number > 0').
  * To constrain the input, intersect like myMorph.and('number > 0').`
  */

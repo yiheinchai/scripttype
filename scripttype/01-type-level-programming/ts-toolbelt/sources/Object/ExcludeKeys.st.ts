@@ -14,10 +14,10 @@ declare const At: any
 declare const Is: any
 declare const Keys: any
 declare const Match: any
-type At<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Is<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Keys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Is<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _ExcludeMatch: does not compile yet
 //   Type 'Is<O[K], At<O1, K>, match>' cannot be used to index type '{ '1': never; '0': K; }'.
 /* @scripttype preserveParamNames */
@@ -29,7 +29,8 @@ export function _ExcludeMatch(O: object, O1: object, match: Match) {
   return out[keyof(O)]
 }
 /* compiles to:
- * export type _ExcludeMatch<O extends object, O1 extends object, match extends Match> = { [K in keyof O]-?: { '1': never; '0': K }[Is<O[K], At<O1, K>, match>] }[keyof O]
+ * export type _ExcludeMatch<O extends object, O1 extends object, match extends Match> =
+ *   { [K in keyof O]-?: { '1': never; '0': K }[Is<O[K], At<O1, K>, match>] }[keyof O]
  */
 
 // ✓ ExcludeMatch: verified type-identical to the original
@@ -41,7 +42,8 @@ export function ExcludeMatch(O: object, O1: object, match: Match) {
   return never
 }
 /* compiles to:
- * export type ExcludeMatch<O extends object, O1 extends object, match extends Match> = O extends unknown ? _ExcludeMatch<O, O1, match> : never
+ * export type ExcludeMatch<O extends object, O1 extends object, match extends Match> =
+ *   O extends unknown ? _ExcludeMatch<O, O1, match> : never
  */
 
 // ✓ ExcludeKeys: verified type-identical to the original
@@ -50,5 +52,13 @@ export function ExcludeKeys(O: object, O1: object, match: Match = 'default') {
   return { 'default': Exclude(Keys(O), Keys(O1)), 'contains->': ExcludeMatch(O, O1, 'contains->'), 'extends->': ExcludeMatch(O, O1, 'extends->'), '<-contains': ExcludeMatch(O, O1, '<-contains'), '<-extends': ExcludeMatch(O, O1, '<-extends'), 'equals': ExcludeMatch(O, O1, 'equals') }[match]
 }
 /* compiles to:
- * export type ExcludeKeys<O extends object, O1 extends object, match extends Match = 'default'> = { default: Exclude<Keys<O>, Keys<O1>>; 'contains->': ExcludeMatch<O, O1, 'contains->'>; 'extends->': ExcludeMatch<O, O1, 'extends->'>; '<-contains': ExcludeMatch<O, O1, '<-contains'>; '<-extends': ExcludeMatch<O, O1, '<-extends'>; equals: ExcludeMatch<O, O1, 'equals'> }[match]
+ * export type ExcludeKeys<O extends object, O1 extends object, match extends Match = 'default'> =
+ *   {
+ *     default: Exclude<Keys<O>, Keys<O1>>
+ *     'contains->': ExcludeMatch<O, O1, 'contains->'>
+ *     'extends->': ExcludeMatch<O, O1, 'extends->'>
+ *     '<-contains': ExcludeMatch<O, O1, '<-contains'>
+ *     '<-extends': ExcludeMatch<O, O1, '<-extends'>
+ *     equals: ExcludeMatch<O, O1, 'equals'>
+ *   }[match]
  */

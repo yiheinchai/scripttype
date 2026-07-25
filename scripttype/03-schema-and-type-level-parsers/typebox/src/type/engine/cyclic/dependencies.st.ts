@@ -24,33 +24,40 @@ declare const TSchema: any
 declare const TTuple: any
 declare const TUnion: any
 declare const TUnreachable: any
-type TArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TConstructor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInterfaceDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TPropertyValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnreachable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInterfaceDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TPropertyValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnreachable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromRef(Context: TProperties, Ref: string, Dependencies: string[]) {
   if (matches<(typeof Dependencies)[number]>(Ref)) {
     return Dependencies
   }
-  if (matches<keyof typeof Context>(Ref)) {
+  if (Ref in Context) {
     return TFromType(Context, Context[Ref], [...Dependencies, Ref])
   }
   return TUnreachable
 }
 /* compiles to:
- * export type TFromRef<Context extends TProperties, Ref extends string, Dependencies extends string[]> = Ref extends Dependencies[number] ? Dependencies : Ref extends keyof Context ? TFromType<Context, Context[Ref], [...Dependencies, Ref]> : TUnreachable
+ * export type TFromRef<
+ *   Context extends TProperties,
+ *   Ref extends string,
+ *   Dependencies extends string[]
+ * > =
+ *   Ref extends Dependencies[number] ? Dependencies
+ *   : Ref extends keyof Context ? TFromType<Context, Context[Ref], [...Dependencies, Ref]>
+ *   : TUnreachable
  */
 
 // ✓ TFromProperties: verified type-identical to the original
@@ -59,7 +66,13 @@ export function TFromProperties(Context: TProperties, Properties: TProperties, D
   return TFromTypes(Context, Types, Dependencies)
 }
 /* compiles to:
- * export type TFromProperties<Context extends TProperties, Properties extends TProperties, Dependencies extends string[], Types extends TSchema[] = TPropertyValues<Properties>> = TFromTypes<Context, Types, Dependencies>
+ * export type TFromProperties<
+ *   Context extends TProperties,
+ *   Properties extends TProperties,
+ *   Dependencies extends string[],
+ *   Types extends TSchema[] = TPropertyValues<Properties>
+ * > =
+ *   TFromTypes<Context, Types, Dependencies>
  */
 
 // ✓ TFromTypes: verified type-identical to the original
@@ -78,8 +91,20 @@ export function TFromTypes(Context: TProperties, Types: TSchema[], Dependencies:
   return dependencies
 }
 /* compiles to:
- * export type TFromTypes<Context extends TProperties, Types extends TSchema[], Dependencies extends string[]> = TFromTypes__loop<Types, Dependencies, Context>
- * type TFromTypes__loop<Types extends TSchema[], Dependencies extends string[], Context extends TProperties> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TFromTypes__loop<Right, TFromType<Context, Left, Dependencies>, Context> : Dependencies
+ * export type TFromTypes<
+ *   Context extends TProperties,
+ *   Types extends TSchema[],
+ *   Dependencies extends string[]
+ * > =
+ *   TFromTypes__loop<Types, Dependencies, Context>
+ * type TFromTypes__loop<
+ *   Types extends TSchema[],
+ *   Dependencies extends string[],
+ *   Context extends TProperties
+ * > =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TFromTypes__loop<Right, TFromType<Context, Left, Dependencies>, Context>
+ *     : Dependencies
  */
 
 // ✓ TFromType: verified type-identical to the original
@@ -128,7 +153,26 @@ export function TFromType(Context: TProperties, Type: TSchema, Result: string[])
   return Result
 }
 /* compiles to:
- * export type TFromType<Context extends TProperties, Type extends TSchema, Result extends string[]> = Type extends TRef<infer Ref extends string> ? TFromRef<Context, Ref, Result> : Type extends TArray<infer Type extends TSchema> ? TFromType<Context, Type, Result> : Type extends TConstructor<infer Parameters extends TSchema[], infer InstanceType extends TSchema> ? TFromTypes<Context, [...Parameters, InstanceType], Result> : Type extends TFunction<infer Parameters extends TSchema[], infer ReturnType extends TSchema> ? TFromTypes<Context, [...Parameters, ReturnType], Result> : Type extends TInterfaceDeferred<TSchema[], infer Properties extends TProperties> ? TFromProperties<Context, Properties, Result> : Type extends TIntersect<infer Types extends TSchema[]> ? TFromTypes<Context, Types, Result> : Type extends TObject<infer Properties extends TProperties> ? TFromProperties<Context, Properties, Result> : Type extends TUnion<infer Types extends TSchema[]> ? TFromTypes<Context, Types, Result> : Type extends TTuple<infer Types extends TSchema[]> ? TFromTypes<Context, Types, Result> : Type extends TRecord<string, infer Type extends TSchema> ? TFromType<Context, Type, Result> : Result
+ * export type TFromType<
+ *   Context extends TProperties,
+ *   Type extends TSchema,
+ *   Result extends string[]
+ * > =
+ *   Type extends TRef<infer Ref extends string> ? TFromRef<Context, Ref, Result>
+ *   : Type extends TArray<infer Type extends TSchema> ? TFromType<Context, Type, Result>
+ *   : Type extends TConstructor<infer Parameters extends TSchema[], infer InstanceType extends TSchema>
+ *     ? TFromTypes<Context, [...Parameters, InstanceType], Result>
+ *   : Type extends TFunction<infer Parameters extends TSchema[], infer ReturnType extends TSchema>
+ *     ? TFromTypes<Context, [...Parameters, ReturnType], Result>
+ *   : Type extends TInterfaceDeferred<TSchema[], infer Properties extends TProperties>
+ *     ? TFromProperties<Context, Properties, Result>
+ *   : Type extends TIntersect<infer Types extends TSchema[]> ? TFromTypes<Context, Types, Result>
+ *   : Type extends TObject<infer Properties extends TProperties>
+ *     ? TFromProperties<Context, Properties, Result>
+ *   : Type extends TUnion<infer Types extends TSchema[]> ? TFromTypes<Context, Types, Result>
+ *   : Type extends TTuple<infer Types extends TSchema[]> ? TFromTypes<Context, Types, Result>
+ *   : Type extends TRecord<string, infer Type extends TSchema> ? TFromType<Context, Type, Result>
+ *   : Result
  */
 
 // ✓ TCyclicDependencies: verified type-identical to the original
@@ -137,5 +181,11 @@ export function TCyclicDependencies(Context: TProperties, Key: string, Type: TSc
   return Result
 }
 /* compiles to:
- * export type TCyclicDependencies<Context extends TProperties, Key extends string, Type extends TSchema, Result extends string[] = TFromType<Context, Type, [Key]>> = Result
+ * export type TCyclicDependencies<
+ *   Context extends TProperties,
+ *   Key extends string,
+ *   Type extends TSchema,
+ *   Result extends string[] = TFromType<Context, Type, [Key]>
+ * > =
+ *   Result
  */

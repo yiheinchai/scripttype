@@ -15,11 +15,11 @@ declare const MergeQueryBuilder: any
 declare const MergeResult: any
 declare const ShallowRecord: any
 declare const SimpleTableReference: any
-type ExtractTableAlias<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MergeQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MergeResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ShallowRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SimpleTableReference<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExtractTableAlias<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MergeQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MergeResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SimpleTableReference<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MergeInto: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MergeInto(DB, TE: SimpleTableReference<typeof DB>) {
@@ -28,7 +28,7 @@ export function MergeInto(DB, TE: SimpleTableReference<typeof DB>) {
   }
   const m1 = matches<[ `${Hole<"T">} as ${Hole<"A">}` ]>([TE])
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return MergeQueryBuilder(DB & ShallowRecord(m1.A, DB[m1.T]), m1.A, MergeResult)
     }
     return never
@@ -36,5 +36,11 @@ export function MergeInto(DB, TE: SimpleTableReference<typeof DB>) {
   return never
 }
 /* compiles to:
- * export type MergeInto<DB, TE extends SimpleTableReference<DB>> = [TE] extends [keyof DB] ? MergeQueryBuilder<DB, ExtractTableAlias<DB, TE>, MergeResult> : [TE] extends [`${infer T} as ${infer A}`] ? T extends keyof DB ? MergeQueryBuilder<DB & ShallowRecord<A, DB[T]>, A, MergeResult> : never : never
+ * export type MergeInto<DB, TE extends SimpleTableReference<DB>> =
+ *   [TE] extends [keyof DB] ? MergeQueryBuilder<DB, ExtractTableAlias<DB, TE>, MergeResult>
+ *   : [TE] extends [`${infer T} as ${infer A}`]
+ *     ? T extends keyof DB
+ *       ? MergeQueryBuilder<DB & ShallowRecord<A, DB[T]>, A, MergeResult>
+ *       : never
+ *   : never
  */

@@ -23,19 +23,19 @@ declare const RegisteredRouter: any
 declare const RouteById: any
 declare const RouteIds: any
 declare const RouteMatch: any
-type AllContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AllLoaderData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AllParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyMatchAndValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyRoute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FullSearchSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParseRoute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreValidationErrorHandlingRouteMatch<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisteredRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteById<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteIds<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteMatch<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AllContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AllLoaderData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AllParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyMatchAndValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FullSearchSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParseRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreValidationErrorHandlingRouteMatch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteById<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteIds<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteMatch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FindValueByIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FindValueByIndex(TKey, TValue: ReadonlyArray<any>) {
@@ -46,7 +46,8 @@ export function FindValueByIndex(TKey, TValue: ReadonlyArray<any>) {
   return never
 }
 /* compiles to:
- * export type FindValueByIndex<TKey, TValue extends ReadonlyArray<any>> = TKey extends `${infer TIndex extends number}` ? TValue[TIndex] : never
+ * export type FindValueByIndex<TKey, TValue extends ReadonlyArray<any>> =
+ *   TKey extends `${infer TIndex extends number}` ? TValue[TIndex] : never
  */
 
 // ✓ FindValueByKey: verified type-identical to the original
@@ -58,7 +59,10 @@ export function FindValueByKey(TKey, TValue) {
   return TValue[TKey & keyof(TValue)]
 }
 /* compiles to:
- * export type FindValueByKey<TKey, TValue> = TValue extends ReadonlyArray<any> ? FindValueByIndex<TKey, TValue> : TValue[TKey & keyof TValue]
+ * export type FindValueByKey<TKey, TValue> =
+ *   TValue extends ReadonlyArray<any>
+ *     ? FindValueByIndex<TKey, TValue>
+ *     : TValue[TKey & keyof TValue]
  */
 
 // ✓ CreateMatchAndValue: verified type-identical to the original
@@ -70,7 +74,8 @@ export function CreateMatchAndValue(TMatch, TValue) {
   return never
 }
 /* compiles to:
- * export type CreateMatchAndValue<TMatch, TValue> = TValue extends any ? { match: TMatch; value: TValue } : never
+ * export type CreateMatchAndValue<TMatch, TValue> =
+ *   TValue extends any ? { match: TMatch; value: TValue } : never
  */
 
 // ✓ NextMatchAndValue: verified type-identical to the original
@@ -82,7 +87,13 @@ export function NextMatchAndValue(TKey, TMatchAndValue: AnyMatchAndValue) {
   return never
 }
 /* compiles to:
- * export type NextMatchAndValue<TKey, TMatchAndValue extends AnyMatchAndValue> = TMatchAndValue extends any ? CreateMatchAndValue<TMatchAndValue['match'], FindValueByKey<TKey, TMatchAndValue['value']>> : never
+ * export type NextMatchAndValue<TKey, TMatchAndValue extends AnyMatchAndValue> =
+ *   TMatchAndValue extends any
+ *     ? CreateMatchAndValue<
+ *       TMatchAndValue['match'],
+ *       FindValueByKey<TKey, TMatchAndValue['value']>
+ *     >
+ *     : never
  */
 
 // ✓ IsMatchKeyOf: verified type-identical to the original
@@ -100,7 +111,11 @@ export function IsMatchKeyOf(TValue) {
   return never
 }
 /* compiles to:
- * export type IsMatchKeyOf<TValue> = TValue extends ReadonlyArray<any> ? number extends TValue['length'] ? `${number}` : keyof TValue & `${number}` : TValue extends object ? keyof TValue & string : never
+ * export type IsMatchKeyOf<TValue> =
+ *   TValue extends ReadonlyArray<any>
+ *     ? number extends TValue['length'] ? `${number}` : keyof TValue & `${number}`
+ *   : TValue extends object ? keyof TValue & string
+ *   : never
  */
 
 // ✓ IsMatchPath: verified type-identical to the original
@@ -116,7 +131,7 @@ export function IsMatchPath(TParentPath: string, TMatchAndValue: AnyMatchAndValu
 /* @scripttype preserveParamNames */
 export function IsMatchResult(TKey, TMatchAndValue: AnyMatchAndValue) {
   if (matches<any>(TMatchAndValue)) {
-    if (matches<keyof (typeof TMatchAndValue)['value']>(TKey)) {
+    if (TKey in TMatchAndValue['value']) {
       return TMatchAndValue['match']
     }
     return never
@@ -124,7 +139,10 @@ export function IsMatchResult(TKey, TMatchAndValue: AnyMatchAndValue) {
   return never
 }
 /* compiles to:
- * export type IsMatchResult<TKey, TMatchAndValue extends AnyMatchAndValue> = TMatchAndValue extends any ? TKey extends keyof TMatchAndValue['value'] ? TMatchAndValue['match'] : never : never
+ * export type IsMatchResult<TKey, TMatchAndValue extends AnyMatchAndValue> =
+ *   TMatchAndValue extends any
+ *     ? TKey extends keyof TMatchAndValue['value'] ? TMatchAndValue['match'] : never
+ *     : never
  */
 
 // ✓ IsMatchParse: verified type-identical to the original
@@ -140,7 +158,17 @@ export function IsMatchParse(TPath, TMatchAndValue: AnyMatchAndValue, TParentPat
   return { path: IsMatchPath(TParentPath, TMatchAndValue), result: IsMatchResult(TPath, TMatchAndValue) }
 }
 /* compiles to:
- * export type IsMatchParse<TPath, TMatchAndValue extends AnyMatchAndValue, TParentPath extends string = ''> = TPath extends `${infer TFirst}.${infer TRest}` ? IsMatchParse<TRest, NextMatchAndValue<TFirst, TMatchAndValue>, `${TParentPath}${TFirst}.`> : { path: IsMatchPath<TParentPath, TMatchAndValue>; result: IsMatchResult<TPath, TMatchAndValue> }
+ * export type IsMatchParse<
+ *   TPath,
+ *   TMatchAndValue extends AnyMatchAndValue,
+ *   TParentPath extends string = ''
+ * > =
+ *   TPath extends `${infer TFirst}.${infer TRest}`
+ *     ? IsMatchParse<TRest, NextMatchAndValue<TFirst, TMatchAndValue>, `${TParentPath}${TFirst}.`>
+ *     : {
+ *       path: IsMatchPath<TParentPath, TMatchAndValue>
+ *       result: IsMatchResult<TPath, TMatchAndValue>
+ *     }
  */
 
 // ✓ IsMatch: verified type-identical to the original
@@ -149,7 +177,10 @@ export function IsMatch(TMatch, TPath) {
   return IsMatchParse(TPath, matches<any>(TMatch) ? { match: TMatch, value: TMatch } : never)
 }
 /* compiles to:
- * export type IsMatch<TMatch, TPath> = IsMatchParse<TPath, TMatch extends any ? { match: TMatch; value: TMatch } : never>
+ * export type IsMatch<TMatch, TPath> = IsMatchParse<
+ *   TPath,
+ *   TMatch extends any ? { match: TMatch; value: TMatch } : never
+ * >
  */
 
 // ✓ MakePreValidationErrorHandlingRouteMatchUnion: verified type-identical to the original
@@ -161,7 +192,18 @@ export function MakePreValidationErrorHandlingRouteMatchUnion(TRouter: AnyRouter
   return never
 }
 /* compiles to:
- * export type MakePreValidationErrorHandlingRouteMatchUnion<TRouter extends AnyRouter = RegisteredRouter, TRoute extends AnyRoute = ParseRoute<TRouter['routeTree']>> = TRoute extends any ? PreValidationErrorHandlingRouteMatch<TRoute['id'], TRoute['fullPath'], TRoute['types']['allParams'], TRoute['types']['fullSearchSchema']> : never
+ * export type MakePreValidationErrorHandlingRouteMatchUnion<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TRoute extends AnyRoute = ParseRoute<TRouter['routeTree']>
+ * > =
+ *   TRoute extends any
+ *     ? PreValidationErrorHandlingRouteMatch<
+ *       TRoute['id'],
+ *       TRoute['fullPath'],
+ *       TRoute['types']['allParams'],
+ *       TRoute['types']['fullSearchSchema']
+ *     >
+ *     : never
  */
 
 // ✓ MakeRouteMatchFromRoute: verified type-identical to the original
@@ -170,7 +212,15 @@ export function MakeRouteMatchFromRoute(TRoute: AnyRoute) {
   return RouteMatch(TRoute['types']['id'], TRoute['types']['fullPath'], TRoute['types']['allParams'], TRoute['types']['fullSearchSchema'], TRoute['types']['loaderData'], TRoute['types']['allContext'], TRoute['types']['loaderDeps'])
 }
 /* compiles to:
- * export type MakeRouteMatchFromRoute<TRoute extends AnyRoute> = RouteMatch<TRoute['types']['id'], TRoute['types']['fullPath'], TRoute['types']['allParams'], TRoute['types']['fullSearchSchema'], TRoute['types']['loaderData'], TRoute['types']['allContext'], TRoute['types']['loaderDeps']>
+ * export type MakeRouteMatchFromRoute<TRoute extends AnyRoute> = RouteMatch<
+ *   TRoute['types']['id'],
+ *   TRoute['types']['fullPath'],
+ *   TRoute['types']['allParams'],
+ *   TRoute['types']['fullSearchSchema'],
+ *   TRoute['types']['loaderData'],
+ *   TRoute['types']['allContext'],
+ *   TRoute['types']['loaderDeps']
+ * >
  */
 
 // ✓ MakeRouteMatch: verified type-identical to the original
@@ -179,7 +229,28 @@ export function MakeRouteMatch(TRouteTree: AnyRoute = RegisteredRouter['routeTre
   return RouteMatch(TRouteId, RouteById(TRouteTree, TRouteId)['types']['fullPath'], matches<false>(TStrict) ? AllParams(TRouteTree) : RouteById(TRouteTree, TRouteId)['types']['allParams'], matches<false>(TStrict) ? FullSearchSchema(TRouteTree) : RouteById(TRouteTree, TRouteId)['types']['fullSearchSchema'], matches<false>(TStrict) ? AllLoaderData(TRouteTree) : RouteById(TRouteTree, TRouteId)['types']['loaderData'], matches<false>(TStrict) ? AllContext(TRouteTree) : RouteById(TRouteTree, TRouteId)['types']['allContext'], RouteById(TRouteTree, TRouteId)['types']['loaderDeps'])
 }
 /* compiles to:
- * export type MakeRouteMatch<TRouteTree extends AnyRoute = RegisteredRouter['routeTree'], TRouteId = RouteIds<TRouteTree>, TStrict extends boolean = true> = RouteMatch<TRouteId, RouteById<TRouteTree, TRouteId>['types']['fullPath'], TStrict extends false ? AllParams<TRouteTree> : RouteById<TRouteTree, TRouteId>['types']['allParams'], TStrict extends false ? FullSearchSchema<TRouteTree> : RouteById<TRouteTree, TRouteId>['types']['fullSearchSchema'], TStrict extends false ? AllLoaderData<TRouteTree> : RouteById<TRouteTree, TRouteId>['types']['loaderData'], TStrict extends false ? AllContext<TRouteTree> : RouteById<TRouteTree, TRouteId>['types']['allContext'], RouteById<TRouteTree, TRouteId>['types']['loaderDeps']>
+ * export type MakeRouteMatch<
+ *   TRouteTree extends AnyRoute = RegisteredRouter['routeTree'],
+ *   TRouteId = RouteIds<TRouteTree>,
+ *   TStrict extends boolean = true
+ * > =
+ *   RouteMatch<
+ *     TRouteId,
+ *     RouteById<TRouteTree, TRouteId>['types']['fullPath'],
+ *     TStrict extends false
+ *       ? AllParams<TRouteTree>
+ *       : RouteById<TRouteTree, TRouteId>['types']['allParams'],
+ *     TStrict extends false
+ *       ? FullSearchSchema<TRouteTree>
+ *       : RouteById<TRouteTree, TRouteId>['types']['fullSearchSchema'],
+ *     TStrict extends false
+ *       ? AllLoaderData<TRouteTree>
+ *       : RouteById<TRouteTree, TRouteId>['types']['loaderData'],
+ *     TStrict extends false
+ *       ? AllContext<TRouteTree>
+ *       : RouteById<TRouteTree, TRouteId>['types']['allContext'],
+ *     RouteById<TRouteTree, TRouteId>['types']['loaderDeps']
+ *   >
  */
 
 // ✓ MakeRouteMatchUnion: verified type-identical to the original
@@ -191,5 +262,19 @@ export function MakeRouteMatchUnion(TRouter: AnyRouter = RegisteredRouter, TRout
   return never
 }
 /* compiles to:
- * export type MakeRouteMatchUnion<TRouter extends AnyRouter = RegisteredRouter, TRoute extends AnyRoute = ParseRoute<TRouter['routeTree']>> = TRoute extends any ? RouteMatch<TRoute['id'], TRoute['fullPath'], TRoute['types']['allParams'], TRoute['types']['fullSearchSchema'], TRoute['types']['loaderData'], TRoute['types']['allContext'], TRoute['types']['loaderDeps']> : never
+ * export type MakeRouteMatchUnion<
+ *   TRouter extends AnyRouter = RegisteredRouter,
+ *   TRoute extends AnyRoute = ParseRoute<TRouter['routeTree']>
+ * > =
+ *   TRoute extends any
+ *     ? RouteMatch<
+ *       TRoute['id'],
+ *       TRoute['fullPath'],
+ *       TRoute['types']['allParams'],
+ *       TRoute['types']['fullSearchSchema'],
+ *       TRoute['types']['loaderData'],
+ *       TRoute['types']['allContext'],
+ *       TRoute['types']['loaderDeps']
+ *     >
+ *     : never
  */

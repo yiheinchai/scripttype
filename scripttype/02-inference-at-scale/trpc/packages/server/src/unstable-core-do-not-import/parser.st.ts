@@ -12,11 +12,11 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Parser: any
 declare const StandardSchemaV1: any
-type Parser<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParserStandardSchemaEsque<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParserWithInputOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParserWithoutInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StandardSchemaV1<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Parser<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParserStandardSchemaEsque<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParserWithInputOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParserWithoutInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StandardSchemaV1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParserZodEsque: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ParserZodEsque(TInput, TParsedInput) {
@@ -32,7 +32,9 @@ export function ParserValibotEsque(TInput, TParsedInput) {
   return { schema: { _types: optional({ input: TInput, output: TParsedInput }) } }
 }
 /* compiles to:
- * export type ParserValibotEsque<TInput, TParsedInput> = { schema: { _types?: { input: TInput; output: TParsedInput } } }
+ * export type ParserValibotEsque<TInput, TParsedInput> = {
+ *   schema: { _types?: { input: TInput; output: TParsedInput } }
+ * }
  */
 
 // ✓ ParserArkTypeEsque: verified type-identical to the original
@@ -50,7 +52,10 @@ export function ParserStandardSchemaEsque(TInput, TParsedInput) {
   return StandardSchemaV1(TInput, TParsedInput)
 }
 /* compiles to:
- * export type ParserStandardSchemaEsque<TInput, TParsedInput> = StandardSchemaV1<TInput, TParsedInput>
+ * export type ParserStandardSchemaEsque<TInput, TParsedInput> = StandardSchemaV1<
+ *   TInput,
+ *   TParsedInput
+ * >
  */
 
 // ✓ ParserMyZodEsque: verified type-identical to the original
@@ -102,7 +107,12 @@ export function ParserWithoutInput(TInput) {
   return ParserCustomValidatorEsque(TInput) | ParserMyZodEsque(TInput) | ParserScaleEsque(TInput) | ParserSuperstructEsque(TInput) | ParserYupEsque(TInput)
 }
 /* compiles to:
- * export type ParserWithoutInput<TInput> = ParserCustomValidatorEsque<TInput> | ParserMyZodEsque<TInput> | ParserScaleEsque<TInput> | ParserSuperstructEsque<TInput> | ParserYupEsque<TInput>
+ * export type ParserWithoutInput<TInput> =
+ *   | ParserCustomValidatorEsque<TInput>
+ *   | ParserMyZodEsque<TInput>
+ *   | ParserScaleEsque<TInput>
+ *   | ParserSuperstructEsque<TInput>
+ *   | ParserYupEsque<TInput>
  */
 
 // ✓ ParserWithInputOutput: verified type-identical to the original
@@ -111,7 +121,11 @@ export function ParserWithInputOutput(TInput, TParsedInput) {
   return ParserZodEsque(TInput, TParsedInput) | ParserValibotEsque(TInput, TParsedInput) | ParserArkTypeEsque(TInput, TParsedInput) | ParserStandardSchemaEsque(TInput, TParsedInput)
 }
 /* compiles to:
- * export type ParserWithInputOutput<TInput, TParsedInput> = ParserZodEsque<TInput, TParsedInput> | ParserValibotEsque<TInput, TParsedInput> | ParserArkTypeEsque<TInput, TParsedInput> | ParserStandardSchemaEsque<TInput, TParsedInput>
+ * export type ParserWithInputOutput<TInput, TParsedInput> =
+ *   | ParserZodEsque<TInput, TParsedInput>
+ *   | ParserValibotEsque<TInput, TParsedInput>
+ *   | ParserArkTypeEsque<TInput, TParsedInput>
+ *   | ParserStandardSchemaEsque<TInput, TParsedInput>
  */
 
 // ✓ inferParser: verified type-identical to the original
@@ -132,7 +146,11 @@ export function inferParser(TParser: Parser) {
   return never
 }
 /* compiles to:
- * export type inferParser<TParser extends Parser> = TParser extends ParserStandardSchemaEsque<infer $TIn, infer $TOut> ? { in: $TIn; out: $TOut } : TParser extends ParserWithInputOutput<infer $TIn, infer $TOut> ? { in: $TIn; out: $TOut } : TParser extends ParserWithoutInput<infer $InOut> ? { in: $InOut; out: $InOut } : never
+ * export type inferParser<TParser extends Parser> =
+ *   TParser extends ParserStandardSchemaEsque<infer $TIn, infer $TOut> ? { in: $TIn; out: $TOut }
+ *   : TParser extends ParserWithInputOutput<infer $TIn, infer $TOut> ? { in: $TIn; out: $TOut }
+ *   : TParser extends ParserWithoutInput<infer $InOut> ? { in: $InOut; out: $InOut }
+ *   : never
  */
 
 // ✓ ParseFn: verified type-identical to the original

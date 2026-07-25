@@ -16,23 +16,23 @@ declare const Nullable: any
 declare const SelectQueryBuilder: any
 declare const ShallowRecord: any
 declare const TableExpression: any
-type AliasedExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DrainOuterGeneric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Nullable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ShallowRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AliasedExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Nullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SelectQueryBuilderWithInnerJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SelectQueryBuilderWithInnerJoin(DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return InnerJoinedBuilder(DB, TB, O, m1.A, DB[m1.T])
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return SelectQueryBuilder(DB, anyOf(TB, TE), O)
   }
   const m2 = matches<AliasedExpression<Hole<"QO">, Hole<"QA">>>(TE)
@@ -46,19 +46,34 @@ export function SelectQueryBuilderWithInnerJoin(DB, TB: keyof typeof DB, O, TE: 
   return never
 }
 /* compiles to:
- * export type SelectQueryBuilderWithInnerJoin<DB, TB extends keyof DB, O, TE extends TableExpression<DB, TB>> = TE extends `${infer T} as ${infer A}` ? T extends keyof DB ? InnerJoinedBuilder<DB, TB, O, A, DB[T]> : never : TE extends keyof DB ? SelectQueryBuilder<DB, TB | TE, O> : TE extends AliasedExpression<infer QO, infer QA> ? InnerJoinedBuilder<DB, TB, O, QA, QO> : TE extends (qb: any) => AliasedExpression<infer QO, infer QA> ? InnerJoinedBuilder<DB, TB, O, QA, QO> : never
+ * export type SelectQueryBuilderWithInnerJoin<
+ *   DB,
+ *   TB extends keyof DB,
+ *   O,
+ *   TE extends TableExpression<DB, TB>
+ * > =
+ *   TE extends `${infer T} as ${infer A}`
+ *     ? T extends keyof DB ? InnerJoinedBuilder<DB, TB, O, A, DB[T]> : never
+ *   : TE extends keyof DB ? SelectQueryBuilder<DB, TB | TE, O>
+ *   : TE extends AliasedExpression<infer QO, infer QA> ? InnerJoinedBuilder<DB, TB, O, QA, QO>
+ *   : TE extends (qb: any) => AliasedExpression<infer QO, infer QA>
+ *     ? InnerJoinedBuilder<DB, TB, O, QA, QO>
+ *   : never
  */
 
 // ✓ InnerJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InnerJoinedBuilder(DB, TB: keyof typeof DB, O, A: string, R) {
-  if (matches<keyof typeof DB>(A)) {
+  if (A in DB) {
     return SelectQueryBuilder(InnerJoinedDB(DB, A, R), anyOf(TB, A), O)
   }
   return SelectQueryBuilder(DB & ShallowRecord(A, R), anyOf(TB, A), O)
 }
 /* compiles to:
- * export type InnerJoinedBuilder<DB, TB extends keyof DB, O, A extends string, R> = A extends keyof DB ? SelectQueryBuilder<InnerJoinedDB<DB, A, R>, TB | A, O> : SelectQueryBuilder<DB & ShallowRecord<A, R>, TB | A, O>
+ * export type InnerJoinedBuilder<DB, TB extends keyof DB, O, A extends string, R> =
+ *   A extends keyof DB
+ *     ? SelectQueryBuilder<InnerJoinedDB<DB, A, R>, TB | A, O>
+ *     : SelectQueryBuilder<DB & ShallowRecord<A, R>, TB | A, O>
  */
 
 // ✓ InnerJoinedDB: verified type-identical to the original
@@ -66,12 +81,14 @@ export function InnerJoinedBuilder(DB, TB: keyof typeof DB, O, A: string, R) {
 export function InnerJoinedDB(DB, A: string, R) {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
-    out[C] = matches<typeof A>(C) ? R : (matches<keyof typeof DB>(C) ? DB[C] : never)
+    out[C] = matches<typeof A>(C) ? R : (C in DB ? DB[C] : never)
   }
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type InnerJoinedDB<DB, A extends string, R> = DrainOuterGeneric<{ [C in keyof DB | A]: C extends A ? R : C extends keyof DB ? DB[C] : never }>
+ * export type InnerJoinedDB<DB, A extends string, R> = DrainOuterGeneric<
+ *   { [C in keyof DB | A]: C extends A ? R : C extends keyof DB ? DB[C] : never }
+ * >
  */
 
 // ✓ SelectQueryBuilderWithLeftJoin: verified type-identical to the original
@@ -79,12 +96,12 @@ export function InnerJoinedDB(DB, A: string, R) {
 export function SelectQueryBuilderWithLeftJoin(DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return LeftJoinedBuilder(DB, TB, O, m1.A, DB[m1.T])
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return LeftJoinedBuilder(DB, TB, O, TE, DB[TE])
   }
   const m2 = matches<AliasedExpression<Hole<"QO">, Hole<"QA">>>(TE)
@@ -98,19 +115,34 @@ export function SelectQueryBuilderWithLeftJoin(DB, TB: keyof typeof DB, O, TE: T
   return never
 }
 /* compiles to:
- * export type SelectQueryBuilderWithLeftJoin<DB, TB extends keyof DB, O, TE extends TableExpression<DB, TB>> = TE extends `${infer T} as ${infer A}` ? T extends keyof DB ? LeftJoinedBuilder<DB, TB, O, A, DB[T]> : never : TE extends keyof DB ? LeftJoinedBuilder<DB, TB, O, TE, DB[TE]> : TE extends AliasedExpression<infer QO, infer QA> ? LeftJoinedBuilder<DB, TB, O, QA, QO> : TE extends (qb: any) => AliasedExpression<infer QO, infer QA> ? LeftJoinedBuilder<DB, TB, O, QA, QO> : never
+ * export type SelectQueryBuilderWithLeftJoin<
+ *   DB,
+ *   TB extends keyof DB,
+ *   O,
+ *   TE extends TableExpression<DB, TB>
+ * > =
+ *   TE extends `${infer T} as ${infer A}`
+ *     ? T extends keyof DB ? LeftJoinedBuilder<DB, TB, O, A, DB[T]> : never
+ *   : TE extends keyof DB ? LeftJoinedBuilder<DB, TB, O, TE, DB[TE]>
+ *   : TE extends AliasedExpression<infer QO, infer QA> ? LeftJoinedBuilder<DB, TB, O, QA, QO>
+ *   : TE extends (qb: any) => AliasedExpression<infer QO, infer QA>
+ *     ? LeftJoinedBuilder<DB, TB, O, QA, QO>
+ *   : never
  */
 
 // ✓ LeftJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function LeftJoinedBuilder(DB, TB: keyof typeof DB, O, A: keyof any, R) {
-  if (matches<keyof typeof DB>(A)) {
+  if (A in DB) {
     return SelectQueryBuilder(LeftJoinedDB(DB, A, R), anyOf(TB, A), O)
   }
   return SelectQueryBuilder(DB & ShallowRecord(A, Nullable(R)), anyOf(TB, A), O)
 }
 /* compiles to:
- * export type LeftJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = A extends keyof DB ? SelectQueryBuilder<LeftJoinedDB<DB, A, R>, TB | A, O> : SelectQueryBuilder<DB & ShallowRecord<A, Nullable<R>>, TB | A, O>
+ * export type LeftJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> =
+ *   A extends keyof DB
+ *     ? SelectQueryBuilder<LeftJoinedDB<DB, A, R>, TB | A, O>
+ *     : SelectQueryBuilder<DB & ShallowRecord<A, Nullable<R>>, TB | A, O>
  */
 
 // ✓ LeftJoinedDB: verified type-identical to the original
@@ -118,12 +150,14 @@ export function LeftJoinedBuilder(DB, TB: keyof typeof DB, O, A: keyof any, R) {
 export function LeftJoinedDB(DB, A: keyof any, R) {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
-    out[C] = matches<typeof A>(C) ? Nullable(R) : (matches<keyof typeof DB>(C) ? DB[C] : never)
+    out[C] = matches<typeof A>(C) ? Nullable(R) : (C in DB ? DB[C] : never)
   }
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type LeftJoinedDB<DB, A extends keyof any, R> = DrainOuterGeneric<{ [C in keyof DB | A]: C extends A ? Nullable<R> : C extends keyof DB ? DB[C] : never }>
+ * export type LeftJoinedDB<DB, A extends keyof any, R> = DrainOuterGeneric<
+ *   { [C in keyof DB | A]: C extends A ? Nullable<R> : C extends keyof DB ? DB[C] : never }
+ * >
  */
 
 // ✓ SelectQueryBuilderWithRightJoin: verified type-identical to the original
@@ -131,12 +165,12 @@ export function LeftJoinedDB(DB, A: keyof any, R) {
 export function SelectQueryBuilderWithRightJoin(DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return RightJoinedBuilder(DB, TB, O, m1.A, DB[m1.T])
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return RightJoinedBuilder(DB, TB, O, TE, DB[TE])
   }
   const m2 = matches<AliasedExpression<Hole<"QO">, Hole<"QA">>>(TE)
@@ -150,7 +184,19 @@ export function SelectQueryBuilderWithRightJoin(DB, TB: keyof typeof DB, O, TE: 
   return never
 }
 /* compiles to:
- * export type SelectQueryBuilderWithRightJoin<DB, TB extends keyof DB, O, TE extends TableExpression<DB, TB>> = TE extends `${infer T} as ${infer A}` ? T extends keyof DB ? RightJoinedBuilder<DB, TB, O, A, DB[T]> : never : TE extends keyof DB ? RightJoinedBuilder<DB, TB, O, TE, DB[TE]> : TE extends AliasedExpression<infer QO, infer QA> ? RightJoinedBuilder<DB, TB, O, QA, QO> : TE extends (qb: any) => AliasedExpression<infer QO, infer QA> ? RightJoinedBuilder<DB, TB, O, QA, QO> : never
+ * export type SelectQueryBuilderWithRightJoin<
+ *   DB,
+ *   TB extends keyof DB,
+ *   O,
+ *   TE extends TableExpression<DB, TB>
+ * > =
+ *   TE extends `${infer T} as ${infer A}`
+ *     ? T extends keyof DB ? RightJoinedBuilder<DB, TB, O, A, DB[T]> : never
+ *   : TE extends keyof DB ? RightJoinedBuilder<DB, TB, O, TE, DB[TE]>
+ *   : TE extends AliasedExpression<infer QO, infer QA> ? RightJoinedBuilder<DB, TB, O, QA, QO>
+ *   : TE extends (qb: any) => AliasedExpression<infer QO, infer QA>
+ *     ? RightJoinedBuilder<DB, TB, O, QA, QO>
+ *   : never
  */
 
 // ✓ RightJoinedBuilder: verified type-identical to the original
@@ -159,7 +205,11 @@ export function RightJoinedBuilder(DB, TB: keyof typeof DB, O, A: keyof any, R) 
   return SelectQueryBuilder(RightJoinedDB(DB, TB, A, R), anyOf(TB, A), O)
 }
 /* compiles to:
- * export type RightJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = SelectQueryBuilder<RightJoinedDB<DB, TB, A, R>, TB | A, O>
+ * export type RightJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = SelectQueryBuilder<
+ *   RightJoinedDB<DB, TB, A, R>,
+ *   TB | A,
+ *   O
+ * >
  */
 
 // ✓ RightJoinedDB: verified type-identical to the original
@@ -167,12 +217,19 @@ export function RightJoinedBuilder(DB, TB: keyof typeof DB, O, A: keyof any, R) 
 export function RightJoinedDB(DB, TB: keyof typeof DB, A: keyof any, R) {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
-    out[C] = matches<typeof A>(C) ? R : (matches<typeof TB>(C) ? Nullable(DB[C]) : (matches<keyof typeof DB>(C) ? DB[C] : never))
+    out[C] = matches<typeof A>(C) ? R : (matches<typeof TB>(C) ? Nullable(DB[C]) : (C in DB ? DB[C] : never))
   }
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type RightJoinedDB<DB, TB extends keyof DB, A extends keyof any, R> = DrainOuterGeneric<{ [C in keyof DB | A]: C extends A ? R : C extends TB ? Nullable<DB[C]> : C extends keyof DB ? DB[C] : never }>
+ * export type RightJoinedDB<DB, TB extends keyof DB, A extends keyof any, R> = DrainOuterGeneric<
+ *   {
+ *     [C in keyof DB | A]: C extends A ? R
+ *     : C extends TB ? Nullable<DB[C]>
+ *     : C extends keyof DB ? DB[C]
+ *     : never
+ *   }
+ * >
  */
 
 // ✓ SelectQueryBuilderWithFullJoin: verified type-identical to the original
@@ -180,12 +237,12 @@ export function RightJoinedDB(DB, TB: keyof typeof DB, A: keyof any, R) {
 export function SelectQueryBuilderWithFullJoin(DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return OuterJoinedBuilder(DB, TB, O, m1.A, DB[m1.T])
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return OuterJoinedBuilder(DB, TB, O, TE, DB[TE])
   }
   const m2 = matches<AliasedExpression<Hole<"QO">, Hole<"QA">>>(TE)
@@ -199,7 +256,19 @@ export function SelectQueryBuilderWithFullJoin(DB, TB: keyof typeof DB, O, TE: T
   return never
 }
 /* compiles to:
- * export type SelectQueryBuilderWithFullJoin<DB, TB extends keyof DB, O, TE extends TableExpression<DB, TB>> = TE extends `${infer T} as ${infer A}` ? T extends keyof DB ? OuterJoinedBuilder<DB, TB, O, A, DB[T]> : never : TE extends keyof DB ? OuterJoinedBuilder<DB, TB, O, TE, DB[TE]> : TE extends AliasedExpression<infer QO, infer QA> ? OuterJoinedBuilder<DB, TB, O, QA, QO> : TE extends (qb: any) => AliasedExpression<infer QO, infer QA> ? OuterJoinedBuilder<DB, TB, O, QA, QO> : never
+ * export type SelectQueryBuilderWithFullJoin<
+ *   DB,
+ *   TB extends keyof DB,
+ *   O,
+ *   TE extends TableExpression<DB, TB>
+ * > =
+ *   TE extends `${infer T} as ${infer A}`
+ *     ? T extends keyof DB ? OuterJoinedBuilder<DB, TB, O, A, DB[T]> : never
+ *   : TE extends keyof DB ? OuterJoinedBuilder<DB, TB, O, TE, DB[TE]>
+ *   : TE extends AliasedExpression<infer QO, infer QA> ? OuterJoinedBuilder<DB, TB, O, QA, QO>
+ *   : TE extends (qb: any) => AliasedExpression<infer QO, infer QA>
+ *     ? OuterJoinedBuilder<DB, TB, O, QA, QO>
+ *   : never
  */
 
 // ✓ OuterJoinedBuilder: verified type-identical to the original
@@ -208,7 +277,11 @@ export function OuterJoinedBuilder(DB, TB: keyof typeof DB, O, A: keyof any, R) 
   return SelectQueryBuilder(OuterJoinedBuilderDB(DB, TB, A, R), anyOf(TB, A), O)
 }
 /* compiles to:
- * export type OuterJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = SelectQueryBuilder<OuterJoinedBuilderDB<DB, TB, A, R>, TB | A, O>
+ * export type OuterJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = SelectQueryBuilder<
+ *   OuterJoinedBuilderDB<DB, TB, A, R>,
+ *   TB | A,
+ *   O
+ * >
  */
 
 // ✓ OuterJoinedBuilderDB: verified type-identical to the original
@@ -216,12 +289,19 @@ export function OuterJoinedBuilder(DB, TB: keyof typeof DB, O, A: keyof any, R) 
 export function OuterJoinedBuilderDB(DB, TB: keyof typeof DB, A: keyof any, R) {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
-    out[C] = matches<typeof A>(C) ? Nullable(R) : (matches<typeof TB>(C) ? Nullable(DB[C]) : (matches<keyof typeof DB>(C) ? DB[C] : never))
+    out[C] = matches<typeof A>(C) ? Nullable(R) : (matches<typeof TB>(C) ? Nullable(DB[C]) : (C in DB ? DB[C] : never))
   }
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type OuterJoinedBuilderDB<DB, TB extends keyof DB, A extends keyof any, R> = DrainOuterGeneric<{ [C in keyof DB | A]: C extends A ? Nullable<R> : C extends TB ? Nullable<DB[C]> : C extends keyof DB ? DB[C] : never }>
+ * export type OuterJoinedBuilderDB<DB, TB extends keyof DB, A extends keyof any, R> = DrainOuterGeneric<
+ *   {
+ *     [C in keyof DB | A]: C extends A ? Nullable<R>
+ *     : C extends TB ? Nullable<DB[C]>
+ *     : C extends keyof DB ? DB[C]
+ *     : never
+ *   }
+ * >
  */
 
 // ✓ TableOrList: verified type-identical to the original

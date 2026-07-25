@@ -13,14 +13,15 @@
 declare const ConnectionConnectingState: any
 declare const ConnectionIdleState: any
 declare const ConnectionPendingState: any
-type ConnectionConnectingState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConnectionIdleState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConnectionPendingState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ConnectionConnectingState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConnectionIdleState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConnectionPendingState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCConnectionState: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRPCConnectionState(TError) {
   return ConnectionIdleState | ConnectionConnectingState(TError) | ConnectionPendingState
 }
 /* compiles to:
- * export type TRPCConnectionState<TError> = ConnectionIdleState | ConnectionConnectingState<TError> | ConnectionPendingState
+ * export type TRPCConnectionState<TError> =
+ *   ConnectionIdleState | ConnectionConnectingState<TError> | ConnectionPendingState
  */

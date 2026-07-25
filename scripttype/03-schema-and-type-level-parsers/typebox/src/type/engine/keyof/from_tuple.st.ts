@@ -13,9 +13,9 @@
 declare const TEvaluateUnionFast: any
 declare const TLiteral: any
 declare const TSchema: any
-type TEvaluateUnionFast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEvaluateUnionFast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromTuple(Types: TSchema[]) {
@@ -33,5 +33,8 @@ export function TFromTuple(Types: TSchema[]) {
 }
 /* compiles to:
  * export type TFromTuple<Types extends TSchema[]> = TFromTuple__loop<Types, []>
- * type TFromTuple__loop<Types extends TSchema[], Result extends any[]> = Types extends [...(infer Left extends TSchema[]), TSchema] ? TFromTuple__loop<Left, [TLiteral<Left['length']>, ...Result]> : TEvaluateUnionFast<Result>
+ * type TFromTuple__loop<Types extends TSchema[], Result extends any[]> =
+ *   Types extends [...infer Left extends TSchema[], TSchema]
+ *     ? TFromTuple__loop<Left, [TLiteral<Left['length']>, ...Result]>
+ *     : TEvaluateUnionFast<Result>
  */

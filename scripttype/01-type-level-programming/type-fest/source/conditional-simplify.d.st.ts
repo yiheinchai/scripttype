@@ -23,5 +23,8 @@ export function ConditionalSimplify(Type, ExcludeType = never, IncludeType = unk
   return Type
 }
 /* compiles to:
- * export type ConditionalSimplify<Type, ExcludeType = never, IncludeType = unknown> = Type extends ExcludeType ? Type : Type extends IncludeType ? { [TypeKey in keyof Type]: Type[TypeKey] } : Type
+ * export type ConditionalSimplify<Type, ExcludeType = never, IncludeType = unknown> =
+ *   Type extends ExcludeType ? Type
+ *   : Type extends IncludeType ? { [TypeKey in keyof Type]: Type[TypeKey] }
+ *   : Type
  */

@@ -14,10 +14,10 @@ declare const AnyRouter: any
 declare const Expand: any
 declare const FullSearchSchema: any
 declare const RouteById: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Expand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FullSearchSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteById<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Expand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FullSearchSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteById<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseSearchResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseSearchResult(TRouter: AnyRouter, TFrom, TStrict: boolean, TSelected) {
@@ -27,7 +27,13 @@ export function UseSearchResult(TRouter: AnyRouter, TFrom, TStrict: boolean, TSe
   return TSelected
 }
 /* compiles to:
- * export type UseSearchResult<TRouter extends AnyRouter, TFrom, TStrict extends boolean, TSelected> = unknown extends TSelected ? ResolveUseSearch<TRouter, TFrom, TStrict> : TSelected
+ * export type UseSearchResult<
+ *   TRouter extends AnyRouter,
+ *   TFrom,
+ *   TStrict extends boolean,
+ *   TSelected
+ * > =
+ *   unknown extends TSelected ? ResolveUseSearch<TRouter, TFrom, TStrict> : TSelected
  */
 
 // ✓ ResolveUseSearch: verified type-identical to the original
@@ -39,5 +45,8 @@ export function ResolveUseSearch(TRouter: AnyRouter, TFrom, TStrict: boolean) {
   return Expand(RouteById(TRouter['routeTree'], TFrom)['types']['fullSearchSchema'])
 }
 /* compiles to:
- * export type ResolveUseSearch<TRouter extends AnyRouter, TFrom, TStrict extends boolean> = TStrict extends false ? FullSearchSchema<TRouter['routeTree']> : Expand<RouteById<TRouter['routeTree'], TFrom>['types']['fullSearchSchema']>
+ * export type ResolveUseSearch<TRouter extends AnyRouter, TFrom, TStrict extends boolean> =
+ *   TStrict extends false
+ *     ? FullSearchSchema<TRouter['routeTree']>
+ *     : Expand<RouteById<TRouter['routeTree'], TFrom>['types']['fullSearchSchema']>
  */

@@ -23,21 +23,21 @@ declare const parseString: any
 declare const typeToString: any
 declare const validateInnerDefinition: any
 declare const writeInvalidSpreadTypeMessage: any
-type DefaultablePropertyTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalPropertyDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParsedKeyKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PossibleDefaultableStringDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndeclaredKeyBehavior<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type anyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type invalidDefaultableKeyKindMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type invalidOptionalKeyKindMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type parseString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type typeToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateInnerDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeInvalidSpreadTypeMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultablePropertyTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalPropertyDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParsedKeyKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PossibleDefaultableStringDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndeclaredKeyBehavior<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type invalidDefaultableKeyKindMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type invalidOptionalKeyKindMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type typeToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateInnerDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeInvalidSpreadTypeMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validateProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function validateProperty(def, keyKind: ParsedKeyKind, $, args) {
@@ -68,7 +68,19 @@ export function validateProperty(def, keyKind: ParsedKeyKind, $, args) {
   return validateInnerDefinition(def, $, args)
 }
 /* compiles to:
- * export type validateProperty<def, keyKind extends ParsedKeyKind, $, args> = [def] extends [anyOrNever] ? def : keyKind extends 'spread' ? def extends validateInnerDefinition<def, $, args> ? inferDefinition<def, $, args> extends object ? def : ErrorType<writeInvalidSpreadTypeMessage<typeToString<inferDefinition<def, $, args>>>> : validateInnerDefinition<def, $, args> : keyKind extends 'undeclared' ? UndeclaredKeyBehavior : keyKind extends 'required' ? validateInnerDefinition<def, $, args> : def extends OptionalPropertyDefinition ? ErrorMessage<invalidOptionalKeyKindMessage> : isDefaultable<def, $, args> extends true ? ErrorMessage<invalidDefaultableKeyKindMessage> : validateInnerDefinition<def, $, args>
+ * export type validateProperty<def, keyKind extends ParsedKeyKind, $, args> =
+ *   [def] extends [anyOrNever] ? def
+ *   : keyKind extends 'spread'
+ *     ? def extends validateInnerDefinition<def, $, args>
+ *       ? inferDefinition<def, $, args> extends object
+ *         ? def
+ *         : ErrorType<writeInvalidSpreadTypeMessage<typeToString<inferDefinition<def, $, args>>>>
+ *       : validateInnerDefinition<def, $, args>
+ *   : keyKind extends 'undeclared' ? UndeclaredKeyBehavior
+ *   : keyKind extends 'required' ? validateInnerDefinition<def, $, args>
+ *   : def extends OptionalPropertyDefinition ? ErrorMessage<invalidOptionalKeyKindMessage>
+ *   : isDefaultable<def, $, args> extends true ? ErrorMessage<invalidDefaultableKeyKindMessage>
+ *   : validateInnerDefinition<def, $, args>
  */
 
 // ✓ isDefaultable: verified type-identical to the original
@@ -86,7 +98,11 @@ export function isDefaultable(def, $, args) {
   return false
 }
 /* compiles to:
- * export type isDefaultable<def, $, args> = def extends DefaultablePropertyTuple ? true : def extends PossibleDefaultableStringDefinition ? parseString<def, $, args> extends DefaultablePropertyTuple ? true : false : false
+ * export type isDefaultable<def, $, args> =
+ *   def extends DefaultablePropertyTuple ? true
+ *   : def extends PossibleDefaultableStringDefinition
+ *     ? parseString<def, $, args> extends DefaultablePropertyTuple ? true : false
+ *   : false
  */
 
 // ✓ OptionalPropertyDefinition: verified type-identical to the original
@@ -95,7 +111,8 @@ export function OptionalPropertyDefinition(baseDef = unknown) {
   return OptionalPropertyTuple(baseDef) | OptionalPropertyString(baseDef & string)
 }
 /* compiles to:
- * export type OptionalPropertyDefinition<baseDef = unknown> = OptionalPropertyTuple<baseDef> | OptionalPropertyString<baseDef & string>
+ * export type OptionalPropertyDefinition<baseDef = unknown> =
+ *   OptionalPropertyTuple<baseDef> | OptionalPropertyString<baseDef & string>
  */
 
 // ✓ OptionalPropertyString: verified type-identical to the original
@@ -122,5 +139,6 @@ export function DefaultablePropertyTuple(baseDef = unknown, thunkableProperty = 
   return asReadonly([baseDef, '=', thunkableProperty])
 }
 /* compiles to:
- * export type DefaultablePropertyTuple<baseDef = unknown, thunkableProperty = unknown> = readonly [baseDef, '=', thunkableProperty]
+ * export type DefaultablePropertyTuple<baseDef = unknown, thunkableProperty = unknown> =
+ *   readonly [baseDef, '=', thunkableProperty]
  */

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Cast: any
 declare const Pop: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pop<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ __Split: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function __Split(S: string, D: string) {
@@ -31,7 +31,8 @@ export function __Split(S: string, D: string) {
 }
 /* compiles to:
  * export type __Split<S extends string, D extends string> = __Split__loop<S, [], D>
- * type __Split__loop<S extends string, T extends any[], D extends string> = S extends `${infer BS}${D}${infer AS}` ? __Split__loop<AS, [...T, BS], D> : [...T, S]
+ * type __Split__loop<S extends string, T extends any[], D extends string> =
+ *   S extends `${infer BS}${D}${infer AS}` ? __Split__loop<AS, [...T, BS], D> : [...T, S]
  */
 
 // ✓ _Split: verified type-identical to the original
@@ -43,7 +44,8 @@ export function _Split(S: string, D: string = '') {
   return __Split(S, D)
 }
 /* compiles to:
- * export type _Split<S extends string, D extends string = ''> = D extends '' ? Pop<__Split<S, D>> : __Split<S, D>
+ * export type _Split<S extends string, D extends string = ''> =
+ *   D extends '' ? Pop<__Split<S, D>> : __Split<S, D>
  */
 
 // ✓ Split: verified type-identical to the original
@@ -56,5 +58,6 @@ export function Split(S: string, D: string = '') {
   return never
 }
 /* compiles to:
- * export type Split<S extends string, D extends string = ''> = _Split<S, D> extends infer X ? Cast<X, string[]> : never
+ * export type Split<S extends string, D extends string = ''> =
+ *   _Split<S, D> extends infer X ? Cast<X, string[]> : never
  */

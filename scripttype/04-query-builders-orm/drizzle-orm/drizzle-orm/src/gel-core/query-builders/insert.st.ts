@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace SQL {
+  export type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyGelColumn: any
 declare const AnyGelInsert: any
 declare const GelInsertBase: any
@@ -25,21 +28,21 @@ declare const SelectResultFields: any
 declare const SelectedFieldsFlat: any
 declare const TableConfig: any
 declare const TypedQueryBuilder: any
-type AnyGelColumn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyGelInsert<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelInsertBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelPreparedQuery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelQueryResultKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferInsertModel<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Placeholder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreparedQueryConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQL<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectResultFields<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SelectedFieldsFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypedQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyGelColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyGelInsert<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelInsertBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelPreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferInsertModel<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Placeholder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectResultFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectedFieldsFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypedQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GelInsertValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GelInsertValue(TTable: GelTable<TableConfig>, OverrideT: boolean = false) {
@@ -50,7 +53,16 @@ export function GelInsertValue(TTable: GelTable<TableConfig>, OverrideT: boolean
   return merge(out, {})
 }
 /* compiles to:
- * export type GelInsertValue<TTable extends GelTable<TableConfig>, OverrideT extends boolean = false> = { [Key in keyof InferInsertModel<TTable, { dbColumnNames: false; override: OverrideT }>]: InferInsertModel<TTable, { dbColumnNames: false; override: OverrideT }>[Key] | SQL | Placeholder } & {}
+ * export type GelInsertValue<
+ *   TTable extends GelTable<TableConfig>,
+ *   OverrideT extends boolean = false
+ * > =
+ *   & {
+ *       [Key in keyof InferInsertModel<TTable, { dbColumnNames: false; override: OverrideT }>]: | InferInsertModel<TTable, { dbColumnNames: false; override: OverrideT }>[Key]
+ *       | SQL
+ *       | Placeholder
+ *     }
+ *   & {}
  */
 
 // ✓ GelInsertSelectQueryBuilder: verified type-identical to the original
@@ -63,7 +75,14 @@ export function GelInsertSelectQueryBuilder(TTable: GelTable) {
   return TypedQueryBuilder(out)
 }
 /* compiles to:
- * export type GelInsertSelectQueryBuilder<TTable extends GelTable> = TypedQueryBuilder<{ [K in keyof TTable['$inferInsert']]: AnyGelColumn | SQL | SQL.Aliased | TTable['$inferInsert'][K] }>
+ * export type GelInsertSelectQueryBuilder<TTable extends GelTable> = TypedQueryBuilder<
+ *   {
+ *     [K in keyof TTable['$inferInsert']]: | AnyGelColumn
+ *     | SQL
+ *     | SQL.Aliased
+ *     | TTable['$inferInsert'][K]
+ *   }
+ * >
  */
 
 // ✓ GelInsertWithout: verified type-identical to the original
@@ -75,7 +94,23 @@ export function GelInsertWithout(T: AnyGelInsert, TDynamic: boolean, K: keyof ty
   return Omit(GelInsertBase(T['_']['table'], T['_']['queryResult'], T['_']['returning'], TDynamic, anyOf(T['_']['excludedMethods'], K)), anyOf(T['_']['excludedMethods'], K))
 }
 /* compiles to:
- * export type GelInsertWithout<T extends AnyGelInsert, TDynamic extends boolean, K extends keyof T & string> = TDynamic extends true ? T : Omit<GelInsertBase<T['_']['table'], T['_']['queryResult'], T['_']['returning'], TDynamic, T['_']['excludedMethods'] | K>, T['_']['excludedMethods'] | K>
+ * export type GelInsertWithout<
+ *   T extends AnyGelInsert,
+ *   TDynamic extends boolean,
+ *   K extends keyof T & string
+ * > =
+ *   TDynamic extends true
+ *     ? T
+ *     : Omit<
+ *       GelInsertBase<
+ *         T['_']['table'],
+ *         T['_']['queryResult'],
+ *         T['_']['returning'],
+ *         TDynamic,
+ *         T['_']['excludedMethods'] | K
+ *       >,
+ *       T['_']['excludedMethods'] | K
+ *     >
  */
 
 // ✓ GelInsertReturning: verified type-identical to the original
@@ -84,7 +119,18 @@ export function GelInsertReturning(T: AnyGelInsert, TDynamic: boolean, TSelected
   return GelInsertBase(T['_']['table'], T['_']['queryResult'], SelectResultFields(TSelectedFields), TDynamic, T['_']['excludedMethods'])
 }
 /* compiles to:
- * export type GelInsertReturning<T extends AnyGelInsert, TDynamic extends boolean, TSelectedFields extends SelectedFieldsFlat> = GelInsertBase<T['_']['table'], T['_']['queryResult'], SelectResultFields<TSelectedFields>, TDynamic, T['_']['excludedMethods']>
+ * export type GelInsertReturning<
+ *   T extends AnyGelInsert,
+ *   TDynamic extends boolean,
+ *   TSelectedFields extends SelectedFieldsFlat
+ * > =
+ *   GelInsertBase<
+ *     T['_']['table'],
+ *     T['_']['queryResult'],
+ *     SelectResultFields<TSelectedFields>,
+ *     TDynamic,
+ *     T['_']['excludedMethods']
+ *   >
  */
 
 // ✓ GelInsertReturningAll: verified type-identical to the original
@@ -93,16 +139,29 @@ export function GelInsertReturningAll(T: AnyGelInsert, TDynamic: boolean) {
   return GelInsertBase(T['_']['table'], T['_']['queryResult'], T['_']['table']['$inferSelect'], TDynamic, T['_']['excludedMethods'])
 }
 /* compiles to:
- * export type GelInsertReturningAll<T extends AnyGelInsert, TDynamic extends boolean> = GelInsertBase<T['_']['table'], T['_']['queryResult'], T['_']['table']['$inferSelect'], TDynamic, T['_']['excludedMethods']>
+ * export type GelInsertReturningAll<T extends AnyGelInsert, TDynamic extends boolean> = GelInsertBase<
+ *   T['_']['table'],
+ *   T['_']['queryResult'],
+ *   T['_']['table']['$inferSelect'],
+ *   TDynamic,
+ *   T['_']['excludedMethods']
+ * >
  */
 
 // ✓ GelInsertPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GelInsertPrepare(T: AnyGelInsert) {
-  return GelPreparedQuery(merge(PreparedQueryConfig, { execute: matches<undefined>(T['_']['returning']) ? GelQueryResultKind(T['_']['queryResult'], never) : arrayOf(T['_']['returning']) }))
+  return GelPreparedQuery(merge(PreparedQueryConfig, { execute: typeof T['_']['returning'] === 'undefined' ? GelQueryResultKind(T['_']['queryResult'], never) : arrayOf(T['_']['returning']) }))
 }
 /* compiles to:
- * export type GelInsertPrepare<T extends AnyGelInsert> = GelPreparedQuery<PreparedQueryConfig & { execute: T['_']['returning'] extends undefined ? GelQueryResultKind<T['_']['queryResult'], never> : T['_']['returning'][] }>
+ * export type GelInsertPrepare<T extends AnyGelInsert> = GelPreparedQuery<
+ *   & PreparedQueryConfig
+ *   & {
+ *       execute: T['_']['returning'] extends undefined
+ *         ? GelQueryResultKind<T['_']['queryResult'], never>
+ *         : T['_']['returning'][]
+ *     }
+ * >
  */
 
 // ✓ GelInsertDynamic: verified type-identical to the original
@@ -111,7 +170,11 @@ export function GelInsertDynamic(T: AnyGelInsert) {
   return GelInsert(T['_']['table'], T['_']['queryResult'], T['_']['returning'])
 }
 /* compiles to:
- * export type GelInsertDynamic<T extends AnyGelInsert> = GelInsert<T['_']['table'], T['_']['queryResult'], T['_']['returning']>
+ * export type GelInsertDynamic<T extends AnyGelInsert> = GelInsert<
+ *   T['_']['table'],
+ *   T['_']['queryResult'],
+ *   T['_']['returning']
+ * >
  */
 
 // ✓ GelInsert: verified type-identical to the original
@@ -120,5 +183,10 @@ export function GelInsert(TTable: GelTable = GelTable, TQueryResult: GelQueryRes
   return GelInsertBase(TTable, TQueryResult, TReturning, true, never)
 }
 /* compiles to:
- * export type GelInsert<TTable extends GelTable = GelTable, TQueryResult extends GelQueryResultHKT = GelQueryResultHKT, TReturning extends Record<string, unknown> | undefined = Record<string, unknown> | undefined> = GelInsertBase<TTable, TQueryResult, TReturning, true, never>
+ * export type GelInsert<
+ *   TTable extends GelTable = GelTable,
+ *   TQueryResult extends GelQueryResultHKT = GelQueryResultHKT,
+ *   TReturning extends Record<string, unknown> | undefined = Record<string, unknown> | undefined
+ * > =
+ *   GelInsertBase<TTable, TQueryResult, TReturning, true, never>
  */

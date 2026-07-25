@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ConditionalKeys: any
 declare const IsNever: any
-type ConditionalKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ConditionalKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ConditionalPick: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ConditionalPick(Base, Condition) {
@@ -27,5 +27,8 @@ export function ConditionalPick(Base, Condition) {
   return never
 }
 /* compiles to:
- * export type ConditionalPick<Base, Condition> = ConditionalKeys<Base, Condition> extends infer Keys ? IsNever<Keys> extends true ? never : Pick<Base, Keys & keyof Base> : never
+ * export type ConditionalPick<Base, Condition> =
+ *   ConditionalKeys<Base, Condition> extends infer Keys
+ *     ? IsNever<Keys> extends true ? never : Pick<Base, Keys & keyof Base>
+ *     : never
  */

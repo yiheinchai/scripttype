@@ -13,16 +13,18 @@
 declare const PgTable: any
 declare const TableConfig: any
 declare const UpdateTableConfig: any
-type PgTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateTableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateTableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyPgTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AnyPgTable(TPartial: Partial<TableConfig> = {}) {
   return PgTable(UpdateTableConfig(TableConfig, TPartial))
 }
 /* compiles to:
- * export type AnyPgTable<TPartial extends Partial<TableConfig> = {}> = PgTable<UpdateTableConfig<TableConfig, TPartial>>
+ * export type AnyPgTable<TPartial extends Partial<TableConfig> = {}> = PgTable<
+ *   UpdateTableConfig<TableConfig, TPartial>
+ * >
  */
 
 // ✓ PgTableWithColumns: verified type-identical to the original
@@ -35,5 +37,8 @@ export function PgTableWithColumns(T: TableConfig) {
   return merge(PgTable(T), out, { enableRLS: fnType([], Omit(PgTableWithColumns(T), 'enableRLS')) })
 }
 /* compiles to:
- * export type PgTableWithColumns<T extends TableConfig> = PgTable<T> & { [Key in keyof T['columns']]: T['columns'][Key] } & { enableRLS: () => Omit<PgTableWithColumns<T>, 'enableRLS'> }
+ * export type PgTableWithColumns<T extends TableConfig> =
+ *   & PgTable<T>
+ *   & { [Key in keyof T['columns']]: T['columns'][Key] }
+ *   & { enableRLS: () => Omit<PgTableWithColumns<T>, 'enableRLS'> }
  */

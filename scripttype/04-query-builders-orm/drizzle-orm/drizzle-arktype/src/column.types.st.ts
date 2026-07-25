@@ -10,14 +10,17 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace type {
+  export type infer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Column: any
 declare const Json: any
 declare const Type: any
 declare const type: any
-type Column<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Json<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Json<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArktypeNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ArktypeNullable(TSchema) {
@@ -48,7 +51,10 @@ export function GetArktypeType(TColumn: Column) {
   return Type(TColumn['_']['data'])
 }
 /* compiles to:
- * export type GetArktypeType<TColumn extends Column> = TColumn['_']['columnType'] extends 'PgJson' | 'PgJsonb' | 'MySqlJson' | 'SingleStoreJson' | 'SQLiteTextJson' | 'SQLiteBlobJson' ? unknown extends TColumn['_']['data'] ? Type<Json> : Type<TColumn['_']['data']> : Type<TColumn['_']['data']>
+ * export type GetArktypeType<TColumn extends Column> =
+ *   TColumn['_']['columnType'] extends 'PgJson' | 'PgJsonb' | 'MySqlJson' | 'SingleStoreJson' | 'SQLiteTextJson' | 'SQLiteBlobJson'
+ *     ? unknown extends TColumn['_']['data'] ? Type<Json> : Type<TColumn['_']['data']>
+ *     : Type<TColumn['_']['data']>
  */
 
 // ✓ HandleSelectColumn: verified type-identical to the original
@@ -60,7 +66,8 @@ export function HandleSelectColumn(TSchema, TColumn: Column) {
   return ArktypeNullable(TSchema)
 }
 /* compiles to:
- * export type HandleSelectColumn<TSchema, TColumn extends Column> = TColumn['_']['notNull'] extends true ? TSchema : ArktypeNullable<TSchema>
+ * export type HandleSelectColumn<TSchema, TColumn extends Column> =
+ *   TColumn['_']['notNull'] extends true ? TSchema : ArktypeNullable<TSchema>
  */
 
 // ✓ HandleInsertColumn: verified type-identical to the original
@@ -75,7 +82,10 @@ export function HandleInsertColumn(TSchema, TColumn: Column) {
   return ArktypeOptional(ArktypeNullable(TSchema))
 }
 /* compiles to:
- * export type HandleInsertColumn<TSchema, TColumn extends Column> = TColumn['_']['notNull'] extends true ? TColumn['_']['hasDefault'] extends true ? ArktypeOptional<TSchema> : TSchema : ArktypeOptional<ArktypeNullable<TSchema>>
+ * export type HandleInsertColumn<TSchema, TColumn extends Column> =
+ *   TColumn['_']['notNull'] extends true
+ *     ? TColumn['_']['hasDefault'] extends true ? ArktypeOptional<TSchema> : TSchema
+ *     : ArktypeOptional<ArktypeNullable<TSchema>>
  */
 
 // ✓ HandleUpdateColumn: verified type-identical to the original
@@ -87,7 +97,10 @@ export function HandleUpdateColumn(TSchema, TColumn: Column) {
   return ArktypeOptional(ArktypeNullable(TSchema))
 }
 /* compiles to:
- * export type HandleUpdateColumn<TSchema, TColumn extends Column> = TColumn['_']['notNull'] extends true ? ArktypeOptional<TSchema> : ArktypeOptional<ArktypeNullable<TSchema>>
+ * export type HandleUpdateColumn<TSchema, TColumn extends Column> =
+ *   TColumn['_']['notNull'] extends true
+ *     ? ArktypeOptional<TSchema>
+ *     : ArktypeOptional<ArktypeNullable<TSchema>>
  */
 
 // ✓ HandleColumn: verified type-identical to the original
@@ -105,5 +118,12 @@ export function HandleColumn(TType: 'select' | 'insert' | 'update', TColumn: Col
   return GetArktypeType(TColumn)
 }
 /* compiles to:
- * export type HandleColumn<TType extends 'select' | 'insert' | 'update', TColumn extends Column> = TType extends 'select' ? HandleSelectColumn<GetArktypeType<TColumn>, TColumn> : TType extends 'insert' ? HandleInsertColumn<GetArktypeType<TColumn>, TColumn> : TType extends 'update' ? HandleUpdateColumn<GetArktypeType<TColumn>, TColumn> : GetArktypeType<TColumn>
+ * export type HandleColumn<
+ *   TType extends 'select' | 'insert' | 'update',
+ *   TColumn extends Column
+ * > =
+ *   TType extends 'select' ? HandleSelectColumn<GetArktypeType<TColumn>, TColumn>
+ *   : TType extends 'insert' ? HandleInsertColumn<GetArktypeType<TColumn>, TColumn>
+ *   : TType extends 'update' ? HandleUpdateColumn<GetArktypeType<TColumn>, TColumn>
+ *   : GetArktypeType<TColumn>
  */

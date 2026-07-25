@@ -13,9 +13,9 @@
 declare const DigitCharacter: any
 declare const IsNegative: any
 declare const IsNumericLiteral: any
-type DigitCharacter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNegative<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNumericLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DigitCharacter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNumericLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringRepeat: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StringRepeat(S: string, Count: number) {
@@ -37,7 +37,14 @@ export function StringRepeat(S: string, Count: number) {
   return never
 }
 /* compiles to:
- * export type StringRepeat<S extends string, Count extends number> = Count extends unknown ? IsNegative<Count> extends true ? never : S extends '' ? '' : IsNumericLiteral<Count> extends false ? string : `${Count}` extends `${string}e${string}` ? string : BuildStringDigitByDigit<S, `${Count}`> : never
+ * export type StringRepeat<S extends string, Count extends number> =
+ *   Count extends unknown
+ *     ? IsNegative<Count> extends true ? never
+ *     : S extends '' ? ''
+ *     : IsNumericLiteral<Count> extends false ? string
+ *     : `${Count}` extends `${string}e${string}` ? string
+ *     : BuildStringDigitByDigit<S, `${Count}`>
+ *     : never
  */
 
 // ✓ BuildStringDigitByDigit: verified type-identical to the original
@@ -56,8 +63,23 @@ export function BuildStringDigitByDigit(S: string, Count: string) {
   return Accumulator
 }
 /* compiles to:
- * export type BuildStringDigitByDigit<S extends string, Count extends string> = BuildStringDigitByDigit__loop<Count, '', S>
- * type BuildStringDigitByDigit__loop<Count extends string, Accumulator extends string, S extends string> = Count extends `${infer First extends DigitCharacter}${infer Rest}` ? BuildStringDigitByDigit__loop<Rest, `${RepeatStringTenTimes<Accumulator>}${DigitStringRepeat<S, First>}`, S> : Accumulator
+ * export type BuildStringDigitByDigit<S extends string, Count extends string> = BuildStringDigitByDigit__loop<
+ *   Count,
+ *   '',
+ *   S
+ * >
+ * type BuildStringDigitByDigit__loop<
+ *   Count extends string,
+ *   Accumulator extends string,
+ *   S extends string
+ * > =
+ *   Count extends `${infer First extends DigitCharacter}${infer Rest}`
+ *     ? BuildStringDigitByDigit__loop<
+ *       Rest,
+ *       `${RepeatStringTenTimes<Accumulator>}${DigitStringRepeat<S, First>}`,
+ *       S
+ *     >
+ *     : Accumulator
  */
 
 // ✓ RepeatStringTenTimes: verified type-identical to the original
@@ -75,5 +97,17 @@ export function DigitStringRepeat(S: string, Digit: DigitCharacter) {
   return ['', `${S}`, `${S}${S}`, `${S}${S}${S}`, `${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}${S}${S}${S}`][Digit]
 }
 /* compiles to:
- * export type DigitStringRepeat<S extends string, Digit extends DigitCharacter> = ['', `${S}`, `${S}${S}`, `${S}${S}${S}`, `${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}${S}${S}${S}`][Digit]
+ * export type DigitStringRepeat<S extends string, Digit extends DigitCharacter> =
+ *   [
+ *     '',
+ *     `${S}`,
+ *     `${S}${S}`,
+ *     `${S}${S}${S}`,
+ *     `${S}${S}${S}${S}`,
+ *     `${S}${S}${S}${S}${S}`,
+ *     `${S}${S}${S}${S}${S}${S}`,
+ *     `${S}${S}${S}${S}${S}${S}${S}`,
+ *     `${S}${S}${S}${S}${S}${S}${S}${S}`,
+ *     `${S}${S}${S}${S}${S}${S}${S}${S}${S}`
+ *   ][Digit]
  */

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const XSchema: any
 declare const XStaticSchema: any
-type XSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type XStaticSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type XStaticSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XStaticOneOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function XStaticOneOf(Stack: string[], Root: XSchema, Schemas: XSchema[]) {
@@ -30,6 +30,19 @@ export function XStaticOneOf(Stack: string[], Root: XSchema, Schemas: XSchema[])
   return Result
 }
 /* compiles to:
- * export type XStaticOneOf<Stack extends string[], Root extends XSchema, Schemas extends XSchema[]> = XStaticOneOf__loop<Schemas, never, Stack, Root>
- * type XStaticOneOf__loop<Schemas extends XSchema[], Result, Stack extends string[], Root extends XSchema> = Schemas extends [infer Left extends XSchema, ...(infer Right extends XSchema[])] ? XStaticOneOf__loop<Right, XStaticSchema<Stack, Root, Left> | Result, Stack, Root> : Result
+ * export type XStaticOneOf<
+ *   Stack extends string[],
+ *   Root extends XSchema,
+ *   Schemas extends XSchema[]
+ * > =
+ *   XStaticOneOf__loop<Schemas, never, Stack, Root>
+ * type XStaticOneOf__loop<
+ *   Schemas extends XSchema[],
+ *   Result,
+ *   Stack extends string[],
+ *   Root extends XSchema
+ * > =
+ *   Schemas extends [infer Left extends XSchema, ...infer Right extends XSchema[]]
+ *     ? XStaticOneOf__loop<Right, XStaticSchema<Stack, Root, Left> | Result, Stack, Root>
+ *     : Result
  */

@@ -14,5 +14,9 @@ export function ExcludeStrict(T, U: [ typeof U ] extends [ typeof U extends unkn
   return Exclude(T, U)
 }
 /* compiles to:
- * export type ExcludeStrict<T, U extends [ typeof U ] extends [ typeof U extends unknown ? ([ typeof T ] extends [ Exclude<typeof T, typeof U> ] ? never : typeof U) : never ] ? unknown : never> = Exclude<T, U>
+ * export type ExcludeStrict<
+ *   T,
+ *   U extends [ typeof U ] extends [ typeof U extends unknown ? ([ typeof T ] extends [ Exclude<typeof T, typeof U> ] ? never : typeof U) : never ] ? unknown : never
+ * > =
+ *   Exclude<T, U>
  */

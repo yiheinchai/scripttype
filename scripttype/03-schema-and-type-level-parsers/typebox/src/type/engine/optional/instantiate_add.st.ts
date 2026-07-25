@@ -15,15 +15,15 @@ declare const TOptional: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TAddOptionalOperation: uses raw() — language gap, does not count as covered
 //   gap: literal type FirstTemplateToken
 /* @scripttype preserveParamNames */
-export function TAddOptionalOperation(Type: TSchema, Result: TSchema = matches<keyof typeof Type>(raw('`~optional`')) ? Type : TOptional(Type)) {
+export function TAddOptionalOperation(Type: TSchema, Result: TSchema = raw('`~optional`') in Type ? Type : TOptional(Type)) {
   return Result
 }
 
@@ -33,7 +33,11 @@ export function TAddOptionalAction(Type: TSchema, Result: TSchema = TAddOptional
   return Result
 }
 /* compiles to:
- * export type TAddOptionalAction<Type extends TSchema, Result extends TSchema = TAddOptionalOperation<Type>> = Result
+ * export type TAddOptionalAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TAddOptionalOperation<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TAddOptionalInstantiate: verified type-identical to the original
@@ -42,5 +46,11 @@ export function TAddOptionalInstantiate(Context: TProperties, State: TState, Typ
   return TAddOptionalAction(InstantiateType)
 }
 /* compiles to:
- * export type TAddOptionalInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiateType extends TSchema = TInstantiateType<Context, State, Type>> = TAddOptionalAction<InstantiateType>
+ * export type TAddOptionalInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiateType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TAddOptionalAction<InstantiateType>
  */

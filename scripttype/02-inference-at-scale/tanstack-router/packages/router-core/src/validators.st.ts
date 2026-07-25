@@ -18,14 +18,14 @@ declare const SearchSchemaInput: any
 declare const StandardSchemaValidator: any
 declare const ValidatorAdapter: any
 declare const ValidatorObj: any
-type AnySchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyStandardSchemaValidator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyValidatorAdapter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyValidatorObj<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SearchSchemaInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StandardSchemaValidator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidatorAdapter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidatorObj<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyStandardSchemaValidator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyValidatorAdapter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyValidatorObj<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SearchSchemaInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StandardSchemaValidator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidatorAdapter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidatorObj<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidatorFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValidatorFn(TInput, TOutput) {
@@ -41,7 +41,12 @@ export function Validator(TInput, TOutput) {
   return anyOf(ValidatorObj(TInput, TOutput), ValidatorFn(TInput, TOutput), ValidatorAdapter(TInput, TOutput), StandardSchemaValidator(TInput, TOutput), Undefined)
 }
 /* compiles to:
- * export type Validator<TInput, TOutput> = ValidatorObj<TInput, TOutput> | ValidatorFn<TInput, TOutput> | ValidatorAdapter<TInput, TOutput> | StandardSchemaValidator<TInput, TOutput> | undefined
+ * export type Validator<TInput, TOutput> =
+ *   | ValidatorObj<TInput, TOutput>
+ *   | ValidatorFn<TInput, TOutput>
+ *   | ValidatorAdapter<TInput, TOutput>
+ *   | StandardSchemaValidator<TInput, TOutput>
+ *   | undefined
  */
 
 // ✓ ResolveSearchValidatorInputFn: verified type-identical to the original
@@ -57,7 +62,12 @@ export function ResolveSearchValidatorInputFn(TValidator) {
   return AnySchema
 }
 /* compiles to:
- * export type ResolveSearchValidatorInputFn<TValidator> = TValidator extends (input: infer TSchemaInput) => any ? TSchemaInput extends SearchSchemaInput ? Omit<TSchemaInput, keyof SearchSchemaInput> : ResolveValidatorOutputFn<TValidator> : AnySchema
+ * export type ResolveSearchValidatorInputFn<TValidator> =
+ *   TValidator extends (input: infer TSchemaInput) => any
+ *     ? TSchemaInput extends SearchSchemaInput
+ *       ? Omit<TSchemaInput, keyof SearchSchemaInput>
+ *       : ResolveValidatorOutputFn<TValidator>
+ *     : AnySchema
  */
 
 // ✓ ResolveSearchValidatorInput: verified type-identical to the original
@@ -75,7 +85,12 @@ export function ResolveSearchValidatorInput(TValidator) {
   return ResolveSearchValidatorInputFn(TValidator)
 }
 /* compiles to:
- * export type ResolveSearchValidatorInput<TValidator> = TValidator extends AnyStandardSchemaValidator ? NonNullable<TValidator['~standard']['types']>['input'] : TValidator extends AnyValidatorAdapter ? TValidator['types']['input'] : TValidator extends AnyValidatorObj ? ResolveSearchValidatorInputFn<TValidator['parse']> : ResolveSearchValidatorInputFn<TValidator>
+ * export type ResolveSearchValidatorInput<TValidator> =
+ *   TValidator extends AnyStandardSchemaValidator
+ *     ? NonNullable<TValidator['~standard']['types']>['input']
+ *   : TValidator extends AnyValidatorAdapter ? TValidator['types']['input']
+ *   : TValidator extends AnyValidatorObj ? ResolveSearchValidatorInputFn<TValidator['parse']>
+ *   : ResolveSearchValidatorInputFn<TValidator>
  */
 
 // ✓ ResolveValidatorInputFn: verified type-identical to the original
@@ -88,7 +103,8 @@ export function ResolveValidatorInputFn(TValidator) {
   return Undefined
 }
 /* compiles to:
- * export type ResolveValidatorInputFn<TValidator> = TValidator extends (input: infer TInput) => any ? TInput : undefined
+ * export type ResolveValidatorInputFn<TValidator> =
+ *   TValidator extends (input: infer TInput) => any ? TInput : undefined
  */
 
 // ✓ ResolveValidatorInput: verified type-identical to the original
@@ -106,7 +122,12 @@ export function ResolveValidatorInput(TValidator) {
   return ResolveValidatorInputFn(TValidator)
 }
 /* compiles to:
- * export type ResolveValidatorInput<TValidator> = TValidator extends AnyStandardSchemaValidator ? NonNullable<TValidator['~standard']['types']>['input'] : TValidator extends AnyValidatorAdapter ? TValidator['types']['input'] : TValidator extends AnyValidatorObj ? ResolveValidatorInputFn<TValidator['parse']> : ResolveValidatorInputFn<TValidator>
+ * export type ResolveValidatorInput<TValidator> =
+ *   TValidator extends AnyStandardSchemaValidator
+ *     ? NonNullable<TValidator['~standard']['types']>['input']
+ *   : TValidator extends AnyValidatorAdapter ? TValidator['types']['input']
+ *   : TValidator extends AnyValidatorObj ? ResolveValidatorInputFn<TValidator['parse']>
+ *   : ResolveValidatorInputFn<TValidator>
  */
 
 // ✓ ResolveValidatorOutputFn: verified type-identical to the original
@@ -119,7 +140,8 @@ export function ResolveValidatorOutputFn(TValidator) {
   return AnySchema
 }
 /* compiles to:
- * export type ResolveValidatorOutputFn<TValidator> = TValidator extends (...args: any) => infer TSchema ? TSchema : AnySchema
+ * export type ResolveValidatorOutputFn<TValidator> =
+ *   TValidator extends (...args: any) => infer TSchema ? TSchema : AnySchema
  */
 
 // ✓ ResolveValidatorOutput: verified type-identical to the original
@@ -140,5 +162,11 @@ export function ResolveValidatorOutput(TValidator) {
   return ResolveValidatorOutputFn(TValidator)
 }
 /* compiles to:
- * export type ResolveValidatorOutput<TValidator> = unknown extends TValidator ? TValidator : TValidator extends AnyStandardSchemaValidator ? NonNullable<TValidator['~standard']['types']>['output'] : TValidator extends AnyValidatorAdapter ? TValidator['types']['output'] : TValidator extends AnyValidatorObj ? ResolveValidatorOutputFn<TValidator['parse']> : ResolveValidatorOutputFn<TValidator>
+ * export type ResolveValidatorOutput<TValidator> =
+ *   unknown extends TValidator ? TValidator
+ *   : TValidator extends AnyStandardSchemaValidator
+ *     ? NonNullable<TValidator['~standard']['types']>['output']
+ *   : TValidator extends AnyValidatorAdapter ? TValidator['types']['output']
+ *   : TValidator extends AnyValidatorObj ? ResolveValidatorOutputFn<TValidator['parse']>
+ *   : ResolveValidatorOutputFn<TValidator>
  */

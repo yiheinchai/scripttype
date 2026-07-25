@@ -14,15 +14,19 @@ declare const List: any
 declare const Match: any
 declare const OSelectKeys: any
 declare const ObjectOf: any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OSelectKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OSelectKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SelectKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SelectKeys(L: List, M: any, match: Match = 'default') {
   return OSelectKeys(ObjectOf(L), M, match)
 }
 /* compiles to:
- * export type SelectKeys<L extends List, M extends any, match extends Match = 'default'> = OSelectKeys<ObjectOf<L>, M, match>
+ * export type SelectKeys<L extends List, M extends any, match extends Match = 'default'> = OSelectKeys<
+ *   ObjectOf<L>,
+ *   M,
+ *   match
+ * >
  */

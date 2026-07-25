@@ -15,18 +15,21 @@ declare const If: any
 declare const IfNotAnyOrNever: any
 declare const IsNegative: any
 declare const UnknownArray: any
-type DigitCharacter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNegative<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DigitCharacter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TupleOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TupleOf(Length: number, Fill = unknown) {
   return IfNotAnyOrNever(Length, { ifNot: _TupleOf(If(IsNegative(Length), 0, Length), Fill), ifAny: arrayOf(Fill), ifNever: [] })
 }
 /* compiles to:
- * export type TupleOf<Length extends number, Fill = unknown> = IfNotAnyOrNever<Length, { ifNot: _TupleOf<If<IsNegative<Length>, 0, Length>, Fill>; ifAny: Fill[]; ifNever: [] }>
+ * export type TupleOf<Length extends number, Fill = unknown> = IfNotAnyOrNever<
+ *   Length,
+ *   { ifNot: _TupleOf<If<IsNegative<Length>, 0, Length>, Fill>; ifAny: Fill[]; ifNever: [] }
+ * >
  */
 
 // ✓ _TupleOf: verified type-identical to the original
@@ -38,7 +41,8 @@ export function _TupleOf(Length: number, Fill) {
   return BuildTupleDigitByDigit(`${Length}`, Fill)
 }
 /* compiles to:
- * export type _TupleOf<Length extends number, Fill> = number extends Length ? Fill[] : BuildTupleDigitByDigit<`${Length}`, Fill>
+ * export type _TupleOf<Length extends number, Fill> =
+ *   number extends Length ? Fill[] : BuildTupleDigitByDigit<`${Length}`, Fill>
  */
 
 // ✓ BuildTupleDigitByDigit: verified type-identical to the original
@@ -57,8 +61,19 @@ export function BuildTupleDigitByDigit(Length: string, Fill) {
   return Accumulator
 }
 /* compiles to:
- * export type BuildTupleDigitByDigit<Length extends string, Fill> = BuildTupleDigitByDigit__loop<Length, [], Fill>
- * type BuildTupleDigitByDigit__loop<Length extends string, Accumulator extends any[], Fill> = Length extends `${infer First extends DigitCharacter}${infer Rest}` ? BuildTupleDigitByDigit__loop<Rest, [...RepeatTupleTenTimes<Accumulator>, ...DigitTupleOf<First, Fill>], Fill> : Accumulator
+ * export type BuildTupleDigitByDigit<Length extends string, Fill> = BuildTupleDigitByDigit__loop<
+ *   Length,
+ *   [],
+ *   Fill
+ * >
+ * type BuildTupleDigitByDigit__loop<Length extends string, Accumulator extends any[], Fill> =
+ *   Length extends `${infer First extends DigitCharacter}${infer Rest}`
+ *     ? BuildTupleDigitByDigit__loop<
+ *       Rest,
+ *       [...RepeatTupleTenTimes<Accumulator>, ...DigitTupleOf<First, Fill>],
+ *       Fill
+ *     >
+ *     : Accumulator
  */
 
 // ✓ RepeatTupleTenTimes: verified type-identical to the original
@@ -67,7 +82,18 @@ export function RepeatTupleTenTimes(Tuple: UnknownArray) {
   return [...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple]
 }
 /* compiles to:
- * export type RepeatTupleTenTimes<Tuple extends UnknownArray> = [...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple, ...Tuple]
+ * export type RepeatTupleTenTimes<Tuple extends UnknownArray> = [
+ *   ...Tuple,
+ *   ...Tuple,
+ *   ...Tuple,
+ *   ...Tuple,
+ *   ...Tuple,
+ *   ...Tuple,
+ *   ...Tuple,
+ *   ...Tuple,
+ *   ...Tuple,
+ *   ...Tuple
+ * ]
  */
 
 // ✓ DigitTupleOf: verified type-identical to the original
@@ -76,5 +102,17 @@ export function DigitTupleOf(Digit: DigitCharacter, Fill) {
   return [[], [Fill], [Fill, Fill], [Fill, Fill, Fill], [Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill, Fill, Fill, Fill, Fill]][Digit]
 }
 /* compiles to:
- * export type DigitTupleOf<Digit extends DigitCharacter, Fill> = [[], [Fill], [Fill, Fill], [Fill, Fill, Fill], [Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill, Fill, Fill, Fill], [Fill, Fill, Fill, Fill, Fill, Fill, Fill, Fill, Fill]][Digit]
+ * export type DigitTupleOf<Digit extends DigitCharacter, Fill> =
+ *   [
+ *     [],
+ *     [Fill],
+ *     [Fill, Fill],
+ *     [Fill, Fill, Fill],
+ *     [Fill, Fill, Fill, Fill],
+ *     [Fill, Fill, Fill, Fill, Fill],
+ *     [Fill, Fill, Fill, Fill, Fill, Fill],
+ *     [Fill, Fill, Fill, Fill, Fill, Fill, Fill],
+ *     [Fill, Fill, Fill, Fill, Fill, Fill, Fill, Fill],
+ *     [Fill, Fill, Fill, Fill, Fill, Fill, Fill, Fill, Fill]
+ *   ][Digit]
  */

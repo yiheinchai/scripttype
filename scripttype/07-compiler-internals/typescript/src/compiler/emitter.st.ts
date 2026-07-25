@@ -13,9 +13,9 @@
 declare const EmitFunction: any
 declare const Node: any
 declare const OrdinalParentheizerRuleSelector: any
-type EmitFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Node<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OrdinalParentheizerRuleSelector<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EmitFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Node<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OrdinalParentheizerRuleSelector<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParenthesizerRule: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ParenthesizerRule(T: Node) {
@@ -31,7 +31,8 @@ export function ParenthesizerRuleOrSelector(T: Node) {
   return OrdinalParentheizerRuleSelector(T) | ParenthesizerRule(T)
 }
 /* compiles to:
- * export type ParenthesizerRuleOrSelector<T extends Node> = OrdinalParentheizerRuleSelector<T> | ParenthesizerRule<T>
+ * export type ParenthesizerRuleOrSelector<T extends Node> =
+ *   OrdinalParentheizerRuleSelector<T> | ParenthesizerRule<T>
  */
 
 // ✓ EmitListItemFunction: verified type-identical to the original
@@ -40,5 +41,6 @@ export function EmitListItemFunction(T: Node) {
   return fnType([Node, EmitFunction, anyOf(ParenthesizerRuleOrSelector(T), Undefined), number], voidType())
 }
 /* compiles to:
- * export type EmitListItemFunction<T extends Node> = (a0: Node, a1: EmitFunction, a2: ParenthesizerRuleOrSelector<T> | undefined, a3: number) => void
+ * export type EmitListItemFunction<T extends Node> =
+ *   (a0: Node, a1: EmitFunction, a2: ParenthesizerRuleOrSelector<T> | undefined, a3: number) => void
  */

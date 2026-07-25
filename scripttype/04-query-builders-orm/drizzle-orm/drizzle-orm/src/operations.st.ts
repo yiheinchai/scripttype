@@ -10,17 +10,20 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace SQL {
+  export type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyColumn: any
 declare const Column: any
 declare const SQL: any
 declare const Subquery: any
 declare const Table: any
-type AnyColumn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Column<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredKeyOnly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQL<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Subquery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Table<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredKeyOnly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequiredKeyOnly: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RequiredKeyOnly(TKey: string, T: Column) {
@@ -30,7 +33,8 @@ export function RequiredKeyOnly(TKey: string, T: Column) {
   return never
 }
 /* compiles to:
- * export type RequiredKeyOnly<TKey extends string, T extends Column> = T extends AnyColumn<{ notNull: true; hasDefault: false; }> ? TKey : never
+ * export type RequiredKeyOnly<TKey extends string, T extends Column> =
+ *   T extends AnyColumn<{ notNull: true; hasDefault: false; }> ? TKey : never
  */
 
 // ✓ OptionalKeyOnly: verified type-identical to the original
@@ -54,7 +58,17 @@ export function OptionalKeyOnly(TKey: string, T: Column, OverrideT: boolean | un
   return never
 }
 /* compiles to:
- * export type OptionalKeyOnly<TKey extends string, T extends Column, OverrideT extends boolean | undefined = false> = TKey extends RequiredKeyOnly<TKey, T> ? never : T extends { _: { generated: undefined; }; } ? T extends { _: { identity: undefined; }; } ? TKey : T['_']['identity'] extends 'always' ? OverrideT extends true ? TKey : never : TKey : never
+ * export type OptionalKeyOnly<
+ *   TKey extends string,
+ *   T extends Column,
+ *   OverrideT extends boolean | undefined = false
+ * > =
+ *   TKey extends RequiredKeyOnly<TKey, T> ? never
+ *   : T extends { _: { generated: undefined; }; }
+ *     ? T extends { _: { identity: undefined; }; } ? TKey
+ *     : T['_']['identity'] extends 'always' ? OverrideT extends true ? TKey : never
+ *     : TKey
+ *   : never
  */
 
 // ✓ SelectedFieldsFlat: verified type-identical to the original
@@ -63,7 +77,10 @@ export function SelectedFieldsFlat(TColumn: Column) {
   return Record(string, anyOf(TColumn, SQL, SQL.Aliased, Subquery))
 }
 /* compiles to:
- * export type SelectedFieldsFlat<TColumn extends Column> = Record<string, TColumn | SQL | SQL.Aliased | Subquery>
+ * export type SelectedFieldsFlat<TColumn extends Column> = Record<
+ *   string,
+ *   TColumn | SQL | SQL.Aliased | Subquery
+ * >
  */
 
 // ✓ SelectedFieldsFlatFull: verified type-identical to the original
@@ -72,7 +89,10 @@ export function SelectedFieldsFlatFull(TColumn: Column) {
   return Record(string, anyOf(TColumn, SQL, SQL.Aliased))
 }
 /* compiles to:
- * export type SelectedFieldsFlatFull<TColumn extends Column> = Record<string, TColumn | SQL | SQL.Aliased>
+ * export type SelectedFieldsFlatFull<TColumn extends Column> = Record<
+ *   string,
+ *   TColumn | SQL | SQL.Aliased
+ * >
  */
 
 // ✓ SelectedFields: verified type-identical to the original
@@ -81,7 +101,10 @@ export function SelectedFields(TColumn: Column, TTable: Table) {
   return Record(string, anyOf(SelectedFieldsFlat(TColumn)[string], TTable, SelectedFieldsFlat(TColumn)))
 }
 /* compiles to:
- * export type SelectedFields<TColumn extends Column, TTable extends Table> = Record<string, SelectedFieldsFlat<TColumn>[string] | TTable | SelectedFieldsFlat<TColumn>>
+ * export type SelectedFields<TColumn extends Column, TTable extends Table> = Record<
+ *   string,
+ *   SelectedFieldsFlat<TColumn>[string] | TTable | SelectedFieldsFlat<TColumn>
+ * >
  */
 
 // ✓ SelectedFieldsOrdered: verified type-identical to the original
@@ -90,5 +113,6 @@ export function SelectedFieldsOrdered(TColumn: Column) {
   return arrayOf({ path: arrayOf(string), field: anyOf(TColumn, SQL, SQL.Aliased, Subquery) })
 }
 /* compiles to:
- * export type SelectedFieldsOrdered<TColumn extends Column> = { path: string[]; field: TColumn | SQL | SQL.Aliased | Subquery }[]
+ * export type SelectedFieldsOrdered<TColumn extends Column> =
+ *   { path: string[]; field: TColumn | SQL | SQL.Aliased | Subquery }[]
  */

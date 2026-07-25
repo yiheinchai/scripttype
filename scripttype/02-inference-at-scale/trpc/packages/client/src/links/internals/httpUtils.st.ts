@@ -14,15 +14,16 @@ declare const AnyClientTypes: any
 declare const FetchEsque: any
 declare const TransformerOptions: any
 declare const URL: any
-type AnyClientTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FetchEsque<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TransformerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type URL<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FetchEsque<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TransformerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type URL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ HTTPLinkBaseOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HTTPLinkBaseOptions(TRoot: Pick<AnyClientTypes, 'transformer'>) {
   return merge({ url: string | URL, fetch: optional(FetchEsque), methodOverride: optional('POST') }, TransformerOptions(TRoot))
 }
 /* compiles to:
- * export type HTTPLinkBaseOptions<TRoot extends Pick<AnyClientTypes, 'transformer'>> = { url: string | URL; fetch?: FetchEsque; methodOverride?: 'POST' } & TransformerOptions<TRoot>
+ * export type HTTPLinkBaseOptions<TRoot extends Pick<AnyClientTypes, 'transformer'>> =
+ *   { url: string | URL; fetch?: FetchEsque; methodOverride?: 'POST' } & TransformerOptions<TRoot>
  */

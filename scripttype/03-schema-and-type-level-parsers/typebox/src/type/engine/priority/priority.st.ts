@@ -13,16 +13,22 @@
 declare const TCompare: any
 declare const TCompareResult: any
 declare const TSchema: any
-type TCompare<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCompareResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCompare<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCompareResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TComparer: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TComparer(Left: TSchema, Right: TSchema, CompareResult: TCompareResult = TCompare(Left, Right), Result: 0 | 1 = matches<'right-inside'>(CompareResult) ? 1 : (matches<'disjoint'>(CompareResult) ? 1 : 0)) {
   return Result
 }
 /* compiles to:
- * export type TComparer<Left extends TSchema, Right extends TSchema, CompareResult extends TCompareResult = TCompare<Left, Right>, Result extends 0 | 1 = CompareResult extends 'right-inside' ? 1 : CompareResult extends 'disjoint' ? 1 : 0> = Result
+ * export type TComparer<
+ *   Left extends TSchema,
+ *   Right extends TSchema,
+ *   CompareResult extends TCompareResult = TCompare<Left, Right>,
+ *   Result extends 0 | 1 = CompareResult extends 'right-inside' ? 1 : CompareResult extends 'disjoint' ? 1 : 0
+ * > =
+ *   Result
  */
 
 // ✓ TInsert: verified type-identical to the original
@@ -38,7 +44,16 @@ export function TInsert(Type: TSchema, Types: TSchema[], Result: TSchema[] = [])
   return [...Result, Type]
 }
 /* compiles to:
- * export type TInsert<Type extends TSchema, Types extends TSchema[], Result extends TSchema[] = []> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TComparer<Type, Left> extends 1 ? TInsert<Type, Right, [...Result, Left]> : [...Result, Type, ...Types] : [...Result, Type]
+ * export type TInsert<
+ *   Type extends TSchema,
+ *   Types extends TSchema[],
+ *   Result extends TSchema[] = []
+ * > =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TComparer<Type, Left> extends 1
+ *       ? TInsert<Type, Right, [...Result, Left]>
+ *       : [...Result, Type, ...Types]
+ *     : [...Result, Type]
  */
 
 // ✓ TSort: verified type-identical to the original
@@ -58,7 +73,10 @@ export function TSort(Types: TSchema[]) {
 }
 /* compiles to:
  * export type TSort<Types extends TSchema[]> = TSort__loop<Types, []>
- * type TSort__loop<Types extends TSchema[], Result extends any[]> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TSort__loop<Right, TInsert<Left, Result>> : Result
+ * type TSort__loop<Types extends TSchema[], Result extends any[]> =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TSort__loop<Right, TInsert<Left, Result>>
+ *     : Result
  */
 
 // ✓ TPriority: verified type-identical to the original

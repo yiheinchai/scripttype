@@ -15,16 +15,25 @@ declare const StaticType: any
 declare const TImmutable: any
 declare const TProperties: any
 declare const TSchema: any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TImmutable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TImmutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StaticArray(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Array: TSchema, Item: TSchema, Result: readonly unknown[] = matches<TImmutable>(t<typeof Array>()) ? readonlyArrayOf(StaticType(Stack, Direction, Context, This, Item)) : arrayOf(StaticType(Stack, Direction, Context, This, Item))) {
   return Result
 }
 /* compiles to:
- * export type StaticArray<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Array extends TSchema, Item extends TSchema, Result extends readonly unknown[] = Array extends TImmutable ? readonly StaticType<Stack, Direction, Context, This, Item>[] : StaticType<Stack, Direction, Context, This, Item>[]> = Result
+ * export type StaticArray<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Array extends TSchema,
+ *   Item extends TSchema,
+ *   Result extends readonly unknown[] = Array extends TImmutable ? readonly StaticType<Stack, Direction, Context, This, Item>[] : StaticType<Stack, Direction, Context, This, Item>[]
+ * > =
+ *   Result
  */

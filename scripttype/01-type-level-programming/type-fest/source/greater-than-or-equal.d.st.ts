@@ -11,15 +11,15 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const GreaterThan: any
-type GreaterThan<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type GreaterThan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GreaterThanOrEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GreaterThanOrEqual(A: number, B: number) {
   if (matches<typeof A | typeof B>(number)) {
     return boolean
   }
-  if (matches<number>(A)) {
-    if (matches<number>(B)) {
+  if (typeof A === 'number') {
+    if (typeof B === 'number') {
       if (matches<typeof B>(A)) {
         return true
       }
@@ -30,5 +30,8 @@ export function GreaterThanOrEqual(A: number, B: number) {
   return never
 }
 /* compiles to:
- * export type GreaterThanOrEqual<A extends number, B extends number> = number extends A | B ? boolean : A extends number ? B extends number ? A extends B ? true : GreaterThan<A, B> : never : never
+ * export type GreaterThanOrEqual<A extends number, B extends number> =
+ *   number extends A | B ? boolean
+ *   : A extends number ? B extends number ? A extends B ? true : GreaterThan<A, B> : never
+ *   : never
  */

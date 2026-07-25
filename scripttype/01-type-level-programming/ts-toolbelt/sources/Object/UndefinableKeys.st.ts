@@ -17,7 +17,8 @@ export function _UndefinableKeys(O: object) {
   return out[keyof(O)]
 }
 /* compiles to:
- * export type _UndefinableKeys<O extends object> = { [K in keyof O]-?: [O[K] & undefined] extends [never] ? never : K }[keyof O]
+ * export type _UndefinableKeys<O extends object> =
+ *   { [K in keyof O]-?: [O[K] & undefined] extends [never] ? never : K }[keyof O]
  */
 
 // ✓ UndefinableKeys: verified type-identical to the original

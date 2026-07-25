@@ -11,14 +11,18 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ExtractTypeFromReferenceExpression: any
-type ExtractTypeFromReferenceExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExtractTypeFromReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtractTypeFromCoalesce1: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExtractTypeFromCoalesce1(DB, TB: keyof typeof DB, R1) {
   return ExtractTypeFromReferenceExpression(DB, TB, R1)
 }
 /* compiles to:
- * export type ExtractTypeFromCoalesce1<DB, TB extends keyof DB, R1> = ExtractTypeFromReferenceExpression<DB, TB, R1>
+ * export type ExtractTypeFromCoalesce1<DB, TB extends keyof DB, R1> = ExtractTypeFromReferenceExpression<
+ *   DB,
+ *   TB,
+ *   R1
+ * >
  */
 
 // ✓ ExtractTypeFromCoalesce2: verified type-identical to the original
@@ -27,7 +31,10 @@ export function ExtractTypeFromCoalesce2(DB, TB: keyof typeof DB, R1, R2) {
   return ExtractTypeFromCoalesceValues2(ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2))
 }
 /* compiles to:
- * export type ExtractTypeFromCoalesce2<DB, TB extends keyof DB, R1, R2> = ExtractTypeFromCoalesceValues2<ExtractTypeFromReferenceExpression<DB, TB, R1>, ExtractTypeFromReferenceExpression<DB, TB, R2>>
+ * export type ExtractTypeFromCoalesce2<DB, TB extends keyof DB, R1, R2> = ExtractTypeFromCoalesceValues2<
+ *   ExtractTypeFromReferenceExpression<DB, TB, R1>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R2>
+ * >
  */
 
 // ✓ ExtractTypeFromCoalesceValues2: verified type-identical to the original
@@ -42,7 +49,8 @@ export function ExtractTypeFromCoalesceValues2(V1, V2) {
   return NotNull(V1)
 }
 /* compiles to:
- * export type ExtractTypeFromCoalesceValues2<V1, V2> = null extends V1 ? null extends V2 ? V1 | V2 : NotNull<V1 | V2> : NotNull<V1>
+ * export type ExtractTypeFromCoalesceValues2<V1, V2> =
+ *   null extends V1 ? null extends V2 ? V1 | V2 : NotNull<V1 | V2> : NotNull<V1>
  */
 
 // ✓ ExtractTypeFromCoalesce3: verified type-identical to the original
@@ -51,7 +59,11 @@ export function ExtractTypeFromCoalesce3(DB, TB: keyof typeof DB, R1, R2, R3) {
   return ExtractTypeFromCoalesceValues3(ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3))
 }
 /* compiles to:
- * export type ExtractTypeFromCoalesce3<DB, TB extends keyof DB, R1, R2, R3> = ExtractTypeFromCoalesceValues3<ExtractTypeFromReferenceExpression<DB, TB, R1>, ExtractTypeFromReferenceExpression<DB, TB, R2>, ExtractTypeFromReferenceExpression<DB, TB, R3>>
+ * export type ExtractTypeFromCoalesce3<DB, TB extends keyof DB, R1, R2, R3> = ExtractTypeFromCoalesceValues3<
+ *   ExtractTypeFromReferenceExpression<DB, TB, R1>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R2>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R3>
+ * >
  */
 
 // ✓ ExtractTypeFromCoalesceValues3: verified type-identical to the original
@@ -69,7 +81,12 @@ export function ExtractTypeFromCoalesceValues3(V1, V2, V3) {
   return NotNull(V1)
 }
 /* compiles to:
- * export type ExtractTypeFromCoalesceValues3<V1, V2, V3> = null extends V1 ? null extends V2 ? null extends V3 ? V1 | V2 | V3 : NotNull<V1 | V2 | V3> : NotNull<V1 | V2> : NotNull<V1>
+ * export type ExtractTypeFromCoalesceValues3<V1, V2, V3> =
+ *   null extends V1
+ *     ? null extends V2
+ *       ? null extends V3 ? V1 | V2 | V3 : NotNull<V1 | V2 | V3>
+ *       : NotNull<V1 | V2>
+ *     : NotNull<V1>
  */
 
 // ✓ ExtractTypeFromCoalesce4: verified type-identical to the original
@@ -78,7 +95,12 @@ export function ExtractTypeFromCoalesce4(DB, TB: keyof typeof DB, R1, R2, R3, R4
   return ExtractTypeFromCoalesceValues4(ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3), ExtractTypeFromReferenceExpression(DB, TB, R4))
 }
 /* compiles to:
- * export type ExtractTypeFromCoalesce4<DB, TB extends keyof DB, R1, R2, R3, R4> = ExtractTypeFromCoalesceValues4<ExtractTypeFromReferenceExpression<DB, TB, R1>, ExtractTypeFromReferenceExpression<DB, TB, R2>, ExtractTypeFromReferenceExpression<DB, TB, R3>, ExtractTypeFromReferenceExpression<DB, TB, R4>>
+ * export type ExtractTypeFromCoalesce4<DB, TB extends keyof DB, R1, R2, R3, R4> = ExtractTypeFromCoalesceValues4<
+ *   ExtractTypeFromReferenceExpression<DB, TB, R1>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R2>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R3>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R4>
+ * >
  */
 
 // ✓ ExtractTypeFromCoalesceValues4: verified type-identical to the original
@@ -99,7 +121,14 @@ export function ExtractTypeFromCoalesceValues4(V1, V2, V3, V4) {
   return NotNull(V1)
 }
 /* compiles to:
- * export type ExtractTypeFromCoalesceValues4<V1, V2, V3, V4> = null extends V1 ? null extends V2 ? null extends V3 ? null extends V4 ? V1 | V2 | V3 | V4 : NotNull<V1 | V2 | V3 | V4> : NotNull<V1 | V2 | V3> : NotNull<V1 | V2> : NotNull<V1>
+ * export type ExtractTypeFromCoalesceValues4<V1, V2, V3, V4> =
+ *   null extends V1
+ *     ? null extends V2
+ *       ? null extends V3
+ *         ? null extends V4 ? V1 | V2 | V3 | V4 : NotNull<V1 | V2 | V3 | V4>
+ *         : NotNull<V1 | V2 | V3>
+ *       : NotNull<V1 | V2>
+ *     : NotNull<V1>
  */
 
 // ✓ ExtractTypeFromCoalesce5: verified type-identical to the original
@@ -108,7 +137,13 @@ export function ExtractTypeFromCoalesce5(DB, TB: keyof typeof DB, R1, R2, R3, R4
   return ExtractTypeFromCoalesceValues5(ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3), ExtractTypeFromReferenceExpression(DB, TB, R4), ExtractTypeFromReferenceExpression(DB, TB, R5))
 }
 /* compiles to:
- * export type ExtractTypeFromCoalesce5<DB, TB extends keyof DB, R1, R2, R3, R4, R5> = ExtractTypeFromCoalesceValues5<ExtractTypeFromReferenceExpression<DB, TB, R1>, ExtractTypeFromReferenceExpression<DB, TB, R2>, ExtractTypeFromReferenceExpression<DB, TB, R3>, ExtractTypeFromReferenceExpression<DB, TB, R4>, ExtractTypeFromReferenceExpression<DB, TB, R5>>
+ * export type ExtractTypeFromCoalesce5<DB, TB extends keyof DB, R1, R2, R3, R4, R5> = ExtractTypeFromCoalesceValues5<
+ *   ExtractTypeFromReferenceExpression<DB, TB, R1>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R2>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R3>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R4>,
+ *   ExtractTypeFromReferenceExpression<DB, TB, R5>
+ * >
  */
 
 // ✓ ExtractTypeFromCoalesceValues5: verified type-identical to the original
@@ -132,7 +167,16 @@ export function ExtractTypeFromCoalesceValues5(V1, V2, V3, V4, V5) {
   return NotNull(V1)
 }
 /* compiles to:
- * export type ExtractTypeFromCoalesceValues5<V1, V2, V3, V4, V5> = null extends V1 ? null extends V2 ? null extends V3 ? null extends V4 ? null extends V5 ? V1 | V2 | V3 | V4 | V5 : NotNull<V1 | V2 | V3 | V4 | V5> : NotNull<V1 | V2 | V3 | V4> : NotNull<V1 | V2 | V3> : NotNull<V1 | V2> : NotNull<V1>
+ * export type ExtractTypeFromCoalesceValues5<V1, V2, V3, V4, V5> =
+ *   null extends V1
+ *     ? null extends V2
+ *       ? null extends V3
+ *         ? null extends V4
+ *           ? null extends V5 ? V1 | V2 | V3 | V4 | V5 : NotNull<V1 | V2 | V3 | V4 | V5>
+ *           : NotNull<V1 | V2 | V3 | V4>
+ *         : NotNull<V1 | V2 | V3>
+ *       : NotNull<V1 | V2>
+ *     : NotNull<V1>
  */
 
 // ✓ NotNull: verified type-identical to the original

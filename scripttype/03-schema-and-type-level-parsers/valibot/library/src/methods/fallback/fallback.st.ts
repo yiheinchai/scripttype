@@ -17,21 +17,28 @@ declare const InferIssue: any
 declare const InferOutput: any
 declare const MaybeDeepReadonly: any
 declare const OutputDataset: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Config<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Fallback<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybeDeepReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OutputDataset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Config<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Fallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybeDeepReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OutputDataset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Fallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Fallback(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>>) {
   return MaybeDeepReadonly(InferOutput(TSchema)) | fnType([OutputDataset(InferOutput(TSchema), InferIssue(TSchema)), Config(InferIssue(TSchema))], MaybeDeepReadonly(InferOutput(TSchema)))
 }
 /* compiles to:
- * export type Fallback<TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>>> = MaybeDeepReadonly<InferOutput<TSchema>> | ((a0: OutputDataset<InferOutput<TSchema>, InferIssue<TSchema>>, a1: Config<InferIssue<TSchema>>) => MaybeDeepReadonly<InferOutput<TSchema>>)
+ * export type Fallback<TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>>> =
+ *   | MaybeDeepReadonly<InferOutput<TSchema>>
+ *   | (
+ *       (
+ *         a0: OutputDataset<InferOutput<TSchema>, InferIssue<TSchema>>,
+ *         a1: Config<InferIssue<TSchema>>
+ *       ) => MaybeDeepReadonly<InferOutput<TSchema>>
+ *     )
  */
 
 // ✓ SchemaWithFallback: verified type-identical to the original
@@ -40,5 +47,9 @@ export function SchemaWithFallback(TSchema: BaseSchema<unknown, unknown, BaseIss
   return merge(TSchema, { fallback: readonlyProp(TFallback) })
 }
 /* compiles to:
- * export type SchemaWithFallback<TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>>, TFallback extends Fallback<TSchema>> = TSchema & { readonly fallback: TFallback }
+ * export type SchemaWithFallback<
+ *   TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>>,
+ *   TFallback extends Fallback<TSchema>
+ * > =
+ *   TSchema & { readonly fallback: TFallback }
  */

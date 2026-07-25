@@ -10,6 +10,11 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace distill {
+  export type In<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Out<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type introspectable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Brand: any
 declare const InferredMorph: any
 declare const To: any
@@ -19,15 +24,15 @@ declare const distill: any
 declare const inferDefinition: any
 declare const instantiateType: any
 declare const validateDefinition: any
-type Brand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferredMorph<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type To<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type bindThis<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type distill<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type instantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Brand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferredMorph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type To<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type bindThis<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type distill<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type instantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validate: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function validate(def, $ = {}, args = bindThis(def)) {
@@ -44,7 +49,10 @@ export function instantiate(def, $ = {}, args = bindThis(def)) {
   return instantiateType(inferDefinition(def, $, args), $)
 }
 /* compiles to:
- * export type instantiate<def, $ = {}, args = bindThis<def>> = instantiateType<inferDefinition<def, $, args>, $>
+ * export type instantiate<def, $ = {}, args = bindThis<def>> = instantiateType<
+ *   inferDefinition<def, $, args>,
+ *   $
+ * >
  */
 
 // ✓ infer: verified type-identical to the original
@@ -83,7 +91,9 @@ export function Out(def, $ = {}, args = {}) {
   return distill.introspectable.Out(inferDefinition(def, $, args))
 }
 /* compiles to:
- * export type Out<def, $ = {}, args = {}> = distill.introspectable.Out<inferDefinition<def, $, args>>
+ * export type Out<def, $ = {}, args = {}> = distill.introspectable.Out<
+ *   inferDefinition<def, $, args>
+ * >
  */
 
 // ✓ brand: verified type-identical to the original
@@ -99,7 +109,12 @@ export function brand(t, id) {
   return Brand(t, id)
 }
 /* compiles to:
- * export type brand<t, id> = t extends InferredMorph<infer i, infer o> ? o['introspectable'] extends true ? (a0: i) => To<Brand<o['t'], id>> : (a0: i) => Out<Brand<o['t'], id>> : Brand<t, id>
+ * export type brand<t, id> =
+ *   t extends InferredMorph<infer i, infer o>
+ *     ? o['introspectable'] extends true
+ *       ? (a0: i) => To<Brand<o['t'], id>>
+ *       : (a0: i) => Out<Brand<o['t'], id>>
+ *     : Brand<t, id>
  */
 
 // ✗ type: compiles but is not type-identical yet

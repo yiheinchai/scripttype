@@ -18,14 +18,14 @@ declare const List: any
 declare const Next: any
 declare const Pos: any
 declare const Prepend: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prepend<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prepend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Repeat: does not compile yet
 //   Type 'Extends<Pos<I>, N>' cannot be used to index type '{ '0': __Repeat__st0<N, A, [A, ...L], Next<I>>; '1': L; }'.
 /* @scripttype preserveParamNames */
@@ -33,7 +33,13 @@ export function __Repeat(N: number, A, L: List = [], I: Iteration = IterationOf(
   return { 0: __Repeat(N, A, Prepend(L, A), Next(I)), 1: L }[Extends(Pos(I), N)]
 }
 /* compiles to:
- * export type __Repeat<N extends number, A, L extends List = [], I extends Iteration = IterationOf<0>> = { '0': __Repeat<N, A, Prepend<L, A>, Next<I>>; '1': L }[Extends<Pos<I>, N>]
+ * export type __Repeat<
+ *   N extends number,
+ *   A,
+ *   L extends List = [],
+ *   I extends Iteration = IterationOf<0>
+ * > =
+ *   { '0': __Repeat<N, A, Prepend<L, A>, Next<I>>; '1': L }[Extends<Pos<I>, N>]
  */
 
 // ✓ _Repeat: verified type-identical to the original
@@ -46,7 +52,8 @@ export function _Repeat(A: any, N: number, L: List = []) {
   return never
 }
 /* compiles to:
- * export type _Repeat<A extends any, N extends number, L extends List = []> = __Repeat<N, A, L> extends infer X ? Cast<X, List> : never
+ * export type _Repeat<A extends any, N extends number, L extends List = []> =
+ *   __Repeat<N, A, L> extends infer X ? Cast<X, List> : never
  */
 
 // ✓ Repeat: verified type-identical to the original
@@ -61,5 +68,6 @@ export function Repeat(A: any, N: number, L: List = []) {
   return never
 }
 /* compiles to:
- * export type Repeat<A extends any, N extends number, L extends List = []> = N extends unknown ? L extends unknown ? _Repeat<A, N, L> : never : never
+ * export type Repeat<A extends any, N extends number, L extends List = []> =
+ *   N extends unknown ? L extends unknown ? _Repeat<A, N, L> : never : never
  */

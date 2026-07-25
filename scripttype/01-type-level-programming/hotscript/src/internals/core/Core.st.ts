@@ -16,12 +16,12 @@ declare const Head: any
 declare const _: any
 declare const arg: any
 declare const rawArgs: any
-type ExcludePlaceholders<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Head<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type arg<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type rawArgs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExcludePlaceholders<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type arg<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type rawArgs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ arg0: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function arg0(Constraint = unknown) {
@@ -73,7 +73,8 @@ export function Call(fn: Fn, arg0 = _, arg1 = _, arg2 = _, arg3 = _) {
   return (merge(fn, { [rawArgs]: ExcludePlaceholders([arg0, arg1, arg2, arg3]) }))['return']
 }
 /* compiles to:
- * export type Call<fn extends Fn, arg0 = _, arg1 = _, arg2 = _, arg3 = _> = (fn & { [rawArgs]: ExcludePlaceholders<[arg0, arg1, arg2, arg3]> })['return']
+ * export type Call<fn extends Fn, arg0 = _, arg1 = _, arg2 = _, arg3 = _> =
+ *   (fn & { [rawArgs]: ExcludePlaceholders<[arg0, arg1, arg2, arg3]> })['return']
  */
 
 // ✓ Pipe: verified type-identical to the original
@@ -93,7 +94,10 @@ export function Pipe(acc, xs: Fn[]) {
 }
 /* compiles to:
  * export type Pipe<acc, xs extends Fn[]> = Pipe__loop<acc, xs>
- * type Pipe__loop<Acc_, Xs_ extends Fn[]> = Xs_ extends [infer first extends Fn, ...(infer rest extends Fn[])] ? Pipe__loop<Call<first, Acc_>, rest> : Acc_
+ * type Pipe__loop<Acc_, Xs_ extends Fn[]> =
+ *   Xs_ extends [infer first extends Fn, ...infer rest extends Fn[]]
+ *     ? Pipe__loop<Call<first, Acc_>, rest>
+ *     : Acc_
  */
 
 // ✓ PipeRight: verified type-identical to the original
@@ -113,7 +117,10 @@ export function PipeRight(xs: Fn[], acc) {
 }
 /* compiles to:
  * export type PipeRight<xs extends Fn[], acc> = PipeRight__loop<xs, acc>
- * type PipeRight__loop<Xs_ extends Fn[], Acc_> = Xs_ extends [...(infer rest extends Fn[]), infer last extends Fn] ? PipeRight__loop<rest, Call<last, Acc_>> : Acc_
+ * type PipeRight__loop<Xs_ extends Fn[], Acc_> =
+ *   Xs_ extends [...infer rest extends Fn[], infer last extends Fn]
+ *     ? PipeRight__loop<rest, Call<last, Acc_>>
+ *     : Acc_
  */
 
 // ✓ ComposeImpl: verified type-identical to the original
@@ -133,7 +140,10 @@ export function ComposeImpl(fns: Fn[], args: any[]) {
 }
 /* compiles to:
  * export type ComposeImpl<fns extends Fn[], args extends any[]> = ComposeImpl__loop<fns, args>
- * type ComposeImpl__loop<Fns_ extends Fn[], Args_ extends any[]> = Fns_ extends [...(infer rest extends Fn[]), infer last extends Fn] ? ComposeImpl__loop<rest, [Apply<last, Args_>]> : Head<Args_>
+ * type ComposeImpl__loop<Fns_ extends Fn[], Args_ extends any[]> =
+ *   Fns_ extends [...infer rest extends Fn[], infer last extends Fn]
+ *     ? ComposeImpl__loop<rest, [Apply<last, Args_>]>
+ *     : Head<Args_>
  */
 
 // ✓ ComposeLeftImpl: verified type-identical to the original
@@ -152,6 +162,12 @@ export function ComposeLeftImpl(fns: Fn[], args: any[]) {
   return Head(args_)
 }
 /* compiles to:
- * export type ComposeLeftImpl<fns extends Fn[], args extends any[]> = ComposeLeftImpl__loop<fns, args>
- * type ComposeLeftImpl__loop<Fns_ extends Fn[], Args_ extends any[]> = Fns_ extends [infer first extends Fn, ...(infer rest extends Fn[])] ? ComposeLeftImpl__loop<rest, [Apply<first, Args_>]> : Head<Args_>
+ * export type ComposeLeftImpl<fns extends Fn[], args extends any[]> = ComposeLeftImpl__loop<
+ *   fns,
+ *   args
+ * >
+ * type ComposeLeftImpl__loop<Fns_ extends Fn[], Args_ extends any[]> =
+ *   Fns_ extends [infer first extends Fn, ...infer rest extends Fn[]]
+ *     ? ComposeLeftImpl__loop<rest, [Apply<first, Args_>]>
+ *     : Head<Args_>
  */

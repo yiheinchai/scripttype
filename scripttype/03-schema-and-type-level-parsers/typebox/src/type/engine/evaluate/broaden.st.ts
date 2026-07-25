@@ -20,16 +20,16 @@ declare const TFlatten: any
 declare const TNever: any
 declare const TObject: any
 declare const TSchema: any
-type ResultEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResultLeftInside<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResultRightInside<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCompare<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TEvaluateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFlatten<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ResultEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResultLeftInside<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResultRightInside<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCompare<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TEvaluateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFlatten<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TBroadFilter: does not compile yet
 //   'ResultRightInside' refers to a value, but is being used as a type here. Did you mean 'typeof ResultRightInside'?
 /* @scripttype preserveParamNames */
@@ -44,7 +44,16 @@ export function TBroadFilter(Type: TSchema, Types: TSchema[], Result: TSchema[] 
   return Result
 }
 /* compiles to:
- * export type TBroadFilter<Type extends TSchema, Types extends TSchema[], Result extends TSchema[] = []> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TCompare<Type, Left> extends ResultRightInside ? TBroadFilter<Type, Right, [...Result]> : TBroadFilter<Type, Right, [...Result, Left]> : Result
+ * export type TBroadFilter<
+ *   Type extends TSchema,
+ *   Types extends TSchema[],
+ *   Result extends TSchema[] = []
+ * > =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TCompare<Type, Left> extends ResultRightInside
+ *       ? TBroadFilter<Type, Right, [...Result]>
+ *       : TBroadFilter<Type, Right, [...Result, Left]>
+ *     : Result
  */
 
 // ✗ TIsBroadestType: does not compile yet
@@ -61,7 +70,12 @@ export function TIsBroadestType(Type: TSchema, Types: TSchema[]) {
   return true
 }
 /* compiles to:
- * export type TIsBroadestType<Type extends TSchema, Types extends TSchema[]> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TCompare<Type, Left> extends ResultLeftInside | ResultEqual ? false : TIsBroadestType<Type, Right> : true
+ * export type TIsBroadestType<Type extends TSchema, Types extends TSchema[]> =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TCompare<Type, Left> extends ResultLeftInside | ResultEqual
+ *       ? false
+ *       : TIsBroadestType<Type, Right>
+ *     : true
  */
 
 // ✓ TBroadenType: verified type-identical to the original
@@ -70,7 +84,13 @@ export function TBroadenType(Type: TSchema, Types: TSchema[], Evaluated: TSchema
   return Result
 }
 /* compiles to:
- * export type TBroadenType<Type extends TSchema, Types extends TSchema[], Evaluated extends TSchema = TEvaluateType<Type>, Result extends TSchema[] = Evaluated extends TAny ? [Evaluated] : TIsBroadestType<Evaluated, Types> extends true ? [...TBroadFilter<Evaluated, Types>, Evaluated] : Types> = Result
+ * export type TBroadenType<
+ *   Type extends TSchema,
+ *   Types extends TSchema[],
+ *   Evaluated extends TSchema = TEvaluateType<Type>,
+ *   Result extends TSchema[] = Evaluated extends TAny ? [Evaluated] : TIsBroadestType<Evaluated, Types> extends true ? [...TBroadFilter<Evaluated, Types>, Evaluated] : Types
+ * > =
+ *   Result
  */
 
 // ✓ TBroadenTypes: verified type-identical to the original
@@ -89,7 +109,12 @@ export function TBroadenTypes(Types: TSchema[], Result: TSchema[] = []) {
   return Result
 }
 /* compiles to:
- * export type TBroadenTypes<Types extends TSchema[], Result extends TSchema[] = []> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? Left extends TObject ? TBroadenTypes<Right, [...Result, Left]> : Left extends TNever ? TBroadenTypes<Right, Result> : TBroadenTypes<Right, TBroadenType<Left, Result>> : Result
+ * export type TBroadenTypes<Types extends TSchema[], Result extends TSchema[] = []> =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? Left extends TObject ? TBroadenTypes<Right, [...Result, Left]>
+ *     : Left extends TNever ? TBroadenTypes<Right, Result>
+ *     : TBroadenTypes<Right, TBroadenType<Left, Result>>
+ *     : Result
  */
 
 // ✓ TBroaden: verified type-identical to the original
@@ -98,5 +123,10 @@ export function TBroaden(Types: TSchema[], Broadened: TSchema[] = TBroadenTypes(
   return Flattened
 }
 /* compiles to:
- * export type TBroaden<Types extends TSchema[], Broadened extends TSchema[] = TBroadenTypes<Types>, Flattened extends TSchema[] = TFlatten<Broadened>> = Flattened
+ * export type TBroaden<
+ *   Types extends TSchema[],
+ *   Broadened extends TSchema[] = TBroadenTypes<Types>,
+ *   Flattened extends TSchema[] = TFlatten<Broadened>
+ * > =
+ *   Flattened
  */

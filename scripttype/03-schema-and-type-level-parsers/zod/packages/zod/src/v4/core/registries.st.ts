@@ -10,14 +10,18 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace core {
+  export type input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const $ZodType: any
 declare const $input: any
 declare const $output: any
 declare const core: any
-type $ZodType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type $input<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type $output<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type core<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type $ZodType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type $input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type $output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type core<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ $replace: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function $replace(Meta, S: $ZodType) {
@@ -40,14 +44,21 @@ export function $replace(Meta, S: $ZodType) {
     return fnType([out], $replace(m2.R, S))
   }
   if (matches<object>(Meta)) {
-    const out = emptyObject
+    const out2 = emptyObject
     for (const K in keyof(Meta)) {
-      out[K] = $replace(Meta[K], S)
+      out2[K] = $replace(Meta[K], S)
     }
-    return out
+    return out2
   }
   return Meta
 }
 /* compiles to:
- * export type $replace<Meta, S extends $ZodType> = Meta extends $output ? core.output<S> : Meta extends $input ? core.input<S> : Meta extends (infer M)[] ? $replace<M, S>[] : Meta extends (...args: infer P) => infer R ? (a0: { [K in keyof P]: $replace<P[K], S> }) => $replace<R, S> : Meta extends object ? { [K1 in keyof Meta]: $replace<Meta[K1], S> } : Meta
+ * export type $replace<Meta, S extends $ZodType> =
+ *   Meta extends $output ? core.output<S>
+ *   : Meta extends $input ? core.input<S>
+ *   : Meta extends (infer M)[] ? $replace<M, S>[]
+ *   : Meta extends (...args: infer P) => infer R
+ *     ? (a0: { [K in keyof P]: $replace<P[K], S> }) => $replace<R, S>
+ *   : Meta extends object ? { [K1 in keyof Meta]: $replace<Meta[K1], S> }
+ *   : Meta
  */

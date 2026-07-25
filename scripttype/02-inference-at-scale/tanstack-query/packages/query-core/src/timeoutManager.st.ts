@@ -12,13 +12,18 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ManagedTimerId: any
 declare const TimeoutCallback: any
-type ManagedTimerId<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TimeoutCallback<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ManagedTimerId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TimeoutCallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TimeoutProvider: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TimeoutProvider(TTimerId: ManagedTimerId = ManagedTimerId) {
   return { setTimeout: readonlyProp(fnType([TimeoutCallback, number], TTimerId)), clearTimeout: readonlyProp(fnType([anyOf(TTimerId, Undefined)], voidType())), setInterval: readonlyProp(fnType([TimeoutCallback, number], TTimerId)), clearInterval: readonlyProp(fnType([anyOf(TTimerId, Undefined)], voidType())) }
 }
 /* compiles to:
- * export type TimeoutProvider<TTimerId extends ManagedTimerId = ManagedTimerId> = { readonly setTimeout: (a0: TimeoutCallback, a1: number) => TTimerId; readonly clearTimeout: (a0: TTimerId | undefined) => void; readonly setInterval: (a0: TimeoutCallback, a1: number) => TTimerId; readonly clearInterval: (a0: TTimerId | undefined) => void }
+ * export type TimeoutProvider<TTimerId extends ManagedTimerId = ManagedTimerId> = {
+ *   readonly setTimeout: (a0: TimeoutCallback, a1: number) => TTimerId
+ *   readonly clearTimeout: (a0: TTimerId | undefined) => void
+ *   readonly setInterval: (a0: TimeoutCallback, a1: number) => TTimerId
+ *   readonly clearInterval: (a0: TTimerId | undefined) => void
+ * }
  */

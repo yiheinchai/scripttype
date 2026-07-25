@@ -13,16 +13,18 @@
 declare const AnyRouter: any
 declare const Expand: any
 declare const RouteById: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Expand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteById<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Expand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteById<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ResolveUseLoaderDeps: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ResolveUseLoaderDeps(TRouter: AnyRouter, TFrom) {
   return Expand(RouteById(TRouter['routeTree'], TFrom)['types']['loaderDeps'])
 }
 /* compiles to:
- * export type ResolveUseLoaderDeps<TRouter extends AnyRouter, TFrom> = Expand<RouteById<TRouter['routeTree'], TFrom>['types']['loaderDeps']>
+ * export type ResolveUseLoaderDeps<TRouter extends AnyRouter, TFrom> = Expand<
+ *   RouteById<TRouter['routeTree'], TFrom>['types']['loaderDeps']
+ * >
  */
 
 // ✓ UseLoaderDepsResult: verified type-identical to the original
@@ -34,5 +36,6 @@ export function UseLoaderDepsResult(TRouter: AnyRouter, TFrom, TSelected) {
   return TSelected
 }
 /* compiles to:
- * export type UseLoaderDepsResult<TRouter extends AnyRouter, TFrom, TSelected> = unknown extends TSelected ? ResolveUseLoaderDeps<TRouter, TFrom> : TSelected
+ * export type UseLoaderDepsResult<TRouter extends AnyRouter, TFrom, TSelected> =
+ *   unknown extends TSelected ? ResolveUseLoaderDeps<TRouter, TFrom> : TSelected
  */

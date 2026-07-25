@@ -12,15 +12,16 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const MiddlewareErrorResult: any
 declare const MiddlewareOKResult: any
-type MiddlewareErrorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MiddlewareOKResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MiddlewareErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MiddlewareOKResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MiddlewareResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MiddlewareResult(_TContextOverride) {
   return MiddlewareErrorResult(_TContextOverride) | MiddlewareOKResult(_TContextOverride)
 }
 /* compiles to:
- * export type MiddlewareResult<_TContextOverride> = MiddlewareErrorResult<_TContextOverride> | MiddlewareOKResult<_TContextOverride>
+ * export type MiddlewareResult<_TContextOverride> =
+ *   MiddlewareErrorResult<_TContextOverride> | MiddlewareOKResult<_TContextOverride>
  */
 
 // ✗ MiddlewareFunction: uses raw() — language gap, does not count as covered

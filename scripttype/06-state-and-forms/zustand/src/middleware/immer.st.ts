@@ -43,7 +43,14 @@ export function SkipTwo(T) {
   return never
 }
 /* compiles to:
- * export type SkipTwo<T> = T extends { length: 0; } ? [] : T extends { length: 1; } ? [] : T extends { length: 0 | 1; } ? [] : T extends [unknown, unknown, ...infer A] ? A : T extends [unknown, unknown, ...infer A] ? A : T extends [unknown, unknown, ...infer A] ? A : never
+ * export type SkipTwo<T> =
+ *   T extends { length: 0; } ? []
+ *   : T extends { length: 1; } ? []
+ *   : T extends { length: 0 | 1; } ? []
+ *   : T extends [unknown, unknown, ...infer A] ? A
+ *   : T extends [unknown, unknown, ...infer A] ? A
+ *   : T extends [unknown, unknown, ...infer A] ? A
+ *   : never
  */
 
 // ✓ SetStateType: verified type-identical to the original

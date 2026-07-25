@@ -13,9 +13,9 @@
 declare const ComputeRaw: any
 declare const Keys: any
 declare const OptionalFlat: any
-type ComputeRaw<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Keys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ComputeRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _Strict: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _Strict(U, _U = U) {
@@ -25,7 +25,8 @@ export function _Strict(U, _U = U) {
   return never
 }
 /* compiles to:
- * export type _Strict<U, _U = U> = U extends unknown ? U & OptionalFlat<Record<Exclude<Keys<_U>, keyof U>, never>> : never
+ * export type _Strict<U, _U = U> =
+ *   U extends unknown ? U & OptionalFlat<Record<Exclude<Keys<_U>, keyof U>, never>> : never
  */
 
 // ✓ Strict: verified type-identical to the original

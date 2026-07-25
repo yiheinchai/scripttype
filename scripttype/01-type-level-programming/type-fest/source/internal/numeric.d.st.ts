@@ -17,20 +17,23 @@ declare const IsNever: any
 declare const NegativeInfinity: any
 declare const PositiveInfinity: any
 declare const UnknownArray: any
-type Finite<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Finite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsNumberLike: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsNumberLike(N) {
   return IfNotAnyOrNever(N, { ifNot: matches<number | `${number}`>(N) ? true : false, ifAny: boolean, ifNever: false })
 }
 /* compiles to:
- * export type IsNumberLike<N> = IfNotAnyOrNever<N, { ifNot: N extends number | `${number}` ? true : false; ifAny: boolean; ifNever: false }>
+ * export type IsNumberLike<N> = IfNotAnyOrNever<
+ *   N,
+ *   { ifNot: N extends number | `${number}` ? true : false; ifAny: boolean; ifNever: false }
+ * >
  */
 
 // ✓ UnionMin: verified type-identical to the original
@@ -51,7 +54,12 @@ export function UnionMin(N: number) {
   return InternalUnionMin(Finite(N))
 }
 /* compiles to:
- * export type UnionMin<N extends number> = IsAnyOrNever<N> extends true ? N : number extends N ? number : NegativeInfinity extends N ? NegativeInfinity : [N] extends [PositiveInfinity] ? PositiveInfinity : InternalUnionMin<Finite<N>>
+ * export type UnionMin<N extends number> =
+ *   IsAnyOrNever<N> extends true ? N
+ *   : number extends N ? number
+ *   : NegativeInfinity extends N ? NegativeInfinity
+ *   : [N] extends [PositiveInfinity] ? PositiveInfinity
+ *   : InternalUnionMin<Finite<N>>
  */
 
 // ✓ InternalUnionMin: verified type-identical to the original
@@ -68,7 +76,8 @@ export function InternalUnionMin(N: number) {
 }
 /* compiles to:
  * export type InternalUnionMin<N extends number> = InternalUnionMin__loop<[], N>
- * type InternalUnionMin__loop<T extends any[], N extends number> = T['length'] extends N ? T['length'] : InternalUnionMin__loop<[...T, unknown], N>
+ * type InternalUnionMin__loop<T extends any[], N extends number> =
+ *   T['length'] extends N ? T['length'] : InternalUnionMin__loop<[...T, unknown], N>
  */
 
 // ✓ UnionMax: verified type-identical to the original
@@ -89,7 +98,12 @@ export function UnionMax(N: number) {
   return InternalUnionMax(Finite(N))
 }
 /* compiles to:
- * export type UnionMax<N extends number> = IsAnyOrNever<N> extends true ? N : number extends N ? number : PositiveInfinity extends N ? PositiveInfinity : [N] extends [NegativeInfinity] ? NegativeInfinity : InternalUnionMax<Finite<N>>
+ * export type UnionMax<N extends number> =
+ *   IsAnyOrNever<N> extends true ? N
+ *   : number extends N ? number
+ *   : PositiveInfinity extends N ? PositiveInfinity
+ *   : [N] extends [NegativeInfinity] ? NegativeInfinity
+ *   : InternalUnionMax<Finite<N>>
  */
 
 // ✓ InternalUnionMax: verified type-identical to the original
@@ -104,7 +118,10 @@ export function InternalUnionMax(N: number, T: UnknownArray = []) {
   return InternalUnionMax(N, [...T, unknown])
 }
 /* compiles to:
- * export type InternalUnionMax<N extends number, T extends UnknownArray = []> = IsNever<N> extends true ? T['length'] : T['length'] extends N ? InternalUnionMax<Exclude<N, T['length']>, T> : InternalUnionMax<N, [...T, unknown]>
+ * export type InternalUnionMax<N extends number, T extends UnknownArray = []> =
+ *   IsNever<N> extends true ? T['length']
+ *   : T['length'] extends N ? InternalUnionMax<Exclude<N, T['length']>, T>
+ *   : InternalUnionMax<N, [...T, unknown]>
  */
 
 // ✓ ReverseSign: verified type-identical to the original
@@ -130,5 +147,11 @@ export function ReverseSign(N: number) {
   return never
 }
 /* compiles to:
- * export type ReverseSign<N extends number> = N extends 0 ? 0 : N extends PositiveInfinity ? NegativeInfinity : N extends NegativeInfinity ? PositiveInfinity : `${N}` extends `-${infer P extends number}` ? P : `-${N}` extends `${infer R extends number}` ? R : never
+ * export type ReverseSign<N extends number> =
+ *   N extends 0 ? 0
+ *   : N extends PositiveInfinity ? NegativeInfinity
+ *   : N extends NegativeInfinity ? PositiveInfinity
+ *   : `${N}` extends `-${infer P extends number}` ? P
+ *   : `-${N}` extends `${infer R extends number}` ? R
+ *   : never
  */

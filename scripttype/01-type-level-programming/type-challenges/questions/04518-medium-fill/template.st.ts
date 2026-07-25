@@ -13,5 +13,11 @@ export function Fill(T: unknown[], N, Start: number = 0, End: number = T['length
   return any
 }
 /* compiles to:
- * export type Fill<T extends unknown[], N, Start extends number = 0, End extends number = T['length']> = any
+ * export type Fill<
+ *   T extends unknown[],
+ *   N,
+ *   Start extends number = 0,
+ *   End extends number = T['length']
+ * > =
+ *   any
  */

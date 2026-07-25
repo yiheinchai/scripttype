@@ -12,16 +12,17 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const DynamicReferenceBuilder: any
 declare const StringReference: any
-type DynamicReferenceBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartitionByExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringReference<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DynamicReferenceBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartitionByExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringReference<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PartitionByExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PartitionByExpression(DB, TB: keyof typeof DB) {
   return StringReference(DB, TB) | DynamicReferenceBuilder(any)
 }
 /* compiles to:
- * export type PartitionByExpression<DB, TB extends keyof DB> = StringReference<DB, TB> | DynamicReferenceBuilder<any>
+ * export type PartitionByExpression<DB, TB extends keyof DB> =
+ *   StringReference<DB, TB> | DynamicReferenceBuilder<any>
  */
 
 // ✓ PartitionByExpressionOrList: verified type-identical to the original
@@ -30,5 +31,6 @@ export function PartitionByExpressionOrList(DB, TB: keyof typeof DB) {
   return t<ReadonlyArray<PartitionByExpression<typeof DB, typeof TB>>>() | PartitionByExpression(DB, TB)
 }
 /* compiles to:
- * export type PartitionByExpressionOrList<DB, TB extends keyof DB> = ReadonlyArray<PartitionByExpression<DB, TB>> | PartitionByExpression<DB, TB>
+ * export type PartitionByExpressionOrList<DB, TB extends keyof DB> =
+ *   ReadonlyArray<PartitionByExpression<DB, TB>> | PartitionByExpression<DB, TB>
  */

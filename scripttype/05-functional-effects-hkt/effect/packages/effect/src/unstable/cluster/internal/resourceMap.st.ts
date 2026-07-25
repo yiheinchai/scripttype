@@ -10,20 +10,31 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Deferred {
+  export type Deferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace MutableHashMap {
+  export type MutableHashMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace Scope {
+  export type Closeable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Deferred: any
 declare const MutableHashMap: any
 declare const Scope: any
-type Deferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Entry<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutableHashMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Scope<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Deferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Entry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutableHashMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Scope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BackingMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BackingMap(K, A, E) {
   return anyOf({ _tag: readonlyProp('Equal'), map: readonlyProp(MutableHashMap.MutableHashMap(K, Entry(A, E))) }, { _tag: readonlyProp('Referential'), map: readonlyProp(t<Map<typeof K, Entry<typeof A, typeof E>>>()) })
 }
 /* compiles to:
- * export type BackingMap<K, A, E> = { readonly _tag: 'Equal'; readonly map: MutableHashMap.MutableHashMap<K, Entry<A, E>> } | { readonly _tag: 'Referential'; readonly map: Map<K, Entry<A, E>> }
+ * export type BackingMap<K, A, E> =
+ *   | { readonly _tag: 'Equal'; readonly map: MutableHashMap.MutableHashMap<K, Entry<A, E>> }
+ *   | { readonly _tag: 'Referential'; readonly map: Map<K, Entry<A, E>> }
  */
 
 // ✓ Entry: verified type-identical to the original
@@ -32,5 +43,8 @@ export function Entry(A, E) {
   return { scope: readonlyProp(Scope.Closeable), deferred: readonlyProp(Deferred.Deferred(A, E)) }
 }
 /* compiles to:
- * export type Entry<A, E> = { readonly scope: Scope.Closeable; readonly deferred: Deferred.Deferred<A, E> }
+ * export type Entry<A, E> = {
+ *   readonly scope: Scope.Closeable
+ *   readonly deferred: Deferred.Deferred<A, E>
+ * }
  */

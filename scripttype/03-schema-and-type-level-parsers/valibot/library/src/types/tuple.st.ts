@@ -15,11 +15,11 @@ declare const InferIssue: any
 declare const InferOutput: any
 declare const TupleItems: any
 declare const TupleItemsAsync: any
-type InferInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleItems<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleItemsAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleItemsAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferTupleInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InferTupleInput(TItems: TupleItems | TupleItemsAsync) {
@@ -30,7 +30,9 @@ export function InferTupleInput(TItems: TupleItems | TupleItemsAsync) {
   return out
 }
 /* compiles to:
- * export type InferTupleInput<TItems extends TupleItems | TupleItemsAsync> = { -readonly [TKey in keyof TItems]: InferInput<TItems[TKey]> }
+ * export type InferTupleInput<TItems extends TupleItems | TupleItemsAsync> = {
+ *   -readonly [TKey in keyof TItems]: InferInput<TItems[TKey]>
+ * }
  */
 
 // ✓ InferTupleOutput: verified type-identical to the original
@@ -43,7 +45,9 @@ export function InferTupleOutput(TItems: TupleItems | TupleItemsAsync) {
   return out
 }
 /* compiles to:
- * export type InferTupleOutput<TItems extends TupleItems | TupleItemsAsync> = { -readonly [TKey in keyof TItems]: InferOutput<TItems[TKey]> }
+ * export type InferTupleOutput<TItems extends TupleItems | TupleItemsAsync> = {
+ *   -readonly [TKey in keyof TItems]: InferOutput<TItems[TKey]>
+ * }
  */
 
 // ✓ InferTupleIssue: verified type-identical to the original
@@ -52,5 +56,7 @@ export function InferTupleIssue(TItems: TupleItems | TupleItemsAsync) {
   return InferIssue(TItems[number])
 }
 /* compiles to:
- * export type InferTupleIssue<TItems extends TupleItems | TupleItemsAsync> = InferIssue<TItems[number]>
+ * export type InferTupleIssue<TItems extends TupleItems | TupleItemsAsync> = InferIssue<
+ *   TItems[number]
+ * >
  */

@@ -15,16 +15,22 @@ declare const List: any
 declare const Match: any
 declare const OHas: any
 declare const ObjectOf: any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OHas<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OHas<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Has: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Has(L: List, K: Key, M: any = any, match: Match = 'default') {
   return OHas(ObjectOf(L), anyOf(`${merge(K, number)}`, K), M, match)
 }
 /* compiles to:
- * export type Has<L extends List, K extends Key, M extends any = any, match extends Match = 'default'> = OHas<ObjectOf<L>, `${K & number}` | K, M, match>
+ * export type Has<
+ *   L extends List,
+ *   K extends Key,
+ *   M extends any = any,
+ *   match extends Match = 'default'
+ * > =
+ *   OHas<ObjectOf<L>, `${K & number}` | K, M, match>
  */

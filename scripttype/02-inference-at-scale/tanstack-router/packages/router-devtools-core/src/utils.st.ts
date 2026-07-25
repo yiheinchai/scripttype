@@ -10,16 +10,22 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace JSX {
+  export type ButtonHTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type HTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type InputHTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type SelectHTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const HTMLButtonElement: any
 declare const HTMLElementTagNameMap: any
 declare const HTMLInputElement: any
 declare const HTMLSelectElement: any
 declare const JSX: any
-type HTMLButtonElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTMLElementTagNameMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTMLInputElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTMLSelectElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JSX<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type HTMLButtonElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTMLElementTagNameMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTMLInputElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTMLSelectElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JSX<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StyledComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StyledComponent(T) {
@@ -32,11 +38,16 @@ export function StyledComponent(T) {
   if (matches<'select'>(T)) {
     return JSX.SelectHTMLAttributes(HTMLSelectElement)
   }
-  if (matches<keyof HTMLElementTagNameMap>(T)) {
+  if (T in HTMLElementTagNameMap) {
     return JSX.HTMLAttributes(HTMLElementTagNameMap[T])
   }
   return never
 }
 /* compiles to:
- * export type StyledComponent<T> = T extends 'button' ? JSX.ButtonHTMLAttributes<HTMLButtonElement> : T extends 'input' ? JSX.InputHTMLAttributes<HTMLInputElement> : T extends 'select' ? JSX.SelectHTMLAttributes<HTMLSelectElement> : T extends keyof HTMLElementTagNameMap ? JSX.HTMLAttributes<HTMLElementTagNameMap[T]> : never
+ * export type StyledComponent<T> =
+ *   T extends 'button' ? JSX.ButtonHTMLAttributes<HTMLButtonElement>
+ *   : T extends 'input' ? JSX.InputHTMLAttributes<HTMLInputElement>
+ *   : T extends 'select' ? JSX.SelectHTMLAttributes<HTMLSelectElement>
+ *   : T extends keyof HTMLElementTagNameMap ? JSX.HTMLAttributes<HTMLElementTagNameMap[T]>
+ *   : never
  */

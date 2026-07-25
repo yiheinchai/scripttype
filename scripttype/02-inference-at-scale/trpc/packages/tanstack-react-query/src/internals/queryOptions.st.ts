@@ -18,21 +18,24 @@ declare const UndefinedTRPCQueryOptionsIn: any
 declare const UndefinedTRPCQueryOptionsOut: any
 declare const UnusedSkipTokenTRPCQueryOptionsIn: any
 declare const UnusedSkipTokenTRPCQueryOptionsOut: any
-type DefaultFeatureFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinedTRPCQueryOptionsIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinedTRPCQueryOptionsOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FeatureFlags<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndefinedTRPCQueryOptionsIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UndefinedTRPCQueryOptionsOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnusedSkipTokenTRPCQueryOptionsIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnusedSkipTokenTRPCQueryOptionsOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultFeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefinedTRPCQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefinedTRPCQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndefinedTRPCQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UndefinedTRPCQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnusedSkipTokenTRPCQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnusedSkipTokenTRPCQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyTRPCQueryOptionsIn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AnyTRPCQueryOptionsIn(TFeatureFlags: FeatureFlags) {
   return DefinedTRPCQueryOptionsIn(unknown, unknown, unknown, TFeatureFlags) | UnusedSkipTokenTRPCQueryOptionsIn(unknown, unknown, unknown, TFeatureFlags) | UndefinedTRPCQueryOptionsIn(unknown, unknown, unknown, TFeatureFlags)
 }
 /* compiles to:
- * export type AnyTRPCQueryOptionsIn<TFeatureFlags extends FeatureFlags> = DefinedTRPCQueryOptionsIn<unknown, unknown, unknown, TFeatureFlags> | UnusedSkipTokenTRPCQueryOptionsIn<unknown, unknown, unknown, TFeatureFlags> | UndefinedTRPCQueryOptionsIn<unknown, unknown, unknown, TFeatureFlags>
+ * export type AnyTRPCQueryOptionsIn<TFeatureFlags extends FeatureFlags> =
+ *   | DefinedTRPCQueryOptionsIn<unknown, unknown, unknown, TFeatureFlags>
+ *   | UnusedSkipTokenTRPCQueryOptionsIn<unknown, unknown, unknown, TFeatureFlags>
+ *   | UndefinedTRPCQueryOptionsIn<unknown, unknown, unknown, TFeatureFlags>
  */
 
 // ✓ AnyTRPCQueryOptionsOut: verified type-identical to the original
@@ -41,5 +44,8 @@ export function AnyTRPCQueryOptionsOut(TFeatureFlags: FeatureFlags = DefaultFeat
   return DefinedTRPCQueryOptionsOut(unknown, unknown, unknown, TFeatureFlags) | UnusedSkipTokenTRPCQueryOptionsOut(unknown, unknown, unknown, TFeatureFlags) | UndefinedTRPCQueryOptionsOut(unknown, unknown, unknown, TFeatureFlags)
 }
 /* compiles to:
- * export type AnyTRPCQueryOptionsOut<TFeatureFlags extends FeatureFlags = DefaultFeatureFlags> = DefinedTRPCQueryOptionsOut<unknown, unknown, unknown, TFeatureFlags> | UnusedSkipTokenTRPCQueryOptionsOut<unknown, unknown, unknown, TFeatureFlags> | UndefinedTRPCQueryOptionsOut<unknown, unknown, unknown, TFeatureFlags>
+ * export type AnyTRPCQueryOptionsOut<TFeatureFlags extends FeatureFlags = DefaultFeatureFlags> =
+ *   | DefinedTRPCQueryOptionsOut<unknown, unknown, unknown, TFeatureFlags>
+ *   | UnusedSkipTokenTRPCQueryOptionsOut<unknown, unknown, unknown, TFeatureFlags>
+ *   | UndefinedTRPCQueryOptionsOut<unknown, unknown, unknown, TFeatureFlags>
  */

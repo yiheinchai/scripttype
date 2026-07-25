@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace type {
+  export type infer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ErrorMessage: any
 declare const UnitLiteral: any
 declare const astToString: any
@@ -17,13 +20,13 @@ declare const inferAstIn: any
 declare const type: any
 declare const validateAst: any
 declare const writeUnassignableDefaultValueMessage: any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnitLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type astToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferAstIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeUnassignableDefaultValueMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type astToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferAstIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnassignableDefaultValueMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validateDefault: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function validateDefault(baseAst, unitLiteral: UnitLiteral, $, args) {
@@ -37,5 +40,8 @@ export function validateDefault(baseAst, unitLiteral: UnitLiteral, $, args) {
   return ErrorMessage(writeUnassignableDefaultValueMessage(astToString(baseAst), unitLiteral))
 }
 /* compiles to:
- * export type validateDefault<baseAst, unitLiteral extends UnitLiteral, $, args> = validateAst<baseAst, $, args> extends (infer e extends ErrorMessage) ? e : type.infer<unitLiteral> extends inferAstIn<baseAst, $, args> ? undefined : ErrorMessage<writeUnassignableDefaultValueMessage<astToString<baseAst>, unitLiteral>>
+ * export type validateDefault<baseAst, unitLiteral extends UnitLiteral, $, args> =
+ *   validateAst<baseAst, $, args> extends (infer e extends ErrorMessage) ? e
+ *   : type.infer<unitLiteral> extends inferAstIn<baseAst, $, args> ? undefined
+ *   : ErrorMessage<writeUnassignableDefaultValueMessage<astToString<baseAst>, unitLiteral>>
  */

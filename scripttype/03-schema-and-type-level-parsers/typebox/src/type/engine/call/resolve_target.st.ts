@@ -17,32 +17,44 @@ declare const TParameter: any
 declare const TProperties: any
 declare const TRef: any
 declare const TSchema: any
-type TFromNotGeneric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFromNotResolvable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TGeneric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TFromNotGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFromNotResolvable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromGeneric: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromGeneric(Name: string, Parameters: TParameter[], Expression: TSchema) {
   return [Name, TGeneric(Parameters, Expression)]
 }
 /* compiles to:
- * export type TFromGeneric<Name extends string, Parameters extends TParameter[], Expression extends TSchema> = [Name, TGeneric<Parameters, Expression>]
+ * export type TFromGeneric<
+ *   Name extends string,
+ *   Parameters extends TParameter[],
+ *   Expression extends TSchema
+ * > =
+ *   [Name, TGeneric<Parameters, Expression>]
  */
 
 // ✓ TFromRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromRef(Context: TProperties, Ref: string, Arguments: TSchema[]) {
-  if (matches<keyof typeof Context>(Ref)) {
+  if (Ref in Context) {
     return TFromType(Context, Ref, Context[Ref], Arguments)
   }
   return TFromNotResolvable
 }
 /* compiles to:
- * export type TFromRef<Context extends TProperties, Ref extends string, Arguments extends TSchema[]> = Ref extends keyof Context ? TFromType<Context, Ref, Context[Ref], Arguments> : TFromNotResolvable
+ * export type TFromRef<
+ *   Context extends TProperties,
+ *   Ref extends string,
+ *   Arguments extends TSchema[]
+ * > =
+ *   Ref extends keyof Context
+ *     ? TFromType<Context, Ref, Context[Ref], Arguments>
+ *     : TFromNotResolvable
  */
 
 // ✓ TFromType: verified type-identical to the original
@@ -59,7 +71,16 @@ export function TFromType(Context: TProperties, Name: string, Type: TSchema, Arg
   return TFromNotGeneric
 }
 /* compiles to:
- * export type TFromType<Context extends TProperties, Name extends string, Type extends TSchema, Arguments extends TSchema[]> = Type extends TGeneric<infer Parameters extends TParameter[], infer Expression extends TSchema> ? TFromGeneric<Name, Parameters, Expression> : Type extends TRef<infer Ref extends string> ? TFromRef<Context, Ref, Arguments> : TFromNotGeneric
+ * export type TFromType<
+ *   Context extends TProperties,
+ *   Name extends string,
+ *   Type extends TSchema,
+ *   Arguments extends TSchema[]
+ * > =
+ *   Type extends TGeneric<infer Parameters extends TParameter[], infer Expression extends TSchema>
+ *     ? TFromGeneric<Name, Parameters, Expression>
+ *   : Type extends TRef<infer Ref extends string> ? TFromRef<Context, Ref, Arguments>
+ *   : TFromNotGeneric
  */
 
 // ✓ TResolveTarget: verified type-identical to the original
@@ -68,5 +89,11 @@ export function TResolveTarget(Context: TProperties, Target: TSchema, Arguments:
   return Result
 }
 /* compiles to:
- * export type TResolveTarget<Context extends TProperties, Target extends TSchema, Arguments extends TSchema[], Result extends [string, TSchema] = TFromType<Context, '(anonymous)', Target, Arguments>> = Result
+ * export type TResolveTarget<
+ *   Context extends TProperties,
+ *   Target extends TSchema,
+ *   Arguments extends TSchema[],
+ *   Result extends [string, TSchema] = TFromType<Context, '(anonymous)', Target, Arguments>
+ * > =
+ *   Result
  */

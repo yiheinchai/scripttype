@@ -19,22 +19,28 @@ declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
 declare const TTuple: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TConstructor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TConstructorParametersDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateElements<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TConstructorParametersDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateElements<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TConstructorParametersOperation: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TConstructorParametersOperation(Type: TSchema, Parameters: TSchema[] = matches<TConstructor>(Type) ? Type['parameters'] : [], InstantiatedParameters: TSchema[] = TInstantiateElements({}, TState([], []), Parameters), Result: TSchema = TTuple(InstantiatedParameters)) {
   return Result
 }
 /* compiles to:
- * export type TConstructorParametersOperation<Type extends TSchema, Parameters extends TSchema[] = Type extends TConstructor ? Type['parameters'] : [], InstantiatedParameters extends TSchema[] = TInstantiateElements<{}, TState<[], []>, Parameters>, Result extends TSchema = TTuple<InstantiatedParameters>> = Result
+ * export type TConstructorParametersOperation<
+ *   Type extends TSchema,
+ *   Parameters extends TSchema[] = Type extends TConstructor ? Type['parameters'] : [],
+ *   InstantiatedParameters extends TSchema[] = TInstantiateElements<{}, TState<[], []>, Parameters>,
+ *   Result extends TSchema = TTuple<InstantiatedParameters>
+ * > =
+ *   Result
  */
 
 // ✓ TConstructorParametersAction: verified type-identical to the original
@@ -43,7 +49,11 @@ export function TConstructorParametersAction(Type: TSchema, Result: TSchema = ma
   return Result
 }
 /* compiles to:
- * export type TConstructorParametersAction<Type extends TSchema, Result extends TSchema = TCanInstantiate<[Type]> extends true ? TConstructorParametersOperation<Type> : TConstructorParametersDeferred<Type>> = Result
+ * export type TConstructorParametersAction<
+ *   Type extends TSchema,
+ *   Result extends TSchema = TCanInstantiate<[Type]> extends true ? TConstructorParametersOperation<Type> : TConstructorParametersDeferred<Type>
+ * > =
+ *   Result
  */
 
 // ✓ TConstructorParametersInstantiate: verified type-identical to the original
@@ -52,5 +62,11 @@ export function TConstructorParametersInstantiate(Context: TProperties, State: T
   return TConstructorParametersAction(InstantiatedType)
 }
 /* compiles to:
- * export type TConstructorParametersInstantiate<Context extends TProperties, State extends TState, Type extends TSchema, InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>> = TConstructorParametersAction<InstantiatedType>
+ * export type TConstructorParametersInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Type extends TSchema,
+ *   InstantiatedType extends TSchema = TInstantiateType<Context, State, Type>
+ * > =
+ *   TConstructorParametersAction<InstantiatedType>
  */

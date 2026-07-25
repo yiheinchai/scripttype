@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const HasRequiredKeys: any
 declare const RequireAtLeastOne: any
-type HasRequiredKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequireAtLeastOne<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type HasRequiredKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequireAtLeastOne<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NonEmptyObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonEmptyObject(T: object) {
@@ -23,5 +23,6 @@ export function NonEmptyObject(T: object) {
   return RequireAtLeastOne(T, keyof(T))
 }
 /* compiles to:
- * export type NonEmptyObject<T extends object> = HasRequiredKeys<T> extends true ? T : RequireAtLeastOne<T, keyof T>
+ * export type NonEmptyObject<T extends object> =
+ *   HasRequiredKeys<T> extends true ? T : RequireAtLeastOne<T, keyof T>
  */

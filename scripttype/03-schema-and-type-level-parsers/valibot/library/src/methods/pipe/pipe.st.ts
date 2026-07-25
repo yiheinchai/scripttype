@@ -22,23 +22,43 @@ declare const OutputDataset: any
 declare const PipeItem: any
 declare const StandardProps: any
 declare const UnknownDataset: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Config<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FirstTupleItem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LastTupleItem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OutputDataset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PipeItem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StandardProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownDataset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Config<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FirstTupleItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LastTupleItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OutputDataset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PipeItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StandardProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownDataset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SchemaWithPipe: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SchemaWithPipe(TPipe: readonly [ BaseSchema<unknown, unknown, BaseIssue<unknown>>, ...PipeItem<any, unknown, BaseIssue<unknown>>[] ]) {
   return merge(Omit(FirstTupleItem(TPipe), anyOf('pipe', '~standard', '~run', '~types')), { pipe: readonlyProp(TPipe), '~standard': readonlyProp(StandardProps(InferInput(FirstTupleItem(TPipe)), InferOutput(LastTupleItem(TPipe)))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], OutputDataset(InferOutput(LastTupleItem(TPipe)), InferIssue(TPipe[number])))), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(InferInput(FirstTupleItem(TPipe))), output: readonlyProp(InferOutput(LastTupleItem(TPipe))), issue: readonlyProp(InferIssue(TPipe[number])) }, Undefined))) })
 }
 /* compiles to:
- * export type SchemaWithPipe<TPipe extends readonly [BaseSchema<unknown, unknown, BaseIssue<unknown>>, ...PipeItem<any, unknown, BaseIssue<unknown>>[]]> = Omit<FirstTupleItem<TPipe>, 'pipe' | '~standard' | '~run' | '~types'> & { readonly pipe: TPipe; readonly '~standard': StandardProps<InferInput<FirstTupleItem<TPipe>>, InferOutput<LastTupleItem<TPipe>>>; readonly '~run': (a0: UnknownDataset, a1: Config<BaseIssue<unknown>>) => OutputDataset<InferOutput<LastTupleItem<TPipe>>, InferIssue<TPipe[number]>>; readonly '~types'?: { readonly input: InferInput<FirstTupleItem<TPipe>>; readonly output: InferOutput<LastTupleItem<TPipe>>; readonly issue: InferIssue<TPipe[number]> } | undefined }
+ * export type SchemaWithPipe<
+ *   TPipe extends readonly [BaseSchema<unknown, unknown, BaseIssue<unknown>>, ...PipeItem<any, unknown, BaseIssue<unknown>>[]]
+ * > =
+ *   & Omit<FirstTupleItem<TPipe>, 'pipe' | '~standard' | '~run' | '~types'>
+ *   & {
+ *       readonly pipe: TPipe
+ *       readonly '~standard': StandardProps<
+ *         InferInput<FirstTupleItem<TPipe>>,
+ *         InferOutput<LastTupleItem<TPipe>>
+ *       >
+ *       readonly '~run': (a0: UnknownDataset, a1: Config<BaseIssue<unknown>>) => OutputDataset<
+ *         InferOutput<LastTupleItem<TPipe>>,
+ *         InferIssue<TPipe[number]>
+ *       >
+ *       readonly '~types'?: | {
+ *           readonly input: InferInput<FirstTupleItem<TPipe>>
+ *           readonly output: InferOutput<LastTupleItem<TPipe>>
+ *           readonly issue: InferIssue<TPipe[number]>
+ *         }
+ *       | undefined
+ *     }
  */

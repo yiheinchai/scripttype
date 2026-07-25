@@ -19,15 +19,15 @@ declare const MySqlQueryResultKind: any
 declare const MySqlTable: any
 declare const PreparedQueryHKTBase: any
 declare const PreparedQueryKind: any
-type AnyMySqlDeleteBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyMySqlQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlDeleteBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlPreparedQueryConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlQueryResultKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreparedQueryHKTBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreparedQueryKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyMySqlDeleteBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyMySqlQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlDeleteBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlPreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreparedQueryHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreparedQueryKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlDeleteWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySqlDeleteWithout(T: AnyMySqlDeleteBase, TDynamic: boolean, K: keyof typeof T & string) {
@@ -37,7 +37,23 @@ export function MySqlDeleteWithout(T: AnyMySqlDeleteBase, TDynamic: boolean, K: 
   return Omit(MySqlDeleteBase(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], TDynamic, anyOf(T['_']['excludedMethods'], K)), anyOf(T['_']['excludedMethods'], K))
 }
 /* compiles to:
- * export type MySqlDeleteWithout<T extends AnyMySqlDeleteBase, TDynamic extends boolean, K extends keyof T & string> = TDynamic extends true ? T : Omit<MySqlDeleteBase<T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], TDynamic, T['_']['excludedMethods'] | K>, T['_']['excludedMethods'] | K>
+ * export type MySqlDeleteWithout<
+ *   T extends AnyMySqlDeleteBase,
+ *   TDynamic extends boolean,
+ *   K extends keyof T & string
+ * > =
+ *   TDynamic extends true
+ *     ? T
+ *     : Omit<
+ *       MySqlDeleteBase<
+ *         T['_']['table'],
+ *         T['_']['queryResult'],
+ *         T['_']['preparedQueryHKT'],
+ *         TDynamic,
+ *         T['_']['excludedMethods'] | K
+ *       >,
+ *       T['_']['excludedMethods'] | K
+ *     >
  */
 
 // ✓ MySqlDelete: verified type-identical to the original
@@ -46,7 +62,12 @@ export function MySqlDelete(TTable: MySqlTable = MySqlTable, TQueryResult: MySql
   return MySqlDeleteBase(TTable, TQueryResult, TPreparedQueryHKT, true, never)
 }
 /* compiles to:
- * export type MySqlDelete<TTable extends MySqlTable = MySqlTable, TQueryResult extends MySqlQueryResultHKT = AnyMySqlQueryResultHKT, TPreparedQueryHKT extends PreparedQueryHKTBase = PreparedQueryHKTBase> = MySqlDeleteBase<TTable, TQueryResult, TPreparedQueryHKT, true, never>
+ * export type MySqlDelete<
+ *   TTable extends MySqlTable = MySqlTable,
+ *   TQueryResult extends MySqlQueryResultHKT = AnyMySqlQueryResultHKT,
+ *   TPreparedQueryHKT extends PreparedQueryHKTBase = PreparedQueryHKTBase
+ * > =
+ *   MySqlDeleteBase<TTable, TQueryResult, TPreparedQueryHKT, true, never>
  */
 
 // ✓ MySqlDeletePrepare: verified type-identical to the original
@@ -55,7 +76,12 @@ export function MySqlDeletePrepare(T: AnyMySqlDeleteBase) {
   return PreparedQueryKind(T['_']['preparedQueryHKT'], merge(MySqlPreparedQueryConfig, { execute: MySqlQueryResultKind(T['_']['queryResult'], never), iterator: never }), true)
 }
 /* compiles to:
- * export type MySqlDeletePrepare<T extends AnyMySqlDeleteBase> = PreparedQueryKind<T['_']['preparedQueryHKT'], MySqlPreparedQueryConfig & { execute: MySqlQueryResultKind<T['_']['queryResult'], never>; iterator: never }, true>
+ * export type MySqlDeletePrepare<T extends AnyMySqlDeleteBase> = PreparedQueryKind<
+ *   T['_']['preparedQueryHKT'],
+ *   & MySqlPreparedQueryConfig
+ *   & { execute: MySqlQueryResultKind<T['_']['queryResult'], never>; iterator: never },
+ *   true
+ * >
  */
 
 // ✓ MySqlDeleteDynamic: verified type-identical to the original
@@ -64,5 +90,9 @@ export function MySqlDeleteDynamic(T: AnyMySqlDeleteBase) {
   return MySqlDelete(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'])
 }
 /* compiles to:
- * export type MySqlDeleteDynamic<T extends AnyMySqlDeleteBase> = MySqlDelete<T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT']>
+ * export type MySqlDeleteDynamic<T extends AnyMySqlDeleteBase> = MySqlDelete<
+ *   T['_']['table'],
+ *   T['_']['queryResult'],
+ *   T['_']['preparedQueryHKT']
+ * >
  */

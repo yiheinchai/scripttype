@@ -10,8 +10,12 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace H {
+  export type Split<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type UnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const H: any
-type H<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type H<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ConcatSplits: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ConcatSplits(Parts: string[], Seps: string[]) {
@@ -28,8 +32,15 @@ export function ConcatSplits(Parts: string[], Seps: string[]) {
   return Acc
 }
 /* compiles to:
- * export type ConcatSplits<Parts extends string[], Seps extends string[]> = ConcatSplits__loop<Parts, [], Seps>
- * type ConcatSplits__loop<Parts extends string[], Acc extends any[], Seps extends string[]> = Parts extends [infer First extends string, ...(infer Rest extends string[])] ? ConcatSplits__loop<Rest, [...Acc, ...SplitManySep<First, Seps>], Seps> : Acc
+ * export type ConcatSplits<Parts extends string[], Seps extends string[]> = ConcatSplits__loop<
+ *   Parts,
+ *   [],
+ *   Seps
+ * >
+ * type ConcatSplits__loop<Parts extends string[], Acc extends any[], Seps extends string[]> =
+ *   Parts extends [infer First extends string, ...infer Rest extends string[]]
+ *     ? ConcatSplits__loop<Rest, [...Acc, ...SplitManySep<First, Seps>], Seps>
+ *     : Acc
  */
 
 // ✓ SplitManySep: verified type-identical to the original
@@ -42,14 +53,17 @@ export function SplitManySep(Str: string, Sep: string[], Acc: string[] = []) {
   return [Str, ...Acc]
 }
 /* compiles to:
- * export type SplitManySep<Str extends string, Sep extends string[], Acc extends string[] = []> = Sep extends [infer FirstSep extends string, ...(infer RestSep extends string[])] ? ConcatSplits<H.Split<Str, FirstSep>, RestSep> : [Str, ...Acc]
+ * export type SplitManySep<Str extends string, Sep extends string[], Acc extends string[] = []> =
+ *   Sep extends [infer FirstSep extends string, ...infer RestSep extends string[]]
+ *     ? ConcatSplits<H.Split<Str, FirstSep>, RestSep>
+ *     : [Str, ...Acc]
  */
 
 // ✓ Split: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Split(Str, Sep: string, Seps = H.UnionToTuple(Sep)) {
   if (matches<string[]>(Seps)) {
-    if (matches<string>(Str)) {
+    if (typeof Str === 'string') {
       return SplitManySep(Str, Seps)
     }
     return []
@@ -57,13 +71,14 @@ export function Split(Str, Sep: string, Seps = H.UnionToTuple(Sep)) {
   return []
 }
 /* compiles to:
- * export type Split<Str, Sep extends string, Seps = H.UnionToTuple<Sep>> = Seps extends string[] ? Str extends string ? SplitManySep<Str, Seps> : [] : []
+ * export type Split<Str, Sep extends string, Seps = H.UnionToTuple<Sep>> =
+ *   Seps extends string[] ? Str extends string ? SplitManySep<Str, Seps> : [] : []
  */
 
 // ✓ StringToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StringToTuple(Str, Acc: string[] = []) {
-  if (matches<string>(Str)) {
+  if (typeof Str === 'string') {
     const m1 = matches<`${Hole<"First">}${Hole<"Rest">}`>(Str)
     if (m1) {
       return StringToTuple(m1.Rest, [...Acc, m1.First])
@@ -73,5 +88,8 @@ export function StringToTuple(Str, Acc: string[] = []) {
   return []
 }
 /* compiles to:
- * export type StringToTuple<Str, Acc extends string[] = []> = Str extends string ? Str extends `${infer First}${infer Rest}` ? StringToTuple<Rest, [...Acc, First]> : Acc : []
+ * export type StringToTuple<Str, Acc extends string[] = []> =
+ *   Str extends string
+ *     ? Str extends `${infer First}${infer Rest}` ? StringToTuple<Rest, [...Acc, First]> : Acc
+ *     : []
  */

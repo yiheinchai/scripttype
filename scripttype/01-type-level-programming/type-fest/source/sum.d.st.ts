@@ -18,14 +18,14 @@ declare const ReverseSign: any
 declare const Subtract: any
 declare const TupleMax: any
 declare const TupleOf: any
-type Absolute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNegative<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReverseSign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Subtract<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleMax<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Absolute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReverseSign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Subtract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleMax<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Sum: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Sum(A: number, B: number) {
@@ -56,7 +56,16 @@ export function Sum(A: number, B: number) {
   return SumPostChecks(A, B)
 }
 /* compiles to:
- * export type Sum<A extends number, B extends number> = number extends A | B ? number : A extends B & (PositiveInfinity | NegativeInfinity) ? A : A | B extends PositiveInfinity | NegativeInfinity ? number : A extends PositiveInfinity | NegativeInfinity ? A : B extends PositiveInfinity | NegativeInfinity ? B : A extends 0 ? B : B extends 0 ? A : A extends ReverseSign<B> ? 0 : SumPostChecks<A, B>
+ * export type Sum<A extends number, B extends number> =
+ *   number extends A | B ? number
+ *   : A extends B & (PositiveInfinity | NegativeInfinity) ? A
+ *   : A | B extends PositiveInfinity | NegativeInfinity ? number
+ *   : A extends PositiveInfinity | NegativeInfinity ? A
+ *   : B extends PositiveInfinity | NegativeInfinity ? B
+ *   : A extends 0 ? B
+ *   : B extends 0 ? A
+ *   : A extends ReverseSign<B> ? 0
+ *   : SumPostChecks<A, B>
  */
 
 // ✓ SumPostChecks: verified type-identical to the original
@@ -82,7 +91,18 @@ export function SumPostChecks(A: number, B: number, AreNegative = [IsNegative(A)
   return never
 }
 /* compiles to:
- * export type SumPostChecks<A extends number, B extends number, AreNegative = [IsNegative<A>, IsNegative<B>]> = AreNegative extends [false, false] ? SumPositives<A, B> : AreNegative extends [true, true] ? ReverseSign<SumPositives<Absolute<A>, Absolute<B>>> : Absolute<Subtract<Absolute<A>, Absolute<B>>> extends (infer Result extends number) ? TupleMax<[Absolute<A>, Absolute<B>]> extends (infer Max_ extends number) ? Max_ extends A | B ? Result : ReverseSign<Result> : never : never
+ * export type SumPostChecks<
+ *   A extends number,
+ *   B extends number,
+ *   AreNegative = [IsNegative<A>, IsNegative<B>]
+ * > =
+ *   AreNegative extends [false, false] ? SumPositives<A, B>
+ *   : AreNegative extends [true, true] ? ReverseSign<SumPositives<Absolute<A>, Absolute<B>>>
+ *   : Absolute<Subtract<Absolute<A>, Absolute<B>>> extends (infer Result extends number)
+ *     ? TupleMax<[Absolute<A>, Absolute<B>]> extends (infer Max_ extends number)
+ *       ? Max_ extends A | B ? Result : ReverseSign<Result>
+ *       : never
+ *   : never
  */
 
 // ✓ SumPositives: verified type-identical to the original
@@ -95,5 +115,8 @@ export function SumPositives(A: number, B: number) {
   return never
 }
 /* compiles to:
- * export type SumPositives<A extends number, B extends number> = [...TupleOf<A>, ...TupleOf<B>]['length'] extends (infer Result extends number) ? Result : never
+ * export type SumPositives<A extends number, B extends number> =
+ *   [...TupleOf<A>, ...TupleOf<B>]['length'] extends (infer Result extends number)
+ *     ? Result
+ *     : never
  */

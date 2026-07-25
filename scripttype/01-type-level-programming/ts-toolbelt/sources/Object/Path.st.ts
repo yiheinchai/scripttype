@@ -20,16 +20,16 @@ declare const Length: any
 declare const List: any
 declare const Next: any
 declare const Pos: any
-type At<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _Path: does not compile yet
 //   Type 'Extends<Pos<I>, Length<P>>' cannot be used to index type '{ '0': _Path__st0<At<O, P[Pos<I>]>, P, Next<I>>; '1': O; }'.
 /* @scripttype preserveParamNames */
@@ -37,7 +37,8 @@ export function _Path(O, P: List<Key>, I: Iteration = IterationOf(0)) {
   return { 0: _Path(At(O, P[Pos(I)]), P, Next(I)), 1: O }[Extends(Pos(I), Length(P))]
 }
 /* compiles to:
- * export type _Path<O, P extends List<Key>, I extends Iteration = IterationOf<0>> = { '0': _Path<At<O, P[Pos<I>]>, P, Next<I>>; '1': O }[Extends<Pos<I>, Length<P>>]
+ * export type _Path<O, P extends List<Key>, I extends Iteration = IterationOf<0>> =
+ *   { '0': _Path<At<O, P[Pos<I>]>, P, Next<I>>; '1': O }[Extends<Pos<I>, Length<P>>]
  */
 
 // ✓ Path: verified type-identical to the original
@@ -50,5 +51,6 @@ export function Path(O: any, P: List<Key>) {
   return never
 }
 /* compiles to:
- * export type Path<O extends any, P extends List<Key>> = _Path<O & {}, P> extends infer X ? Cast<X, any> : never
+ * export type Path<O extends any, P extends List<Key>> =
+ *   _Path<O & {}, P> extends infer X ? Cast<X, any> : never
  */

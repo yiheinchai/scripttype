@@ -19,22 +19,27 @@ declare const TObject: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TEvaluateIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInstantiateTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInterfaceDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInstantiateTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInterfaceDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TInterfaceOperation: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TInterfaceOperation(Heritage: TSchema[], Properties: TProperties, Result: TSchema = TEvaluateIntersect([...Heritage, TObject(Properties)])) {
   return Result
 }
 /* compiles to:
- * export type TInterfaceOperation<Heritage extends TSchema[], Properties extends TProperties, Result extends TSchema = TEvaluateIntersect<[...Heritage, TObject<Properties>]>> = Result
+ * export type TInterfaceOperation<
+ *   Heritage extends TSchema[],
+ *   Properties extends TProperties,
+ *   Result extends TSchema = TEvaluateIntersect<[...Heritage, TObject<Properties>]>
+ * > =
+ *   Result
  */
 
 // ✓ TInterfaceAction: verified type-identical to the original
@@ -43,7 +48,12 @@ export function TInterfaceAction(Heritage: TSchema[], Properties: TProperties, R
   return Result
 }
 /* compiles to:
- * export type TInterfaceAction<Heritage extends TSchema[], Properties extends TProperties, Result extends TSchema = TCanInstantiate<Heritage> extends true ? TInterfaceOperation<Heritage, Properties> : TInterfaceDeferred<Heritage, Properties>> = Result
+ * export type TInterfaceAction<
+ *   Heritage extends TSchema[],
+ *   Properties extends TProperties,
+ *   Result extends TSchema = TCanInstantiate<Heritage> extends true ? TInterfaceOperation<Heritage, Properties> : TInterfaceDeferred<Heritage, Properties>
+ * > =
+ *   Result
  */
 
 // ✓ TInterfaceInstantiate: verified type-identical to the original
@@ -52,5 +62,13 @@ export function TInterfaceInstantiate(Context: TProperties, State: TState, Herit
   return TInterfaceAction(InstantiatedHeritage, InstantiatedProperties)
 }
 /* compiles to:
- * export type TInterfaceInstantiate<Context extends TProperties, State extends TState, Heritage extends TSchema[], Properties extends TProperties, InstantiatedHeritage extends TSchema[] = TInstantiateTypes<Context, State, Heritage>, InstantiatedProperties extends TProperties = TInstantiateProperties<Context, State, Properties>> = TInterfaceAction<InstantiatedHeritage, InstantiatedProperties>
+ * export type TInterfaceInstantiate<
+ *   Context extends TProperties,
+ *   State extends TState,
+ *   Heritage extends TSchema[],
+ *   Properties extends TProperties,
+ *   InstantiatedHeritage extends TSchema[] = TInstantiateTypes<Context, State, Heritage>,
+ *   InstantiatedProperties extends TProperties = TInstantiateProperties<Context, State, Properties>
+ * > =
+ *   TInterfaceAction<InstantiatedHeritage, InstantiatedProperties>
  */

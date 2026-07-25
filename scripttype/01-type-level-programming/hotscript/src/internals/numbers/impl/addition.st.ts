@@ -23,19 +23,19 @@ declare const SubDigits: any
 declare const ToDigitNumber: any
 declare const ToNumber: any
 declare const ToString: any
-type AddDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CompareDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FromDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InvertSign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MakeDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Normalize<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Num<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Sign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SubDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AddDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CompareDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FromDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InvertSign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MakeDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Normalize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Sign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SubDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AddDigitNumbers: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AddDigitNumbers(T: DigitNumber, U: DigitNumber) {
@@ -48,7 +48,11 @@ export function AddDigitNumbers(T: DigitNumber, U: DigitNumber) {
   return MakeDigitNumber(InvertSign(T), SubDigits(Num(U), Num(T)))
 }
 /* compiles to:
- * export type AddDigitNumbers<T extends DigitNumber, U extends DigitNumber> = Sign<T> extends Sign<U> ? MakeDigitNumber<Sign<T>, AddDigits<Num<T>, Num<U>>> : CompareDigits<Num<T>, Num<U>> extends 1 ? MakeDigitNumber<Sign<T>, SubDigits<Num<T>, Num<U>>> : MakeDigitNumber<InvertSign<T>, SubDigits<Num<U>, Num<T>>>
+ * export type AddDigitNumbers<T extends DigitNumber, U extends DigitNumber> =
+ *   Sign<T> extends Sign<U> ? MakeDigitNumber<Sign<T>, AddDigits<Num<T>, Num<U>>>
+ *   : CompareDigits<Num<T>, Num<U>> extends 1
+ *     ? MakeDigitNumber<Sign<T>, SubDigits<Num<T>, Num<U>>>
+ *   : MakeDigitNumber<InvertSign<T>, SubDigits<Num<U>, Num<T>>>
  */
 
 // ✓ Add: verified type-identical to the original
@@ -57,5 +61,9 @@ export function Add(T: number | bigint, U: number | bigint) {
   return ToNumber(FromDigitNumber(Normalize(AddDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U))))))
 }
 /* compiles to:
- * export type Add<T extends number | bigint, U extends number | bigint> = ToNumber<FromDigitNumber<Normalize<AddDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>>>>
+ * export type Add<T extends number | bigint, U extends number | bigint> = ToNumber<
+ *   FromDigitNumber<
+ *     Normalize<AddDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>>
+ *   >
+ * >
  */

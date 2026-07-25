@@ -21,17 +21,17 @@ declare const Select: any
 declare const Split: any
 declare const Tail: any
 declare const UnionOf: any
-type Head<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Index<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Join<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Path<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pop<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Select<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Split<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Index<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Join<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Path<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Select<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Split<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ KeyToIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function KeyToIndex(K: Key, SP: List<Index>) {
@@ -41,7 +41,8 @@ export function KeyToIndex(K: Key, SP: List<Index>) {
   return merge(K, Index)
 }
 /* compiles to:
- * export type KeyToIndex<K extends Key, SP extends List<Index>> = number extends K ? Head<SP> : K & Index
+ * export type KeyToIndex<K extends Key, SP extends List<Index>> =
+ *   number extends K ? Head<SP> : K & Index
  */
 
 // ✗ MetaPath: compiles but is not type-identical yet
@@ -55,7 +56,16 @@ export function MetaPath(O, D: string, SP: List<Index> = [], P: List<Index> = []
   return out
 }
 /* compiles to:
- * export type MetaPath<O, D extends string, SP extends List<Index> = [], P extends List<Index> = []> = { [K in keyof O]: MetaPath<O[K], D, Tail<SP>, [...P, KeyToIndex<K, SP>]> | Join<[...P, KeyToIndex<K, SP>], D> }
+ * export type MetaPath<
+ *   O,
+ *   D extends string,
+ *   SP extends List<Index> = [],
+ *   P extends List<Index> = []
+ * > =
+ *   {
+ *     [K in keyof O]: | MetaPath<O[K], D, Tail<SP>, [...P, KeyToIndex<K, SP>]>
+ *     | Join<[...P, KeyToIndex<K, SP>], D>
+ *   }
  */
 
 // ✓ NextPath: verified type-identical to the original
@@ -73,7 +83,9 @@ export function ExecPath(A, SP: List<Index>, Delimiter: string) {
   return NextPath(Path(MetaPath(A, Delimiter, SP), SP))
 }
 /* compiles to:
- * export type ExecPath<A, SP extends List<Index>, Delimiter extends string> = NextPath<Path<MetaPath<A, Delimiter, SP>, SP>>
+ * export type ExecPath<A, SP extends List<Index>, Delimiter extends string> = NextPath<
+ *   Path<MetaPath<A, Delimiter, SP>, SP>
+ * >
  */
 
 // ✓ HintPath: verified type-identical to the original
@@ -85,7 +97,14 @@ export function HintPath(A, P: string, SP: List<Index>, Exec: string, D: string)
   return anyOf(Exec, P)
 }
 /* compiles to:
- * export type HintPath<A, P extends string, SP extends List<Index>, Exec extends string, D extends string> = [Exec] extends [never] ? ExecPath<A, Pop<SP>, D> : Exec | P
+ * export type HintPath<
+ *   A,
+ *   P extends string,
+ *   SP extends List<Index>,
+ *   Exec extends string,
+ *   D extends string
+ * > =
+ *   [Exec] extends [never] ? ExecPath<A, Pop<SP>, D> : Exec | P
  */
 
 // ✓ _AutoPath: verified type-identical to the original
@@ -94,7 +113,13 @@ export function _AutoPath(A, P: string, D: string, SP: List<Index> = Split(P, D)
   return HintPath(A, P, SP, ExecPath(A, SP, D), D)
 }
 /* compiles to:
- * export type _AutoPath<A, P extends string, D extends string, SP extends List<Index> = Split<P, D>> = HintPath<A, P, SP, ExecPath<A, SP, D>, D>
+ * export type _AutoPath<
+ *   A,
+ *   P extends string,
+ *   D extends string,
+ *   SP extends List<Index> = Split<P, D>
+ * > =
+ *   HintPath<A, P, SP, ExecPath<A, SP, D>, D>
  */
 
 // ✓ AutoPath: verified type-identical to the original
@@ -103,5 +128,9 @@ export function AutoPath(O: any, P: string, D: string = '.') {
   return _AutoPath(O, P, D)
 }
 /* compiles to:
- * export type AutoPath<O extends any, P extends string, D extends string = '.'> = _AutoPath<O, P, D>
+ * export type AutoPath<O extends any, P extends string, D extends string = '.'> = _AutoPath<
+ *   O,
+ *   P,
+ *   D
+ * >
  */

@@ -16,19 +16,32 @@ declare const IsAny: any
 declare const IsNever: any
 declare const RequireExactlyOne: any
 declare const RequireNone: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequireExactlyOne<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequireNone<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequireExactlyOne<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequireNone<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequireOneOrNone: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RequireOneOrNone(ObjectType, KeysType: keyof typeof ObjectType = keyof(ObjectType)) {
   return IfNotAnyOrNever(ObjectType, { ifNot: If(IsNever(KeysType), ObjectType, _RequireOneOrNone(ObjectType, If(IsAny(KeysType), keyof(ObjectType), KeysType))) })
 }
 /* compiles to:
- * export type RequireOneOrNone<ObjectType, KeysType extends keyof ObjectType = keyof ObjectType> = IfNotAnyOrNever<ObjectType, { ifNot: If<IsNever<KeysType>, ObjectType, _RequireOneOrNone<ObjectType, If<IsAny<KeysType>, keyof ObjectType, KeysType>>> }>
+ * export type RequireOneOrNone<
+ *   ObjectType,
+ *   KeysType extends keyof ObjectType = keyof ObjectType
+ * > =
+ *   IfNotAnyOrNever<
+ *     ObjectType,
+ *     {
+ *       ifNot: If<
+ *         IsNever<KeysType>,
+ *         ObjectType,
+ *         _RequireOneOrNone<ObjectType, If<IsAny<KeysType>, keyof ObjectType, KeysType>>
+ *       >
+ *     }
+ *   >
  */
 
 // ✓ _RequireOneOrNone: verified type-identical to the original
@@ -37,5 +50,6 @@ export function _RequireOneOrNone(ObjectType, KeysType: keyof typeof ObjectType)
   return merge(RequireExactlyOne(ObjectType, KeysType) | RequireNone(KeysType), Omit(ObjectType, KeysType))
 }
 /* compiles to:
- * export type _RequireOneOrNone<ObjectType, KeysType extends keyof ObjectType> = (RequireExactlyOne<ObjectType, KeysType> | RequireNone<KeysType>) & Omit<ObjectType, KeysType>
+ * export type _RequireOneOrNone<ObjectType, KeysType extends keyof ObjectType> =
+ *   (RequireExactlyOne<ObjectType, KeysType> | RequireNone<KeysType>) & Omit<ObjectType, KeysType>
  */

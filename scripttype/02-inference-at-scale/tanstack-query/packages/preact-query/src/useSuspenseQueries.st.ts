@@ -21,17 +21,17 @@ declare const TQueryKey: any
 declare const ThrowOnError: any
 declare const UseSuspenseQueryOptions: any
 declare const UseSuspenseQueryResult: any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MAXIMUM_DEPTH<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SkipTokenForUseQueries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TQueryFnData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TQueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ThrowOnError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseSuspenseQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseSuspenseQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MAXIMUM_DEPTH<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SkipTokenForUseQueries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TQueryFnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TQueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ThrowOnError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseSuspenseQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseSuspenseQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GetUseSuspenseQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GetUseSuspenseQueryOptions(T) {
@@ -70,7 +70,22 @@ export function GetUseSuspenseQueryOptions(T) {
   return UseSuspenseQueryOptions
 }
 /* compiles to:
- * export type GetUseSuspenseQueryOptions<T> = T extends { queryFnData: infer TQueryFnData; error?: infer TError; data: infer TData; } ? UseSuspenseQueryOptions<TQueryFnData, TError, TData> : T extends { queryFnData: infer TQueryFnData; error?: infer TError; } ? UseSuspenseQueryOptions<TQueryFnData, TError> : T extends { data: infer TData; error?: infer TError; } ? UseSuspenseQueryOptions<unknown, TError, TData> : T extends [infer TQueryFnData, infer TError, infer TData] ? UseSuspenseQueryOptions<TQueryFnData, TError, TData> : T extends [infer TQueryFnData, infer TError] ? UseSuspenseQueryOptions<TQueryFnData, TError> : T extends [infer TQueryFnData] ? UseSuspenseQueryOptions<TQueryFnData> : T extends { queryFn?: QueryFunction<infer TQueryFnData, infer TQueryKey> | SkipTokenForUseQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; } ? UseSuspenseQueryOptions<TQueryFnData, TError, TData, TQueryKey> : T extends { queryFn?: QueryFunction<infer TQueryFnData, infer TQueryKey> | SkipTokenForUseQueries; throwOnError?: ThrowOnError<any, infer TError, any, any>; } ? UseSuspenseQueryOptions<TQueryFnData, TError, TQueryFnData, TQueryKey> : UseSuspenseQueryOptions
+ * export type GetUseSuspenseQueryOptions<T> =
+ *   T extends { queryFnData: infer TQueryFnData; error?: infer TError; data: infer TData; }
+ *     ? UseSuspenseQueryOptions<TQueryFnData, TError, TData>
+ *   : T extends { queryFnData: infer TQueryFnData; error?: infer TError; }
+ *     ? UseSuspenseQueryOptions<TQueryFnData, TError>
+ *   : T extends { data: infer TData; error?: infer TError; }
+ *     ? UseSuspenseQueryOptions<unknown, TError, TData>
+ *   : T extends [infer TQueryFnData, infer TError, infer TData]
+ *     ? UseSuspenseQueryOptions<TQueryFnData, TError, TData>
+ *   : T extends [infer TQueryFnData, infer TError] ? UseSuspenseQueryOptions<TQueryFnData, TError>
+ *   : T extends [infer TQueryFnData] ? UseSuspenseQueryOptions<TQueryFnData>
+ *   : T extends { queryFn?: QueryFunction<infer TQueryFnData, infer TQueryKey> | SkipTokenForUseQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; }
+ *     ? UseSuspenseQueryOptions<TQueryFnData, TError, TData, TQueryKey>
+ *   : T extends { queryFn?: QueryFunction<infer TQueryFnData, infer TQueryKey> | SkipTokenForUseQueries; throwOnError?: ThrowOnError<any, infer TError, any, any>; }
+ *     ? UseSuspenseQueryOptions<TQueryFnData, TError, TQueryFnData, TQueryKey>
+ *   : UseSuspenseQueryOptions
  */
 
 // ✓ GetUseSuspenseQueryResult: verified type-identical to the original
@@ -111,7 +126,24 @@ export function GetUseSuspenseQueryResult(T) {
   return UseSuspenseQueryResult
 }
 /* compiles to:
- * export type GetUseSuspenseQueryResult<T> = T extends { queryFnData: any; error?: infer TError; data: infer TData; } ? UseSuspenseQueryResult<TData, TError> : T extends { queryFnData: infer TQueryFnData; error?: infer TError; } ? UseSuspenseQueryResult<TQueryFnData, TError> : T extends { data: infer TData; error?: infer TError; } ? UseSuspenseQueryResult<TData, TError> : T extends [any, infer TError, infer TData] ? UseSuspenseQueryResult<TData, TError> : T extends [infer TQueryFnData, infer TError] ? UseSuspenseQueryResult<TQueryFnData, TError> : T extends [infer TQueryFnData] ? UseSuspenseQueryResult<TQueryFnData> : T extends { queryFn?: QueryFunction<infer TQueryFnData, any> | SkipTokenForUseQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; } ? UseSuspenseQueryResult<unknown extends TData ? TQueryFnData : TData, unknown extends TError ? DefaultError : TError> : T extends { queryFn?: QueryFunction<infer TQueryFnData, any> | SkipTokenForUseQueries; throwOnError?: ThrowOnError<any, infer TError, any, any>; } ? UseSuspenseQueryResult<TQueryFnData, unknown extends TError ? DefaultError : TError> : UseSuspenseQueryResult
+ * export type GetUseSuspenseQueryResult<T> =
+ *   T extends { queryFnData: any; error?: infer TError; data: infer TData; }
+ *     ? UseSuspenseQueryResult<TData, TError>
+ *   : T extends { queryFnData: infer TQueryFnData; error?: infer TError; }
+ *     ? UseSuspenseQueryResult<TQueryFnData, TError>
+ *   : T extends { data: infer TData; error?: infer TError; }
+ *     ? UseSuspenseQueryResult<TData, TError>
+ *   : T extends [any, infer TError, infer TData] ? UseSuspenseQueryResult<TData, TError>
+ *   : T extends [infer TQueryFnData, infer TError] ? UseSuspenseQueryResult<TQueryFnData, TError>
+ *   : T extends [infer TQueryFnData] ? UseSuspenseQueryResult<TQueryFnData>
+ *   : T extends { queryFn?: QueryFunction<infer TQueryFnData, any> | SkipTokenForUseQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; }
+ *     ? UseSuspenseQueryResult<
+ *       unknown extends TData ? TQueryFnData : TData,
+ *       unknown extends TError ? DefaultError : TError
+ *     >
+ *   : T extends { queryFn?: QueryFunction<infer TQueryFnData, any> | SkipTokenForUseQueries; throwOnError?: ThrowOnError<any, infer TError, any, any>; }
+ *     ? UseSuspenseQueryResult<TQueryFnData, unknown extends TError ? DefaultError : TError>
+ *   : UseSuspenseQueryResult
  */
 
 // ✓ SuspenseQueriesOptions: verified type-identical to the original
@@ -141,7 +173,24 @@ export function SuspenseQueriesOptions(T: Array<any>, TResults: Array<any> = [],
   return t<Array<UseSuspenseQueryOptions>>()
 }
 /* compiles to:
- * export type SuspenseQueriesOptions<T extends Array<any>, TResults extends Array<any> = [], TDepth extends ReadonlyArray<number> = []> = TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseSuspenseQueryOptions> : T extends [] ? [] : T extends [infer Head] ? [...TResults, GetUseSuspenseQueryOptions<Head>] : T extends [infer Head, ...infer Tails] ? SuspenseQueriesOptions<[...Tails], [...TResults, GetUseSuspenseQueryOptions<Head>], [...TDepth, 1]> : Array<unknown> extends T ? T : T extends Array<UseSuspenseQueryOptions<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>> ? Array<UseSuspenseQueryOptions<TQueryFnData, TError, TData, TQueryKey>> : Array<UseSuspenseQueryOptions>
+ * export type SuspenseQueriesOptions<
+ *   T extends Array<any>,
+ *   TResults extends Array<any> = [],
+ *   TDepth extends ReadonlyArray<number> = []
+ * > =
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseSuspenseQueryOptions>
+ *   : T extends [] ? []
+ *   : T extends [infer Head] ? [...TResults, GetUseSuspenseQueryOptions<Head>]
+ *   : T extends [infer Head, ...infer Tails]
+ *     ? SuspenseQueriesOptions<
+ *       [...Tails],
+ *       [...TResults, GetUseSuspenseQueryOptions<Head>],
+ *       [...TDepth, 1]
+ *     >
+ *   : Array<unknown> extends T ? T
+ *   : T extends Array<UseSuspenseQueryOptions<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>>
+ *     ? Array<UseSuspenseQueryOptions<TQueryFnData, TError, TData, TQueryKey>>
+ *   : Array<UseSuspenseQueryOptions>
  */
 
 // ✓ SuspenseQueriesResults: verified type-identical to the original
@@ -168,5 +217,19 @@ export function SuspenseQueriesResults(T: Array<any>, TResults: Array<any> = [],
   return out
 }
 /* compiles to:
- * export type SuspenseQueriesResults<T extends Array<any>, TResults extends Array<any> = [], TDepth extends ReadonlyArray<number> = []> = TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseSuspenseQueryResult> : T extends [] ? [] : T extends [infer Head] ? [...TResults, GetUseSuspenseQueryResult<Head>] : T extends [infer Head, ...infer Tails] ? SuspenseQueriesResults<[...Tails], [...TResults, GetUseSuspenseQueryResult<Head>], [...TDepth, 1]> : { [K in keyof T]: GetUseSuspenseQueryResult<T[K]> }
+ * export type SuspenseQueriesResults<
+ *   T extends Array<any>,
+ *   TResults extends Array<any> = [],
+ *   TDepth extends ReadonlyArray<number> = []
+ * > =
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseSuspenseQueryResult>
+ *   : T extends [] ? []
+ *   : T extends [infer Head] ? [...TResults, GetUseSuspenseQueryResult<Head>]
+ *   : T extends [infer Head, ...infer Tails]
+ *     ? SuspenseQueriesResults<
+ *       [...Tails],
+ *       [...TResults, GetUseSuspenseQueryResult<Head>],
+ *       [...TDepth, 1]
+ *     >
+ *   : { [K in keyof T]: GetUseSuspenseQueryResult<T[K]> }
  */

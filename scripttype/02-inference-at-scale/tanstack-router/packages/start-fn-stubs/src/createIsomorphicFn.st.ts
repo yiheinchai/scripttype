@@ -14,5 +14,10 @@ export function IsomorphicFn(TArgs: Array<any> = [], TServer = Undefined, TClien
   return fnType([TArgs], TServer | TClient)
 }
 /* compiles to:
- * export type IsomorphicFn<TArgs extends Array<any> = [], TServer = undefined, TClient = undefined> = (a0: TArgs) => TServer | TClient
+ * export type IsomorphicFn<
+ *   TArgs extends Array<any> = [],
+ *   TServer = undefined,
+ *   TClient = undefined
+ * > =
+ *   (a0: TArgs) => TServer | TClient
  */

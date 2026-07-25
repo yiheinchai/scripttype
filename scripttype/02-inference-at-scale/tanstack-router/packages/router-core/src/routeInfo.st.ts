@@ -18,15 +18,15 @@ declare const PartialMergeAll: any
 declare const RemoveTrailingSlashes: any
 declare const TChildren: any
 declare const TrailingSlashOption: any
-type AddTrailingSlash<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyRoute<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferFileRouteTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialMergeAll<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RemoveTrailingSlashes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TChildren<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TrailingSlashOption<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TrailingSlashOptionByRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AddTrailingSlash<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferFileRouteTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialMergeAll<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RemoveTrailingSlashes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TChildren<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TrailingSlashOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TrailingSlashOptionByRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParseRoute: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ParseRoute(TRouteTree, TAcc = TRouteTree) {
@@ -43,7 +43,13 @@ export function ParseRoute(TRouteTree, TAcc = TRouteTree) {
   return TAcc
 }
 /* compiles to:
- * export type ParseRoute<TRouteTree, TAcc = TRouteTree> = TRouteTree extends { types: { children: infer TChildren; }; } ? unknown extends TChildren ? TAcc : TChildren extends ReadonlyArray<any> ? ParseRoute<TChildren[number], TAcc | TChildren[number]> : ParseRoute<TChildren[keyof TChildren], TAcc | TChildren[keyof TChildren]> : TAcc
+ * export type ParseRoute<TRouteTree, TAcc = TRouteTree> =
+ *   TRouteTree extends { types: { children: infer TChildren; }; }
+ *     ? unknown extends TChildren ? TAcc
+ *     : TChildren extends ReadonlyArray<any>
+ *       ? ParseRoute<TChildren[number], TAcc | TChildren[number]>
+ *     : ParseRoute<TChildren[keyof TChildren], TAcc | TChildren[keyof TChildren]>
+ *     : TAcc
  */
 
 // ✓ ParseRouteWithoutBranches: verified type-identical to the original
@@ -71,7 +77,17 @@ export function ParseRouteWithoutBranches(TRouteTree) {
   return never
 }
 /* compiles to:
- * export type ParseRouteWithoutBranches<TRouteTree> = ParseRoute<TRouteTree> extends (infer TRoute extends AnyRoute) ? TRoute extends any ? unknown extends TRoute['types']['children'] ? TRoute : TRoute['types']['children'] extends ReadonlyArray<any> ? '/' extends TRoute['types']['children'][number]['path'] ? never : TRoute : '/' extends TRoute['types']['children'][keyof TRoute['types']['children']]['path'] ? never : TRoute : never : never
+ * export type ParseRouteWithoutBranches<TRouteTree> =
+ *   ParseRoute<TRouteTree> extends (infer TRoute extends AnyRoute)
+ *     ? TRoute extends any
+ *       ? unknown extends TRoute['types']['children'] ? TRoute
+ *       : TRoute['types']['children'] extends ReadonlyArray<any>
+ *         ? '/' extends TRoute['types']['children'][number]['path'] ? never : TRoute
+ *       : '/' extends TRoute['types']['children'][keyof TRoute['types']['children']]['path']
+ *         ? never
+ *       : TRoute
+ *       : never
+ *     : never
  */
 
 // ✓ CodeRoutesById: verified type-identical to the original
@@ -88,7 +104,10 @@ export function CodeRoutesById(TRouteTree: AnyRoute) {
   return never
 }
 /* compiles to:
- * export type CodeRoutesById<TRouteTree extends AnyRoute> = ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? { [K in TRoutes as K['id']]: K } : never
+ * export type CodeRoutesById<TRouteTree extends AnyRoute> =
+ *   ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute)
+ *     ? { [K in TRoutes as K['id']]: K }
+ *     : never
  */
 
 // ✓ RoutesById: verified type-identical to the original
@@ -100,7 +119,10 @@ export function RoutesById(TRouteTree: AnyRoute) {
   return InferFileRouteTypes(TRouteTree)['fileRoutesById']
 }
 /* compiles to:
- * export type RoutesById<TRouteTree extends AnyRoute> = InferFileRouteTypes<TRouteTree> extends never ? CodeRoutesById<TRouteTree> : InferFileRouteTypes<TRouteTree>['fileRoutesById']
+ * export type RoutesById<TRouteTree extends AnyRoute> =
+ *   InferFileRouteTypes<TRouteTree> extends never
+ *     ? CodeRoutesById<TRouteTree>
+ *     : InferFileRouteTypes<TRouteTree>['fileRoutesById']
  */
 
 // ✓ RouteById: verified type-identical to the original
@@ -109,7 +131,10 @@ export function RouteById(TRouteTree: AnyRoute, TId) {
   return Extract(RoutesById(TRouteTree)[TId & keyof(RoutesById(TRouteTree))], AnyRoute)
 }
 /* compiles to:
- * export type RouteById<TRouteTree extends AnyRoute, TId> = Extract<RoutesById<TRouteTree>[TId & keyof RoutesById<TRouteTree>], AnyRoute>
+ * export type RouteById<TRouteTree extends AnyRoute, TId> = Extract<
+ *   RoutesById<TRouteTree>[TId & keyof RoutesById<TRouteTree>],
+ *   AnyRoute
+ * >
  */
 
 // ✓ CodeRouteIds: verified type-identical to the original
@@ -122,7 +147,8 @@ export function CodeRouteIds(TRouteTree: AnyRoute) {
   return never
 }
 /* compiles to:
- * export type CodeRouteIds<TRouteTree extends AnyRoute> = ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? TRoutes['id'] : never
+ * export type CodeRouteIds<TRouteTree extends AnyRoute> =
+ *   ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? TRoutes['id'] : never
  */
 
 // ✓ RouteIds: verified type-identical to the original
@@ -134,7 +160,10 @@ export function RouteIds(TRouteTree: AnyRoute) {
   return InferFileRouteTypes(TRouteTree)['id']
 }
 /* compiles to:
- * export type RouteIds<TRouteTree extends AnyRoute> = InferFileRouteTypes<TRouteTree> extends never ? CodeRouteIds<TRouteTree> : InferFileRouteTypes<TRouteTree>['id']
+ * export type RouteIds<TRouteTree extends AnyRoute> =
+ *   InferFileRouteTypes<TRouteTree> extends never
+ *     ? CodeRouteIds<TRouteTree>
+ *     : InferFileRouteTypes<TRouteTree>['id']
  */
 
 // ✓ ParentPath: verified type-identical to the original
@@ -149,7 +178,10 @@ export function ParentPath(TRouter: AnyRouter) {
   return anyOf('../', '..')
 }
 /* compiles to:
- * export type ParentPath<TRouter extends AnyRouter> = TrailingSlashOptionByRouter<TRouter> extends 'always' ? '../' : TrailingSlashOptionByRouter<TRouter> extends 'never' ? '..' : '../' | '..'
+ * export type ParentPath<TRouter extends AnyRouter> =
+ *   TrailingSlashOptionByRouter<TRouter> extends 'always' ? '../'
+ *   : TrailingSlashOptionByRouter<TRouter> extends 'never' ? '..'
+ *   : '../' | '..'
  */
 
 // ✓ CurrentPath: verified type-identical to the original
@@ -164,7 +196,10 @@ export function CurrentPath(TRouter: AnyRouter) {
   return anyOf('./', '.')
 }
 /* compiles to:
- * export type CurrentPath<TRouter extends AnyRouter> = TrailingSlashOptionByRouter<TRouter> extends 'always' ? './' : TrailingSlashOptionByRouter<TRouter> extends 'never' ? '.' : './' | '.'
+ * export type CurrentPath<TRouter extends AnyRouter> =
+ *   TrailingSlashOptionByRouter<TRouter> extends 'always' ? './'
+ *   : TrailingSlashOptionByRouter<TRouter> extends 'never' ? '.'
+ *   : './' | '.'
  */
 
 // ✓ ToPath: verified type-identical to the original
@@ -179,7 +214,10 @@ export function ToPath(TRouter: AnyRouter, TTo: string) {
   return AddTrailingSlash(TTo) | RemoveTrailingSlashes(TTo)
 }
 /* compiles to:
- * export type ToPath<TRouter extends AnyRouter, TTo extends string> = TrailingSlashOptionByRouter<TRouter> extends 'always' ? AddTrailingSlash<TTo> : TrailingSlashOptionByRouter<TRouter> extends 'never' ? RemoveTrailingSlashes<TTo> : AddTrailingSlash<TTo> | RemoveTrailingSlashes<TTo>
+ * export type ToPath<TRouter extends AnyRouter, TTo extends string> =
+ *   TrailingSlashOptionByRouter<TRouter> extends 'always' ? AddTrailingSlash<TTo>
+ *   : TrailingSlashOptionByRouter<TRouter> extends 'never' ? RemoveTrailingSlashes<TTo>
+ *   : AddTrailingSlash<TTo> | RemoveTrailingSlashes<TTo>
  */
 
 // ✓ CatchAllPaths: verified type-identical to the original
@@ -188,7 +226,8 @@ export function CatchAllPaths(TRouter: AnyRouter) {
   return CurrentPath(TRouter) | ParentPath(TRouter)
 }
 /* compiles to:
- * export type CatchAllPaths<TRouter extends AnyRouter> = CurrentPath<TRouter> | ParentPath<TRouter>
+ * export type CatchAllPaths<TRouter extends AnyRouter> =
+ *   CurrentPath<TRouter> | ParentPath<TRouter>
  */
 
 // ✓ CodeRoutesByPath: verified type-identical to the original
@@ -205,7 +244,10 @@ export function CodeRoutesByPath(TRouteTree: AnyRoute) {
   return never
 }
 /* compiles to:
- * export type CodeRoutesByPath<TRouteTree extends AnyRoute> = ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? { [K in TRoutes as K['fullPath']]: K } : never
+ * export type CodeRoutesByPath<TRouteTree extends AnyRoute> =
+ *   ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute)
+ *     ? { [K in TRoutes as K['fullPath']]: K }
+ *     : never
  */
 
 // ✓ RoutesByPath: verified type-identical to the original
@@ -217,7 +259,10 @@ export function RoutesByPath(TRouteTree: AnyRoute) {
   return InferFileRouteTypes(TRouteTree)['fileRoutesByFullPath']
 }
 /* compiles to:
- * export type RoutesByPath<TRouteTree extends AnyRoute> = InferFileRouteTypes<TRouteTree> extends never ? CodeRoutesByPath<TRouteTree> : InferFileRouteTypes<TRouteTree>['fileRoutesByFullPath']
+ * export type RoutesByPath<TRouteTree extends AnyRoute> =
+ *   InferFileRouteTypes<TRouteTree> extends never
+ *     ? CodeRoutesByPath<TRouteTree>
+ *     : InferFileRouteTypes<TRouteTree>['fileRoutesByFullPath']
  */
 
 // ✓ RouteByPath: verified type-identical to the original
@@ -226,7 +271,10 @@ export function RouteByPath(TRouteTree: AnyRoute, TPath) {
   return Extract(RoutesByPath(TRouteTree)[TPath & keyof(RoutesByPath(TRouteTree))], AnyRoute)
 }
 /* compiles to:
- * export type RouteByPath<TRouteTree extends AnyRoute, TPath> = Extract<RoutesByPath<TRouteTree>[TPath & keyof RoutesByPath<TRouteTree>], AnyRoute>
+ * export type RouteByPath<TRouteTree extends AnyRoute, TPath> = Extract<
+ *   RoutesByPath<TRouteTree>[TPath & keyof RoutesByPath<TRouteTree>],
+ *   AnyRoute
+ * >
  */
 
 // ✓ CodeRoutePaths: verified type-identical to the original
@@ -239,7 +287,8 @@ export function CodeRoutePaths(TRouteTree: AnyRoute) {
   return never
 }
 /* compiles to:
- * export type CodeRoutePaths<TRouteTree extends AnyRoute> = ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? TRoutes['fullPath'] : never
+ * export type CodeRoutePaths<TRouteTree extends AnyRoute> =
+ *   ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? TRoutes['fullPath'] : never
  */
 
 // ✓ RoutePaths: verified type-identical to the original
@@ -251,7 +300,15 @@ export function RoutePaths(TRouteTree: AnyRoute) {
   return anyOf(matches<never>(InferFileRouteTypes(TRouteTree)) ? CodeRoutePaths(TRouteTree) : InferFileRouteTypes(TRouteTree)['fullPaths'], '/')
 }
 /* compiles to:
- * export type RoutePaths<TRouteTree extends AnyRoute> = unknown extends TRouteTree ? string : (InferFileRouteTypes<TRouteTree> extends never ? CodeRoutePaths<TRouteTree> : InferFileRouteTypes<TRouteTree>['fullPaths']) | '/'
+ * export type RoutePaths<TRouteTree extends AnyRoute> =
+ *   unknown extends TRouteTree
+ *     ? string
+ *     : | (
+ *         InferFileRouteTypes<TRouteTree> extends never
+ *           ? CodeRoutePaths<TRouteTree>
+ *           : InferFileRouteTypes<TRouteTree>['fullPaths']
+ *       )
+ *     | '/'
  */
 
 // ✓ RouteToPathAlwaysTrailingSlash: verified type-identical to the original
@@ -266,7 +323,10 @@ export function RouteToPathAlwaysTrailingSlash(TRoute: AnyRoute) {
   return `${TRoute['fullPath']}/`
 }
 /* compiles to:
- * export type RouteToPathAlwaysTrailingSlash<TRoute extends AnyRoute> = TRoute['path'] extends '/' ? TRoute['fullPath'] : TRoute['fullPath'] extends '/' ? TRoute['fullPath'] : `${TRoute['fullPath']}/`
+ * export type RouteToPathAlwaysTrailingSlash<TRoute extends AnyRoute> =
+ *   TRoute['path'] extends '/' ? TRoute['fullPath']
+ *   : TRoute['fullPath'] extends '/' ? TRoute['fullPath']
+ *   : `${TRoute['fullPath']}/`
  */
 
 // ✓ RouteToPathNeverTrailingSlash: verified type-identical to the original
@@ -281,7 +341,12 @@ export function RouteToPathNeverTrailingSlash(TRoute: AnyRoute) {
   return TRoute['fullPath']
 }
 /* compiles to:
- * export type RouteToPathNeverTrailingSlash<TRoute extends AnyRoute> = TRoute['path'] extends '/' ? TRoute['fullPath'] extends '/' ? TRoute['fullPath'] : RemoveTrailingSlashes<TRoute['fullPath']> : TRoute['fullPath']
+ * export type RouteToPathNeverTrailingSlash<TRoute extends AnyRoute> =
+ *   TRoute['path'] extends '/'
+ *     ? TRoute['fullPath'] extends '/'
+ *       ? TRoute['fullPath']
+ *       : RemoveTrailingSlashes<TRoute['fullPath']>
+ *     : TRoute['fullPath']
  */
 
 // ✓ RouteToPathPreserveTrailingSlash: verified type-identical to the original
@@ -290,7 +355,8 @@ export function RouteToPathPreserveTrailingSlash(TRoute: AnyRoute) {
   return RouteToPathNeverTrailingSlash(TRoute) | RouteToPathAlwaysTrailingSlash(TRoute)
 }
 /* compiles to:
- * export type RouteToPathPreserveTrailingSlash<TRoute extends AnyRoute> = RouteToPathNeverTrailingSlash<TRoute> | RouteToPathAlwaysTrailingSlash<TRoute>
+ * export type RouteToPathPreserveTrailingSlash<TRoute extends AnyRoute> =
+ *   RouteToPathNeverTrailingSlash<TRoute> | RouteToPathAlwaysTrailingSlash<TRoute>
  */
 
 // ✓ RouteToPathByTrailingSlashOption: verified type-identical to the original
@@ -299,7 +365,11 @@ export function RouteToPathByTrailingSlashOption(TRoute: AnyRoute) {
   return { always: RouteToPathAlwaysTrailingSlash(TRoute), preserve: RouteToPathPreserveTrailingSlash(TRoute), never: RouteToPathNeverTrailingSlash(TRoute) }
 }
 /* compiles to:
- * export type RouteToPathByTrailingSlashOption<TRoute extends AnyRoute> = { always: RouteToPathAlwaysTrailingSlash<TRoute>; preserve: RouteToPathPreserveTrailingSlash<TRoute>; never: RouteToPathNeverTrailingSlash<TRoute> }
+ * export type RouteToPathByTrailingSlashOption<TRoute extends AnyRoute> = {
+ *   always: RouteToPathAlwaysTrailingSlash<TRoute>
+ *   preserve: RouteToPathPreserveTrailingSlash<TRoute>
+ *   never: RouteToPathNeverTrailingSlash<TRoute>
+ * }
  */
 
 // ✓ TrailingSlashOptionByRouter: verified type-identical to the original
@@ -311,7 +381,10 @@ export function TrailingSlashOptionByRouter(TRouter: AnyRouter) {
   return NonNullable(TRouter['options']['trailingSlash'])
 }
 /* compiles to:
- * export type TrailingSlashOptionByRouter<TRouter extends AnyRouter> = TrailingSlashOption extends TRouter['options']['trailingSlash'] ? 'never' : NonNullable<TRouter['options']['trailingSlash']>
+ * export type TrailingSlashOptionByRouter<TRouter extends AnyRouter> =
+ *   TrailingSlashOption extends TRouter['options']['trailingSlash']
+ *     ? 'never'
+ *     : NonNullable<TRouter['options']['trailingSlash']>
  */
 
 // ✓ RouteToByRouter: verified type-identical to the original
@@ -320,7 +393,8 @@ export function RouteToByRouter(TRouter: AnyRouter, TRoute: AnyRoute) {
   return RouteToPathByTrailingSlashOption(TRoute)[TrailingSlashOptionByRouter(TRouter)]
 }
 /* compiles to:
- * export type RouteToByRouter<TRouter extends AnyRouter, TRoute extends AnyRoute> = RouteToPathByTrailingSlashOption<TRoute>[TrailingSlashOptionByRouter<TRouter>]
+ * export type RouteToByRouter<TRouter extends AnyRouter, TRoute extends AnyRoute> =
+ *   RouteToPathByTrailingSlashOption<TRoute>[TrailingSlashOptionByRouter<TRouter>]
  */
 
 // ✓ CodeRouteToPath: verified type-identical to the original
@@ -336,7 +410,10 @@ export function CodeRouteToPath(TRouter: AnyRouter) {
   return never
 }
 /* compiles to:
- * export type CodeRouteToPath<TRouter extends AnyRouter> = ParseRouteWithoutBranches<TRouter['routeTree']> extends (infer TRoute extends AnyRoute) ? TRoute extends any ? RouteToByRouter<TRouter, TRoute> : never : never
+ * export type CodeRouteToPath<TRouter extends AnyRouter> =
+ *   ParseRouteWithoutBranches<TRouter['routeTree']> extends (infer TRoute extends AnyRoute)
+ *     ? TRoute extends any ? RouteToByRouter<TRouter, TRoute> : never
+ *     : never
  */
 
 // ✓ FileRouteToPath: verified type-identical to the original
@@ -351,7 +428,14 @@ export function FileRouteToPath(TRouter: AnyRouter, TTo = InferFileRouteTypes(TR
   return TTo | AddTrailingSlash(TTo)
 }
 /* compiles to:
- * export type FileRouteToPath<TRouter extends AnyRouter, TTo = InferFileRouteTypes<TRouter['routeTree']>['to'], TTrailingSlashOption = TrailingSlashOptionByRouter<TRouter>> = 'never' extends TTrailingSlashOption ? TTo : 'always' extends TTrailingSlashOption ? AddTrailingSlash<TTo> : TTo | AddTrailingSlash<TTo>
+ * export type FileRouteToPath<
+ *   TRouter extends AnyRouter,
+ *   TTo = InferFileRouteTypes<TRouter['routeTree']>['to'],
+ *   TTrailingSlashOption = TrailingSlashOptionByRouter<TRouter>
+ * > =
+ *   'never' extends TTrailingSlashOption ? TTo
+ *   : 'always' extends TTrailingSlashOption ? AddTrailingSlash<TTo>
+ *   : TTo | AddTrailingSlash<TTo>
  */
 
 // ✓ RouteToPath: verified type-identical to the original
@@ -366,7 +450,10 @@ export function RouteToPath(TRouter: AnyRouter) {
   return FileRouteToPath(TRouter)
 }
 /* compiles to:
- * export type RouteToPath<TRouter extends AnyRouter> = unknown extends TRouter ? string : InferFileRouteTypes<TRouter['routeTree']> extends never ? CodeRouteToPath<TRouter> : FileRouteToPath<TRouter>
+ * export type RouteToPath<TRouter extends AnyRouter> =
+ *   unknown extends TRouter ? string
+ *   : InferFileRouteTypes<TRouter['routeTree']> extends never ? CodeRouteToPath<TRouter>
+ *   : FileRouteToPath<TRouter>
  */
 
 // ✓ CodeRoutesByToPath: verified type-identical to the original
@@ -383,7 +470,10 @@ export function CodeRoutesByToPath(TRouter: AnyRouter) {
   return never
 }
 /* compiles to:
- * export type CodeRoutesByToPath<TRouter extends AnyRouter> = ParseRouteWithoutBranches<TRouter['routeTree']> extends (infer TRoutes extends AnyRoute) ? { [TRoute in TRoutes as RouteToByRouter<TRouter, TRoute>]: TRoute } : never
+ * export type CodeRoutesByToPath<TRouter extends AnyRouter> =
+ *   ParseRouteWithoutBranches<TRouter['routeTree']> extends (infer TRoutes extends AnyRoute)
+ *     ? { [TRoute in TRoutes as RouteToByRouter<TRouter, TRoute>]: TRoute }
+ *     : never
  */
 
 // ✓ RoutesByToPath: verified type-identical to the original
@@ -395,7 +485,10 @@ export function RoutesByToPath(TRouter: AnyRouter) {
   return InferFileRouteTypes(TRouter['routeTree'])['fileRoutesByTo']
 }
 /* compiles to:
- * export type RoutesByToPath<TRouter extends AnyRouter> = InferFileRouteTypes<TRouter['routeTree']> extends never ? CodeRoutesByToPath<TRouter> : InferFileRouteTypes<TRouter['routeTree']>['fileRoutesByTo']
+ * export type RoutesByToPath<TRouter extends AnyRouter> =
+ *   InferFileRouteTypes<TRouter['routeTree']> extends never
+ *     ? CodeRoutesByToPath<TRouter>
+ *     : InferFileRouteTypes<TRouter['routeTree']>['fileRoutesByTo']
  */
 
 // ✓ CodeRouteByToPath: verified type-identical to the original
@@ -404,7 +497,10 @@ export function CodeRouteByToPath(TRouter: AnyRouter, TTo) {
   return Extract(RoutesByToPath(TRouter)[TTo & keyof(RoutesByToPath(TRouter))], AnyRoute)
 }
 /* compiles to:
- * export type CodeRouteByToPath<TRouter extends AnyRouter, TTo> = Extract<RoutesByToPath<TRouter>[TTo & keyof RoutesByToPath<TRouter>], AnyRoute>
+ * export type CodeRouteByToPath<TRouter extends AnyRouter, TTo> = Extract<
+ *   RoutesByToPath<TRouter>[TTo & keyof RoutesByToPath<TRouter>],
+ *   AnyRoute
+ * >
  */
 
 // ✓ FileRouteByToPath: verified type-identical to the original
@@ -426,7 +522,13 @@ export function FileRouteByToPath(TRouter: AnyRouter, TTo) {
   return CodeRouteByToPath(TRouter, matches<'/'>(TTo) ? TTo : RemoveTrailingSlashes(TTo))
 }
 /* compiles to:
- * export type FileRouteByToPath<TRouter extends AnyRouter, TTo> = 'never' extends TrailingSlashOptionByRouter<TRouter> ? CodeRouteByToPath<TRouter, TTo> : 'always' extends TrailingSlashOptionByRouter<TRouter> ? TTo extends '/' ? CodeRouteByToPath<TRouter, TTo> : TTo extends `${infer TPath}/` ? CodeRouteByToPath<TRouter, TPath> : never : CodeRouteByToPath<TRouter, TTo extends '/' ? TTo : RemoveTrailingSlashes<TTo>>
+ * export type FileRouteByToPath<TRouter extends AnyRouter, TTo> =
+ *   'never' extends TrailingSlashOptionByRouter<TRouter> ? CodeRouteByToPath<TRouter, TTo>
+ *   : 'always' extends TrailingSlashOptionByRouter<TRouter>
+ *     ? TTo extends '/' ? CodeRouteByToPath<TRouter, TTo>
+ *     : TTo extends `${infer TPath}/` ? CodeRouteByToPath<TRouter, TPath>
+ *     : never
+ *   : CodeRouteByToPath<TRouter, TTo extends '/' ? TTo : RemoveTrailingSlashes<TTo>>
  */
 
 // ✓ RouteByToPath: verified type-identical to the original
@@ -438,7 +540,10 @@ export function RouteByToPath(TRouter: AnyRouter, TTo) {
   return FileRouteByToPath(TRouter, TTo)
 }
 /* compiles to:
- * export type RouteByToPath<TRouter extends AnyRouter, TTo> = InferFileRouteTypes<TRouter['routeTree']> extends never ? CodeRouteByToPath<TRouter, TTo> : FileRouteByToPath<TRouter, TTo>
+ * export type RouteByToPath<TRouter extends AnyRouter, TTo> =
+ *   InferFileRouteTypes<TRouter['routeTree']> extends never
+ *     ? CodeRouteByToPath<TRouter, TTo>
+ *     : FileRouteByToPath<TRouter, TTo>
  */
 
 // ✓ FullSearchSchema: verified type-identical to the original
@@ -451,7 +556,10 @@ export function FullSearchSchema(TRouteTree: AnyRoute) {
   return never
 }
 /* compiles to:
- * export type FullSearchSchema<TRouteTree extends AnyRoute> = ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? PartialMergeAll<TRoutes['types']['fullSearchSchema']> : never
+ * export type FullSearchSchema<TRouteTree extends AnyRoute> =
+ *   ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute)
+ *     ? PartialMergeAll<TRoutes['types']['fullSearchSchema']>
+ *     : never
  */
 
 // ✓ FullSearchSchemaInput: verified type-identical to the original
@@ -464,7 +572,10 @@ export function FullSearchSchemaInput(TRouteTree: AnyRoute) {
   return never
 }
 /* compiles to:
- * export type FullSearchSchemaInput<TRouteTree extends AnyRoute> = ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? PartialMergeAll<TRoutes['types']['fullSearchSchemaInput']> : never
+ * export type FullSearchSchemaInput<TRouteTree extends AnyRoute> =
+ *   ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute)
+ *     ? PartialMergeAll<TRoutes['types']['fullSearchSchemaInput']>
+ *     : never
  */
 
 // ✓ AllParams: verified type-identical to the original
@@ -477,7 +588,10 @@ export function AllParams(TRouteTree: AnyRoute) {
   return never
 }
 /* compiles to:
- * export type AllParams<TRouteTree extends AnyRoute> = ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? PartialMergeAll<TRoutes['types']['allParams']> : never
+ * export type AllParams<TRouteTree extends AnyRoute> =
+ *   ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute)
+ *     ? PartialMergeAll<TRoutes['types']['allParams']>
+ *     : never
  */
 
 // ✓ AllContext: verified type-identical to the original
@@ -490,7 +604,10 @@ export function AllContext(TRouteTree: AnyRoute) {
   return never
 }
 /* compiles to:
- * export type AllContext<TRouteTree extends AnyRoute> = ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? PartialMergeAll<TRoutes['types']['allContext']> : never
+ * export type AllContext<TRouteTree extends AnyRoute> =
+ *   ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute)
+ *     ? PartialMergeAll<TRoutes['types']['allContext']>
+ *     : never
  */
 
 // ✓ AllLoaderData: verified type-identical to the original
@@ -503,5 +620,8 @@ export function AllLoaderData(TRouteTree: AnyRoute) {
   return never
 }
 /* compiles to:
- * export type AllLoaderData<TRouteTree extends AnyRoute> = ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute) ? PartialMergeAll<TRoutes['types']['loaderData']> : never
+ * export type AllLoaderData<TRouteTree extends AnyRoute> =
+ *   ParseRoute<TRouteTree> extends (infer TRoutes extends AnyRoute)
+ *     ? PartialMergeAll<TRoutes['types']['loaderData']>
+ *     : never
  */

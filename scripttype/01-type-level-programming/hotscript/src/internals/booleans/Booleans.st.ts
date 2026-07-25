@@ -19,15 +19,15 @@ declare const OrFn: any
 declare const PartialApply: any
 declare const XOrFn: any
 declare const unset: any
-type AndFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Compose<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EqualsFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtendsFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NotFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OrFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type XOrFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type unset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AndFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Compose<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EqualsFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtendsFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NotFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OrFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type XOrFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ExtendsImpl: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -48,7 +48,10 @@ export function Extends(a = unset, b = unset) {
   return PartialApply(ExtendsFn, matches<unset>(b) ? [unset, a] : [a, b])
 }
 /* compiles to:
- * export type Extends<a = unset, b = unset> = PartialApply<ExtendsFn, b extends unset ? [unset, a] : [a, b]>
+ * export type Extends<a = unset, b = unset> = PartialApply<
+ *   ExtendsFn,
+ *   b extends unset ? [unset, a] : [a, b]
+ * >
  */
 
 // ✗ NotImpl: compiles but is not type-identical yet
@@ -101,7 +104,9 @@ export function DoesNotExtend(a = unset, b = unset) {
   return Compose([Not, PartialApply(ExtendsFn, [a, b])])
 }
 /* compiles to:
- * export type DoesNotExtend<a = unset, b = unset> = Compose<[Not, PartialApply<ExtendsFn, [a, b]>]>
+ * export type DoesNotExtend<a = unset, b = unset> = Compose<
+ *   [Not, PartialApply<ExtendsFn, [a, b]>]
+ * >
  */
 
 // ✗ And: does not compile yet

@@ -20,23 +20,29 @@ declare const ProvidedActor: any
 declare const RequiredActorOptions: any
 declare const SpawnActionOptions: any
 declare const UnifiedArg: any
-type AnyActorLogic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ConditionalRequired<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsLiteralString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNotNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MachineContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProvidedActor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredActorOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SpawnActionOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnifiedArg<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConditionalRequired<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsLiteralString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNotNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProvidedActor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredActorOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SpawnActionOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnifiedArg<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ResolvableActorId: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ResolvableActorId(TContext: MachineContext, TExpressionEvent: EventObject, TEvent: EventObject, TId: string | undefined) {
   return anyOf(TId, fnType([UnifiedArg(TContext, TExpressionEvent, TEvent)], TId))
 }
 /* compiles to:
- * export type ResolvableActorId<TContext extends MachineContext, TExpressionEvent extends EventObject, TEvent extends EventObject, TId extends string | undefined> = TId | ((a0: UnifiedArg<TContext, TExpressionEvent, TEvent>) => TId)
+ * export type ResolvableActorId<
+ *   TContext extends MachineContext,
+ *   TExpressionEvent extends EventObject,
+ *   TEvent extends EventObject,
+ *   TId extends string | undefined
+ * > =
+ *   TId | ((a0: UnifiedArg<TContext, TExpressionEvent, TEvent>) => TId)
  */
 
 // ✗ DistributeActors: compiles but is not type-identical yet
@@ -50,7 +56,28 @@ export function DistributeActors(TContext: MachineContext, TExpressionEvent: Eve
   return anyOf(matches<any>(TActor) ? ConditionalRequired([TActor['src'], SpawnActionOptions(TContext, TExpressionEvent, TEvent, TActor) & out], IsNotNever(RequiredActorOptions(TActor))) : never, [AnyActorLogic, merge(SpawnActionOptions(TContext, TExpressionEvent, TEvent, ProvidedActor), { id: optional(never) })])
 }
 /* compiles to:
- * export type DistributeActors<TContext extends MachineContext, TExpressionEvent extends EventObject, TEvent extends EventObject, TActor extends ProvidedActor> = (TActor extends any ? ConditionalRequired<[TActor['src'], SpawnActionOptions<TContext, TExpressionEvent, TEvent, TActor> & { [K in RequiredActorOptions<TActor>]: unknown }], IsNotNever<RequiredActorOptions<TActor>>> : never) | [AnyActorLogic, SpawnActionOptions<TContext, TExpressionEvent, TEvent, ProvidedActor> & { id?: never }]
+ * export type DistributeActors<
+ *   TContext extends MachineContext,
+ *   TExpressionEvent extends EventObject,
+ *   TEvent extends EventObject,
+ *   TActor extends ProvidedActor
+ * > =
+ *   | (
+ *       TActor extends any
+ *         ? ConditionalRequired<
+ *           [
+ *             TActor['src'],
+ *             & SpawnActionOptions<TContext, TExpressionEvent, TEvent, TActor>
+ *             & { [K in RequiredActorOptions<TActor>]: unknown }
+ *           ],
+ *           IsNotNever<RequiredActorOptions<TActor>>
+ *         >
+ *         : never
+ *     )
+ *   | [
+ *       AnyActorLogic,
+ *       SpawnActionOptions<TContext, TExpressionEvent, TEvent, ProvidedActor> & { id?: never }
+ *     ]
  */
 
 // ✗ SpawnArguments: compiles but is not type-identical yet
@@ -63,5 +90,21 @@ export function SpawnArguments(TContext: MachineContext, TExpressionEvent: Event
   return [string | AnyActorLogic, { id: optional(ResolvableActorId(TContext, TExpressionEvent, TEvent, string)), systemId: optional(string), input: optional(unknown), syncSnapshot: optional(boolean) }]
 }
 /* compiles to:
- * export type SpawnArguments<TContext extends MachineContext, TExpressionEvent extends EventObject, TEvent extends EventObject, TActor extends ProvidedActor> = IsLiteralString<TActor['src']> extends true ? DistributeActors<TContext, TExpressionEvent, TEvent, TActor> : [string | AnyActorLogic, { id?: ResolvableActorId<TContext, TExpressionEvent, TEvent, string>; systemId?: string; input?: unknown; syncSnapshot?: boolean }]
+ * export type SpawnArguments<
+ *   TContext extends MachineContext,
+ *   TExpressionEvent extends EventObject,
+ *   TEvent extends EventObject,
+ *   TActor extends ProvidedActor
+ * > =
+ *   IsLiteralString<TActor['src']> extends true
+ *     ? DistributeActors<TContext, TExpressionEvent, TEvent, TActor>
+ *     : [
+ *       string | AnyActorLogic,
+ *       {
+ *         id?: ResolvableActorId<TContext, TExpressionEvent, TEvent, string>
+ *         systemId?: string
+ *         input?: unknown
+ *         syncSnapshot?: boolean
+ *       }
+ *     ]
  */

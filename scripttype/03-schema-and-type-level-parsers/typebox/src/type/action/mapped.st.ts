@@ -15,18 +15,24 @@ declare const TIdentifier: any
 declare const TMappedAction: any
 declare const TSchema: any
 declare const TState: any
-type TDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TIdentifier<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TMappedAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TIdentifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TMappedAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TMappedDeferred: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TMappedDeferred(Identifier: TIdentifier, Type: TSchema, As: TSchema, Property: TSchema) {
   return TDeferred('Mapped', [Identifier, Type, As, Property])
 }
 /* compiles to:
- * export type TMappedDeferred<Identifier extends TIdentifier, Type extends TSchema, As extends TSchema, Property extends TSchema> = TDeferred<'Mapped', [Identifier, Type, As, Property]>
+ * export type TMappedDeferred<
+ *   Identifier extends TIdentifier,
+ *   Type extends TSchema,
+ *   As extends TSchema,
+ *   Property extends TSchema
+ * > =
+ *   TDeferred<'Mapped', [Identifier, Type, As, Property]>
  */
 
 // ✓ TMapped: verified type-identical to the original
@@ -35,5 +41,11 @@ export function TMapped(Identifier: TIdentifier, Type: TSchema, As: TSchema, Pro
   return TMappedAction({}, TState([], []), Identifier, Type, As, Property)
 }
 /* compiles to:
- * export type TMapped<Identifier extends TIdentifier, Type extends TSchema, As extends TSchema, Property extends TSchema> = TMappedAction<{}, TState<[], []>, Identifier, Type, As, Property>
+ * export type TMapped<
+ *   Identifier extends TIdentifier,
+ *   Type extends TSchema,
+ *   As extends TSchema,
+ *   Property extends TSchema
+ * > =
+ *   TMappedAction<{}, TState<[], []>, Identifier, Type, As, Property>
  */

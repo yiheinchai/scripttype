@@ -15,16 +15,24 @@ declare const NodeVisitor: any
 declare const NodesVisitor: any
 declare const TransformationContext: any
 declare const Visitor: any
-type Node<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeVisitor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodesVisitor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TransformationContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Visitor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Node<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeVisitor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodesVisitor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TransformationContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Visitor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ VisitEachChildFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function VisitEachChildFunction(T: Node) {
   return fnType([T, Visitor, TransformationContext, NodesVisitor, NodeVisitor, anyOf(Visitor, Undefined)], T)
 }
 /* compiles to:
- * export type VisitEachChildFunction<T extends Node> = (a0: T, a1: Visitor, a2: TransformationContext, a3: NodesVisitor, a4: NodeVisitor, a5: Visitor | undefined) => T
+ * export type VisitEachChildFunction<T extends Node> =
+ *   (
+ *     a0: T,
+ *     a1: Visitor,
+ *     a2: TransformationContext,
+ *     a3: NodesVisitor,
+ *     a4: NodeVisitor,
+ *     a5: Visitor | undefined
+ *   ) => T
  */

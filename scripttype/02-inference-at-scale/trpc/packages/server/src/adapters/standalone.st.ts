@@ -10,25 +10,38 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace http {
+  export type IncomingMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ServerResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace http2 {
+  export type Http2ServerRequest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Http2ServerResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyRouter: any
 declare const NodeHTTPHandlerOptions: any
 declare const NodeHTTPRequest: any
 declare const NodeHTTPResponse: any
 declare const http: any
 declare const http2: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeHTTPHandlerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeHTTPRequest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NodeHTTPResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type http<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type http2<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeHTTPHandlerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeHTTPRequest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NodeHTTPResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type http<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type http2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StandaloneHandlerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StandaloneHandlerOptions(TRouter: AnyRouter, TRequest: NodeHTTPRequest, TResponse: NodeHTTPResponse) {
   return merge(NodeHTTPHandlerOptions(TRouter, TRequest, TResponse), { basePath: optional(string) })
 }
 /* compiles to:
- * export type StandaloneHandlerOptions<TRouter extends AnyRouter, TRequest extends NodeHTTPRequest, TResponse extends NodeHTTPResponse> = NodeHTTPHandlerOptions<TRouter, TRequest, TResponse> & { basePath?: string }
+ * export type StandaloneHandlerOptions<
+ *   TRouter extends AnyRouter,
+ *   TRequest extends NodeHTTPRequest,
+ *   TResponse extends NodeHTTPResponse
+ * > =
+ *   NodeHTTPHandlerOptions<TRouter, TRequest, TResponse> & { basePath?: string }
  */
 
 // ✓ CreateHTTPHandlerOptions: verified type-identical to the original
@@ -37,7 +50,11 @@ export function CreateHTTPHandlerOptions(TRouter: AnyRouter) {
   return StandaloneHandlerOptions(TRouter, http.IncomingMessage, http.ServerResponse)
 }
 /* compiles to:
- * export type CreateHTTPHandlerOptions<TRouter extends AnyRouter> = StandaloneHandlerOptions<TRouter, http.IncomingMessage, http.ServerResponse>
+ * export type CreateHTTPHandlerOptions<TRouter extends AnyRouter> = StandaloneHandlerOptions<
+ *   TRouter,
+ *   http.IncomingMessage,
+ *   http.ServerResponse
+ * >
  */
 
 // ✓ CreateHTTP2HandlerOptions: verified type-identical to the original
@@ -46,5 +63,9 @@ export function CreateHTTP2HandlerOptions(TRouter: AnyRouter) {
   return StandaloneHandlerOptions(TRouter, http2.Http2ServerRequest, http2.Http2ServerResponse)
 }
 /* compiles to:
- * export type CreateHTTP2HandlerOptions<TRouter extends AnyRouter> = StandaloneHandlerOptions<TRouter, http2.Http2ServerRequest, http2.Http2ServerResponse>
+ * export type CreateHTTP2HandlerOptions<TRouter extends AnyRouter> = StandaloneHandlerOptions<
+ *   TRouter,
+ *   http2.Http2ServerRequest,
+ *   http2.Http2ServerResponse
+ * >
  */

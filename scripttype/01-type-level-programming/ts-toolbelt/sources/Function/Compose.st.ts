@@ -17,18 +17,23 @@ declare const ComposeMultiSync: any
 declare const Input: any
 declare const IntersectOf: any
 declare const Mode: any
-type ComposeListAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ComposeListSync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ComposeMultiAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ComposeMultiSync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Input<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IntersectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Mode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ComposeListAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComposeListSync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComposeMultiAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComposeMultiSync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IntersectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Mode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Compose: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Compose(mode: Mode = 'sync', input: Input = 'multi') {
   return IntersectOf({ 'sync': { 'multi': ComposeMultiSync, 'list': ComposeListSync }, 'async': { 'multi': ComposeMultiAsync, 'list': ComposeListAsync } }[mode][input])
 }
 /* compiles to:
- * export type Compose<mode extends Mode = 'sync', input extends Input = 'multi'> = IntersectOf<{ sync: { multi: ComposeMultiSync; list: ComposeListSync }; async: { multi: ComposeMultiAsync; list: ComposeListAsync } }[mode][input]>
+ * export type Compose<mode extends Mode = 'sync', input extends Input = 'multi'> = IntersectOf<
+ *   {
+ *     sync: { multi: ComposeMultiSync; list: ComposeListSync }
+ *     async: { multi: ComposeMultiAsync; list: ComposeListAsync }
+ *   }[mode][input]
+ * >
  */

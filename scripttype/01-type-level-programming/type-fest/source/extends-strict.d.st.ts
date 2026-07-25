@@ -19,22 +19,26 @@ declare const IsNever: any
 declare const IsUnknown: any
 declare const Or: any
 declare const OrAll: any
-type And<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultExtendsStrictOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtendsStrictOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Or<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OrAll<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultExtendsStrictOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtendsStrictOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OrAll<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtendsStrict: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ExtendsStrict(Left, Right, Options: ExtendsStrictOptions = {}) {
   return _ExtendsStrict(Left, Right, ApplyDefaultOptions(ExtendsStrictOptions, DefaultExtendsStrictOptions, Options))
 }
 /* compiles to:
- * export type ExtendsStrict<Left, Right, Options extends ExtendsStrictOptions = {}> = _ExtendsStrict<Left, Right, ApplyDefaultOptions<ExtendsStrictOptions, DefaultExtendsStrictOptions, Options>>
+ * export type ExtendsStrict<Left, Right, Options extends ExtendsStrictOptions = {}> = _ExtendsStrict<
+ *   Left,
+ *   Right,
+ *   ApplyDefaultOptions<ExtendsStrictOptions, DefaultExtendsStrictOptions, Options>
+ * >
  */
 
 // ✓ _ExtendsStrict: verified type-identical to the original
@@ -61,5 +65,13 @@ export function _ExtendsStrict(Left, Right, Options: Required<ExtendsStrictOptio
   return false
 }
 /* compiles to:
- * export type _ExtendsStrict<Left, Right, Options extends Required<ExtendsStrictOptions>> = And<IsAny<Left>, Options['strictAny']> extends true ? Or<IsAny<Right>, IsUnknown<Right>> : IsNever<Left> extends true ? Options['strictNever'] extends true ? OrAll<[IsNever<Right>, IsAny<Right>, IsUnknown<Right>]> : true : Options['distributiveUnions'] extends true ? Left extends Right ? true : false : [Left] extends [Right] ? true : false
+ * export type _ExtendsStrict<Left, Right, Options extends Required<ExtendsStrictOptions>> =
+ *   And<IsAny<Left>, Options['strictAny']> extends true ? Or<IsAny<Right>, IsUnknown<Right>>
+ *   : IsNever<Left> extends true
+ *     ? Options['strictNever'] extends true
+ *       ? OrAll<[IsNever<Right>, IsAny<Right>, IsUnknown<Right>]>
+ *       : true
+ *   : Options['distributiveUnions'] extends true ? Left extends Right ? true : false
+ *   : [Left] extends [Right] ? true
+ *   : false
  */

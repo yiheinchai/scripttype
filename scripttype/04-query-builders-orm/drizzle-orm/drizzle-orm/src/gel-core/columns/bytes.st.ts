@@ -13,9 +13,9 @@
 declare const Buffer: any
 declare const GelBytesBuilder: any
 declare const Uint8Array: any
-type Buffer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GelBytesBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Uint8Array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Buffer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GelBytesBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Uint8Array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ GelBytesBuilderInitial: does not compile yet
 //   Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
 /* @scripttype preserveParamNames */
@@ -23,5 +23,14 @@ export function GelBytesBuilderInitial(TName: string) {
   return GelBytesBuilder({ name: TName, dataType: 'buffer', columnType: 'GelBytes', data: t<Uint8Array>(), driverParam: t<Uint8Array>() | Buffer, enumValues: Undefined })
 }
 /* compiles to:
- * export type GelBytesBuilderInitial<TName extends string> = GelBytesBuilder<{ name: TName; dataType: 'buffer'; columnType: 'GelBytes'; data: Uint8Array; driverParam: Uint8Array | Buffer; enumValues: undefined }>
+ * export type GelBytesBuilderInitial<TName extends string> = GelBytesBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'buffer'
+ *     columnType: 'GelBytes'
+ *     data: Uint8Array
+ *     driverParam: Uint8Array | Buffer
+ *     enumValues: undefined
+ *   }
+ * >
  */

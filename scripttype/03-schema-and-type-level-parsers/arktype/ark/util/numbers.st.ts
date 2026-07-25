@@ -14,10 +14,10 @@ declare const Digit: any
 declare const NumericLiteralKind: any
 declare const b: any
 declare const numericLiteralDescriptions: any
-type Digit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NumericLiteralKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type b<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type numericLiteralDescriptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NumericLiteralKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type b<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type numericLiteralDescriptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NumberLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NumberLiteral(n: number = number) {
@@ -51,7 +51,8 @@ export function NonNegativeIntegerLiteral(n: bigint = bigint) {
   return anyOf(`${Digit}`, merge(`${Exclude(Digit, 0)}${string}`, `${n}`))
 }
 /* compiles to:
- * export type NonNegativeIntegerLiteral<n extends bigint = bigint> = `${Digit}` | `${Exclude<Digit, 0>}${string}` & `${n}`
+ * export type NonNegativeIntegerLiteral<n extends bigint = bigint> =
+ *   `${Digit}` | `${Exclude<Digit, 0>}${string}` & `${n}`
  */
 
 // ✓ writeMalformedNumericLiteralMessage: verified type-identical to the original
@@ -60,7 +61,11 @@ export function writeMalformedNumericLiteralMessage(def: string, kind: NumericLi
   return `'${def}' was parsed as ${numericLiteralDescriptions[kind]} but could not be narrowed to a literal value. Avoid unnecessary leading or trailing zeros and other abnormal notation`
 }
 /* compiles to:
- * export type writeMalformedNumericLiteralMessage<def extends string, kind extends NumericLiteralKind> = `'${def}' was parsed as ${numericLiteralDescriptions[kind]} but could not be narrowed to a literal value. Avoid unnecessary leading or trailing zeros and other abnormal notation`
+ * export type writeMalformedNumericLiteralMessage<
+ *   def extends string,
+ *   kind extends NumericLiteralKind
+ * > =
+ *   `'${def}' was parsed as ${numericLiteralDescriptions[kind]} but could not be narrowed to a literal value. Avoid unnecessary leading or trailing zeros and other abnormal notation`
  */
 
 // ✓ tryParseNumber: verified type-identical to the original
@@ -76,7 +81,10 @@ export function tryParseNumber(token: string, messageOnFail: string) {
   return messageOnFail
 }
 /* compiles to:
- * export type tryParseNumber<token extends string, messageOnFail extends string> = token extends `${infer n extends number}` ? number extends n ? writeMalformedNumericLiteralMessage<token, 'number'> : n : messageOnFail
+ * export type tryParseNumber<token extends string, messageOnFail extends string> =
+ *   token extends `${infer n extends number}`
+ *     ? number extends n ? writeMalformedNumericLiteralMessage<token, 'number'> : n
+ *     : messageOnFail
  */
 
 // ✓ parseNumber: verified type-identical to the original
@@ -89,7 +97,8 @@ export function parseNumber(token: string) {
   return never
 }
 /* compiles to:
- * export type parseNumber<token extends string> = token extends `${infer n extends number}` ? n : never
+ * export type parseNumber<token extends string> =
+ *   token extends `${infer n extends number}` ? n : never
  */
 
 // ✓ tryParseInteger: verified type-identical to the original
@@ -109,7 +118,12 @@ export function tryParseInteger(token: string, messageOnFail: string) {
   return messageOnFail
 }
 /* compiles to:
- * export type tryParseInteger<token extends string, messageOnFail extends string> = token extends `${infer b extends bigint}` ? bigint extends b ? writeMalformedNumericLiteralMessage<token, 'integer'> : token extends `${infer n extends number}` ? n : never : messageOnFail
+ * export type tryParseInteger<token extends string, messageOnFail extends string> =
+ *   token extends `${infer b extends bigint}`
+ *     ? bigint extends b ? writeMalformedNumericLiteralMessage<token, 'integer'>
+ *     : token extends `${infer n extends number}` ? n
+ *     : never
+ *     : messageOnFail
  */
 
 // ✓ parseInteger: verified type-identical to the original
@@ -125,7 +139,8 @@ export function parseInteger(token: string) {
   return never
 }
 /* compiles to:
- * export type parseInteger<token extends string> = token extends `${bigint}` ? token extends `${infer n extends number}` ? n : never : never
+ * export type parseInteger<token extends string> =
+ *   token extends `${bigint}` ? token extends `${infer n extends number}` ? n : never : never
  */
 
 // ✓ parseNonNegativeInteger: verified type-identical to the original
@@ -137,7 +152,8 @@ export function parseNonNegativeInteger(token: string) {
   return parseInteger(token)
 }
 /* compiles to:
- * export type parseNonNegativeInteger<token extends string> = token extends `-${string}` ? never : parseInteger<token>
+ * export type parseNonNegativeInteger<token extends string> =
+ *   token extends `-${string}` ? never : parseInteger<token>
  */
 
 // ✓ NumericParseOptions: verified type-identical to the original
@@ -146,5 +162,8 @@ export function NumericParseOptions(errorOnFail: boolean | string) {
   return { errorOnFail: optional(errorOnFail), strict: optional(boolean) }
 }
 /* compiles to:
- * export type NumericParseOptions<errorOnFail extends boolean | string> = { errorOnFail?: errorOnFail; strict?: boolean }
+ * export type NumericParseOptions<errorOnFail extends boolean | string> = {
+ *   errorOnFail?: errorOnFail
+ *   strict?: boolean
+ * }
  */

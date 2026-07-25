@@ -12,15 +12,24 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const MySqlDateTimeBuilder: any
 declare const MySqlDateTimeStringBuilder: any
-type MySqlDateTimeBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlDateTimeStringBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MySqlDateTimeBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlDateTimeStringBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlDateTimeBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySqlDateTimeBuilderInitial(TName: string) {
   return MySqlDateTimeBuilder({ name: TName, dataType: 'date', columnType: 'MySqlDateTime', data: t<Date>(), driverParam: string | number, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlDateTimeBuilderInitial<TName extends string> = MySqlDateTimeBuilder<{ name: TName; dataType: 'date'; columnType: 'MySqlDateTime'; data: Date; driverParam: string | number; enumValues: undefined }>
+ * export type MySqlDateTimeBuilderInitial<TName extends string> = MySqlDateTimeBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'date'
+ *     columnType: 'MySqlDateTime'
+ *     data: Date
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ MySqlDateTimeStringBuilderInitial: verified type-identical to the original
@@ -29,5 +38,14 @@ export function MySqlDateTimeStringBuilderInitial(TName: string) {
   return MySqlDateTimeStringBuilder({ name: TName, dataType: 'string', columnType: 'MySqlDateTimeString', data: string, driverParam: string | number, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlDateTimeStringBuilderInitial<TName extends string> = MySqlDateTimeStringBuilder<{ name: TName; dataType: 'string'; columnType: 'MySqlDateTimeString'; data: string; driverParam: string | number; enumValues: undefined }>
+ * export type MySqlDateTimeStringBuilderInitial<TName extends string> = MySqlDateTimeStringBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'string'
+ *     columnType: 'MySqlDateTimeString'
+ *     data: string
+ *     driverParam: string | number
+ *     enumValues: undefined
+ *   }
+ * >
  */

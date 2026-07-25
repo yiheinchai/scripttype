@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const IfNotAnyOrNever: any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CrashIfAnyWrapper: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CrashIfAnyWrapper(T) {
@@ -30,7 +30,8 @@ export function CrashIfAny(T, Acc: unknown[] = []) {
   return never
 }
 /* compiles to:
- * export type CrashIfAny<T, Acc extends unknown[] = []> = 0 extends 1 & T ? CrashIfAny<T, [...Acc, unknown]> : never
+ * export type CrashIfAny<T, Acc extends unknown[] = []> =
+ *   0 extends 1 & T ? CrashIfAny<T, [...Acc, unknown]> : never
  */
 
 // ✓ CrashIfNeverWrapper: verified type-identical to the original
@@ -51,7 +52,8 @@ export function CrashIfNever(T, Acc: unknown[] = []) {
   return never
 }
 /* compiles to:
- * export type CrashIfNever<T, Acc extends unknown[] = []> = [T] extends [never] ? CrashIfNever<T, [...Acc, unknown]> : never
+ * export type CrashIfNever<T, Acc extends unknown[] = []> =
+ *   [T] extends [never] ? CrashIfNever<T, [...Acc, unknown]> : never
  */
 
 // ✓ CrashIfNotAnyWrapper: verified type-identical to the original
@@ -60,7 +62,10 @@ export function CrashIfNotAnyWrapper(T) {
   return IfNotAnyOrNever(T, { ifNot: never, ifAny: CrashIfNotAny(T) })
 }
 /* compiles to:
- * export type CrashIfNotAnyWrapper<T> = IfNotAnyOrNever<T, { ifNot: never; ifAny: CrashIfNotAny<T> }>
+ * export type CrashIfNotAnyWrapper<T> = IfNotAnyOrNever<
+ *   T,
+ *   { ifNot: never; ifAny: CrashIfNotAny<T> }
+ * >
  */
 
 // ✓ CrashIfNotAny: verified type-identical to the original
@@ -77,7 +82,8 @@ export function CrashIfNotAny(T) {
 }
 /* compiles to:
  * export type CrashIfNotAny<T> = CrashIfNotAny__loop<[], T>
- * type CrashIfNotAny__loop<Acc extends any[], T> = 0 extends 1 & T ? never : CrashIfNotAny__loop<[...Acc, unknown], T>
+ * type CrashIfNotAny__loop<Acc extends any[], T> =
+ *   0 extends 1 & T ? never : CrashIfNotAny__loop<[...Acc, unknown], T>
  */
 
 // ✓ CrashIfNotNeverWrapper: verified type-identical to the original
@@ -86,7 +92,10 @@ export function CrashIfNotNeverWrapper(T) {
   return IfNotAnyOrNever(T, { ifNot: never, ifNever: CrashIfNotNever(T) })
 }
 /* compiles to:
- * export type CrashIfNotNeverWrapper<T> = IfNotAnyOrNever<T, { ifNot: never; ifNever: CrashIfNotNever<T> }>
+ * export type CrashIfNotNeverWrapper<T> = IfNotAnyOrNever<
+ *   T,
+ *   { ifNot: never; ifNever: CrashIfNotNever<T> }
+ * >
  */
 
 // ✓ CrashIfNotNever: verified type-identical to the original
@@ -103,5 +112,6 @@ export function CrashIfNotNever(T) {
 }
 /* compiles to:
  * export type CrashIfNotNever<T> = CrashIfNotNever__loop<[], T>
- * type CrashIfNotNever__loop<Acc extends any[], T> = [T] extends [never] ? never : CrashIfNotNever__loop<[...Acc, unknown], T>
+ * type CrashIfNotNever__loop<Acc extends any[], T> =
+ *   [T] extends [never] ? never : CrashIfNotNever__loop<[...Acc, unknown], T>
  */

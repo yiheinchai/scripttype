@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ResolvedRegister: any
 declare const SolidityFixedArrayRange: any
-type ResolvedRegister<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SolidityFixedArrayRange<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ResolvedRegister<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SolidityFixedArrayRange<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _BuildArrayTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _BuildArrayTypes(T: string, Depth: readonly number[] = []) {
@@ -29,5 +29,10 @@ export function _BuildArrayTypes(T: string, Depth: readonly number[] = []) {
   return _BuildArrayTypes(`${T}[${anyOf(SolidityFixedArrayRange, '')}]`, [...Depth, 1])
 }
 /* compiles to:
- * export type _BuildArrayTypes<T extends string, Depth extends readonly number[] = []> = ResolvedRegister['arrayMaxDepth'] extends false ? `${T}[${string}]` : Depth['length'] extends ResolvedRegister['arrayMaxDepth'] ? T : T extends `${any}[${SolidityFixedArrayRange | ''}]` ? _BuildArrayTypes<T | `${T}[${SolidityFixedArrayRange | ''}]`, [...Depth, 1]> : _BuildArrayTypes<`${T}[${SolidityFixedArrayRange | ''}]`, [...Depth, 1]>
+ * export type _BuildArrayTypes<T extends string, Depth extends readonly number[] = []> =
+ *   ResolvedRegister['arrayMaxDepth'] extends false ? `${T}[${string}]`
+ *   : Depth['length'] extends ResolvedRegister['arrayMaxDepth'] ? T
+ *   : T extends `${any}[${SolidityFixedArrayRange | ''}]`
+ *     ? _BuildArrayTypes<T | `${T}[${SolidityFixedArrayRange | ''}]`, [...Depth, 1]>
+ *   : _BuildArrayTypes<`${T}[${SolidityFixedArrayRange | ''}]`, [...Depth, 1]>
  */

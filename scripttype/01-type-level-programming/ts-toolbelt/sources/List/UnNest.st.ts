@@ -24,20 +24,20 @@ declare const Next: any
 declare const Not: any
 declare const Pos: any
 declare const UnionOf: any
-type And<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Append<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Concat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Length<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Naked<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Not<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnionOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Append<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Concat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Naked<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnionOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnNestLoose: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UnNestLoose(L: List) {
@@ -45,7 +45,13 @@ export function UnNestLoose(L: List) {
   return merge(arrayOf(m1 ? (matches<unknown>(m1.UL) ? (matches<List>(m1.UL) ? UnionOf(m1.UL) : m1.UL) : never) : never), {})
 }
 /* compiles to:
- * export type UnNestLoose<L extends List> = (UnionOf<L> extends infer UL ? UL extends unknown ? UL extends List ? UnionOf<UL> : UL : never : never)[] & {}
+ * export type UnNestLoose<L extends List> =
+ *   & (
+ *       UnionOf<L> extends infer UL
+ *         ? UL extends unknown ? UL extends List ? UnionOf<UL> : UL : never
+ *         : never
+ *     )[]
+ *   & {}
  */
 
 // ✓ Flatter: verified type-identical to the original
@@ -61,7 +67,10 @@ export function Flatter(L: List, LN: List, I: Iteration) {
   return never
 }
 /* compiles to:
- * export type Flatter<L extends List, LN extends List, I extends Iteration> = L[Pos<I>] extends infer LP ? LP extends List ? Concat<LN, L[Pos<I>]> : Append<LN, L[Pos<I>]> : never
+ * export type Flatter<L extends List, LN extends List, I extends Iteration> =
+ *   L[Pos<I>] extends infer LP
+ *     ? LP extends List ? Concat<LN, L[Pos<I>]> : Append<LN, L[Pos<I>]>
+ *     : never
  */
 
 // ✗ UnNestStrict: does not compile yet
@@ -71,7 +80,12 @@ export function UnNestStrict(L: List, LN: List = [], I: Iteration = IterationOf(
   return { 0: UnNestStrict(L, Flatter(L, LN, I), Next(I)), 1: LN }[Extends(Pos(I), Length(L))]
 }
 /* compiles to:
- * export type UnNestStrict<L extends List, LN extends List = [], I extends Iteration = IterationOf<0>> = { '0': UnNestStrict<L, Flatter<L, LN, I>, Next<I>>; '1': LN }[Extends<Pos<I>, Length<L>>]
+ * export type UnNestStrict<
+ *   L extends List,
+ *   LN extends List = [],
+ *   I extends Iteration = IterationOf<0>
+ * > =
+ *   { '0': UnNestStrict<L, Flatter<L, LN, I>, Next<I>>; '1': LN }[Extends<Pos<I>, Length<L>>]
  */
 
 // ✗ __UnNest: does not compile yet
@@ -81,7 +95,8 @@ export function __UnNest(L: List, strict: Boolean) {
   return { 0: UnNestLoose(L), 1: UnNestStrict(L) }[And(Not(Extends(number, Length(L))), strict)]
 }
 /* compiles to:
- * export type __UnNest<L extends List, strict extends Boolean> = { '0': UnNestLoose<L>; '1': UnNestStrict<L> }[And<Not<Extends<number, Length<L>>>, strict>]
+ * export type __UnNest<L extends List, strict extends Boolean> =
+ *   { '0': UnNestLoose<L>; '1': UnNestStrict<L> }[And<Not<Extends<number, Length<L>>>, strict>]
  */
 
 // ✓ _UnNest: verified type-identical to the original
@@ -94,7 +109,8 @@ export function _UnNest(L: List, strict: Boolean) {
   return never
 }
 /* compiles to:
- * export type _UnNest<L extends List, strict extends Boolean> = __UnNest<Naked<L>, strict> extends infer X ? Cast<X, List> : never
+ * export type _UnNest<L extends List, strict extends Boolean> =
+ *   __UnNest<Naked<L>, strict> extends infer X ? Cast<X, List> : never
  */
 
 // ✗ UnNest: the ScriptType does not itself typecheck as TypeScript
@@ -107,5 +123,6 @@ export function UnNest(L: List, strict: Boolean = 1) {
   return never
 }
 /* compiles to:
- * export type UnNest<L extends List, strict extends Boolean = 1> = L extends unknown ? _UnNest<L, strict> : never
+ * export type UnNest<L extends List, strict extends Boolean = 1> =
+ *   L extends unknown ? _UnNest<L, strict> : never
  */

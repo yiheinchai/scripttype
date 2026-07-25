@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Node: any
-type Node<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Node<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ CompilerNodePath: the ScriptType does not itself typecheck as TypeScript
 //   CompilerNodePath.st.ts(2:41) TS2503: Cannot find namespace 't'.
 /* @scripttype preserveParamNames */
@@ -19,7 +19,11 @@ export function CompilerNodePath(TNode: t.Node = t.Node) {
   return { node: TNode, parentPath: CompilerNodePath | Null, isVariableDeclarator: fnType([], boolean) }
 }
 /* compiles to:
- * export type CompilerNodePath<TNode extends t.Node = t.Node> = { node: TNode; parentPath: CompilerNodePath | null; isVariableDeclarator: () => boolean }
+ * export type CompilerNodePath<TNode extends t.Node = t.Node> = {
+ *   node: TNode
+ *   parentPath: CompilerNodePath | null
+ *   isVariableDeclarator: () => boolean
+ * }
  */
 
 // ✗ ReplacePathNode: the ScriptType does not itself typecheck as TypeScript

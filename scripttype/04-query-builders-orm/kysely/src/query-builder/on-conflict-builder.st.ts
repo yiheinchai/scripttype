@@ -11,18 +11,20 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Updateable: any
-type Updateable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Updateable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OnConflictDatabase: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OnConflictDatabase(DB, TB: keyof typeof DB) {
   const out = emptyObject
   for (const K in keySet(anyOf(keyof(DB), 'excluded'))) {
-    out[K] = Updateable(matches<keyof typeof DB>(K) ? DB[K] : DB[TB])
+    out[K] = Updateable(K in DB ? DB[K] : DB[TB])
   }
   return out
 }
 /* compiles to:
- * export type OnConflictDatabase<DB, TB extends keyof DB> = { [K in keyof DB | 'excluded']: Updateable<K extends keyof DB ? DB[K] : DB[TB]> }
+ * export type OnConflictDatabase<DB, TB extends keyof DB> = {
+ *   [K in keyof DB | 'excluded']: Updateable<K extends keyof DB ? DB[K] : DB[TB]>
+ * }
  */
 
 // ✓ OnConflictTables: verified type-identical to the original

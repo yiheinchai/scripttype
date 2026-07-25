@@ -22,18 +22,18 @@ declare const AbiReceive: any
 declare const AbiStateMutability: any
 declare const AssertName: any
 declare const FormatAbiParameters_: any
-type Abi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiConstructor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiEvent<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiEventParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiFallback<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiReceive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiStateMutability<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AssertName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FormatAbiParameters_<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiEvent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiEventParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiFallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiReceive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiStateMutability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AssertName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FormatAbiParameters_<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FormatAbiItem: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FormatAbiItem(abiItem: Abi[number]) {
@@ -43,7 +43,49 @@ export function FormatAbiItem(abiItem: Abi[number]) {
   return (matches<AbiFunction>(abiItem) ? (matches<typeof abiItem>(AbiFunction) ? string : `function ${AssertName(abiItem['name'])}(${FormatAbiParameters(abiItem['inputs'])})${matches<Exclude<AbiStateMutability, 'nonpayable'>>(abiItem['stateMutability']) ? ` ${abiItem['stateMutability']}` : ''}${matches<0>(abiItem['outputs']['length']) ? '' : ` returns (${FormatAbiParameters(abiItem['outputs'])})`}`) : never) | (matches<AbiEvent>(abiItem) ? (matches<typeof abiItem>(AbiEvent) ? string : `event ${AssertName(abiItem['name'])}(${FormatAbiParameters(abiItem['inputs'])})`) : never) | (matches<AbiError>(abiItem) ? (matches<typeof abiItem>(AbiError) ? string : `error ${AssertName(abiItem['name'])}(${FormatAbiParameters(abiItem['inputs'])})`) : never) | (matches<AbiConstructor>(abiItem) ? (matches<typeof abiItem>(AbiConstructor) ? string : `constructor(${FormatAbiParameters(abiItem['inputs'])})${matches<'payable'>(abiItem['stateMutability']) ? ' payable' : ''}`) : never) | (matches<AbiFallback>(abiItem) ? (matches<typeof abiItem>(AbiFallback) ? string : `fallback() external${matches<'payable'>(abiItem['stateMutability']) ? ' payable' : ''}`) : never) | (matches<AbiReceive>(abiItem) ? (matches<typeof abiItem>(AbiReceive) ? string : 'receive() external payable') : never)
 }
 /* compiles to:
- * export type FormatAbiItem<abiItem extends Abi[number]> = Abi[number] extends abiItem ? string : (abiItem extends AbiFunction ? AbiFunction extends abiItem ? string : `function ${AssertName<abiItem['name']>}(${FormatAbiParameters<abiItem['inputs']>})${abiItem['stateMutability'] extends Exclude<AbiStateMutability, 'nonpayable'> ? ` ${abiItem['stateMutability']}` : ''}${abiItem['outputs']['length'] extends 0 ? '' : ` returns (${FormatAbiParameters<abiItem['outputs']>})`}` : never) | (abiItem extends AbiEvent ? AbiEvent extends abiItem ? string : `event ${AssertName<abiItem['name']>}(${FormatAbiParameters<abiItem['inputs']>})` : never) | (abiItem extends AbiError ? AbiError extends abiItem ? string : `error ${AssertName<abiItem['name']>}(${FormatAbiParameters<abiItem['inputs']>})` : never) | (abiItem extends AbiConstructor ? AbiConstructor extends abiItem ? string : `constructor(${FormatAbiParameters<abiItem['inputs']>})${abiItem['stateMutability'] extends 'payable' ? ' payable' : ''}` : never) | (abiItem extends AbiFallback ? AbiFallback extends abiItem ? string : `fallback() external${abiItem['stateMutability'] extends 'payable' ? ' payable' : ''}` : never) | (abiItem extends AbiReceive ? AbiReceive extends abiItem ? string : 'receive() external payable' : never)
+ * export type FormatAbiItem<abiItem extends Abi[number]> =
+ *   Abi[number] extends abiItem
+ *     ? string
+ *     : | (
+ *         abiItem extends AbiFunction
+ *           ? AbiFunction extends abiItem
+ *             ? string
+ *             : `function ${AssertName<abiItem['name']>}(${FormatAbiParameters<abiItem['inputs']>})${abiItem['stateMutability'] extends Exclude<AbiStateMutability, 'nonpayable'> ? ` ${abiItem['stateMutability']}` : ''}${abiItem['outputs']['length'] extends 0 ? '' : ` returns (${FormatAbiParameters<abiItem['outputs']>})`}`
+ *           : never
+ *       )
+ *     | (
+ *         abiItem extends AbiEvent
+ *           ? AbiEvent extends abiItem
+ *             ? string
+ *             : `event ${AssertName<abiItem['name']>}(${FormatAbiParameters<abiItem['inputs']>})`
+ *           : never
+ *       )
+ *     | (
+ *         abiItem extends AbiError
+ *           ? AbiError extends abiItem
+ *             ? string
+ *             : `error ${AssertName<abiItem['name']>}(${FormatAbiParameters<abiItem['inputs']>})`
+ *           : never
+ *       )
+ *     | (
+ *         abiItem extends AbiConstructor
+ *           ? AbiConstructor extends abiItem
+ *             ? string
+ *             : `constructor(${FormatAbiParameters<abiItem['inputs']>})${abiItem['stateMutability'] extends 'payable' ? ' payable' : ''}`
+ *           : never
+ *       )
+ *     | (
+ *         abiItem extends AbiFallback
+ *           ? AbiFallback extends abiItem
+ *             ? string
+ *             : `fallback() external${abiItem['stateMutability'] extends 'payable' ? ' payable' : ''}`
+ *           : never
+ *       )
+ *     | (
+ *         abiItem extends AbiReceive
+ *           ? AbiReceive extends abiItem ? string : 'receive() external payable'
+ *           : never
+ *       )
  */
 
 // ✓ FormatAbiParameters: verified type-identical to the original
@@ -55,5 +97,14 @@ export function FormatAbiParameters(abiParameters: readonly (AbiParameter | AbiE
   return FormatAbiParameters_(matches<readonly [ AbiParameter | AbiEventParameter, ...(readonly (AbiParameter | AbiEventParameter)[]) ]>(abiParameters) ? abiParameters : never)
 }
 /* compiles to:
- * export type FormatAbiParameters<abiParameters extends readonly (AbiParameter | AbiEventParameter)[]> = abiParameters['length'] extends 0 ? '' : FormatAbiParameters_<abiParameters extends readonly [AbiParameter | AbiEventParameter, ...readonly (AbiParameter | AbiEventParameter)[]] ? abiParameters : never>
+ * export type FormatAbiParameters<
+ *   abiParameters extends readonly (AbiParameter | AbiEventParameter)[]
+ * > =
+ *   abiParameters['length'] extends 0
+ *     ? ''
+ *     : FormatAbiParameters_<
+ *       abiParameters extends readonly [AbiParameter | AbiEventParameter, ...readonly (AbiParameter | AbiEventParameter)[]]
+ *         ? abiParameters
+ *         : never
+ *     >
  */

@@ -14,15 +14,16 @@ declare const EventObject: any
 declare const PersistEventOptions: any
 declare const PersistSnapshotOptions: any
 declare const StoreContext: any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PersistEventOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PersistSnapshotOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PersistEventOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PersistSnapshotOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PersistOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PersistOptions(TContext = StoreContext, TEvent: EventObject = EventObject) {
   return PersistSnapshotOptions(TContext, TEvent) | PersistEventOptions(TContext, TEvent)
 }
 /* compiles to:
- * export type PersistOptions<TContext = StoreContext, TEvent extends EventObject = EventObject> = PersistSnapshotOptions<TContext, TEvent> | PersistEventOptions<TContext, TEvent>
+ * export type PersistOptions<TContext = StoreContext, TEvent extends EventObject = EventObject> =
+ *   PersistSnapshotOptions<TContext, TEvent> | PersistEventOptions<TContext, TEvent>
  */

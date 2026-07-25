@@ -16,12 +16,12 @@ declare const Response: any
 declare const TypedResponse: any
 declare const ValidationTargetKeysWithBody: any
 declare const ValidationTargets: any
-type Context<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Env<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Response<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypedResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidationTargetKeysWithBody<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValidationTargets<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Env<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypedResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidationTargetKeysWithBody<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ValidationTargets<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidationTargetByMethod: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValidationTargetByMethod(M) {
@@ -31,7 +31,10 @@ export function ValidationTargetByMethod(M) {
   return keyof(ValidationTargets)
 }
 /* compiles to:
- * export type ValidationTargetByMethod<M> = M extends 'get' | 'head' ? Exclude<keyof ValidationTargets, ValidationTargetKeysWithBody> : keyof ValidationTargets
+ * export type ValidationTargetByMethod<M> =
+ *   M extends 'get' | 'head'
+ *     ? Exclude<keyof ValidationTargets, ValidationTargetKeysWithBody>
+ *     : keyof ValidationTargets
  */
 
 // ✓ ValidationFunction: verified type-identical to the original
@@ -40,7 +43,16 @@ export function ValidationFunction(InputType, OutputType, E: Env = {}, P: string
   return fnType([InputType, Context(E, P)], OutputType | TypedResponse | t<Promise<typeof OutputType>>() | t<Promise<TypedResponse>>())
 }
 /* compiles to:
- * export type ValidationFunction<InputType, OutputType, E extends Env = {}, P extends string = string> = (a0: InputType, a1: Context<E, P>) => OutputType | TypedResponse | Promise<OutputType> | Promise<TypedResponse>
+ * export type ValidationFunction<
+ *   InputType,
+ *   OutputType,
+ *   E extends Env = {},
+ *   P extends string = string
+ * > =
+ *   (a0: InputType, a1: Context<E, P>) => | OutputType
+ *   | TypedResponse
+ *   | Promise<OutputType>
+ *   | Promise<TypedResponse>
  */
 
 // ✓ ExtractValidationResponse: verified type-identical to the original
@@ -57,7 +69,7 @@ export function ExtractValidationResponse(VF) {
       if (matches<Response>(m2.PR)) {
         return m2.PR
       }
-      if (matches<undefined>(m2.PR)) {
+      if (typeof m2.PR === 'undefined') {
         return never
       }
       return never
@@ -69,7 +81,7 @@ export function ExtractValidationResponse(VF) {
     if (matches<Response>(m1.R)) {
       return m1.R
     }
-    if (matches<undefined>(m1.R)) {
+    if (typeof m1.R === 'undefined') {
       return never
     }
     return never
@@ -77,7 +89,18 @@ export function ExtractValidationResponse(VF) {
   return never
 }
 /* compiles to:
- * export type ExtractValidationResponse<VF> = VF extends (value: any, c: any) => infer R ? R extends Promise<infer PR> ? PR extends TypedResponse<infer T, infer S, infer F> ? TypedResponse<T, S, F> : PR extends Response ? PR : PR extends undefined ? never : never : R extends TypedResponse<infer T, infer S, infer F> ? TypedResponse<T, S, F> : R extends Response ? R : R extends undefined ? never : never : never
+ * export type ExtractValidationResponse<VF> =
+ *   VF extends (value: any, c: any) => infer R
+ *     ? R extends Promise<infer PR>
+ *       ? PR extends TypedResponse<infer T, infer S, infer F> ? TypedResponse<T, S, F>
+ *       : PR extends Response ? PR
+ *       : PR extends undefined ? never
+ *       : never
+ *     : R extends TypedResponse<infer T, infer S, infer F> ? TypedResponse<T, S, F>
+ *     : R extends Response ? R
+ *     : R extends undefined ? never
+ *     : never
+ *     : never
  */
 
 // ✓ ExtractValidatorOutput: verified type-identical to the original
@@ -100,5 +123,11 @@ export function ExtractValidatorOutput(VF) {
   return never
 }
 /* compiles to:
- * export type ExtractValidatorOutput<VF> = VF extends (value: any, c: any) => infer R ? R extends Promise<infer PR> ? PR extends Response | TypedResponse<any, any, any> ? never : PR : R extends Response | TypedResponse<any, any, any> ? never : R : never
+ * export type ExtractValidatorOutput<VF> =
+ *   VF extends (value: any, c: any) => infer R
+ *     ? R extends Promise<infer PR>
+ *       ? PR extends Response | TypedResponse<any, any, any> ? never : PR
+ *     : R extends Response | TypedResponse<any, any, any> ? never
+ *     : R
+ *     : never
  */

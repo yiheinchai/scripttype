@@ -17,13 +17,13 @@ declare const TProperties: any
 declare const TSchema: any
 declare const TUnknown: any
 declare const TUnsafe: any
-type TCyclic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TCyclicExtends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TExtendsLeft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnsafe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TCyclicExtends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnsafe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCanonical: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TCanonical(Type: TSchema) {
@@ -36,7 +36,8 @@ export function TCanonical(Type: TSchema) {
   return Type
 }
 /* compiles to:
- * export type TCanonical<Type extends TSchema> = Type extends TCyclic ? TCyclicExtends<Type> : Type extends TUnsafe ? TUnknown : Type
+ * export type TCanonical<Type extends TSchema> =
+ *   Type extends TCyclic ? TCyclicExtends<Type> : Type extends TUnsafe ? TUnknown : Type
  */
 
 // ✓ TExtends: verified type-identical to the original
@@ -45,5 +46,12 @@ export function TExtends(Inferred: TProperties, Left: TSchema, Right: TSchema, C
   return TExtendsLeft(Inferred, CanonicalLeft, CanonicalRight)
 }
 /* compiles to:
- * export type TExtends<Inferred extends TProperties, Left extends TSchema, Right extends TSchema, CanonicalLeft extends TSchema = TCanonical<Left>, CanonicalRight extends TSchema = TCanonical<Right>> = TExtendsLeft<Inferred, CanonicalLeft, CanonicalRight>
+ * export type TExtends<
+ *   Inferred extends TProperties,
+ *   Left extends TSchema,
+ *   Right extends TSchema,
+ *   CanonicalLeft extends TSchema = TCanonical<Left>,
+ *   CanonicalRight extends TSchema = TCanonical<Right>
+ * > =
+ *   TExtendsLeft<Inferred, CanonicalLeft, CanonicalRight>
  */

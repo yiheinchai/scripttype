@@ -12,9 +12,9 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Backslash: any
 declare const WhitespaceChar: any
-type Backslash<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WhitespaceChar<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type shift<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Backslash<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WhitespaceChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ shift: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -39,7 +39,16 @@ export function shiftUntil(unscanned: string, terminator: string, appendTo: stri
   return [appendTo, '']
 }
 /* compiles to:
- * export type shiftUntil<unscanned extends string, terminator extends string, appendTo extends string = ''> = unscanned extends shift<infer lookahead, infer nextUnscanned> ? lookahead extends terminator ? [appendTo, unscanned] : shiftUntil<nextUnscanned, terminator, `${appendTo}${lookahead}`> : [appendTo, '']
+ * export type shiftUntil<
+ *   unscanned extends string,
+ *   terminator extends string,
+ *   appendTo extends string = ''
+ * > =
+ *   unscanned extends shift<infer lookahead, infer nextUnscanned>
+ *     ? lookahead extends terminator
+ *       ? [appendTo, unscanned]
+ *       : shiftUntil<nextUnscanned, terminator, `${appendTo}${lookahead}`>
+ *     : [appendTo, '']
  */
 
 // ✗ shiftUntilEscapable: does not compile yet
@@ -63,7 +72,25 @@ export function shiftUntilEscapable(unscanned: string, terminator: string, escap
   return [appendTo, '']
 }
 /* compiles to:
- * export type shiftUntilEscapable<unscanned extends string, terminator extends string, escapeEscape extends Backslash | '', appendTo extends string = ''> = unscanned extends shift<infer lookahead, infer nextUnscanned> ? lookahead extends terminator ? [appendTo, unscanned] : lookahead extends Backslash ? nextUnscanned extends shift<infer nextLookahead, infer postEscapedUnscanned> ? shiftUntilEscapable<postEscapedUnscanned, terminator, escapeEscape, `${appendTo}${nextLookahead extends terminator ? '' : nextLookahead extends Backslash ? escapeEscape : Backslash}${nextLookahead}`> : [`${appendTo}${Backslash}`, ''] : shiftUntilEscapable<nextUnscanned, terminator, escapeEscape, `${appendTo}${lookahead}`> : [appendTo, '']
+ * export type shiftUntilEscapable<
+ *   unscanned extends string,
+ *   terminator extends string,
+ *   escapeEscape extends Backslash | '',
+ *   appendTo extends string = ''
+ * > =
+ *   unscanned extends shift<infer lookahead, infer nextUnscanned>
+ *     ? lookahead extends terminator ? [appendTo, unscanned]
+ *     : lookahead extends Backslash
+ *       ? nextUnscanned extends shift<infer nextLookahead, infer postEscapedUnscanned>
+ *         ? shiftUntilEscapable<
+ *           postEscapedUnscanned,
+ *           terminator,
+ *           escapeEscape,
+ *           `${appendTo}${nextLookahead extends terminator ? '' : nextLookahead extends Backslash ? escapeEscape : Backslash}${nextLookahead}`
+ *         >
+ *         : [`${appendTo}${Backslash}`, '']
+ *     : shiftUntilEscapable<nextUnscanned, terminator, escapeEscape, `${appendTo}${lookahead}`>
+ *     : [appendTo, '']
  */
 
 // ✗ shiftUntilNot: does not compile yet
@@ -80,7 +107,16 @@ export function shiftUntilNot(unscanned: string, nonTerminator: string, appendTo
   return [appendTo, '']
 }
 /* compiles to:
- * export type shiftUntilNot<unscanned extends string, nonTerminator extends string, appendTo extends string = ''> = unscanned extends shift<infer lookahead, infer nextUnscanned> ? lookahead extends nonTerminator ? shiftUntilNot<nextUnscanned, nonTerminator, `${appendTo}${lookahead}`> : [appendTo, unscanned] : [appendTo, '']
+ * export type shiftUntilNot<
+ *   unscanned extends string,
+ *   nonTerminator extends string,
+ *   appendTo extends string = ''
+ * > =
+ *   unscanned extends shift<infer lookahead, infer nextUnscanned>
+ *     ? lookahead extends nonTerminator
+ *       ? shiftUntilNot<nextUnscanned, nonTerminator, `${appendTo}${lookahead}`>
+ *       : [appendTo, unscanned]
+ *     : [appendTo, '']
  */
 
 // ✗ skipWhitespace: does not compile yet

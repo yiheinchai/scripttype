@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Stream: any
-type Stream<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Stream<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Success: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Success(T: Stream<any, any, any>) {
@@ -22,7 +22,8 @@ export function Success(T: Stream<any, any, any>) {
   return never
 }
 /* compiles to:
- * export type Success<T extends Stream<any, any, any>> = [T] extends [Stream<infer _A, unknown, unknown>] ? _A : never
+ * export type Success<T extends Stream<any, any, any>> =
+ *   [T] extends [Stream<infer _A, unknown, unknown>] ? _A : never
  */
 
 // ✓ Error: verified type-identical to the original
@@ -35,7 +36,8 @@ export function Error(T: Stream<any, any, any>) {
   return never
 }
 /* compiles to:
- * export type Error<T extends Stream<any, any, any>> = [T] extends [Stream<unknown, infer _E, unknown>] ? _E : never
+ * export type Error<T extends Stream<any, any, any>> =
+ *   [T] extends [Stream<unknown, infer _E, unknown>] ? _E : never
  */
 
 // ✓ Services: verified type-identical to the original
@@ -48,5 +50,6 @@ export function Services(T: Stream<any, any, any>) {
   return never
 }
 /* compiles to:
- * export type Services<T extends Stream<any, any, any>> = [T] extends [Stream<unknown, unknown, infer _R>] ? _R : never
+ * export type Services<T extends Stream<any, any, any>> =
+ *   [T] extends [Stream<unknown, unknown, infer _R>] ? _R : never
  */

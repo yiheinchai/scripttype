@@ -23,27 +23,32 @@ declare const OmitKeyof: any
 declare const Override: any
 declare const QueryObserverResult: any
 declare const Signal: any
-type BaseMutationNarrowing<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseQueryNarrowing<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateBaseMutationResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinedInfiniteQueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinedQueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MapToSignals<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutateFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitKeyof<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Override<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Signal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseMutationNarrowing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseQueryNarrowing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateBaseMutationResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefinedInfiniteQueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefinedQueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MapToSignals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutateFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Override<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Signal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateStatusBasedQueryResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CreateStatusBasedQueryResult(TStatus: QueryObserverResult['status'], TData = unknown, TError = DefaultError) {
   return Extract(QueryObserverResult(TData, TError), { status: TStatus })
 }
 /* compiles to:
- * export type CreateStatusBasedQueryResult<TStatus extends QueryObserverResult['status'], TData = unknown, TError = DefaultError> = Extract<QueryObserverResult<TData, TError>, { status: TStatus }>
+ * export type CreateStatusBasedQueryResult<
+ *   TStatus extends QueryObserverResult['status'],
+ *   TData = unknown,
+ *   TError = DefaultError
+ * > =
+ *   Extract<QueryObserverResult<TData, TError>, { status: TStatus }>
  */
 
 // ✓ CreateBaseQueryResult: verified type-identical to the original
@@ -52,7 +57,13 @@ export function CreateBaseQueryResult(TData = unknown, TError = DefaultError, TS
   return BaseQueryNarrowing(TData, TError) & MapToSignals(OmitKeyof(TState, keyof(BaseQueryNarrowing), 'safely'))
 }
 /* compiles to:
- * export type CreateBaseQueryResult<TData = unknown, TError = DefaultError, TState = QueryObserverResult<TData, TError>> = BaseQueryNarrowing<TData, TError> & MapToSignals<OmitKeyof<TState, keyof BaseQueryNarrowing, 'safely'>>
+ * export type CreateBaseQueryResult<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TState = QueryObserverResult<TData, TError>
+ * > =
+ *   & BaseQueryNarrowing<TData, TError>
+ *   & MapToSignals<OmitKeyof<TState, keyof BaseQueryNarrowing, 'safely'>>
  */
 
 // ✓ CreateQueryResult: verified type-identical to the original
@@ -61,7 +72,10 @@ export function CreateQueryResult(TData = unknown, TError = DefaultError) {
   return CreateBaseQueryResult(TData, TError)
 }
 /* compiles to:
- * export type CreateQueryResult<TData = unknown, TError = DefaultError> = CreateBaseQueryResult<TData, TError>
+ * export type CreateQueryResult<TData = unknown, TError = DefaultError> = CreateBaseQueryResult<
+ *   TData,
+ *   TError
+ * >
  */
 
 // ✓ DefinedCreateQueryResult: verified type-identical to the original
@@ -70,7 +84,13 @@ export function DefinedCreateQueryResult(TData = unknown, TError = DefaultError,
   return BaseQueryNarrowing(TData, TError) & MapToSignals(OmitKeyof(TState, keyof(BaseQueryNarrowing), 'safely'))
 }
 /* compiles to:
- * export type DefinedCreateQueryResult<TData = unknown, TError = DefaultError, TState = DefinedQueryObserverResult<TData, TError>> = BaseQueryNarrowing<TData, TError> & MapToSignals<OmitKeyof<TState, keyof BaseQueryNarrowing, 'safely'>>
+ * export type DefinedCreateQueryResult<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TState = DefinedQueryObserverResult<TData, TError>
+ * > =
+ *   & BaseQueryNarrowing<TData, TError>
+ *   & MapToSignals<OmitKeyof<TState, keyof BaseQueryNarrowing, 'safely'>>
  */
 
 // ✓ CreateInfiniteQueryResult: verified type-identical to the original
@@ -79,7 +99,8 @@ export function CreateInfiniteQueryResult(TData = unknown, TError = DefaultError
   return BaseQueryNarrowing(TData, TError) & MapToSignals(InfiniteQueryObserverResult(TData, TError))
 }
 /* compiles to:
- * export type CreateInfiniteQueryResult<TData = unknown, TError = DefaultError> = BaseQueryNarrowing<TData, TError> & MapToSignals<InfiniteQueryObserverResult<TData, TError>>
+ * export type CreateInfiniteQueryResult<TData = unknown, TError = DefaultError> =
+ *   BaseQueryNarrowing<TData, TError> & MapToSignals<InfiniteQueryObserverResult<TData, TError>>
  */
 
 // ✓ DefinedCreateInfiniteQueryResult: verified type-identical to the original
@@ -88,7 +109,12 @@ export function DefinedCreateInfiniteQueryResult(TData = unknown, TError = Defau
   return MapToSignals(TDefinedInfiniteQueryObserver)
 }
 /* compiles to:
- * export type DefinedCreateInfiniteQueryResult<TData = unknown, TError = DefaultError, TDefinedInfiniteQueryObserver = DefinedInfiniteQueryObserverResult<TData, TError>> = MapToSignals<TDefinedInfiniteQueryObserver>
+ * export type DefinedCreateInfiniteQueryResult<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TDefinedInfiniteQueryObserver = DefinedInfiniteQueryObserverResult<TData, TError>
+ * > =
+ *   MapToSignals<TDefinedInfiniteQueryObserver>
  */
 
 // ✗ CreateMutateFunction: compiles but is not type-identical yet
@@ -98,7 +124,13 @@ export function CreateMutateFunction(TData = unknown, TError = DefaultError, TVa
   return fnType([Parameters(MutateFunction(TData, TError, TVariables, TOnMutateResult))], voidType())
 }
 /* compiles to:
- * export type CreateMutateFunction<TData = unknown, TError = DefaultError, TVariables = void, TOnMutateResult = unknown> = (a0: Parameters<MutateFunction<TData, TError, TVariables, TOnMutateResult>>) => void
+ * export type CreateMutateFunction<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = void,
+ *   TOnMutateResult = unknown
+ * > =
+ *   (a0: Parameters<MutateFunction<TData, TError, TVariables, TOnMutateResult>>) => void
  */
 
 // ✓ CreateMutateAsyncFunction: verified type-identical to the original
@@ -107,7 +139,13 @@ export function CreateMutateAsyncFunction(TData = unknown, TError = DefaultError
   return MutateFunction(TData, TError, TVariables, TOnMutateResult)
 }
 /* compiles to:
- * export type CreateMutateAsyncFunction<TData = unknown, TError = DefaultError, TVariables = void, TOnMutateResult = unknown> = MutateFunction<TData, TError, TVariables, TOnMutateResult>
+ * export type CreateMutateAsyncFunction<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = void,
+ *   TOnMutateResult = unknown
+ * > =
+ *   MutateFunction<TData, TError, TVariables, TOnMutateResult>
  */
 
 // ✓ CreateBaseMutationResult: verified type-identical to the original
@@ -116,7 +154,17 @@ export function CreateBaseMutationResult(TData = unknown, TError = DefaultError,
   return merge(Override(MutationObserverResult(TData, TError, TVariables, TOnMutateResult), { mutate: CreateMutateFunction(TData, TError, TVariables, TOnMutateResult) }), { mutateAsync: CreateMutateAsyncFunction(TData, TError, TVariables, TOnMutateResult) })
 }
 /* compiles to:
- * export type CreateBaseMutationResult<TData = unknown, TError = DefaultError, TVariables = unknown, TOnMutateResult = unknown> = Override<MutationObserverResult<TData, TError, TVariables, TOnMutateResult>, { mutate: CreateMutateFunction<TData, TError, TVariables, TOnMutateResult> }> & { mutateAsync: CreateMutateAsyncFunction<TData, TError, TVariables, TOnMutateResult> }
+ * export type CreateBaseMutationResult<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = unknown,
+ *   TOnMutateResult = unknown
+ * > =
+ *   & Override<
+ *       MutationObserverResult<TData, TError, TVariables, TOnMutateResult>,
+ *       { mutate: CreateMutateFunction<TData, TError, TVariables, TOnMutateResult> }
+ *     >
+ *   & { mutateAsync: CreateMutateAsyncFunction<TData, TError, TVariables, TOnMutateResult> }
  */
 
 // ✓ CreateStatusBasedMutationResult: verified type-identical to the original
@@ -125,7 +173,17 @@ export function CreateStatusBasedMutationResult(TStatus: CreateBaseMutationResul
   return Extract(CreateBaseMutationResult(TData, TError, TVariables, TOnMutateResult), { status: TStatus })
 }
 /* compiles to:
- * export type CreateStatusBasedMutationResult<TStatus extends CreateBaseMutationResult['status'], TData = unknown, TError = DefaultError, TVariables = unknown, TOnMutateResult = unknown> = Extract<CreateBaseMutationResult<TData, TError, TVariables, TOnMutateResult>, { status: TStatus }>
+ * export type CreateStatusBasedMutationResult<
+ *   TStatus extends CreateBaseMutationResult['status'],
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = unknown,
+ *   TOnMutateResult = unknown
+ * > =
+ *   Extract<
+ *     CreateBaseMutationResult<TData, TError, TVariables, TOnMutateResult>,
+ *     { status: TStatus }
+ *   >
  */
 
 // ✓ SignalFunction: verified type-identical to the original
@@ -143,5 +201,13 @@ export function CreateMutationResult(TData = unknown, TError = DefaultError, TVa
   return BaseMutationNarrowing(TData, TError, TVariables, TOnMutateResult) & MapToSignals(OmitKeyof(TState, keyof(BaseMutationNarrowing), 'safely'))
 }
 /* compiles to:
- * export type CreateMutationResult<TData = unknown, TError = DefaultError, TVariables = unknown, TOnMutateResult = unknown, TState = CreateStatusBasedMutationResult<CreateBaseMutationResult['status'], TData, TError, TVariables, TOnMutateResult>> = BaseMutationNarrowing<TData, TError, TVariables, TOnMutateResult> & MapToSignals<OmitKeyof<TState, keyof BaseMutationNarrowing, 'safely'>>
+ * export type CreateMutationResult<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = unknown,
+ *   TOnMutateResult = unknown,
+ *   TState = CreateStatusBasedMutationResult<CreateBaseMutationResult['status'], TData, TError, TVariables, TOnMutateResult>
+ * > =
+ *   & BaseMutationNarrowing<TData, TError, TVariables, TOnMutateResult>
+ *   & MapToSignals<OmitKeyof<TState, keyof BaseMutationNarrowing, 'safely'>>
  */

@@ -13,9 +13,9 @@
 declare const Key: any
 declare const Replace: any
 declare const x: any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Replace<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type x<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Replace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type x<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Update: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Update(O: object, K: Key, A: any) {
@@ -26,5 +26,6 @@ export function Update(O: object, K: Key, A: any) {
   return merge(out, {})
 }
 /* compiles to:
- * export type Update<O extends object, K extends Key, A extends any> = { [P in keyof O]: P extends K ? Replace<A, x, O[P]> : O[P] } & {}
+ * export type Update<O extends object, K extends Key, A extends any> =
+ *   { [P in keyof O]: P extends K ? Replace<A, x, O[P]> : O[P] } & {}
  */

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const MapsSetsOrArrays: any
 declare const NonRecursiveType: any
-type MapsSetsOrArrays<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MapsSetsOrArrays<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnwrapRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UnwrapRequired(RequiredObjectType) {
@@ -23,7 +23,10 @@ export function UnwrapRequired(RequiredObjectType) {
   return _UnwrapRequired(RequiredObjectType)
 }
 /* compiles to:
- * export type UnwrapRequired<RequiredObjectType> = RequiredObjectType extends NonRecursiveType | MapsSetsOrArrays ? RequiredObjectType : _UnwrapRequired<RequiredObjectType>
+ * export type UnwrapRequired<RequiredObjectType> =
+ *   RequiredObjectType extends NonRecursiveType | MapsSetsOrArrays
+ *     ? RequiredObjectType
+ *     : _UnwrapRequired<RequiredObjectType>
  */
 
 // ✓ _UnwrapRequired: verified type-identical to the original
@@ -36,5 +39,6 @@ export function _UnwrapRequired(RequiredObjectType) {
   return RequiredObjectType
 }
 /* compiles to:
- * export type _UnwrapRequired<RequiredObjectType> = RequiredObjectType extends Required<infer ObjectType> ? ObjectType : RequiredObjectType
+ * export type _UnwrapRequired<RequiredObjectType> =
+ *   RequiredObjectType extends Required<infer ObjectType> ? ObjectType : RequiredObjectType
  */

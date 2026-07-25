@@ -10,8 +10,13 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Types {
+  export type ExtractTag<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ReasonTags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Types: any
-type Types<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TagsWithReason: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TagsWithReason(E) {
@@ -22,5 +27,6 @@ export function TagsWithReason(E) {
   return out[Types.Tags(E)]
 }
 /* compiles to:
- * export type TagsWithReason<E> = { [T in Types.Tags<E>]: Types.ReasonTags<Types.ExtractTag<E, T>> extends never ? never : T }[Types.Tags<E>]
+ * export type TagsWithReason<E> =
+ *   { [T in Types.Tags<E>]: Types.ReasonTags<Types.ExtractTag<E, T>> extends never ? never : T }[Types.Tags<E>]
  */

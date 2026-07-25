@@ -16,12 +16,12 @@ declare const inferAstRoot: any
 declare const validateAst: any
 declare const writeConstrainedMorphMessage: any
 declare const writeIndivisibleMessage: any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferredMorph<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferAstRoot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type validateAst<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeConstrainedMorphMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type writeIndivisibleMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferredMorph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferAstRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type validateAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeConstrainedMorphMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeIndivisibleMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validateDivisor: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function validateDivisor(l, $, args) {
@@ -38,5 +38,10 @@ export function validateDivisor(l, $, args) {
   return never
 }
 /* compiles to:
- * export type validateDivisor<l, $, args> = inferAstRoot<l, $, args> extends infer data ? [data] extends [number] ? validateAst<l, $, args> : [data] extends [InferredMorph] ? ErrorMessage<writeConstrainedMorphMessage<l>> : ErrorMessage<writeIndivisibleMessage<data>> : never
+ * export type validateDivisor<l, $, args> =
+ *   inferAstRoot<l, $, args> extends infer data
+ *     ? [data] extends [number] ? validateAst<l, $, args>
+ *     : [data] extends [InferredMorph] ? ErrorMessage<writeConstrainedMorphMessage<l>>
+ *     : ErrorMessage<writeIndivisibleMessage<data>>
+ *     : never
  */

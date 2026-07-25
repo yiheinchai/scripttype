@@ -14,17 +14,20 @@ declare const ApplyDefaultOptions: any
 declare const CamelCase: any
 declare const CamelCaseOptions: any
 declare const _DefaultCamelCaseOptions: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CamelCase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CamelCaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _DefaultCamelCaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CamelCase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _DefaultCamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PascalCase: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PascalCase(Value, Options: CamelCaseOptions = {}) {
   return _PascalCase(Value, ApplyDefaultOptions(CamelCaseOptions, _DefaultCamelCaseOptions, Options))
 }
 /* compiles to:
- * export type PascalCase<Value, Options extends CamelCaseOptions = {}> = _PascalCase<Value, ApplyDefaultOptions<CamelCaseOptions, _DefaultCamelCaseOptions, Options>>
+ * export type PascalCase<Value, Options extends CamelCaseOptions = {}> = _PascalCase<
+ *   Value,
+ *   ApplyDefaultOptions<CamelCaseOptions, _DefaultCamelCaseOptions, Options>
+ * >
  */
 
 // ✓ _PascalCase: verified type-identical to the original
@@ -36,5 +39,8 @@ export function _PascalCase(Value, Options: Required<CamelCaseOptions>) {
   return CamelCase(Value, Options)
 }
 /* compiles to:
- * export type _PascalCase<Value, Options extends Required<CamelCaseOptions>> = CamelCase<Value, Options> extends string ? Capitalize<CamelCase<Value, Options>> : CamelCase<Value, Options>
+ * export type _PascalCase<Value, Options extends Required<CamelCaseOptions>> =
+ *   CamelCase<Value, Options> extends string
+ *     ? Capitalize<CamelCase<Value, Options>>
+ *     : CamelCase<Value, Options>
  */

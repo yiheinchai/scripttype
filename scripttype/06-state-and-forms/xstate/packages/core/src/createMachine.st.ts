@@ -11,11 +11,11 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TestValue: any
-type TestValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TestValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _GroupTestValues: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _GroupTestValues(TTestValue: string | TestValue) {
-  if (matches<string>(TTestValue)) {
+  if (typeof TTestValue === 'string') {
     if (matches<`${string}.${string}`>(TTestValue)) {
       return [never, never]
     }
@@ -24,5 +24,8 @@ export function _GroupTestValues(TTestValue: string | TestValue) {
   return [never, TTestValue]
 }
 /* compiles to:
- * export type _GroupTestValues<TTestValue extends string | TestValue> = TTestValue extends string ? TTestValue extends `${string}.${string}` ? [never, never] : [TTestValue, never] : [never, TTestValue]
+ * export type _GroupTestValues<TTestValue extends string | TestValue> =
+ *   TTestValue extends string
+ *     ? TTestValue extends `${string}.${string}` ? [never, never] : [TTestValue, never]
+ *     : [never, TTestValue]
  */

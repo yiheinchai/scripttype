@@ -24,23 +24,23 @@ declare const UnknownArray: any
 declare const UnknownArrayOrTuple: any
 declare const UnknownRecord: any
 declare const _ArrayTail: any
-type EnforceOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FirstArrayElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsBothExtends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MergeDeepArrayOrTupleRecursive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MergeDeepInternalOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MergeDeepOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MergeDeepRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonEmptyTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PickIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SimplifyDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SimplifyDeepExcludeArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArrayOrTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _ArrayTail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EnforceOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FirstArrayElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsBothExtends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MergeDeepArrayOrTupleRecursive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MergeDeepInternalOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MergeDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MergeDeepRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonEmptyTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OmitIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PickIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SimplifyDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SimplifyDeepExcludeArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArrayOrTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _ArrayTail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Writable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Writable(TArray: UnknownArray) {
@@ -51,7 +51,9 @@ export function Writable(TArray: UnknownArray) {
   return out
 }
 /* compiles to:
- * export type Writable<TArray extends UnknownArray> = { -readonly [Key in keyof TArray]: TArray[Key] }
+ * export type Writable<TArray extends UnknownArray> = {
+ *   -readonly [Key in keyof TArray]: TArray[Key]
+ * }
  */
 
 // ✓ ArrayTail: verified type-identical to the original
@@ -66,7 +68,10 @@ export function ArrayTail(TArray: UnknownArray) {
   return never
 }
 /* compiles to:
- * export type ArrayTail<TArray extends UnknownArray> = TArray extends unknown ? keyof TArray & `${number}` extends never ? [] : Writable<_ArrayTail<TArray>> : never
+ * export type ArrayTail<TArray extends UnknownArray> =
+ *   TArray extends unknown
+ *     ? keyof TArray & `${number}` extends never ? [] : Writable<_ArrayTail<TArray>>
+ *     : never
  */
 
 // ✓ SimplifyDeepExcludeArray: verified type-identical to the original
@@ -87,7 +92,20 @@ export function MergeDeepRecordProperty(Destination, Source, Options: MergeDeepI
   return MergeDeepOrReturn(Source, Destination, Source, Options)
 }
 /* compiles to:
- * export type MergeDeepRecordProperty<Destination, Source, Options extends MergeDeepInternalOptions> = undefined extends Source ? MergeDeepOrReturn<Source, Exclude<Destination, undefined>, Exclude<Source, undefined>, Options> | (undefined extends Destination ? undefined : never) : MergeDeepOrReturn<Source, Destination, Source, Options>
+ * export type MergeDeepRecordProperty<
+ *   Destination,
+ *   Source,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   undefined extends Source
+ *     ? | MergeDeepOrReturn<
+ *         Source,
+ *         Exclude<Destination, undefined>,
+ *         Exclude<Source, undefined>,
+ *         Options
+ *       >
+ *     | (undefined extends Destination ? undefined : never)
+ *     : MergeDeepOrReturn<Source, Destination, Source, Options>
  */
 
 // ✓ DoMergeDeepRecord: verified type-identical to the original
@@ -95,20 +113,33 @@ export function MergeDeepRecordProperty(Destination, Source, Options: MergeDeepI
 export function DoMergeDeepRecord(Destination: UnknownRecord, Source: UnknownRecord, Options: MergeDeepInternalOptions) {
   const out = emptyObject
   for (const Key in keyof(Destination)) {
-    out[matches<keyof typeof Source>(Key) ? never : Key] = Destination[Key]
+    out[Key in Source ? never : Key] = Destination[Key]
   }
   const out2 = emptyObject
   for (const Key in keyof(Source)) {
-    out2[matches<keyof typeof Destination>(Key) ? never : Key] = Source[Key]
+    out2[Key in Destination ? never : Key] = Source[Key]
   }
   const out3 = emptyObject
   for (const Key in keyof(Source)) {
-    out3[matches<keyof typeof Destination>(Key) ? Key : never] = MergeDeepRecordProperty(Required(Destination)[Key], Required(Source)[Key], Options)
+    out3[Key in Destination ? Key : never] = MergeDeepRecordProperty(Required(Destination)[Key], Required(Source)[Key], Options)
   }
   return out & out2 & out3
 }
 /* compiles to:
- * export type DoMergeDeepRecord<Destination extends UnknownRecord, Source extends UnknownRecord, Options extends MergeDeepInternalOptions> = { [Key in keyof Destination as Key extends keyof Source ? never : Key]: Destination[Key] } & { [Key1 in keyof Source as Key1 extends keyof Destination ? never : Key1]: Source[Key1] } & { [Key2 in keyof Source as Key2 extends keyof Destination ? Key2 : never]: MergeDeepRecordProperty<Required<Destination>[Key2], Required<Source>[Key2], Options> }
+ * export type DoMergeDeepRecord<
+ *   Destination extends UnknownRecord,
+ *   Source extends UnknownRecord,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   & { [Key in keyof Destination as Key extends keyof Source ? never : Key]: Destination[Key] }
+ *   & { [Key1 in keyof Source as Key1 extends keyof Destination ? never : Key1]: Source[Key1] }
+ *   & {
+ *       [Key2 in keyof Source as Key2 extends keyof Destination ? Key2 : never]: MergeDeepRecordProperty<
+ *         Required<Destination>[Key2],
+ *         Required<Source>[Key2],
+ *         Options
+ *       >
+ *     }
  */
 
 // ✓ MergeDeepRecord: verified type-identical to the original
@@ -117,7 +148,13 @@ export function MergeDeepRecord(Destination: UnknownRecord, Source: UnknownRecor
   return DoMergeDeepRecord(OmitIndexSignature(Destination), OmitIndexSignature(Source), Options) & Merge(PickIndexSignature(Destination), PickIndexSignature(Source))
 }
 /* compiles to:
- * export type MergeDeepRecord<Destination extends UnknownRecord, Source extends UnknownRecord, Options extends MergeDeepInternalOptions> = DoMergeDeepRecord<OmitIndexSignature<Destination>, OmitIndexSignature<Source>, Options> & Merge<PickIndexSignature<Destination>, PickIndexSignature<Source>>
+ * export type MergeDeepRecord<
+ *   Destination extends UnknownRecord,
+ *   Source extends UnknownRecord,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   & DoMergeDeepRecord<OmitIndexSignature<Destination>, OmitIndexSignature<Source>, Options>
+ *   & Merge<PickIndexSignature<Destination>, PickIndexSignature<Source>>
  */
 
 // ✓ PickRestTypeHelper: verified type-identical to the original
@@ -129,7 +166,8 @@ export function PickRestTypeHelper(Tail: UnknownArrayOrTuple, Type) {
   return PickRestType(Tail)
 }
 /* compiles to:
- * export type PickRestTypeHelper<Tail extends UnknownArrayOrTuple, Type> = Tail extends [] ? Type : PickRestType<Tail>
+ * export type PickRestTypeHelper<Tail extends UnknownArrayOrTuple, Type> =
+ *   Tail extends [] ? Type : PickRestType<Tail>
  */
 
 // ✓ PickRestType: verified type-identical to the original
@@ -141,7 +179,8 @@ export function PickRestType(Type: UnknownArrayOrTuple) {
   return []
 }
 /* compiles to:
- * export type PickRestType<Type extends UnknownArrayOrTuple> = number extends Type['length'] ? PickRestTypeHelper<ArrayTail<Type>, Type> : []
+ * export type PickRestType<Type extends UnknownArrayOrTuple> =
+ *   number extends Type['length'] ? PickRestTypeHelper<ArrayTail<Type>, Type> : []
  */
 
 // ✓ OmitRestTypeHelper: verified type-identical to the original
@@ -153,7 +192,12 @@ export function OmitRestTypeHelper(Tail: UnknownArrayOrTuple, Type: UnknownArray
   return OmitRestType(Tail, [...Result, FirstArrayElement(Type)])
 }
 /* compiles to:
- * export type OmitRestTypeHelper<Tail extends UnknownArrayOrTuple, Type extends UnknownArrayOrTuple, Result extends UnknownArrayOrTuple = []> = Tail extends [] ? Result : OmitRestType<Tail, [...Result, FirstArrayElement<Type>]>
+ * export type OmitRestTypeHelper<
+ *   Tail extends UnknownArrayOrTuple,
+ *   Type extends UnknownArrayOrTuple,
+ *   Result extends UnknownArrayOrTuple = []
+ * > =
+ *   Tail extends [] ? Result : OmitRestType<Tail, [...Result, FirstArrayElement<Type>]>
  */
 
 // ✓ OmitRestType: verified type-identical to the original
@@ -165,7 +209,11 @@ export function OmitRestType(Type: UnknownArrayOrTuple, Result: UnknownArrayOrTu
   return Type
 }
 /* compiles to:
- * export type OmitRestType<Type extends UnknownArrayOrTuple, Result extends UnknownArrayOrTuple = []> = number extends Type['length'] ? OmitRestTypeHelper<ArrayTail<Type>, Type, Result> : Type
+ * export type OmitRestType<
+ *   Type extends UnknownArrayOrTuple,
+ *   Result extends UnknownArrayOrTuple = []
+ * > =
+ *   number extends Type['length'] ? OmitRestTypeHelper<ArrayTail<Type>, Type, Result> : Type
  */
 
 // ✓ TypeNumberOrType: verified type-identical to the original
@@ -177,7 +225,8 @@ export function TypeNumberOrType(Type: UnknownArrayOrTuple) {
   return Type[number]
 }
 /* compiles to:
- * export type TypeNumberOrType<Type extends UnknownArrayOrTuple> = Type[number] extends never ? Type : Type[number]
+ * export type TypeNumberOrType<Type extends UnknownArrayOrTuple> =
+ *   Type[number] extends never ? Type : Type[number]
  */
 
 // ✓ PickRestTypeFlat: verified type-identical to the original
@@ -186,7 +235,9 @@ export function PickRestTypeFlat(Type: UnknownArrayOrTuple) {
   return TypeNumberOrType(PickRestType(Type))
 }
 /* compiles to:
- * export type PickRestTypeFlat<Type extends UnknownArrayOrTuple> = TypeNumberOrType<PickRestType<Type>>
+ * export type PickRestTypeFlat<Type extends UnknownArrayOrTuple> = TypeNumberOrType<
+ *   PickRestType<Type>
+ * >
  */
 
 // ✓ MergeDeepArrayOrTupleElements: verified type-identical to the original
@@ -201,7 +252,14 @@ export function MergeDeepArrayOrTupleElements(Destination, Source, Options: Merg
   return MergeDeepOrReturn(Source, Destination, Source, Options)
 }
 /* compiles to:
- * export type MergeDeepArrayOrTupleElements<Destination, Source, Options extends MergeDeepInternalOptions> = Source extends [] ? Destination : Destination extends [] ? Source : MergeDeepOrReturn<Source, Destination, Source, Options>
+ * export type MergeDeepArrayOrTupleElements<
+ *   Destination,
+ *   Source,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   Source extends [] ? Destination
+ *   : Destination extends [] ? Source
+ *   : MergeDeepOrReturn<Source, Destination, Source, Options>
  */
 
 // ✓ DoMergeDeepTupleAndTupleRecursive: verified type-identical to the original
@@ -219,7 +277,30 @@ export function DoMergeDeepTupleAndTupleRecursive(Destination: UnknownArrayOrTup
   return [MergeDeepArrayOrTupleElements(FirstArrayElement(Destination), FirstArrayElement(Source), Options), ...DoMergeDeepTupleAndTupleRecursive(ArrayTail(Destination), ArrayTail(Source), DestinationRestType, SourceRestType, Options)]
 }
 /* compiles to:
- * export type DoMergeDeepTupleAndTupleRecursive<Destination extends UnknownArrayOrTuple, Source extends UnknownArrayOrTuple, DestinationRestType, SourceRestType, Options extends MergeDeepInternalOptions> = Destination extends [] ? Source extends [] ? [] : MergeArrayTypeAndTuple<DestinationRestType, Source, Options> : Source extends [] ? MergeTupleAndArrayType<Destination, SourceRestType, Options> : [MergeDeepArrayOrTupleElements<FirstArrayElement<Destination>, FirstArrayElement<Source>, Options>, ...DoMergeDeepTupleAndTupleRecursive<ArrayTail<Destination>, ArrayTail<Source>, DestinationRestType, SourceRestType, Options>]
+ * export type DoMergeDeepTupleAndTupleRecursive<
+ *   Destination extends UnknownArrayOrTuple,
+ *   Source extends UnknownArrayOrTuple,
+ *   DestinationRestType,
+ *   SourceRestType,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   Destination extends []
+ *     ? Source extends [] ? [] : MergeArrayTypeAndTuple<DestinationRestType, Source, Options>
+ *   : Source extends [] ? MergeTupleAndArrayType<Destination, SourceRestType, Options>
+ *   : [
+ *     MergeDeepArrayOrTupleElements<
+ *       FirstArrayElement<Destination>,
+ *       FirstArrayElement<Source>,
+ *       Options
+ *     >,
+ *     ...DoMergeDeepTupleAndTupleRecursive<
+ *       ArrayTail<Destination>,
+ *       ArrayTail<Source>,
+ *       DestinationRestType,
+ *       SourceRestType,
+ *       Options
+ *     >
+ *   ]
  */
 
 // ✓ MergeDeepTupleAndTupleRecursive: verified type-identical to the original
@@ -228,7 +309,21 @@ export function MergeDeepTupleAndTupleRecursive(Destination: UnknownArrayOrTuple
   return [...DoMergeDeepTupleAndTupleRecursive(OmitRestType(Destination), OmitRestType(Source), PickRestTypeFlat(Destination), PickRestTypeFlat(Source), Options), ...MergeDeepArrayOrTupleElements(PickRestType(Destination), PickRestType(Source), Options)]
 }
 /* compiles to:
- * export type MergeDeepTupleAndTupleRecursive<Destination extends UnknownArrayOrTuple, Source extends UnknownArrayOrTuple, Options extends MergeDeepInternalOptions> = [...DoMergeDeepTupleAndTupleRecursive<OmitRestType<Destination>, OmitRestType<Source>, PickRestTypeFlat<Destination>, PickRestTypeFlat<Source>, Options>, ...MergeDeepArrayOrTupleElements<PickRestType<Destination>, PickRestType<Source>, Options>]
+ * export type MergeDeepTupleAndTupleRecursive<
+ *   Destination extends UnknownArrayOrTuple,
+ *   Source extends UnknownArrayOrTuple,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   [
+ *     ...DoMergeDeepTupleAndTupleRecursive<
+ *       OmitRestType<Destination>,
+ *       OmitRestType<Source>,
+ *       PickRestTypeFlat<Destination>,
+ *       PickRestTypeFlat<Source>,
+ *       Options
+ *     >,
+ *     ...MergeDeepArrayOrTupleElements<PickRestType<Destination>, PickRestType<Source>, Options>
+ *   ]
  */
 
 // ✓ MergeTupleAndArrayType: verified type-identical to the original
@@ -240,7 +335,17 @@ export function MergeTupleAndArrayType(Tuple: UnknownArrayOrTuple, ArrayType, Op
   return [MergeDeepArrayOrTupleElements(FirstArrayElement(Tuple), ArrayType, Options), ...MergeTupleAndArrayType(ArrayTail(Tuple), ArrayType, Options)]
 }
 /* compiles to:
- * export type MergeTupleAndArrayType<Tuple extends UnknownArrayOrTuple, ArrayType, Options extends MergeDeepInternalOptions> = Tuple extends [] ? Tuple : [MergeDeepArrayOrTupleElements<FirstArrayElement<Tuple>, ArrayType, Options>, ...MergeTupleAndArrayType<ArrayTail<Tuple>, ArrayType, Options>]
+ * export type MergeTupleAndArrayType<
+ *   Tuple extends UnknownArrayOrTuple,
+ *   ArrayType,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   Tuple extends []
+ *     ? Tuple
+ *     : [
+ *       MergeDeepArrayOrTupleElements<FirstArrayElement<Tuple>, ArrayType, Options>,
+ *       ...MergeTupleAndArrayType<ArrayTail<Tuple>, ArrayType, Options>
+ *     ]
  */
 
 // ✓ MergeDeepTupleAndArrayRecursive: verified type-identical to the original
@@ -249,7 +354,15 @@ export function MergeDeepTupleAndArrayRecursive(Destination: UnknownArrayOrTuple
   return [...MergeTupleAndArrayType(OmitRestType(Destination), Source[number], Options), ...MergeDeepArrayOrTupleElements(PickRestType(Destination), PickRestType(Source), Options)]
 }
 /* compiles to:
- * export type MergeDeepTupleAndArrayRecursive<Destination extends UnknownArrayOrTuple, Source extends UnknownArrayOrTuple, Options extends MergeDeepInternalOptions> = [...MergeTupleAndArrayType<OmitRestType<Destination>, Source[number], Options>, ...MergeDeepArrayOrTupleElements<PickRestType<Destination>, PickRestType<Source>, Options>]
+ * export type MergeDeepTupleAndArrayRecursive<
+ *   Destination extends UnknownArrayOrTuple,
+ *   Source extends UnknownArrayOrTuple,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   [
+ *     ...MergeTupleAndArrayType<OmitRestType<Destination>, Source[number], Options>,
+ *     ...MergeDeepArrayOrTupleElements<PickRestType<Destination>, PickRestType<Source>, Options>
+ *   ]
  */
 
 // ✓ MergeArrayTypeAndTuple: verified type-identical to the original
@@ -261,7 +374,17 @@ export function MergeArrayTypeAndTuple(ArrayType, Tuple: UnknownArrayOrTuple, Op
   return [MergeDeepArrayOrTupleElements(ArrayType, FirstArrayElement(Tuple), Options), ...MergeArrayTypeAndTuple(ArrayType, ArrayTail(Tuple), Options)]
 }
 /* compiles to:
- * export type MergeArrayTypeAndTuple<ArrayType, Tuple extends UnknownArrayOrTuple, Options extends MergeDeepInternalOptions> = Tuple extends [] ? Tuple : [MergeDeepArrayOrTupleElements<ArrayType, FirstArrayElement<Tuple>, Options>, ...MergeArrayTypeAndTuple<ArrayType, ArrayTail<Tuple>, Options>]
+ * export type MergeArrayTypeAndTuple<
+ *   ArrayType,
+ *   Tuple extends UnknownArrayOrTuple,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   Tuple extends []
+ *     ? Tuple
+ *     : [
+ *       MergeDeepArrayOrTupleElements<ArrayType, FirstArrayElement<Tuple>, Options>,
+ *       ...MergeArrayTypeAndTuple<ArrayType, ArrayTail<Tuple>, Options>
+ *     ]
  */
 
 // ✓ MergeDeepArrayAndTupleRecursive: verified type-identical to the original
@@ -270,7 +393,15 @@ export function MergeDeepArrayAndTupleRecursive(Destination: UnknownArrayOrTuple
   return [...MergeArrayTypeAndTuple(Destination[number], OmitRestType(Source), Options), ...MergeDeepArrayOrTupleElements(PickRestType(Destination), PickRestType(Source), Options)]
 }
 /* compiles to:
- * export type MergeDeepArrayAndTupleRecursive<Destination extends UnknownArrayOrTuple, Source extends UnknownArrayOrTuple, Options extends MergeDeepInternalOptions> = [...MergeArrayTypeAndTuple<Destination[number], OmitRestType<Source>, Options>, ...MergeDeepArrayOrTupleElements<PickRestType<Destination>, PickRestType<Source>, Options>]
+ * export type MergeDeepArrayAndTupleRecursive<
+ *   Destination extends UnknownArrayOrTuple,
+ *   Source extends UnknownArrayOrTuple,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   [
+ *     ...MergeArrayTypeAndTuple<Destination[number], OmitRestType<Source>, Options>,
+ *     ...MergeDeepArrayOrTupleElements<PickRestType<Destination>, PickRestType<Source>, Options>
+ *   ]
  */
 
 // ✓ ShouldSpread: verified type-identical to the original
@@ -285,7 +416,10 @@ export function ShouldSpread(Options: MergeDeepInternalOptions) {
   return true
 }
 /* compiles to:
- * export type ShouldSpread<Options extends MergeDeepInternalOptions> = Options['spreadTopLevelArrays'] extends false ? Options['arrayMergeMode'] extends 'spread' ? true : false : true
+ * export type ShouldSpread<Options extends MergeDeepInternalOptions> =
+ *   Options['spreadTopLevelArrays'] extends false
+ *     ? Options['arrayMergeMode'] extends 'spread' ? true : false
+ *     : true
  */
 
 // ✓ DoMergeArrayOrTuple: verified type-identical to the original
@@ -297,7 +431,14 @@ export function DoMergeArrayOrTuple(Destination: UnknownArrayOrTuple, Source: Un
   return Source
 }
 /* compiles to:
- * export type DoMergeArrayOrTuple<Destination extends UnknownArrayOrTuple, Source extends UnknownArrayOrTuple, Options extends MergeDeepInternalOptions> = ShouldSpread<Options> extends true ? Array<Exclude<Destination, undefined>[number] | Exclude<Source, undefined>[number]> : Source
+ * export type DoMergeArrayOrTuple<
+ *   Destination extends UnknownArrayOrTuple,
+ *   Source extends UnknownArrayOrTuple,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   ShouldSpread<Options> extends true
+ *     ? Array<Exclude<Destination, undefined>[number] | Exclude<Source, undefined>[number]>
+ *     : Source
  */
 
 // ✓ MergeDeepArrayRecursive: verified type-identical to the original
@@ -318,7 +459,22 @@ export function MergeDeepArrayRecursive(Destination: UnknownArrayOrTuple, Source
   return DoMergeArrayOrTuple(Destination, Source, Options)
 }
 /* compiles to:
- * export type MergeDeepArrayRecursive<Destination extends UnknownArrayOrTuple, Source extends UnknownArrayOrTuple, Options extends MergeDeepInternalOptions> = Destination[number] extends UnknownArrayOrTuple ? Source[number] extends UnknownArrayOrTuple ? Array<MergeDeepArrayOrTupleRecursive<Destination[number], Source[number], Options>> : DoMergeArrayOrTuple<Destination, Source, Options> : Destination[number] extends UnknownRecord ? Source[number] extends UnknownRecord ? Array<SimplifyDeepExcludeArray<MergeDeepRecord<Destination[number], Source[number], Options>>> : DoMergeArrayOrTuple<Destination, Source, Options> : DoMergeArrayOrTuple<Destination, Source, Options>
+ * export type MergeDeepArrayRecursive<
+ *   Destination extends UnknownArrayOrTuple,
+ *   Source extends UnknownArrayOrTuple,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   Destination[number] extends UnknownArrayOrTuple
+ *     ? Source[number] extends UnknownArrayOrTuple
+ *       ? Array<MergeDeepArrayOrTupleRecursive<Destination[number], Source[number], Options>>
+ *       : DoMergeArrayOrTuple<Destination, Source, Options>
+ *   : Destination[number] extends UnknownRecord
+ *     ? Source[number] extends UnknownRecord
+ *       ? Array<
+ *         SimplifyDeepExcludeArray<MergeDeepRecord<Destination[number], Source[number], Options>>
+ *       >
+ *       : DoMergeArrayOrTuple<Destination, Source, Options>
+ *   : DoMergeArrayOrTuple<Destination, Source, Options>
  */
 
 // ✓ MergeDeepArrayOrTupleRecursive: verified type-identical to the original
@@ -336,7 +492,17 @@ export function MergeDeepArrayOrTupleRecursive(Destination: UnknownArrayOrTuple,
   return MergeDeepArrayRecursive(Destination, Source, Options)
 }
 /* compiles to:
- * export type MergeDeepArrayOrTupleRecursive<Destination extends UnknownArrayOrTuple, Source extends UnknownArrayOrTuple, Options extends MergeDeepInternalOptions> = IsBothExtends<NonEmptyTuple, Destination, Source> extends true ? MergeDeepTupleAndTupleRecursive<Destination, Source, Options> : Destination extends NonEmptyTuple ? MergeDeepTupleAndArrayRecursive<Destination, Source, Options> : Source extends NonEmptyTuple ? MergeDeepArrayAndTupleRecursive<Destination, Source, Options> : MergeDeepArrayRecursive<Destination, Source, Options>
+ * export type MergeDeepArrayOrTupleRecursive<
+ *   Destination extends UnknownArrayOrTuple,
+ *   Source extends UnknownArrayOrTuple,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   IsBothExtends<NonEmptyTuple, Destination, Source> extends true
+ *     ? MergeDeepTupleAndTupleRecursive<Destination, Source, Options>
+ *   : Destination extends NonEmptyTuple
+ *     ? MergeDeepTupleAndArrayRecursive<Destination, Source, Options>
+ *   : Source extends NonEmptyTuple ? MergeDeepArrayAndTupleRecursive<Destination, Source, Options>
+ *   : MergeDeepArrayRecursive<Destination, Source, Options>
  */
 
 // ✓ MergeDeepArrayOrTuple: verified type-identical to the original
@@ -348,7 +514,14 @@ export function MergeDeepArrayOrTuple(Destination: UnknownArrayOrTuple, Source: 
   return DoMergeArrayOrTuple(Destination, Source, Options)
 }
 /* compiles to:
- * export type MergeDeepArrayOrTuple<Destination extends UnknownArrayOrTuple, Source extends UnknownArrayOrTuple, Options extends MergeDeepInternalOptions> = Options['recurseIntoArrays'] extends true ? MergeDeepArrayOrTupleRecursive<Destination, Source, Options> : DoMergeArrayOrTuple<Destination, Source, Options>
+ * export type MergeDeepArrayOrTuple<
+ *   Destination extends UnknownArrayOrTuple,
+ *   Source extends UnknownArrayOrTuple,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   Options['recurseIntoArrays'] extends true
+ *     ? MergeDeepArrayOrTupleRecursive<Destination, Source, Options>
+ *     : DoMergeArrayOrTuple<Destination, Source, Options>
  */
 
 // ✓ MergeDeepOrReturn: verified type-identical to the original
@@ -357,7 +530,28 @@ export function MergeDeepOrReturn(DefaultType, Destination, Source, Options: Mer
   return SimplifyDeepExcludeArray(matches<[ typeof Destination | typeof Source ]>([Undefined]) ? DefaultType : (matches<UnknownRecord>(Destination) ? (matches<UnknownRecord>(Source) ? MergeDeepRecord(Destination, Source, Options) : DefaultType) : (matches<UnknownArrayOrTuple>(Destination) ? (matches<UnknownArrayOrTuple>(Source) ? MergeDeepArrayOrTuple(Destination, Source, EnforceOptional(Merge(Options, { spreadTopLevelArrays: false }))) : DefaultType) : DefaultType)))
 }
 /* compiles to:
- * export type MergeDeepOrReturn<DefaultType, Destination, Source, Options extends MergeDeepInternalOptions> = SimplifyDeepExcludeArray<[undefined] extends [Destination | Source] ? DefaultType : Destination extends UnknownRecord ? Source extends UnknownRecord ? MergeDeepRecord<Destination, Source, Options> : DefaultType : Destination extends UnknownArrayOrTuple ? Source extends UnknownArrayOrTuple ? MergeDeepArrayOrTuple<Destination, Source, EnforceOptional<Merge<Options, { spreadTopLevelArrays: false }>>> : DefaultType : DefaultType>
+ * export type MergeDeepOrReturn<
+ *   DefaultType,
+ *   Destination,
+ *   Source,
+ *   Options extends MergeDeepInternalOptions
+ * > =
+ *   SimplifyDeepExcludeArray<
+ *     [undefined] extends [Destination | Source] ? DefaultType
+ *     : Destination extends UnknownRecord
+ *       ? Source extends UnknownRecord
+ *         ? MergeDeepRecord<Destination, Source, Options>
+ *         : DefaultType
+ *     : Destination extends UnknownArrayOrTuple
+ *       ? Source extends UnknownArrayOrTuple
+ *         ? MergeDeepArrayOrTuple<
+ *           Destination,
+ *           Source,
+ *           EnforceOptional<Merge<Options, { spreadTopLevelArrays: false }>>
+ *         >
+ *         : DefaultType
+ *     : DefaultType
+ *   >
  */
 
 // ✓ DefaultMergeDeepOptions: verified type-identical to the original
@@ -366,7 +560,10 @@ export function DefaultMergeDeepOptions(Options: MergeDeepOptions) {
   return Merge({ arrayMergeMode: 'replace', recurseIntoArrays: false, spreadTopLevelArrays: true }, Options)
 }
 /* compiles to:
- * export type DefaultMergeDeepOptions<Options extends MergeDeepOptions> = Merge<{ arrayMergeMode: 'replace'; recurseIntoArrays: false; spreadTopLevelArrays: true }, Options>
+ * export type DefaultMergeDeepOptions<Options extends MergeDeepOptions> = Merge<
+ *   { arrayMergeMode: 'replace'; recurseIntoArrays: false; spreadTopLevelArrays: true },
+ *   Options
+ * >
  */
 
 // ✓ MergeDeepWithDefaultOptions: verified type-identical to the original
@@ -375,7 +572,23 @@ export function MergeDeepWithDefaultOptions(Destination, Source, Options: MergeD
   return SimplifyDeepExcludeArray(matches<[ typeof Destination | typeof Source ]>([Undefined]) ? never : (matches<UnknownRecord>(Destination) ? (matches<UnknownRecord>(Source) ? MergeDeepRecord(Destination, Source, DefaultMergeDeepOptions(Options)) : never) : (matches<UnknownArrayOrTuple>(Destination) ? (matches<UnknownArrayOrTuple>(Source) ? MergeDeepArrayOrTuple(Destination, Source, DefaultMergeDeepOptions(Options)) : never) : never)))
 }
 /* compiles to:
- * export type MergeDeepWithDefaultOptions<Destination, Source, Options extends MergeDeepOptions> = SimplifyDeepExcludeArray<[undefined] extends [Destination | Source] ? never : Destination extends UnknownRecord ? Source extends UnknownRecord ? MergeDeepRecord<Destination, Source, DefaultMergeDeepOptions<Options>> : never : Destination extends UnknownArrayOrTuple ? Source extends UnknownArrayOrTuple ? MergeDeepArrayOrTuple<Destination, Source, DefaultMergeDeepOptions<Options>> : never : never>
+ * export type MergeDeepWithDefaultOptions<
+ *   Destination,
+ *   Source,
+ *   Options extends MergeDeepOptions
+ * > =
+ *   SimplifyDeepExcludeArray<
+ *     [undefined] extends [Destination | Source] ? never
+ *     : Destination extends UnknownRecord
+ *       ? Source extends UnknownRecord
+ *         ? MergeDeepRecord<Destination, Source, DefaultMergeDeepOptions<Options>>
+ *         : never
+ *     : Destination extends UnknownArrayOrTuple
+ *       ? Source extends UnknownArrayOrTuple
+ *         ? MergeDeepArrayOrTuple<Destination, Source, DefaultMergeDeepOptions<Options>>
+ *         : never
+ *     : never
+ *   >
  */
 
 // ✓ MergeDeep: verified type-identical to the original
@@ -384,5 +597,9 @@ export function MergeDeep(Destination, Source, Options: MergeDeepOptions = {}) {
   return MergeDeepWithDefaultOptions(SimplifyDeepExcludeArray(Destination), SimplifyDeepExcludeArray(Source), Options)
 }
 /* compiles to:
- * export type MergeDeep<Destination, Source, Options extends MergeDeepOptions = {}> = MergeDeepWithDefaultOptions<SimplifyDeepExcludeArray<Destination>, SimplifyDeepExcludeArray<Source>, Options>
+ * export type MergeDeep<Destination, Source, Options extends MergeDeepOptions = {}> = MergeDeepWithDefaultOptions<
+ *   SimplifyDeepExcludeArray<Destination>,
+ *   SimplifyDeepExcludeArray<Source>,
+ *   Options
+ * >
  */

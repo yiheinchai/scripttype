@@ -17,27 +17,32 @@ declare const IsStringLiteral: any
 declare const Not: any
 declare const Or: any
 declare const SplitOptions: any
-type And<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultSplitOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsStringLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Not<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Or<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SplitOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultSplitOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsStringLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SplitOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Split: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Split(S: string, Delimiter: string, Options: SplitOptions = {}) {
   return SplitHelper(S, Delimiter, ApplyDefaultOptions(SplitOptions, DefaultSplitOptions, Options))
 }
 /* compiles to:
- * export type Split<S extends string, Delimiter extends string, Options extends SplitOptions = {}> = SplitHelper<S, Delimiter, ApplyDefaultOptions<SplitOptions, DefaultSplitOptions, Options>>
+ * export type Split<
+ *   S extends string,
+ *   Delimiter extends string,
+ *   Options extends SplitOptions = {}
+ * > =
+ *   SplitHelper<S, Delimiter, ApplyDefaultOptions<SplitOptions, DefaultSplitOptions, Options>>
  */
 
 // ✓ SplitHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SplitHelper(S: string, Delimiter: string, Options: Required<SplitOptions>, Accumulator: string[] = []) {
-  if (matches<string>(S)) {
-    if (matches<string>(Delimiter)) {
+  if (typeof S === 'string') {
+    if (typeof Delimiter === 'string') {
       if (matches<true>(Or(Not(Options['strictLiteralChecks']), And(IsStringLiteral(S), IsStringLiteral(Delimiter))))) {
         const m1 = matches<`${Hole<"Head">}${typeof Delimiter}${Hole<"Tail">}`>(S)
         if (m1) {
@@ -58,5 +63,20 @@ export function SplitHelper(S: string, Delimiter: string, Options: Required<Spli
   return never
 }
 /* compiles to:
- * export type SplitHelper<S extends string, Delimiter extends string, Options extends Required<SplitOptions>, Accumulator extends string[] = []> = S extends string ? Delimiter extends string ? Or<Not<Options['strictLiteralChecks']>, And<IsStringLiteral<S>, IsStringLiteral<Delimiter>>> extends true ? S extends `${infer Head}${Delimiter}${infer Tail}` ? SplitHelper<Tail, Delimiter, Options, [...Accumulator, Head]> : Delimiter extends '' ? S extends '' ? Accumulator : [...Accumulator, S] : [...Accumulator, S] : string[] : never : never
+ * export type SplitHelper<
+ *   S extends string,
+ *   Delimiter extends string,
+ *   Options extends Required<SplitOptions>,
+ *   Accumulator extends string[] = []
+ * > =
+ *   S extends string
+ *     ? Delimiter extends string
+ *       ? Or<Not<Options['strictLiteralChecks']>, And<IsStringLiteral<S>, IsStringLiteral<Delimiter>>> extends true
+ *         ? S extends `${infer Head}${Delimiter}${infer Tail}`
+ *           ? SplitHelper<Tail, Delimiter, Options, [...Accumulator, Head]>
+ *         : Delimiter extends '' ? S extends '' ? Accumulator : [...Accumulator, S]
+ *         : [...Accumulator, S]
+ *         : string[]
+ *       : never
+ *     : never
  */

@@ -12,9 +12,9 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Effect: any
 declare const Failure: any
-type Effect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Failure<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OfferEntry<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Failure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OfferEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ State: does not compile yet
 //   'E' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -22,7 +22,21 @@ export function State(A, E) {
   return anyOf({ _tag: readonlyProp('Open'), takers: readonlyProp(t<Set<(_: Effect<void, typeof E>) => void>>()), offers: readonlyProp(t<Set<OfferEntry<typeof A>>>()), awaiters: readonlyProp(t<Set<(_: Effect<void, typeof E>) => void>>()) }, { _tag: readonlyProp('Closing'), takers: readonlyProp(t<Set<(_: Effect<void, typeof E>) => void>>()), offers: readonlyProp(t<Set<OfferEntry<typeof A>>>()), awaiters: readonlyProp(t<Set<(_: Effect<void, typeof E>) => void>>()), exit: readonlyProp(Failure(never, E)) }, { _tag: readonlyProp('Done'), exit: readonlyProp(Failure(never, E)) })
 }
 /* compiles to:
- * export type State<A, E> = { readonly _tag: 'Open'; readonly takers: Set<(_: Effect<void, typeof E>) => void>; readonly offers: Set<OfferEntry<A>>; readonly awaiters: Set<(_: Effect<void, typeof E>) => void> } | { readonly _tag: 'Closing'; readonly takers: Set<(_: Effect<void, typeof E>) => void>; readonly offers: Set<OfferEntry<A>>; readonly awaiters: Set<(_: Effect<void, typeof E>) => void>; readonly exit: Failure<never, E> } | { readonly _tag: 'Done'; readonly exit: Failure<never, E> }
+ * export type State<A, E> =
+ *   | {
+ *       readonly _tag: 'Open'
+ *       readonly takers: Set<(_: Effect<void, typeof E>) => void>
+ *       readonly offers: Set<OfferEntry<A>>
+ *       readonly awaiters: Set<(_: Effect<void, typeof E>) => void>
+ *     }
+ *   | {
+ *       readonly _tag: 'Closing'
+ *       readonly takers: Set<(_: Effect<void, typeof E>) => void>
+ *       readonly offers: Set<OfferEntry<A>>
+ *       readonly awaiters: Set<(_: Effect<void, typeof E>) => void>
+ *       readonly exit: Failure<never, E>
+ *     }
+ *   | { readonly _tag: 'Done'; readonly exit: Failure<never, E> }
  */
 
 // ✗ OfferEntry: compiles but is not type-identical yet
@@ -32,5 +46,16 @@ export function OfferEntry(A) {
   return anyOf({ _tag: readonlyProp('Array'), remaining: readonlyProp(t<Array<typeof A>>()), offset: number, resume: readonlyProp(fnType([Effect(t<Array<typeof A>>())], voidType())) }, { _tag: readonlyProp('Single'), message: readonlyProp(A), resume: readonlyProp(fnType([Effect(boolean)], voidType())) })
 }
 /* compiles to:
- * export type OfferEntry<A> = { readonly _tag: 'Array'; readonly remaining: Array<A>; offset: number; readonly resume: (a0: Effect<Array<A>>) => void } | { readonly _tag: 'Single'; readonly message: A; readonly resume: (a0: Effect<boolean>) => void }
+ * export type OfferEntry<A> =
+ *   | {
+ *       readonly _tag: 'Array'
+ *       readonly remaining: Array<A>
+ *       offset: number
+ *       readonly resume: (a0: Effect<Array<A>>) => void
+ *     }
+ *   | {
+ *       readonly _tag: 'Single'
+ *       readonly message: A
+ *       readonly resume: (a0: Effect<boolean>) => void
+ *     }
  */

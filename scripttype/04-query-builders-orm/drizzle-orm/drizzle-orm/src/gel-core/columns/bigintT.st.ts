@@ -11,12 +11,21 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const GelBigInt64Builder: any
-type GelBigInt64Builder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type GelBigInt64Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GelBigInt64BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GelBigInt64BuilderInitial(TName: string) {
   return GelBigInt64Builder({ name: TName, dataType: 'bigint', columnType: 'GelBigInt64', data: bigint, driverParam: bigint, enumValues: Undefined })
 }
 /* compiles to:
- * export type GelBigInt64BuilderInitial<TName extends string> = GelBigInt64Builder<{ name: TName; dataType: 'bigint'; columnType: 'GelBigInt64'; data: bigint; driverParam: bigint; enumValues: undefined }>
+ * export type GelBigInt64BuilderInitial<TName extends string> = GelBigInt64Builder<
+ *   {
+ *     name: TName
+ *     dataType: 'bigint'
+ *     columnType: 'GelBigInt64'
+ *     data: bigint
+ *     driverParam: bigint
+ *     enumValues: undefined
+ *   }
+ * >
  */

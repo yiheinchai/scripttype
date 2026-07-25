@@ -13,14 +13,23 @@
 declare const StaticDirection: any
 declare const StaticType: any
 declare const TProperties: any
-type StaticDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticCyclic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticCyclic(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Defs: TProperties, Ref: string, Result: unknown = matches<keyof typeof Defs>(Ref) ? StaticType([...Stack, Ref], Direction, Defs, This, Defs[Ref]) : never) {
+export function StaticCyclic(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Defs: TProperties, Ref: string, Result: unknown = Ref in Defs ? StaticType([...Stack, Ref], Direction, Defs, This, Defs[Ref]) : never) {
   return Result
 }
 /* compiles to:
- * export type StaticCyclic<Stack extends string[], Direction extends StaticDirection, Context extends TProperties, This extends TProperties, Defs extends TProperties, Ref extends string, Result = Ref extends keyof Defs ? StaticType<[...Stack, Ref], Direction, Defs, This, Defs[Ref]> : never> = Result
+ * export type StaticCyclic<
+ *   Stack extends string[],
+ *   Direction extends StaticDirection,
+ *   Context extends TProperties,
+ *   This extends TProperties,
+ *   Defs extends TProperties,
+ *   Ref extends string,
+ *   Result = Ref extends keyof Defs ? StaticType<[...Stack, Ref], Direction, Defs, This, Defs[Ref]> : never
+ * > =
+ *   Result
  */

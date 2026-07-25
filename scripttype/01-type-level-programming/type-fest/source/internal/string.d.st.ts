@@ -19,15 +19,15 @@ declare const StringLength: any
 declare const Trim: any
 declare const TupleOf: any
 declare const Whitespace: any
-type FirstB<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HeadB<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NumericString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type R<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Remain<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringLength<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Trim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Whitespace<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type FirstB<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HeadB<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NumericString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Remain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringLength<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Trim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Whitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ToString: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ToString(T) {
@@ -53,7 +53,8 @@ export function StartsWith(S: string, SearchString: string) {
   return false
 }
 /* compiles to:
- * export type StartsWith<S extends string, SearchString extends string> = string extends S | SearchString ? never : S extends `${SearchString}${string}` ? true : false
+ * export type StartsWith<S extends string, SearchString extends string> =
+ *   string extends S | SearchString ? never : S extends `${SearchString}${string}` ? true : false
  */
 
 // ✓ IsWhitespace: verified type-identical to the original
@@ -69,7 +70,10 @@ export function IsWhitespace(T: string) {
   return false
 }
 /* compiles to:
- * export type IsWhitespace<T extends string> = T extends Whitespace ? true : T extends `${Whitespace}${infer Rest}` ? IsWhitespace<Rest> : false
+ * export type IsWhitespace<T extends string> =
+ *   T extends Whitespace ? true
+ *   : T extends `${Whitespace}${infer Rest}` ? IsWhitespace<Rest>
+ *   : false
  */
 
 // ✓ IsNumeric: verified type-identical to the original
@@ -84,7 +88,8 @@ export function IsNumeric(T: string) {
   return false
 }
 /* compiles to:
- * export type IsNumeric<T extends string> = T extends `${number}` ? Trim<T> extends T ? true : false : false
+ * export type IsNumeric<T extends string> =
+ *   T extends `${number}` ? Trim<T> extends T ? true : false : false
  */
 
 // ✓ SameLengthPositiveNumericStringGt: verified type-identical to the original
@@ -104,7 +109,14 @@ export function SameLengthPositiveNumericStringGt(A: string, B: string) {
   return false
 }
 /* compiles to:
- * export type SameLengthPositiveNumericStringGt<A extends string, B extends string> = A extends `${infer FirstA}${infer RestA}` ? B extends `${infer FirstB}${infer RestB}` ? FirstA extends FirstB ? SameLengthPositiveNumericStringGt<RestA, RestB> : PositiveNumericCharacterGt<FirstA, FirstB> : never : false
+ * export type SameLengthPositiveNumericStringGt<A extends string, B extends string> =
+ *   A extends `${infer FirstA}${infer RestA}`
+ *     ? B extends `${infer FirstB}${infer RestB}`
+ *       ? FirstA extends FirstB
+ *         ? SameLengthPositiveNumericStringGt<RestA, RestB>
+ *         : PositiveNumericCharacterGt<FirstA, FirstB>
+ *       : never
+ *     : false
  */
 
 // ✓ PositiveNumericStringGt: verified type-identical to the original
@@ -127,7 +139,13 @@ export function PositiveNumericStringGt(A: string, B: string) {
   return never
 }
 /* compiles to:
- * export type PositiveNumericStringGt<A extends string, B extends string> = A extends B ? false : [TupleOf<StringLength<A>, 0>, TupleOf<StringLength<B>, 0>] extends (infer R extends [readonly unknown[], readonly unknown[]]) ? R[0] extends [...R[1], ...(infer Remain extends readonly unknown[])] ? 0 extends Remain['length'] ? SameLengthPositiveNumericStringGt<A, B> : true : false : never
+ * export type PositiveNumericStringGt<A extends string, B extends string> =
+ *   A extends B ? false
+ *   : [TupleOf<StringLength<A>, 0>, TupleOf<StringLength<B>, 0>] extends (infer R extends [readonly unknown[], readonly unknown[]])
+ *     ? R[0] extends [...R[1], ...infer Remain extends readonly unknown[]]
+ *       ? 0 extends Remain['length'] ? SameLengthPositiveNumericStringGt<A, B> : true
+ *       : false
+ *   : never
  */
 
 // ✓ PositiveNumericCharacterGt: verified type-identical to the original
@@ -148,5 +166,10 @@ export function PositiveNumericCharacterGt(A: string, B: string) {
   return never
 }
 /* compiles to:
- * export type PositiveNumericCharacterGt<A extends string, B extends string> = NumericString extends `${infer HeadA}${A}${string}` ? NumericString extends `${infer HeadB}${B}${string}` ? HeadA extends `${HeadB}${string}${string}` ? true : false : never : never
+ * export type PositiveNumericCharacterGt<A extends string, B extends string> =
+ *   NumericString extends `${infer HeadA}${A}${string}`
+ *     ? NumericString extends `${infer HeadB}${B}${string}`
+ *       ? HeadA extends `${HeadB}${string}${string}` ? true : false
+ *       : never
+ *     : never
  */

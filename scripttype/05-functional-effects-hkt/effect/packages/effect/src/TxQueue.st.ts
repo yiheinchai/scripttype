@@ -10,13 +10,19 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Cause {
+  export type Cause<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Cause: any
-type Cause<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cause<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ State: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function State(_A, E) {
   return anyOf({ _tag: readonlyProp('Open') }, { _tag: readonlyProp('Closing'), cause: readonlyProp(Cause.Cause(E)) }, { _tag: readonlyProp('Done'), cause: readonlyProp(Cause.Cause(E)) })
 }
 /* compiles to:
- * export type State<_A, E> = { readonly _tag: 'Open' } | { readonly _tag: 'Closing'; readonly cause: Cause.Cause<E> } | { readonly _tag: 'Done'; readonly cause: Cause.Cause<E> }
+ * export type State<_A, E> =
+ *   | { readonly _tag: 'Open' }
+ *   | { readonly _tag: 'Closing'; readonly cause: Cause.Cause<E> }
+ *   | { readonly _tag: 'Done'; readonly cause: Cause.Cause<E> }
  */

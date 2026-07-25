@@ -17,7 +17,8 @@ export function _CompulsoryKeys(O: object) {
   return out[keyof(O)]
 }
 /* compiles to:
- * export type _CompulsoryKeys<O extends object> = { [K in keyof O]-?: [O[K] & (undefined | null)] extends [never] ? K : never }[keyof O]
+ * export type _CompulsoryKeys<O extends object> =
+ *   { [K in keyof O]-?: [O[K] & (undefined | null)] extends [never] ? K : never }[keyof O]
  */
 
 // ✓ CompulsoryKeys: verified type-identical to the original

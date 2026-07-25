@@ -24,20 +24,20 @@ declare const RouteSchema: any
 declare const SingletonBase: any
 declare const TransformHandler: any
 declare const TypedWebSocketHandler: any
-type AfterResponseHandler<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseMacro<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DocumentDecoration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ElysiaWS<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorHandler<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MapResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybeArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybePromise<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalHandler<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RouteSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingletonBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TransformHandler<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TypedWebSocketHandler<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AfterResponseHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseMacro<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DocumentDecoration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ElysiaWS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MapResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybeArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RouteSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingletonBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TransformHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TypedWebSocketHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FlattenResponse: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FlattenResponse(Response: RouteSchema['response']) {
@@ -47,7 +47,8 @@ export function FlattenResponse(Response: RouteSchema['response']) {
   return Response[keyof(Response)]
 }
 /* compiles to:
- * export type FlattenResponse<Response extends RouteSchema['response']> = {} extends Response ? unknown : Response[keyof Response]
+ * export type FlattenResponse<Response extends RouteSchema['response']> =
+ *   {} extends Response ? unknown : Response[keyof Response]
  */
 
 // ✓ WSParseHandler: verified type-identical to the original
@@ -56,7 +57,10 @@ export function WSParseHandler(Route: RouteSchema, Context = {}) {
   return fnType([Prettify(ElysiaWS(Context, merge(Omit(Route, 'body'), { body: unknown }))), unknown], MaybePromise(anyOf(Route['body'], voidType(), Undefined)))
 }
 /* compiles to:
- * export type WSParseHandler<Route extends RouteSchema, Context = {}> = (a0: Prettify<ElysiaWS<Context, Omit<Route, 'body'> & { body: unknown }>>, a1: unknown) => MaybePromise<Route['body'] | void | undefined>
+ * export type WSParseHandler<Route extends RouteSchema, Context = {}> =
+ *   (a0: Prettify<ElysiaWS<Context, Omit<Route, 'body'> & { body: unknown }>>, a1: unknown) => MaybePromise<
+ *     Route['body'] | void | undefined
+ *   >
  */
 
 // ✗ WSLocalHook: does not compile yet
@@ -66,5 +70,23 @@ export function WSLocalHook(Input: BaseMacro, Schema: RouteSchema, Singleton: Si
   return merge(Prettify(Input), { detail: optional(DocumentDecoration), upgrade: optional(Record(string, unknown) | fnType([Context], unknown)), parse: optional(MaybeArray(WSParseHandler(Schema))), transform: optional(MaybeArray(TransformHandler(Schema, Singleton))), beforeHandle: optional(MaybeArray(OptionalHandler(Schema, Singleton))), afterHandle: optional(MaybeArray(OptionalHandler(Schema, Singleton))), mapResponse: optional(MaybeArray(MapResponse(Schema, Singleton))), afterResponse: optional(MaybeArray(AfterResponseHandler(Schema, Singleton))), error: optional(MaybeArray(ErrorHandler({}, Schema, Singleton))), tags: optional(DocumentDecoration['tags']) }, TypedWebSocketHandler(merge(Omit(Context(Schema, Singleton), 'body'), { body: never }), Schema))
 }
 /* compiles to:
- * export type WSLocalHook<Input extends BaseMacro, Schema extends RouteSchema, Singleton extends SingletonBase> = Prettify<Input> & { detail?: DocumentDecoration; upgrade?: Record<string, unknown> | ((a0: Context) => unknown); parse?: MaybeArray<WSParseHandler<Schema>>; transform?: MaybeArray<TransformHandler<Schema, Singleton>>; beforeHandle?: MaybeArray<OptionalHandler<Schema, Singleton>>; afterHandle?: MaybeArray<OptionalHandler<Schema, Singleton>>; mapResponse?: MaybeArray<MapResponse<Schema, Singleton>>; afterResponse?: MaybeArray<AfterResponseHandler<Schema, Singleton>>; error?: MaybeArray<ErrorHandler<{}, Schema, Singleton>>; tags?: DocumentDecoration['tags'] } & TypedWebSocketHandler<Omit<Context<Schema, Singleton>, 'body'> & { body: never }, Schema>
+ * export type WSLocalHook<
+ *   Input extends BaseMacro,
+ *   Schema extends RouteSchema,
+ *   Singleton extends SingletonBase
+ * > =
+ *   & Prettify<Input>
+ *   & {
+ *       detail?: DocumentDecoration
+ *       upgrade?: Record<string, unknown> | ((a0: Context) => unknown)
+ *       parse?: MaybeArray<WSParseHandler<Schema>>
+ *       transform?: MaybeArray<TransformHandler<Schema, Singleton>>
+ *       beforeHandle?: MaybeArray<OptionalHandler<Schema, Singleton>>
+ *       afterHandle?: MaybeArray<OptionalHandler<Schema, Singleton>>
+ *       mapResponse?: MaybeArray<MapResponse<Schema, Singleton>>
+ *       afterResponse?: MaybeArray<AfterResponseHandler<Schema, Singleton>>
+ *       error?: MaybeArray<ErrorHandler<{}, Schema, Singleton>>
+ *       tags?: DocumentDecoration['tags']
+ *     }
+ *   & TypedWebSocketHandler<Omit<Context<Schema, Singleton>, 'body'> & { body: never }, Schema>
  */

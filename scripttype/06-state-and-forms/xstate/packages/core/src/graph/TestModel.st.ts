@@ -13,14 +13,19 @@
 declare const EventObject: any
 declare const Snapshot: any
 declare const TraversalOptions: any
-type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Snapshot<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TraversalOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Snapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TraversalOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GetPathOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GetPathOptions(TSnapshot: Snapshot<unknown>, TEvent: EventObject, TInput) {
   return merge(Partial(TraversalOptions(TSnapshot, TEvent, TInput)), { allowDuplicatePaths: optional(boolean) })
 }
 /* compiles to:
- * export type GetPathOptions<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject, TInput> = Partial<TraversalOptions<TSnapshot, TEvent, TInput>> & { allowDuplicatePaths?: boolean }
+ * export type GetPathOptions<
+ *   TSnapshot extends Snapshot<unknown>,
+ *   TEvent extends EventObject,
+ *   TInput
+ * > =
+ *   Partial<TraversalOptions<TSnapshot, TEvent, TInput>> & { allowDuplicatePaths?: boolean }
  */

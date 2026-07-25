@@ -11,7 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const TypeLambda: any
-type TypeLambda<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TypeLambda<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Kind: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Kind(F: TypeLambda, In, Out2, Out1, Target) {
@@ -21,5 +21,17 @@ export function Kind(F: TypeLambda, In, Out2, Out1, Target) {
   return { F: readonlyProp(F), In: readonlyProp(fnType([In], voidType())), Out2: readonlyProp(fnType([], Out2)), Out1: readonlyProp(fnType([], Out1)), Target: readonlyProp(fnType([Target], Target)) }
 }
 /* compiles to:
- * export type Kind<F extends TypeLambda, In, Out2, Out1, Target> = F extends { readonly type: unknown; } ? (F & { readonly In: In; readonly Out2: Out2; readonly Out1: Out1; readonly Target: Target })['type'] : { readonly F: F; readonly In: (a0: In) => void; readonly Out2: () => Out2; readonly Out1: () => Out1; readonly Target: (a0: Target) => Target }
+ * export type Kind<F extends TypeLambda, In, Out2, Out1, Target> =
+ *   F extends { readonly type: unknown; }
+ *     ? (
+ *       & F
+ *       & { readonly In: In; readonly Out2: Out2; readonly Out1: Out1; readonly Target: Target }
+ *     )['type']
+ *     : {
+ *       readonly F: F
+ *       readonly In: (a0: In) => void
+ *       readonly Out2: () => Out2
+ *       readonly Out1: () => Out1
+ *       readonly Target: (a0: Target) => Target
+ *     }
  */

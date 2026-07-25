@@ -23,19 +23,19 @@ declare const TRef: any
 declare const TSchema: any
 declare const TTuple: any
 declare const TUnion: any
-type TArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TConstructor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInterfaceDeferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TIntersect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TPropertyValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRef<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInterfaceDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TPropertyValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TFromRef(Stack: (keyof typeof Context)[], Context: TProperties, Ref: (keyof typeof Context)) {
@@ -45,7 +45,12 @@ export function TFromRef(Stack: (keyof typeof Context)[], Context: TProperties, 
   return TFromType([...Stack, Ref], Context, Context[Ref])
 }
 /* compiles to:
- * export type TFromRef<Stack extends (keyof Context)[], Context extends TProperties, Ref extends keyof Context> = Ref extends Stack[number] ? true : TFromType<[...Stack, Ref], Context, Context[Ref]>
+ * export type TFromRef<
+ *   Stack extends (keyof Context)[],
+ *   Context extends TProperties,
+ *   Ref extends keyof Context
+ * > =
+ *   Ref extends Stack[number] ? true : TFromType<[...Stack, Ref], Context, Context[Ref]>
  */
 
 // ✓ TFromProperties: verified type-identical to the original
@@ -54,7 +59,13 @@ export function TFromProperties(Stack: (keyof typeof Context)[], Context: TPrope
   return TFromTypes(Stack, Context, Types)
 }
 /* compiles to:
- * export type TFromProperties<Stack extends (keyof Context)[], Context extends TProperties, Properties extends TProperties, Types extends TSchema[] = TPropertyValues<Properties>> = TFromTypes<Stack, Context, Types>
+ * export type TFromProperties<
+ *   Stack extends (keyof Context)[],
+ *   Context extends TProperties,
+ *   Properties extends TProperties,
+ *   Types extends TSchema[] = TPropertyValues<Properties>
+ * > =
+ *   TFromTypes<Stack, Context, Types>
  */
 
 // ✓ TFromTypes: verified type-identical to the original
@@ -70,7 +81,14 @@ export function TFromTypes(Stack: (keyof typeof Context)[], Context: TProperties
   return false
 }
 /* compiles to:
- * export type TFromTypes<Stack extends (keyof Context)[], Context extends TProperties, Types extends TSchema[]> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TFromType<Stack, Context, Left> extends true ? true : TFromTypes<Stack, Context, Right> : false
+ * export type TFromTypes<
+ *   Stack extends (keyof Context)[],
+ *   Context extends TProperties,
+ *   Types extends TSchema[]
+ * > =
+ *   Types extends [infer Left extends TSchema, ...infer Right extends TSchema[]]
+ *     ? TFromType<Stack, Context, Left> extends true ? true : TFromTypes<Stack, Context, Right>
+ *     : false
  */
 
 // ✓ TFromType: verified type-identical to the original
@@ -119,7 +137,26 @@ export function TFromType(Stack: (keyof typeof Context)[], Context: TProperties,
   return false
 }
 /* compiles to:
- * export type TFromType<Stack extends (keyof Context)[], Context extends TProperties, Type extends TSchema> = Type extends TRef<infer Ref extends string> ? TFromRef<Stack, Context, Ref> : Type extends TArray<infer Type extends TSchema> ? TFromType<Stack, Context, Type> : Type extends TConstructor<infer Parameters extends TSchema[], infer InstanceType extends TSchema> ? TFromTypes<Stack, Context, [...Parameters, InstanceType]> : Type extends TFunction<infer Parameters extends TSchema[], infer ReturnType extends TSchema> ? TFromTypes<Stack, Context, [...Parameters, ReturnType]> : Type extends TInterfaceDeferred<TSchema[], infer Properties extends TProperties> ? TFromProperties<Stack, Context, Properties> : Type extends TIntersect<infer Types extends TSchema[]> ? TFromTypes<Stack, Context, Types> : Type extends TObject<infer Properties extends TProperties> ? TFromProperties<Stack, Context, Properties> : Type extends TUnion<infer Types extends TSchema[]> ? TFromTypes<Stack, Context, Types> : Type extends TTuple<infer Types extends TSchema[]> ? TFromTypes<Stack, Context, Types> : Type extends TRecord<string, infer Type extends TSchema> ? TFromType<Stack, Context, Type> : false
+ * export type TFromType<
+ *   Stack extends (keyof Context)[],
+ *   Context extends TProperties,
+ *   Type extends TSchema
+ * > =
+ *   Type extends TRef<infer Ref extends string> ? TFromRef<Stack, Context, Ref>
+ *   : Type extends TArray<infer Type extends TSchema> ? TFromType<Stack, Context, Type>
+ *   : Type extends TConstructor<infer Parameters extends TSchema[], infer InstanceType extends TSchema>
+ *     ? TFromTypes<Stack, Context, [...Parameters, InstanceType]>
+ *   : Type extends TFunction<infer Parameters extends TSchema[], infer ReturnType extends TSchema>
+ *     ? TFromTypes<Stack, Context, [...Parameters, ReturnType]>
+ *   : Type extends TInterfaceDeferred<TSchema[], infer Properties extends TProperties>
+ *     ? TFromProperties<Stack, Context, Properties>
+ *   : Type extends TIntersect<infer Types extends TSchema[]> ? TFromTypes<Stack, Context, Types>
+ *   : Type extends TObject<infer Properties extends TProperties>
+ *     ? TFromProperties<Stack, Context, Properties>
+ *   : Type extends TUnion<infer Types extends TSchema[]> ? TFromTypes<Stack, Context, Types>
+ *   : Type extends TTuple<infer Types extends TSchema[]> ? TFromTypes<Stack, Context, Types>
+ *   : Type extends TRecord<string, infer Type extends TSchema> ? TFromType<Stack, Context, Type>
+ *   : false
  */
 
 // ✓ TCyclicCheck: verified type-identical to the original
@@ -128,5 +165,11 @@ export function TCyclicCheck(Stack: (keyof typeof Context)[], Context: TProperti
   return Result
 }
 /* compiles to:
- * export type TCyclicCheck<Stack extends (keyof Context)[], Context extends TProperties, Type extends TSchema, Result extends boolean = TFromType<Stack, Context, Type>> = Result
+ * export type TCyclicCheck<
+ *   Stack extends (keyof Context)[],
+ *   Context extends TProperties,
+ *   Type extends TSchema,
+ *   Result extends boolean = TFromType<Stack, Context, Type>
+ * > =
+ *   Result
  */

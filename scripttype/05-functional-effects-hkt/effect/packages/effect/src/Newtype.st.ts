@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Any: any
 declare const Newtype: any
-type Any<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Newtype<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Newtype<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Key: does not compile yet
 //   Cannot find name 'Any'.
 /* @scripttype preserveParamNames */

@@ -12,14 +12,14 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const NonNegativeIntegerLiteral: any
 declare const array: any
-type NonNegativeIntegerLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type arkIndexableOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type NonNegativeIntegerLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type arkIndexableOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ toArkKey: the ScriptType does not itself typecheck as TypeScript
 //   toArkKey.st.ts(7:15) TS2731: Implicit conversion of a 'symbol' to a 'string' will fail at runtime. Consider wrapping this expression in 'String(...)'.
 /* @scripttype preserveParamNames */
 export function toArkKey(o, k: keyof typeof o) {
-  if (matches<number>(k)) {
+  if (typeof k === 'number') {
     if (matches<[ array, typeof k ]>([o, number])) {
       return NonNegativeIntegerLiteral
     }
@@ -28,7 +28,8 @@ export function toArkKey(o, k: keyof typeof o) {
   return k
 }
 /* compiles to:
- * export type toArkKey<o, k extends keyof o> = k extends number ? [o, number] extends [array, k] ? NonNegativeIntegerLiteral : `${k}` : k
+ * export type toArkKey<o, k extends keyof o> =
+ *   k extends number ? [o, number] extends [array, k] ? NonNegativeIntegerLiteral : `${k}` : k
  */
 
 // ✓ arkIndexableOf: verified type-identical to the original
@@ -45,7 +46,10 @@ export function arkIndexableOf(o) {
   return never
 }
 /* compiles to:
- * export type arkIndexableOf<o> = arkKeyOf<o> extends infer k ? k extends `${infer index extends number}` ? index | k : k : never
+ * export type arkIndexableOf<o> =
+ *   arkKeyOf<o> extends infer k
+ *     ? k extends `${infer index extends number}` ? index | k : k
+ *     : never
  */
 
 // ✓ arkKeyOf: verified type-identical to the original
@@ -60,7 +64,10 @@ export function arkKeyOf(o) {
   return never
 }
 /* compiles to:
- * export type arkKeyOf<o> = [o] extends [object] ? [o] extends [array] ? arkArrayKeyOf<o> : arkObjectLiteralKeyOf<o> : never
+ * export type arkKeyOf<o> =
+ *   [o] extends [object]
+ *     ? [o] extends [array] ? arkArrayKeyOf<o> : arkObjectLiteralKeyOf<o>
+ *     : never
  */
 
 // ✓ arkArrayKeyOf: verified type-identical to the original
@@ -79,7 +86,10 @@ export function arkArrayKeyOf(a: array) {
   return never
 }
 /* compiles to:
- * export type arkArrayKeyOf<a extends array> = number extends a['length'] ? NonNegativeIntegerLiteral : keyof a extends infer i ? i extends `${number}` ? i : never : never
+ * export type arkArrayKeyOf<a extends array> =
+ *   number extends a['length'] ? NonNegativeIntegerLiteral
+ *   : keyof a extends infer i ? i extends `${number}` ? i : never
+ *   : never
  */
 
 // ✓ arkObjectLiteralKeyOf: verified type-identical to the original
@@ -87,7 +97,7 @@ export function arkArrayKeyOf(a: array) {
 export function arkObjectLiteralKeyOf(o: object) {
   const m1 = matches<Hole<"k">>(keyof(o))
   if (m1) {
-    if (matches<number>(m1.k)) {
+    if (typeof m1.k === 'number') {
       return `${m1.k}`
     }
     return m1.k
@@ -95,13 +105,14 @@ export function arkObjectLiteralKeyOf(o: object) {
   return never
 }
 /* compiles to:
- * export type arkObjectLiteralKeyOf<o extends object> = keyof o extends infer k ? k extends number ? `${k}` : k : never
+ * export type arkObjectLiteralKeyOf<o extends object> =
+ *   keyof o extends infer k ? k extends number ? `${k}` : k : never
  */
 
 // ✓ arkGet: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function arkGet(o, k: arkIndexableOf<typeof o>) {
-  return o[matches<keyof typeof o>(k) ? k : (matches<typeof k>(NonNegativeIntegerLiteral) ? (number & keyof(o)) : (matches<number>(k) ? (merge(`${k}`, keyof(o))) : never))]
+  return o[k in o ? k : (matches<typeof k>(NonNegativeIntegerLiteral) ? (number & keyof(o)) : (typeof k === 'number' ? (merge(`${k}`, keyof(o))) : never))]
 }
 /* compiles to:
  * export type arkGet<o, k extends arkIndexableOf<o>> = o[k extends keyof o ? k : NonNegativeIntegerLiteral extends k ? number & keyof o : k extends number ? `${k}` & keyof o : never]

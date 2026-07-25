@@ -17,20 +17,21 @@ declare const InsertQueryBuilder: any
 declare const QueryCreator: any
 declare const ShallowRecord: any
 declare const UpdateQueryBuilder: any
-type Compilable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DeleteQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Expression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InsertQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryCreator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ShallowRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Compilable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DeleteQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InsertQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryCreator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CommonTableExpression(DB, CN) {
   return CommonTableExpressionOutput(DB, CN) | CommonTableExpressionFactory(DB, CN)
 }
 /* compiles to:
- * export type CommonTableExpression<DB, CN> = CommonTableExpressionOutput<DB, CN> | CommonTableExpressionFactory<DB, CN>
+ * export type CommonTableExpression<DB, CN> =
+ *   CommonTableExpressionOutput<DB, CN> | CommonTableExpressionFactory<DB, CN>
  */
 
 // ✓ CommonTableExpressionFactory: verified type-identical to the original
@@ -39,7 +40,8 @@ export function CommonTableExpressionFactory(DB, CN) {
   return fnType([QueryCreator(DB)], CommonTableExpressionOutput(DB, CN))
 }
 /* compiles to:
- * export type CommonTableExpressionFactory<DB, CN> = (a0: QueryCreator<DB>) => CommonTableExpressionOutput<DB, CN>
+ * export type CommonTableExpressionFactory<DB, CN> =
+ *   (a0: QueryCreator<DB>) => CommonTableExpressionOutput<DB, CN>
  */
 
 // ✓ RecursiveCommonTableExpression: verified type-identical to the original
@@ -52,7 +54,10 @@ export function RecursiveCommonTableExpression(DB, CN: string) {
   return fnType([QueryCreator(DB & out)], CommonTableExpressionOutput(DB, CN))
 }
 /* compiles to:
- * export type RecursiveCommonTableExpression<DB, CN extends string> = (a0: QueryCreator<DB & { [K in ExtractTableFromCommonTableExpressionName<CN>]: ExtractRowFromCommonTableExpressionName<CN> }>) => CommonTableExpressionOutput<DB, CN>
+ * export type RecursiveCommonTableExpression<DB, CN extends string> =
+ *   (
+ *     a0: QueryCreator<DB & { [K in ExtractTableFromCommonTableExpressionName<CN>]: ExtractRowFromCommonTableExpressionName<CN> }>
+ *   ) => CommonTableExpressionOutput<DB, CN>
  */
 
 // ✓ QueryCreatorWithCommonTableExpression: verified type-identical to the original
@@ -65,7 +70,14 @@ export function QueryCreatorWithCommonTableExpression(DB, CN: string, CTE) {
   return QueryCreator(DB & out)
 }
 /* compiles to:
- * export type QueryCreatorWithCommonTableExpression<DB, CN extends string, CTE> = QueryCreator<DB & { [K in ExtractTableFromCommonTableExpressionName<CN>]: ExtractRowFromCommonTableExpression<CTE> }>
+ * export type QueryCreatorWithCommonTableExpression<DB, CN extends string, CTE> = QueryCreator<
+ *   & DB
+ *   & {
+ *       [K in ExtractTableFromCommonTableExpressionName<CN>]: ExtractRowFromCommonTableExpression<
+ *         CTE
+ *       >
+ *     }
+ * >
  */
 
 // ✓ CommonTableExpressionOutput: verified type-identical to the original
@@ -74,7 +86,11 @@ export function CommonTableExpressionOutput(DB, CN) {
   return Expression(ExtractRowFromCommonTableExpressionName(CN)) | InsertQueryBuilder(DB, any, ExtractRowFromCommonTableExpressionName(CN)) | UpdateQueryBuilder(DB, any, any, ExtractRowFromCommonTableExpressionName(CN)) | DeleteQueryBuilder(DB, any, ExtractRowFromCommonTableExpressionName(CN))
 }
 /* compiles to:
- * export type CommonTableExpressionOutput<DB, CN> = Expression<ExtractRowFromCommonTableExpressionName<CN>> | InsertQueryBuilder<DB, any, ExtractRowFromCommonTableExpressionName<CN>> | UpdateQueryBuilder<DB, any, any, ExtractRowFromCommonTableExpressionName<CN>> | DeleteQueryBuilder<DB, any, ExtractRowFromCommonTableExpressionName<CN>>
+ * export type CommonTableExpressionOutput<DB, CN> =
+ *   | Expression<ExtractRowFromCommonTableExpressionName<CN>>
+ *   | InsertQueryBuilder<DB, any, ExtractRowFromCommonTableExpressionName<CN>>
+ *   | UpdateQueryBuilder<DB, any, any, ExtractRowFromCommonTableExpressionName<CN>>
+ *   | DeleteQueryBuilder<DB, any, ExtractRowFromCommonTableExpressionName<CN>>
  */
 
 // ✓ ExtractRowFromCommonTableExpression: verified type-identical to the original
@@ -95,7 +111,11 @@ export function ExtractRowFromCommonTableExpression(CTE) {
   return never
 }
 /* compiles to:
- * export type ExtractRowFromCommonTableExpression<CTE> = CTE extends Expression<infer O> | Compilable<infer O> ? O : CTE extends (creator: QueryCreator<any>) => infer Q ? Q extends Expression<infer O> | Compilable<infer O> ? O : never : never
+ * export type ExtractRowFromCommonTableExpression<CTE> =
+ *   CTE extends Expression<infer O> | Compilable<infer O> ? O
+ *   : CTE extends (creator: QueryCreator<any>) => infer Q
+ *     ? Q extends Expression<infer O> | Compilable<infer O> ? O : never
+ *   : never
  */
 
 // ✓ ExtractTableFromCommonTableExpressionName: verified type-identical to the original
@@ -108,7 +128,8 @@ export function ExtractTableFromCommonTableExpressionName(CN) {
   return CN
 }
 /* compiles to:
- * export type ExtractTableFromCommonTableExpressionName<CN> = CN extends `${infer TB}(${string})` ? TB : CN
+ * export type ExtractTableFromCommonTableExpressionName<CN> =
+ *   CN extends `${infer TB}(${string})` ? TB : CN
  */
 
 // ✓ ExtractRowFromCommonTableExpressionName: verified type-identical to the original
@@ -125,7 +146,10 @@ export function ExtractRowFromCommonTableExpressionName(CN) {
   return ShallowRecord(string, any)
 }
 /* compiles to:
- * export type ExtractRowFromCommonTableExpressionName<CN> = CN extends `${string}(${infer CL})` ? { [C in ExtractColumnNamesFromColumnList<CL>]: any } : ShallowRecord<string, any>
+ * export type ExtractRowFromCommonTableExpressionName<CN> =
+ *   CN extends `${string}(${infer CL})`
+ *     ? { [C in ExtractColumnNamesFromColumnList<CL>]: any }
+ *     : ShallowRecord<string, any>
  */
 
 // ✓ ExtractColumnNamesFromColumnList: verified type-identical to the original
@@ -138,5 +162,6 @@ export function ExtractColumnNamesFromColumnList(R) {
   return R
 }
 /* compiles to:
- * export type ExtractColumnNamesFromColumnList<R> = R extends `${infer C}, ${infer RS}` ? C | ExtractColumnNamesFromColumnList<RS> : R
+ * export type ExtractColumnNamesFromColumnList<R> =
+ *   R extends `${infer C}, ${infer RS}` ? C | ExtractColumnNamesFromColumnList<RS> : R
  */

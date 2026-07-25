@@ -15,11 +15,11 @@ declare const AbiParameter: any
 declare const AssertName: any
 declare const IsNarrowable: any
 declare const Join: any
-type AbiEventParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AbiParameter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AssertName<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNarrowable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Join<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AbiEventParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AssertName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNarrowable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Join<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FormatAbiParameter: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function FormatAbiParameter(abiParameter: AbiParameter | AbiEventParameter) {
@@ -35,5 +35,14 @@ export function FormatAbiParameter(abiParameter: AbiParameter | AbiEventParamete
   return `${abiParameter['type']}${matches<{ indexed: true; }>(abiParameter) ? ' indexed' : ''}${m4 ? (matches<''>(m4.name) ? '' : ` ${AssertName(m4.name)}`) : ''}`
 }
 /* compiles to:
- * export type FormatAbiParameter<abiParameter extends AbiParameter | AbiEventParameter> = abiParameter extends { name?: infer name extends string; type: `tuple${infer array}`; components: infer components extends readonly AbiParameter[]; indexed?: infer indexed extends boolean; } ? FormatAbiParameter<{ type: `(${Join<{ [Key in keyof components]: FormatAbiParameter<{ type: components[Key]['type'] } & (IsNarrowable<components[Key]['name'], string> extends true ? { name: components[Key]['name'] } : unknown) & (components[Key] extends { components: readonly AbiParameter[]; } ? { components: components[Key]['components'] } : unknown)> }, ', '>})${array}` } & (IsNarrowable<name, string> extends true ? { name: name } : unknown) & (IsNarrowable<indexed, boolean> extends true ? { indexed: indexed } : unknown)> : `${abiParameter['type']}${abiParameter extends { indexed: true; } ? ' indexed' : ''}${abiParameter['name'] extends (infer name extends string) ? name extends '' ? '' : ` ${AssertName<name>}` : ''}`
+ * export type FormatAbiParameter<abiParameter extends AbiParameter | AbiEventParameter> =
+ *   abiParameter extends { name?: infer name extends string; type: `tuple${infer array}`; components: infer components extends readonly AbiParameter[]; indexed?: infer indexed extends boolean; }
+ *     ? FormatAbiParameter<
+ *       & {
+ *           type: `(${Join<{ [Key in keyof components]: FormatAbiParameter<{ type: components[Key]['type'] } & (IsNarrowable<components[Key]['name'], string> extends true ? { name: components[Key]['name'] } : unknown) & (components[Key] extends { components: readonly AbiParameter[]; } ? { components: components[Key]['components'] } : unknown)> }, ', '>})${array}`
+ *         }
+ *       & (IsNarrowable<name, string> extends true ? { name: name } : unknown)
+ *       & (IsNarrowable<indexed, boolean> extends true ? { indexed: indexed } : unknown)
+ *     >
+ *     : `${abiParameter['type']}${abiParameter extends { indexed: true; } ? ' indexed' : ''}${abiParameter['name'] extends (infer name extends string) ? name extends '' ? '' : ` ${AssertName<name>}` : ''}`
  */

@@ -12,9 +12,9 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Dialect: any
 declare const RunnableQuery: any
-type BatchItem<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Dialect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RunnableQuery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BatchItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Dialect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RunnableQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BatchItem: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BatchItem(TDialect: Dialect = Dialect) {
@@ -34,5 +34,7 @@ export function BatchResponse(T: BatchItem[] | readonly BatchItem[]) {
   return out
 }
 /* compiles to:
- * export type BatchResponse<T extends BatchItem[] | readonly BatchItem[]> = { [K in keyof T]: T[K]['_']['result'] }
+ * export type BatchResponse<T extends BatchItem[] | readonly BatchItem[]> = {
+ *   [K in keyof T]: T[K]['_']['result']
+ * }
  */

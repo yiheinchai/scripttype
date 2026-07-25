@@ -37,43 +37,46 @@ declare const ReadonlyAction: any
 declare const StrictObjectIssue: any
 declare const StrictObjectSchema: any
 declare const StrictObjectSchemaAsync: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferEntriesInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferEntriesOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LooseObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LooseObjectSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LooseObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MarkOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MaybeReadonly<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectEntries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectEntriesAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectWithRestIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectWithRestSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectWithRestSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalEntrySchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalEntrySchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OutputWithQuestionMarks<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReadonlyAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StrictObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StrictObjectSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StrictObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferEntriesInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferEntriesOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LooseObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LooseObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LooseObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MarkOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaybeReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectEntries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectEntriesAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectWithRestIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectWithRestSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectWithRestSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalEntrySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalEntrySchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OutputWithQuestionMarks<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReadonlyAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StrictObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StrictObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StrictObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ObjectKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ObjectKeys(TSchema: LooseObjectSchema<ObjectEntries, ErrorMessage<LooseObjectIssue> | undefined> | LooseObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<LooseObjectIssue> | undefined> | ObjectSchema<ObjectEntries, ErrorMessage<ObjectIssue> | undefined> | ObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<ObjectIssue> | undefined> | ObjectWithRestSchema<ObjectEntries, BaseSchema<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | ObjectWithRestSchemaAsync<ObjectEntriesAsync, BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | StrictObjectSchema<ObjectEntries, ErrorMessage<StrictObjectIssue> | undefined> | StrictObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<StrictObjectIssue> | undefined>) {
   return MaybeReadonly([keyof(TSchema['entries']), ...arrayOf(keyof(TSchema['entries']))])
 }
 /* compiles to:
- * export type ObjectKeys<TSchema extends LooseObjectSchema<ObjectEntries, ErrorMessage<LooseObjectIssue> | undefined> | LooseObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<LooseObjectIssue> | undefined> | ObjectSchema<ObjectEntries, ErrorMessage<ObjectIssue> | undefined> | ObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<ObjectIssue> | undefined> | ObjectWithRestSchema<ObjectEntries, BaseSchema<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | ObjectWithRestSchemaAsync<ObjectEntriesAsync, BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | StrictObjectSchema<ObjectEntries, ErrorMessage<StrictObjectIssue> | undefined> | StrictObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<StrictObjectIssue> | undefined>> = MaybeReadonly<[keyof TSchema['entries'], ...(keyof TSchema['entries'])[]]>
+ * export type ObjectKeys<
+ *   TSchema extends LooseObjectSchema<ObjectEntries, ErrorMessage<LooseObjectIssue> | undefined> | LooseObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<LooseObjectIssue> | undefined> | ObjectSchema<ObjectEntries, ErrorMessage<ObjectIssue> | undefined> | ObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<ObjectIssue> | undefined> | ObjectWithRestSchema<ObjectEntries, BaseSchema<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | ObjectWithRestSchemaAsync<ObjectEntriesAsync, BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | StrictObjectSchema<ObjectEntries, ErrorMessage<StrictObjectIssue> | undefined> | StrictObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<StrictObjectIssue> | undefined>
+ * > =
+ *   MaybeReadonly<[keyof TSchema['entries'], ...(keyof TSchema['entries'])[]]>
  */
 
 // ✓ InferEntriesInput: verified type-identical to the original
@@ -86,7 +89,9 @@ export function InferEntriesInput(TEntries: ObjectEntries | ObjectEntriesAsync) 
   return out
 }
 /* compiles to:
- * export type InferEntriesInput<TEntries extends ObjectEntries | ObjectEntriesAsync> = { -readonly [TKey in keyof TEntries]: InferInput<TEntries[TKey]> }
+ * export type InferEntriesInput<TEntries extends ObjectEntries | ObjectEntriesAsync> = {
+ *   -readonly [TKey in keyof TEntries]: InferInput<TEntries[TKey]>
+ * }
  */
 
 // ✓ InferEntriesOutput: verified type-identical to the original
@@ -99,7 +104,9 @@ export function InferEntriesOutput(TEntries: ObjectEntries | ObjectEntriesAsync)
   return out
 }
 /* compiles to:
- * export type InferEntriesOutput<TEntries extends ObjectEntries | ObjectEntriesAsync> = { -readonly [TKey in keyof TEntries]: InferOutput<TEntries[TKey]> }
+ * export type InferEntriesOutput<TEntries extends ObjectEntries | ObjectEntriesAsync> = {
+ *   -readonly [TKey in keyof TEntries]: InferOutput<TEntries[TKey]>
+ * }
  */
 
 // ✓ OptionalInputKeys: verified type-identical to the original
@@ -112,7 +119,12 @@ export function OptionalInputKeys(TEntries: ObjectEntries | ObjectEntriesAsync) 
   return out[keyof(TEntries)]
 }
 /* compiles to:
- * export type OptionalInputKeys<TEntries extends ObjectEntries | ObjectEntriesAsync> = { [TKey in keyof TEntries]: TEntries[TKey] extends OptionalEntrySchema | OptionalEntrySchemaAsync ? TKey : never }[keyof TEntries]
+ * export type OptionalInputKeys<TEntries extends ObjectEntries | ObjectEntriesAsync> =
+ *   {
+ *     [TKey in keyof TEntries]: TEntries[TKey] extends OptionalEntrySchema | OptionalEntrySchemaAsync
+ *       ? TKey
+ *       : never
+ *   }[keyof TEntries]
  */
 
 // ✓ OptionalOutputKeys: verified type-identical to the original
@@ -125,7 +137,12 @@ export function OptionalOutputKeys(TEntries: ObjectEntries | ObjectEntriesAsync)
   return out[keyof(TEntries)]
 }
 /* compiles to:
- * export type OptionalOutputKeys<TEntries extends ObjectEntries | ObjectEntriesAsync> = { [TKey in keyof TEntries]: TEntries[TKey] extends OptionalEntrySchema | OptionalEntrySchemaAsync ? undefined extends TEntries[TKey]['default'] ? TKey : never : never }[keyof TEntries]
+ * export type OptionalOutputKeys<TEntries extends ObjectEntries | ObjectEntriesAsync> =
+ *   {
+ *     [TKey in keyof TEntries]: TEntries[TKey] extends OptionalEntrySchema | OptionalEntrySchemaAsync
+ *       ? undefined extends TEntries[TKey]['default'] ? TKey : never
+ *       : never
+ *   }[keyof TEntries]
  */
 
 // ✓ InputWithQuestionMarks: verified type-identical to the original
@@ -134,7 +151,11 @@ export function InputWithQuestionMarks(TEntries: ObjectEntries | ObjectEntriesAs
   return MarkOptional(TObject, OptionalInputKeys(TEntries))
 }
 /* compiles to:
- * export type InputWithQuestionMarks<TEntries extends ObjectEntries | ObjectEntriesAsync, TObject extends InferEntriesInput<TEntries>> = MarkOptional<TObject, OptionalInputKeys<TEntries>>
+ * export type InputWithQuestionMarks<
+ *   TEntries extends ObjectEntries | ObjectEntriesAsync,
+ *   TObject extends InferEntriesInput<TEntries>
+ * > =
+ *   MarkOptional<TObject, OptionalInputKeys<TEntries>>
  */
 
 // ✓ OutputWithQuestionMarks: verified type-identical to the original
@@ -143,7 +164,11 @@ export function OutputWithQuestionMarks(TEntries: ObjectEntries | ObjectEntriesA
   return MarkOptional(TObject, OptionalOutputKeys(TEntries))
 }
 /* compiles to:
- * export type OutputWithQuestionMarks<TEntries extends ObjectEntries | ObjectEntriesAsync, TObject extends InferEntriesOutput<TEntries>> = MarkOptional<TObject, OptionalOutputKeys<TEntries>>
+ * export type OutputWithQuestionMarks<
+ *   TEntries extends ObjectEntries | ObjectEntriesAsync,
+ *   TObject extends InferEntriesOutput<TEntries>
+ * > =
+ *   MarkOptional<TObject, OptionalOutputKeys<TEntries>>
  */
 
 // ✓ ReadonlyOutputKeys: verified type-identical to the original
@@ -156,7 +181,12 @@ export function ReadonlyOutputKeys(TEntries: ObjectEntries | ObjectEntriesAsync)
   return out[keyof(TEntries)]
 }
 /* compiles to:
- * export type ReadonlyOutputKeys<TEntries extends ObjectEntries | ObjectEntriesAsync> = { [TKey in keyof TEntries]: TEntries[TKey] extends { readonly pipe: readonly unknown[]; } ? ReadonlyAction<any> extends TEntries[TKey]['pipe'][number] ? TKey : never : never }[keyof TEntries]
+ * export type ReadonlyOutputKeys<TEntries extends ObjectEntries | ObjectEntriesAsync> =
+ *   {
+ *     [TKey in keyof TEntries]: TEntries[TKey] extends { readonly pipe: readonly unknown[]; }
+ *       ? ReadonlyAction<any> extends TEntries[TKey]['pipe'][number] ? TKey : never
+ *       : never
+ *   }[keyof TEntries]
  */
 
 // ✓ OutputWithReadonly: verified type-identical to the original
@@ -168,7 +198,13 @@ export function OutputWithReadonly(TEntries: ObjectEntries | ObjectEntriesAsync,
   return Readonly(TObject) & Pick(TObject, Exclude(keyof(TObject), ReadonlyOutputKeys(TEntries)))
 }
 /* compiles to:
- * export type OutputWithReadonly<TEntries extends ObjectEntries | ObjectEntriesAsync, TObject extends OutputWithQuestionMarks<TEntries, InferEntriesOutput<TEntries>>> = ReadonlyOutputKeys<TEntries> extends never ? TObject : Readonly<TObject> & Pick<TObject, Exclude<keyof TObject, ReadonlyOutputKeys<TEntries>>>
+ * export type OutputWithReadonly<
+ *   TEntries extends ObjectEntries | ObjectEntriesAsync,
+ *   TObject extends OutputWithQuestionMarks<TEntries, InferEntriesOutput<TEntries>>
+ * > =
+ *   ReadonlyOutputKeys<TEntries> extends never
+ *     ? TObject
+ *     : Readonly<TObject> & Pick<TObject, Exclude<keyof TObject, ReadonlyOutputKeys<TEntries>>>
  */
 
 // ✓ InferObjectInput: verified type-identical to the original
@@ -177,7 +213,9 @@ export function InferObjectInput(TEntries: ObjectEntries | ObjectEntriesAsync) {
   return Prettify(InputWithQuestionMarks(TEntries, InferEntriesInput(TEntries)))
 }
 /* compiles to:
- * export type InferObjectInput<TEntries extends ObjectEntries | ObjectEntriesAsync> = Prettify<InputWithQuestionMarks<TEntries, InferEntriesInput<TEntries>>>
+ * export type InferObjectInput<TEntries extends ObjectEntries | ObjectEntriesAsync> = Prettify<
+ *   InputWithQuestionMarks<TEntries, InferEntriesInput<TEntries>>
+ * >
  */
 
 // ✓ InferObjectOutput: verified type-identical to the original
@@ -186,7 +224,9 @@ export function InferObjectOutput(TEntries: ObjectEntries | ObjectEntriesAsync) 
   return Prettify(OutputWithReadonly(TEntries, OutputWithQuestionMarks(TEntries, InferEntriesOutput(TEntries))))
 }
 /* compiles to:
- * export type InferObjectOutput<TEntries extends ObjectEntries | ObjectEntriesAsync> = Prettify<OutputWithReadonly<TEntries, OutputWithQuestionMarks<TEntries, InferEntriesOutput<TEntries>>>>
+ * export type InferObjectOutput<TEntries extends ObjectEntries | ObjectEntriesAsync> = Prettify<
+ *   OutputWithReadonly<TEntries, OutputWithQuestionMarks<TEntries, InferEntriesOutput<TEntries>>>
+ * >
  */
 
 // ✓ InferObjectIssue: verified type-identical to the original
@@ -195,5 +235,7 @@ export function InferObjectIssue(TEntries: ObjectEntries | ObjectEntriesAsync) {
   return InferIssue(TEntries[keyof(TEntries)])
 }
 /* compiles to:
- * export type InferObjectIssue<TEntries extends ObjectEntries | ObjectEntriesAsync> = InferIssue<TEntries[keyof TEntries]>
+ * export type InferObjectIssue<TEntries extends ObjectEntries | ObjectEntriesAsync> = InferIssue<
+ *   TEntries[keyof TEntries]
+ * >
  */

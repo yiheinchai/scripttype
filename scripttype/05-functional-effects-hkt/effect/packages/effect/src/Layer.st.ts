@@ -10,14 +10,17 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Types {
+  export type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Any: any
 declare const AnyEffectOrStream: any
 declare const Layer: any
 declare const Types: any
-type Any<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyEffectOrStream<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Layer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Types<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyEffectOrStream<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Layer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Services: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Services(T: Any) {
@@ -32,7 +35,8 @@ export function Services(T: Any) {
   return never
 }
 /* compiles to:
- * export type Services<T extends Any> = T extends infer L ? L extends Layer<unknown, unknown, infer _RIn> ? _RIn : never : never
+ * export type Services<T extends Any> =
+ *   T extends infer L ? L extends Layer<unknown, unknown, infer _RIn> ? _RIn : never : never
  */
 
 // ✓ Error: verified type-identical to the original
@@ -58,7 +62,8 @@ export function Success(T: Any) {
   return never
 }
 /* compiles to:
- * export type Success<T extends Any> = T extends Layer<infer _ROut, unknown, unknown> ? _ROut : never
+ * export type Success<T extends Any> =
+ *   T extends Layer<infer _ROut, unknown, unknown> ? _ROut : never
  */
 
 // ✓ PartialEffectful: verified type-identical to the original
@@ -75,5 +80,8 @@ export function PartialEffectful(A: object) {
   return Types.Simplify(out & out2)
 }
 /* compiles to:
- * export type PartialEffectful<A extends object> = Types.Simplify<{ [K in keyof A as A[K] extends AnyEffectOrStream ? K : never]?: A[K] } & { [K1 in keyof A as A[K1] extends AnyEffectOrStream ? never : K1]: A[K1] }>
+ * export type PartialEffectful<A extends object> = Types.Simplify<
+ *   & { [K in keyof A as A[K] extends AnyEffectOrStream ? K : never]?: A[K] }
+ *   & { [K1 in keyof A as A[K1] extends AnyEffectOrStream ? never : K1]: A[K1] }
+ * >
  */

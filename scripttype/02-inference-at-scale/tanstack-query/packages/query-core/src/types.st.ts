@@ -45,46 +45,46 @@ declare const StaleTime: any
 declare const UnsetMarker: any
 declare const dataTagErrorSymbol: any
 declare const dataTagSymbol: any
-type AbortSignal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyDataTag<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DataTag<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FetchDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FetchQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverLoadingErrorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverLoadingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverPendingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverPlaceholderResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverRefetchErrorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InfiniteQueryObserverSuccessResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InitialPageParam<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutateOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationFunctionContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationObserverErrorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationObserverIdleResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationObserverLoadingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationObserverSuccessResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Query<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryClient<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryMeta<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverLoadingErrorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverLoadingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverPendingResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverPlaceholderResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverRefetchErrorResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverSuccessResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaleTime<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnsetMarker<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type dataTagErrorSymbol<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type dataTagSymbol<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AbortSignal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyDataTag<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DataTag<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FetchDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FetchQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverLoadingErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverLoadingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverPendingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverPlaceholderResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverRefetchErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InfiniteQueryObserverSuccessResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InitialPageParam<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutateOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationFunctionContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationObserverErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationObserverIdleResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationObserverLoadingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationObserverSuccessResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Query<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryMeta<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverLoadingErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverLoadingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverPendingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverPlaceholderResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverRefetchErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverSuccessResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaleTime<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnsetMarker<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type dataTagErrorSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type dataTagSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NonUndefinedGuard: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonUndefinedGuard(T) {
-  if (matches<undefined>(T)) {
+  if (typeof T === 'undefined') {
     return never
   }
   return T
@@ -102,7 +102,8 @@ export function DistributiveOmit(TObject, TKey: keyof typeof TObject) {
   return never
 }
 /* compiles to:
- * export type DistributiveOmit<TObject, TKey extends keyof TObject> = TObject extends any ? Omit<TObject, TKey> : never
+ * export type DistributiveOmit<TObject, TKey extends keyof TObject> =
+ *   TObject extends any ? Omit<TObject, TKey> : never
  */
 
 // ✗ OmitKeyof: does not compile yet
@@ -112,7 +113,12 @@ export function OmitKeyof(TObject, TKey: typeof TStrictly extends 'safely' ? key
   return Omit(TObject, TKey)
 }
 /* compiles to:
- * export type OmitKeyof<TObject, TKey extends typeof TStrictly extends 'safely' ? keyof typeof TObject | (string & Record<never, never>) | (number & Record<never, never>) | (symbol & Record<never, never>) : keyof typeof TObject, TStrictly extends 'strictly' | 'safely' = 'strictly'> = Omit<TObject, TKey>
+ * export type OmitKeyof<
+ *   TObject,
+ *   TKey extends typeof TStrictly extends 'safely' ? keyof typeof TObject | (string & Record<never, never>) | (number & Record<never, never>) | (symbol & Record<never, never>) : keyof typeof TObject,
+ *   TStrictly extends 'strictly' | 'safely' = 'strictly'
+ * > =
+ *   Omit<TObject, TKey>
  */
 
 // ✓ Override: verified type-identical to the original
@@ -120,12 +126,14 @@ export function OmitKeyof(TObject, TKey: typeof TStrictly extends 'safely' ? key
 export function Override(TTargetA, TTargetB) {
   const out = emptyObject
   for (const AKey in keyof(TTargetA)) {
-    out[AKey] = matches<keyof typeof TTargetB>(AKey) ? TTargetB[AKey] : TTargetA[AKey]
+    out[AKey] = AKey in TTargetB ? TTargetB[AKey] : TTargetA[AKey]
   }
   return out
 }
 /* compiles to:
- * export type Override<TTargetA, TTargetB> = { [AKey in keyof TTargetA]: AKey extends keyof TTargetB ? TTargetB[AKey] : TTargetA[AKey] }
+ * export type Override<TTargetA, TTargetB> = {
+ *   [AKey in keyof TTargetA]: AKey extends keyof TTargetB ? TTargetB[AKey] : TTargetA[AKey]
+ * }
  */
 
 // ✓ DataTag: verified type-identical to the original
@@ -137,7 +145,10 @@ export function DataTag(TType, TValue, TError = UnsetMarker) {
   return merge(TType, { [dataTagSymbol]: TValue, [dataTagErrorSymbol]: TError })
 }
 /* compiles to:
- * export type DataTag<TType, TValue, TError = UnsetMarker> = TType extends AnyDataTag ? TType : TType & { [dataTagSymbol]: TValue; [dataTagErrorSymbol]: TError }
+ * export type DataTag<TType, TValue, TError = UnsetMarker> =
+ *   TType extends AnyDataTag
+ *     ? TType
+ *     : TType & { [dataTagSymbol]: TValue; [dataTagErrorSymbol]: TError }
  */
 
 // ✓ InferDataFromTag: verified type-identical to the original
@@ -150,7 +161,10 @@ export function InferDataFromTag(TQueryFnData, TTaggedQueryKey: QueryKey) {
   return TQueryFnData
 }
 /* compiles to:
- * export type InferDataFromTag<TQueryFnData, TTaggedQueryKey extends QueryKey> = TTaggedQueryKey extends DataTag<unknown, infer TaggedValue, unknown> ? TaggedValue : TQueryFnData
+ * export type InferDataFromTag<TQueryFnData, TTaggedQueryKey extends QueryKey> =
+ *   TTaggedQueryKey extends DataTag<unknown, infer TaggedValue, unknown>
+ *     ? TaggedValue
+ *     : TQueryFnData
  */
 
 // ✓ InferErrorFromTag: verified type-identical to the original
@@ -166,7 +180,10 @@ export function InferErrorFromTag(TError, TTaggedQueryKey: QueryKey) {
   return TError
 }
 /* compiles to:
- * export type InferErrorFromTag<TError, TTaggedQueryKey extends QueryKey> = TTaggedQueryKey extends DataTag<unknown, unknown, infer TaggedError> ? TaggedError extends UnsetMarker ? TError : TaggedError : TError
+ * export type InferErrorFromTag<TError, TTaggedQueryKey extends QueryKey> =
+ *   TTaggedQueryKey extends DataTag<unknown, unknown, infer TaggedError>
+ *     ? TaggedError extends UnsetMarker ? TError : TaggedError
+ *     : TError
  */
 
 // ✓ QueryFunction: verified type-identical to the original
@@ -175,7 +192,12 @@ export function QueryFunction(T = unknown, TQueryKey: QueryKey = QueryKey, TPage
   return fnType([QueryFunctionContext(TQueryKey, TPageParam)], T | t<Promise<typeof T>>())
 }
 /* compiles to:
- * export type QueryFunction<T = unknown, TQueryKey extends QueryKey = QueryKey, TPageParam = never> = (a0: QueryFunctionContext<TQueryKey, TPageParam>) => T | Promise<T>
+ * export type QueryFunction<
+ *   T = unknown,
+ *   TQueryKey extends QueryKey = QueryKey,
+ *   TPageParam = never
+ * > =
+ *   (a0: QueryFunctionContext<TQueryKey, TPageParam>) => T | Promise<T>
  */
 
 // ✓ StaleTimeFunction: verified type-identical to the original
@@ -184,7 +206,13 @@ export function StaleTimeFunction(TQueryFnData = unknown, TError = DefaultError,
   return StaleTime | fnType([Query(TQueryFnData, TError, TData, TQueryKey)], StaleTime)
 }
 /* compiles to:
- * export type StaleTimeFunction<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = StaleTime | ((a0: Query<TQueryFnData, TError, TData, TQueryKey>) => StaleTime)
+ * export type StaleTimeFunction<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   StaleTime | ((a0: Query<TQueryFnData, TError, TData, TQueryKey>) => StaleTime)
  */
 
 // ✓ QueryBooleanOption: verified type-identical to the original
@@ -193,7 +221,13 @@ export function QueryBooleanOption(TQueryFnData = unknown, TError = DefaultError
   return boolean | fnType([Query(TQueryFnData, TError, TData, TQueryKey)], boolean)
 }
 /* compiles to:
- * export type QueryBooleanOption<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = boolean | ((a0: Query<TQueryFnData, TError, TData, TQueryKey>) => boolean)
+ * export type QueryBooleanOption<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   boolean | ((a0: Query<TQueryFnData, TError, TData, TQueryKey>) => boolean)
  */
 
 // ✓ QueryPersister: verified type-identical to the original
@@ -205,7 +239,22 @@ export function QueryPersister(T = unknown, TQueryKey: QueryKey = QueryKey, TPag
   return fnType([QueryFunction(T, TQueryKey, TPageParam), QueryFunctionContext(TQueryKey), Query], T | t<Promise<typeof T>>())
 }
 /* compiles to:
- * export type QueryPersister<T = unknown, TQueryKey extends QueryKey = QueryKey, TPageParam = never> = [TPageParam] extends [never] ? (a0: QueryFunction<T, TQueryKey, never>, a1: QueryFunctionContext<TQueryKey>, a2: Query) => T | Promise<T> : (a0: QueryFunction<T, TQueryKey, TPageParam>, a1: QueryFunctionContext<TQueryKey>, a2: Query) => T | Promise<T>
+ * export type QueryPersister<
+ *   T = unknown,
+ *   TQueryKey extends QueryKey = QueryKey,
+ *   TPageParam = never
+ * > =
+ *   [TPageParam] extends [never]
+ *     ? (
+ *       a0: QueryFunction<T, TQueryKey, never>,
+ *       a1: QueryFunctionContext<TQueryKey>,
+ *       a2: Query
+ *     ) => T | Promise<T>
+ *     : (
+ *       a0: QueryFunction<T, TQueryKey, TPageParam>,
+ *       a1: QueryFunctionContext<TQueryKey>,
+ *       a2: Query
+ *     ) => T | Promise<T>
  */
 
 // ✓ QueryFunctionContext: verified type-identical to the original
@@ -217,7 +266,24 @@ export function QueryFunctionContext(TQueryKey: QueryKey = QueryKey, TPageParam 
   return { client: QueryClient, queryKey: TQueryKey, signal: AbortSignal, pageParam: TPageParam, direction: FetchDirection, meta: anyOf(QueryMeta, Undefined) }
 }
 /* compiles to:
- * export type QueryFunctionContext<TQueryKey extends QueryKey = QueryKey, TPageParam = never> = [TPageParam] extends [never] ? { client: QueryClient; queryKey: TQueryKey; signal: AbortSignal; meta: QueryMeta | undefined; pageParam?: unknown; direction?: unknown } : { client: QueryClient; queryKey: TQueryKey; signal: AbortSignal; pageParam: TPageParam; direction: FetchDirection; meta: QueryMeta | undefined }
+ * export type QueryFunctionContext<TQueryKey extends QueryKey = QueryKey, TPageParam = never> =
+ *   [TPageParam] extends [never]
+ *     ? {
+ *       client: QueryClient
+ *       queryKey: TQueryKey
+ *       signal: AbortSignal
+ *       meta: QueryMeta | undefined
+ *       pageParam?: unknown
+ *       direction?: unknown
+ *     }
+ *     : {
+ *       client: QueryClient
+ *       queryKey: TQueryKey
+ *       signal: AbortSignal
+ *       pageParam: TPageParam
+ *       direction: FetchDirection
+ *       meta: QueryMeta | undefined
+ *     }
  */
 
 // ✓ InitialDataFunction: verified type-identical to the original
@@ -247,7 +313,16 @@ export function PlaceholderDataFunction(TQueryFnData = unknown, TError = Default
   return fnType([anyOf(TQueryData, Undefined), anyOf(Query(TQueryFnData, TError, TQueryData, TQueryKey), Undefined)], anyOf(TQueryData, Undefined))
 }
 /* compiles to:
- * export type PlaceholderDataFunction<TQueryFnData = unknown, TError = DefaultError, TQueryData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = (a0: TQueryData | undefined, a1: Query<TQueryFnData, TError, TQueryData, TQueryKey> | undefined) => TQueryData | undefined
+ * export type PlaceholderDataFunction<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TQueryData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   (
+ *     a0: TQueryData | undefined,
+ *     a1: Query<TQueryFnData, TError, TQueryData, TQueryKey> | undefined
+ *   ) => TQueryData | undefined
  */
 
 // ✓ QueriesPlaceholderDataFunction: verified type-identical to the original
@@ -256,7 +331,8 @@ export function QueriesPlaceholderDataFunction(TQueryData) {
   return fnType([Undefined, Undefined], anyOf(TQueryData, Undefined))
 }
 /* compiles to:
- * export type QueriesPlaceholderDataFunction<TQueryData> = (a0: undefined, a1: undefined) => TQueryData | undefined
+ * export type QueriesPlaceholderDataFunction<TQueryData> =
+ *   (a0: undefined, a1: undefined) => TQueryData | undefined
  */
 
 // ✓ QueryKeyHashFunction: verified type-identical to the original
@@ -274,7 +350,10 @@ export function GetPreviousPageParamFunction(TPageParam, TQueryFnData = unknown)
   return fnType([TQueryFnData, t<Array<typeof TQueryFnData>>(), TPageParam, t<Array<typeof TPageParam>>()], anyOf(TPageParam, Undefined, Null))
 }
 /* compiles to:
- * export type GetPreviousPageParamFunction<TPageParam, TQueryFnData = unknown> = (a0: TQueryFnData, a1: Array<TQueryFnData>, a2: TPageParam, a3: Array<TPageParam>) => TPageParam | undefined | null
+ * export type GetPreviousPageParamFunction<TPageParam, TQueryFnData = unknown> =
+ *   (a0: TQueryFnData, a1: Array<TQueryFnData>, a2: TPageParam, a3: Array<TPageParam>) => | TPageParam
+ *   | undefined
+ *   | null
  */
 
 // ✓ GetNextPageParamFunction: verified type-identical to the original
@@ -283,7 +362,10 @@ export function GetNextPageParamFunction(TPageParam, TQueryFnData = unknown) {
   return fnType([TQueryFnData, t<Array<typeof TQueryFnData>>(), TPageParam, t<Array<typeof TPageParam>>()], anyOf(TPageParam, Undefined, Null))
 }
 /* compiles to:
- * export type GetNextPageParamFunction<TPageParam, TQueryFnData = unknown> = (a0: TQueryFnData, a1: Array<TQueryFnData>, a2: TPageParam, a3: Array<TPageParam>) => TPageParam | undefined | null
+ * export type GetNextPageParamFunction<TPageParam, TQueryFnData = unknown> =
+ *   (a0: TQueryFnData, a1: Array<TQueryFnData>, a2: TPageParam, a3: Array<TPageParam>) => | TPageParam
+ *   | undefined
+ *   | null
  */
 
 // ✓ ThrowOnError: verified type-identical to the original
@@ -292,7 +374,8 @@ export function ThrowOnError(TQueryFnData, TError, TQueryData, TQueryKey: QueryK
   return boolean | fnType([TError, Query(TQueryFnData, TError, TQueryData, TQueryKey)], boolean)
 }
 /* compiles to:
- * export type ThrowOnError<TQueryFnData, TError, TQueryData, TQueryKey extends QueryKey> = boolean | ((a0: TError, a1: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => boolean)
+ * export type ThrowOnError<TQueryFnData, TError, TQueryData, TQueryKey extends QueryKey> =
+ *   boolean | ((a0: TError, a1: Query<TQueryFnData, TError, TQueryData, TQueryKey>) => boolean)
  */
 
 // ✓ WithRequired: verified type-identical to the original
@@ -314,7 +397,17 @@ export function DefaultedQueryObserverOptions(TQueryFnData = unknown, TError = D
   return WithRequired(QueryObserverOptions(TQueryFnData, TError, TData, TQueryData, TQueryKey), anyOf('throwOnError', 'refetchOnReconnect', 'queryHash'))
 }
 /* compiles to:
- * export type DefaultedQueryObserverOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = WithRequired<QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>, 'throwOnError' | 'refetchOnReconnect' | 'queryHash'>
+ * export type DefaultedQueryObserverOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   WithRequired<
+ *     QueryObserverOptions<TQueryFnData, TError, TData, TQueryData, TQueryKey>,
+ *     'throwOnError' | 'refetchOnReconnect' | 'queryHash'
+ *   >
  */
 
 // ✓ DefaultedInfiniteQueryObserverOptions: verified type-identical to the original
@@ -323,7 +416,17 @@ export function DefaultedInfiniteQueryObserverOptions(TQueryFnData = unknown, TE
   return WithRequired(InfiniteQueryObserverOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam), anyOf('throwOnError', 'refetchOnReconnect', 'queryHash'))
 }
 /* compiles to:
- * export type DefaultedInfiniteQueryObserverOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey, TPageParam = unknown> = WithRequired<InfiniteQueryObserverOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>, 'throwOnError' | 'refetchOnReconnect' | 'queryHash'>
+ * export type DefaultedInfiniteQueryObserverOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey,
+ *   TPageParam = unknown
+ * > =
+ *   WithRequired<
+ *     InfiniteQueryObserverOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>,
+ *     'throwOnError' | 'refetchOnReconnect' | 'queryHash'
+ *   >
  */
 
 // ✓ EnsureInfiniteQueryDataOptions: verified type-identical to the original
@@ -332,7 +435,15 @@ export function EnsureInfiniteQueryDataOptions(TQueryFnData = unknown, TError = 
   return merge(FetchInfiniteQueryOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam), { revalidateIfStale: optional(boolean) })
 }
 /* compiles to:
- * export type EnsureInfiniteQueryDataOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey, TPageParam = unknown> = FetchInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam> & { revalidateIfStale?: boolean }
+ * export type EnsureInfiniteQueryDataOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey,
+ *   TPageParam = unknown
+ * > =
+ *   & FetchInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>
+ *   & { revalidateIfStale?: boolean }
  */
 
 // ✓ FetchInfiniteQueryPages: verified type-identical to the original
@@ -341,7 +452,9 @@ export function FetchInfiniteQueryPages(TQueryFnData = unknown, TPageParam = unk
   return anyOf({ pages: optional(never) }, { pages: number, getNextPageParam: GetNextPageParamFunction(TPageParam, TQueryFnData) })
 }
 /* compiles to:
- * export type FetchInfiniteQueryPages<TQueryFnData = unknown, TPageParam = unknown> = { pages?: never } | { pages: number; getNextPageParam: GetNextPageParamFunction<TPageParam, TQueryFnData> }
+ * export type FetchInfiniteQueryPages<TQueryFnData = unknown, TPageParam = unknown> =
+ *   | { pages?: never }
+ *   | { pages: number; getNextPageParam: GetNextPageParamFunction<TPageParam, TQueryFnData> }
  */
 
 // ✓ FetchInfiniteQueryOptions: verified type-identical to the original
@@ -350,7 +463,25 @@ export function FetchInfiniteQueryOptions(TQueryFnData = unknown, TError = Defau
   return Omit(FetchQueryOptions(TQueryFnData, TError, InfiniteData(TData, TPageParam), TQueryKey, TPageParam), 'initialPageParam') & InitialPageParam(TPageParam) & FetchInfiniteQueryPages(TQueryFnData, TPageParam)
 }
 /* compiles to:
- * export type FetchInfiniteQueryOptions<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey, TPageParam = unknown> = Omit<FetchQueryOptions<TQueryFnData, TError, InfiniteData<TData, TPageParam>, TQueryKey, TPageParam>, 'initialPageParam'> & InitialPageParam<TPageParam> & FetchInfiniteQueryPages<TQueryFnData, TPageParam>
+ * export type FetchInfiniteQueryOptions<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey,
+ *   TPageParam = unknown
+ * > =
+ *   & Omit<
+ *       FetchQueryOptions<
+ *         TQueryFnData,
+ *         TError,
+ *         InfiniteData<TData, TPageParam>,
+ *         TQueryKey,
+ *         TPageParam
+ *       >,
+ *       'initialPageParam'
+ *     >
+ *   & InitialPageParam<TPageParam>
+ *   & FetchInfiniteQueryPages<TQueryFnData, TPageParam>
  */
 
 // ✓ DefinedQueryObserverResult: verified type-identical to the original
@@ -359,7 +490,8 @@ export function DefinedQueryObserverResult(TData = unknown, TError = DefaultErro
   return QueryObserverRefetchErrorResult(TData, TError) | QueryObserverSuccessResult(TData, TError)
 }
 /* compiles to:
- * export type DefinedQueryObserverResult<TData = unknown, TError = DefaultError> = QueryObserverRefetchErrorResult<TData, TError> | QueryObserverSuccessResult<TData, TError>
+ * export type DefinedQueryObserverResult<TData = unknown, TError = DefaultError> =
+ *   QueryObserverRefetchErrorResult<TData, TError> | QueryObserverSuccessResult<TData, TError>
  */
 
 // ✓ QueryObserverResult: verified type-identical to the original
@@ -368,7 +500,12 @@ export function QueryObserverResult(TData = unknown, TError = DefaultError) {
   return DefinedQueryObserverResult(TData, TError) | QueryObserverLoadingErrorResult(TData, TError) | QueryObserverLoadingResult(TData, TError) | QueryObserverPendingResult(TData, TError) | QueryObserverPlaceholderResult(TData, TError)
 }
 /* compiles to:
- * export type QueryObserverResult<TData = unknown, TError = DefaultError> = DefinedQueryObserverResult<TData, TError> | QueryObserverLoadingErrorResult<TData, TError> | QueryObserverLoadingResult<TData, TError> | QueryObserverPendingResult<TData, TError> | QueryObserverPlaceholderResult<TData, TError>
+ * export type QueryObserverResult<TData = unknown, TError = DefaultError> =
+ *   | DefinedQueryObserverResult<TData, TError>
+ *   | QueryObserverLoadingErrorResult<TData, TError>
+ *   | QueryObserverLoadingResult<TData, TError>
+ *   | QueryObserverPendingResult<TData, TError>
+ *   | QueryObserverPlaceholderResult<TData, TError>
  */
 
 // ✓ DefinedInfiniteQueryObserverResult: verified type-identical to the original
@@ -377,7 +514,9 @@ export function DefinedInfiniteQueryObserverResult(TData = unknown, TError = Def
   return InfiniteQueryObserverRefetchErrorResult(TData, TError) | InfiniteQueryObserverSuccessResult(TData, TError)
 }
 /* compiles to:
- * export type DefinedInfiniteQueryObserverResult<TData = unknown, TError = DefaultError> = InfiniteQueryObserverRefetchErrorResult<TData, TError> | InfiniteQueryObserverSuccessResult<TData, TError>
+ * export type DefinedInfiniteQueryObserverResult<TData = unknown, TError = DefaultError> =
+ *   | InfiniteQueryObserverRefetchErrorResult<TData, TError>
+ *   | InfiniteQueryObserverSuccessResult<TData, TError>
  */
 
 // ✓ InfiniteQueryObserverResult: verified type-identical to the original
@@ -386,7 +525,12 @@ export function InfiniteQueryObserverResult(TData = unknown, TError = DefaultErr
   return DefinedInfiniteQueryObserverResult(TData, TError) | InfiniteQueryObserverLoadingErrorResult(TData, TError) | InfiniteQueryObserverLoadingResult(TData, TError) | InfiniteQueryObserverPendingResult(TData, TError) | InfiniteQueryObserverPlaceholderResult(TData, TError)
 }
 /* compiles to:
- * export type InfiniteQueryObserverResult<TData = unknown, TError = DefaultError> = DefinedInfiniteQueryObserverResult<TData, TError> | InfiniteQueryObserverLoadingErrorResult<TData, TError> | InfiniteQueryObserverLoadingResult<TData, TError> | InfiniteQueryObserverPendingResult<TData, TError> | InfiniteQueryObserverPlaceholderResult<TData, TError>
+ * export type InfiniteQueryObserverResult<TData = unknown, TError = DefaultError> =
+ *   | DefinedInfiniteQueryObserverResult<TData, TError>
+ *   | InfiniteQueryObserverLoadingErrorResult<TData, TError>
+ *   | InfiniteQueryObserverLoadingResult<TData, TError>
+ *   | InfiniteQueryObserverPendingResult<TData, TError>
+ *   | InfiniteQueryObserverPlaceholderResult<TData, TError>
  */
 
 // ✓ MutationFunction: verified type-identical to the original
@@ -395,7 +539,8 @@ export function MutationFunction(TData = unknown, TVariables = unknown) {
   return fnType([TVariables, MutationFunctionContext], t<Promise<typeof TData>>())
 }
 /* compiles to:
- * export type MutationFunction<TData = unknown, TVariables = unknown> = (a0: TVariables, a1: MutationFunctionContext) => Promise<TData>
+ * export type MutationFunction<TData = unknown, TVariables = unknown> =
+ *   (a0: TVariables, a1: MutationFunctionContext) => Promise<TData>
  */
 
 // ✗ MutateFunction: compiles but is not type-identical yet
@@ -405,7 +550,15 @@ export function MutateFunction(TData = unknown, TError = DefaultError, TVariable
   return fnType([TVariables, MutateOptions(TData, TError, TVariables, TOnMutateResult)], t<Promise<typeof TData>>())
 }
 /* compiles to:
- * export type MutateFunction<TData = unknown, TError = DefaultError, TVariables = void, TOnMutateResult = unknown> = (a0: TVariables, a1: MutateOptions<TData, TError, TVariables, TOnMutateResult>) => Promise<TData>
+ * export type MutateFunction<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = void,
+ *   TOnMutateResult = unknown
+ * > =
+ *   (a0: TVariables, a1: MutateOptions<TData, TError, TVariables, TOnMutateResult>) => Promise<
+ *     TData
+ *   >
  */
 
 // ✓ MutationObserverResult: verified type-identical to the original
@@ -414,5 +567,14 @@ export function MutationObserverResult(TData = unknown, TError = DefaultError, T
   return MutationObserverIdleResult(TData, TError, TVariables, TOnMutateResult) | MutationObserverLoadingResult(TData, TError, TVariables, TOnMutateResult) | MutationObserverErrorResult(TData, TError, TVariables, TOnMutateResult) | MutationObserverSuccessResult(TData, TError, TVariables, TOnMutateResult)
 }
 /* compiles to:
- * export type MutationObserverResult<TData = unknown, TError = DefaultError, TVariables = void, TOnMutateResult = unknown> = MutationObserverIdleResult<TData, TError, TVariables, TOnMutateResult> | MutationObserverLoadingResult<TData, TError, TVariables, TOnMutateResult> | MutationObserverErrorResult<TData, TError, TVariables, TOnMutateResult> | MutationObserverSuccessResult<TData, TError, TVariables, TOnMutateResult>
+ * export type MutationObserverResult<
+ *   TData = unknown,
+ *   TError = DefaultError,
+ *   TVariables = void,
+ *   TOnMutateResult = unknown
+ * > =
+ *   | MutationObserverIdleResult<TData, TError, TVariables, TOnMutateResult>
+ *   | MutationObserverLoadingResult<TData, TError, TVariables, TOnMutateResult>
+ *   | MutationObserverErrorResult<TData, TError, TVariables, TOnMutateResult>
+ *   | MutationObserverSuccessResult<TData, TError, TVariables, TOnMutateResult>
  */

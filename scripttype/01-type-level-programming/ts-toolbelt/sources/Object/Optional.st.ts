@@ -14,10 +14,10 @@ declare const Depth: any
 declare const Equals: any
 declare const Key: any
 declare const PatchFlat: any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Equals<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PatchFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Equals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PatchFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OptionalFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OptionalFlat(O) {
@@ -50,7 +50,8 @@ export function OptionalPart(O: object, depth: Depth) {
   return { 'flat': OptionalFlat(O), 'deep': OptionalDeep(O) }[depth]
 }
 /* compiles to:
- * export type OptionalPart<O extends object, depth extends Depth> = { flat: OptionalFlat<O>; deep: OptionalDeep<O> }[depth]
+ * export type OptionalPart<O extends object, depth extends Depth> =
+ *   { flat: OptionalFlat<O>; deep: OptionalDeep<O> }[depth]
  */
 
 // ✗ Optional: does not compile yet
@@ -60,5 +61,6 @@ export function Optional(O: object, K: Key = Key, depth: Depth = 'flat') {
   return { 1: OptionalPart(O, depth), 0: PatchFlat(OptionalPart(Pick(O, K), depth), O) }[Equals(Key, K)]
 }
 /* compiles to:
- * export type Optional<O extends object, K extends Key = Key, depth extends Depth = 'flat'> = { '1': OptionalPart<O, depth>; '0': PatchFlat<OptionalPart<Pick<O, K>, depth>, O> }[Equals<Key, K>]
+ * export type Optional<O extends object, K extends Key = Key, depth extends Depth = 'flat'> =
+ *   { '1': OptionalPart<O, depth>; '0': PatchFlat<OptionalPart<Pick<O, K>, depth>, O> }[Equals<Key, K>]
  */

@@ -15,11 +15,11 @@ declare const Depth: any
 declare const Key: any
 declare const PatchFlat: any
 declare const _Pick: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PatchFlat<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Pick<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PatchFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadonlyFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyFlat(O) {
@@ -43,7 +43,9 @@ export function ReadonlyDeep(O) {
   return out
 }
 /* compiles to:
- * export type ReadonlyDeep<O> = { readonly [K in keyof O]: O[K] extends BuiltIn ? O[K] : ReadonlyDeep<O[K]> }
+ * export type ReadonlyDeep<O> = {
+ *   readonly [K in keyof O]: O[K] extends BuiltIn ? O[K] : ReadonlyDeep<O[K]>
+ * }
  */
 
 // ✓ ReadonlyPart: verified type-identical to the original
@@ -52,7 +54,8 @@ export function ReadonlyPart(O: object, depth: Depth) {
   return { 'flat': ReadonlyFlat(O), 'deep': ReadonlyDeep(O) }[depth]
 }
 /* compiles to:
- * export type ReadonlyPart<O extends object, depth extends Depth> = { flat: ReadonlyFlat<O>; deep: ReadonlyDeep<O> }[depth]
+ * export type ReadonlyPart<O extends object, depth extends Depth> =
+ *   { flat: ReadonlyFlat<O>; deep: ReadonlyDeep<O> }[depth]
  */
 
 // ✓ _Readonly: verified type-identical to the original
@@ -61,7 +64,10 @@ export function _Readonly(O: object, K: Key, depth: Depth) {
   return PatchFlat(ReadonlyPart(_Pick(O, K), depth), O)
 }
 /* compiles to:
- * export type _Readonly<O extends object, K extends Key, depth extends Depth> = PatchFlat<ReadonlyPart<_Pick<O, K>, depth>, O>
+ * export type _Readonly<O extends object, K extends Key, depth extends Depth> = PatchFlat<
+ *   ReadonlyPart<_Pick<O, K>, depth>,
+ *   O
+ * >
  */
 
 // ✓ Readonly: verified type-identical to the original
@@ -73,5 +79,6 @@ export function Readonly(O: object, K: Key = Key, depth: Depth = 'flat') {
   return never
 }
 /* compiles to:
- * export type Readonly<O extends object, K extends Key = Key, depth extends Depth = 'flat'> = O extends unknown ? _Readonly<O, K, depth> : never
+ * export type Readonly<O extends object, K extends Key = Key, depth extends Depth = 'flat'> =
+ *   O extends unknown ? _Readonly<O, K, depth> : never
  */

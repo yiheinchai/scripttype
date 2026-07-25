@@ -13,16 +13,18 @@
 declare const MySqlTable: any
 declare const TableConfig: any
 declare const UpdateTableConfig: any
-type MySqlTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateTableConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MySqlTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateTableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyMySqlTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AnyMySqlTable(TPartial: Partial<TableConfig> = {}) {
   return MySqlTable(UpdateTableConfig(TableConfig, TPartial))
 }
 /* compiles to:
- * export type AnyMySqlTable<TPartial extends Partial<TableConfig> = {}> = MySqlTable<UpdateTableConfig<TableConfig, TPartial>>
+ * export type AnyMySqlTable<TPartial extends Partial<TableConfig> = {}> = MySqlTable<
+ *   UpdateTableConfig<TableConfig, TPartial>
+ * >
  */
 
 // ✓ MySqlTableWithColumns: verified type-identical to the original
@@ -35,5 +37,6 @@ export function MySqlTableWithColumns(T: TableConfig) {
   return MySqlTable(T) & out
 }
 /* compiles to:
- * export type MySqlTableWithColumns<T extends TableConfig> = MySqlTable<T> & { [Key in keyof T['columns']]: T['columns'][Key] }
+ * export type MySqlTableWithColumns<T extends TableConfig> =
+ *   MySqlTable<T> & { [Key in keyof T['columns']]: T['columns'][Key] }
  */

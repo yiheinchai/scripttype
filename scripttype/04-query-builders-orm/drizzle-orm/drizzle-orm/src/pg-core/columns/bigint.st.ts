@@ -12,15 +12,24 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const PgBigInt53Builder: any
 declare const PgBigInt64Builder: any
-type PgBigInt53Builder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PgBigInt64Builder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PgBigInt53Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PgBigInt64Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgBigInt53BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgBigInt53BuilderInitial(TName: string) {
   return PgBigInt53Builder({ name: TName, dataType: 'number', columnType: 'PgBigInt53', data: number, driverParam: number | string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgBigInt53BuilderInitial<TName extends string> = PgBigInt53Builder<{ name: TName; dataType: 'number'; columnType: 'PgBigInt53'; data: number; driverParam: number | string; enumValues: undefined }>
+ * export type PgBigInt53BuilderInitial<TName extends string> = PgBigInt53Builder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'PgBigInt53'
+ *     data: number
+ *     driverParam: number | string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ PgBigInt64BuilderInitial: verified type-identical to the original
@@ -29,5 +38,14 @@ export function PgBigInt64BuilderInitial(TName: string) {
   return PgBigInt64Builder({ name: TName, dataType: 'bigint', columnType: 'PgBigInt64', data: bigint, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type PgBigInt64BuilderInitial<TName extends string> = PgBigInt64Builder<{ name: TName; dataType: 'bigint'; columnType: 'PgBigInt64'; data: bigint; driverParam: string; enumValues: undefined }>
+ * export type PgBigInt64BuilderInitial<TName extends string> = PgBigInt64Builder<
+ *   {
+ *     name: TName
+ *     dataType: 'bigint'
+ *     columnType: 'PgBigInt64'
+ *     data: bigint
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */

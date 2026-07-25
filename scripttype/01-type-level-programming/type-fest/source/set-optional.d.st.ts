@@ -13,16 +13,22 @@
 declare const Except: any
 declare const HomomorphicPick: any
 declare const Simplify: any
-type Except<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HomomorphicPick<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Except<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HomomorphicPick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetOptional(BaseType, Keys: keyof typeof BaseType) {
   return (matches<(...arguments_: never) => any>(BaseType) ? fnType([Parameters(BaseType)], ReturnType(BaseType)) : unknown) & _SetOptional(BaseType, Keys)
 }
 /* compiles to:
- * export type SetOptional<BaseType, Keys extends keyof BaseType> = (BaseType extends (...arguments_: never) => any ? (a0: Parameters<BaseType>) => ReturnType<BaseType> : unknown) & _SetOptional<BaseType, Keys>
+ * export type SetOptional<BaseType, Keys extends keyof BaseType> =
+ *   & (
+ *       BaseType extends (...arguments_: never) => any
+ *         ? (a0: Parameters<BaseType>) => ReturnType<BaseType>
+ *         : unknown
+ *     )
+ *   & _SetOptional<BaseType, Keys>
  */
 
 // ✓ _SetOptional: verified type-identical to the original
@@ -34,5 +40,8 @@ export function _SetOptional(BaseType, Keys: keyof typeof BaseType) {
   return never
 }
 /* compiles to:
- * export type _SetOptional<BaseType, Keys extends keyof BaseType> = BaseType extends unknown ? Simplify<Except<BaseType, Keys> & Partial<HomomorphicPick<BaseType, Keys>>> : never
+ * export type _SetOptional<BaseType, Keys extends keyof BaseType> =
+ *   BaseType extends unknown
+ *     ? Simplify<Except<BaseType, Keys> & Partial<HomomorphicPick<BaseType, Keys>>>
+ *     : never
  */

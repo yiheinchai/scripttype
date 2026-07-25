@@ -13,9 +13,9 @@
 declare const ArraySlice: any
 declare const Join: any
 declare const StringToArray: any
-type ArraySlice<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Join<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StringToArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ArraySlice<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Join<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringToArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringSlice: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function StringSlice(S: string, Start: number = never, End: number = never) {
@@ -29,5 +29,13 @@ export function StringSlice(S: string, Start: number = never, End: number = neve
   return never
 }
 /* compiles to:
- * export type StringSlice<S extends string, Start extends number = never, End extends number = never> = string extends S ? string : ArraySlice<StringToArray<S>, Start, End> extends (infer R extends readonly string[]) ? Join<R, ''> : never
+ * export type StringSlice<
+ *   S extends string,
+ *   Start extends number = never,
+ *   End extends number = never
+ * > =
+ *   string extends S ? string
+ *   : ArraySlice<StringToArray<S>, Start, End> extends (infer R extends readonly string[])
+ *     ? Join<R, ''>
+ *   : never
  */

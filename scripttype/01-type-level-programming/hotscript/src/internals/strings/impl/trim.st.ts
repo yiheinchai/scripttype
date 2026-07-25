@@ -22,7 +22,8 @@ export function TrimLeft(Str, Sep: string) {
 }
 /* compiles to:
  * export type TrimLeft<Str, Sep extends string> = TrimLeft__loop<Str, Sep>
- * type TrimLeft__loop<Str, Sep extends string> = Str extends `${Sep}${infer Rest}` ? TrimLeft__loop<Rest, Sep> : Str
+ * type TrimLeft__loop<Str, Sep extends string> =
+ *   Str extends `${Sep}${infer Rest}` ? TrimLeft__loop<Rest, Sep> : Str
  */
 
 // ✓ TrimRight: verified type-identical to the original
@@ -40,7 +41,8 @@ export function TrimRight(Str, Sep: string) {
 }
 /* compiles to:
  * export type TrimRight<Str, Sep extends string> = TrimRight__loop<Str, Sep>
- * type TrimRight__loop<Str, Sep extends string> = Str extends `${infer Rest}${Sep}` ? TrimRight__loop<Rest, Sep> : Str
+ * type TrimRight__loop<Str, Sep extends string> =
+ *   Str extends `${infer Rest}${Sep}` ? TrimRight__loop<Rest, Sep> : Str
  */
 
 // ✓ Trim: verified type-identical to the original

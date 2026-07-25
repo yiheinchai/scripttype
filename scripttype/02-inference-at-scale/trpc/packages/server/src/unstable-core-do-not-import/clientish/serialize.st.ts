@@ -22,19 +22,19 @@ declare const PromiseLike: any
 declare const Simplify: any
 declare const WithoutIndexSignature: any
 declare const toJSON: any
-type $Next<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type $Return<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type $T<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AsyncIterable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExactOptionalPropertyTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JsonReturnable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type JsonValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonJsonPrimitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PromiseLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Serialize<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WithoutIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type toJSON<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type $Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type $Return<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type $T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AsyncIterable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExactOptionalPropertyTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JsonReturnable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JsonValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NonJsonPrimitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PromiseLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Serialize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WithoutIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type toJSON<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsJson: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsJson(T) {
@@ -68,7 +68,8 @@ export function IsRecord(T: object) {
   return false
 }
 /* compiles to:
- * export type IsRecord<T extends object> = keyof WithoutIndexSignature<T> extends never ? true : false
+ * export type IsRecord<T extends object> =
+ *   keyof WithoutIndexSignature<T> extends never ? true : false
  */
 
 // ✓ Serialize: verified type-identical to the original
@@ -123,7 +124,25 @@ export function Serialize(T) {
   return never
 }
 /* compiles to:
- * export type Serialize<T> = IsAny<T> extends true ? any : unknown extends T ? unknown : IsJson<T> extends true ? T : T extends AsyncIterable<infer $T, infer $Return, infer $Next> ? AsyncIterable<Serialize<$T>, Serialize<$Return>, Serialize<$Next>> : T extends PromiseLike<infer $T> ? Promise<Serialize<$T>> : T extends JsonReturnable ? T : T extends Map<any, any> | Set<any> ? object : T extends NonJsonPrimitive ? never : T extends { toJSON(): infer U; } ? U : T extends [] ? [] : T extends [unknown, ...unknown[]] ? SerializeTuple<T> : T extends readonly (infer U)[] ? (U extends NonJsonPrimitive ? null : Serialize<U>)[] : T extends object ? IsRecord<T> extends true ? Record<keyof T, Serialize<T[keyof T]>> : Simplify<SerializeObject<UndefinedToOptional<T>>> : never
+ * export type Serialize<T> =
+ *   IsAny<T> extends true ? any
+ *   : unknown extends T ? unknown
+ *   : IsJson<T> extends true ? T
+ *   : T extends AsyncIterable<infer $T, infer $Return, infer $Next>
+ *     ? AsyncIterable<Serialize<$T>, Serialize<$Return>, Serialize<$Next>>
+ *   : T extends PromiseLike<infer $T> ? Promise<Serialize<$T>>
+ *   : T extends JsonReturnable ? T
+ *   : T extends Map<any, any> | Set<any> ? object
+ *   : T extends NonJsonPrimitive ? never
+ *   : T extends { toJSON(): infer U; } ? U
+ *   : T extends [] ? []
+ *   : T extends [unknown, ...unknown[]] ? SerializeTuple<T>
+ *   : T extends readonly (infer U)[] ? (U extends NonJsonPrimitive ? null : Serialize<U>)[]
+ *   : T extends object
+ *     ? IsRecord<T> extends true
+ *       ? Record<keyof T, Serialize<T[keyof T]>>
+ *       : Simplify<SerializeObject<UndefinedToOptional<T>>>
+ *   : never
  */
 
 // ✓ SerializeTuple: verified type-identical to the original
@@ -136,13 +155,15 @@ export function SerializeTuple(T: [ unknown, ...unknown[] ]) {
   return out
 }
 /* compiles to:
- * export type SerializeTuple<T extends [unknown, ...unknown[]]> = { [K in keyof T]: T[K] extends NonJsonPrimitive ? null : Serialize<T[K]> }
+ * export type SerializeTuple<T extends [unknown, ...unknown[]]> = {
+ *   [K in keyof T]: T[K] extends NonJsonPrimitive ? null : Serialize<T[K]>
+ * }
  */
 
 // ✓ SerializeObjectKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SerializeObjectKey(T: Record<any, any>, K) {
-  if (matches<symbol>(K)) {
+  if (typeof K === 'symbol') {
     return never
   }
   if (matches<true>(IsAny(T[K]))) {
@@ -157,7 +178,12 @@ export function SerializeObjectKey(T: Record<any, any>, K) {
   return K
 }
 /* compiles to:
- * export type SerializeObjectKey<T extends Record<any, any>, K> = K extends symbol ? never : IsAny<T[K]> extends true ? K : unknown extends T[K] ? K : T[K] extends NonJsonPrimitive ? never : K
+ * export type SerializeObjectKey<T extends Record<any, any>, K> =
+ *   K extends symbol ? never
+ *   : IsAny<T[K]> extends true ? K
+ *   : unknown extends T[K] ? K
+ *   : T[K] extends NonJsonPrimitive ? never
+ *   : K
  */
 
 // ✓ SerializeObject: verified type-identical to the original
@@ -170,7 +196,9 @@ export function SerializeObject(T: object) {
   return out
 }
 /* compiles to:
- * export type SerializeObject<T extends object> = { [K in keyof T as SerializeObjectKey<T, K>]: Serialize<T[K]> }
+ * export type SerializeObject<T extends object> = {
+ *   [K in keyof T as SerializeObjectKey<T, K>]: Serialize<T[K]>
+ * }
  */
 
 // ✗ FilterDefinedKeys: the ScriptType does not itself typecheck as TypeScript
@@ -184,13 +212,16 @@ export function FilterDefinedKeys(T: object) {
   return Exclude(out[keyof(T)], Undefined)
 }
 /* compiles to:
- * export type FilterDefinedKeys<T extends object> = Exclude<{ [K in keyof T]: undefined extends T[K] ? never : K }[keyof T], undefined>
+ * export type FilterDefinedKeys<T extends object> = Exclude<
+ *   { [K in keyof T]: undefined extends T[K] ? never : K }[keyof T],
+ *   undefined
+ * >
  */
 
 // ✓ HasIndexSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HasIndexSignature(T: object) {
-  if (matches<keyof typeof T>(string)) {
+  if (string in T) {
     return true
   }
   return false
@@ -209,7 +240,9 @@ export function HandleIndexSignature(T: object) {
   return out
 }
 /* compiles to:
- * export type HandleIndexSignature<T extends object> = { [K in keyof Omit<T, keyof WithoutIndexSignature<T>>]: Exclude<T[K], undefined> }
+ * export type HandleIndexSignature<T extends object> = {
+ *   [K in keyof Omit<T, keyof WithoutIndexSignature<T>>]: Exclude<T[K], undefined>
+ * }
  */
 
 // ✓ HandleUndefined: verified type-identical to the original
@@ -222,7 +255,9 @@ export function HandleUndefined(T: object) {
   return out
 }
 /* compiles to:
- * export type HandleUndefined<T extends object> = { [K in keyof Omit<T, FilterDefinedKeys<T>>]?: Exclude<T[K], undefined> }
+ * export type HandleUndefined<T extends object> = {
+ *   [K in keyof Omit<T, FilterDefinedKeys<T>>]?: Exclude<T[K], undefined>
+ * }
  */
 
 // ✓ UndefinedToOptional: verified type-identical to the original
@@ -231,5 +266,12 @@ export function UndefinedToOptional(T: object) {
   return Pick(WithoutIndexSignature(T), FilterDefinedKeys(WithoutIndexSignature(T))) & (matches<true>(ExactOptionalPropertyTypes) ? (HandleIndexSignature(T) & HandleUndefined(WithoutIndexSignature(T))) : (matches<true>(HasIndexSignature(T)) ? HandleIndexSignature(T) : HandleUndefined(T)))
 }
 /* compiles to:
- * export type UndefinedToOptional<T extends object> = Pick<WithoutIndexSignature<T>, FilterDefinedKeys<WithoutIndexSignature<T>>> & (ExactOptionalPropertyTypes extends true ? HandleIndexSignature<T> & HandleUndefined<WithoutIndexSignature<T>> : HasIndexSignature<T> extends true ? HandleIndexSignature<T> : HandleUndefined<T>)
+ * export type UndefinedToOptional<T extends object> =
+ *   & Pick<WithoutIndexSignature<T>, FilterDefinedKeys<WithoutIndexSignature<T>>>
+ *   & (
+ *       ExactOptionalPropertyTypes extends true
+ *         ? HandleIndexSignature<T> & HandleUndefined<WithoutIndexSignature<T>>
+ *       : HasIndexSignature<T> extends true ? HandleIndexSignature<T>
+ *       : HandleUndefined<T>
+ *     )
  */

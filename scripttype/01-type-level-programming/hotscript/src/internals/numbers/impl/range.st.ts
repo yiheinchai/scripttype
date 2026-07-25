@@ -16,12 +16,12 @@ declare const Num: any
 declare const Sub: any
 declare const ToDigitNumber: any
 declare const ToString: any
-type Add<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AddDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Num<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Sub<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Add<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AddDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Sub<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SequenceOfDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SequenceOfDigits(T: number | bigint) {
@@ -37,8 +37,22 @@ export function SequenceOfDigits(T: number | bigint) {
   return Acc
 }
 /* compiles to:
- * export type SequenceOfDigits<T extends number | bigint> = Num<ToDigitNumber<ToString<0>>> extends infer MinDigits ? SequenceOfDigits__loop<[MinDigits], T, MinDigits> : never
- * type SequenceOfDigits__loop<Acc extends readonly unknown[], T extends number | bigint, MinDigits> = Acc['length'] extends T ? Acc : SequenceOfDigits__loop<[...Acc, AddDigits<Num<ToDigitNumber<ToString<Acc['length']>>>, MinDigits>], T, MinDigits>
+ * export type SequenceOfDigits<T extends number | bigint> =
+ *   Num<ToDigitNumber<ToString<0>>> extends infer MinDigits
+ *     ? SequenceOfDigits__loop<[MinDigits], T, MinDigits>
+ *     : never
+ * type SequenceOfDigits__loop<
+ *   Acc extends readonly unknown[],
+ *   T extends number | bigint,
+ *   MinDigits
+ * > =
+ *   Acc['length'] extends T
+ *     ? Acc
+ *     : SequenceOfDigits__loop<
+ *       [...Acc, AddDigits<Num<ToDigitNumber<ToString<Acc['length']>>>, MinDigits>],
+ *       T,
+ *       MinDigits
+ *     >
  */
 
 // ✓ RangeOfDigits: verified type-identical to the original
@@ -47,5 +61,8 @@ export function RangeOfDigits(Min: number | bigint, Max: number | bigint) {
   return SequenceOfDigits(Sub(Add(Max, 1), Min), Min)
 }
 /* compiles to:
- * export type RangeOfDigits<Min extends number | bigint, Max extends number | bigint> = SequenceOfDigits<Sub<Add<Max, 1>, Min>, Min>
+ * export type RangeOfDigits<Min extends number | bigint, Max extends number | bigint> = SequenceOfDigits<
+ *   Sub<Add<Max, 1>, Min>,
+ *   Min
+ * >
  */

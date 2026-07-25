@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace React {
+  export type ReactElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Control: any
 declare const FieldArrayMethodProps: any
 declare const FieldArrayPath: any
@@ -21,24 +24,41 @@ declare const UseFieldArrayMove: any
 declare const UseFieldArrayRemove: any
 declare const UseFieldArraySwap: any
 declare const Validate: any
-type Control<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldArrayMethodProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldArrayPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldArrayPathValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FieldValues<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type React<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RegisterOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseFieldArrayMove<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseFieldArrayRemove<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UseFieldArraySwap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Validate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Control<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldArrayMethodProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldArrayPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldArrayPathValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type React<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegisterOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseFieldArrayMove<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseFieldArrayRemove<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UseFieldArraySwap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Validate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseFieldArrayProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseFieldArrayProps(TFieldValues: FieldValues = FieldValues, TFieldArrayName: FieldArrayPath<typeof TFieldValues> = FieldArrayPath(TFieldValues), TKeyName: string = 'id', TTransformedValues = TFieldValues) {
   return { name: TFieldArrayName, keyName: optional(TKeyName), control: optional(Control(TFieldValues, any, TTransformedValues)), rules: optional(merge({ validate: optional(Validate(arrayOf(FieldArray(TFieldValues, TFieldArrayName)), TFieldValues) | Record(string, Validate(arrayOf(FieldArray(TFieldValues, TFieldArrayName)), TFieldValues))) }, Pick(RegisterOptions(TFieldValues), anyOf('maxLength', 'minLength', 'required')))), shouldUnregister: optional(boolean), disabled: optional(boolean) }
 }
 /* compiles to:
- * export type UseFieldArrayProps<TFieldValues extends FieldValues = FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>, TKeyName extends string = 'id', TTransformedValues = TFieldValues> = { name: TFieldArrayName; keyName?: TKeyName; control?: Control<TFieldValues, any, TTransformedValues>; rules?: { validate?: Validate<FieldArray<TFieldValues, TFieldArrayName>[], TFieldValues> | Record<string, Validate<FieldArray<TFieldValues, TFieldArrayName>[], TFieldValues>> } & Pick<RegisterOptions<TFieldValues>, 'maxLength' | 'minLength' | 'required'>; shouldUnregister?: boolean; disabled?: boolean }
+ * export type UseFieldArrayProps<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+ *   TKeyName extends string = 'id',
+ *   TTransformedValues = TFieldValues
+ * > =
+ *   {
+ *     name: TFieldArrayName
+ *     keyName?: TKeyName
+ *     control?: Control<TFieldValues, any, TTransformedValues>
+ *     rules?: & {
+ *         validate?: | Validate<FieldArray<TFieldValues, TFieldArrayName>[], TFieldValues>
+ *         | Record<string, Validate<FieldArray<TFieldValues, TFieldArrayName>[], TFieldValues>>
+ *       }
+ *     & Pick<RegisterOptions<TFieldValues>, 'maxLength' | 'minLength' | 'required'>
+ *     shouldUnregister?: boolean
+ *     disabled?: boolean
+ *   }
  */
 
 // ✓ FieldArrayWithId: verified type-identical to the original
@@ -47,7 +67,12 @@ export function FieldArrayWithId(TFieldValues: FieldValues = FieldValues, TField
   return FieldArray(TFieldValues, TFieldArrayName) & Record(TKeyName, string)
 }
 /* compiles to:
- * export type FieldArrayWithId<TFieldValues extends FieldValues = FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>, TKeyName extends string = 'id'> = FieldArray<TFieldValues, TFieldArrayName> & Record<TKeyName, string>
+ * export type FieldArrayWithId<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+ *   TKeyName extends string = 'id'
+ * > =
+ *   FieldArray<TFieldValues, TFieldArrayName> & Record<TKeyName, string>
  */
 
 // ✓ FieldArray: verified type-identical to the original
@@ -60,7 +85,13 @@ export function FieldArray(TFieldValues: FieldValues = FieldValues, TFieldArrayN
   return never
 }
 /* compiles to:
- * export type FieldArray<TFieldValues extends FieldValues = FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>> = FieldArrayPathValue<TFieldValues, TFieldArrayName> extends ReadonlyArray<infer U> | null | undefined ? U : never
+ * export type FieldArray<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>
+ * > =
+ *   FieldArrayPathValue<TFieldValues, TFieldArrayName> extends ReadonlyArray<infer U> | null | undefined
+ *     ? U
+ *     : never
  */
 
 // ✗ UseFieldArrayPrepend: compiles but is not type-identical yet
@@ -70,7 +101,14 @@ export function UseFieldArrayPrepend(TFieldValues: FieldValues, TFieldArrayName:
   return fnType([FieldArray(TFieldValues, TFieldArrayName) | arrayOf(FieldArray(TFieldValues, TFieldArrayName)), FieldArrayMethodProps], voidType())
 }
 /* compiles to:
- * export type UseFieldArrayPrepend<TFieldValues extends FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>> = (a0: FieldArray<TFieldValues, TFieldArrayName> | FieldArray<TFieldValues, TFieldArrayName>[], a1: FieldArrayMethodProps) => void
+ * export type UseFieldArrayPrepend<
+ *   TFieldValues extends FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>
+ * > =
+ *   (
+ *     a0: FieldArray<TFieldValues, TFieldArrayName> | FieldArray<TFieldValues, TFieldArrayName>[],
+ *     a1: FieldArrayMethodProps
+ *   ) => void
  */
 
 // ✗ UseFieldArrayAppend: compiles but is not type-identical yet
@@ -80,7 +118,14 @@ export function UseFieldArrayAppend(TFieldValues: FieldValues, TFieldArrayName: 
   return fnType([FieldArray(TFieldValues, TFieldArrayName) | arrayOf(FieldArray(TFieldValues, TFieldArrayName)), FieldArrayMethodProps], voidType())
 }
 /* compiles to:
- * export type UseFieldArrayAppend<TFieldValues extends FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>> = (a0: FieldArray<TFieldValues, TFieldArrayName> | FieldArray<TFieldValues, TFieldArrayName>[], a1: FieldArrayMethodProps) => void
+ * export type UseFieldArrayAppend<
+ *   TFieldValues extends FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>
+ * > =
+ *   (
+ *     a0: FieldArray<TFieldValues, TFieldArrayName> | FieldArray<TFieldValues, TFieldArrayName>[],
+ *     a1: FieldArrayMethodProps
+ *   ) => void
  */
 
 // ✗ UseFieldArrayInsert: compiles but is not type-identical yet
@@ -90,7 +135,15 @@ export function UseFieldArrayInsert(TFieldValues: FieldValues, TFieldArrayName: 
   return fnType([number, FieldArray(TFieldValues, TFieldArrayName) | arrayOf(FieldArray(TFieldValues, TFieldArrayName)), FieldArrayMethodProps], voidType())
 }
 /* compiles to:
- * export type UseFieldArrayInsert<TFieldValues extends FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>> = (a0: number, a1: FieldArray<TFieldValues, TFieldArrayName> | FieldArray<TFieldValues, TFieldArrayName>[], a2: FieldArrayMethodProps) => void
+ * export type UseFieldArrayInsert<
+ *   TFieldValues extends FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>
+ * > =
+ *   (
+ *     a0: number,
+ *     a1: FieldArray<TFieldValues, TFieldArrayName> | FieldArray<TFieldValues, TFieldArrayName>[],
+ *     a2: FieldArrayMethodProps
+ *   ) => void
  */
 
 // ✓ UseFieldArrayUpdate: verified type-identical to the original
@@ -99,7 +152,11 @@ export function UseFieldArrayUpdate(TFieldValues: FieldValues, TFieldArrayName: 
   return fnType([number, FieldArray(TFieldValues, TFieldArrayName)], voidType())
 }
 /* compiles to:
- * export type UseFieldArrayUpdate<TFieldValues extends FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>> = (a0: number, a1: FieldArray<TFieldValues, TFieldArrayName>) => void
+ * export type UseFieldArrayUpdate<
+ *   TFieldValues extends FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>
+ * > =
+ *   (a0: number, a1: FieldArray<TFieldValues, TFieldArrayName>) => void
  */
 
 // ✓ UseFieldArrayReplace: verified type-identical to the original
@@ -108,7 +165,13 @@ export function UseFieldArrayReplace(TFieldValues: FieldValues, TFieldArrayName:
   return fnType([FieldArray(TFieldValues, TFieldArrayName) | arrayOf(FieldArray(TFieldValues, TFieldArrayName))], voidType())
 }
 /* compiles to:
- * export type UseFieldArrayReplace<TFieldValues extends FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>> = (a0: FieldArray<TFieldValues, TFieldArrayName> | FieldArray<TFieldValues, TFieldArrayName>[]) => void
+ * export type UseFieldArrayReplace<
+ *   TFieldValues extends FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>
+ * > =
+ *   (
+ *     a0: FieldArray<TFieldValues, TFieldArrayName> | FieldArray<TFieldValues, TFieldArrayName>[]
+ *   ) => void
  */
 
 // ✓ UseFieldArrayReturn: verified type-identical to the original
@@ -117,7 +180,22 @@ export function UseFieldArrayReturn(TFieldValues: FieldValues = FieldValues, TFi
   return { swap: UseFieldArraySwap, move: UseFieldArrayMove, prepend: UseFieldArrayPrepend(TFieldValues, TFieldArrayName), append: UseFieldArrayAppend(TFieldValues, TFieldArrayName), remove: UseFieldArrayRemove, insert: UseFieldArrayInsert(TFieldValues, TFieldArrayName), update: UseFieldArrayUpdate(TFieldValues, TFieldArrayName), replace: UseFieldArrayReplace(TFieldValues, TFieldArrayName), fields: arrayOf(merge(FieldArrayWithId(TFieldValues, TFieldArrayName, TKeyName), { disabled: optional(boolean) })) }
 }
 /* compiles to:
- * export type UseFieldArrayReturn<TFieldValues extends FieldValues = FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>, TKeyName extends string = 'id'> = { swap: UseFieldArraySwap; move: UseFieldArrayMove; prepend: UseFieldArrayPrepend<TFieldValues, TFieldArrayName>; append: UseFieldArrayAppend<TFieldValues, TFieldArrayName>; remove: UseFieldArrayRemove; insert: UseFieldArrayInsert<TFieldValues, TFieldArrayName>; update: UseFieldArrayUpdate<TFieldValues, TFieldArrayName>; replace: UseFieldArrayReplace<TFieldValues, TFieldArrayName>; fields: (FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName> & { disabled?: boolean })[] }
+ * export type UseFieldArrayReturn<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+ *   TKeyName extends string = 'id'
+ * > =
+ *   {
+ *     swap: UseFieldArraySwap
+ *     move: UseFieldArrayMove
+ *     prepend: UseFieldArrayPrepend<TFieldValues, TFieldArrayName>
+ *     append: UseFieldArrayAppend<TFieldValues, TFieldArrayName>
+ *     remove: UseFieldArrayRemove
+ *     insert: UseFieldArrayInsert<TFieldValues, TFieldArrayName>
+ *     update: UseFieldArrayUpdate<TFieldValues, TFieldArrayName>
+ *     replace: UseFieldArrayReplace<TFieldValues, TFieldArrayName>
+ *     fields: (FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName> & { disabled?: boolean })[]
+ *   }
  */
 
 // ✗ FieldArrayProps: does not compile yet
@@ -127,5 +205,13 @@ export function FieldArrayProps(TFieldValues: FieldValues = FieldValues, TFieldA
   return merge({ render: fnType([UseFieldArrayReturn(TFieldValues, TFieldArrayName, TKeyName)], React.ReactElement) }, UseFieldArrayProps(TFieldValues, TFieldArrayName, TKeyName))
 }
 /* compiles to:
- * export type FieldArrayProps<TFieldValues extends FieldValues = FieldValues, TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>, TKeyName extends string = 'id'> = { render: (a0: UseFieldArrayReturn<TFieldValues, TFieldArrayName, TKeyName>) => React.ReactElement } & UseFieldArrayProps<TFieldValues, TFieldArrayName, TKeyName>
+ * export type FieldArrayProps<
+ *   TFieldValues extends FieldValues = FieldValues,
+ *   TFieldArrayName extends FieldArrayPath<TFieldValues> = FieldArrayPath<TFieldValues>,
+ *   TKeyName extends string = 'id'
+ * > =
+ *   & {
+ *       render: (a0: UseFieldArrayReturn<TFieldValues, TFieldArrayName, TKeyName>) => React.ReactElement
+ *     }
+ *   & UseFieldArrayProps<TFieldValues, TFieldArrayName, TKeyName>
  */

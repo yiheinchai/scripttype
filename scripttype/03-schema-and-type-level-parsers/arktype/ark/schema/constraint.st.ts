@@ -16,19 +16,20 @@ declare const Prerequisite: any
 declare const describe: any
 declare const kindLeftOf: any
 declare const nodeOfKind: any
-type ConstraintKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Disjoint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prerequisite<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type describe<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type kindLeftOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type nodeOfKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ConstraintKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Disjoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prerequisite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type describe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type kindLeftOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type nodeOfKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ constraintKindLeftOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function constraintKindLeftOf(kind: ConstraintKind) {
   return ConstraintKind & kindLeftOf(kind)
 }
 /* compiles to:
- * export type constraintKindLeftOf<kind extends ConstraintKind> = ConstraintKind & kindLeftOf<kind>
+ * export type constraintKindLeftOf<kind extends ConstraintKind> =
+ *   ConstraintKind & kindLeftOf<kind>
  */
 
 // ✓ constraintKindOrLeftOf: verified type-identical to the original
@@ -37,7 +38,8 @@ export function constraintKindOrLeftOf(kind: ConstraintKind) {
   return anyOf(kind, constraintKindLeftOf(kind))
 }
 /* compiles to:
- * export type constraintKindOrLeftOf<kind extends ConstraintKind> = kind | constraintKindLeftOf<kind>
+ * export type constraintKindOrLeftOf<kind extends ConstraintKind> =
+ *   kind | constraintKindLeftOf<kind>
  */
 
 // ✓ intersectConstraintKinds: verified type-identical to the original
@@ -46,7 +48,8 @@ export function intersectConstraintKinds(l: ConstraintKind, r: ConstraintKind) {
   return nodeOfKind(anyOf(l, r, 'unit', 'union')) | Disjoint | Null
 }
 /* compiles to:
- * export type intersectConstraintKinds<l extends ConstraintKind, r extends ConstraintKind> = nodeOfKind<l | r | 'unit' | 'union'> | Disjoint | null
+ * export type intersectConstraintKinds<l extends ConstraintKind, r extends ConstraintKind> =
+ *   nodeOfKind<l | r | 'unit' | 'union'> | Disjoint | null
  */
 
 // ✓ writeInvalidOperandMessage: verified type-identical to the original

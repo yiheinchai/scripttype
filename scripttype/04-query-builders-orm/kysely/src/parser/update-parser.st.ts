@@ -17,13 +17,13 @@ declare const ShallowRecord: any
 declare const TableExpressionOrList: any
 declare const UpdateQueryBuilder: any
 declare const UpdateResult: any
-type ExtractTableAlias<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type From<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FromTables<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ShallowRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableExpressionOrList<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UpdateResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExtractTableAlias<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type From<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FromTables<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableExpressionOrList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UpdateResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UpdateTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UpdateTable(DB, TE: TableExpressionOrList<typeof DB, never>) {
@@ -32,7 +32,7 @@ export function UpdateTable(DB, TE: TableExpressionOrList<typeof DB, never>) {
   }
   const m1 = matches<[ `${Hole<"T">} as ${Hole<"A">}` ]>([TE])
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return UpdateQueryBuilder(DB & ShallowRecord(m1.A, DB[m1.T]), m1.A, m1.A, UpdateResult)
     }
     return never
@@ -44,5 +44,24 @@ export function UpdateTable(DB, TE: TableExpressionOrList<typeof DB, never>) {
   return UpdateQueryBuilder(From(DB, TE), FromTables(DB, never, TE), FromTables(DB, never, TE), UpdateResult)
 }
 /* compiles to:
- * export type UpdateTable<DB, TE extends TableExpressionOrList<DB, never>> = [TE] extends [keyof DB] ? UpdateQueryBuilder<DB, ExtractTableAlias<DB, TE>, ExtractTableAlias<DB, TE>, UpdateResult> : [TE] extends [`${infer T} as ${infer A}`] ? T extends keyof DB ? UpdateQueryBuilder<DB & ShallowRecord<A, DB[T]>, A, A, UpdateResult> : never : TE extends ReadonlyArray<infer T> ? UpdateQueryBuilder<From<DB, T>, FromTables<DB, never, T>, FromTables<DB, never, T>, UpdateResult> : UpdateQueryBuilder<From<DB, TE>, FromTables<DB, never, TE>, FromTables<DB, never, TE>, UpdateResult>
+ * export type UpdateTable<DB, TE extends TableExpressionOrList<DB, never>> =
+ *   [TE] extends [keyof DB]
+ *     ? UpdateQueryBuilder<DB, ExtractTableAlias<DB, TE>, ExtractTableAlias<DB, TE>, UpdateResult>
+ *   : [TE] extends [`${infer T} as ${infer A}`]
+ *     ? T extends keyof DB
+ *       ? UpdateQueryBuilder<DB & ShallowRecord<A, DB[T]>, A, A, UpdateResult>
+ *       : never
+ *   : TE extends ReadonlyArray<infer T>
+ *     ? UpdateQueryBuilder<
+ *       From<DB, T>,
+ *       FromTables<DB, never, T>,
+ *       FromTables<DB, never, T>,
+ *       UpdateResult
+ *     >
+ *   : UpdateQueryBuilder<
+ *     From<DB, TE>,
+ *     FromTables<DB, never, TE>,
+ *     FromTables<DB, never, TE>,
+ *     UpdateResult
+ *   >
  */

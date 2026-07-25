@@ -10,10 +10,15 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Event {
+  export type ServicesClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ServicesServer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ToService<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Event: any
 declare const EventGroup: any
-type Event<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type EventGroup<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Event<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EventGroup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ToService: does not compile yet
 //   Namespace '"/Users/yihein.chai/Documents/learn/ScriptType/05-functional-effects-hkt/effect/packages/effect/src/unstable/eventlog/Event"' has no exported member 
 /* @scripttype preserveParamNames */
@@ -25,7 +30,8 @@ export function ToService(A) {
   return never
 }
 /* compiles to:
- * export type ToService<A> = A extends EventGroup<infer _Events> ? Event.ToService<_Events> : never
+ * export type ToService<A> =
+ *   A extends EventGroup<infer _Events> ? Event.ToService<_Events> : never
  */
 
 // ✓ Events: verified type-identical to the original

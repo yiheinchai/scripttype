@@ -16,19 +16,20 @@ declare const MySqlPreparedQuery: any
 declare const MySqlPreparedQueryConfig: any
 declare const MySqlPreparedQueryHKT: any
 declare const MySqlQueryResultHKT: any
-type Assume<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Equal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlPreparedQuery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlPreparedQueryConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlPreparedQueryHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlPreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlPreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlPreparedQueryHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlQueryResultKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySqlQueryResultKind(TKind: MySqlQueryResultHKT, TRow) {
   return (merge(TKind, { row: readonlyProp(TRow) }))['type']
 }
 /* compiles to:
- * export type MySqlQueryResultKind<TKind extends MySqlQueryResultHKT, TRow> = (TKind & { readonly row: TRow })['type']
+ * export type MySqlQueryResultKind<TKind extends MySqlQueryResultHKT, TRow> =
+ *   (TKind & { readonly row: TRow })['type']
  */
 
 // ✓ PreparedQueryKind: verified type-identical to the original
@@ -40,5 +41,12 @@ export function PreparedQueryKind(TKind: MySqlPreparedQueryHKT, TConfig: MySqlPr
   return (merge(TKind, { config: readonlyProp(TConfig) }))['type']
 }
 /* compiles to:
- * export type PreparedQueryKind<TKind extends MySqlPreparedQueryHKT, TConfig extends MySqlPreparedQueryConfig, TAssume extends boolean = false> = Equal<TAssume, true> extends true ? Assume<(TKind & { readonly config: TConfig })['type'], MySqlPreparedQuery<TConfig>> : (TKind & { readonly config: TConfig })['type']
+ * export type PreparedQueryKind<
+ *   TKind extends MySqlPreparedQueryHKT,
+ *   TConfig extends MySqlPreparedQueryConfig,
+ *   TAssume extends boolean = false
+ * > =
+ *   Equal<TAssume, true> extends true
+ *     ? Assume<(TKind & { readonly config: TConfig })['type'], MySqlPreparedQuery<TConfig>>
+ *     : (TKind & { readonly config: TConfig })['type']
  */

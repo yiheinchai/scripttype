@@ -17,13 +17,13 @@ declare const Diagnostic: any
 declare const ProjectReference: any
 declare const WatchCompilerHostOfConfigFile: any
 declare const WatchCompilerHostOfFilesAndCompilerOptions: any
-type BuilderProgram<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CompilerHost<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CompilerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Diagnostic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProjectReference<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WatchCompilerHostOfConfigFile<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WatchCompilerHostOfFilesAndCompilerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuilderProgram<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CompilerHost<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CompilerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Diagnostic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProjectReference<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WatchCompilerHostOfConfigFile<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WatchCompilerHostOfFilesAndCompilerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ CreateProgram: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -31,7 +31,15 @@ export function CreateProgram(T: BuilderProgram) {
   return fnType([anyOf(readonlyArrayOf(string), Undefined), anyOf(CompilerOptions, Undefined), CompilerHost, T, readonlyArrayOf(Diagnostic), anyOf(readonlyArrayOf(ProjectReference), Undefined)], T)
 }
 /* compiles to:
- * export type CreateProgram<T extends BuilderProgram> = (a0: readonly string[] | undefined, a1: CompilerOptions | undefined, a2: CompilerHost, a3: T, a4: readonly Diagnostic[], a5: readonly ProjectReference[] | undefined) => T
+ * export type CreateProgram<T extends BuilderProgram> =
+ *   (
+ *     a0: readonly string[] | undefined,
+ *     a1: CompilerOptions | undefined,
+ *     a2: CompilerHost,
+ *     a3: T,
+ *     a4: readonly Diagnostic[],
+ *     a5: readonly ProjectReference[] | undefined
+ *   ) => T
  */
 
 // ✓ WatchCompilerHostOfFilesAndCompilerOptionsOrConfigFile: verified type-identical to the original
@@ -40,5 +48,7 @@ export function WatchCompilerHostOfFilesAndCompilerOptionsOrConfigFile(T: Builde
   return anyOf(WatchCompilerHostOfFilesAndCompilerOptions(T) & Partial(WatchCompilerHostOfConfigFile(T)), WatchCompilerHostOfConfigFile(T) & Partial(WatchCompilerHostOfFilesAndCompilerOptions(T)))
 }
 /* compiles to:
- * export type WatchCompilerHostOfFilesAndCompilerOptionsOrConfigFile<T extends BuilderProgram> = WatchCompilerHostOfFilesAndCompilerOptions<T> & Partial<WatchCompilerHostOfConfigFile<T>> | WatchCompilerHostOfConfigFile<T> & Partial<WatchCompilerHostOfFilesAndCompilerOptions<T>>
+ * export type WatchCompilerHostOfFilesAndCompilerOptionsOrConfigFile<T extends BuilderProgram> =
+ *   | WatchCompilerHostOfFilesAndCompilerOptions<T> & Partial<WatchCompilerHostOfConfigFile<T>>
+ *   | WatchCompilerHostOfConfigFile<T> & Partial<WatchCompilerHostOfFilesAndCompilerOptions<T>>
  */

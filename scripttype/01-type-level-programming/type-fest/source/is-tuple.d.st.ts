@@ -17,20 +17,23 @@ declare const IsAny: any
 declare const IsNever: any
 declare const IsTupleOptions: any
 declare const UnknownArray: any
-type ApplyDefaultOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultIsTupleOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsTupleOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DefaultIsTupleOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsTupleOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function IsTuple(TArray: UnknownArray, Options: IsTupleOptions = {}) {
   return _IsTuple(TArray, ApplyDefaultOptions(IsTupleOptions, DefaultIsTupleOptions, Options))
 }
 /* compiles to:
- * export type IsTuple<TArray extends UnknownArray, Options extends IsTupleOptions = {}> = _IsTuple<TArray, ApplyDefaultOptions<IsTupleOptions, DefaultIsTupleOptions, Options>>
+ * export type IsTuple<TArray extends UnknownArray, Options extends IsTupleOptions = {}> = _IsTuple<
+ *   TArray,
+ *   ApplyDefaultOptions<IsTupleOptions, DefaultIsTupleOptions, Options>
+ * >
  */
 
 // ✓ _IsTuple: verified type-identical to the original
@@ -39,5 +42,23 @@ export function _IsTuple(TArray: UnknownArray, Options: Required<IsTupleOptions>
   return If(IsAny(TArray), boolean, If(IsNever(TArray), false, matches<unknown>(TArray) ? (matches<(typeof TArray)['length']>(number) ? (matches<false>(Options['fixedLengthOnly']) ? If(IsNever(merge(keyof(TArray), `${number}`)), matches<readonly [ ...any, any ]>(TArray) ? true : false, true) : false) : true) : false))
 }
 /* compiles to:
- * export type _IsTuple<TArray extends UnknownArray, Options extends Required<IsTupleOptions>> = If<IsAny<TArray>, boolean, If<IsNever<TArray>, false, TArray extends unknown ? number extends TArray['length'] ? Options['fixedLengthOnly'] extends false ? If<IsNever<keyof TArray & `${number}`>, TArray extends readonly [...any, any] ? true : false, true> : false : true : false>>
+ * export type _IsTuple<TArray extends UnknownArray, Options extends Required<IsTupleOptions>> = If<
+ *   IsAny<TArray>,
+ *   boolean,
+ *   If<
+ *     IsNever<TArray>,
+ *     false,
+ *     TArray extends unknown
+ *       ? number extends TArray['length']
+ *         ? Options['fixedLengthOnly'] extends false
+ *           ? If<
+ *             IsNever<keyof TArray & `${number}`>,
+ *             TArray extends readonly [...any, any] ? true : false,
+ *             true
+ *           >
+ *           : false
+ *         : true
+ *       : false
+ *   >
+ * >
  */

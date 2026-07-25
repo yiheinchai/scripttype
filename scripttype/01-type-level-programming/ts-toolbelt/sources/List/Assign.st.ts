@@ -15,16 +15,23 @@ declare const Cast: any
 declare const Depth: any
 declare const List: any
 declare const OAssign: any
-type BuiltIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Depth<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OAssign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OAssign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Assign: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Assign(L: List, Ls: List<List>, depth: Depth = 'flat', ignore: object = BuiltIn, fill: any = never) {
   return Cast(OAssign(L, Ls, depth, ignore, fill), List)
 }
 /* compiles to:
- * export type Assign<L extends List, Ls extends List<List>, depth extends Depth = 'flat', ignore extends object = BuiltIn, fill extends any = never> = Cast<OAssign<L, Ls, depth, ignore, fill>, List>
+ * export type Assign<
+ *   L extends List,
+ *   Ls extends List<List>,
+ *   depth extends Depth = 'flat',
+ *   ignore extends object = BuiltIn,
+ *   fill extends any = never
+ * > =
+ *   Cast<OAssign<L, Ls, depth, ignore, fill>, List>
  */

@@ -15,11 +15,11 @@ declare const LessThan: any
 declare const NegativeInfinity: any
 declare const PositiveInfinity: any
 declare const UnknownArray: any
-type GreaterThan<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LessThan<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type GreaterThan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LessThan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TupleLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TupleLength(T: UnknownArray) {
@@ -32,7 +32,8 @@ export function TupleLength(T: UnknownArray) {
   return never
 }
 /* compiles to:
- * export type TupleLength<T extends UnknownArray> = T extends unknown ? number extends T['length'] ? never : T['length'] : never
+ * export type TupleLength<T extends UnknownArray> =
+ *   T extends unknown ? number extends T['length'] ? never : T['length'] : never
  */
 
 // ✓ TupleMax: verified type-identical to the original
@@ -51,7 +52,11 @@ export function TupleMax(A: number[], Result: number = NegativeInfinity) {
   return Result
 }
 /* compiles to:
- * export type TupleMax<A extends number[], Result extends number = NegativeInfinity> = number extends A[number] ? never : A extends [infer F extends number, ...(infer R extends number[])] ? GreaterThan<F, Result> extends true ? TupleMax<R, F> : TupleMax<R, Result> : Result
+ * export type TupleMax<A extends number[], Result extends number = NegativeInfinity> =
+ *   number extends A[number] ? never
+ *   : A extends [infer F extends number, ...infer R extends number[]]
+ *     ? GreaterThan<F, Result> extends true ? TupleMax<R, F> : TupleMax<R, Result>
+ *   : Result
  */
 
 // ✓ TupleMin: verified type-identical to the original
@@ -70,5 +75,9 @@ export function TupleMin(A: number[], Result: number = PositiveInfinity) {
   return Result
 }
 /* compiles to:
- * export type TupleMin<A extends number[], Result extends number = PositiveInfinity> = number extends A[number] ? never : A extends [infer F extends number, ...(infer R extends number[])] ? LessThan<F, Result> extends true ? TupleMin<R, F> : TupleMin<R, Result> : Result
+ * export type TupleMin<A extends number[], Result extends number = PositiveInfinity> =
+ *   number extends A[number] ? never
+ *   : A extends [infer F extends number, ...infer R extends number[]]
+ *     ? LessThan<F, Result> extends true ? TupleMin<R, F> : TupleMin<R, Result>
+ *   : Result
  */

@@ -14,11 +14,11 @@ declare const AnyProcedure: any
 declare const AnySubscriptionProcedure: any
 declare const LegacyObservableSubscriptionProcedure: any
 declare const inferAsyncIterableYield: any
-type AnyProcedure<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnySubscriptionProcedure<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LegacyObservableSubscriptionProcedure<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferAsyncIterableYield<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferProcedureParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AnyProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnySubscriptionProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LegacyObservableSubscriptionProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferAsyncIterableYield<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferProcedureParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ inferProcedureInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function inferProcedureInput(TProcedure: AnyProcedure) {
@@ -28,7 +28,10 @@ export function inferProcedureInput(TProcedure: AnyProcedure) {
   return inferProcedureParams(TProcedure)['$types']['input']
 }
 /* compiles to:
- * export type inferProcedureInput<TProcedure extends AnyProcedure> = undefined extends inferProcedureParams<TProcedure>['$types']['input'] ? void | inferProcedureParams<TProcedure>['$types']['input'] : inferProcedureParams<TProcedure>['$types']['input']
+ * export type inferProcedureInput<TProcedure extends AnyProcedure> =
+ *   undefined extends inferProcedureParams<TProcedure>['$types']['input']
+ *     ? void | inferProcedureParams<TProcedure>['$types']['input']
+ *     : inferProcedureParams<TProcedure>['$types']['input']
  */
 
 // ✓ inferProcedureParams: verified type-identical to the original
@@ -40,7 +43,8 @@ export function inferProcedureParams(TProcedure) {
   return never
 }
 /* compiles to:
- * export type inferProcedureParams<TProcedure> = TProcedure extends AnyProcedure ? TProcedure['_def'] : never
+ * export type inferProcedureParams<TProcedure> =
+ *   TProcedure extends AnyProcedure ? TProcedure['_def'] : never
  */
 
 // ✓ inferProcedureOutput: verified type-identical to the original
@@ -58,7 +62,9 @@ export function inferSubscriptionInput(TProcedure: AnySubscriptionProcedure) {
   return inferProcedureInput(TProcedure)
 }
 /* compiles to:
- * export type inferSubscriptionInput<TProcedure extends AnySubscriptionProcedure> = inferProcedureInput<TProcedure>
+ * export type inferSubscriptionInput<TProcedure extends AnySubscriptionProcedure> = inferProcedureInput<
+ *   TProcedure
+ * >
  */
 
 // ✓ inferSubscriptionOutput: verified type-identical to the original
@@ -70,5 +76,8 @@ export function inferSubscriptionOutput(TProcedure: AnySubscriptionProcedure) {
   return inferAsyncIterableYield(inferProcedureOutput(TProcedure))
 }
 /* compiles to:
- * export type inferSubscriptionOutput<TProcedure extends AnySubscriptionProcedure> = TProcedure extends LegacyObservableSubscriptionProcedure<any> ? inferProcedureOutput<TProcedure> : inferAsyncIterableYield<inferProcedureOutput<TProcedure>>
+ * export type inferSubscriptionOutput<TProcedure extends AnySubscriptionProcedure> =
+ *   TProcedure extends LegacyObservableSubscriptionProcedure<any>
+ *     ? inferProcedureOutput<TProcedure>
+ *     : inferAsyncIterableYield<inferProcedureOutput<TProcedure>>
  */

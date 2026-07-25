@@ -20,16 +20,16 @@ declare const Prepend: any
 declare const Prev: any
 declare const Tail: any
 declare const Way: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prepend<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prev<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Way<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prepend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Way<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TakeForth: does not compile yet
 //   Type '-1 extends Pos<I> ? 1 : 0' cannot be used to index type '{ '0': TakeForth__st0<L, N, Prev<I>, [L[Pos<I>], ...LN]>; '1': LN; }'.
 /* @scripttype preserveParamNames */
@@ -37,7 +37,13 @@ export function TakeForth(L: List, N: Iteration, I: Iteration = Prev(N), LN: Lis
   return { 0: TakeForth(L, N, Prev(I), Prepend(LN, L[Pos(I)])), 1: LN }[Extends(-1, Pos(I))]
 }
 /* compiles to:
- * export type TakeForth<L extends List, N extends Iteration, I extends Iteration = Prev<N>, LN extends List = []> = { '0': TakeForth<L, N, Prev<I>, Prepend<LN, L[Pos<I>]>>; '1': LN }[Extends<-1, Pos<I>>]
+ * export type TakeForth<
+ *   L extends List,
+ *   N extends Iteration,
+ *   I extends Iteration = Prev<N>,
+ *   LN extends List = []
+ * > =
+ *   { '0': TakeForth<L, N, Prev<I>, Prepend<LN, L[Pos<I>]>>; '1': LN }[Extends<-1, Pos<I>>]
  */
 
 // ✗ TakeBack: does not compile yet
@@ -47,7 +53,8 @@ export function TakeBack(L: List, N: Iteration) {
   return { 0: TakeBack(Tail(L), Prev(N)), 1: L }[Extends(0, Pos(N))]
 }
 /* compiles to:
- * export type TakeBack<L extends List, N extends Iteration> = { '0': TakeBack<Tail<L>, Prev<N>>; '1': L }[Extends<0, Pos<N>>]
+ * export type TakeBack<L extends List, N extends Iteration> =
+ *   { '0': TakeBack<Tail<L>, Prev<N>>; '1': L }[Extends<0, Pos<N>>]
  */
 
 // ✓ __Take: verified type-identical to the original
@@ -56,7 +63,8 @@ export function __Take(L: List, N: Iteration, way: Way) {
   return { '->': TakeForth(L, N), '<-': TakeBack(L, N) }[way]
 }
 /* compiles to:
- * export type __Take<L extends List, N extends Iteration, way extends Way> = { '->': TakeForth<L, N>; '<-': TakeBack<L, N> }[way]
+ * export type __Take<L extends List, N extends Iteration, way extends Way> =
+ *   { '->': TakeForth<L, N>; '<-': TakeBack<L, N> }[way]
  */
 
 // ✓ _Take: verified type-identical to the original
@@ -69,7 +77,8 @@ export function _Take(L: List, N: number, way: Way = '->') {
   return never
 }
 /* compiles to:
- * export type _Take<L extends List, N extends number, way extends Way = '->'> = __Take<L, IterationOf<N>, way> extends infer X ? Cast<X, List> : never
+ * export type _Take<L extends List, N extends number, way extends Way = '->'> =
+ *   __Take<L, IterationOf<N>, way> extends infer X ? Cast<X, List> : never
  */
 
 // ✓ Take: verified type-identical to the original
@@ -84,5 +93,6 @@ export function Take(L: List, N: number, way: Way = '->') {
   return never
 }
 /* compiles to:
- * export type Take<L extends List, N extends number, way extends Way = '->'> = L extends unknown ? N extends unknown ? _Take<L, N, way> : never : never
+ * export type Take<L extends List, N extends number, way extends Way = '->'> =
+ *   L extends unknown ? N extends unknown ? _Take<L, N, way> : never : never
  */

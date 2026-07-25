@@ -10,25 +10,29 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace JSONRPC2 {
+  export type RequestId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const JSONRPC2: any
 declare const TRPCClientIncomingRequest: any
 declare const TRPCErrorResponse: any
 declare const TRPCErrorShape: any
 declare const TRPCResultMessage: any
 declare const TRPCSuccessResponse: any
-type JSONRPC2<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCClientIncomingRequest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCErrorResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCErrorShape<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCResultMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TRPCSuccessResponse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type JSONRPC2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCClientIncomingRequest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCErrorResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCErrorShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCResultMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRPCSuccessResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCResponse: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TRPCResponse(TData = unknown, TError: TRPCErrorShape = TRPCErrorShape) {
   return TRPCErrorResponse(TError) | TRPCSuccessResponse(TData)
 }
 /* compiles to:
- * export type TRPCResponse<TData = unknown, TError extends TRPCErrorShape = TRPCErrorShape> = TRPCErrorResponse<TError> | TRPCSuccessResponse<TData>
+ * export type TRPCResponse<TData = unknown, TError extends TRPCErrorShape = TRPCErrorShape> =
+ *   TRPCErrorResponse<TError> | TRPCSuccessResponse<TData>
  */
 
 // ✓ TRPCResponseMessage: verified type-identical to the original
@@ -37,7 +41,11 @@ export function TRPCResponseMessage(TData = unknown, TError: TRPCErrorShape = TR
   return merge({ id: JSONRPC2.RequestId }, TRPCErrorResponse(TError) | TRPCResultMessage(TData))
 }
 /* compiles to:
- * export type TRPCResponseMessage<TData = unknown, TError extends TRPCErrorShape = TRPCErrorShape> = { id: JSONRPC2.RequestId } & (TRPCErrorResponse<TError> | TRPCResultMessage<TData>)
+ * export type TRPCResponseMessage<
+ *   TData = unknown,
+ *   TError extends TRPCErrorShape = TRPCErrorShape
+ * > =
+ *   { id: JSONRPC2.RequestId } & (TRPCErrorResponse<TError> | TRPCResultMessage<TData>)
  */
 
 // ✓ TRPCClientIncomingMessage: verified type-identical to the original
@@ -46,5 +54,9 @@ export function TRPCClientIncomingMessage(TResult = unknown, TError: TRPCErrorSh
   return TRPCClientIncomingRequest | TRPCResponseMessage(TResult, TError)
 }
 /* compiles to:
- * export type TRPCClientIncomingMessage<TResult = unknown, TError extends TRPCErrorShape = TRPCErrorShape> = TRPCClientIncomingRequest | TRPCResponseMessage<TResult, TError>
+ * export type TRPCClientIncomingMessage<
+ *   TResult = unknown,
+ *   TError extends TRPCErrorShape = TRPCErrorShape
+ * > =
+ *   TRPCClientIncomingRequest | TRPCResponseMessage<TResult, TError>
  */

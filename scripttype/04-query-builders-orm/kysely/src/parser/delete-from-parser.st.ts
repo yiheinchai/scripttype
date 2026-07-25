@@ -17,13 +17,13 @@ declare const From: any
 declare const FromTables: any
 declare const ShallowRecord: any
 declare const TableExpressionOrList: any
-type DeleteQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DeleteResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExtractTableAlias<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type From<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FromTables<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ShallowRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableExpressionOrList<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DeleteQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DeleteResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractTableAlias<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type From<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FromTables<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TableExpressionOrList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DeleteFrom: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function DeleteFrom(DB, TE: TableExpressionOrList<typeof DB, never>) {
@@ -32,7 +32,7 @@ export function DeleteFrom(DB, TE: TableExpressionOrList<typeof DB, never>) {
   }
   const m1 = matches<[ `${Hole<"T">} as ${Hole<"A">}` ]>([TE])
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return DeleteQueryBuilder(DB & ShallowRecord(m1.A, DB[m1.T]), m1.A, DeleteResult)
     }
     return never
@@ -44,5 +44,13 @@ export function DeleteFrom(DB, TE: TableExpressionOrList<typeof DB, never>) {
   return DeleteQueryBuilder(From(DB, TE), FromTables(DB, never, TE), DeleteResult)
 }
 /* compiles to:
- * export type DeleteFrom<DB, TE extends TableExpressionOrList<DB, never>> = [TE] extends [keyof DB] ? DeleteQueryBuilder<DB, ExtractTableAlias<DB, TE>, DeleteResult> : [TE] extends [`${infer T} as ${infer A}`] ? T extends keyof DB ? DeleteQueryBuilder<DB & ShallowRecord<A, DB[T]>, A, DeleteResult> : never : TE extends ReadonlyArray<infer T> ? DeleteQueryBuilder<From<DB, T>, FromTables<DB, never, T>, DeleteResult> : DeleteQueryBuilder<From<DB, TE>, FromTables<DB, never, TE>, DeleteResult>
+ * export type DeleteFrom<DB, TE extends TableExpressionOrList<DB, never>> =
+ *   [TE] extends [keyof DB] ? DeleteQueryBuilder<DB, ExtractTableAlias<DB, TE>, DeleteResult>
+ *   : [TE] extends [`${infer T} as ${infer A}`]
+ *     ? T extends keyof DB
+ *       ? DeleteQueryBuilder<DB & ShallowRecord<A, DB[T]>, A, DeleteResult>
+ *       : never
+ *   : TE extends ReadonlyArray<infer T>
+ *     ? DeleteQueryBuilder<From<DB, T>, FromTables<DB, never, T>, DeleteResult>
+ *   : DeleteQueryBuilder<From<DB, TE>, FromTables<DB, never, TE>, DeleteResult>
  */

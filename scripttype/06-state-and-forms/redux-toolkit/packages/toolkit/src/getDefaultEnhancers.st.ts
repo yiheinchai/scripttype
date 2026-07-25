@@ -15,11 +15,11 @@ declare const GetDefaultEnhancersOptions: any
 declare const Middlewares: any
 declare const StoreEnhancer: any
 declare const Tuple: any
-type ExtractDispatchExtensions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GetDefaultEnhancersOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Middlewares<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StoreEnhancer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExtractDispatchExtensions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetDefaultEnhancersOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Middlewares<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StoreEnhancer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ GetDefaultEnhancers: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
@@ -27,5 +27,8 @@ export function GetDefaultEnhancers(M: Middlewares<any>) {
   return fnType([GetDefaultEnhancersOptions], Tuple([StoreEnhancer({ dispatch: ExtractDispatchExtensions(M) })]))
 }
 /* compiles to:
- * export type GetDefaultEnhancers<M extends Middlewares<any>> = (a0: GetDefaultEnhancersOptions) => Tuple<[StoreEnhancer<{ dispatch: ExtractDispatchExtensions<M> }>]>
+ * export type GetDefaultEnhancers<M extends Middlewares<any>> =
+ *   (a0: GetDefaultEnhancersOptions) => Tuple<
+ *     [StoreEnhancer<{ dispatch: ExtractDispatchExtensions<M> }>]
+ *   >
  */

@@ -17,13 +17,13 @@ declare const TTake: any
 declare const TTrim: any
 declare const TUnderScore: any
 declare const TZero: any
-type TAllowedDigits<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TMany<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TNonZero<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTake<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTrim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnderScore<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TZero<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TAllowedDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TMany<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNonZero<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TUnderScore<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TZero<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeNonZero: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TTakeNonZero(Input: string) {
@@ -60,7 +60,14 @@ export function TTakeUnsignedInteger(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTakeUnsignedInteger<Input extends string> = TTake<[TZero], Input> extends [infer Zero extends string, infer ZeroRest extends string] ? [Zero, ZeroRest] : TTakeNonZero<Input> extends [infer NonZero extends string, infer NonZeroRest extends string] ? TTakeDigits<NonZeroRest> extends [infer Digits extends string, infer DigitsRest extends string] ? [`${NonZero}${Digits}`, DigitsRest] : [] : []
+ * export type TTakeUnsignedInteger<Input extends string> =
+ *   TTake<[TZero], Input> extends [infer Zero extends string, infer ZeroRest extends string]
+ *     ? [Zero, ZeroRest]
+ *   : TTakeNonZero<Input> extends [infer NonZero extends string, infer NonZeroRest extends string]
+ *     ? TTakeDigits<NonZeroRest> extends [infer Digits extends string, infer DigitsRest extends string]
+ *       ? [`${NonZero}${Digits}`, DigitsRest]
+ *       : []
+ *   : []
  */
 
 // ✓ TUnsignedInteger: verified type-identical to the original

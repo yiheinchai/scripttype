@@ -16,12 +16,12 @@ declare const Extends: any
 declare const List: any
 declare const _Drop: any
 declare const _Take: any
-type Append<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Drop<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Take<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Append<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Drop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Take<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Group: does not compile yet
 //   Type 'Extends<L, List<never>>' cannot be used to index type '{ '0': __Group__st0<_Drop<L, N>, N, [...LN, _Take<L, N>]>; '1': LN; }'.
 /* @scripttype preserveParamNames */
@@ -29,7 +29,8 @@ export function __Group(L: List, N: number, LN: List = []) {
   return { 0: __Group(_Drop(L, N), N, Append(LN, _Take(L, N))), 1: LN }[Extends(L, List(never))]
 }
 /* compiles to:
- * export type __Group<L extends List, N extends number, LN extends List = []> = { '0': __Group<_Drop<L, N>, N, Append<LN, _Take<L, N>>>; '1': LN }[Extends<L, List<never>>]
+ * export type __Group<L extends List, N extends number, LN extends List = []> =
+ *   { '0': __Group<_Drop<L, N>, N, Append<LN, _Take<L, N>>>; '1': LN }[Extends<L, List<never>>]
  */
 
 // ✓ _Group: verified type-identical to the original
@@ -42,7 +43,8 @@ export function _Group(L: List, N: number) {
   return never
 }
 /* compiles to:
- * export type _Group<L extends List, N extends number> = __Group<L, N> extends infer X ? Cast<X, List> : never
+ * export type _Group<L extends List, N extends number> =
+ *   __Group<L, N> extends infer X ? Cast<X, List> : never
  */
 
 // ✓ Group: verified type-identical to the original
@@ -57,5 +59,6 @@ export function Group(L: List, N: number) {
   return never
 }
 /* compiles to:
- * export type Group<L extends List, N extends number> = L extends unknown ? N extends unknown ? _Group<L, N> : never : never
+ * export type Group<L extends List, N extends number> =
+ *   L extends unknown ? N extends unknown ? _Group<L, N> : never : never
  */

@@ -13,16 +13,21 @@
 declare const BaseIssue: any
 declare const BaseTransformation: any
 declare const BaseTransformationAsync: any
-type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseTransformation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseTransformationAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseTransformation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseTransformationAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GenericTransformation: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GenericTransformation(TInput = any, TOutput = TInput, TIssue: BaseIssue<unknown> = BaseIssue(unknown)) {
   return BaseTransformation(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericTransformation<TInput = any, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = BaseTransformation<TInput, TOutput, TIssue>
+ * export type GenericTransformation<
+ *   TInput = any,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   BaseTransformation<TInput, TOutput, TIssue>
  */
 
 // ✓ GenericTransformationAsync: verified type-identical to the original
@@ -31,5 +36,10 @@ export function GenericTransformationAsync(TInput = any, TOutput = TInput, TIssu
   return BaseTransformationAsync(TInput, TOutput, TIssue)
 }
 /* compiles to:
- * export type GenericTransformationAsync<TInput = any, TOutput = TInput, TIssue extends BaseIssue<unknown> = BaseIssue<unknown>> = BaseTransformationAsync<TInput, TOutput, TIssue>
+ * export type GenericTransformationAsync<
+ *   TInput = any,
+ *   TOutput = TInput,
+ *   TIssue extends BaseIssue<unknown> = BaseIssue<unknown>
+ * > =
+ *   BaseTransformationAsync<TInput, TOutput, TIssue>
  */

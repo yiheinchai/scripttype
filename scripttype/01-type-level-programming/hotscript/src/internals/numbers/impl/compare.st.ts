@@ -18,14 +18,14 @@ declare const Sign: any
 declare const ToDigitNumber: any
 declare const ToString: any
 declare const _Equal: any
-type Digit<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DigitCompareTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Num<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Sign<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToDigitNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type _Equal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DigitCompareTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Sign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CompareLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CompareLength(T: any[], U: any[]) {
@@ -35,7 +35,8 @@ export function CompareLength(T: any[], U: any[]) {
   return 0
 }
 /* compiles to:
- * export type CompareLength<T extends any[], U extends any[]> = T['length'] extends U['length'] ? 1 : 0
+ * export type CompareLength<T extends any[], U extends any[]> =
+ *   T['length'] extends U['length'] ? 1 : 0
  */
 
 // ✓ DigitCompare: verified type-identical to the original
@@ -60,7 +61,12 @@ export function CompareDigitsWithEqualLength(T: Digit[], U: Digit[]) {
   return 0
 }
 /* compiles to:
- * export type CompareDigitsWithEqualLength<T extends Digit[], U extends Digit[]> = [T, U] extends [[infer N1 extends Digit, ...(infer R1 extends Digit[])], [infer N2 extends Digit, ...(infer R2 extends Digit[])]] ? DigitCompare<N1, N2> extends 0 ? CompareDigitsWithEqualLength<R1, R2> : DigitCompare<N1, N2> : 0
+ * export type CompareDigitsWithEqualLength<T extends Digit[], U extends Digit[]> =
+ *   [T, U] extends [[infer N1 extends Digit, ...infer R1 extends Digit[]], [infer N2 extends Digit, ...infer R2 extends Digit[]]]
+ *     ? DigitCompare<N1, N2> extends 0
+ *       ? CompareDigitsWithEqualLength<R1, R2>
+ *       : DigitCompare<N1, N2>
+ *     : 0
  */
 
 // ✓ CompareDigits: verified type-identical to the original
@@ -69,13 +75,16 @@ export function CompareDigits(T: Digit[], U: Digit[]) {
   if (matches<1>(CompareLength(T, U))) {
     return CompareDigitsWithEqualLength(T, U)
   }
-  if (matches<keyof typeof T>(keyof(U))) {
+  if (keyof(U) in T) {
     return 1
   }
   return -1
 }
 /* compiles to:
- * export type CompareDigits<T extends Digit[], U extends Digit[]> = CompareLength<T, U> extends 1 ? CompareDigitsWithEqualLength<T, U> : keyof U extends keyof T ? 1 : -1
+ * export type CompareDigits<T extends Digit[], U extends Digit[]> =
+ *   CompareLength<T, U> extends 1 ? CompareDigitsWithEqualLength<T, U>
+ *   : keyof U extends keyof T ? 1
+ *   : -1
  */
 
 // ✓ CompareDigitNumbers: verified type-identical to the original
@@ -93,7 +102,11 @@ export function CompareDigitNumbers(T: DigitNumber, U: DigitNumber) {
   return 1
 }
 /* compiles to:
- * export type CompareDigitNumbers<T extends DigitNumber, U extends DigitNumber> = Sign<T> extends Sign<U> ? Sign<T> extends '' ? CompareDigits<Num<T>, Num<U>> : CompareDigits<Num<U>, Num<T>> : Sign<T> extends '-' ? -1 : 1
+ * export type CompareDigitNumbers<T extends DigitNumber, U extends DigitNumber> =
+ *   Sign<T> extends Sign<U>
+ *     ? Sign<T> extends '' ? CompareDigits<Num<T>, Num<U>> : CompareDigits<Num<U>, Num<T>>
+ *   : Sign<T> extends '-' ? -1
+ *   : 1
  */
 
 // ✓ Compare: verified type-identical to the original
@@ -105,7 +118,10 @@ export function Compare(T: number | bigint, U: number | bigint) {
   return CompareDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U)))
 }
 /* compiles to:
- * export type Compare<T extends number | bigint, U extends number | bigint> = _Equal<T, U> extends true ? 0 : CompareDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>
+ * export type Compare<T extends number | bigint, U extends number | bigint> =
+ *   _Equal<T, U> extends true
+ *     ? 0
+ *     : CompareDigitNumbers<ToDigitNumber<ToString<T>>, ToDigitNumber<ToString<U>>>
  */
 
 // ✓ LessThan: verified type-identical to the original
@@ -117,7 +133,8 @@ export function LessThan(T: number | bigint, U: number | bigint) {
   return false
 }
 /* compiles to:
- * export type LessThan<T extends number | bigint, U extends number | bigint> = Compare<T, U> extends -1 ? true : false
+ * export type LessThan<T extends number | bigint, U extends number | bigint> =
+ *   Compare<T, U> extends -1 ? true : false
  */
 
 // ✓ GreaterThan: verified type-identical to the original
@@ -129,7 +146,8 @@ export function GreaterThan(T: number | bigint, U: number | bigint) {
   return false
 }
 /* compiles to:
- * export type GreaterThan<T extends number | bigint, U extends number | bigint> = Compare<T, U> extends 1 ? true : false
+ * export type GreaterThan<T extends number | bigint, U extends number | bigint> =
+ *   Compare<T, U> extends 1 ? true : false
  */
 
 // ✓ Equal: verified type-identical to the original
@@ -150,7 +168,8 @@ export function NotEqual(T: number | bigint, U: number | bigint) {
   return true
 }
 /* compiles to:
- * export type NotEqual<T extends number | bigint, U extends number | bigint> = _Equal<T, U> extends true ? false : true
+ * export type NotEqual<T extends number | bigint, U extends number | bigint> =
+ *   _Equal<T, U> extends true ? false : true
  */
 
 // ✓ LessThanOrEqual: verified type-identical to the original
@@ -162,7 +181,8 @@ export function LessThanOrEqual(T: number | bigint, U: number | bigint) {
   return false
 }
 /* compiles to:
- * export type LessThanOrEqual<T extends number | bigint, U extends number | bigint> = Compare<T, U> extends -1 | 0 ? true : false
+ * export type LessThanOrEqual<T extends number | bigint, U extends number | bigint> =
+ *   Compare<T, U> extends -1 | 0 ? true : false
  */
 
 // ✓ GreaterThanOrEqual: verified type-identical to the original
@@ -174,7 +194,8 @@ export function GreaterThanOrEqual(T: number | bigint, U: number | bigint) {
   return false
 }
 /* compiles to:
- * export type GreaterThanOrEqual<T extends number | bigint, U extends number | bigint> = Compare<T, U> extends 1 | 0 ? true : false
+ * export type GreaterThanOrEqual<T extends number | bigint, U extends number | bigint> =
+ *   Compare<T, U> extends 1 | 0 ? true : false
  */
 
 // ✓ Max: verified type-identical to the original
@@ -186,7 +207,8 @@ export function Max(T: number | bigint, U: number | bigint) {
   return U
 }
 /* compiles to:
- * export type Max<T extends number | bigint, U extends number | bigint> = Compare<T, U> extends 1 | 0 ? T : U
+ * export type Max<T extends number | bigint, U extends number | bigint> =
+ *   Compare<T, U> extends 1 | 0 ? T : U
  */
 
 // ✓ Min: verified type-identical to the original
@@ -198,5 +220,6 @@ export function Min(T: number | bigint, U: number | bigint) {
   return T
 }
 /* compiles to:
- * export type Min<T extends number | bigint, U extends number | bigint> = Compare<T, U> extends 1 | 0 ? U : T
+ * export type Min<T extends number | bigint, U extends number | bigint> =
+ *   Compare<T, U> extends 1 | 0 ? U : T
  */

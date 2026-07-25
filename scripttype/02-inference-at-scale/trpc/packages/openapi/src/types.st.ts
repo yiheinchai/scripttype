@@ -10,6 +10,11 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace BaseOpenAPIV3_1 {
+  export type Document<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type OperationObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type PathItemObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseOpenAPIV3_1: any
 declare const CallbackObject: any
 declare const ComponentsObject: any
@@ -18,14 +23,14 @@ declare const ParameterObject: any
 declare const ReferenceObject: any
 declare const RequestBodyObject: any
 declare const ResponsesObject: any
-type BaseOpenAPIV3_1<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CallbackObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ComponentsObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HttpMethods<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ParameterObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ReferenceObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequestBodyObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ResponsesObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseOpenAPIV3_1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CallbackObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComponentsObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HttpMethods<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParameterObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReferenceObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequestBodyObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ResponsesObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Replace: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Replace(TTarget, TReplaceWith) {
@@ -41,7 +46,17 @@ export function OperationObject(T: {} = {}) {
   return merge(Replace(BaseOpenAPIV3_1.OperationObject(T), { parameters: optional(arrayOf(ReferenceObject | ParameterObject)), requestBody: optional(ReferenceObject | RequestBodyObject), responses: optional(ResponsesObject), callbacks: optional(Record(string, ReferenceObject | CallbackObject)) }), T)
 }
 /* compiles to:
- * export type OperationObject<T extends {} = {}> = Replace<BaseOpenAPIV3_1.OperationObject<T>, { parameters?: (ReferenceObject | ParameterObject)[]; requestBody?: ReferenceObject | RequestBodyObject; responses?: ResponsesObject; callbacks?: Record<string, ReferenceObject | CallbackObject> }> & T
+ * export type OperationObject<T extends {} = {}> =
+ *   & Replace<
+ *       BaseOpenAPIV3_1.OperationObject<T>,
+ *       {
+ *         parameters?: (ReferenceObject | ParameterObject)[]
+ *         requestBody?: ReferenceObject | RequestBodyObject
+ *         responses?: ResponsesObject
+ *         callbacks?: Record<string, ReferenceObject | CallbackObject>
+ *       }
+ *     >
+ *   & T
  */
 
 // ✓ PathItemObject: verified type-identical to the original
@@ -54,7 +69,12 @@ export function PathItemObject(T: {} = {}) {
   return Replace(BaseOpenAPIV3_1.PathItemObject(T), { parameters: optional(arrayOf(ReferenceObject | ParameterObject)) }) & out
 }
 /* compiles to:
- * export type PathItemObject<T extends {} = {}> = Replace<BaseOpenAPIV3_1.PathItemObject<T>, { parameters?: (ReferenceObject | ParameterObject)[] }> & { [Method in HttpMethods]?: OperationObject<T> }
+ * export type PathItemObject<T extends {} = {}> =
+ *   & Replace<
+ *       BaseOpenAPIV3_1.PathItemObject<T>,
+ *       { parameters?: (ReferenceObject | ParameterObject)[] }
+ *     >
+ *   & { [Method in HttpMethods]?: OperationObject<T> }
  */
 
 // ✓ PathsObject: verified type-identical to the original
@@ -63,7 +83,10 @@ export function PathsObject(T: {} = {}, TPath: {} = {}) {
   return Record(string, anyOf(merge(PathItemObject(T), TPath), Undefined))
 }
 /* compiles to:
- * export type PathsObject<T extends {} = {}, TPath extends {} = {}> = Record<string, PathItemObject<T> & TPath | undefined>
+ * export type PathsObject<T extends {} = {}, TPath extends {} = {}> = Record<
+ *   string,
+ *   PathItemObject<T> & TPath | undefined
+ * >
  */
 
 // ✓ Document: verified type-identical to the original
@@ -72,5 +95,8 @@ export function Document(T: {} = {}) {
   return Replace(BaseOpenAPIV3_1.Document(T), { paths: optional(PathsObject(T)), components: optional(ComponentsObject) })
 }
 /* compiles to:
- * export type Document<T extends {} = {}> = Replace<BaseOpenAPIV3_1.Document<T>, { paths?: PathsObject<T>; components?: ComponentsObject }>
+ * export type Document<T extends {} = {}> = Replace<
+ *   BaseOpenAPIV3_1.Document<T>,
+ *   { paths?: PathsObject<T>; components?: ComponentsObject }
+ * >
  */

@@ -15,18 +15,23 @@ declare const BaseQueryFn: any
 declare const BaseQueryMeta: any
 declare const MutationBaseLifecycleApi: any
 declare const PromiseWithKnownReason: any
-type BaseQueryError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseQueryFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseQueryMeta<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationBaseLifecycleApi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PromiseWithKnownReason<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseQueryError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseQueryFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BaseQueryMeta<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationBaseLifecycleApi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PromiseWithKnownReason<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ QueryLifecyclePromises: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function QueryLifecyclePromises(ResultType, BaseQuery: BaseQueryFn) {
   return { queryFulfilled: PromiseWithKnownReason({ data: ResultType, meta: BaseQueryMeta(BaseQuery) }, QueryFulfilledRejectionReason(BaseQuery)) }
 }
 /* compiles to:
- * export type QueryLifecyclePromises<ResultType, BaseQuery extends BaseQueryFn> = { queryFulfilled: PromiseWithKnownReason<{ data: ResultType; meta: BaseQueryMeta<BaseQuery> }, QueryFulfilledRejectionReason<BaseQuery>> }
+ * export type QueryLifecyclePromises<ResultType, BaseQuery extends BaseQueryFn> = {
+ *   queryFulfilled: PromiseWithKnownReason<
+ *     { data: ResultType; meta: BaseQueryMeta<BaseQuery> },
+ *     QueryFulfilledRejectionReason<BaseQuery>
+ *   >
+ * }
  */
 
 // ✓ QueryFulfilledRejectionReason: verified type-identical to the original
@@ -35,7 +40,13 @@ export function QueryFulfilledRejectionReason(BaseQuery: BaseQueryFn) {
   return anyOf({ error: BaseQueryError(BaseQuery), isUnhandledError: false, meta: BaseQueryMeta(BaseQuery) }, { error: unknown, meta: optional(Undefined), isUnhandledError: true })
 }
 /* compiles to:
- * export type QueryFulfilledRejectionReason<BaseQuery extends BaseQueryFn> = { error: BaseQueryError<BaseQuery>; isUnhandledError: false; meta: BaseQueryMeta<BaseQuery> } | { error: unknown; meta?: undefined; isUnhandledError: true }
+ * export type QueryFulfilledRejectionReason<BaseQuery extends BaseQueryFn> =
+ *   | {
+ *       error: BaseQueryError<BaseQuery>
+ *       isUnhandledError: false
+ *       meta: BaseQueryMeta<BaseQuery>
+ *     }
+ *   | { error: unknown; meta?: undefined; isUnhandledError: true }
  */
 
 // ✗ QueryLifecycleQueryExtraOptions: uses raw() — language gap, does not count as covered
@@ -51,7 +62,13 @@ export function QueryLifecycleInfiniteQueryExtraOptions(ResultType, QueryArg, Ba
   return QueryLifecycleQueryExtraOptions(ResultType, QueryArg, BaseQuery, ReducerPath)
 }
 /* compiles to:
- * export type QueryLifecycleInfiniteQueryExtraOptions<ResultType, QueryArg, BaseQuery extends BaseQueryFn, ReducerPath extends string = string> = QueryLifecycleQueryExtraOptions<ResultType, QueryArg, BaseQuery, ReducerPath>
+ * export type QueryLifecycleInfiniteQueryExtraOptions<
+ *   ResultType,
+ *   QueryArg,
+ *   BaseQuery extends BaseQueryFn,
+ *   ReducerPath extends string = string
+ * > =
+ *   QueryLifecycleQueryExtraOptions<ResultType, QueryArg, BaseQuery, ReducerPath>
  */
 
 // ✗ QueryLifecycleMutationExtraOptions: uses raw() — language gap, does not count as covered
@@ -67,7 +84,14 @@ export function MutationLifecycleApi(QueryArg, BaseQuery: BaseQueryFn, ResultTyp
   return MutationBaseLifecycleApi(QueryArg, BaseQuery, ResultType, ReducerPath) & QueryLifecyclePromises(ResultType, BaseQuery)
 }
 /* compiles to:
- * export type MutationLifecycleApi<QueryArg, BaseQuery extends BaseQueryFn, ResultType, ReducerPath extends string = string> = MutationBaseLifecycleApi<QueryArg, BaseQuery, ResultType, ReducerPath> & QueryLifecyclePromises<ResultType, BaseQuery>
+ * export type MutationLifecycleApi<
+ *   QueryArg,
+ *   BaseQuery extends BaseQueryFn,
+ *   ResultType,
+ *   ReducerPath extends string = string
+ * > =
+ *   & MutationBaseLifecycleApi<QueryArg, BaseQuery, ResultType, ReducerPath>
+ *   & QueryLifecyclePromises<ResultType, BaseQuery>
  */
 
 // ✓ TypedQueryOnQueryStarted: verified type-identical to the original
@@ -76,7 +100,18 @@ export function TypedQueryOnQueryStarted(ResultType, QueryArgumentType, BaseQuer
   return QueryLifecycleQueryExtraOptions(ResultType, QueryArgumentType, BaseQueryFunctionType, ReducerPath)['onQueryStarted']
 }
 /* compiles to:
- * export type TypedQueryOnQueryStarted<ResultType, QueryArgumentType, BaseQueryFunctionType extends BaseQueryFn, ReducerPath extends string = string> = QueryLifecycleQueryExtraOptions<ResultType, QueryArgumentType, BaseQueryFunctionType, ReducerPath>['onQueryStarted']
+ * export type TypedQueryOnQueryStarted<
+ *   ResultType,
+ *   QueryArgumentType,
+ *   BaseQueryFunctionType extends BaseQueryFn,
+ *   ReducerPath extends string = string
+ * > =
+ *   QueryLifecycleQueryExtraOptions<
+ *     ResultType,
+ *     QueryArgumentType,
+ *     BaseQueryFunctionType,
+ *     ReducerPath
+ *   >['onQueryStarted']
  */
 
 // ✓ TypedMutationOnQueryStarted: verified type-identical to the original
@@ -85,5 +120,16 @@ export function TypedMutationOnQueryStarted(ResultType, QueryArgumentType, BaseQ
   return QueryLifecycleMutationExtraOptions(ResultType, QueryArgumentType, BaseQueryFunctionType, ReducerPath)['onQueryStarted']
 }
 /* compiles to:
- * export type TypedMutationOnQueryStarted<ResultType, QueryArgumentType, BaseQueryFunctionType extends BaseQueryFn, ReducerPath extends string = string> = QueryLifecycleMutationExtraOptions<ResultType, QueryArgumentType, BaseQueryFunctionType, ReducerPath>['onQueryStarted']
+ * export type TypedMutationOnQueryStarted<
+ *   ResultType,
+ *   QueryArgumentType,
+ *   BaseQueryFunctionType extends BaseQueryFn,
+ *   ReducerPath extends string = string
+ * > =
+ *   QueryLifecycleMutationExtraOptions<
+ *     ResultType,
+ *     QueryArgumentType,
+ *     BaseQueryFunctionType,
+ *     ReducerPath
+ *   >['onQueryStarted']
  */

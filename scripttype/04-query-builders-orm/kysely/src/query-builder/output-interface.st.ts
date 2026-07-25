@@ -15,12 +15,12 @@ declare const AnyAliasedColumnWithTable: any
 declare const AnyColumnWithTable: any
 declare const ExpressionBuilder: any
 declare const OutputPrefix: any
-type AliasedExpressionOrFactory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyAliasedColumnWithTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnyColumnWithTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ExpressionBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OutputExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OutputPrefix<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type AliasedExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyAliasedColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OutputExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OutputPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OutputDatabase: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OutputDatabase(DB, TB: keyof typeof DB, OP: OutputPrefix = OutputPrefix) {
@@ -31,7 +31,9 @@ export function OutputDatabase(DB, TB: keyof typeof DB, OP: OutputPrefix = Outpu
   return out
 }
 /* compiles to:
- * export type OutputDatabase<DB, TB extends keyof DB, OP extends OutputPrefix = OutputPrefix> = { [K in OP]: DB[TB] }
+ * export type OutputDatabase<DB, TB extends keyof DB, OP extends OutputPrefix = OutputPrefix> = {
+ *   [K in OP]: DB[TB]
+ * }
  */
 
 // ✓ OutputExpression: verified type-identical to the original
@@ -40,7 +42,16 @@ export function OutputExpression(DB, TB: keyof typeof DB, OP: OutputPrefix = Out
   return AnyAliasedColumnWithTable(ODB, OTB) | AnyColumnWithTable(ODB, OTB) | AliasedExpressionOrFactory(ODB, OTB)
 }
 /* compiles to:
- * export type OutputExpression<DB, TB extends keyof DB, OP extends OutputPrefix = OutputPrefix, ODB = OutputDatabase<DB, TB, OP>, OTB extends keyof ODB = keyof ODB> = AnyAliasedColumnWithTable<ODB, OTB> | AnyColumnWithTable<ODB, OTB> | AliasedExpressionOrFactory<ODB, OTB>
+ * export type OutputExpression<
+ *   DB,
+ *   TB extends keyof DB,
+ *   OP extends OutputPrefix = OutputPrefix,
+ *   ODB = OutputDatabase<DB, TB, OP>,
+ *   OTB extends keyof ODB = keyof ODB
+ * > =
+ *   | AnyAliasedColumnWithTable<ODB, OTB>
+ *   | AnyColumnWithTable<ODB, OTB>
+ *   | AliasedExpressionOrFactory<ODB, OTB>
  */
 
 // ✓ OutputCallback: verified type-identical to the original
@@ -49,7 +60,10 @@ export function OutputCallback(DB, TB: keyof typeof DB, OP: OutputPrefix = Outpu
   return fnType([ExpressionBuilder(OutputDatabase(DB, TB, OP), OP)], t<ReadonlyArray<OutputExpression<typeof DB, typeof TB, typeof OP>>>())
 }
 /* compiles to:
- * export type OutputCallback<DB, TB extends keyof DB, OP extends OutputPrefix = OutputPrefix> = (a0: ExpressionBuilder<OutputDatabase<DB, TB, OP>, OP>) => ReadonlyArray<OutputExpression<DB, TB, OP>>
+ * export type OutputCallback<DB, TB extends keyof DB, OP extends OutputPrefix = OutputPrefix> =
+ *   (a0: ExpressionBuilder<OutputDatabase<DB, TB, OP>, OP>) => ReadonlyArray<
+ *     OutputExpression<DB, TB, OP>
+ *   >
  */
 
 // ✓ SelectExpressionFromOutputExpression: verified type-identical to the original
@@ -62,7 +76,8 @@ export function SelectExpressionFromOutputExpression(OE) {
   return OE
 }
 /* compiles to:
- * export type SelectExpressionFromOutputExpression<OE> = OE extends `${OutputPrefix}.${infer C}` ? C : OE
+ * export type SelectExpressionFromOutputExpression<OE> =
+ *   OE extends `${OutputPrefix}.${infer C}` ? C : OE
  */
 
 // ✓ SelectExpressionFromOutputCallback: verified type-identical to the original
@@ -75,5 +90,8 @@ export function SelectExpressionFromOutputCallback(CB) {
   return never
 }
 /* compiles to:
- * export type SelectExpressionFromOutputCallback<CB> = CB extends (eb: ExpressionBuilder<any, any>) => ReadonlyArray<infer OE> ? SelectExpressionFromOutputExpression<OE> : never
+ * export type SelectExpressionFromOutputCallback<CB> =
+ *   CB extends (eb: ExpressionBuilder<any, any>) => ReadonlyArray<infer OE>
+ *     ? SelectExpressionFromOutputExpression<OE>
+ *     : never
  */

@@ -12,8 +12,8 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Primitive: any
 declare const array: any
-type Primitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ snapshot: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function snapshot(t, depth: 1[] = []) {
@@ -47,13 +47,21 @@ export function snapshot(t, depth: 1[] = []) {
   return out
 }
 /* compiles to:
- * export type snapshot<t, depth extends 1[] = []> = unknown extends t ? unknown : t extends Primitive ? snapshotPrimitive<t> : t extends { toJSON: () => infer serialized; } ? serialized : t extends Function ? `Function(${string})` : t extends Date ? string : depth['length'] extends 10 ? unknown : t extends array<infer item> ? array<snapshot<item, [...depth, 1]>> : { [K in keyof t as snapshotPrimitive<K>]: snapshot<t[K], [...depth, 1]> }
+ * export type snapshot<t, depth extends 1[] = []> =
+ *   unknown extends t ? unknown
+ *   : t extends Primitive ? snapshotPrimitive<t>
+ *   : t extends { toJSON: () => infer serialized; } ? serialized
+ *   : t extends Function ? `Function(${string})`
+ *   : t extends Date ? string
+ *   : depth['length'] extends 10 ? unknown
+ *   : t extends array<infer item> ? array<snapshot<item, [...depth, 1]>>
+ *   : { [K in keyof t as snapshotPrimitive<K>]: snapshot<t[K], [...depth, 1]> }
  */
 
 // ✓ snapshotPrimitive: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function snapshotPrimitive(t) {
-  if (matches<symbol>(t)) {
+  if (typeof t === 'symbol') {
     return `Symbol(${string})`
   }
   return t

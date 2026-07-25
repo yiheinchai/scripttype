@@ -17,13 +17,13 @@ declare const TupleOf: any
 declare const UnknownArray: any
 declare const V: any
 declare const VariablePartOfArray: any
-type GreaterThanOrEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticPartOfArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Subtract<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type V<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type VariablePartOfArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type GreaterThanOrEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticPartOfArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Subtract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type VariablePartOfArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SplitFixedArrayByIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SplitFixedArrayByIndex(T: UnknownArray, SplitIndex: number) {
@@ -41,12 +41,16 @@ export function SplitFixedArrayByIndex(T: UnknownArray, SplitIndex: number) {
   return [never, never]
 }
 /* compiles to:
- * export type SplitFixedArrayByIndex<T extends UnknownArray, SplitIndex extends number> = SplitIndex extends 0 ? [[], T] : T extends readonly [...TupleOf<SplitIndex>, ...infer V] ? T extends readonly [...infer U, ...V] ? [U, V] : [never, never] : [never, never]
+ * export type SplitFixedArrayByIndex<T extends UnknownArray, SplitIndex extends number> =
+ *   SplitIndex extends 0 ? [[], T]
+ *   : T extends readonly [...TupleOf<SplitIndex>, ...infer V]
+ *     ? T extends readonly [...infer U, ...V] ? [U, V] : [never, never]
+ *   : [never, never]
  */
 
 // ✓ SplitVariableArrayByIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SplitVariableArrayByIndex(T: UnknownArray, SplitIndex: number, T1 = Subtract(SplitIndex, StaticPartOfArray(T)['length']), T2 = matches<number>(T1) ? TupleOf(matches<true>(GreaterThanOrEqual(T1, 0)) ? T1 : number, VariablePartOfArray(T)[number]) : []) {
+export function SplitVariableArrayByIndex(T: UnknownArray, SplitIndex: number, T1 = Subtract(SplitIndex, StaticPartOfArray(T)['length']), T2 = typeof T1 === 'number' ? TupleOf(matches<true>(GreaterThanOrEqual(T1, 0)) ? T1 : number, VariablePartOfArray(T)[number]) : []) {
   if (matches<0>(SplitIndex)) {
     return [[], T]
   }
@@ -56,7 +60,22 @@ export function SplitVariableArrayByIndex(T: UnknownArray, SplitIndex: number, T
   return [[...StaticPartOfArray(T), ...matches<UnknownArray>(T2) ? T2 : []], VariablePartOfArray(T)]
 }
 /* compiles to:
- * export type SplitVariableArrayByIndex<T extends UnknownArray, SplitIndex extends number, T1 = Subtract<SplitIndex, StaticPartOfArray<T>['length']>, T2 = T1 extends number ? TupleOf<GreaterThanOrEqual<T1, 0> extends true ? T1 : number, VariablePartOfArray<T>[number]> : []> = SplitIndex extends 0 ? [[], T] : GreaterThanOrEqual<StaticPartOfArray<T>['length'], SplitIndex> extends true ? [SplitFixedArrayByIndex<StaticPartOfArray<T>, SplitIndex>[0], [...SplitFixedArrayByIndex<StaticPartOfArray<T>, SplitIndex>[1], ...VariablePartOfArray<T>]] : [[...StaticPartOfArray<T>, ...(T2 extends UnknownArray ? T2 : [])], VariablePartOfArray<T>]
+ * export type SplitVariableArrayByIndex<
+ *   T extends UnknownArray,
+ *   SplitIndex extends number,
+ *   T1 = Subtract<SplitIndex, StaticPartOfArray<T>['length']>,
+ *   T2 = T1 extends number ? TupleOf<GreaterThanOrEqual<T1, 0> extends true ? T1 : number, VariablePartOfArray<T>[number]> : []
+ * > =
+ *   SplitIndex extends 0 ? [[], T]
+ *   : GreaterThanOrEqual<StaticPartOfArray<T>['length'], SplitIndex> extends true
+ *     ? [
+ *       SplitFixedArrayByIndex<StaticPartOfArray<T>, SplitIndex>[0],
+ *       [
+ *         ...SplitFixedArrayByIndex<StaticPartOfArray<T>, SplitIndex>[1],
+ *         ...VariablePartOfArray<T>
+ *       ]
+ *     ]
+ *   : [[...StaticPartOfArray<T>, ...(T2 extends UnknownArray ? T2 : [])], VariablePartOfArray<T>]
  */
 
 // ✓ SplitArrayByIndex: verified type-identical to the original
@@ -71,7 +90,10 @@ export function SplitArrayByIndex(T: UnknownArray, SplitIndex: number) {
   return SplitFixedArrayByIndex(T, SplitIndex)
 }
 /* compiles to:
- * export type SplitArrayByIndex<T extends UnknownArray, SplitIndex extends number> = SplitIndex extends 0 ? [[], T] : number extends T['length'] ? SplitVariableArrayByIndex<T, SplitIndex> : SplitFixedArrayByIndex<T, SplitIndex>
+ * export type SplitArrayByIndex<T extends UnknownArray, SplitIndex extends number> =
+ *   SplitIndex extends 0 ? [[], T]
+ *   : number extends T['length'] ? SplitVariableArrayByIndex<T, SplitIndex>
+ *   : SplitFixedArrayByIndex<T, SplitIndex>
  */
 
 // ✓ ArraySplice: verified type-identical to the original
@@ -88,5 +110,15 @@ export function ArraySplice(T: UnknownArray, Start: number, DeleteCount: number,
   return never
 }
 /* compiles to:
- * export type ArraySplice<T extends UnknownArray, Start extends number, DeleteCount extends number, Items extends UnknownArray = []> = SplitArrayByIndex<T, Start> extends [infer U extends UnknownArray, infer V extends UnknownArray] ? SplitArrayByIndex<V, DeleteCount> extends [UnknownArray, infer X extends UnknownArray] ? [...U, ...Items, ...X] : never : never
+ * export type ArraySplice<
+ *   T extends UnknownArray,
+ *   Start extends number,
+ *   DeleteCount extends number,
+ *   Items extends UnknownArray = []
+ * > =
+ *   SplitArrayByIndex<T, Start> extends [infer U extends UnknownArray, infer V extends UnknownArray]
+ *     ? SplitArrayByIndex<V, DeleteCount> extends [UnknownArray, infer X extends UnknownArray]
+ *       ? [...U, ...Items, ...X]
+ *       : never
+ *     : never
  */

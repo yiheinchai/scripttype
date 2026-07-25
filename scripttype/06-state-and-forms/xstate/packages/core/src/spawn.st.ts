@@ -10,18 +10,28 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare const ActorRefFromLogic: any
+declare const AnyActorLogic: any
+declare const AnyActorRef: any
 declare const ConditionalRequired: any
 declare const InputFrom: any
 declare const IsLiteralString: any
 declare const IsNotNever: any
 declare const ProvidedActor: any
 declare const RequiredActorOptions: any
-type ConditionalRequired<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type InputFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsLiteralString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNotNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ProvidedActor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type RequiredActorOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+declare const RequiredLogicInput: any
+declare const TLogic: any
+type ActorRefFromLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnyActorRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ConditionalRequired<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InputFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsLiteralString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNotNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ProvidedActor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredActorOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RequiredLogicInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ SpawnOptions: does not compile yet
 //   'TSrc' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
@@ -36,15 +46,33 @@ export function SpawnOptions(TActor: ProvidedActor, TSrc: (typeof TActor)['src']
   return never
 }
 /* compiles to:
- * export type SpawnOptions<TActor extends ProvidedActor, TSrc extends TActor['src']> = TActor extends { src: typeof TSrc; } ? ConditionalRequired<[{ id?: TActor['id']; systemId?: string; input?: InputFrom<TActor['logic']>; syncSnapshot?: boolean } & { [K in RequiredActorOptions<TActor>]: unknown }], IsNotNever<RequiredActorOptions<TActor>>> : never
+ * export type SpawnOptions<TActor extends ProvidedActor, TSrc extends TActor['src']> =
+ *   TActor extends { src: typeof TSrc; }
+ *     ? ConditionalRequired<
+ *       [
+ *         & {
+ *             id?: TActor['id']
+ *             systemId?: string
+ *             input?: InputFrom<TActor['logic']>
+ *             syncSnapshot?: boolean
+ *           }
+ *         & { [K in RequiredActorOptions<TActor>]: unknown }
+ *       ],
+ *       IsNotNever<RequiredActorOptions<TActor>>
+ *     >
+ *     : never
  */
 
 // ✗ Spawner: uses raw() — language gap, does not count as covered
-//   gap: object member CallSignature; generic function type
+//   gap: object member CallSignature
 /* @scripttype preserveParamNames */
 export function Spawner(TActor: ProvidedActor) {
   if (matches<true>(IsLiteralString(TActor['src']))) {
     return raw('{ <TSrc extends TActor[\'src\']>(logic: TSrc, ...[options]: SpawnOptions<TActor, TSrc>): ActorRefFromLogic<GetConcreteByKey<TActor, \'src\', TSrc>[\'logic\']>; <TLogic extends AnyActorLogic>(src: TLogic, ...[options]: ConditionalRequired<[ options?: { id?: never; systemId?: string; input?: InputFrom<TLogic>; syncSnapshot?: boolean; } & { [K in RequiredLogicInput<TLogic>]: unknown; } ], IsNotNever<RequiredLogicInput<TLogic>>>): ActorRefFromLogic<TLogic>; }')
   }
-  return raw('<TLogic extends AnyActorLogic | string>(src: TLogic, ...[options]: ConditionalRequired<[ options?: { id?: string; systemId?: string; input?: TLogic extends string ? unknown : InputFrom<TLogic>; syncSnapshot?: boolean; } & (TLogic extends AnyActorLogic ? { [K in RequiredLogicInput<TLogic>]: unknown; } : {}) ], IsNotNever<TLogic extends AnyActorLogic ? RequiredLogicInput<TLogic> : never>>) => TLogic extends AnyActorLogic ? ActorRefFromLogic<TLogic> : AnyActorRef')
+  const out = emptyObject
+  for (const K in keySet(RequiredLogicInput(TLogic))) {
+    out[K] = unknown
+  }
+  return genericFnType(['TLogic extends AnyActorLogic | string'], [TLogic, ConditionalRequired([merge({ id: optional(string), systemId: optional(string), input: optional(typeof TLogic === 'string' ? unknown : InputFrom(TLogic)), syncSnapshot: optional(boolean) }, matches<AnyActorLogic>(TLogic) ? out : {})], IsNotNever(matches<AnyActorLogic>(TLogic) ? RequiredLogicInput(TLogic) : never))], matches<AnyActorLogic>(TLogic) ? ActorRefFromLogic(TLogic) : AnyActorRef)
 }

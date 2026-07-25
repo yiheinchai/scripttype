@@ -10,21 +10,28 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Solid {
+  export type JSX<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const CoreHydrationStrategy: any
 declare const HydrateProps: any
 declare const HydrationWhen: any
 declare const Solid: any
-type CoreHydrationStrategy<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HydrateProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HydrationWhen<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Solid<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CoreHydrationStrategy<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HydrateProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HydrationWhen<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Solid<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SolidHydrationStrategy: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SolidHydrationStrategy(TWhen: HydrationWhen = HydrationWhen, TCanPrefetch: boolean = boolean) {
   return merge(CoreHydrationStrategy(TWhen, TCanPrefetch), { _h: fnType([HydrateProps], Solid.JSX.Element) })
 }
 /* compiles to:
- * export type SolidHydrationStrategy<TWhen extends HydrationWhen = HydrationWhen, TCanPrefetch extends boolean = boolean> = CoreHydrationStrategy<TWhen, TCanPrefetch> & { _h: (a0: HydrateProps) => Solid.JSX.Element }
+ * export type SolidHydrationStrategy<
+ *   TWhen extends HydrationWhen = HydrationWhen,
+ *   TCanPrefetch extends boolean = boolean
+ * > =
+ *   CoreHydrationStrategy<TWhen, TCanPrefetch> & { _h: (a0: HydrateProps) => Solid.JSX.Element }
  */
 
 // ✓ HydrationStrategy: verified type-identical to the original
@@ -33,5 +40,9 @@ export function HydrationStrategy(TWhen: HydrationWhen = HydrationWhen, TCanPref
   return SolidHydrationStrategy(TWhen, TCanPrefetch)
 }
 /* compiles to:
- * export type HydrationStrategy<TWhen extends HydrationWhen = HydrationWhen, TCanPrefetch extends boolean = boolean> = SolidHydrationStrategy<TWhen, TCanPrefetch>
+ * export type HydrationStrategy<
+ *   TWhen extends HydrationWhen = HydrationWhen,
+ *   TCanPrefetch extends boolean = boolean
+ * > =
+ *   SolidHydrationStrategy<TWhen, TCanPrefetch>
  */

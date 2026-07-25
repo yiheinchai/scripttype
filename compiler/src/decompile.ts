@@ -621,9 +621,10 @@ class Decompiler {
       const arrayForm = ARRAY_FORM[name]
       if (arrayForm && args.length === 1) return `${arrayForm}(${this.expr(args[0]!)})`
 
-      // A global whose value form is a constructor cannot be applied as a call, so name
-      // the type directly instead of emitting `Promise(T)`.
-      if (CONSTRUCTOR_GLOBALS.has(name.split('.')[0]!)) {
+      // Named, not called, in two cases: a global whose value form is a constructor
+      // (`Promise(T)` is "not callable"), and any qualified reference (`a.b(...)` needs
+      // `a` to be a namespace value, which it is not when `a` is a parameter).
+      if (CONSTRUCTOR_GLOBALS.has(name.split('.')[0]!) || name.includes('.')) {
         return `t<${patternLike(t, this.sf, this.params, this.holeScope)}>()`
       }
       if (!args.length) return name

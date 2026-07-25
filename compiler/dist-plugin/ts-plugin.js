@@ -80,9 +80,88 @@ function init(mod) {
                 return prior;
             }
         };
+        // Quick fixes for the diagnostics whose remedy is mechanical.
+        //
+        // TypeScript offers fixes for its own errors, so a language that only *reports*
+        // problems is a step down. Every fix here has exactly one right answer — there is no
+        // other way to write `x += 2` at the type level — so applying one blind is safe.
+        proxy.getCodeFixesAtPosition = (fileName, start, end, errorCodes, formatOptions, prefs) => {
+            const prior = info.languageService.getCodeFixesAtPosition(fileName, start, end, errorCodes, formatOptions, prefs);
+            if (!IS_SCRIPTTYPE.test(fileName))
+                return prior;
+            if (!errorCodes.some((c) => c >= CODE_BASE))
+                return prior;
+            const file = info.languageService.getProgram()?.getSourceFile(fileName);
+            if (!file)
+                return prior;
+            try {
+                return [...prior, ...codeFixes(ts, file, fileName, start, end)];
+            }
+            catch (e) {
+                log(`code fixes failed for ${fileName}: ${e.message}`);
+                return prior;
+            }
+        };
         return proxy;
     }
     return { create };
+}
+/** The enclosing statement of a node, so a fix can replace or delete a whole line. */
+function enclosingStatement(ts, node) {
+    let n = node;
+    while (n.parent && !ts.isSourceFile(n.parent) && !ts.isBlock(n.parent))
+        n = n.parent;
+    return n;
+}
+/**
+ * Fixes for the diagnostics that have a single unambiguous remedy.
+ *
+ * Deliberately not exhaustive: a fix that guesses is worse than no fix, so anything
+ * needing a judgement call (which branch is missing, what a `raw()` should become) is
+ * left to the `help:` text.
+ */
+function codeFixes(ts, file, fileName, start, end) {
+    const { errors } = (0, compile_js_1.compileAll)(file.getFullText(), { fileName });
+    const fixes = [];
+    for (const e of errors) {
+        if (!e.node)
+            continue;
+        const nStart = e.node.getStart(e.node.getSourceFile());
+        const nEnd = e.node.getEnd();
+        // Only offer a fix for the diagnostic the cursor is actually on.
+        if (end < nStart || start > nEnd)
+            continue;
+        const change = (span, newText, description) => {
+            fixes.push({
+                fixName: `scripttype-${e.code}`,
+                description,
+                changes: [{ fileName, textChanges: [{ span, newText }] }],
+            });
+        };
+        switch (e.code) {
+            case 'ST1101': {
+                // `x += 2` -> `x = x + 2`. The node is the whole assignment.
+                const text = file.getFullText().slice(nStart, nEnd);
+                const m = /^(\s*)([A-Za-z_$][\w$]*)\s*([-+*/%&|^]|<<|>>>?|\*\*)=\s*([\s\S]+)$/.exec(text);
+                if (m) {
+                    change({ start: nStart, length: nEnd - nStart }, `${m[1]}${m[2]} = ${m[2]} ${m[3]} ${m[4]}`, `Rewrite as \`${m[2]} = ${m[2]} ${m[3]} …\``);
+                }
+                break;
+            }
+            case 'ST1102': {
+                // A runtime global has no type-level meaning, so the statement goes.
+                const stmt = enclosingStatement(ts, e.node);
+                const from = stmt.getFullStart();
+                change({ start: from, length: stmt.getEnd() - from }, '', 'Delete this statement');
+                break;
+            }
+            case 'ST1004':
+                // A bare `return` means `never` at the type level.
+                change({ start: nStart, length: nEnd - nStart }, 'return never', 'Return `never`');
+                break;
+        }
+    }
+    return fixes;
 }
 /**
  * The emitted TypeScript for the ScriptType function containing `position`, if any.

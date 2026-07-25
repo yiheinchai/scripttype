@@ -74,7 +74,11 @@ function replaceUnused(ext, then, inTemplate) {
         case 'infer': {
             if ((0, ir_js_1.countRefs)(then, ext.name) > 0)
                 return ext;
-            return ext.constraint ?? (inTemplate ? (0, ir_js_1.kw)('string') : (0, ir_js_1.kw)('unknown'));
+            // `any`, not `unknown`, outside a template. An `infer` matched anything, and the
+            // wildcard replacing it must too — but it also sits where the surrounding type may
+            // impose a constraint, and `unknown` satisfies almost none of them
+            // ("Type 'unknown' does not satisfy the constraint ...").
+            return ext.constraint ?? (inTemplate ? (0, ir_js_1.kw)('string') : (0, ir_js_1.kw)('any'));
         }
         case 'template':
             return { ...ext, exprs: ext.exprs.map((x) => replaceUnused(x, then, true)) };
@@ -83,7 +87,7 @@ function replaceUnused(ext, then, inTemplate) {
                 ...ext,
                 elements: ext.elements.map((el) => {
                     const replaced = replaceUnused(el.expr, then, false);
-                    // A pruned rest element needs an array type, not a bare `unknown`.
+                    // A pruned rest element needs an array type, not a bare wildcard.
                     if (el.spread && el.expr.kind === 'infer' && replaced !== el.expr) {
                         return { ...el, expr: { kind: 'array', element: replaced } };
                     }

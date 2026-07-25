@@ -141,9 +141,11 @@ describe('destructuring', () => {
       const [h, ...rest] = t
       return h
     }`
-    // `rest` is never read, so it becomes a wildcard rather than a dead `infer`.
+    // `rest` is never read, so it becomes a wildcard rather than a dead `infer`. The
+    // wildcard is `any`: an `infer` matched anything, and `unknown` would fail wherever
+    // the surrounding type imposes a constraint.
     expect(c(src)).toBe(
-      `export type Head<T extends unknown[]> = T extends [infer H, ...unknown[]] ? H : never`,
+      `export type Head<T extends unknown[]> = T extends [infer H, ...any[]] ? H : never`,
     )
   })
 
@@ -491,7 +493,7 @@ describe('matches() general pattern primitive', () => {
       if (matches<[infer A, infer B]>(t)) { return B }
       return never
     }`
-    expect(c(src)).toBe(`export type Second<T> = T extends [unknown, infer B] ? B : never`)
+    expect(c(src)).toBe(`export type Second<T> = T extends [any, infer B] ? B : never`)
   })
 })
 
@@ -516,6 +518,6 @@ describe('orElse fallback', () => {
       const [, ...rest] = orElse(it, [])
       return rest
     }`
-    expect(c(src)).toBe(`export type Tail<It extends unknown[]> = It extends [unknown, ...infer Rest] ? Rest : []`)
+    expect(c(src)).toBe(`export type Tail<It extends unknown[]> = It extends [any, ...infer Rest] ? Rest : []`)
   })
 })

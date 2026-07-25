@@ -26,7 +26,7 @@ import { decompileFile } from './decompile.js'
 import { REPO_ROOT } from './corpus.js'
 import { collectFiles, type Status } from './batch.js'
 import { typecheckScriptType } from './typecheck.js'
-import { freeNamesOf } from './freenames.js'
+import { ambientFor } from './freenames.js'
 
 export interface Outcome {
   file: string
@@ -129,10 +129,7 @@ export function inplaceFile(rel: string): Outcome[] {
     }
     // ScriptType source must itself be valid TypeScript. This is part of verification:
     // a program that does not typecheck does not count, however good its output.
-    const tc = typecheckScriptType(
-      { [`${e.name}.st.ts`]: e.result.source },
-      freeNamesOf(e.result.source),
-    )
+    const tc = typecheckScriptType({ [`${e.name}.st.ts`]: e.result.source }, [], ambientFor(e.result.source))
     if (!tc.ok) {
       outcomes.push({
         file: rel,

@@ -72,6 +72,8 @@ function extraAmbient(names: readonly string[]): string {
 export function typecheckScriptType(
   sources: Record<string, string>,
   extraNames: readonly string[] = [],
+  /** A pre-built ambient block, used instead of deriving one from `extraNames`. */
+  extraAmbientText?: string,
 ): TypecheckResult {
   const suppressions: string[] = []
   for (const [name, text] of Object.entries(sources)) {
@@ -90,8 +92,9 @@ export function typecheckScriptType(
   const files = new Map<string, string>()
   files.set('/scripttype.d.ts', ambient)
   const roots: string[] = ['/scripttype.d.ts']
-  if (extraNames.length) {
-    files.set('/deps.d.ts', extraAmbient(extraNames))
+  const deps = extraAmbientText ?? (extraNames.length ? extraAmbient(extraNames) : '')
+  if (deps) {
+    files.set('/deps.d.ts', deps)
     roots.push('/deps.d.ts')
   }
   for (const [name, text] of Object.entries(sources)) {

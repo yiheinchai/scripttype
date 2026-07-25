@@ -101,18 +101,85 @@ export function freeNames(source: string): { values: string[]; types: string[] }
 
 
 /** Ambient declarations making a generated file self-contained. */
-export function declarePreamble(source: string): string {
+// Enough optional parameters to absorb any arity the corpus applies; too few gives
+// "Generic type 'X' requires between 0 and N type arguments".
+const GENERIC =
+  '<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any,' +
+  ' T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any>'
+
+/**
+ * Qualified type references grouped by root: `A.B` and `A.C` give `A -> {B, C}`.
+ *
+ * A root used this way must be declared as a *namespace*, not a type alias — `A.B` in a
+ * type position with `type A = any` is TS2702, "only refers to a type, but is being used
+ * as a namespace here". The member names can be recovered from the usages themselves.
+ */
+function qualifiedMembers(sf: ts.SourceFile): Map<string, Set<string>> {
+  const out = new Map<string, Set<string>>()
+  const add = (text: string) => {
+    const parts = text.split('.')
+    if (parts.length < 2) return
+    const root = parts[0]!
+    if (!out.has(root)) out.set(root, new Set())
+    out.get(root)!.add(parts[1]!)
+  }
+  const walk = (n: ts.Node) => {
+    if (ts.isTypeReferenceNode(n)) add(n.typeName.getText(sf))
+    if (ts.isTypeQueryNode(n)) add(n.exprName.getText(sf))
+    if (ts.isPropertyAccessExpression(n)) {
+      let cur: ts.Node = n
+      const parts: string[] = []
+      while (ts.isPropertyAccessExpression(cur)) {
+        parts.unshift(cur.name.text)
+        cur = cur.expression
+      }
+      if (ts.isIdentifier(cur)) add([cur.text, ...parts].join('.'))
+    }
+    ts.forEachChild(n, walk)
+  }
+  walk(sf)
+  return out
+}
+
+/**
+ * The full ambient declaration block making a source self-contained: values, generic type
+ * aliases, and namespaces for any root referenced as `A.B`.
+ */
+export function ambientFor(source: string): string {
+  const sf = ts.createSourceFile('gen.st.ts', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
   const free = freeNames(source)
-  if (!free.values.length && !free.types.length) return ''
-  const GENERIC = '<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any>'
+  const quals = qualifiedMembers(sf)
+
+  const nsRoots = [...quals.keys()]
+    .filter((r) => free.values.includes(r) || free.types.includes(r))
+    .sort()
+  const nsSet = new Set(nsRoots)
+  const lines: string[] = []
+
+  // A root can be used three ways in the same file — qualified (`A.B`), as a bare type,
+  // and as a value — and all three declarations coexist legally, so emit all of them.
+  for (const root of nsRoots) {
+    lines.push(`declare namespace ${root} {`)
+    for (const m of [...quals.get(root)!].sort()) lines.push(`  export type ${m}${GENERIC} = any`)
+    lines.push(`}`)
+  }
+  for (const n of free.values) lines.push(`declare const ${n}: any`)
+  for (const n of free.types) lines.push(`type ${n}${GENERIC} = any`)
+  void nsSet
+
+  if (!lines.length) return ''
   return [
     '// Names this file references but does not define: types from elsewhere in the',
     '// library, and local functions used in type position. Declared so the generated',
     '// ScriptType typechecks standalone. They carry no runtime meaning.',
-    ...free.values.map((n) => `declare const ${n}: any`),
-    ...free.types.map((n) => `type ${n}${GENERIC} = any`),
+    ...lines,
     '',
   ].join('\n')
+}
+
+/** Ambient declarations making a generated file self-contained. */
+export function declarePreamble(source: string): string {
+  return ambientFor(source)
 }
 
 /**
@@ -150,7 +217,6 @@ export function declarePreambleForTypes(source: string): string {
     .filter((n) => /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(n))
     .sort()
   if (!free.length) return ''
-  const GENERIC = '<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any>'
   return [
     '// Names imported from elsewhere in the library, declared here because relative',
     '// imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.',

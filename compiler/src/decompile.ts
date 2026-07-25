@@ -25,8 +25,13 @@ const INDENT = '  '
 export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile): DecompileResult {
   const gaps: string[] = []
   const paramNames = new Set((decl.typeParameters ?? []).map((tp) => tp.name.text))
+  // A parameter is `any` in value space when it has no annotation — either because it is
+  // unconstrained, or because its constraint went to JSDoc instead.
+  const inJsDoc = jsDocConstrained(decl.typeParameters ?? [], paramNames, decl.type)
   const anyParams = new Set(
-    (decl.typeParameters ?? []).filter((tp) => !tp.constraint).map((tp) => tp.name.text),
+    (decl.typeParameters ?? [])
+      .filter((tp) => !tp.constraint || inJsDoc.has(tp.name.text))
+      .map((tp) => tp.name.text),
   )
   const d = new Decompiler(sf, gaps, paramNames, anyParams)
   d.paramOrder = (decl.typeParameters ?? []).map((tp) => tp.name.text)
@@ -34,15 +39,18 @@ export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile)
   d.seedScope(d.paramOrder)
   const name = decl.name.text
 
-  const params = (decl.typeParameters ?? []).map((tp) => {
-    // Keep the original parameter name: `pascal()` preserves already-capitalised
-    // names, so emitted type parameters match the reference exactly.
-    // No annotation when unconstrained: annotating `unknown` would make every use of
-    // the parameter a type error, and `extends unknown` is not emitted anyway.
-    const ann = tp.constraint ? `: ${holePattern(tp.constraint, sf, paramNames)}` : ''
-    const def = tp.default ? ` = ${d.exprNoHoist(tp.default)}` : ''
-    return `${tp.name.text}${ann}${def}`
-  })
+  const signature = (tps: readonly ts.TypeParameterDeclaration[]) =>
+    renderSignature(tps, sf, paramNames, decl.type, (t) => d.exprNoHoist(t))
+
+  // Every emitted function is annotated `: any`, for the same reason every builtin is
+  // declared that way: what a ScriptType function returns is a *type*, and `any` is how
+  // a type is spelled in value space. Without it tsc infers the return from the `return`
+  // statements — `boolean` for a predicate, an object literal for a mapped type — and a
+  // caller can then no longer use the result as an operand of `|` or `&`, which are
+  // JavaScript's bitwise operators and demand any/number/bigint. The compiler never
+  // reads a return annotation (`TypeFunction` carries only the parameters and the body),
+  // so the compiled TypeScript is unchanged.
+  const RETURNS = ': any'
 
   // A tail-recursive accumulator is a loop written as recursion; recovering the loop is
   // the largest readability gain available here.
@@ -50,29 +58,164 @@ export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile)
   if (loop) {
     const recovered = d.loopBody(loop)
     if (recovered) {
-      const sig = loop.publicParams.map((tp) => {
-        const ann = tp.constraint ? `: ${holePattern(tp.constraint, sf, paramNames)}` : ''
-        const dflt = tp.default ? ` = ${d.exprNoHoist(tp.default)}` : ''
-        return `${tp.name.text}${ann}${dflt}`
-      })
+      const sig = signature(loop.publicParams)
       const src =
         `/* @scripttype preserveParamNames */\n` +
         d.lifted.join('\n') +
-        `export function ${name}(${sig.join(', ')}) {\n` +
+        sig.doc +
+        `export function ${name}(${sig.params.join(', ')})${RETURNS} {\n` +
         recovered.map((l) => INDENT + l).join('\n') +
         '\n}\n'
       return { source: src, gaps }
     }
   }
 
+  const sig = signature(decl.typeParameters ?? [])
   const body = d.statements(decl.type, 1)
   const src =
     `/* @scripttype preserveParamNames */\n` +
     d.lifted.join('\n') +
-    `export function ${name}(${params.join(', ')}) {\n` +
+    sig.doc +
+    `export function ${name}(${sig.params.join(', ')})${RETURNS} {\n` +
     body.map((l) => INDENT + l).join('\n') +
     '\n}\n'
   return { source: src, gaps }
+}
+
+/**
+ * Does this constraint mention one of the alias's own type parameters?
+ *
+ * Such a constraint has no faithful reading as a value annotation, because a ScriptType
+ * parameter *is* a value whose type is its constraint, and a value annotation is
+ * evaluated eagerly. `Key extends keyof Type` written as `Key: keyof typeof Type` reads
+ * as `keyof object` — which is `never`, so it rejects every key a caller could pass —
+ * whereas at the type level `keyof Type` stays deferred while `Type` is a variable. A
+ * self-referential constraint is worse still: `U extends [U] extends [...] ? ... : ...`
+ * is ordinary TypeScript on a type parameter, but a value cannot appear in its own
+ * annotation at all (TS2502).
+ */
+function mentionsTypeParam(node: ts.TypeNode, params: Set<string>): boolean {
+  let found = false
+  const walk = (n: ts.Node): void => {
+    if (found) return
+    if (ts.isIdentifier(n) && params.has(n.text)) {
+      found = true
+      return
+    }
+    n.forEachChild(walk)
+  }
+  walk(node)
+  return found
+}
+
+/**
+ * The parameter list of the emitted function, plus the JSDoc block it needs.
+ *
+ * A constraint that mentions another type parameter is carried in a JSDoc `@param` tag
+ * instead of an annotation. The compiler already reads constraints from `@param` — that
+ * is how the pure-JavaScript dialect spells them, where there are no annotations at all
+ * — so this is the same constraint said a different way, and it lowers to exactly the
+ * same `extends` clause. What changes is that tsc no longer evaluates it as a value
+ * type, which is the thing it cannot do correctly. See `mentionsTypeParam`.
+ */
+function renderSignature(
+  tps: readonly ts.TypeParameterDeclaration[],
+  sf: ts.SourceFile,
+  paramNames: Set<string>,
+  body: ts.TypeNode,
+  renderDefault: (t: ts.TypeNode) => string,
+): { params: string[]; doc: string } {
+  const inJsDoc = jsDocConstrained(tps, paramNames, body)
+  const params: string[] = []
+  const tags: string[] = []
+  for (const tp of tps) {
+    // Keep the original parameter name: `pascal()` preserves already-capitalised
+    // names, so emitted type parameters match the reference exactly.
+    // No annotation when unconstrained: annotating `unknown` would make every use of
+    // the parameter a type error, and `extends unknown` is not emitted anyway.
+    const def = tp.default ? ` = ${renderDefault(tp.default)}` : ''
+    if (!tp.constraint) {
+      params.push(`${tp.name.text}${def}`)
+      continue
+    }
+    const constraint = holePattern(tp.constraint, sf, paramNames)
+    if (inJsDoc.has(tp.name.text)) {
+      params.push(`${tp.name.text}${def}`)
+      tags.push(` * @param {${constraint}} ${tp.name.text}`)
+    } else {
+      params.push(`${tp.name.text}: ${constraint}${def}`)
+    }
+  }
+  return { params, doc: tags.length ? `/**\n${tags.join('\n')}\n */\n` : '' }
+}
+
+/**
+ * The parameters whose constraint is carried in JSDoc rather than as an annotation.
+ *
+ * Two ways in. A constraint that mentions a type parameter is one (see
+ * `mentionsTypeParam`). The other is being on the far end of such a dependency:
+ * `Type: object` beside a JSDoc-carried `Key extends keyof Type` leaves the pair
+ * half-evaluated — `Key` is `any` while `Type` is still `object`, so `Type[Key]` reads as
+ * `object[any]`, which is TS2538. The relationship is the thing value space cannot
+ * express, so neither end of it is stated as a value type.
+ *
+ * These parameters are `any` in value space, exactly like an unconstrained one, which is
+ * what `isAnyTyped` needs to know to keep the readable `A | B` spelling for them.
+ */
+function jsDocConstrained(
+  tps: readonly ts.TypeParameterDeclaration[],
+  paramNames: Set<string>,
+  body?: ts.TypeNode,
+): Set<string> {
+  const out = new Set<string>()
+  for (const tp of tps) {
+    if (!tp.constraint || !mentionsTypeParam(tp.constraint, paramNames)) continue
+    out.add(tp.name.text)
+    for (const other of paramNames) {
+      if (other !== tp.name.text && mentionsTypeParam(tp.constraint, new Set([other]))) {
+        out.add(other)
+      }
+    }
+  }
+  if (body) for (const name of indexedByMappedKey(body, paramNames)) out.add(name)
+  return out
+}
+
+/**
+ * Parameters the body indexes by a mapped type's key variable.
+ *
+ * `T[Key]` inside `{[Key in keyof T]: …}` is the same dependency as a constraint naming
+ * another parameter, with the far end being a key variable rather than a type parameter:
+ * `Key` ranges over `keyof T`, so at the type level `T[Key]` is always well-formed. In
+ * value space the key variable comes from a `for … in`, so it is a `string`, and reading
+ * `T[Key]` off a parameter annotated `object` is TS2537 — `object` has no index
+ * signature. Dropping the annotation puts the parameter back to `any`, where the
+ * relationship is simply not checked rather than checked wrongly.
+ */
+function indexedByMappedKey(body: ts.TypeNode, paramNames: Set<string>): Set<string> {
+  const keys = new Set<string>()
+  const collectKeys = (n: ts.Node): void => {
+    if (ts.isMappedTypeNode(n)) keys.add(n.typeParameter.name.text)
+    n.forEachChild(collectKeys)
+  }
+  collectKeys(body)
+  if (!keys.size) return new Set()
+
+  const out = new Set<string>()
+  const walk = (n: ts.Node): void => {
+    if (
+      ts.isIndexedAccessTypeNode(n) &&
+      ts.isTypeReferenceNode(n.objectType) &&
+      ts.isIdentifier(n.objectType.typeName) &&
+      paramNames.has(n.objectType.typeName.text) &&
+      mentionsTypeParam(n.indexType, keys)
+    ) {
+      out.add(n.objectType.typeName.text)
+    }
+    n.forEachChild(walk)
+  }
+  walk(body)
+  return out
 }
 
 class Decompiler {
@@ -137,7 +280,11 @@ class Decompiler {
       if (this.params.has(name)) return false // annotated parameter: its own type
       return true // free name, declared `const … : any`
     }
-    if (ts.isTypeOperatorNode(n) || ts.isIndexedAccessTypeNode(n)) return true // keyof(...)/get(...)
+    if (ts.isTypeOperatorNode(n)) return true // keyof(...) and friends are builtin calls
+    // An indexed access is only as `any` as the thing being indexed. `UnionMembers[Name]`
+    // on `UnionMembers: Record<string, Record<string, unknown>>` is a `Record`, not `any`,
+    // and using it as an operand of `&` is TS2363.
+    if (ts.isIndexedAccessTypeNode(n)) return this.isAnyTyped(n.objectType)
     if (ts.isConditionalTypeNode(n)) return true // marker ternary yields `any`
     if (ts.isMappedTypeNode(n)) return true // hoisted into an `emptyObject` accumulator
     if (ts.isArrayTypeNode(n)) return true // arrayOf(...)
@@ -362,7 +509,7 @@ class Decompiler {
     const body = inner.statements(t, 1)
     this.lifted.push(...inner.lifted)
     this.lifted.push(
-      `export function ${fnName}(${params.join(', ')}) {\n` +
+      `export function ${fnName}(${params.join(', ')}): any {\n` +
         body.map((l) => INDENT + l).join('\n') +
         '\n}\n',
     )
@@ -481,9 +628,13 @@ class Decompiler {
       ? `keyof(${this.expr(constraint.type)})`
       : `keySet(${this.expr(constraint)})`
 
-    const key = t.nameType ? this.expr(t.nameType) : param
-    // A mapped type's value is a single expression: nothing can be hoisted above it.
+    // The key-remapping clause is subject to the same rule as the value, and for a
+    // sharper reason: it is written in the index position of an assignment *inside* the
+    // loop, so a statement hoisted out of it would land above the `for` and reference a
+    // key variable that is not yet in scope. Suppressing the hoist sends a nested mapped
+    // type to `lift()` instead, which takes the key as a parameter.
     this.noHoist++
+    const key = t.nameType ? this.expr(t.nameType) : param
     let value = this.expr(t.type)
     this.noHoist--
     // Property modifiers become value-wrapping markers.
@@ -588,6 +739,24 @@ class Decompiler {
     return p.questionToken ? `optElem(${inner})` : inner
   }
 
+  /**
+   * Render an argument of a type application.
+   *
+   * `isAnyTyped` asks whether the *operands* of `|` and `&` are acceptable; this is the
+   * other half of the same question, about the *result*. `a | b` is JavaScript's bitwise
+   * or, so whatever the operands are its value-space type is `number` — and a type
+   * function's parameter carries the constraint as its annotation, so `IsNotFalse(a | b)`
+   * offers a `number` where `boolean` is declared. The call form has no such problem: a
+   * builtin returns `any`. Only the top level of the argument is affected, because the
+   * call form's own arguments are `...a: any[]` and impose nothing.
+   */
+  private argExpr(t: ts.TypeNode): string {
+    const n = unwrapParens(t)
+    if (ts.isUnionTypeNode(n)) return `anyOf(${n.types.map((x) => this.expr(x)).join(', ')})`
+    if (ts.isIntersectionTypeNode(n)) return `merge(${n.types.map((x) => this.expr(x)).join(', ')})`
+    return this.expr(t)
+  }
+
   /** Render a type node as a ScriptType *expression*. */
   expr(t: ts.TypeNode): string {
     t = unwrapParens(t)
@@ -660,7 +829,7 @@ class Decompiler {
         return `t<${patternLike(t, this.sf, this.params, this.holeScope)}>()`
       }
       if (!args.length) return name
-      return `${name}(${args.map((a) => this.expr(a)).join(', ')})`
+      return `${name}(${args.map((a) => this.argExpr(a)).join(', ')})`
     }
 
     if (ts.isUnionTypeNode(t)) {
@@ -1012,7 +1181,11 @@ function holePattern(
         const args: ts.TypeNode[] = [
           ctx.factory.createLiteralTypeNode(ctx.factory.createStringLiteral(tp.name.text)),
         ]
-        if (tp.constraint) args.push(tp.constraint)
+        // The constraint is rewritten too, not carried over verbatim: it is an ordinary
+        // type position, so a parameter named in it still needs `typeof` and a hole in it
+        // is still read off its marker. `infer Result extends Required<Options>` became
+        // `Hole<'Result', Required<Options>>`, where `Options` is a value — TS2749.
+        if (tp.constraint) args.push(ts.visitNode(tp.constraint, visit) as ts.TypeNode)
         return ctx.factory.createTypeReferenceNode('Hole', args)
       }
       return ts.visitEachChild(n, visit, ctx)

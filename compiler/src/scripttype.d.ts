@@ -381,4 +381,17 @@ declare function ReadonlyArray(...a: any[]): any
 // `ReadonlyMap<K, V>` is TS2693.
 declare function ReadonlyMap(...a: any[]): any
 declare function ReadonlySet(...a: any[]): any
+// The rest of the generic globals that lib.es5/es2015 declares as a type with no value
+// of the same name. Same reason as the two above — `Promisable` decompiles to
+// `T | PromiseLike(T)`, which is TS2693 without this. Deliberately excludes names that
+// a later lib turns into a value (`Iterator` is one from ES2025 on), since declaring
+// those would be a duplicate identifier rather than a missing one.
+declare function PromiseLike(...a: any[]): any
+declare function ArrayLike(...a: any[]): any
+declare function ConcatArray(...a: any[]): any
+declare function Iterable(...a: any[]): any
+declare function IterableIterator(...a: any[]): any
+declare function IteratorResult(...a: any[]): any
+declare function NoInfer(...a: any[]): any
+declare function ThisType(...a: any[]): any
 declare function ScriptTypeError(...a: any[]): any

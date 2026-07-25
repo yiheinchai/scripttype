@@ -17,6 +17,7 @@ import path from 'node:path'
 import { decompileFile } from './decompile.js'
 import { compile } from './compile.js'
 import { declarePreamble, declarePreambleForTypes } from './freenames.js'
+import { resolverFor } from './typeindex.js'
 import { extractType } from './extract.js'
 import { REPO_ROOT } from './corpus.js'
 import type { Status } from './batch.js'
@@ -32,11 +33,12 @@ interface Outcome {
 const args = process.argv.slice(2)
 const statusDir = args.find((a) => !a.startsWith('--'))
 if (!statusDir) {
-  console.error('usage: materialize.ts <statuses-dir> [--out DIR] [--root corpus-rel]')
+  console.error('usage: materialize.ts <statuses-dir> [--out DIR] [--root corpus-rel] [--no-imports]')
   process.exit(2)
 }
 const outIdx = args.indexOf('--out')
 const outRoot = path.resolve(outIdx >= 0 ? args[outIdx + 1]! : path.join(REPO_ROOT, 'scripttype'))
+const noImports = args.includes('--no-imports')
 const rootIdx = args.indexOf('--root')
 const onlyRoot = rootIdx >= 0 ? args[rootIdx + 1] : undefined
 
@@ -154,12 +156,23 @@ for (const rel of targetFiles.sort()) {
   ].join('\n')
 
   const body = blocks.join('\n\n') + '\n'
-  // Declare the names this file references but does not define, so it typechecks
-  // standalone. Both a value and a type: ScriptType applies types in call position.
-  const preamble = declarePreamble(body)
 
   const dest = path.join(outRoot, rel.replace(/\.tsx?$/, '.st.ts'))
   fs.mkdirSync(path.dirname(dest), { recursive: true })
+  // Account for the names this file references but does not define, so it typechecks
+  // standalone. A name whose declaration can be found in the library is imported, which
+  // makes the check a real one; the rest are stubbed as `any`. Either way it also gets a
+  // value declaration, because ScriptType applies types in call position.
+  //
+  // The library root is the clone the file came from — the first two path segments, e.g.
+  // `06-state-and-forms/zustand` — so a name is only ever resolved against its own library.
+  //
+  // `--no-imports` falls back to stubbing everything, which is what the in-memory
+  // round-trip harness does: there, a relative specifier has no tree to resolve against.
+  // It is also the control when measuring what resolving actually buys.
+  const cloneRoot = path.join(REPO_ROOT, rel.split('/').slice(0, 2).join('/'))
+  const resolver = noImports ? undefined : resolverFor(cloneRoot, abs, path.dirname(dest))
+  const preamble = declarePreamble(body, resolver)
   fs.writeFileSync(dest, header + preamble + body)
   written++
 

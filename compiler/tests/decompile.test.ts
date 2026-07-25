@@ -176,6 +176,23 @@ describe('type predicates', () => {
     expect(normalise(roundTrip(original))).toBe(normalise(original))
   })
 
+  it('flattens a type parameter that spans lines', () => {
+    // A type parameter list is carried across as a string literal, so a declaration
+    // written over several lines used to end up as an *unterminated* string — the
+    // generated file would not parse at all. arktype writes them this way and 1392 of
+    // its diagnostics were this one bug.
+    const original = [
+      'type Nary<$> = {',
+      '  <const a extends',
+      '    Input<$>>(a: a): $',
+      '}',
+    ].join('\n')
+    const out = decompile(original)
+    expect(out).toContain("genericCallSig(['const a extends Input<$>']")
+    const parsed = ts.createSourceFile('t.st.ts', out, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
+    expect((parsed as unknown as { parseDiagnostics: unknown[] }).parseDiagnostics).toHaveLength(0)
+  })
+
   it('carries an assertion', () => {
     const original = 'type Q<T> = { assert(a0: unknown): asserts a0 is T }'
     expect(normalise(roundTrip(original))).toBe(normalise(original))

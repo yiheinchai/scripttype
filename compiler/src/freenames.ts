@@ -8,6 +8,7 @@
 import fs from 'node:fs'
 import ts from 'typescript'
 import { AMBIENT_DTS } from './typecheck.js'
+import type { Resolver } from './typeindex.js'
 
 const AMBIENT_NAMES: Set<string> = (() => {
   const out = new Set<string>()
@@ -149,7 +150,7 @@ function qualifiedMembers(sf: ts.SourceFile): Map<string, Set<string>> {
  * The full ambient declaration block making a source self-contained: values, generic type
  * aliases, and namespaces for any root referenced as `A.B`.
  */
-export function ambientFor(source: string): string {
+export function ambientFor(source: string, resolver?: Resolver): string {
   const sf = ts.createSourceFile('gen.st.ts', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
   const free = freeNames(source)
   const quals = qualifiedMembers(sf)
@@ -176,23 +177,55 @@ export function ambientFor(source: string): string {
     for (const m of [...quals.get(root)!].sort()) lines.push(`  export type ${m}${GENERIC} = any`)
     lines.push(`}`)
   }
-  for (const n of free.values) lines.push(`declare const ${n}: any`)
-  for (const n of free.types) lines.push(`type ${n}${GENERIC} = any`)
-  void nsSet
+  // A name whose real declaration can be found is imported rather than stubbed, so the
+  // typecheck is against the actual type instead of `any`. Only the type side: the value
+  // shim below is what makes `X(T)` — ScriptType's spelling of `X<T>` — legal, and a
+  // type-only import provides no value. The two occupy separate declaration spaces and
+  // coexist without conflict.
+  //
+  // Locally declared functions used in type position are excluded: they are defined in
+  // this file, so there is nothing to import and `free.values` is the free set proper.
+  const freeValues = new Set(free.values)
+  const resolved = new Set<string>()
+  const byModule = new Map<string, string[]>()
+  if (resolver) {
+    for (const n of free.types) {
+      if (!freeValues.has(n) || nsSet.has(n)) continue
+      const from = resolver.resolve(n)
+      if (!from) continue
+      if (!byModule.has(from)) byModule.set(from, [])
+      byModule.get(from)!.push(n)
+      resolved.add(n)
+    }
+  }
+  // One import per module rather than per name: most of a file's free names come from
+  // the same place, and a column of near-identical import lines is noise.
+  const imports = [...byModule.entries()]
+    .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
+    .map(([from, names]) => `import type { ${[...names].sort().join(', ')} } from '${from}'`)
 
-  if (!lines.length) return ''
-  return [
-    '// Names this file references but does not define: types from elsewhere in the',
-    '// library, and local functions used in type position. Declared so the generated',
-    '// ScriptType typechecks standalone. They carry no runtime meaning.',
-    ...lines,
-    '',
-  ].join('\n')
+  for (const n of free.values) lines.push(`declare const ${n}: any`)
+  for (const n of free.types) if (!resolved.has(n)) lines.push(`type ${n}${GENERIC} = any`)
+
+  if (!lines.length && !imports.length) return ''
+  const note = resolved.size
+    ? [
+        '// Types this file references but does not define. Those whose declaration could be',
+        '// found are imported, so the check is against the real type rather than `any`; the',
+        '// rest are stubbed. Each also gets a value declaration, because ScriptType applies',
+        '// types in call position and a type-only import binds nothing in value space.',
+      ]
+    : [
+        '// Names this file references but does not define: types from elsewhere in the',
+        '// library, and local functions used in type position. Declared so the generated',
+        '// ScriptType typechecks standalone. They carry no runtime meaning.',
+      ]
+  return [...note, ...imports, ...lines, ''].join('\n')
 }
 
 /** Ambient declarations making a generated file self-contained. */
-export function declarePreamble(source: string): string {
-  return ambientFor(source)
+export function declarePreamble(source: string, resolver?: Resolver): string {
+  return ambientFor(source, resolver)
 }
 
 /**

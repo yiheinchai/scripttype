@@ -218,6 +218,19 @@ function indexedByMappedKey(body: ts.TypeNode, paramNames: Set<string>): Set<str
   return out
 }
 
+/**
+ * Escape arbitrary TypeScript text for a single-quoted ScriptType string literal.
+ *
+ * The newline collapsing is not cosmetic: a declaration spanning several lines — a
+ * generic signature with one type parameter per line, say — becomes an *unterminated
+ * string literal* if it is embedded verbatim, so the generated file will not even parse.
+ * Whitespace inside a type parameter list carries no meaning, so collapsing runs of it is
+ * safe as well as more readable.
+ */
+function quoteForLiteral(text: string): string {
+  return text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\s+/g, ' ').trim()
+}
+
 class Decompiler {
   /** Statements hoisted out of the expression currently being rendered. */
   private pending: string[] = []
@@ -335,9 +348,7 @@ class Decompiler {
     } catch {
       text = node.getText(this.sf).replace(/\/\/[^\n]*/g, '')
     }
-    // Escape for a single-quoted string literal.
-    text = text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\s*\n\s*/g, ' ').trim()
-    return `raw('${text}')`
+    return `raw('${quoteForLiteral(text)}')`
   }
 
   /**
@@ -724,11 +735,11 @@ class Decompiler {
     const params = m.parameters.map((p) => this.paramExpr(p))
     const ret = this.expr(m.type)
     // Present only for an overload member, which is spread rather than keyed.
-    const named = memberName === undefined ? '' : `'${memberName.replace(/'/g, "\\'")}', `
+    const named = memberName === undefined ? '' : `'${quoteForLiteral(memberName)}', `
     if (!m.typeParameters?.length) return `${builtin}(${named}[${params.join(', ')}], ${ret})`
     // As with `genericFnType`, a type parameter is a binding rather than a type, so the
     // whole declaration is carried across as a string literal.
-    const tps = m.typeParameters.map((tp) => `'${tp.getText(this.sf).replace(/'/g, "\\'")}'`)
+    const tps = m.typeParameters.map((tp) => `'${quoteForLiteral(tp.getText(this.sf))}'`)
     const generic = 'generic' + builtin[0]!.toUpperCase() + builtin.slice(1)
     return `${generic}(${named}[${tps.join(', ')}], [${params.join(', ')}], ${ret})`
   }
@@ -975,7 +986,7 @@ class Decompiler {
       const ret = this.expr(t.type)
       if (t.typeParameters?.length) {
         // The `<T>() => ...` variance trick: type parameters are named as string literals.
-        const tps = t.typeParameters.map((tp) => `'${tp.getText(this.sf).replace(/'/g, "\\'")}'`)
+        const tps = t.typeParameters.map((tp) => `'${quoteForLiteral(tp.getText(this.sf))}'`)
         return `genericFnType([${tps.join(', ')}], [${params.join(', ')}], ${ret})`
       }
       return `fnType([${params.join(', ')}], ${ret})`

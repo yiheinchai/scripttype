@@ -458,6 +458,8 @@ function cmdConvert(args: Args): number {
   // dangle.
   const decompiled = new Map<string, ReturnType<typeof decompileFile>>()
   const passthrough = new Map<string, string[]>()
+  /** Names each converted module exports in type space, keyed by extensionless path. */
+  const typeExports = new Map<string, Set<string>>()
   for (const file of files) {
     const text = fs.readFileSync(file, 'utf8')
     try {
@@ -469,6 +471,10 @@ function cmdConvert(args: Args): number {
       if (entries.length) {
         decompiled.set(file, entries)
         passthrough.set(file, plain)
+        typeExports.set(
+          file.replace(/(\.d)?\.ts$/, ''),
+          new Set(plain.flatMap((p) => p.match(/type (\w+) =/g)?.map((m) => m.slice(5, -2)) ?? [])),
+        )
       }
     } catch (e) {
       process.stderr.write(`${red('error')}: ${display(file)}: ${(e as Error).message}\n`)
@@ -503,10 +509,12 @@ function cmdConvert(args: Args): number {
     // references a type from a sibling module has an unresolved name, which is most
     // real files — and they must become *value* imports, because ScriptType calls a
     // type function rather than naming it.
-    const imports = carriedImports(text, code, file, produced)
-    // Derived from the finished code, not per block: a function is only given a
-    // type-space alias if something in the file actually names it in type position.
-    const aliases = declareLocalTypeAliases(code)
+    const alreadyTyped = new Set<string>()
+    const imports = carriedImports(text, code, file, produced, typeExports, alreadyTyped)
+    // Derived from the finished code *including* its imports, not per block: a name is
+    // only given a type-space alias if something in the file actually uses it in type
+    // position, and whether it is imported or local makes no difference to that.
+    const aliases = declareLocalTypeAliases(imports + code, alreadyTyped)
     const body =
       header + '\n' + (imports ? imports + '\n' : '') + (aliases ? aliases + '\n' : '') + code
 
@@ -572,12 +580,14 @@ function plainAliases(file: string, text: string): string[] {
   const out: string[] = []
   for (const stmt of sf.statements) {
     if (!ts.isTypeAliasDeclaration(stmt) || stmt.typeParameters?.length) continue
-    const exported = ts.getCombinedModifierFlags(stmt) & ts.ModifierFlags.Export
+    const exported = ts.getCombinedModifierFlags(stmt) & ts.ModifierFlags.Export ? 'export ' : ''
     // The companion `declare const` matters: ScriptType code refers to a type by naming
-    // it in expression position, and a bare `type X` alone is TS2693 there.
+    // it in expression position, and a bare `type X` alone is TS2693 there. It is
+    // exported alongside the type, or an importing module gets the type only and hits
+    // the same error one file over.
     out.push(
-      `declare const ${stmt.name.text}: any\n` +
-        `${exported ? 'export ' : ''}type ${stmt.name.text} = ${stmt.type.getText(sf)}`,
+      `${exported}declare const ${stmt.name.text}: any\n` +
+        `${exported}type ${stmt.name.text} = ${stmt.type.getText(sf)}`,
     )
   }
   return out
@@ -603,6 +613,10 @@ function carriedImports(
   code: string,
   file: string,
   converted: Set<string>,
+  /** Names each converted module exports in *type* space, keyed by extensionless path. */
+  typeExports: Map<string, Set<string>>,
+  /** Filled with imported names that already have a type, so no shim is added for them. */
+  alreadyTyped: Set<string>,
 ): string {
   const sf = ts.createSourceFile(file, originalText, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
   const mentions = (n: string) => new RegExp(`(?<![A-Za-z0-9_$])${n}(?![A-Za-z0-9_$])`).test(code)
@@ -629,6 +643,10 @@ function carriedImports(
     if (convertedBases.has(resolved)) {
       const clauses = names.map((n) => (n.from === n.as ? n.as : `${n.from} as ${n.as}`))
       imports.push(`import { ${clauses.join(', ')} } from '${base}.st.js'`)
+      // A name the target module exports as a type arrives with one, so shimming it
+      // locally would be TS2440, "import conflicts with local declaration".
+      const theirTypes = typeExports.get(resolved)
+      for (const n of names) if (theirTypes?.has(n.from)) alreadyTyped.add(n.as)
     } else {
       for (const n of names) shims.push(n.as)
     }

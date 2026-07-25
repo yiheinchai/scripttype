@@ -96,8 +96,12 @@ export function TrimLeft(S: string) {
 }
 ```
 
-Measured over 73 type-bearing files from type-fest, ts-pattern and kysely, **70 convert and
-build with no errors and no warnings, and none fail**. Per alias, roughly four in five
+Converting a whole library at once is the case that matters, because modules have to agree
+with each other afterwards. Pointed at all 205 files of type-fest, `convert` produces 189
+ScriptType modules of which **172 build with no errors and no warnings**, and none fail.
+Imports between converted modules are redirected to each other's ScriptType; imports of
+modules left unconverted become declared shims, since a `.d.ts` exports no value for a
+ScriptType call to reach. Per alias, roughly four in five
 convert and recompile to a type identical to the original — see [Coverage](#coverage) for
 that measurement across 26 libraries. The rest keep
 their original TypeScript inside `raw('…')` and are marked `TODO(scripttype)` with the

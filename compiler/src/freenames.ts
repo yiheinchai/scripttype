@@ -242,19 +242,28 @@ export function declarePreambleForTypes(source: string): string {
  */
 export function localFunctionsUsedAsTypes(source: string): string[] {
   const sf = ts.createSourceFile('gen.st.ts', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
-  const functions = new Set<string>()
-  const collectFns = (n: ts.Node) => {
-    if (ts.isFunctionDeclaration(n) && n.name) functions.add(n.name.text)
-    ts.forEachChild(n, collectFns)
+
+  // Bindings that exist only in value space. A ScriptType function is one; so is an
+  // import of a ScriptType function from another converted module, which is a value
+  // import precisely because the name gets called.
+  const valueOnly = new Set<string>()
+  // Names that already have a type-space declaration, and so need no shim.
+  const hasType = new Set<string>()
+
+  const collect = (n: ts.Node) => {
+    if (ts.isFunctionDeclaration(n) && n.name) valueOnly.add(n.name.text)
+    if (ts.isImportSpecifier(n) && !n.isTypeOnly) valueOnly.add(n.name.text)
+    if (ts.isTypeAliasDeclaration(n) || ts.isInterfaceDeclaration(n)) hasType.add(n.name.text)
+    ts.forEachChild(n, collect)
   }
-  collectFns(sf)
-  if (!functions.size) return []
+  collect(sf)
+  if (!valueOnly.size) return []
 
   const asTypes = new Set<string>()
   const collectTypes = (n: ts.Node) => {
     if (ts.isTypeReferenceNode(n)) {
       const root = n.typeName.getText(sf).split('.')[0]!
-      if (functions.has(root)) asTypes.add(root)
+      if (valueOnly.has(root) && !hasType.has(root)) asTypes.add(root)
     }
     ts.forEachChild(n, collectTypes)
   }
@@ -268,8 +277,8 @@ export function localFunctionsUsedAsTypes(source: string): string[] {
  * Permissive and generic, because their only job is to make the name legal in type
  * position — the compiler reads the *function* for meaning, never this alias.
  */
-export function declareLocalTypeAliases(source: string): string {
-  const names = localFunctionsUsedAsTypes(source)
+export function declareLocalTypeAliases(source: string, exclude: ReadonlySet<string> = new Set()): string {
+  const names = localFunctionsUsedAsTypes(source).filter((n) => !exclude.has(n))
   if (!names.length) return ''
   return [
     '// A ScriptType function is a value, so these names also need a type-space',

@@ -360,8 +360,31 @@ gate.** Sample arguments cannot be generated automatically for arbitrary generic
 round-trip compares constraint-instantiated witnesses rather than a curated sample set. The two
 numbers are reported separately and never merged.
 
+## What it costs to check
+
+Generated types are checked on every build forever after, so the question is not how fast
+ScriptType compiles — that is milliseconds — but what its output does to `tsc`. Measured with
+`checker.getInstantiationCount()`, the same counter `tsc --extendedDiagnostics` reports, over
+the hand-authored targets and their sample instantiations:
+
+```
+20 targets · 1445 -> 1306 instantiations · 0.90x overall
+no target is more than 20% more expensive
+```
+
+Compiled output is slightly *cheaper* than the hand-written originals. The wins come from guard
+fusion, which collapses a redundant test-then-destructure into one conditional — kysely's
+`ExtractAliasFromStringSelectExpression` drops to 0.56x and ts-pattern's `Take` to 0.78x. The
+losses are small and are the accumulator parameters a recovered loop threads through its helper:
+`__Split` costs 1.09x.
+
+Run it with `pnpm bench`. The metric is deterministic, and `tests/bench.test.ts` checks that it
+tracks instantiation count and recursion depth and detects a deliberately more expensive rewrite,
+because an unvalidated performance number is worse than none.
+
 ## Non-goals
 
 Not a general TypeScript-to-type-level compiler: value-level code, side effects and `async` have no
-type-level meaning. Not attempting to beat hand-written types on instantiation performance, though
-`defer()` exposes kysely's `DrainOuterGeneric` trick and emitter-level deferral is planned.
+type-level meaning. Beating hand-written types on instantiation cost is not a goal either — matching
+them is enough, and that is what the numbers above show — though `defer()` exposes kysely's
+`DrainOuterGeneric` trick for cases where a human would reach for it.

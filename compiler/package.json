@@ -19,7 +19,8 @@
     "coverage": "./node_modules/.bin/tsx src/aggregate.ts .results/inplace",
     "materialize": "./node_modules/.bin/tsx src/materialize.ts .results/inplace",
     "inventory": "./node_modules/.bin/tsx src/inventory.ts",
-    "dx": "./node_modules/.bin/tsx src/dx-report.ts"
+    "dx": "./node_modules/.bin/tsx src/dx-report.ts",
+    "bench": "./node_modules/.bin/tsx src/bench.ts"
   },
   "dependencies": {
     "typescript": "^5.9.3"

@@ -156,6 +156,24 @@ header — are valid TypeScript and so were invisible until you ran the CLI.
 The plugin only ever *adds* diagnostics, only to `.st.ts` files, and swallows any internal
 failure: an editor plugin that breaks the editor would be worse than no plugin at all.
 
+**Hover shows the TypeScript.** Putting the cursor on a ScriptType function displays the
+type alias it compiles to, generated loop helpers included:
+
+```
+function Split(input: string, sep: string): string[]
+
+compiles to:
+
+  export type Split<Input extends string, Sep extends string> = Split__loop<Input, [], Sep>
+  type Split__loop<Rest extends string, Out extends string[], Sep extends string> =
+    Rest extends `${infer Head}${Sep}${infer Tail}`
+      ? Split__loop<Tail, [...Out, Head], Sep>
+      : [...Out, Rest]
+```
+
+This is the one thing a compile-to-TypeScript language adds that hand-written types do not
+have — a second artifact to hold in your head — so the editor shows both at once.
+
 ## When you get something wrong
 
 A type-level language whose errors are bad is not worth adopting, so every compiler error

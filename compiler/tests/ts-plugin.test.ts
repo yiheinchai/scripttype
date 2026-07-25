@@ -115,6 +115,90 @@ const check = async (source: string): Promise<Diag[]> => {
   return diagnose(dir, 't.st.ts')
 }
 
+/** Ask tsserver for the hover at a 1-based line/offset. */
+function quickInfo(projectDir: string, file: string, line: number, offset: number): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const srv = spawn(
+      'node',
+      [TSSERVER, '--disableAutomaticTypingAcquisition', '--allowLocalPluginLoads'],
+      { cwd: projectDir, stdio: ['pipe', 'pipe', 'pipe'] },
+    )
+    let seq = 0
+    const send = (command: string, args: unknown) =>
+      srv.stdin.write(JSON.stringify({ seq: ++seq, type: 'request', command, arguments: args }) + '\n')
+    const timer = setTimeout(() => {
+      srv.kill()
+      reject(new Error('tsserver did not answer within 20s'))
+    }, 20_000)
+
+    let buf = ''
+    srv.stdout.on('data', (chunk: Buffer) => {
+      buf += chunk.toString()
+      for (const l of buf.split('\n')) {
+        const t = l.trim()
+        if (!t.startsWith('{')) continue
+        let msg: { command?: string; body?: { documentation?: unknown } }
+        try {
+          msg = JSON.parse(t)
+        } catch {
+          continue
+        }
+        if (msg.command === 'quickinfo') {
+          clearTimeout(timer)
+          srv.kill()
+          const doc = msg.body?.documentation
+          resolve(typeof doc === 'string' ? doc : JSON.stringify(doc ?? ''))
+          return
+        }
+      }
+    })
+
+    const abs = path.resolve(projectDir, file)
+    send('open', { file: abs })
+    setTimeout(() => send('quickinfo', { file: abs, line, offset }), 800)
+  })
+}
+
+describe('hover', () => {
+  it('shows the TypeScript a function compiles to', async () => {
+    // The compiled type is what you actually care about and it lives in another file.
+    // Showing it on hover is the one thing here that hand-written types cannot do.
+    fs.writeFileSync(
+      path.join(dir, 'h.st.ts'),
+      [
+        'export function Split(input: string, sep: string) {',
+        '  const out: string[] = []',
+        '  let rest = input',
+        '  while (includes(rest, sep)) {',
+        '    const [head, tail] = splitOnce(rest, sep)',
+        '    out.push(head)',
+        '    rest = tail',
+        '  }',
+        '  out.push(rest)',
+        '  return out',
+        '}',
+      ].join('\n') + '\n',
+    )
+    const doc = await quickInfo(dir, 'h.st.ts', 1, 17)
+    expect(doc).toContain('compiles to:')
+    expect(doc).toContain('export type Split<Input extends string, Sep extends string>')
+    // The generated helper is where a recovered loop actually lives, so it is shown too.
+    expect(doc).toContain('Split__loop')
+  }, 60_000)
+
+  it('adds nothing when hovering outside a function', async () => {
+    fs.writeFileSync(path.join(dir, 'h2.st.ts'), '\nexport function G(t: unknown) { return t }\n')
+    const doc = await quickInfo(dir, 'h2.st.ts', 1, 1)
+    expect(doc).not.toContain('compiles to:')
+  }, 60_000)
+
+  it('leaves hovers in ordinary TypeScript files untouched', async () => {
+    fs.writeFileSync(path.join(dir, 'plain2.ts'), 'export const value: number = 1\n')
+    const doc = await quickInfo(dir, 'plain2.ts', 1, 14)
+    expect(doc).not.toContain('compiles to:')
+  }, 60_000)
+})
+
 describe('editor diagnostics', () => {
   it('reports a ScriptType error tsc alone cannot see', async () => {
     // Compound assignment is perfectly valid TypeScript, so without the plugin the editor

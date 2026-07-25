@@ -76,10 +76,76 @@ function init(mod: { typescript: typeof tsModule }) {
       }
     }
 
+    // Hovering a ScriptType function shows the TypeScript it compiles to.
+    //
+    // This is the part that goes past parity rather than reaching it. The compiled type
+    // is the thing you actually care about and it lives in another file, so without this
+    // you are holding two artifacts in your head at once — the one failure mode a
+    // compile-to-TypeScript language adds that hand-written types do not have.
+    proxy.getQuickInfoAtPosition = (fileName, position) => {
+      const prior = info.languageService.getQuickInfoAtPosition(fileName, position)
+      if (!IS_SCRIPTTYPE.test(fileName)) return prior
+
+      const file = info.languageService.getProgram()?.getSourceFile(fileName)
+      if (!file) return prior
+
+      try {
+        const emitted = compiledAliasAt(ts, file, fileName, position)
+        if (!emitted) return prior
+        const docs: tsModule.SymbolDisplayPart[] = [
+          { kind: 'text', text: 'compiles to:\n\n```ts\n' + emitted + '\n```' },
+        ]
+        // Keep whatever TypeScript had to say and add to it, rather than replacing a
+        // hover the user may also want.
+        return prior
+          ? { ...prior, documentation: [...(prior.documentation ?? []), ...docs] }
+          : {
+              kind: ts.ScriptElementKind.functionElement,
+              kindModifiers: '',
+              textSpan: { start: position, length: 0 },
+              documentation: docs,
+            }
+      } catch (e) {
+        log(`quick info failed for ${fileName}: ${(e as Error).message}`)
+        return prior
+      }
+    }
+
     return proxy
   }
 
   return { create }
+}
+
+/**
+ * The emitted TypeScript for the ScriptType function containing `position`, if any.
+ *
+ * Matching is by name: the compiler emits the user-facing alias first, followed by any
+ * generated helpers, and all of them are worth showing — the helper is where a recovered
+ * loop actually lives.
+ */
+function compiledAliasAt(
+  ts: typeof tsModule,
+  file: tsModule.SourceFile,
+  fileName: string,
+  position: number,
+): string | undefined {
+  let name: string | undefined
+  for (const stmt of file.statements) {
+    if (!ts.isFunctionDeclaration(stmt) || !stmt.name) continue
+    if (position >= stmt.getStart(file) && position <= stmt.getEnd()) name = stmt.name.text
+  }
+  if (!name) return undefined
+
+  const { result } = compileAll(file.getFullText(), { fileName, includePrelude: false })
+  if (!result) return undefined
+
+  // `aliases` holds one emitted declaration each: the function's own, then its helpers,
+  // which are named `Fn__loop` and friends.
+  const own = result.aliases.filter((a) =>
+    new RegExp(`\\btype ${name}(__[A-Za-z0-9_$]+)?\\s*[<=]`).test(a),
+  )
+  return own.length ? own.join('\n') : undefined
 }
 
 /** Compile the file and translate whatever went wrong into editor diagnostics. */

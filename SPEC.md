@@ -177,6 +177,14 @@ Because a destructuring pattern can fail to match, every destructuring form has 
 The compiler derives it from control flow: inside an `if` the failure branch is the `else`; at
 statement level, failure yields `never` unless a `?? fallback` is supplied.
 
+### Lifting out of expression-only positions
+
+A mapped type's value is a single expression, so a construct that needs statements — a nested
+mapped type, or a pattern with bindings — cannot be written inline there. Such a construct is
+extracted into its own function taking the enclosing names it reads, and the value becomes a
+call; the compiler turns that into a helper type alias. This is ordinary lambda lifting, and it
+is what a person writing the type by hand would do.
+
 ### Loops — recursive helper with accumulators
 
 This is the transformation that carries the whole value proposition. A `while` loop over a mutable
@@ -268,10 +276,25 @@ auditing what the corpus actually uses:
 - **Tuple**: `push`, `concat`, `length`, `head`, `tail`, `last`, `reverse`, `at`
 - **Object**: `keyof`, `get`, `pick`, `omit`, `merge`, `entries`
 - **Tuple/array (cont.)**: `append`, `prepend`, `isEmpty`, `elementOf`, `indexOfType`,
-  `arrayOf`, `readonlyArrayOf`, `asReadonly`
+  `arrayOf`, `readonlyArrayOf`, `asReadonly`, `optElem` (an optional tuple element)
 - **Predicates**: `extendsType<P>`, `isSubtypeOf`, `isNever`, `isAny`, `equals`
 - **Meta**: `matches<P>`, `keySet`, `orElse`, `optional`, `required`, `readonlyProp`, `mutable`,
-  `defer` (kysely's `DrainOuterGeneric`), `fnType`, `voidType`, `error`, `raw`, `simplify`
+  `defer` (kysely's `DrainOuterGeneric`), `voidType`, `error`, `raw`, `simplify`
+
+**Shapes with no operator form.** `|` and `&` are JavaScript's bitwise operators, so they
+typecheck only when every operand is `any`-typed. Where that does not hold — a union of string
+literals, a `for…in` key variable, an object literal — the call forms `anyOf(a, b, …)` and
+`merge(a, b, …)` apply instead. Likewise for constructs with no expression spelling at all:
+
+| builtin | TypeScript |
+|---|---|
+| `fnType([A, B], R)` | `(a0: A, a1: B) => R` |
+| `genericFnType(['T'], [A], R)` | `<T>(a0: A) => R` — the variance trick `Equals` is built from |
+| `ctorType([A], R)` | `new (a0: A) => R` |
+| `indexRecord(K, V)` | `{ [key: K]: V }` |
+| `t<T>()` | `T` — for a type whose head has no callable value form, e.g. `Promise<X>` |
+| `obj({ k: V })` | `{ k: V }` where it must be an operand |
+| `emptyObject`, `Null`, `Undefined` | `{}`, `null`, `undefined` where those cannot be operands |
 
 `defer(x)` deserves a note: it emits `[X] extends [unknown] ? X : never`, the trick kysely calls
 `DrainOuterGeneric`, which defers instantiation of an outer generic and is the standard cure for

@@ -1,5 +1,6 @@
 import ts from 'typescript'
-import { emitAlias, mapExpr } from './ir.js'
+import { mapExpr } from './ir.js'
+import { formatAlias } from './format.js'
 import { compileSourceFile, CompileError } from './lower.js'
 import { resolvePrelude } from './prelude.js'
 import { optimize } from './optimize.js'
@@ -10,6 +11,8 @@ export interface CompileOptions {
   fileName?: string
   /** Keep parameter names verbatim (see LowerOptions.preserveParamNames). */
   preserveParamNames?: boolean
+  /** Column to wrap emitted declarations at. */
+  width?: number
 }
 
 export interface CompileResult {
@@ -72,7 +75,7 @@ export function compile(source: string, opts: CompileOptions = {}): CompileResul
     }
   }
 
-  const aliasSrc = aliases.map(emitAlias)
+  const aliasSrc = aliases.map((a) => formatAlias(a, { width: opts.width }))
   const parts: string[] = []
   if (preludeSrc.length) {
     parts.push('// --- ScriptType prelude ---', ...preludeSrc, '')

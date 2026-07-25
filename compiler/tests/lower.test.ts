@@ -1,7 +1,14 @@
 import { describe, expect, it } from 'vitest'
 import { compile, CompileError } from '../src/compile.js'
 
-const c = (src: string) => compile(src, { includePrelude: false }).code.trim()
+/**
+ * Compile for a *lowering* assertion.
+ *
+ * Wrapping is disabled so these tests read as one line each and stay insensitive to
+ * layout changes; the line-breaking rules have their own tests in format.test.ts.
+ */
+const c = (src: string) =>
+  compile(src, { includePrelude: false, width: Infinity }).code.trim()
 
 describe('expressions', () => {
   it('lowers a trivial return', () => {

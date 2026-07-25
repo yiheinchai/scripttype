@@ -145,14 +145,15 @@ export function template(quasis: string[], exprs: TypeExpr[]): TypeExpr {
 // ---------------------------------------------------------------------------
 
 // Precedence: higher binds tighter.
-const P_COND = 1
-const P_UNION = 2
-const P_INTER = 3
-const P_PREFIX = 4
-const P_POSTFIX = 5
-const P_ATOM = 6
+export const P_COND = 1
+export const P_UNION = 2
+export const P_INTER = 3
+export const P_PREFIX = 4
+export const P_POSTFIX = 5
+export const P_ATOM = 6
 
-function precedence(e: TypeExpr): number {
+/** Binding strength of a type expression, so the printer can parenthesise. */
+export function precedenceOf(e: TypeExpr): number {
   switch (e.kind) {
     case 'conditional':
     case 'fn':
@@ -182,7 +183,7 @@ const IDENT_RE = /^[A-Za-z_$][A-Za-z0-9_$]*$/
 
 export function emit(e: TypeExpr, minPrec = 0): string {
   const text = emitInner(e)
-  return precedence(e) < minPrec ? `(${text})` : text
+  return precedenceOf(e) < minPrec ? `(${text})` : text
 }
 
 function emitInner(e: TypeExpr): string {

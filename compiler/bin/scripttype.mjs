@@ -2,25 +2,34 @@
 /**
  * `scripttype` executable.
  *
- * The compiler is TypeScript and there is no build step, so this shim registers tsx's
- * ESM loader and then imports the CLI. Registering in-process rather than spawning tsx
- * as a subprocess keeps startup around 0.6s instead of doubling it.
+ * Prefers the compiled `dist/`, which is what an installed copy ships and what makes
+ * startup plain-node fast. Falls back to registering tsx and loading `src/` directly, so
+ * a clone with no build step still works — that fallback is a development convenience,
+ * not something an installed package should ever need.
  */
+import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
-let register
-try {
-  ;({ register } = await import('tsx/esm/api'))
-} catch {
-  process.stderr.write(
-    "scripttype: cannot find 'tsx'. Run `pnpm install` in the compiler directory first.\n",
-  )
-  process.exit(2)
+const here = path.dirname(fileURLToPath(import.meta.url))
+const built = path.join(here, '..', 'dist', 'cli.js')
+
+let cli
+if (fs.existsSync(built)) {
+  cli = await import(pathToFileURL(built).href)
+} else {
+  let register
+  try {
+    ;({ register } = await import('tsx/esm/api'))
+  } catch {
+    process.stderr.write(
+      'scripttype: no build found and tsx is unavailable.\n' +
+        'Run `pnpm install && pnpm build` in the compiler directory.\n',
+    )
+    process.exit(2)
+  }
+  register()
+  cli = await import(pathToFileURL(path.join(here, '..', 'src', 'cli.ts')).href)
 }
 
-register()
-
-const here = path.dirname(fileURLToPath(import.meta.url))
-const cli = await import(pathToFileURL(path.join(here, '..', 'src', 'cli.ts')).href)
 cli.run(process.argv.slice(2))

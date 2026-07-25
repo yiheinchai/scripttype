@@ -352,6 +352,13 @@ if (process.argv[1] && import.meta.filename === path.resolve(process.argv[1])) {
   // `--shard k/n` processes only every n-th file, so the corpus can be split across
   // parallel workers. Sharding by file rather than by repository balances the load:
   // repositories differ by more than an order of magnitude in size.
+  // `--files <listfile>` processes exactly the newline-separated paths given, so a sweep
+  // pass can revisit only what an earlier capped run left unmeasured.
+  const filesIdx = args.indexOf('--files')
+  const filesList = filesIdx >= 0 ? args[filesIdx + 1] : undefined
+  const batchIdx = args.indexOf('--batch')
+  const batchArg = batchIdx >= 0 ? Number(args[batchIdx + 1]) : undefined
+
   const shardIdx = args.indexOf('--shard')
   const shardSpec = shardIdx >= 0 ? args[shardIdx + 1] : undefined
   let shard: { k: number; n: number } | undefined
@@ -366,26 +373,37 @@ if (process.argv[1] && import.meta.filename === path.resolve(process.argv[1])) {
   const skipValues = new Set<string | undefined>()
   if (jsonIdx >= 0) skipValues.add(args[jsonIdx + 1])
   if (shardIdx >= 0) skipValues.add(args[shardIdx + 1])
-  const roots = args.filter(
-    (a, i) =>
-      !a.startsWith('--') &&
-      !(jsonIdx >= 0 && i === jsonIdx + 1) &&
-      !(shardIdx >= 0 && i === shardIdx + 1),
+  const valueSlots = new Set(
+    [jsonIdx, shardIdx, filesIdx, batchIdx].filter((i) => i >= 0).map((i) => i + 1),
   )
-  if (!roots.length) {
-    console.error('usage: inplace.ts <file-or-dir>... [--json out.json]')
+  const roots = args.filter((a, i) => !a.startsWith('--') && !valueSlots.has(i))
+  if (!roots.length && !filesList) {
+    console.error(
+      'usage: inplace.ts <file-or-dir>... [--json out.json] [--shard k/n] [--batch n]\n' +
+        '   or: inplace.ts --files <listfile> [--json out.json] [--shard k/n] [--batch n]',
+    )
     process.exit(2)
   }
 
   const files: string[] = []
-  for (const root of roots) files.push(...collectFiles(root))
+  if (filesList) {
+    files.push(
+      ...fs
+        .readFileSync(filesList, 'utf8')
+        .split('\n')
+        .map((l) => l.trim())
+        .filter(Boolean),
+    )
+  } else {
+    for (const root of roots) files.push(...collectFiles(root))
+  }
   const mine = shard ? files.filter((_, i) => i % shard!.n === shard!.k) : files
 
   // Persist after every batch, so a shard that is killed mid-run still contributes.
   const writeSoFar = (soFar: Outcome[]) => {
     if (jsonOut) fs.writeFileSync(jsonOut, JSON.stringify(soFar))
   }
-  const all: Outcome[] = inplaceFiles(mine, 5, writeSoFar)
+  const all: Outcome[] = inplaceFiles(mine, batchArg && batchArg > 0 ? batchArg : 5, writeSoFar)
 
   const counts = new Map<Status, number>()
   for (const o of all) counts.set(o.status, (counts.get(o.status) ?? 0) + 1)

@@ -785,7 +785,13 @@ function cmdInit(args: Args): number {
   const dir = path.resolve(args.positionals[0] ?? '.')
   fs.mkdirSync(dir, { recursive: true })
 
-  const dtsSource = path.resolve(import.meta.dirname, 'scripttype.d.ts')
+  // `scripttype.d.ts` is a declaration file, so tsc does not emit it into `dist/`;
+  // running from a build has to reach back into `src/`. Same list as AMBIENT_DTS.
+  const dtsSource = [
+    path.resolve(import.meta.dirname, 'scripttype.d.ts'),
+    path.resolve(import.meta.dirname, '../src/scripttype.d.ts'),
+  ].find((p) => fs.existsSync(p))
+  if (!dtsSource) throw new UserError('scripttype.d.ts not found beside the compiler')
   const files: [string, string][] = [
     ['scripttype.d.ts', fs.readFileSync(dtsSource, 'utf8')],
     ['tsconfig.json', TSCONFIG],

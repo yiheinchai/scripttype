@@ -57,12 +57,52 @@ scripttype build src               # compile every .st.ts under src, next to its
 scripttype build src --out gen     # or into a directory
 scripttype check .                 # report problems, write nothing (for CI)
 scripttype watch src               # rebuild on change
+scripttype convert src/types.ts    # existing TypeScript types -> ScriptType
 scripttype builtins string         # search the builtin surface
 scripttype explain ST1102          # the full text behind any error code
 ```
 
 `build` writes `foo.st.ts` to `foo.ts` with a generated-file banner, and refuses to
 overwrite anything at that path it did not write itself.
+
+## Adopting it in a codebase that already has types
+
+Nobody rewrites two hundred type aliases by hand to try a new language, so the compiler
+runs backwards too:
+
+```bash
+scripttype convert src/types.ts     # src/types.ts -> src/types.st.ts
+```
+
+A recursive alias comes back as a `while` loop, a conditional as `if`/`return`, and
+`T extends string` as `typeof t === 'string'`:
+
+```ts
+// before
+export type TrimLeft<S extends string> = S extends ` ${infer R}` ? TrimLeft<R> : S
+```
+```ts
+// after `scripttype convert`
+export function TrimLeft(S: string) {
+  let s = S
+  while (true) {
+    const m1 = matches<` ${Hole<"R">}`>(s)
+    if (!m1) {
+      break
+    }
+    s = m1.R
+  }
+  return s
+}
+```
+
+Roughly four in five real-world aliases convert and recompile to a type identical to the
+original — see [Coverage](#coverage) for the measurement across 26 libraries. The rest keep
+their original TypeScript inside `raw('…')` and are marked `TODO(scripttype)` with the
+construct that could not be expressed, so what needs finishing by hand is visible rather
+than silent. Converted output is a starting point to review, not something to commit
+unread: the decompiler recovers the structure, but it cannot invent the names or the
+abstraction a person would have chosen.
 
 ## When you get something wrong
 

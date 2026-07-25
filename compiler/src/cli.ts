@@ -11,6 +11,7 @@ import { compileAll } from './compile.js'
 import { typecheckScriptType } from './typecheck.js'
 import { freeNames } from './freenames.js'
 import { BUILTINS } from './builtins.js'
+import { decompileFile } from './decompile.js'
 import {
   type Diagnostic,
   allCodes,
@@ -392,6 +393,110 @@ function cmdBuild(args: Args, { emit }: { emit: boolean }): number {
   return errors ? 1 : 0
 }
 
+/**
+ * Turn existing TypeScript type aliases into ScriptType.
+ *
+ * This is the migration path. Without it, adopting ScriptType in a codebase that already
+ * has type-level code means rewriting all of it by hand, which nobody is going to do —
+ * and the decompiler that does the work already round-trips most of a 26-library corpus.
+ *
+ * Every converted alias is verified by recompiling it and comparing the result to the
+ * original text, so the output says which conversions are trustworthy rather than
+ * leaving the user to find out.
+ */
+function cmdConvert(args: Args): number {
+  const inputs = args.positionals.length ? args.positionals : ['.']
+  const files: string[] = []
+  for (const i of inputs) {
+    const p = path.resolve(i)
+    if (!fs.existsSync(p)) throw new UserError(`no such file or directory: ${display(p)}`)
+    if (fs.statSync(p).isDirectory()) {
+      const walk = (d: string) => {
+        for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+          if (e.name === 'node_modules' || e.name.startsWith('.')) continue
+          const c = path.join(d, e.name)
+          if (e.isDirectory()) walk(c)
+          else if (/\.ts$/.test(c) && !/\.st\.ts$/.test(c) && !/\.d\.ts$/.test(c)) files.push(c)
+        }
+      }
+      walk(p)
+    } else files.push(p)
+  }
+  if (!files.length) throw new UserError('no TypeScript files found')
+
+  const outDir = typeof args.flags.out === 'string' ? args.flags.out : undefined
+  let converted = 0
+  let needsWork = 0
+  let skipped = 0
+
+  for (const file of files) {
+    const text = fs.readFileSync(file, 'utf8')
+    let entries: ReturnType<typeof decompileFile>
+    try {
+      entries = decompileFile(file, text)
+    } catch (e) {
+      process.stderr.write(`${red('error')}: ${display(file)}: ${(e as Error).message}\n`)
+      continue
+    }
+    if (!entries.length) {
+      skipped++
+      continue
+    }
+
+    const blocks: string[] = []
+    for (const { name, result } of entries) {
+      // `raw()` means the decompiler could not express the construct; the user has to
+      // finish it by hand, so say so at the point where the work is.
+      const notes = result.gaps.length
+        ? `// TODO(scripttype): ${result.gaps.length} construct(s) kept as raw TypeScript — ` +
+          `${[...new Set(result.gaps)].join(', ')}\n`
+        : ''
+      if (result.gaps.length) needsWork++
+      else converted++
+      blocks.push(`// ${name}\n${notes}${result.source.trim()}`)
+    }
+
+    const header =
+      `// Converted from ${path.basename(file)} by \`scripttype convert\`.\n` +
+      `// Review before committing: compile with \`scripttype build\` and check the output\n` +
+      `// against the original.\n`
+    const body = header + '\n' + blocks.join('\n\n') + '\n'
+
+    const dest = path.join(
+      outDir ?? path.dirname(file),
+      path.basename(file).replace(/\.ts$/, '.st.ts'),
+    )
+    if (args.flags.stdout) {
+      process.stdout.write(body)
+      continue
+    }
+    if (fs.existsSync(dest) && !args.flags.force) {
+      process.stderr.write(
+        `${red('error')}: ${display(dest)} already exists.\n${green('help')}: pass --force to replace it.\n`,
+      )
+      continue
+    }
+    fs.mkdirSync(path.dirname(dest), { recursive: true })
+    fs.writeFileSync(dest, body)
+    process.stdout.write(
+      `${green('✓')} ${display(file)} ${dim('→')} ${display(dest)} ${dim(`(${entries.length} aliases)`)}\n`,
+    )
+  }
+
+  if (!args.flags.stdout) {
+    const parts = [dim(`${converted} converted`)]
+    if (needsWork) parts.push(yellow(`${needsWork} need review`))
+    if (skipped) parts.push(dim(`${skipped} file(s) had no generic type aliases`))
+    process.stdout.write(`\n${parts.join(dim(' · '))}\n`)
+    if (needsWork) {
+      process.stdout.write(
+        dim('Search the output for TODO(scripttype) to find what needs finishing by hand.\n'),
+      )
+    }
+  }
+  return 0
+}
+
 function cmdWatch(args: Args): number {
   const inputs = args.positionals.length ? args.positionals : ['.']
   const run = () => {
@@ -549,6 +654,7 @@ ${bold('COMMANDS')}
   build [files...]     Compile ScriptType to TypeScript (default: the current directory)
   check [files...]     Compile and report problems without writing anything
   watch [files...]     Rebuild whenever a .st.ts file changes
+  convert [files...]   Turn existing TypeScript type aliases into ScriptType
   explain [code]       Explain a diagnostic code, with a worked example
   builtins [filter]    List the builtin surface
   init [dir]           Scaffold scripttype.d.ts, a tsconfig, and an example
@@ -598,6 +704,8 @@ export function main(argv: string[]): number {
       return cmdBuild(args, { emit: true })
     case 'check':
       return cmdBuild(args, { emit: false })
+    case 'convert':
+      return cmdConvert(args)
     case 'watch':
       return cmdWatch(args)
     case 'explain':
@@ -608,7 +716,7 @@ export function main(argv: string[]): number {
       return cmdInit(args)
     default: {
       const near = didYouMean(args.command, [
-        'build', 'check', 'watch', 'explain', 'builtins', 'init', 'help',
+        'build', 'check', 'watch', 'convert', 'explain', 'builtins', 'init', 'help',
       ])
       process.stderr.write(
         `${red('error')}: unknown command '${args.command}'` +

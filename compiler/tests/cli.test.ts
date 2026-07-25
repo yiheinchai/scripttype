@@ -155,6 +155,75 @@ describe('scripttype CLI', () => {
     expect(filtered.stdout.split('\n').length).toBeLessThan(all.stdout.split('\n').length)
   })
 
+  it('converts existing TypeScript, and the result recompiles to the same types', () => {
+    // The migration path is only worth having if what comes out is trustworthy, so this
+    // asserts the whole loop: convert, build, then let tsc compare the two.
+    const proj = path.join(dir, 'convert')
+    fs.mkdirSync(proj, { recursive: true })
+    fs.writeFileSync(
+      path.join(proj, 'types.ts'),
+      [
+        'export type IsString<T> = T extends string ? true : false',
+        'export type TrimLeft<S extends string> = S extends ` ${infer R}` ? TrimLeft<R> : S',
+        'export type Keys<O> = { [K in keyof O]: K }[keyof O]',
+      ].join('\n') + '\n',
+    )
+
+    expect(run(['convert', 'types.ts'], proj).status).toBe(0)
+    const st = fs.readFileSync(path.join(proj, 'types.st.ts'), 'utf8')
+    // Recursion became a loop and the guard became the JavaScript spelling.
+    expect(st).toContain("typeof T === 'string'")
+    expect(st).toContain('while (true)')
+
+    expect(run(['build', 'types.st.ts', '--out', 'gen', '--no-check-source'], proj).status).toBe(0)
+    fs.writeFileSync(
+      path.join(proj, 'eq.ts'),
+      [
+        `import type * as O from './types.js'`,
+        `import type * as C from './gen/types.js'`,
+        'type Eq<A, B> = (<T>() => T extends A ? 1 : 2) extends <T>() => T extends B ? 1 : 2 ? true : false',
+        `const a: Eq<O.IsString<'x'>, C.IsString<'x'>> = true`,
+        'const b: Eq<O.IsString<42>, C.IsString<42>> = true',
+        `const c: Eq<O.TrimLeft<'   x'>, C.TrimLeft<'   x'>> = true`,
+        'const d: Eq<O.Keys<{ a: 1; b: 2 }>, C.Keys<{ a: 1; b: 2 }>> = true',
+      ].join('\n') + '\n',
+    )
+    const tsc = path.resolve(import.meta.dirname, '../node_modules/.bin/tsc')
+    expect(() =>
+      execFileSync(
+        tsc,
+        ['--noEmit', '--strict', '--lib', 'ES2022', '--target', 'ES2022',
+         '--moduleResolution', 'bundler', '--module', 'esnext', 'eq.ts'],
+        { cwd: proj, stdio: 'pipe' },
+      ),
+    ).not.toThrow()
+  })
+
+  it('flags what it could not express instead of quietly emitting raw()', () => {
+    const proj = path.join(dir, 'convert-hard')
+    fs.mkdirSync(proj, { recursive: true })
+    fs.writeFileSync(
+      path.join(proj, 'hard.ts'),
+      'export type Callable<T> = { (x: T): T; name: string }\n',
+    )
+    const r = run(['convert', 'hard.ts'], proj)
+    expect(r.stdout).toContain('need review')
+    const out = fs.readFileSync(path.join(proj, 'hard.st.ts'), 'utf8')
+    expect(out).toContain('TODO(scripttype)')
+    expect(out).toContain('CallSignature')
+  })
+
+  it('refuses to replace an existing .st.ts without --force', () => {
+    const proj = path.join(dir, 'convert-clobber')
+    fs.mkdirSync(proj, { recursive: true })
+    fs.writeFileSync(path.join(proj, 'x.ts'), 'export type F<T> = T\n')
+    fs.writeFileSync(path.join(proj, 'x.st.ts'), '// hand-written, do not lose me\n')
+    run(['convert', 'x.ts'], proj)
+    expect(fs.readFileSync(path.join(proj, 'x.st.ts'), 'utf8')).toContain('do not lose me')
+    run(['convert', 'x.ts', '--force'], proj)
+    expect(fs.readFileSync(path.join(proj, 'x.st.ts'), 'utf8')).toContain('export function F')
+  })
+
   it('reports several errors in one run', () => {
     write(
       'many.st.ts',

@@ -59,8 +59,10 @@ function init(mod) {
                 const emitted = compiledAliasAt(ts, file, fileName, position);
                 if (!emitted)
                     return prior;
+                // Leading newlines because editors concatenate documentation parts with no
+                // separator, which ran this straight onto the end of the preceding sentence.
                 const docs = [
-                    { kind: 'text', text: 'compiles to:\n\n```ts\n' + emitted + '\n```' },
+                    { kind: 'text', text: '\n\ncompiles to:\n\n```ts\n' + emitted + '\n```' },
                 ];
                 // Keep whatever TypeScript had to say and add to it, rather than replacing a
                 // hover the user may also want.
@@ -90,12 +92,16 @@ function init(mod) {
  * loop actually lives.
  */
 function compiledAliasAt(ts, file, fileName, position) {
+    // Only when the cursor is on the function's *name*. Firing anywhere in the body would
+    // append the whole compiled alias to every hover inside it, including hovers over
+    // builtins that have useful documentation of their own.
     let name;
     for (const stmt of file.statements) {
         if (!ts.isFunctionDeclaration(stmt) || !stmt.name)
             continue;
-        if (position >= stmt.getStart(file) && position <= stmt.getEnd())
+        if (position >= stmt.name.getStart(file) && position <= stmt.name.getEnd()) {
             name = stmt.name.text;
+        }
     }
     if (!name)
         return undefined;

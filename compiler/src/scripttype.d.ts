@@ -65,15 +65,19 @@ declare const emptyObject: any
  */
 declare function optElem(...a: any[]): any
 type optElem = any
+/** indexRecord(k, v) -> { [key: K]: V } */
 declare function indexRecord(...a: any[]): any
 type indexRecord = any
+/** ctorType([A, B], R) -> new (a0: A, a1: B) => R */
 declare function ctorType(...a: any[]): any
 type ctorType = any
+/** genericFnType(['T'], [A], R) -> <T>(a0: A) => R */
 declare function genericFnType(...a: any[]): any
 type genericFnType = any
 
 declare function t<T = any>(): any
 
+/** anyOf(a, b, ...) -> A | B | ... */
 declare function anyOf(...a: any[]): any
 type anyOf = any
 
@@ -87,21 +91,37 @@ declare const Undefined: any
 // Builtins — String
 // ---------------------------------------------------------------------------
 
+/** startsWith(s, p) -> S extends `${P}${string}` */
 declare function startsWith(...a: any[]): any
+/** endsWith(s, p) -> S extends `${string}${P}` */
 declare function endsWith(...a: any[]): any
+/** includes(s, p) -> S extends `${string}${P}${string}` */
 declare function includes(...a: any[]): any
+/** splitOnce(s, sep) -> S extends `${infer A}${Sep}${infer B}` (first occurrence) */
 declare function splitOnce(...a: any[]): any
+/** splitLast(s, sep) -> prelude SplitLast<S, Sep> (last occurrence) */
 declare function splitLast(...a: any[]): any
+/** split(s, sep) -> prelude Split<S, Sep> */
 declare function split(...a: any[]): any
+/** removePrefix(s, p) -> S extends `${P}${infer R}` ? R : S */
 declare function removePrefix(...a: any[]): any
+/** removeSuffix(s, p) -> S extends `${infer R}${P}` ? R : S */
 declare function removeSuffix(...a: any[]): any
+/** upper(s) -> Uppercase<S> */
 declare function upper(...a: any[]): any
+/** lower(s) -> Lowercase<S> */
 declare function lower(...a: any[]): any
+/** capitalize(s) -> Capitalize<S> */
 declare function capitalize(...a: any[]): any
+/** uncapitalize(s) -> Uncapitalize<S> */
 declare function uncapitalize(...a: any[]): any
+/** concatStr(a, b) -> `${A}${B}` */
 declare function concatStr(...a: any[]): any
+/** trim(s) -> prelude Trim<S> */
 declare function trim(...a: any[]): any
+/** replaceAll(s, from, to) -> prelude ReplaceAll<S, From, To> */
 declare function replaceAll(...a: any[]): any
+/** strLength(s) -> prelude StrLength<S> */
 declare function strLength(...a: any[]): any
 
 type startsWith = any
@@ -125,17 +145,29 @@ type strLength = any
 // Builtins — Tuple / array
 // ---------------------------------------------------------------------------
 
+/** concat(a, b) -> [...A, ...B] */
 declare function concat(...a: any[]): any
+/** append(t, x) -> [...T, X] */
 declare function append(...a: any[]): any
+/** prepend(t, x) -> [X, ...T] */
 declare function prepend(...a: any[]): any
+/** length(t) -> T['length'] */
 declare function length(...a: any[]): any
+/** at(t, i) -> T[I] */
 declare function at(...a: any[]): any
+/** isEmpty(t) -> T extends [] */
 declare function isEmpty(...a: any[]): any
+/** elementOf(t) -> T extends ReadonlyArray<infer I> ? I : never */
 declare function elementOf(...a: any[]): any
+/** arrayOf(t) -> T[] */
 declare function arrayOf(...a: any[]): any
+/** readonlyArrayOf(t) -> readonly T[] */
 declare function readonlyArrayOf(...a: any[]): any
+/** indexOfType(t) -> T[number] */
 declare function indexOfType(...a: any[]): any
+/** reverse(t) -> prelude Reverse<T> */
 declare function reverse(...a: any[]): any
+/** join(t, sep) -> prelude Join<T, Sep> */
 declare function join(...a: any[]): any
 
 type concat = any
@@ -158,11 +190,17 @@ type join = any
 // it is unreserved, so `declare function keyof` is legal (verified).
 // ---------------------------------------------------------------------------
 
+/** keyof(o) -> keyof O */
 declare function keyof(...a: any[]): any
+/** get(o, k) -> O[K] */
 declare function get(...a: any[]): any
+/** pick(o, k) -> Pick<O, K> */
 declare function pick(...a: any[]): any
+/** omit(o, k) -> Omit<O, K> */
 declare function omit(...a: any[]): any
+/** merge(a, b, ...) -> A & B & ... */
 declare function merge(...a: any[]): any
+/** simplify(o) -> { [K in keyof O]: O[K] } & {} */
 declare function simplify(...a: any[]): any
 declare function entries(...a: any[]): any
 
@@ -178,9 +216,13 @@ type entries = any
 // ---------------------------------------------------------------------------
 
 declare function extendsType<P = any>(...a: any[]): any
+/** isSubtypeOf(a, b) -> A extends B  (both sides are values, unlike extendsType<P>) */
 declare function isSubtypeOf(...a: any[]): any
+/** isNever(x) -> [X] extends [never] */
 declare function isNever(...a: any[]): any
+/** isAny(x) -> 0 extends 1 & X */
 declare function isAny(...a: any[]): any
+/** equals(a, b) -> prelude Equals<A, B> */
 declare function equals(...a: any[]): any
 
 type isSubtypeOf = any
@@ -208,11 +250,17 @@ declare function optional(...a: any[]): any
 declare function required(...a: any[]): any
 declare function readonlyProp(...a: any[]): any
 declare function mutable(...a: any[]): any
+/** defer(x) -> [X] extends [unknown] ? X : never  (kysely DrainOuterGeneric) */
 declare function defer(...a: any[]): any
+/** fnType([A, B], R) -> (a0: A, a1: B) => R */
 declare function fnType(...a: any[]): any
+/** voidType() -> void  (`void` is a JS operator, so it needs a call form) */
 declare function voidType(...a: any[]): any
+/** error(m) -> ScriptTypeError<'m'> */
 declare function error(...a: any[]): any
+/** raw(`...`) -> verbatim type syntax (escape hatch) */
 declare function raw(...a: any[]): any
+/** asReadonly(t) -> readonly T */
 declare function asReadonly(...a: any[]): any
 
 type keySet = any

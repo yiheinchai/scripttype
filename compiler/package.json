@@ -38,7 +38,8 @@
     "materialize": "./node_modules/.bin/tsx src/materialize.ts .results/inplace",
     "inventory": "./node_modules/.bin/tsx src/inventory.ts",
     "dx": "./node_modules/.bin/tsx src/dx-report.ts",
-    "bench": "./node_modules/.bin/tsx src/bench.ts"
+    "bench": "./node_modules/.bin/tsx src/bench.ts",
+    "sync-dts": "./node_modules/.bin/tsx src/sync-dts.ts"
   },
   "dependencies": {
     "typescript": "^5.9.3"

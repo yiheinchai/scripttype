@@ -92,8 +92,10 @@ function init(mod: { typescript: typeof tsModule }) {
       try {
         const emitted = compiledAliasAt(ts, file, fileName, position)
         if (!emitted) return prior
+        // Leading newlines because editors concatenate documentation parts with no
+        // separator, which ran this straight onto the end of the preceding sentence.
         const docs: tsModule.SymbolDisplayPart[] = [
-          { kind: 'text', text: 'compiles to:\n\n```ts\n' + emitted + '\n```' },
+          { kind: 'text', text: '\n\ncompiles to:\n\n```ts\n' + emitted + '\n```' },
         ]
         // Keep whatever TypeScript had to say and add to it, rather than replacing a
         // hover the user may also want.
@@ -130,10 +132,15 @@ function compiledAliasAt(
   fileName: string,
   position: number,
 ): string | undefined {
+  // Only when the cursor is on the function's *name*. Firing anywhere in the body would
+  // append the whole compiled alias to every hover inside it, including hovers over
+  // builtins that have useful documentation of their own.
   let name: string | undefined
   for (const stmt of file.statements) {
     if (!ts.isFunctionDeclaration(stmt) || !stmt.name) continue
-    if (position >= stmt.getStart(file) && position <= stmt.getEnd()) name = stmt.name.text
+    if (position >= stmt.name.getStart(file) && position <= stmt.name.getEnd()) {
+      name = stmt.name.text
+    }
   }
   if (!name) return undefined
 

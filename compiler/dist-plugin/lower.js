@@ -1273,9 +1273,12 @@ class FunctionCompiler {
                 // members too", and repeating it is how an overload set is written — several
                 // signatures that would collide as keys.
                 if (typescript_1.default.isSpreadAssignment(p)) {
-                    const value = this.expr(p.expression, vars);
+                    // The property-position wrappers work on a spread member too, so an optional
+                    // member of an overload set is `...optional(methodType('f', [], A))`.
+                    const mods = stripModifiers(p.expression);
+                    const value = this.expr(mods.expr, vars);
                     if (value.kind === 'fn' && value.sig && (value.sig !== 'method' || value.sigName)) {
-                        props.push({ name: value.sigName ?? '', value });
+                        props.push({ name: value.sigName ?? '', value, optional: mods.optional === true });
                         continue;
                     }
                     if (value.kind === 'object' && value.index && !value.props.length) {

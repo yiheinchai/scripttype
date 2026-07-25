@@ -711,8 +711,8 @@ class Decompiler {
           const overloaded = methodNames.filter((n) => n === key).length > 1
           const sig = this.signatureExpr(m, 'methodType', overloaded ? key : undefined)
           if (!sig) return this.gap(t, 'method signature with a `this` parameter or no return type')
-          if (overloaded) props.push(`...${sig}`)
-          else props.push(`${key}: ${m.questionToken ? `optional(${sig})` : sig}`)
+          const v = m.questionToken ? `optional(${sig})` : sig
+          props.push(overloaded ? `...${v}` : `${key}: ${v}`)
         } else if (ts.isCallSignatureDeclaration(m) || ts.isConstructSignatureDeclaration(m)) {
           const sig = this.signatureExpr(m, ts.isCallSignatureDeclaration(m) ? 'callSig' : 'ctorSig')
           if (!sig) return this.gap(t, 'signature with a `this` parameter or no return type')
@@ -741,6 +741,11 @@ class Decompiler {
           // `{ [key: K]: V }` — an index signature, not a named property.
           if (!m.type || !m.parameters[0]?.type) {
             return this.gap(t, 'index signature without a key or value type')
+          }
+          // `readonly` on an index signature has nowhere to go — the object node carries
+          // one index and no modifier for it — and dropping it would change the type.
+          if (m.modifiers?.some((x) => x.kind === ts.SyntaxKind.ReadonlyKeyword)) {
+            return this.gap(t, 'readonly index signature')
           }
           const rec = `indexRecord(${this.expr(m.parameters[0].type)}, ${this.expr(m.type)})`
           // On its own it needs no object around it, and reads better without one.

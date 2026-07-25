@@ -312,6 +312,11 @@ describe('object signature members', () => {
     expect(obj(`{ ...methodType('at', [t], number), ...methodType('at', [], boolean) }`)).toBe(
       `export type F<T> = { at(a0: T): number; at(): boolean }`,
     )
+    // The property-position wrappers apply to a spread member too; without this the `?`
+    // was silently dropped, which is a different type rather than a cosmetic loss.
+    expect(obj(`{ ...optional(methodType('at', [t], number)) }`)).toBe(
+      `export type F<T> = { at?(a0: T): number }`,
+    )
   })
 
   it('carries type parameters, optionality, rest and optional parameters', () => {

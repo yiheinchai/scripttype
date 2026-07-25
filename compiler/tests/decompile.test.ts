@@ -134,6 +134,13 @@ describe('object signature members', () => {
     expect(decompile(original)).toContain('...callSig([T], number), ...callSig([T, string], boolean)')
     same(original)
     same('type O<T> = { with(a0: T): number; with(): boolean }')
+    same('type P<T> = { with?(a0: T): number; with?(): boolean }')
+  })
+
+  it('leaves a readonly index signature as a gap rather than dropping the modifier', () => {
+    // The object node carries one index and no modifier for it. Emitting a mutable one
+    // would be a different type, and a wrong answer is worse than an admitted gap.
+    expect(decompile('type R<T> = { readonly [key: string]: T }')).toContain('raw(')
   })
 
   it('keeps type parameters, optionality, rest and optional parameters', () => {

@@ -65,6 +65,28 @@ scripttype explain ST1102          # the full text behind any error code
 `build` writes `foo.st.ts` to `foo.ts` with a generated-file banner, and refuses to
 overwrite anything at that path it did not write itself.
 
+### scripttype.json
+
+Settings a project wants to fix once live in `scripttype.json`, which `init` writes and
+which is found by walking up from the working directory:
+
+```json
+{
+  "include": ["src"],
+  "outDir": "generated",
+  "width": 96,
+  "checkSource": true
+}
+```
+
+Command-line flags override it, and `--no-config` ignores it. Paths resolve against the
+config file rather than the working directory, so running from a subdirectory compiles the
+same set. The search stops at a `package.json`, so a package in a monorepo does not inherit
+the repository root's settings.
+
+A config that exists but cannot be used is a hard error, never a silent fall back to
+defaults — a misspelled key is reported with the nearest real one rather than ignored.
+
 ## Adopting it in a codebase that already has types
 
 Nobody rewrites two hundred type aliases by hand to try a new language, so the compiler

@@ -21,6 +21,28 @@ import {
   union as unionOf,
 } from './ir.js'
 
+/**
+ * Build a function-type node from a tuple of parameters, carrying across which are
+ * optional and whether the last is a rest parameter.
+ */
+function fnNode(params: TypeExpr, ret: TypeExpr, isCtor: boolean): Extract<TypeExpr, { kind: 'fn' }> {
+  if (params.kind !== 'tuple') throw new Error('expected a parameter tuple')
+  const optionalAt: number[] = []
+  let hasRest = false
+  params.elements.forEach((el, i) => {
+    if (el.optional) optionalAt.push(i)
+    if (el.spread && i === params.elements.length - 1) hasRest = true
+  })
+  return {
+    kind: 'fn',
+    params: params.elements.map((el) => el.expr),
+    ret,
+    isCtor,
+    ...(hasRest ? { hasRest } : {}),
+    ...(optionalAt.length ? { optionalAt } : {}),
+  }
+}
+
 export interface MatchLowering {
   tag: 'match'
   /** The type under test. */
@@ -445,7 +467,7 @@ register(
     doc: 'fnType([A, B], R) -> (a0: A, a1: B) => R',
     lower: ([params, ret]) => {
       if (params!.kind !== 'tuple') throw new Error('fnType(params, ret) needs a tuple of parameter types')
-      return expr({ kind: 'fn', params: params!.elements.map((e) => e.expr), ret: ret! })
+      return expr(fnNode(params!, ret!, false))
     },
   }),
   def({
@@ -460,7 +482,7 @@ register(
     doc: 'ctorType([A, B], R) -> new (a0: A, a1: B) => R',
     lower: ([params, ret]) => {
       if (params!.kind !== 'tuple') throw new Error('ctorType(params, ret) needs a tuple')
-      return expr({ kind: 'fn', params: params!.elements.map((e) => e.expr), ret: ret!, isCtor: true })
+      return expr(fnNode(params!, ret!, true))
     },
   }),
   def({
@@ -477,12 +499,7 @@ register(
         if (x.kind === 'raw') return x.text
         throw new Error('genericFnType type parameters must be string literals')
       })
-      return expr({
-        kind: 'fn',
-        params: params!.elements.map((e) => e.expr),
-        ret: ret!,
-        typeParams: names,
-      })
+      return expr({ ...fnNode(params!, ret!, false), typeParams: names })
     },
   }),
   def({

@@ -22,7 +22,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import ts from 'typescript'
 import { compile } from './compile.js'
-import { decompileFile } from './decompile.js'
+import { decompileFile, type NamespaceLink } from './decompile.js'
 import { REPO_ROOT } from './corpus.js'
 import { collectFiles, type Status } from './batch.js'
 import { typecheckScriptType } from './typecheck.js'
@@ -98,7 +98,7 @@ interface Overlay {
   text: string
   /** Offset where the appended region begins. */
   offset: number
-  live: { name: string; idx: number; ns: string[] }[]
+  live: { name: string; idx: number; ns: NamespaceLink[] }[]
   /** Outcomes already decided without needing the checker. */
   decided: Outcome[]
 }
@@ -127,7 +127,7 @@ function buildOverlay(rel: string): Overlay | undefined {
 
   const outcomes: Outcome[] = []
   const appended: string[] = ['', '// ===== ScriptType round-trip (generated) =====', EQ_DECL]
-  const live: { name: string; idx: number; ns: string[] }[] = []
+  const live: { name: string; idx: number; ns: NamespaceLink[] }[] = []
 
   entries.forEach((e, i) => {
     if (e.result.gaps.length) {
@@ -167,16 +167,19 @@ function buildOverlay(rel: string): Overlay | undefined {
 
     if (e.ns.length) {
       // Same namespace chain, so sibling and self references resolve exactly as they do
-      // for the original. Members are exported so the witness can name them qualified.
+      // for the original. Export-ness must match too: merging a non-exported namespace
+      // with an exported one of the same name is TS2395, and then every name inside it
+      // fails to resolve.
       const inner = body.replace(/^type /gm, 'export type ')
-      appended.push(`declare namespace ${e.ns.join('.')} {`)
+      const exported = e.ns.some((l) => l.exported) ? 'export ' : ''
+      appended.push(`${exported}namespace ${e.ns.map((l) => l.name).join('.')} {`)
       appended.push(inner)
       appended.push(`}`)
     } else {
       appended.push(body)
     }
 
-    const qualify = (n: string) => (e.ns.length ? `${e.ns.join('.')}.${n}` : n)
+    const qualify = (n: string) => (e.ns.length ? `${e.ns.map((l) => l.name).join('.')}.${n}` : n)
     const args = witnessArgs(e.decl, sf)
     const inst = (n: string) => (args.length ? `${qualify(n)}<${args.join(', ')}>` : qualify(n))
     appended.push(`type __st_EQ${i} = ${EQ_NAME}<${inst(e.name)}, ${inst(`${e.name}${suffix}`)}>`)

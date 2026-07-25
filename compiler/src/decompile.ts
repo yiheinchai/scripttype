@@ -548,6 +548,18 @@ class Decompiler {
     return undefined
   }
 
+  /**
+   * A function or constructor parameter, marked optional where it is.
+   *
+   * Dropping the `?` changes the type: `(a?: T) => R` and `(a: T) => R` are different, so
+   * an equivalence check would fail on an otherwise correct translation.
+   */
+  private paramExpr(p: ts.ParameterDeclaration): string {
+    const inner = p.type ? this.expr(p.type) : 'unknown'
+    if (p.dotDotDotToken) return `...${inner}`
+    return p.questionToken ? `optElem(${inner})` : inner
+  }
+
   /** Render a type node as a ScriptType *expression*. */
   expr(t: ts.TypeNode): string {
     t = unwrapParens(t)
@@ -712,7 +724,7 @@ class Decompiler {
     }
 
     if (ts.isFunctionTypeNode(t)) {
-      const params = t.parameters.map((p) => (p.type ? this.expr(p.type) : 'unknown'))
+      const params = t.parameters.map((p) => this.paramExpr(p))
       const ret = this.expr(t.type)
       if (t.typeParameters?.length) {
         // The `<T>() => ...` variance trick: type parameters are named as string literals.
@@ -723,7 +735,7 @@ class Decompiler {
     }
 
     if (ts.isConstructorTypeNode(t)) {
-      const params = t.parameters.map((p) => (p.type ? this.expr(p.type) : 'unknown'))
+      const params = t.parameters.map((p) => this.paramExpr(p))
       return `ctorType([${params.join(', ')}], ${this.expr(t.type)})`
     }
 
@@ -929,12 +941,34 @@ const escapeTemplate = (s: string) =>
   s.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${')
 
 /** Decompile every generic type alias in a source file. */
-/** The namespace names enclosing a declaration, outermost first. */
-export function namespaceChain(n: ts.Node): string[] {
-  const out: string[] = []
+export interface NamespaceLink {
+  name: string
+  /** Whether the original declaration is exported. */
+  exported: boolean
+  /** Whether the original declaration is ambient (`declare`). */
+  ambient: boolean
+}
+
+/**
+ * The namespaces enclosing a declaration, outermost first.
+ *
+ * Export-ness is part of the answer, not decoration: appending a non-exported namespace
+ * beside an exported one of the same name is TS2395, "individual declarations in merged
+ * declaration must be all exported or all local", and every name inside then fails to
+ * resolve. The generated block has to match.
+ */
+export function namespaceChain(n: ts.Node): NamespaceLink[] {
+  const out: NamespaceLink[] = []
   let cur: ts.Node | undefined = n.parent
   while (cur) {
-    if (ts.isModuleDeclaration(cur) && ts.isIdentifier(cur.name)) out.unshift(cur.name.text)
+    if (ts.isModuleDeclaration(cur) && ts.isIdentifier(cur.name)) {
+      const flags = ts.getCombinedModifierFlags(cur as ts.Declaration)
+      out.unshift({
+        name: cur.name.text,
+        exported: !!(flags & ts.ModifierFlags.Export),
+        ambient: !!(flags & ts.ModifierFlags.Ambient),
+      })
+    }
     cur = cur.parent
   }
   return out
@@ -943,9 +977,9 @@ export function namespaceChain(n: ts.Node): string[] {
 export function decompileFile(
   filePath: string,
   text: string,
-): { name: string; result: DecompileResult; decl: ts.TypeAliasDeclaration; ns: string[] }[] {
+): { name: string; result: DecompileResult; decl: ts.TypeAliasDeclaration; ns: NamespaceLink[] }[] {
   const sf = ts.createSourceFile(filePath, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
-  const out: { name: string; result: DecompileResult; decl: ts.TypeAliasDeclaration; ns: string[] }[] = []
+  const out: { name: string; result: DecompileResult; decl: ts.TypeAliasDeclaration; ns: NamespaceLink[] }[] = []
   const visit = (n: ts.Node) => {
     if (ts.isTypeAliasDeclaration(n) && (n.typeParameters?.length ?? 0) > 0) {
       out.push({ name: n.name.text, result: decompileAlias(n, sf), decl: n, ns: namespaceChain(n) })

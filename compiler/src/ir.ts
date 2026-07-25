@@ -22,7 +22,7 @@ export type TypeExpr =
   | { kind: 'op'; op: 'keyof' | 'typeof' | 'readonly'; target: TypeExpr }
   | { kind: 'paren'; inner: TypeExpr }
   /** `hasRest` marks the final parameter as a rest parameter: `(...a0: T) => R`. */
-  | { kind: 'fn'; params: TypeExpr[]; ret: TypeExpr; typeParams?: string[]; isCtor?: boolean; hasRest?: boolean }
+  | { kind: 'fn'; params: TypeExpr[]; ret: TypeExpr; typeParams?: string[]; isCtor?: boolean; hasRest?: boolean; optionalAt?: number[] }
   | { kind: 'raw'; text: string }
 
 export interface TupleElement {
@@ -193,7 +193,10 @@ export function emitFnParam(
   i: number,
 ): string {
   const rest = fn.hasRest && i === fn.params.length - 1 ? '...' : ''
-  return `${rest}a${i}: ${emit(p)}`
+  // Optionality is part of the type: `(a?: T) => R` and `(a: T) => R` differ, so dropping
+  // the marker would make an otherwise correct translation fail equivalence.
+  const opt = fn.optionalAt?.includes(i) ? '?' : ''
+  return `${rest}a${i}${opt}: ${emit(p)}`
 }
 
 export function emit(e: TypeExpr, minPrec = 0): string {

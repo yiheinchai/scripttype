@@ -13,9 +13,14 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const built = path.join(here, '..', 'dist', 'cli.js')
+const source = path.join(here, '..', 'src', 'cli.ts')
 
+// Source wins when it is present. An installed copy ships only `src/scripttype.d.ts`, so
+// this is exactly the development case — and there, preferring a build would mean a stale
+// `dist/` silently shadowing the code being edited, which is a genuinely confusing bug to
+// chase. Installed copies have no `src/cli.ts` and take the fast plain-node path below.
 let cli
-if (fs.existsSync(built)) {
+if (!fs.existsSync(source) && fs.existsSync(built)) {
   cli = await import(pathToFileURL(built).href)
 } else {
   let register
@@ -29,7 +34,7 @@ if (fs.existsSync(built)) {
     process.exit(2)
   }
   register()
-  cli = await import(pathToFileURL(path.join(here, '..', 'src', 'cli.ts')).href)
+  cli = await import(pathToFileURL(source).href)
 }
 
 cli.run(process.argv.slice(2))

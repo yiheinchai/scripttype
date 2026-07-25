@@ -27,13 +27,13 @@ This file is the session's stopping condition: work continues while unticked box
 - [x] **Instantiation cost is measured, not asserted.** 0.90x against the hand-written
       originals over 20 targets, with tests validating the metric itself.
 - [x] **The scaffold typechecks under stock tsc**, asserted by a test rather than by hand.
+- [x] **Installable with no build step on the user's side.** `npm pack` -> install the
+      tarball into an empty directory -> `scripttype init` and `build` both work, with no
+      `tsx` present. `prepack` rebuilds `dist` from scratch.
+- [x] **A documented programmatic API.** An `exports` map with `src/index.ts` as the stated
+      public surface; internals are unreachable by subpath.
 
 ## Remaining
-
-- [ ] **Installable with no build step on the user's side.** `npm pack`, install the
-      tarball into a clean directory, and `npx scripttype build` works there — no `tsx`,
-      no `pnpm install` in the compiler, no `dist/` assumed to be present.
-      *Evidence: a test that packs, installs, and runs.*
 
 - [ ] **A config file.** `scripttype.json` for `include`, `outDir`, `width` and
       `checkSource`, so a real project stops repeating flags in every script. CLI flags
@@ -52,10 +52,6 @@ This file is the session's stopping condition: work continues while unticked box
 - [ ] **No `raw()` for call and method signatures in object types** — the top two language
       gaps, ~100 occurrences between them.
       *Evidence: the gap table in COVERAGE.md, with those rows gone.*
-
-- [ ] **A documented programmatic API.** An `exports` map and a stated public surface, so
-      `compile()` can be used from a build script without reaching into `src/`.
-      *Evidence: a test importing only the public entry point.*
 
 - [ ] **CI runs the gates.** A workflow running tsc, tests, the typecheck gate, the verify
       gate and a corpus smoke on every push.

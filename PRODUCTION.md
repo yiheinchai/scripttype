@@ -22,8 +22,12 @@ This file is the session's stopping condition: work continues while unticked box
       holdout is numeric comparison, which TypeScript genuinely cannot do.
 - [x] **Multi-file projects work.** Imports are carried through and rewritten; a two-module
       project typechecks as source and its output typechecks under stock `tsc`.
-- [x] **A migration path exists.** `scripttype convert` on all 205 files of type-fest
-      produces 189 modules, 172 of which build with no errors and no warnings.
+- [x] **A migration path exists.** `scripttype convert` on all 215 files of type-fest
+      produces 198 modules and 443 aliases, none of them using `raw()`, of which 196
+      check with no errors and no warnings.
+      *The earlier reading of this line — 205 files, 189 modules, 172 clean — was taken
+      before the clone was refreshed, and all three numbers had moved. Re-measured with
+      `convert … --declarations --force` then `check`.*
 - [x] **Instantiation cost is measured, not asserted.** 0.90x against the hand-written
       originals over 20 targets, with tests validating the metric itself.
 - [x] **The scaffold typechecks under stock tsc**, asserted by a test rather than by hand.
@@ -50,10 +54,22 @@ This file is the session's stopping condition: work continues while unticked box
 
 ## Remaining
 
-- [ ] **Whole-library conversion is clean.** All 189 converted type-fest modules build
-      with zero warnings (currently 172; the tail is circular constraints and a few
-      argument-type mismatches).
+- [ ] **Whole-library conversion is clean.** All 198 converted type-fest modules check
+      with zero warnings. Now 196; the tail is two files, each blocked on a language
+      feature rather than a fix:
+      - `globals/observable-like` — the original opens with a `declare global` block, and
+        ScriptType has no spelling for an ambient or global declaration. Carrying the
+        block across would make the source typecheck while the *output* silently lost a
+        declaration the original had, which is worse than leaving it.
+      - `spread` — `matches<P>(x)` does not narrow `x`, so a callee annotated with the
+        guarded type rejects the argument. Narrowing would require `matches` to be a type
+        predicate, which returns `boolean` and so breaks the hole-marker idiom that reads
+        bindings off an `any`. The trade-off is recorded in `scripttype.d.ts`.
       *Evidence: the convert sweep, re-run and reported.*
+      *Caveat on the metric: `check` runs the source typecheck, the lowering and the
+      unresolved-name pass. It does not typecheck the emitted TypeScript, so this counts
+      modules that are valid ScriptType which lowers without error. Round-trip identity
+      of the output is what `verify` measures, separately.*
 
 - [ ] **Round-trip coverage ≥ 90%** across the corpus, measured in one complete run
       (currently ~82%, and the last full measurement is stale).

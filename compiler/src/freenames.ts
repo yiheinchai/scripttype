@@ -109,7 +109,7 @@ export function declarePreamble(source: string): string {
     '// Names this file references but does not define: types from elsewhere in the',
     '// library, and local functions used in type position. Declared so the generated',
     '// ScriptType typechecks standalone. They carry no runtime meaning.',
-    ...free.values.map((n) => `declare function ${n}(...a: any[]): any`),
+    ...free.values.map((n) => `declare const ${n}: any`),
     ...free.types.map((n) => `type ${n}${GENERIC} = any`),
     '',
   ].join('\n')

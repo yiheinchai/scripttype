@@ -24,7 +24,10 @@ const INDENT = '  '
 export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile): DecompileResult {
   const gaps: string[] = []
   const paramNames = new Set((decl.typeParameters ?? []).map((tp) => tp.name.text))
-  const d = new Decompiler(sf, gaps, paramNames)
+  const anyParams = new Set(
+    (decl.typeParameters ?? []).filter((tp) => !tp.constraint).map((tp) => tp.name.text),
+  )
+  const d = new Decompiler(sf, gaps, paramNames, anyParams)
   const name = decl.name.text
 
   const params = (decl.typeParameters ?? []).map((tp) => {
@@ -67,7 +70,56 @@ class Decompiler {
     private gaps: string[],
     /** Type parameters of the alias — values in ScriptType, so patterns use `typeof`. */
     private params: Set<string> = new Set(),
+    /** Parameters with no annotation, hence `any` at the value level. */
+    private anyParams: Set<string> = new Set(),
   ) {}
+
+  /**
+   * Whether an expression will be `any` at the value level.
+   *
+   * `|` and `&` are JavaScript's bitwise operators, so they only typecheck when every
+   * operand is any/number/bigint. Knowing this lets us keep the readable `A | B`
+   * spelling wherever it is valid, and fall back to a call form only where it is not.
+   */
+  private isAnyTyped(t: ts.TypeNode): boolean {
+    const n = unwrapParens(t)
+    // Calls return `any`: every builtin and every applied type is declared that way.
+    if (ts.isTypeReferenceNode(n)) {
+      const name = n.typeName.getText(this.sf)
+      if (n.typeArguments?.length) return true // becomes a call
+      if (this.holeScope.has(name)) return true // read off a marker, which is `any`
+      if (this.anyParams.has(name)) return true
+      if (this.params.has(name)) return false // annotated parameter: its own type
+      return true // free name, declared `const … : any`
+    }
+    if (ts.isTypeOperatorNode(n) || ts.isIndexedAccessTypeNode(n)) return true // keyof(...)/get(...)
+    if (ts.isConditionalTypeNode(n)) return true // marker ternary yields `any`
+    if (ts.isMappedTypeNode(n)) return true // hoisted into an `emptyObject` accumulator
+    if (ts.isArrayTypeNode(n)) return true // arrayOf(...)
+    if (ts.isFunctionTypeNode(n)) return true // fnType(...)
+    switch (n.kind) {
+      // Bare type keywords are declared as values of type `any`.
+      case ts.SyntaxKind.AnyKeyword:
+      case ts.SyntaxKind.UnknownKeyword:
+      case ts.SyntaxKind.NeverKeyword:
+      case ts.SyntaxKind.StringKeyword:
+      case ts.SyntaxKind.NumberKeyword:
+      case ts.SyntaxKind.BooleanKeyword:
+      case ts.SyntaxKind.ObjectKeyword:
+      case ts.SyntaxKind.SymbolKeyword:
+      case ts.SyntaxKind.BigIntKeyword:
+      case ts.SyntaxKind.VoidKeyword:
+        return true
+    }
+    if (ts.isLiteralTypeNode(n)) {
+      // `null` and `undefined` are spelled as `any`-typed constants; other literals
+      // keep their own literal type and cannot be operands.
+      const l = n.literal
+      return l.kind === ts.SyntaxKind.NullKeyword
+    }
+    // Object and tuple literals, template literals: not `any`.
+    return false
+  }
 
   /**
    * Render an expression, capturing any statements it needs hoisted above itself.
@@ -103,7 +155,7 @@ class Decompiler {
     if (ts.isConditionalTypeNode(t)) {
       const { lines, value: check } = this.withHoist(() => this.expr(t.checkType))
       const holes = inferNames(t.extendsType)
-      const pattern = holePattern(t.extendsType, this.sf, this.params)
+      const pattern = holePattern(t.extendsType, this.sf, this.params, this.holeScope)
 
       if (!holes.length) {
         const thenStmts = this.statements(t.trueType, depth + 1)
@@ -220,7 +272,8 @@ class Decompiler {
       if (ts.isNumericLiteral(l)) return l.text
       if (l.kind === ts.SyntaxKind.TrueKeyword) return 'true'
       if (l.kind === ts.SyntaxKind.FalseKeyword) return 'false'
-      // `null` cannot be an operand of `|` (TS18050); `Null` is its spelling.
+      // `Null` where it must be an operand of `|`; plain `null` reads better elsewhere,
+      // and the call forms accept it as an argument.
       if (l.kind === ts.SyntaxKind.NullKeyword) return 'Null'
       if (ts.isPrefixUnaryExpression(l)) return l.getText(this.sf)
       return this.gap(t, `literal type ${ts.SyntaxKind[l.kind]}`)
@@ -235,8 +288,16 @@ class Decompiler {
       return `${name}(${args.map((a) => this.expr(a)).join(', ')})`
     }
 
-    if (ts.isUnionTypeNode(t)) return `anyOf(${t.types.map((x) => this.expr(x)).join(', ')})`
-    if (ts.isIntersectionTypeNode(t)) return `merge(${t.types.map((x) => this.expr(x)).join(', ')})`
+    if (ts.isUnionTypeNode(t)) {
+      return t.types.every((x) => this.isAnyTyped(x))
+        ? t.types.map((x) => this.wrap(x)).join(' | ')
+        : `anyOf(${t.types.map((x) => this.expr(x)).join(', ')})`
+    }
+    if (ts.isIntersectionTypeNode(t)) {
+      return t.types.every((x) => this.isAnyTyped(x))
+        ? t.types.map((x) => this.wrap(x)).join(' & ')
+        : `merge(${t.types.map((x) => this.expr(x)).join(', ')})`
+    }
 
     if (ts.isArrayTypeNode(t)) return `arrayOf(${this.expr(t.elementType)})`
 
@@ -270,7 +331,7 @@ class Decompiler {
           return this.gap(t, `object member ${ts.SyntaxKind[m.kind]}`)
         }
       }
-      return props.length ? `obj({ ${props.join(', ')} })` : 'emptyObject'
+      return props.length ? `{ ${props.join(', ')} }` : '{}'
     }
 
     if (ts.isTemplateLiteralTypeNode(t)) {
@@ -299,7 +360,7 @@ class Decompiler {
     if (ts.isConditionalTypeNode(t)) {
       const check = this.expr(t.checkType)
       const holes = inferNames(t.extendsType)
-      const pattern = holePattern(t.extendsType, this.sf, this.params)
+      const pattern = holePattern(t.extendsType, this.sf, this.params, this.holeScope)
       if (!holes.length) {
         return `matches<${pattern}>(${check}) ? ${this.wrap(t.trueType)} : ${this.wrap(t.falseType)}`
       }
@@ -376,9 +437,30 @@ function inferNames(t: ts.TypeNode): string[] {
  * typechecks, and the compiler turns it back into `infer X`. Any inference constraint is
  * preserved as a second argument.
  */
-function holePattern(t: ts.TypeNode, sf: ts.SourceFile, params: Set<string> = new Set()): string {
+function holePattern(
+  t: ts.TypeNode,
+  sf: ts.SourceFile,
+  params: Set<string> = new Set(),
+  holes: Map<string, string> = new Map(),
+): string {
   const transformer: ts.TransformerFactory<ts.Node> = (ctx) => (root) => {
     const visit = (n: ts.Node): ts.Node => {
+      // A hole bound by an enclosing pattern is read off its marker, so in a type
+      // position it is `typeof marker.hole`.
+      if (
+        ts.isTypeReferenceNode(n) &&
+        !n.typeArguments?.length &&
+        ts.isIdentifier(n.typeName) &&
+        holes.has(n.typeName.text)
+      ) {
+        const [marker, prop] = holes.get(n.typeName.text)!.split('.')
+        return ctx.factory.createTypeQueryNode(
+          ctx.factory.createQualifiedName(
+            ctx.factory.createIdentifier(marker!),
+            ctx.factory.createIdentifier(prop!),
+          ),
+        )
+      }
       // A ScriptType parameter is a value, so referring to it in a type position needs
       // `typeof`; a bare reference would be TS2749.
       if (
@@ -417,15 +499,26 @@ const escapeTemplate = (s: string) =>
   s.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$\{/g, '\\${')
 
 /** Decompile every generic type alias in a source file. */
+/** The namespace names enclosing a declaration, outermost first. */
+export function namespaceChain(n: ts.Node): string[] {
+  const out: string[] = []
+  let cur: ts.Node | undefined = n.parent
+  while (cur) {
+    if (ts.isModuleDeclaration(cur) && ts.isIdentifier(cur.name)) out.unshift(cur.name.text)
+    cur = cur.parent
+  }
+  return out
+}
+
 export function decompileFile(
   filePath: string,
   text: string,
-): { name: string; result: DecompileResult; decl: ts.TypeAliasDeclaration }[] {
+): { name: string; result: DecompileResult; decl: ts.TypeAliasDeclaration; ns: string[] }[] {
   const sf = ts.createSourceFile(filePath, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
-  const out: { name: string; result: DecompileResult; decl: ts.TypeAliasDeclaration }[] = []
+  const out: { name: string; result: DecompileResult; decl: ts.TypeAliasDeclaration; ns: string[] }[] = []
   const visit = (n: ts.Node) => {
     if (ts.isTypeAliasDeclaration(n) && (n.typeParameters?.length ?? 0) > 0) {
-      out.push({ name: n.name.text, result: decompileAlias(n, sf), decl: n })
+      out.push({ name: n.name.text, result: decompileAlias(n, sf), decl: n, ns: namespaceChain(n) })
     }
     ts.forEachChild(n, visit)
   }

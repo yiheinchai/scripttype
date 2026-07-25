@@ -107,7 +107,7 @@ export function inplaceFile(rel: string): Outcome[] {
 
   const outcomes: Outcome[] = []
   const appended: string[] = ['', '// ===== ScriptType round-trip (generated) =====', EQ_DECL]
-  const live: { name: string; idx: number }[] = []
+  const live: { name: string; idx: number; ns: string[] }[] = []
 
   entries.forEach((e, i) => {
     if (e.result.gaps.length) {
@@ -146,13 +146,24 @@ export function inplaceFile(rel: string): Outcome[] {
 
     const suffix = `__st${i}`
     const { code } = suffixAliases(compiled.code, declaredNames(compiled.code), suffix)
-    // Strip `export` so appending cannot change the host module's public surface.
-    appended.push(code.replace(/^export type /gm, 'type ').trimEnd())
+    const body = code.replace(/^export type /gm, 'type ').trimEnd()
 
+    if (e.ns.length) {
+      // Same namespace chain, so sibling and self references resolve exactly as they do
+      // for the original. Members are exported so the witness can name them qualified.
+      const inner = body.replace(/^type /gm, 'export type ')
+      appended.push(`declare namespace ${e.ns.join('.')} {`)
+      appended.push(inner)
+      appended.push(`}`)
+    } else {
+      appended.push(body)
+    }
+
+    const qualify = (n: string) => (e.ns.length ? `${e.ns.join('.')}.${n}` : n)
     const args = witnessArgs(e.decl, sf)
-    const inst = (n: string) => (args.length ? `${n}<${args.join(', ')}>` : n)
+    const inst = (n: string) => (args.length ? `${qualify(n)}<${args.join(', ')}>` : qualify(n))
     appended.push(`type __st_EQ${i} = ${EQ_NAME}<${inst(e.name)}, ${inst(`${e.name}${suffix}`)}>`)
-    live.push({ name: e.name, idx: i })
+    live.push({ name: e.name, idx: i, ns: e.ns })
   })
 
   if (!live.length) return outcomes
@@ -201,9 +212,11 @@ export function inplaceFile(rel: string): Outcome[] {
     .map((d) => ({ start: d.start ?? 0, msg: ts.flattenDiagnosticMessageText(d.messageText, ' ') }))
 
   const aliases = new Map<string, ts.TypeAliasDeclaration>()
-  for (const s of overlaySf.statements) {
-    if (ts.isTypeAliasDeclaration(s) && s.getStart() >= offset) aliases.set(s.name.text, s)
+  const indexAliases = (n: ts.Node) => {
+    if (ts.isTypeAliasDeclaration(n) && n.getStart() >= offset) aliases.set(n.name.text, n)
+    ts.forEachChild(n, indexAliases)
   }
+  indexAliases(overlaySf)
   const resolve = (n: string): string | undefined => {
     const d = aliases.get(n)
     if (!d) return undefined

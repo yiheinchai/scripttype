@@ -64,7 +64,7 @@ function extraAmbient(names: readonly string[]): string {
   const GENERIC = '<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any>'
   return (
     uniq
-      .map((n) => `declare function ${n}(...a: any[]): any\ntype ${n}${GENERIC} = any`)
+      .map((n) => `declare const ${n}: any\ntype ${n}${GENERIC} = any`)
       .join('\n') + '\n'
   )
 }

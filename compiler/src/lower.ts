@@ -1248,6 +1248,11 @@ class FunctionCompiler {
     }
     if (ts.isTypeQueryNode(t)) {
       // `typeof X` names the value X; in ScriptType that value *is* a type.
+      // `typeof m.H` reads hole H bound by match marker m.
+      if (ts.isQualifiedName(t.exprName)) {
+        const root = t.exprName.left.getText()
+        if (this.markers.has(root)) return ref(t.exprName.right.text)
+      }
       const name = t.exprName.getText()
       if (vars?.has(name)) return vars.get(name)!
       return ref(name)

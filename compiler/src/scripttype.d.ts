@@ -226,7 +226,7 @@ type asReadonly = any
  *   1. destructure (`const [h, ...t] = orElse(x, [])`) — what the corpus does;
  *   2. `hole('H')`, which is an ordinary call returning `any`.
  */
-type Hole<N extends string> = any
+type Hole<N extends string = string, C = any> = any
 declare function hole<N extends string = string>(name?: N): any
 
 // ---------------------------------------------------------------------------

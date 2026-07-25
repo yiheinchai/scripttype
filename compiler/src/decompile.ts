@@ -40,7 +40,7 @@ export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile)
     // No annotation when unconstrained: annotating `unknown` would make every use of
     // the parameter a type error, and `extends unknown` is not emitted anyway.
     const ann = tp.constraint ? `: ${holePattern(tp.constraint, sf, paramNames)}` : ''
-    const def = tp.default ? ` = ${d.expr(tp.default)}` : ''
+    const def = tp.default ? ` = ${d.exprNoHoist(tp.default)}` : ''
     return `${tp.name.text}${ann}${def}`
   })
 
@@ -52,7 +52,8 @@ export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile)
     if (recovered) {
       const sig = loop.publicParams.map((tp) => {
         const ann = tp.constraint ? `: ${holePattern(tp.constraint, sf, paramNames)}` : ''
-        return `${tp.name.text}${ann}`
+        const dflt = tp.default ? ` = ${d.exprNoHoist(tp.default)}` : ''
+        return `${tp.name.text}${ann}${dflt}`
       })
       const src =
         `/* @scripttype preserveParamNames */\n` +
@@ -366,6 +367,20 @@ class Decompiler {
    * Shared by every mapped type in a declaration, so a statement-level accumulator cannot
    * collide with a hoisted one — a collision emitted `out[K] = out`, a self-reference.
    */
+  /**
+   * Render an expression in a context that cannot hold statements, such as a parameter
+   * default. Anything needing a statement is lifted into its own function instead of
+   * silently losing its declaration.
+   */
+  exprNoHoist(t: ts.TypeNode): string {
+    this.noHoist++
+    try {
+      return this.expr(t)
+    } finally {
+      this.noHoist--
+    }
+  }
+
   /** Names in scope before any nesting: the alias's own parameters. */
   seedScope(names: string[]): void {
     this.scopeVars = [...names]

@@ -51,6 +51,16 @@ This file is the session's stopping condition: work continues while unticked box
       gaps, ~100 occurrences between them.
       *Evidence: the gap table in COVERAGE.md, with those rows gone.*
 
-- [ ] **CI runs the gates.** A workflow running tsc, tests, the typecheck gate, the verify
-      gate and a corpus smoke on every push.
+- [ ] **CI runs the gates.** `.github/workflows/ci.yml` runs `typecheck`, `build`, `test`,
+      the typecheck gate, the verify gate and a corpus smoke on every push and pull
+      request, on Node 20 with a pnpm cache, each gate its own named step so a failure
+      names itself. A fresh checkout has none of the corpus clones — they are gitignored
+      inputs, not our source — and the fixtures re-extract their references from them, so
+      the workflow shallow-clones the three the gates actually read (`kysely`,
+      `ts-pattern`, `ts-toolbelt`) through `refresh.sh`; without them `gate` and `verify`
+      both drop to 21/22 and exit 1.
+      Every command in the workflow passes locally, on Node 22 and Node 24, from a tree
+      with no clones present until that step runs. The workflow itself has never executed
+      on GitHub, and a workflow that has never run is not a green run, so the box stays
+      open until one lands.
       *Evidence: a green run.*

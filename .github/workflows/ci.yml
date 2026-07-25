@@ -1,0 +1,102 @@
+# Runs the project's gates on every push and every pull request.
+#
+# The gates are the same commands a person runs locally, in the same order and with no
+# CI-only variants, so a green run here means exactly what a green run on a laptop means.
+# Each gate is its own named step: when something breaks, the failing step names the thing
+# that broke rather than leaving a single opaque "build failed".
+name: CI
+
+on:
+  push:
+  pull_request:
+
+# A later push to the same branch makes the earlier run's answer obsolete before it can be
+# read, so there is nothing to gain by finishing it.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gates:
+    name: Gates
+    runs-on: ubuntu-latest
+    # The packaging test runs `npm pack` and installs the tarball into a scratch directory,
+    # which is the slowest thing here; the rest finishes in seconds.
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm must be installed before setup-node, because setup-node's pnpm cache needs the
+      # pnpm binary in order to locate the store.
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: compiler/pnpm-lock.yaml
+
+      # --frozen-lockfile so a lockfile that has drifted from package.json fails here,
+      # loudly, instead of silently resolving to something no one has tested.
+      - name: Install dependencies
+        working-directory: ./compiler
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        working-directory: ./compiler
+        run: pnpm typecheck
+
+      # The package ships a prebuilt dist, so a build that fails is a package that cannot be
+      # published, regardless of whether the sources typecheck.
+      - name: Build
+        working-directory: ./compiler
+        run: pnpm build
+
+      - name: Tests
+        working-directory: ./compiler
+        run: pnpm test
+
+      # The corpus clones are 26 third-party repositories, deliberately not committed (see
+      # the root .gitignore) — they are inputs, not our source. A fresh checkout therefore
+      # does not have them, and the three gates below genuinely need them: each corpus
+      # fixture re-extracts its reference type from the clone it came from, both to check
+      # the fixture has not drifted and to recover the local helper types the reference
+      # depends on. Without the clones that extraction silently falls back to nothing, and
+      # `gate` and `verify` both drop from 22/22 to 21/22 and exit 1.
+      #
+      # So the clones are fetched rather than skipped — but only the three the fixtures and
+      # the smoke actually read, not all 26. `refresh.sh` already clones shallow and
+      # single-branch, and takes the repository names as arguments, so it is reused here
+      # instead of restating the URLs.
+      #
+      # This is the one step that depends on the outside world: it tracks each project's
+      # default branch, so an upstream change to one of these types can turn CI red without
+      # anything in this repository having changed. That is a deliberate trade — the
+      # alternative is a fixture that claims to reproduce library code it no longer matches.
+      - name: Clone the corpus repositories the gates read
+        run: ./refresh.sh kysely ts-pattern ts-toolbelt
+
+      - name: Typecheck gate
+        working-directory: ./compiler
+        run: pnpm gate
+
+      - name: Verify gate
+        working-directory: ./compiler
+        run: pnpm verify
+
+      # A smoke, not the full corpus: the full run is 26 repositories across parallel shards
+      # under a wall-clock cap and takes far too long for a per-push gate. These two small
+      # repositories round-trip in seconds and are enough to catch a harness that has
+      # stopped working on real third-party code.
+      #
+      # Note what this step does and does not assert: `inplace.ts` is a measurement tool and
+      # exits 0 whatever coverage it finds, so this fails only if the round-trip harness
+      # crashes. The coverage number it prints is for reading in the log, not a threshold.
+      - name: Corpus smoke
+        working-directory: ./compiler
+        run: pnpm smoke

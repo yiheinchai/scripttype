@@ -467,9 +467,9 @@ failure is one of four kinds, in rough order of how many there are:
   are narrow: circular constraints, a few object-literal operand positions, and name collisions
   with library globals.
 - **`raw()` fallbacks** — genuine language gaps, where the decompiler could not express a
-  construct at all. Call and method signatures in object types dominate, followed by generic
-  function types (the `<T>() => …` variance trick, which `equals()` covers for hand-authored code
-  but the decompiler cannot reconstruct), index signatures, and constructor types.
+  construct at all. There are now none: the corpus decompiles with no `raw()` anywhere. The last
+  of them were call and method signatures in object types, which dominated the count, then type
+  predicates, index signatures beside named members, and accessors.
 - **mismatches** — compiles and typechecks, but is not type-identical. The most interesting
   failures, because each is a real semantic difference rather than a missing feature.
 

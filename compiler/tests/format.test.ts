@@ -109,6 +109,25 @@ describe('layout', () => {
     expect(lines.at(-1)).toBe(']')
   })
 
+  it('keeps object signature members as signatures when it wraps', () => {
+    // The formatter renders object members itself rather than deferring to the emitter,
+    // so a member form it does not know about silently degrades — a call signature came
+    // out as a property named `''`, and a method as a function property, which is a
+    // different type. Both spellings have to agree.
+    const src = `export function Api(t: unknown) {
+      return {
+        ...callSig([t, string, number, boolean], t),
+        ...callSig([t, string], t),
+        subscribe: methodType([t, string, number], voidType()),
+        name: string,
+      }
+    }`
+    const collapse = (s: string) => s.replace(/\s+/g, ' ').replace(/;/g, '').trim()
+    expect(collapse(at(src, 40))).toBe(collapse(at(src, Infinity)))
+    expect(at(src, 40)).toContain('subscribe(a0: T, a1: string, a2: number): void')
+    expect(at(src, 40)).not.toContain("''")
+  })
+
   it('produces output that parses back to the same type', () => {
     // The formatter must only move whitespace. Comparing the wrapped output with the
     // unwrapped one after collapsing runs of whitespace catches a dropped token.

@@ -12,6 +12,8 @@ exports.intersection = intersection;
 exports.template = template;
 exports.precedenceOf = precedenceOf;
 exports.emitFnParam = emitFnParam;
+exports.signatureHead = signatureHead;
+exports.propKey = propKey;
 exports.emit = emit;
 exports.emitAlias = emitAlias;
 exports.mapExpr = mapExpr;
@@ -160,20 +162,23 @@ function emitFnParam(fn, p, i) {
     return `${rest}a${i}${opt}: ${emit(p)}`;
 }
 /**
- * An object member that is a signature: `name(a0: A): R`, `(a0: A): R`, or
- * `new (a0: A): R`. The return type follows a colon rather than an arrow, which is the
- * only syntactic difference from the standalone function type the same node would emit
- * outside an object.
+ * Everything in a signature member before its return type: `name<T>(a0: A): `,
+ * `(a0: A): `, or `new (a0: A): `. The return type follows a colon rather than an arrow,
+ * which is the only syntactic difference from the standalone function type the same node
+ * would emit outside an object.
+ *
+ * Split out from the emitter because the width-aware formatter needs the same head, and a
+ * second copy would be a second thing to forget when a form is added.
  */
-function emitSignatureMember(p, fn) {
+function signatureHead(p, fn) {
     const tp = fn.typeParams?.length ? `<${fn.typeParams.join(', ')}>` : '';
     const args = fn.params.map((x, i) => emitFnParam(fn, x, i)).join(', ');
-    const head = fn.sig === 'method'
-        ? `${p.computed || IDENT_RE.test(p.name) ? p.name : quote(p.name)}${p.optional ? '?' : ''}`
-        : fn.sig === 'construct'
-            ? 'new '
-            : '';
-    return `${head}${tp}(${args}): ${emit(fn.ret)}`;
+    const head = fn.sig === 'method' ? `${propKey(p)}${p.optional ? '?' : ''}` : fn.sig === 'construct' ? 'new ' : '';
+    return `${head}${tp}(${args}): `;
+}
+/** An object member's key, quoted unless it is already a valid identifier. */
+function propKey(p) {
+    return p.computed || IDENT_RE.test(p.name) ? p.name : quote(p.name);
 }
 function emit(e, minPrec = 0) {
     const text = emitInner(e);
@@ -211,10 +216,10 @@ function emitInner(e) {
         }
         case 'object': {
             const props = e.props.map((p) => {
-                if (p.value.kind === 'fn' && p.value.sig)
-                    return emitSignatureMember(p, p.value);
-                const key = p.computed || IDENT_RE.test(p.name) ? p.name : quote(p.name);
-                return `${p.readonly ? 'readonly ' : ''}${key}${p.optional ? '?' : ''}: ${emit(p.value)}`;
+                const v = p.value;
+                if (v.kind === 'fn' && v.sig)
+                    return `${signatureHead(p, v)}${emit(v.ret)}`;
+                return `${p.readonly ? 'readonly ' : ''}${propKey(p)}${p.optional ? '?' : ''}: ${emit(p.value)}`;
             });
             if (e.index)
                 props.unshift(`[key: ${emit(e.index.key)}]: ${emit(e.index.value)}`);

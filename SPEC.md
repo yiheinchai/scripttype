@@ -333,9 +333,32 @@ literals, a `for…in` key variable, an object literal — the call forms `anyOf
 | `genericFnType(['T'], [A], R)` | `<T>(a0: A) => R` — the variance trick `Equals` is built from |
 | `ctorType([A], R)` | `new (a0: A) => R` |
 | `indexRecord(K, V)` | `{ [key: K]: V }` |
+| `paramIs(0, T)` | `a0 is T` — a function type's narrowing return; `paramAsserts` for `asserts` |
 | `t<T>()` | `T` — for a type whose head has no callable value form, e.g. `Promise<X>` |
 | `obj({ k: V })` | `{ k: V }` where it must be an operand |
 | `emptyObject`, `Null`, `Undefined` | `{}`, `null`, `undefined` where those cannot be operands |
+
+**Object members that are signatures.** A method is not the same type as a property holding a
+function — methods are bivariant under `strictFunctionTypes`, function properties are
+contravariant — so `{ get(k: K): V }` cannot be written `{ get: fnType([K], V) }` and expected to
+mean the same thing. A method is therefore a property whose value says it is one; a call,
+construct or index signature has no name at all, so it is *spread* into the object, which is
+already JavaScript's way of saying "and these members too":
+
+| ScriptType | TypeScript |
+|---|---|
+| `{ get: methodType([K], V) }` | `{ get(a0: K): V }` |
+| `{ ...callSig([A], R) }` | `{ (a0: A): R }` |
+| `{ ...ctorSig([A], R) }` | `{ new (a0: A): R }` |
+| `{ ...indexRecord(K, V), name: string }` | `{ [key: K]: V; name: string }` |
+| `{ ...callSig([A], R), ...callSig([B], S) }` | `{ (a0: A): R; (a0: B): S }` — an overload set |
+| `{ ...methodType('at', [A], R), ...methodType('at', [], S) }` | `{ at(a0: A): R; at(): S }` |
+
+Spreading is what makes an overload set expressible at all: several members share one name, and
+two identical object keys are a TypeScript error, so the ScriptType source would not typecheck.
+That single case — and only that case — lets a method carry its own name as a leading string.
+Each form has a `generic…` variant taking a leading list of type-parameter declarations, spelled
+as strings for the same reason `genericFnType` does: a type parameter is a binding, not a type.
 
 `defer(x)` deserves a note: it emits `[X] extends [unknown] ? X : never`, the trick kysely calls
 `DrainOuterGeneric`, which defers instantiation of an outer generic and is the standard cure for

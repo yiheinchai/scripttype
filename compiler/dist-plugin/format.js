@@ -29,8 +29,6 @@ exports.formatAlias = formatAlias;
  */
 const ir_js_1 = require("./ir.js");
 const DEFAULT_WIDTH = 96;
-const IDENT_RE = /^[A-Za-z_$][A-Za-z0-9_$]*$/;
-const quote = (s) => `'${s.replace(/\\/g, '\\\\').replace(/'/g, "\\'")}'`;
 const sp = (n) => ' '.repeat(Math.max(0, n));
 /** Kinds whose broken form opens with a bracket, which stays on the `=` line. */
 const BRACKETED = new Set(['object', 'mapped', 'tuple', 'ref']);
@@ -144,8 +142,14 @@ function fmt(e, start, anchor, minPrec, width, step) {
         }
         case 'object': {
             const props = e.props.map((p) => {
-                const key = p.computed || IDENT_RE.test(p.name) ? p.name : quote(p.name);
-                const label = `${p.readonly ? 'readonly ' : ''}${key}${p.optional ? '?' : ''}: `;
+                // A signature member's name and parameter list are its label; only the return
+                // type is left with room to wrap.
+                const v = p.value;
+                if (v.kind === 'fn' && v.sig) {
+                    const head = (0, ir_js_1.signatureHead)(p, v);
+                    return `${head}${fmt(v.ret, body + head.length, body, 0, width, step)}`;
+                }
+                const label = `${p.readonly ? 'readonly ' : ''}${(0, ir_js_1.propKey)(p)}${p.optional ? '?' : ''}: `;
                 return `${label}${fmt(p.value, body + label.length, body, 0, width, step)}`;
             });
             if (e.index) {

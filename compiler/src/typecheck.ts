@@ -45,8 +45,19 @@ const OPTIONS: ts.CompilerOptions = {
 
 const LIB_CACHE = new Map<string, ts.SourceFile | undefined>()
 
-/** Absolute path of the ambient declarations describing the ScriptType surface. */
-export const AMBIENT_DTS = path.resolve(import.meta.dirname, 'scripttype.d.ts')
+/**
+ * Absolute path of the ambient declarations describing the ScriptType surface.
+ *
+ * Resolved against both the module directory and `src/`, because a `.d.ts` is not emitted
+ * by a build: running from `dist/` must still find the copy in `src/`.
+ */
+export const AMBIENT_DTS = (() => {
+  const candidates = [
+    path.resolve(import.meta.dirname, 'scripttype.d.ts'),
+    path.resolve(import.meta.dirname, '../src/scripttype.d.ts'),
+  ]
+  return candidates.find((p) => fs.existsSync(p)) ?? candidates[0]!
+})()
 
 /**
  * Typecheck one or more ScriptType sources together with the ambient declarations.

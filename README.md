@@ -40,6 +40,53 @@ type Split__loop<Rest extends string, Out extends string[], Sep extends string> 
 A `while` loop with a mutable accumulator becomes a tail-recursive helper type. That is the whole
 idea, and it is standard closure conversion — the same transformation every compiler already does.
 
+## Getting started
+
+```bash
+cd compiler && pnpm install
+
+./bin/scripttype init my-types     # scripttype.d.ts, a tsconfig, and an example
+./bin/scripttype build my-types    # my-types/example.st.ts -> my-types/example.ts
+```
+
+`init` scaffolds a project that typechecks under stock `tsc` with no plugin, because a
+`.st.ts` file is ordinary TypeScript syntax. From there:
+
+```bash
+scripttype build src               # compile every .st.ts under src, next to its source
+scripttype build src --out gen     # or into a directory
+scripttype check .                 # report problems, write nothing (for CI)
+scripttype watch src               # rebuild on change
+scripttype builtins string         # search the builtin surface
+scripttype explain ST1102          # the full text behind any error code
+```
+
+`build` writes `foo.st.ts` to `foo.ts` with a generated-file banner, and refuses to
+overwrite anything at that path it did not write itself.
+
+## When you get something wrong
+
+A type-level language whose errors are bad is not worth adopting, so every compiler error
+carries a code, the span it happened at, and the fix:
+
+```
+error[ST1101]: compound assignment `+=` is not supported
+  --> src/nat.st.ts:3:3
+  |
+2 |   let x = 1
+3 |   x += 2
+  |   ^^^^^^
+4 |   return x
+  |
+help: Write it out: `x = x + 2`.
+      run `scripttype explain ST1101` for a worked example
+```
+
+An unknown name suggests the nearest builtin. A runtime global (`console`, `Math`) is
+named as such rather than reported as an undefined variable. `scripttype explain` prints
+the long-form entry, which is where the language is documented for that construct — it
+lives next to the code that raises the error so the two cannot drift apart.
+
 ## Why it works
 
 The type system is a pure functional language, so imperative code lowers into it mechanically:
@@ -55,6 +102,11 @@ The type system is a pure functional language, so imperative code lowers into it
 | `switch` | nested conditionals |
 | destructuring `const [h, ...t] = x` | `X extends [infer H, ...infer T] ? … : never` |
 | `splitOnce(s, '/')` | `S extends \`${infer L}/${infer R}\`` |
+| `typeof x === 'string'` | `X extends string` |
+| `'k' in o` | `'k' extends keyof O` |
+| `Array.isArray(x)` | `X extends any[]` |
+| `a === b` / `a !== b` | `A extends B ? … : …`, branches swapped for `!==` |
+| `s.startsWith('a')` | `S extends \`a${string}\`` |
 
 Two design decisions carry most of the weight:
 
@@ -159,7 +211,8 @@ A target counts only if it does all three: typechecks as TypeScript, recompiles 
 type-identical result, and uses no `raw()`. See [Coverage](#coverage) for the per-repository
 breakdown and what still fails.
 
-Run the gates:
+Run the gates (these are for working *on* the compiler; to *use* ScriptType see
+[Getting started](#getting-started)):
 
 ```bash
 cd compiler
@@ -207,7 +260,12 @@ SPEC.md                 language specification and lowering rules
 DX.md                   generated side-by-side readability comparison
 COVERAGE.md             generated per-repository coverage report
 CORPUS.md               reading guide to the 26 corpus repositories
+compiler/bin/
+  scripttype.mjs        the executable; registers tsx, then runs src/cli.ts
 compiler/src/
+  cli.ts                build / check / watch / explain / builtins / init
+  diagnostics.ts        error catalogue, source frames, "did you mean"
+  format.ts             width-aware printer for the emitted TypeScript
   ir.ts                 output IR (TypeExpr) + emitter with precedence-aware parenthesisation
   lower.ts              the core: statements -> types, by continuation-passing
   builtins.ts           builtin library; each carries a lowering rule

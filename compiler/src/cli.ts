@@ -163,7 +163,10 @@ function processFile(file: string, opts: { checkSource: boolean }): FileResult {
   const diagnostics: Diagnostic[] = []
 
   if (opts.checkSource) {
-    const tc = typecheckScriptType({ [path.basename(file)]: text }, freeNames(text).values)
+    // Key by absolute path, not basename: the typecheck host falls back to the real
+    // filesystem for anything it does not hold, so a relative import between two
+    // ScriptType modules only resolves if the importer has its true location.
+    const tc = typecheckScriptType({ [file]: text }, freeNames(text).values)
     for (const e of tc.errors) {
       diagnostics.push({ code: 'ST0001', message: e, file, severity: 'warning' })
     }

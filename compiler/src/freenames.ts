@@ -44,6 +44,10 @@ export function freeNames(source: string): { values: string[]; types: string[] }
     if (ts.isParameter(n) && ts.isIdentifier(n.name)) declared.add(n.name.text)
     if (ts.isVariableDeclaration(n) && ts.isIdentifier(n.name)) declared.add(n.name.text)
     if (ts.isBindingElement(n) && ts.isIdentifier(n.name)) declared.add(n.name.text)
+    // An imported name is bound by the import, so it must not also be declared
+    // ambiently — that would hide a genuinely unresolved module behind an `any`.
+    if (ts.isImportClause(n) && n.name) declared.add(n.name.text)
+    if (ts.isImportSpecifier(n) || ts.isNamespaceImport(n)) declared.add(n.name.text)
     if (ts.isForInStatement(n) || ts.isForOfStatement(n)) {
       const init = n.initializer
       if (ts.isVariableDeclarationList(init)) {

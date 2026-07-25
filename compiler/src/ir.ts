@@ -215,9 +215,11 @@ function emitInner(e: TypeExpr): string {
       return e.members.map((m) => emit(m, P_INTER + 1)).join(' & ')
     case 'tuple': {
       const parts = e.elements.map((el) => {
-        // Spread needs an array-ish operand, so bind tighter than union/intersection
-        // but leave a bare `infer X` unparenthesised.
-        const inner = emit(el.expr, el.spread ? P_PREFIX : 0)
+        // Spread needs an array-ish operand, so bind tighter than union/intersection.
+        // An `infer X` is exempt, constrained or not: the tuple's `,` or `]` already
+        // terminates the constraint, so `...infer T extends string[]` parses, and the
+        // parentheses would only be noise.
+        const inner = emit(el.expr, el.spread && el.expr.kind !== 'infer' ? P_PREFIX : 0)
         const named = el.name ? `${el.name}${el.optional ? '?' : ''}: ` : ''
         if (el.spread) return `...${named}${inner}`
         return `${named}${inner}${el.optional && !el.name ? '?' : ''}`

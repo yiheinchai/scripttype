@@ -78,6 +78,22 @@ const TYPEOF_TAGS: Record<string, () => TypeExpr> = {
   }),
 }
 
+/**
+ * The element type of an array constraint, when it is informative.
+ *
+ * `readonly unknown[]` is the fallback constraint the loop lowering uses when nothing
+ * better is known, and constraining a peeled element to `unknown` buys nothing, so it
+ * is treated as absent.
+ */
+function elementTypeOf(constraint: TypeExpr | undefined): TypeExpr | undefined {
+  if (!constraint) return undefined
+  if (constraint.kind === 'array') {
+    const el = constraint.element
+    return el.kind === 'keyword' && el.name === 'unknown' ? undefined : el
+  }
+  return undefined
+}
+
 /** Arguments for the CompileError constructor, spread at a throw site. */
 type ErrorArgs = [message: string, node: ts.Node, code: string, help?: string]
 
@@ -202,9 +218,27 @@ function pascal(name: string): string {
   return name[0]!.toUpperCase() + name.slice(1)
 }
 
+/**
+ * An import or re-export carried through from the source.
+ *
+ * Everything a ScriptType module imports becomes a *type* once compiled — a type
+ * function is called in value position in the source but is a generic alias in the
+ * output — so the emitted form is always `import type`.
+ */
+export interface ImportInfo {
+  /** Module specifier as written, before `.st.js` -> `.js` rewriting. */
+  specifier: string
+  named: { name: string; alias?: string }[]
+  defaultName?: string
+  namespaceName?: string
+  /** A re-export (`export { X } from …`) rather than an import. */
+  isExport: boolean
+}
+
 export interface ModuleResult {
   aliases: TypeAlias[]
   prelude: Set<string>
+  imports: ImportInfo[]
 }
 
 export interface LowerOptions {
@@ -222,8 +256,12 @@ export interface LowerOptions {
 export function compileSourceFile(sf: ts.SourceFile, opts: LowerOptions = {}): ModuleResult {
   const aliases: TypeAlias[] = []
   const prelude = new Set<string>()
+  const imports: ImportInfo[] = []
   for (const stmt of sf.statements) {
-    if (ts.isFunctionDeclaration(stmt) && stmt.body && stmt.name) {
+    const imported = importInfo(stmt)
+    if (imported) {
+      imports.push(imported)
+    } else if (ts.isFunctionDeclaration(stmt) && stmt.body && stmt.name) {
       const fc = new FunctionCompiler(stmt, sf, prelude, opts)
       aliases.push(...fc.compile())
     } else if (ts.isTypeAliasDeclaration(stmt)) {
@@ -240,7 +278,50 @@ export function compileSourceFile(sf: ts.SourceFile, opts: LowerOptions = {}): M
       })
     }
   }
-  return { aliases, prelude }
+  return { aliases, prelude, imports }
+}
+
+/**
+ * Read an import or re-export declaration, or return undefined for anything else.
+ *
+ * A side-effect import (`import './x.js'`) is deliberately dropped: it has no type-level
+ * meaning, and carrying it into a file of pure type aliases would emit a runtime import
+ * from a module that no longer exists at that path.
+ */
+function importInfo(stmt: ts.Statement): ImportInfo | undefined {
+  const read = (
+    clause: ts.ImportClause | ts.NamedExportBindings | undefined,
+    specifier: string,
+    isExport: boolean,
+  ): ImportInfo | undefined => {
+    const info: ImportInfo = { specifier, named: [], isExport }
+    if (clause && 'name' in clause && clause.name) info.defaultName = clause.name.text
+    const bindings =
+      clause && 'namedBindings' in clause ? clause.namedBindings : (clause as ts.NamedExportBindings | undefined)
+    if (bindings) {
+      if (ts.isNamespaceImport(bindings) || ts.isNamespaceExport(bindings)) {
+        info.namespaceName = bindings.name.text
+      } else if (ts.isNamedImports(bindings) || ts.isNamedExports(bindings)) {
+        for (const el of bindings.elements) {
+          info.named.push({
+            name: (el.propertyName ?? el.name).text,
+            alias: el.propertyName ? el.name.text : undefined,
+          })
+        }
+      }
+    }
+    return info.named.length || info.defaultName || info.namespaceName ? info : undefined
+  }
+
+  if (ts.isImportDeclaration(stmt) && ts.isStringLiteral(stmt.moduleSpecifier)) {
+    return read(stmt.importClause, stmt.moduleSpecifier.text, false)
+  }
+  // Only a re-export can be carried over; a bare `export { X }` refers to local
+  // declarations, which are already emitted with their own `export` modifier.
+  if (ts.isExportDeclaration(stmt) && stmt.moduleSpecifier && ts.isStringLiteral(stmt.moduleSpecifier)) {
+    return read(stmt.exportClause, stmt.moduleSpecifier.text, true)
+  }
+  return undefined
 }
 
 const hasExport = (n: ts.Node): boolean =>
@@ -914,6 +995,7 @@ class FunctionCompiler {
     let iterVar: string | undefined
     let listVar: string | undefined
     let listInit: TypeExpr | undefined
+    let listConstraint: TypeExpr | undefined
     if (ts.isForOfStatement(stmt)) {
       const decl = stmt.initializer
       if (!ts.isVariableDeclarationList(decl) || decl.declarations.length !== 1) {
@@ -924,6 +1006,13 @@ class FunctionCompiler {
       iterVar = nameNode.text
       listInit = this.expr(stmt.expression, vars)
       listVar = this.fresh('Rest')
+      // Carry the element type into the loop. Constraining the list to a bare
+      // `readonly unknown[]` would make each destructured element `unknown`, so
+      // iterating a `string[]` and calling a `V extends string` function on an element
+      // emitted TypeScript that did not typecheck.
+      if (ts.isIdentifier(stmt.expression)) {
+        listConstraint = this.constraintOf(stmt.expression.text, vars)
+      }
     }
 
     // Free variables the loop reads but never writes are carried through unchanged.
@@ -966,7 +1055,10 @@ class FunctionCompiler {
 
     if (listVar) {
       helperUsed.add(listVar)
-      params.push({ name: listVar, constraint: { kind: 'raw', text: 'readonly unknown[]' } })
+      params.push({
+        name: listVar,
+        constraint: listConstraint ?? { kind: 'raw', text: 'readonly unknown[]' },
+      })
     }
     const emitParam = (srcName: string) => {
       const pName = helperFresh(srcName)
@@ -1005,9 +1097,17 @@ class FunctionCompiler {
         onBreak: loopCtx.onBreak,
         onContinue: recurse,
       })
+      // Constrain the peeled element and tail when the element type is known.
+      // TypeScript does not push a `Rest extends string[]` constraint through the
+      // destructuring pattern, so without this `infer Head` is `unknown` and passing it
+      // to a function that wants a `string` emits TypeScript that does not typecheck.
+      const elem = elementTypeOf(listConstraint)
       helperBody = cond(
         ref(listVar!),
-        tuple([{ expr: inferNode(headName) }, { expr: inferNode(tailName), spread: true }]),
+        tuple([
+          { expr: inferNode(headName, elem) },
+          { expr: inferNode(tailName, elem && { kind: 'array', element: elem }), spread: true },
+        ]),
         bodyExpr,
         after(helperVars),
       )

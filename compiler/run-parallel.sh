@@ -20,10 +20,30 @@ if [ ${#ROOTS[@]} -eq 0 ]; then
 fi
 
 rm -rf "$OUT"; mkdir -p "$OUT"
+# Run the built JavaScript, not tsx. Ten concurrent tsx processes race on its shared
+# compile cache and fail with errors from inside the loader ("renderImports is not
+# defined"), and node also starts faster with nothing to transpile.
+./node_modules/.bin/tsc -p tsconfig.build.json || exit 1
 echo "$SHARDS shards across $WORKERS workers: ${ROOTS[*]}"
 START=$(date +%s)
+# Each shard runs under a wall-clock cap. A single corpus file can occupy the checker for
+# many minutes, and without a cap one such file holds the whole run to its own time.
+# Shards persist results after every batch, so a capped shard keeps what it finished.
+SHARD_CAP="${SCRIPTTYPE_SHARD_CAP:-180}"
+run_shard() {
+  local k="$1"
+  env NODE_OPTIONS=--max-old-space-size=4096 node dist/inplace.js \
+    ${ROOTS_STR} --shard "$k/$SHARDS" --json "$OUT/shard$k.json" 2>"$OUT/shard$k.txt" >/dev/null &
+  local pid=$!
+  ( sleep "$SHARD_CAP"; kill -9 "$pid" 2>/dev/null ) &
+  local killer=$!
+  wait "$pid" 2>/dev/null
+  kill "$killer" 2>/dev/null
+}
+export -f run_shard
+export ROOTS_STR="${ROOTS[*]}" SHARDS OUT SHARD_CAP
+
 printf '%s\n' $(seq 0 $((SHARDS - 1))) | xargs -P "$WORKERS" -I{} \
-  env NODE_OPTIONS=--max-old-space-size=4096 ./node_modules/.bin/tsx src/inplace.ts \
-    "${ROOTS[@]}" --shard "{}/$SHARDS" --json "$OUT/shard{}.json" 2>"$OUT/shard{}.txt" >/dev/null
+  bash -c 'run_shard {}'
 echo "elapsed $(( $(date +%s) - START ))s"
 ls "$OUT"/*.json 2>/dev/null | wc -l | xargs echo "shard files:"

@@ -473,7 +473,9 @@ describe('for-of loops', () => {
     }`
     const code = c(src)
     expect(code).toContain('export type Uppers<Items extends string[]> = Uppers__loop<Items, []>')
-    expect(code).toContain('Rest extends [infer Item, ...infer Tail] ? Uppers__loop<Tail, [...Out, Uppercase<Item>]> : Out')
+    // The element constraint is carried in from `Items extends string[]`, so the
+    // peeled `Item` is a string rather than unknown.
+    expect(code).toContain('Rest extends [infer Item extends string, ...infer Tail extends string[]] ? Uppers__loop<Tail, [...Out, Uppercase<Item>]> : Out')
   })
 })
 

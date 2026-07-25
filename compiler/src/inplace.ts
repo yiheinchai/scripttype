@@ -302,8 +302,19 @@ function readOutcomes(program: ts.Program, checker: ts.TypeChecker, o: Overlay):
   return outcomes
 }
 
-/** Round-trip a batch of files, checking them together. */
-export function inplaceFiles(rels: string[], batchSize = 40): Outcome[] {
+/**
+ * Round-trip a batch of files, checking them together.
+ *
+ * `onBatch` is invoked after each batch so a caller can persist partial results. That
+ * matters because a single corpus file can occupy the checker for many minutes — typebox
+ * and hotscript both contain type-level programs that are genuinely expensive to
+ * evaluate — and a run that is cut short should still keep what it finished.
+ */
+export function inplaceFiles(
+  rels: string[],
+  batchSize = 20,
+  onBatch?: (soFar: Outcome[]) => void,
+): Outcome[] {
   const out: Outcome[] = []
   const overlays: Overlay[] = []
   for (const rel of rels) {
@@ -324,6 +335,7 @@ export function inplaceFiles(rels: string[], batchSize = 40): Outcome[] {
   // every type in memory simultaneously and exhausts the heap.
   for (let i = 0; i < overlays.length; i += batchSize) {
     out.push(...checkOverlays(overlays.slice(i, i + batchSize)))
+    onBatch?.(out)
   }
   return out
 }
@@ -369,7 +381,11 @@ if (process.argv[1] && import.meta.filename === path.resolve(process.argv[1])) {
   for (const root of roots) files.push(...collectFiles(root))
   const mine = shard ? files.filter((_, i) => i % shard!.n === shard!.k) : files
 
-  const all: Outcome[] = inplaceFiles(mine)
+  // Persist after every batch, so a shard that is killed mid-run still contributes.
+  const writeSoFar = (soFar: Outcome[]) => {
+    if (jsonOut) fs.writeFileSync(jsonOut, JSON.stringify(soFar))
+  }
+  const all: Outcome[] = inplaceFiles(mine, 20, writeSoFar)
 
   const counts = new Map<Status, number>()
   for (const o of all) counts.set(o.status, (counts.get(o.status) ?? 0) + 1)

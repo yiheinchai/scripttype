@@ -63,7 +63,8 @@ export function __Split(S: string, D: string) {
 
 ```ts
 export type __Split<S extends string, D extends string> = __Split__loop<S, [], D>
-type __Split__loop<S extends string, T extends any[], D extends string> = S extends `${infer BS}${D}${infer AS}` ? __Split__loop<AS, [...T, BS], D> : [...T, S]
+type __Split__loop<S extends string, T extends any[], D extends string> =
+  S extends `${infer BS}${D}${infer AS}` ? __Split__loop<AS, [...T, BS], D> : [...T, S]
 ```
 
 ## Iterator
@@ -100,7 +101,8 @@ export function Iterator(n: number) {
 
 ```ts
 export type Iterator<n extends number> = Iterator__loop<[], n>
-type Iterator__loop<It extends any[], N extends number> = It['length'] extends N ? It : Iterator__loop<[any, ...It], N>
+type Iterator__loop<It extends any[], N extends number> =
+  It['length'] extends N ? It : Iterator__loop<[any, ...It], N>
 ```
 
 ## ExtractTypeFromStringSelectExpression
@@ -210,7 +212,23 @@ export function ExtractTypeFromStringSelectExpression(DB, TB: keyof typeof DB, S
 **Compiles back to**
 
 ```ts
-export type ExtractTypeFromStringSelectExpression<DB, TB extends keyof DB, SE extends string> = SE extends `${infer SC}.${infer T}.${infer C} as ${string}` ? `${SC}.${T}` extends TB ? C extends keyof DB[`${SC}.${T}`] ? DB[`${SC}.${T}`][C] : never : never : SE extends `${infer T}.${infer C} as ${string}` ? T extends TB ? C extends keyof DB[T] ? DB[T][C] : never : never : SE extends `${infer C} as ${string}` ? C extends AnyColumn<DB, TB> ? ExtractColumnType<DB, TB, C> : never : SE extends `${infer SC}.${infer T}.${infer C}` ? `${SC}.${T}` extends TB ? C extends keyof DB[`${SC}.${T}`] ? DB[`${SC}.${T}`][C] : never : never : SE extends `${infer T}.${infer C}` ? T extends TB ? C extends keyof DB[T] ? DB[T][C] : never : never : SE extends AnyColumn<DB, TB> ? ExtractColumnType<DB, TB, SE> : never
+export type ExtractTypeFromStringSelectExpression<DB, TB extends keyof DB, SE extends string> =
+  SE extends `${infer SC}.${infer T}.${infer C} as ${string}`
+    ? `${SC}.${T}` extends TB
+      ? C extends keyof DB[`${SC}.${T}`] ? DB[`${SC}.${T}`][C] : never
+      : never
+  : SE extends `${infer T}.${infer C} as ${string}`
+    ? T extends TB ? C extends keyof DB[T] ? DB[T][C] : never : never
+  : SE extends `${infer C} as ${string}`
+    ? C extends AnyColumn<DB, TB> ? ExtractColumnType<DB, TB, C> : never
+  : SE extends `${infer SC}.${infer T}.${infer C}`
+    ? `${SC}.${T}` extends TB
+      ? C extends keyof DB[`${SC}.${T}`] ? DB[`${SC}.${T}`][C] : never
+      : never
+  : SE extends `${infer T}.${infer C}`
+    ? T extends TB ? C extends keyof DB[T] ? DB[T][C] : never : never
+  : SE extends AnyColumn<DB, TB> ? ExtractColumnType<DB, TB, SE>
+  : never
 ```
 
 ## AnyColumn

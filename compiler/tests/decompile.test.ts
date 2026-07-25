@@ -86,6 +86,28 @@ describe('natural narrowing forms', () => {
   })
 })
 
+describe('array types', () => {
+  it('uses the expression form rather than naming the type', () => {
+    // Regression: `Array<T>` went through `t<…>()`, which renders its argument as
+    // verbatim *type* text. A nested reference to a ScriptType function — a value —
+    // then appeared in type position and the converted file would not typecheck.
+    const original = 'type Boxed<T> = T extends unknown ? Array<Wrap<T>> : never'
+    const out = decompile(original)
+    expect(out).toContain('arrayOf(Wrap(T))')
+    expect(out).not.toContain('t<Array<')
+  })
+
+  it('handles ReadonlyArray too', () => {
+    expect(decompile('type R<T> = T extends unknown ? ReadonlyArray<T> : never')).toContain(
+      'readonlyArrayOf(T)',
+    )
+  })
+
+  it('still names a constructor global that has no expression form', () => {
+    expect(decompile('type P<T> = T extends unknown ? Promise<T> : never')).toContain('t<Promise<')
+  })
+})
+
 describe('round trip', () => {
   it('preserves a multi-branch conditional', () => {
     const original =

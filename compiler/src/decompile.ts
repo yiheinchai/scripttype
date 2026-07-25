@@ -597,6 +597,18 @@ class Decompiler {
       if (bound && !args.length) return bound
       const local = this.locals.get(name)
       if (local && !args.length) return local
+      // `Array<T>` and `ReadonlyArray<T>` have real expression forms, so use them rather
+      // than falling into the `t<…>()` case below. That matters beyond tidiness: `t<…>()`
+      // renders its argument as verbatim *type* text, and a ScriptType function is a
+      // value, so a nested call like `Array<Dehydrate<U>>` would emit `Dehydrate<U>` in
+      // type position and fail to typecheck.
+      const ARRAY_FORM: Record<string, string> = {
+        Array: 'arrayOf',
+        ReadonlyArray: 'readonlyArrayOf',
+      }
+      const arrayForm = ARRAY_FORM[name]
+      if (arrayForm && args.length === 1) return `${arrayForm}(${this.expr(args[0]!)})`
+
       // A global whose value form is a constructor cannot be applied as a call, so name
       // the type directly instead of emitting `Promise(T)`.
       if (CONSTRUCTOR_GLOBALS.has(name.split('.')[0]!)) {

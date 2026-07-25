@@ -280,7 +280,7 @@ export function validateCases(cases, ctx: MatchParserContext) {
  */
 
 // ✗ errorCases: the ScriptType does not itself typecheck as TypeScript
-//   errorCases.st.ts(5:158) TS2702: 'type' only refers to a type, but is being used as a namespace here.
+//   errorCases.st.ts(5:159) TS2702: 'type' only refers to a type, but is being used as a namespace here.
 /* @scripttype preserveParamNames */
 export function errorCases(cases, ctx: MatchParserContext) {
   const out = emptyObject

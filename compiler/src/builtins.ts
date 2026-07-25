@@ -346,6 +346,16 @@ register(
     lower: (args) => expr(unionOf(args.map((a) => a!))),
   }),
   def({
+    name: 't',
+    arity: 0,
+    doc: 't<T>() -> T  (names a type whose head has no usable value form, e.g. Promise)',
+    lower: (_args, ctx) => {
+      const T = ctx.typeArgs[0]
+      if (!T) throw new Error('t<T>() requires a type argument')
+      return expr(T)
+    },
+  }),
+  def({
     name: 'obj',
     arity: 1,
     doc: 'obj({ k: V }) -> { k: V }  (identity; exists so an object type can be an & operand)',

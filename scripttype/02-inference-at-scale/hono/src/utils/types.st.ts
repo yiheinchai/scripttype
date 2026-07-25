@@ -233,7 +233,7 @@ export function InterfaceToType(T) {
  */
 
 // ✗ RequiredKeysOf: the ScriptType does not itself typecheck as TypeScript
-//   RequiredKeysOf.st.ts(5:60) TS2537: Type '{}' has no matching index signature for type 'string'.
+//   RequiredKeysOf.st.ts(5:61) TS2537: Type '{}' has no matching index signature for type 'string'.
 /* @scripttype preserveParamNames */
 export function RequiredKeysOf(BaseType: object) {
   const out = emptyObject

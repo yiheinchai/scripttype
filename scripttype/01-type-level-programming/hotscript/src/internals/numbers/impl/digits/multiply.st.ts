@@ -136,7 +136,7 @@ export function MulByDigit(T: Digit[], U: Digit) {
 // ✓ MulDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MulDigits(T: Digit[], U: Digit[]) {
-  let Acc = []
+  let Acc: any[] = []
   let u = U
   while (true) {
     const m1 = matches<[ Hole<"N", Digit>, ...Hole<"R", Digit[]> ]>(u)
@@ -150,5 +150,5 @@ export function MulDigits(T: Digit[], U: Digit[]) {
 }
 /* compiles to:
  * export type MulDigits<T extends Digit[], U extends Digit[]> = MulDigits__loop<U, [], T>
- * type MulDigits__loop<U extends Digit[], Acc extends readonly unknown[], T extends Digit[]> = U extends [infer N extends Digit, ...(infer R extends Digit[])] ? MulDigits__loop<R, AddDigits<MulByDigit<T, N>, MulX10<Acc>>, T> : Acc
+ * type MulDigits__loop<U extends Digit[], Acc extends any[], T extends Digit[]> = U extends [infer N extends Digit, ...(infer R extends Digit[])] ? MulDigits__loop<R, AddDigits<MulByDigit<T, N>, MulX10<Acc>>, T> : Acc
  */

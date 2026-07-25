@@ -44,7 +44,7 @@ export function TInsert(Type: TSchema, Types: TSchema[], Result: TSchema[] = [])
 // ✓ TSort: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TSort(Types: TSchema[]) {
-  let Result = []
+  let Result: any[] = []
   let types = Types
   while (true) {
     const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(types)
@@ -58,7 +58,7 @@ export function TSort(Types: TSchema[]) {
 }
 /* compiles to:
  * export type TSort<Types extends TSchema[]> = TSort__loop<Types, []>
- * type TSort__loop<Types extends TSchema[], Result extends readonly unknown[]> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TSort__loop<Right, TInsert<Left, Result>> : Result
+ * type TSort__loop<Types extends TSchema[], Result extends any[]> = Types extends [infer Left extends TSchema, ...(infer Right extends TSchema[])] ? TSort__loop<Right, TInsert<Left, Result>> : Result
  */
 
 // ✓ TPriority: verified type-identical to the original

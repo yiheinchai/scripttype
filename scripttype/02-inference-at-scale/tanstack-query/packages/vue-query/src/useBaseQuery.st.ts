@@ -21,7 +21,7 @@ type Ref<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any>
 type UseInfiniteQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UseQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ UseBaseQueryReturnType: the ScriptType does not itself typecheck as TypeScript
-//   UseBaseQueryReturnType.st.ts(7:43) TS2348: Value of type 'PromiseConstructor' is not callable. Did you mean to include 'new'?
+//   UseBaseQueryReturnType.st.ts(7:44) TS2348: Value of type 'PromiseConstructor' is not callable. Did you mean to include 'new'?
 /* @scripttype preserveParamNames */
 export function UseBaseQueryReturnType(TData, TError, TResult = QueryObserverResult(TData, TError)) {
   const out = emptyObject

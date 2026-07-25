@@ -8,7 +8,7 @@
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
 // ✗ TaggedUnion: the ScriptType does not itself typecheck as TypeScript
-//   TaggedUnion.st.ts(5:15) TS2304: Cannot find name 'Name'.
+//   TaggedUnion.st.ts(5:17) TS2304: Cannot find name 'Name'.
 /* @scripttype preserveParamNames */
 export function TaggedUnion(TagKey: string, UnionMembers: Record<string, Record<string, unknown>>) {
   const out2 = emptyObject

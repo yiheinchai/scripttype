@@ -42,7 +42,7 @@ export function BaseKeyFilter(Type, Key: keyof typeof Type) {
  */
 
 // ✗ FilterDefinedKeys: the ScriptType does not itself typecheck as TypeScript
-//   FilterDefinedKeys.st.ts(5:114) TS2537: Type '{}' has no matching index signature for type 'string'.
+//   FilterDefinedKeys.st.ts(5:115) TS2537: Type '{}' has no matching index signature for type 'string'.
 /* @scripttype preserveParamNames */
 export function FilterDefinedKeys(T: object) {
   const out = emptyObject
@@ -56,7 +56,7 @@ export function FilterDefinedKeys(T: object) {
  */
 
 // ✗ FilterOptionalKeys: the ScriptType does not itself typecheck as TypeScript
-//   FilterOptionalKeys.st.ts(5:74) TS2537: Type '{}' has no matching index signature for type 'string'.
+//   FilterOptionalKeys.st.ts(5:75) TS2537: Type '{}' has no matching index signature for type 'string'.
 /* @scripttype preserveParamNames */
 export function FilterOptionalKeys(T: object) {
   const out = emptyObject

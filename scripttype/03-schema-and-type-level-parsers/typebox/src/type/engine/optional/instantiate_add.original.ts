@@ -1,0 +1,25 @@
+/**
+ * ORIGINAL TypeScript from 03-schema-and-type-level-parsers/typebox/src/type/engine/optional/instantiate_add.ts, for comparison with the ScriptType alongside.
+ *
+ * Type declarations are verbatim. Imports are replaced by declarations of the names
+ * they brought in, because relative imports do not resolve in this mirrored tree and
+ * an unresolvable import is an editor error.
+ */
+// Names imported from elsewhere in the library, declared here because relative
+// imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
+type TInstantiateType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TState<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+export type TAddOptionalOperation<Type extends TSchema,
+  Result extends TSchema = `~optional` extends keyof Type ? Type : TOptional<Type>
+> = Result
+
+export type TAddOptionalAction<Type extends TSchema,
+  Result extends TSchema = TAddOptionalOperation<Type>
+> = Result
+
+export type TAddOptionalInstantiate<Context extends TProperties, State extends TState, Type extends TSchema,
+  InstantiateType extends TSchema = TInstantiateType<Context, State, Type>
+> = TAddOptionalAction<InstantiateType>

@@ -1,0 +1,235 @@
+/**
+ * ORIGINAL TypeScript from 06-state-and-forms/redux-toolkit/packages/toolkit/src/query/core/buildMiddleware/queryLifecycle.ts, for comparison with the ScriptType alongside.
+ *
+ * Type declarations are verbatim. Imports are replaced by declarations of the names
+ * they brought in, because relative imports do not resolve in this mirrored tree and
+ * an unresolvable import is an editor error.
+ */
+// Names imported from elsewhere in the library, declared here because relative
+// imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.
+type BaseQueryError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseQueryFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type BaseQueryMeta<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MutationBaseLifecycleApi<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PromiseWithKnownReason<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+export type QueryFulfilledRejectionReason<BaseQuery extends BaseQueryFn> =
+  | {
+      error: BaseQueryError<BaseQuery>
+      /**
+       * If this is `false`, that means this error was returned from the `baseQuery` or `queryFn` in a controlled manner.
+       */
+      isUnhandledError: false
+      /**
+       * The `meta` returned by the `baseQuery`
+       */
+      meta: BaseQueryMeta<BaseQuery>
+    }
+  | {
+      error: unknown
+      meta?: undefined
+      /**
+       * If this is `true`, that means that this error is the result of `baseQueryFn`, `queryFn`, `transformResponse` or `transformErrorResponse` throwing an error instead of handling it properly.
+       * There can not be made any assumption about the shape of `error`.
+       */
+      isUnhandledError: true
+    }
+
+export type QueryLifecyclePromises<ResultType, BaseQuery extends BaseQueryFn> = {
+  /**
+   * Promise that will resolve with the (transformed) query result.
+   *
+   * If the query fails, this promise will reject with the error.
+   *
+   * This allows you to `await` for the query to finish.
+   *
+   * If you don't interact with this promise, it will not throw.
+   */
+  queryFulfilled: PromiseWithKnownReason<
+    {
+      /**
+       * The (transformed) query result.
+       */
+      data: ResultType
+      /**
+       * The `meta` returned by the `baseQuery`
+       */
+      meta: BaseQueryMeta<BaseQuery>
+    },
+    QueryFulfilledRejectionReason<BaseQuery>
+  >
+}
+
+export interface QueryLifecycleApi<
+  QueryArg,
+  BaseQuery extends BaseQueryFn,
+  ResultType,
+  ReducerPath extends string = string,
+>
+  extends
+    QueryBaseLifecycleApi<QueryArg, BaseQuery, ResultType, ReducerPath>,
+    QueryLifecyclePromises<ResultType, BaseQuery> {}
+
+export type QueryLifecycleQueryExtraOptions<
+  ResultType,
+  QueryArg,
+  BaseQuery extends BaseQueryFn,
+  ReducerPath extends string = string,
+> = {
+  /**
+   * A function that is called when the individual query is started. The function is called with a lifecycle api object containing properties such as `queryFulfilled`, allowing code to be run when a query is started, when it succeeds, and when it fails (i.e. throughout the lifecycle of an individual query/mutation call).
+   *
+   * Can be used to perform side-effects throughout the lifecycle of the query.
+   *
+   * @example
+   * ```ts
+   * import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+   * import { messageCreated } from './notificationsSlice';
+   *
+   * export interface Post {
+   *   id: number;
+   *   name: string;
+   * }
+   *
+   * const api = createApi({
+   *   baseQuery: fetchBaseQuery({
+   *     baseUrl: '/',
+   *   }),
+   *   endpoints: (build) => ({
+   *     getPost: build.query<Post, number>({
+   *       query: (id) => `post/${id}`,
+   *       async onQueryStarted(id, { dispatch, queryFulfilled }) {
+   *         // `onStart` side-effect
+   *         dispatch(messageCreated('Fetching posts...'));
+   *         try {
+   *           const { data } = await queryFulfilled;
+   *           // `onSuccess` side-effect
+   *           dispatch(messageCreated('Posts received!'));
+   *         } catch (err) {
+   *           // `onError` side-effect
+   *           dispatch(messageCreated('Error fetching posts!'));
+   *         }
+   *       },
+   *     }),
+   *   }),
+   * });
+   * ```
+   */
+  onQueryStarted?(
+    queryArgument: QueryArg,
+    queryLifeCycleApi: QueryLifecycleApi<
+      QueryArg,
+      BaseQuery,
+      ResultType,
+      ReducerPath
+    >,
+  ): Promise<void> | void
+}
+
+export type QueryLifecycleInfiniteQueryExtraOptions<
+  ResultType,
+  QueryArg,
+  BaseQuery extends BaseQueryFn,
+  ReducerPath extends string = string,
+> = QueryLifecycleQueryExtraOptions<
+  ResultType,
+  QueryArg,
+  BaseQuery,
+  ReducerPath
+>
+
+export type MutationLifecycleApi<
+  QueryArg,
+  BaseQuery extends BaseQueryFn,
+  ResultType,
+  ReducerPath extends string = string,
+> = MutationBaseLifecycleApi<QueryArg, BaseQuery, ResultType, ReducerPath> &
+  QueryLifecyclePromises<ResultType, BaseQuery>
+
+export type QueryLifecycleMutationExtraOptions<
+  ResultType,
+  QueryArg,
+  BaseQuery extends BaseQueryFn,
+  ReducerPath extends string = string,
+> = {
+  /**
+   * A function that is called when the individual mutation is started. The function is called with a lifecycle api object containing properties such as `queryFulfilled`, allowing code to be run when a query is started, when it succeeds, and when it fails (i.e. throughout the lifecycle of an individual query/mutation call).
+   *
+   * Can be used for `optimistic updates`.
+   *
+   * @example
+   *
+   * ```ts
+   * import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query'
+   * export interface Post {
+   *   id: number
+   *   name: string
+   * }
+   *
+   * const api = createApi({
+   *   baseQuery: fetchBaseQuery({
+   *     baseUrl: '/',
+   *   }),
+   *   tagTypes: ['Post'],
+   *   endpoints: (build) => ({
+   *     getPost: build.query<Post, number>({
+   *       query: (id) => `post/${id}`,
+   *       providesTags: ['Post'],
+   *     }),
+   *     updatePost: build.mutation<void, Pick<Post, 'id'> & Partial<Post>>({
+   *       query: ({ id, ...patch }) => ({
+   *         url: `post/${id}`,
+   *         method: 'PATCH',
+   *         body: patch,
+   *       }),
+   *       invalidatesTags: ['Post'],
+   *       async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
+   *         const patchResult = dispatch(
+   *           api.util.updateQueryData('getPost', id, (draft) => {
+   *             Object.assign(draft, patch)
+   *           })
+   *         )
+   *         try {
+   *           await queryFulfilled
+   *         } catch {
+   *           patchResult.undo()
+   *         }
+   *       },
+   *     }),
+   *   }),
+   * })
+   * ```
+   */
+  onQueryStarted?(
+    queryArgument: QueryArg,
+    mutationLifeCycleApi: MutationLifecycleApi<
+      QueryArg,
+      BaseQuery,
+      ResultType,
+      ReducerPath
+    >,
+  ): Promise<void> | void
+}
+
+export type TypedQueryOnQueryStarted<
+  ResultType,
+  QueryArgumentType,
+  BaseQueryFunctionType extends BaseQueryFn,
+  ReducerPath extends string = string,
+> = QueryLifecycleQueryExtraOptions<
+  ResultType,
+  QueryArgumentType,
+  BaseQueryFunctionType,
+  ReducerPath
+>['onQueryStarted']
+
+export type TypedMutationOnQueryStarted<
+  ResultType,
+  QueryArgumentType,
+  BaseQueryFunctionType extends BaseQueryFn,
+  ReducerPath extends string = string,
+> = QueryLifecycleMutationExtraOptions<
+  ResultType,
+  QueryArgumentType,
+  BaseQueryFunctionType,
+  ReducerPath
+>['onQueryStarted']

@@ -447,6 +447,11 @@ class Decompiler {
       if (bound && !args.length) return bound
       const local = this.locals.get(name)
       if (local && !args.length) return local
+      // A global whose value form is a constructor cannot be applied as a call, so name
+      // the type directly instead of emitting `Promise(T)`.
+      if (CONSTRUCTOR_GLOBALS.has(name.split('.')[0]!)) {
+        return `t<${patternLike(t, this.sf, this.params, this.holeScope)}>()`
+      }
       if (!args.length) return name
       return `${name}(${args.map((a) => this.expr(a)).join(', ')})`
     }
@@ -612,6 +617,28 @@ function prependedItems(arg: ts.TypeNode, param: string, sf: ts.SourceFile): ts.
   if (spread.typeArguments?.length) return undefined
   if (front.some((e) => ts.isRestTypeNode(e))) return undefined
   return front
+}
+
+/**
+ * Globals whose value form is a constructor: applying them as a call is an error
+ * ("Value of type 'PromiseConstructor' is not callable"), so such a type is named with
+ * `t<...>()` rather than called.
+ */
+const CONSTRUCTOR_GLOBALS = new Set([
+  'Promise', 'Map', 'Set', 'WeakMap', 'WeakSet', 'Array', 'ReadonlyArray', 'Date', 'RegExp',
+  'Error', 'String', 'Number', 'Boolean', 'Object', 'Symbol', 'Function', 'BigInt', 'Proxy',
+  'Int8Array', 'Uint8Array', 'Float32Array', 'Float64Array', 'ArrayBuffer', 'DataView',
+  'Iterator', 'AsyncIterator', 'Generator', 'AsyncGenerator', 'Iterable', 'AsyncIterable',
+])
+
+/** Render a type verbatim, with holes and parameter references made typecheckable. */
+function patternLike(
+  t: ts.TypeNode,
+  sf: ts.SourceFile,
+  params: Set<string>,
+  holes: Map<string, string>,
+): string {
+  return holePattern(t, sf, params, holes)
 }
 
 /** Names introduced by `infer` inside a pattern, in source order. */

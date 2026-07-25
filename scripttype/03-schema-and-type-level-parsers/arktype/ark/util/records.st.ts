@@ -433,7 +433,7 @@ export function ifEmptyObjectLiteral(t, onTrue = true, onFalse = false) {
  */
 
 // ✗ invert: the ScriptType does not itself typecheck as TypeScript
-//   invert.st.ts(5:29) TS2304: Cannot find name 'k'.
+//   invert.st.ts(5:31) TS2304: Cannot find name 'k'.
 /* @scripttype preserveParamNames */
 export function invert(t: Record<PropertyKey, PropertyKey>) {
   const out2 = emptyObject

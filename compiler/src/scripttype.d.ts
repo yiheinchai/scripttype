@@ -58,6 +58,13 @@ declare const emptyObject: any
  * `null` cannot be an operand of `|` (TS18050) and `{}` cannot be an operand of `&`
  * (TS2362), so the union/intersection-friendly spellings are named.
  */
+/**
+ * Names a type directly. Used where the head of a type application has no callable value
+ * form — `Promise<T>` cannot be written `Promise(T)`, because the global `Promise` value
+ * is a constructor and requires `new`.
+ */
+declare function t<T = any>(): any
+
 declare function anyOf(...a: any[]): any
 type anyOf = any
 

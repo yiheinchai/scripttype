@@ -168,7 +168,7 @@ export function SerializeObject(T: object) {
  */
 
 // ✗ FilterDefinedKeys: the ScriptType does not itself typecheck as TypeScript
-//   FilterDefinedKeys.st.ts(5:32) TS2537: Type '{}' has no matching index signature for type 'string'.
+//   FilterDefinedKeys.st.ts(5:33) TS2537: Type '{}' has no matching index signature for type 'string'.
 /* @scripttype preserveParamNames */
 export function FilterDefinedKeys(T: object) {
   const out = emptyObject

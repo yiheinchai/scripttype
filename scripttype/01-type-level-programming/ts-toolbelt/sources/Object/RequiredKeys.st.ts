@@ -8,7 +8,7 @@
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
 // ✗ _RequiredKeys: the ScriptType does not itself typecheck as TypeScript
-//   _RequiredKeys.st.ts(5:45) TS2344: Type 'string' does not satisfy the constraint 'never'.
+//   _RequiredKeys.st.ts(5:46) TS2344: Type 'string' does not satisfy the constraint 'never'.
 /* @scripttype preserveParamNames */
 export function _RequiredKeys(O: object) {
   const out = emptyObject

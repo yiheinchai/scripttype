@@ -43,7 +43,7 @@ export function WritableArray(ArrayType: readonly unknown[]) {
  */
 
 // ✗ Writable: the ScriptType does not itself typecheck as TypeScript
-//   Writable.st.ts(3:9) TS2451: Cannot redeclare block-scoped variable 'm1'.
+//   Writable.st.ts(5:12) TS2348: Value of type 'MapConstructor' is not callable. Did you mean to include 'new'?
 /* @scripttype preserveParamNames */
 export function Writable(BaseType, Keys: keyof typeof BaseType = keyof(BaseType)) {
   const m1 = matches<ReadonlyMap<Hole<"KeyType">, Hole<"ValueType">>>(BaseType)

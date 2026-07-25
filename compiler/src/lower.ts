@@ -235,6 +235,29 @@ export interface ImportInfo {
   isExport: boolean
 }
 
+/**
+ * A ScriptType type function, however it was spelled.
+ *
+ * Both spellings mean the same thing and compile identically:
+ *
+ *     export function Trim(v: string) { return TrimLeft(TrimRight(v)) }
+ *     export const Trim = (v: string) => TrimLeft(TrimRight(v))
+ *
+ * The arrow form exists because the statement form was the one place ScriptType was
+ * reliably *longer* than the TypeScript it replaces — three lines against one for an
+ * alias that is just a composition. A language whose selling point is ergonomics cannot
+ * afford to lose on the simplest case.
+ */
+interface TypeFunction {
+  name: string
+  parameters: ts.NodeArray<ts.ParameterDeclaration>
+  /** A block, or a bare expression for a concise arrow body. */
+  body: ts.Block | ts.Expression
+  exported: boolean
+  /** Where to look for JSDoc: the declaration statement, not the arrow itself. */
+  docNode: ts.Node
+}
+
 export interface ModuleResult {
   aliases: TypeAlias[]
   prelude: Set<string>
@@ -368,12 +391,12 @@ class FunctionCompiler {
   private localInits = new Map<string, TypeExpr>()
 
   constructor(
-    private fn: ts.FunctionDeclaration,
+    private fn: TypeFunction,
     private sf: ts.SourceFile,
     private prelude: Set<string>,
     private opts: LowerOptions = {},
   ) {
-    this.fnName = fn.name!.text
+    this.fnName = fn.name
     this.used.add(this.fnName)
   }
 
@@ -394,6 +417,11 @@ class FunctionCompiler {
     const out = `${name}${this.counter}`
     this.used.add(out)
     return out
+  }
+
+  /** Names of the emitted type parameters, for undoing source-only `typeof` queries. */
+  private paramNames(): Set<string> {
+    return new Set(this.topParams.map((p) => p.name))
   }
 
   private ctx() {
@@ -429,7 +457,7 @@ class FunctionCompiler {
     }
 
     const body = this.lowerStmts(
-      this.fn.body!.statements,
+      (this.fn.body as ts.Block).statements,
       0,
       vars,
       () => {
@@ -443,7 +471,7 @@ class FunctionCompiler {
     )
 
     const doc = ts
-      .getJSDocCommentsAndTags(this.fn)
+      .getJSDocCommentsAndTags(this.fn.docNode)
       .map((d) => (ts.isJSDoc(d) ? ts.getTextOfJSDocComment(d.comment) : undefined))
       .filter(Boolean)
       .join('\n')
@@ -453,7 +481,7 @@ class FunctionCompiler {
         name: this.fnName,
         params: this.topParams,
         body,
-        exported: hasExport(this.fn),
+        exported: this.fn.exported,
         doc: doc || undefined,
       },
       ...this.helpers,
@@ -1618,7 +1646,7 @@ class FunctionCompiler {
     // Anything else is already valid type syntax; pass it through verbatim — but first
     // turn any `Hole<'X'>` back into `infer X`, since a hole is ScriptType spelling and
     // must never reach the emitted TypeScript.
-    return { kind: 'raw', text: holesToInfer(t, this.sf) }
+    return { kind: 'raw', text: holesToInfer(t, this.sf, this.paramNames()) }
   }
 }
 
@@ -1694,10 +1722,19 @@ const RAW_PRINTER = ts.createPrinter({ removeComments: true, newLine: ts.NewLine
  * Any path that emits a node's original text must therefore undo them, or a hole leaks
  * into the output and the emitted type fails to compile.
  */
-function holesToInfer(t: ts.TypeNode, sf: ts.SourceFile): string {
+function holesToInfer(t: ts.TypeNode, sf: ts.SourceFile, params?: Set<string>): string {
   let sawHole = false
   const transformer: ts.TransformerFactory<ts.Node> = (ctx) => (root) => {
     const visit = (n: ts.Node): ts.Node => {
+      // `typeof X` is how a ScriptType *source* refers to a parameter in type position;
+      // in the emitted type the parameter is a type, so the query has to come back off.
+      if (ts.isTypeQueryNode(n) && ts.isIdentifier(n.exprName)) {
+        const name = n.exprName.text
+        if (!params || params.has(name)) {
+          sawHole = true
+          return ctx.factory.createTypeReferenceNode(name, undefined)
+        }
+      }
       if (ts.isTypeReferenceNode(n) && n.typeName.getText(sf) === 'Hole') {
         const arg = n.typeArguments?.[0]
         if (arg && ts.isLiteralTypeNode(arg) && ts.isStringLiteral(arg.literal)) {

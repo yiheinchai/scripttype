@@ -154,9 +154,18 @@ export function ambientFor(source: string): string {
   const free = freeNames(source)
   const quals = qualifiedMembers(sf)
 
-  const nsRoots = [...quals.keys()]
-    .filter((r) => free.values.includes(r) || free.types.includes(r))
-    .sort()
+  // Namespaces are declared for *every* qualified root the file does not itself declare
+  // as a namespace — not just the ones that look free. A root can be locally declared as a
+  // function (a ScriptType alias), and `A.B` then fails with TS2713, "'A' is a type, but
+  // not a namespace"; or it can appear only in qualified position and be missed entirely,
+  // giving TS2503, "cannot find namespace 'A'".
+  const localNamespaces = new Set<string>()
+  const noteNs = (n: ts.Node) => {
+    if (ts.isModuleDeclaration(n) && ts.isIdentifier(n.name)) localNamespaces.add(n.name.text)
+    ts.forEachChild(n, noteNs)
+  }
+  noteNs(sf)
+  const nsRoots = [...quals.keys()].filter((r) => !localNamespaces.has(r)).sort()
   const nsSet = new Set(nsRoots)
   const lines: string[] = []
 

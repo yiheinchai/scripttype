@@ -64,8 +64,75 @@ are reinterpreted.
 
 **`infer` never appears in source.** Pattern matching is expressed through destructuring and a
 builtin library instead, which is both more JavaScript-like and the single biggest readability win.
-Where a fully general pattern is needed, `matches<Pattern>(x)` accepts one — `infer` is legal in a
-type-argument position *syntactically*, which is all the compiler needs.
+Where a fully general pattern is needed, `matches<Pattern>(x)` accepts one, with `Hole<'N'>` in
+place of `infer N`.
+
+**ScriptType source must itself typecheck as TypeScript.** Not merely parse — typecheck, with zero
+errors and no `@ts-ignore` anywhere. That is a verification gate, not a nicety: a type-level
+language whose own source does not typecheck is not good enough. See
+[The typecheck gate](#the-typecheck-gate).
+
+## Two dialects
+
+**Annotated** (`.st.ts`) — parameters carry their constraints as type annotations.
+
+**Pure JavaScript** — no annotations at all. Native methods map to type operations and JSDoc
+carries the constraints, so a type-level program is just JavaScript:
+
+```js
+/**
+ * @param {string} input
+ * @param {string} sep
+ */
+export function Split(input, sep) {
+  const out = []
+  let rest = input
+  while (rest.includes(sep)) {
+    const [head, tail] = splitOnce(rest, sep)
+    out.push(head)
+    rest = tail
+  }
+  out.push(rest)
+  return out
+}
+```
+
+`rest.includes(sep)` becomes a template-literal guard, `s.toUpperCase()` becomes `Uppercase<S>`,
+`Object.keys(o)` becomes `keyof O`. Accumulator constraints are inferred from initialiser shape,
+so the emitted `[...Out, Head]` still typechecks.
+
+## The typecheck gate
+
+ScriptType source typechecks against `compiler/src/scripttype.d.ts`, which declares the builtin
+surface. Getting there required establishing several things empirically, each of which shaped the
+language:
+
+- **Type keywords are declared as values of type `any`**, never of their namesake type.
+  `declare const boolean: boolean` breaks `boolean | 0 | 1`, because `|` is JavaScript's bitwise
+  operator and needs `any`/`number`/`bigint`.
+- **The consuming `lib` must exclude DOM**, whose globals (`length`, `name`, `origin`, `status`, …)
+  collide with builtin names.
+- **`infer` cannot survive in a type-argument position** — it is a semantic error outside a
+  conditional type's `extends` clause. Hence `Hole<'N'>`, an ordinary type the compiler turns back
+  into `infer N` (`Hole<'N', C>` carries an inference constraint).
+- **A hole cannot be a free identifier**, so bindings are read off a match marker:
+  `const m = matches<P>(v); if (m) { m.R }`. A marker is `any`, so property access is always
+  well-typed.
+- **A parameter is a value**, so referring to it in a type position needs `typeof` — in patterns
+  and in parameter annotations alike.
+- **`{}` cannot be an `&` operand and `null` cannot be a `|` operand**, so both have named
+  spellings (`emptyObject`, `Null`). Generated output uses `merge(...)` / `anyOf(...)` rather than
+  the operators, because a decompiled operand is often not `any`-typed — a `for…in` key variable is
+  `string`.
+
+Run it:
+
+```bash
+npx tsx src/typecheck-cli.ts     # every hand-authored source, zero errors required
+```
+
+`typecheck-error` is a first-class status in the round-trip harness, so a generated program that
+fails to typecheck does not count as covered.
 
 ## Status
 

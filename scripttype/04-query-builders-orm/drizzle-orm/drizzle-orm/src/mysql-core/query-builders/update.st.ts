@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GetColumnData } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
+import type { AnyMySqlUpdateBase } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/mysql-core/query-builders/update.js'
+import type { AnyMySqlQueryResultHKT, MySqlPreparedQueryConfig, MySqlQueryResultHKT, MySqlQueryResultKind } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/mysql-core/session.js'
 declare const AnyMySqlQueryResultHKT: any
 declare const AnyMySqlUpdateBase: any
 declare const GetColumnData: any
@@ -21,12 +25,6 @@ declare const MySqlUpdateBase: any
 declare const PreparedQueryHKTBase: any
 declare const PreparedQueryKind: any
 declare const SQL: any
-type AnyMySqlQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyMySqlUpdateBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetColumnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MySqlPreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MySqlQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MySqlQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MySqlTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MySqlUpdateBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -34,7 +32,7 @@ type PreparedQueryKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = an
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlUpdateSetSource: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlUpdateSetSource(TTable: MySqlTable) {
+export function MySqlUpdateSetSource(TTable: MySqlTable): any {
   const out = emptyObject
   for (const Key in keyof(TTable['$inferInsert'])) {
     out[Key] = optional(anyOf(GetColumnData(TTable['_']['columns'][Key], 'query'), SQL, Undefined))
@@ -53,7 +51,11 @@ export function MySqlUpdateSetSource(TTable: MySqlTable) {
 
 // ✓ MySqlUpdateWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlUpdateWithout(T: AnyMySqlUpdateBase, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnyMySqlUpdateBase} T
+ * @param {keyof typeof T & string} K
+ */
+export function MySqlUpdateWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -81,7 +83,7 @@ export function MySqlUpdateWithout(T: AnyMySqlUpdateBase, TDynamic: boolean, K: 
 
 // ✓ MySqlUpdatePrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlUpdatePrepare(T: AnyMySqlUpdateBase) {
+export function MySqlUpdatePrepare(T: AnyMySqlUpdateBase): any {
   return PreparedQueryKind(T['_']['preparedQueryHKT'], merge(MySqlPreparedQueryConfig, { execute: MySqlQueryResultKind(T['_']['queryResult'], never), iterator: never }), true)
 }
 /* compiles to:
@@ -95,7 +97,7 @@ export function MySqlUpdatePrepare(T: AnyMySqlUpdateBase) {
 
 // ✓ MySqlUpdateDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlUpdateDynamic(T: AnyMySqlUpdateBase) {
+export function MySqlUpdateDynamic(T: AnyMySqlUpdateBase): any {
   return MySqlUpdate(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'])
 }
 /* compiles to:
@@ -108,7 +110,7 @@ export function MySqlUpdateDynamic(T: AnyMySqlUpdateBase) {
 
 // ✓ MySqlUpdate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlUpdate(TTable: MySqlTable = MySqlTable, TQueryResult: MySqlQueryResultHKT = AnyMySqlQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase) {
+export function MySqlUpdate(TTable: MySqlTable = MySqlTable, TQueryResult: MySqlQueryResultHKT = AnyMySqlQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase): any {
   return MySqlUpdateBase(TTable, TQueryResult, TPreparedQueryHKT, true, never)
 }
 /* compiles to:

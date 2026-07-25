@@ -7,22 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TImmutable } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/_immutable.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { StaticDirection, StaticType } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/static.js'
 declare const StaticDirection: any
 declare const StaticType: any
 declare const TImmutable: any
 declare const TProperties: any
 declare const TSchema: any
-type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TImmutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticArray(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Array: TSchema, Item: TSchema, Result: readonly unknown[] = matches<TImmutable>(t<typeof Array>()) ? readonlyArrayOf(StaticType(Stack, Direction, Context, This, Item)) : arrayOf(StaticType(Stack, Direction, Context, This, Item))) {
+export function StaticArray(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Array: TSchema, Item: TSchema, Result: readonly unknown[] = matches<TImmutable>(t<typeof Array>()) ? readonlyArrayOf(StaticType(Stack, Direction, Context, This, Item)) : arrayOf(StaticType(Stack, Direction, Context, This, Item))): any {
   return Result
 }
 /* compiles to:

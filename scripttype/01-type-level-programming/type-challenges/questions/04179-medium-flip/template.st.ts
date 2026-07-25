@@ -9,7 +9,7 @@
  */
 // ✓ Flip: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Flip(T) {
+export function Flip(T): any {
   return any
 }
 /* compiles to:

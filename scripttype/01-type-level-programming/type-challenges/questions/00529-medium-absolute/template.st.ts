@@ -9,7 +9,7 @@
  */
 // ✓ Absolute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Absolute(T: number | string | bigint) {
+export function Absolute(T: number | string | bigint): any {
   return any
 }
 /* compiles to:

@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Indexes, WithName } from '../../../../../../05-functional-effects-hkt/effect/packages/platform-browser/src/IndexedDbTable.js'
+import type { Tables } from '../../../../../../05-functional-effects-hkt/effect/packages/platform-browser/src/IndexedDbVersion.js'
 declare namespace IndexedDbTable {
   export type AnyWithProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type Indexes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -22,14 +25,17 @@ declare namespace IndexedDbVersion {
 declare const AnyWithProps: any
 declare const IndexedDbTable: any
 declare const IndexedDbVersion: any
+declare const Indexes: any
+declare const Tables: any
+declare const WithName: any
 type AnyWithProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IndexedDbTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IndexedDbVersion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IndexFromTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IndexFromTable(Table: IndexedDbTable.AnyWithProps) {
-  if (matches<true>(IsStringLiteral(Extract(keyof(IndexedDbTable.Indexes(Table)), string)))) {
-    return Extract(keyof(IndexedDbTable.Indexes(Table)), string)
+export function IndexFromTable(Table: IndexedDbTable.AnyWithProps): any {
+  if (matches<true>(IsStringLiteral(Extract(keyof(t<IndexedDbTable.Indexes<typeof Table>>()), string)))) {
+    return Extract(keyof(t<IndexedDbTable.Indexes<typeof Table>>()), string)
   }
   return never
 }
@@ -42,8 +48,8 @@ export function IndexFromTable(Table: IndexedDbTable.AnyWithProps) {
 
 // ✓ IndexFromTableName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IndexFromTableName(Version: IndexedDbVersion.AnyWithProps, Table: string) {
-  return IndexFromTable(IndexedDbTable.WithName(IndexedDbVersion.Tables(Version), Table))
+export function IndexFromTableName(Version: IndexedDbVersion.AnyWithProps, Table: string): any {
+  return IndexFromTable(t<IndexedDbTable.WithName<IndexedDbVersion.Tables<typeof Version>, typeof Table>>())
 }
 /* compiles to:
  * export type IndexFromTableName<
@@ -55,7 +61,7 @@ export function IndexFromTableName(Version: IndexedDbVersion.AnyWithProps, Table
 
 // ✓ IsStringLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsStringLiteral(T) {
+export function IsStringLiteral(T): any {
   if (typeof T === 'string') {
     if (matches<typeof T>(string)) {
       return false

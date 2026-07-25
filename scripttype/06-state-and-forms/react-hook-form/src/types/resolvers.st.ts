@@ -7,19 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FieldErrors } from '../../../../../06-state-and-forms/react-hook-form/src/types/errors.js'
+import type { FieldValues } from '../../../../../06-state-and-forms/react-hook-form/src/types/fields.js'
+import type { ResolverOptions } from '../../../../../06-state-and-forms/react-hook-form/src/types/resolvers.js'
 declare const FieldErrors: any
 declare const FieldValues: any
 declare const ResolverOptions: any
-type FieldErrors<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResolverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ResolverSuccess: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolverSuccess(TTransformedValues) {
+export function ResolverSuccess(TTransformedValues): any {
   return { values: TTransformedValues, errors: Record(string, never) }
 }
 /* compiles to:
@@ -31,7 +32,7 @@ export function ResolverSuccess(TTransformedValues) {
 
 // ✓ ResolverError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolverError(TFieldValues: FieldValues = FieldValues) {
+export function ResolverError(TFieldValues: FieldValues = FieldValues): any {
   return { values: Record(string, never), errors: FieldErrors(TFieldValues) }
 }
 /* compiles to:
@@ -43,7 +44,7 @@ export function ResolverError(TFieldValues: FieldValues = FieldValues) {
 
 // ✓ ResolverResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolverResult(TFieldValues: FieldValues = FieldValues, TTransformedValues = TFieldValues) {
+export function ResolverResult(TFieldValues: FieldValues = FieldValues, TTransformedValues = TFieldValues): any {
   return ResolverSuccess(TTransformedValues) | ResolverError(TFieldValues)
 }
 /* compiles to:
@@ -56,7 +57,7 @@ export function ResolverResult(TFieldValues: FieldValues = FieldValues, TTransfo
 
 // ✓ Resolver: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Resolver(TFieldValues: FieldValues = FieldValues, TContext = any, TTransformedValues = TFieldValues) {
+export function Resolver(TFieldValues: FieldValues = FieldValues, TContext = any, TTransformedValues = TFieldValues): any {
   return fnType([TFieldValues, anyOf(TContext, Undefined), ResolverOptions(TFieldValues)], t<Promise<ResolverResult<typeof TFieldValues, typeof TTransformedValues>>>() | ResolverResult(TFieldValues, TTransformedValues))
 }
 /* compiles to:

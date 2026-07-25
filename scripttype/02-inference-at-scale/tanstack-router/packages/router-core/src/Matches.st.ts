@@ -7,9 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyMatchAndValue, PreValidationErrorHandlingRouteMatch, RouteMatch } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/Matches.js'
+import type { AnyRoute } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/route.js'
+import type { AllContext, AllLoaderData, AllParams, FullSearchSchema, ParseRoute, RouteById, RouteIds } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/routeInfo.js'
+import type { AnyRouter, RegisteredRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+declare namespace m1 {
+  export type TFirst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AllContext: any
 declare const AllLoaderData: any
 declare const AllParams: any
@@ -23,22 +33,9 @@ declare const RegisteredRouter: any
 declare const RouteById: any
 declare const RouteIds: any
 declare const RouteMatch: any
-type AllContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AllLoaderData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AllParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyMatchAndValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FullSearchSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParseRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PreValidationErrorHandlingRouteMatch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteById<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteIds<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteMatch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FindValueByIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FindValueByIndex(TKey, TValue: ReadonlyArray<any>) {
+export function FindValueByIndex(TKey, TValue: ReadonlyArray<any>): any {
   const m1 = matches<`${Hole<"TIndex", number>}`>(TKey)
   if (m1) {
     return TValue[m1.TIndex]
@@ -52,7 +49,7 @@ export function FindValueByIndex(TKey, TValue: ReadonlyArray<any>) {
 
 // ✓ FindValueByKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FindValueByKey(TKey, TValue) {
+export function FindValueByKey(TKey, TValue): any {
   if (matches<ReadonlyArray<any>>(TValue)) {
     return FindValueByIndex(TKey, TValue)
   }
@@ -67,7 +64,7 @@ export function FindValueByKey(TKey, TValue) {
 
 // ✓ CreateMatchAndValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateMatchAndValue(TMatch, TValue) {
+export function CreateMatchAndValue(TMatch, TValue): any {
   if (matches<any>(TValue)) {
     return { match: TMatch, value: TValue }
   }
@@ -80,7 +77,7 @@ export function CreateMatchAndValue(TMatch, TValue) {
 
 // ✓ NextMatchAndValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NextMatchAndValue(TKey, TMatchAndValue: AnyMatchAndValue) {
+export function NextMatchAndValue(TKey, TMatchAndValue: AnyMatchAndValue): any {
   if (matches<any>(TMatchAndValue)) {
     return CreateMatchAndValue(TMatchAndValue['match'], FindValueByKey(TKey, TMatchAndValue['value']))
   }
@@ -98,7 +95,7 @@ export function NextMatchAndValue(TKey, TMatchAndValue: AnyMatchAndValue) {
 
 // ✓ IsMatchKeyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsMatchKeyOf(TValue) {
+export function IsMatchKeyOf(TValue): any {
   if (matches<ReadonlyArray<any>>(TValue)) {
     if (matches<(typeof TValue)['length']>(number)) {
       return `${number}`
@@ -120,7 +117,7 @@ export function IsMatchKeyOf(TValue) {
 
 // ✓ IsMatchPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsMatchPath(TParentPath: string, TMatchAndValue: AnyMatchAndValue) {
+export function IsMatchPath(TParentPath: string, TMatchAndValue: AnyMatchAndValue): any {
   return `${TParentPath}${IsMatchKeyOf(TMatchAndValue['value'])}`
 }
 /* compiles to:
@@ -129,7 +126,7 @@ export function IsMatchPath(TParentPath: string, TMatchAndValue: AnyMatchAndValu
 
 // ✓ IsMatchResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsMatchResult(TKey, TMatchAndValue: AnyMatchAndValue) {
+export function IsMatchResult(TKey, TMatchAndValue: AnyMatchAndValue): any {
   if (matches<any>(TMatchAndValue)) {
     if (TKey in TMatchAndValue['value']) {
       return TMatchAndValue['match']
@@ -147,7 +144,7 @@ export function IsMatchResult(TKey, TMatchAndValue: AnyMatchAndValue) {
 
 // ✓ IsMatchParse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsMatchParse(TPath, TMatchAndValue: AnyMatchAndValue, TParentPath: string = '') {
+export function IsMatchParse(TPath, TMatchAndValue: AnyMatchAndValue, TParentPath: string = ''): any {
   if (matches<`${string}.${string}`>(TPath)) {
     const m1 = matches<`${Hole<"TFirst">}.${Hole<"TRest">}`>(TPath)
     if (m1) {
@@ -173,7 +170,7 @@ export function IsMatchParse(TPath, TMatchAndValue: AnyMatchAndValue, TParentPat
 
 // ✓ IsMatch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsMatch(TMatch, TPath) {
+export function IsMatch(TMatch, TPath): any {
   return IsMatchParse(TPath, matches<any>(TMatch) ? { match: TMatch, value: TMatch } : never)
 }
 /* compiles to:
@@ -185,7 +182,7 @@ export function IsMatch(TMatch, TPath) {
 
 // ✓ MakePreValidationErrorHandlingRouteMatchUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MakePreValidationErrorHandlingRouteMatchUnion(TRouter: AnyRouter = RegisteredRouter, TRoute: AnyRoute = ParseRoute(TRouter['routeTree'])) {
+export function MakePreValidationErrorHandlingRouteMatchUnion(TRouter: AnyRouter = RegisteredRouter, TRoute: AnyRoute = ParseRoute(TRouter['routeTree'])): any {
   if (matches<any>(TRoute)) {
     return PreValidationErrorHandlingRouteMatch(TRoute['id'], TRoute['fullPath'], TRoute['types']['allParams'], TRoute['types']['fullSearchSchema'])
   }
@@ -208,7 +205,7 @@ export function MakePreValidationErrorHandlingRouteMatchUnion(TRouter: AnyRouter
 
 // ✓ MakeRouteMatchFromRoute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MakeRouteMatchFromRoute(TRoute: AnyRoute) {
+export function MakeRouteMatchFromRoute(TRoute: AnyRoute): any {
   return RouteMatch(TRoute['types']['id'], TRoute['types']['fullPath'], TRoute['types']['allParams'], TRoute['types']['fullSearchSchema'], TRoute['types']['loaderData'], TRoute['types']['allContext'], TRoute['types']['loaderDeps'])
 }
 /* compiles to:
@@ -225,7 +222,7 @@ export function MakeRouteMatchFromRoute(TRoute: AnyRoute) {
 
 // ✓ MakeRouteMatch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MakeRouteMatch(TRouteTree: AnyRoute = RegisteredRouter['routeTree'], TRouteId = RouteIds(TRouteTree), TStrict: boolean = true) {
+export function MakeRouteMatch(TRouteTree: AnyRoute = RegisteredRouter['routeTree'], TRouteId = RouteIds(TRouteTree), TStrict: boolean = true): any {
   return RouteMatch(TRouteId, RouteById(TRouteTree, TRouteId)['types']['fullPath'], matches<false>(TStrict) ? AllParams(TRouteTree) : RouteById(TRouteTree, TRouteId)['types']['allParams'], matches<false>(TStrict) ? FullSearchSchema(TRouteTree) : RouteById(TRouteTree, TRouteId)['types']['fullSearchSchema'], matches<false>(TStrict) ? AllLoaderData(TRouteTree) : RouteById(TRouteTree, TRouteId)['types']['loaderData'], matches<false>(TStrict) ? AllContext(TRouteTree) : RouteById(TRouteTree, TRouteId)['types']['allContext'], RouteById(TRouteTree, TRouteId)['types']['loaderDeps'])
 }
 /* compiles to:
@@ -255,7 +252,7 @@ export function MakeRouteMatch(TRouteTree: AnyRoute = RegisteredRouter['routeTre
 
 // ✓ MakeRouteMatchUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MakeRouteMatchUnion(TRouter: AnyRouter = RegisteredRouter, TRoute: AnyRoute = ParseRoute(TRouter['routeTree'])) {
+export function MakeRouteMatchUnion(TRouter: AnyRouter = RegisteredRouter, TRoute: AnyRoute = ParseRoute(TRouter['routeTree'])): any {
   if (matches<any>(TRoute)) {
     return RouteMatch(TRoute['id'], TRoute['fullPath'], TRoute['types']['allParams'], TRoute['types']['fullSearchSchema'], TRoute['types']['loaderData'], TRoute['types']['allContext'], TRoute['types']['loaderDeps'])
   }

@@ -7,9 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Abi } from '../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/abi.js'
+import type { ReadParameters } from '../../../../../../03-schema-and-type-level-parsers/abitype/playgrounds/functions/src/read.js'
+import type { ContractParameters, ContractReturnType } from '../../../../../../03-schema-and-type-level-parsers/abitype/playgrounds/functions/src/types.js'
+declare namespace m1 {
+  export type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type args<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type functionName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Abi: any
 declare const ContractParameters: any
 declare const ContractReturnType: any
@@ -17,17 +33,13 @@ declare const MAXIMUM_DEPTH: any
 declare const ReadParameters: any
 declare const ReadsStateMutability: any
 declare const UninferrableContracts: any
-type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Contract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ContractParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ContractReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MAXIMUM_DEPTH<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ReadsStateMutability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UninferrableContracts<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadsParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadsParameters(contracts: Contract[]) {
+export function ReadsParameters(contracts: Contract[]): any {
   return { contracts: asReadonly([...ContractsParameters(contracts)]) }
 }
 /* compiles to:
@@ -38,7 +50,7 @@ export function ReadsParameters(contracts: Contract[]) {
 
 // ✓ ReadsResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadsResult(contracts: Contract[]) {
+export function ReadsResult(contracts: Contract[]): any {
   return ContractsReturnType(contracts)
 }
 /* compiles to:
@@ -47,7 +59,7 @@ export function ReadsResult(contracts: Contract[]) {
 
 // ✓ Contract: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Contract(abi: Abi | readonly unknown[] = Abi | readonlyArrayOf(unknown), functionName: string = string, args: readonly unknown[] | undefined = anyOf(readonlyArrayOf(unknown), Undefined)) {
+export function Contract(abi: Abi | readonly unknown[] = Abi | readonlyArrayOf(unknown), functionName: string = string, args: readonly unknown[] | undefined = anyOf(readonlyArrayOf(unknown), Undefined)): any {
   return { abi: abi, functionName: functionName, args: optional(args) }
 }
 /* compiles to:
@@ -61,7 +73,7 @@ export function Contract(abi: Abi | readonly unknown[] = Abi | readonlyArrayOf(u
 
 // ✓ ContractsParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ContractsParameters(contracts: Contract[], result: any[] = [], depth: readonly number[] = []) {
+export function ContractsParameters(contracts: Contract[], result: any[] = [], depth: readonly number[] = []): any {
   if (matches<MAXIMUM_DEPTH>(depth['length'])) {
     return UninferrableContracts
   }
@@ -114,7 +126,7 @@ export function ContractsParameters(contracts: Contract[], result: any[] = [], d
 
 // ✓ ContractsReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ContractsReturnType(contracts: Contract[], result: any[] = [], depth: readonly number[] = []) {
+export function ContractsReturnType(contracts: Contract[], result: any[] = [], depth: readonly number[] = []): any {
   if (matches<MAXIMUM_DEPTH>(depth['length'])) {
     return arrayOf(ContractReturnType)
   }

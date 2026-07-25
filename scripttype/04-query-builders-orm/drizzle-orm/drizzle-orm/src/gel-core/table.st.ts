@@ -7,18 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TableConfig } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/gel-core/table.js'
+import type { UpdateTableConfig } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
 declare const GelTable: any
 declare const TableConfig: any
 declare const UpdateTableConfig: any
 type GelTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UpdateTableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyGelTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyGelTable(TPartial: Partial<TableConfig> = {}) {
+export function AnyGelTable(TPartial: Partial<TableConfig> = {}): any {
   return GelTable(UpdateTableConfig(TableConfig, TPartial))
 }
 /* compiles to:
@@ -29,7 +30,7 @@ export function AnyGelTable(TPartial: Partial<TableConfig> = {}) {
 
 // ✓ GelTableWithColumns: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelTableWithColumns(T: TableConfig) {
+export function GelTableWithColumns(T: TableConfig): any {
   const out = emptyObject
   for (const Key in keyof(T['columns'])) {
     out[Key] = T['columns'][Key]

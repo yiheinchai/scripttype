@@ -7,24 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AllContext, RouteById } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/routeInfo.js'
+import type { AnyRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { UseRouteContextBaseOptions } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/useRouteContext.js'
+import type { Expand, StrictOrFrom } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
 declare const AllContext: any
 declare const AnyRouter: any
 declare const Expand: any
 declare const RouteById: any
 declare const StrictOrFrom: any
 declare const UseRouteContextBaseOptions: any
-type AllContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Expand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteById<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictOrFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseRouteContextBaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseRouteContextOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseRouteContextOptions(TRouter: AnyRouter, TFrom: string | undefined, TStrict: boolean, TSelected) {
+export function UseRouteContextOptions(TRouter: AnyRouter, TFrom: string | undefined, TStrict: boolean, TSelected): any {
   return StrictOrFrom(TRouter, TFrom, TStrict) & UseRouteContextBaseOptions(TRouter, TFrom, TStrict, TSelected)
 }
 /* compiles to:
@@ -40,7 +39,7 @@ export function UseRouteContextOptions(TRouter: AnyRouter, TFrom: string | undef
 
 // ✓ ResolveUseRouteContext: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolveUseRouteContext(TRouter: AnyRouter, TFrom, TStrict: boolean) {
+export function ResolveUseRouteContext(TRouter: AnyRouter, TFrom, TStrict: boolean): any {
   if (matches<false>(TStrict)) {
     return AllContext(TRouter['routeTree'])
   }
@@ -55,7 +54,7 @@ export function ResolveUseRouteContext(TRouter: AnyRouter, TFrom, TStrict: boole
 
 // ✓ UseRouteContextResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseRouteContextResult(TRouter: AnyRouter, TFrom, TStrict: boolean, TSelected) {
+export function UseRouteContextResult(TRouter: AnyRouter, TFrom, TStrict: boolean, TSelected): any {
   if (matches<typeof TSelected>(unknown)) {
     return ResolveUseRouteContext(TRouter, TFrom, TStrict)
   }

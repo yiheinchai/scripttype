@@ -7,9 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ArrayKey, Key, PathString, PathTuple, Traversable } from '../../../../../../06-state-and-forms/react-hook-form/src/types/path/common.js'
+import type { IsAny, IsNever } from '../../../../../../06-state-and-forms/react-hook-form/src/types/utils.js'
+declare namespace m1 {
+  export type I<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type K<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ArrayKey: any
 declare const IsAny: any
 declare const IsNever: any
@@ -17,16 +25,9 @@ declare const Key: any
 declare const PathString: any
 declare const PathTuple: any
 declare const Traversable: any
-type ArrayKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PathString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PathTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Traversable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsTuple(T: ReadonlyArray<any>) {
+export function IsTuple(T: ReadonlyArray<any>): any {
   if (matches<(typeof T)['length']>(number)) {
     return false
   }
@@ -38,7 +39,7 @@ export function IsTuple(T: ReadonlyArray<any>) {
 
 // ✓ AsKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AsKey(T) {
+export function AsKey(T): any {
   return Extract(T, Key)
 }
 /* compiles to:
@@ -47,7 +48,7 @@ export function AsKey(T) {
 
 // ✓ ToKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToKey(T) {
+export function ToKey(T): any {
   if (matches<ArrayKey>(T)) {
     return `${T}`
   }
@@ -59,7 +60,7 @@ export function ToKey(T) {
 
 // ✓ AsPathTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AsPathTuple(T) {
+export function AsPathTuple(T): any {
   return Extract(T, PathTuple)
 }
 /* compiles to:
@@ -68,7 +69,7 @@ export function AsPathTuple(T) {
 
 // ✓ UnionToIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToIntersection(U) {
+export function UnionToIntersection(U): any {
   const m1 = matches<(_: Hole<"I">) => any>(matches<any>(U) ? fnType([U], any) : never)
   if (m1) {
     return m1.I
@@ -82,7 +83,7 @@ export function UnionToIntersection(U) {
 
 // ✓ AppendNonBlankKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AppendNonBlankKey(PT: PathTuple, K: Key) {
+export function AppendNonBlankKey(PT: PathTuple, K: Key): any {
   if (matches<''>(K)) {
     return PT
   }
@@ -95,7 +96,7 @@ export function AppendNonBlankKey(PT: PathTuple, K: Key) {
 
 // ✓ SplitPathStringImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SplitPathStringImpl(PS: PathString, PT: PathTuple) {
+export function SplitPathStringImpl(PS: PathString, PT: PathTuple): any {
   let pS = PS
   let pT = PT
   while (true) {
@@ -121,7 +122,7 @@ export function SplitPathStringImpl(PS: PathString, PT: PathTuple) {
 
 // ✓ SplitPathString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SplitPathString(PS: PathString) {
+export function SplitPathString(PS: PathString): any {
   return SplitPathStringImpl(PS, [])
 }
 /* compiles to:
@@ -130,7 +131,7 @@ export function SplitPathString(PS: PathString) {
 
 // ✓ JoinPathTupleImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JoinPathTupleImpl(PT: PathTuple, PS: PathString) {
+export function JoinPathTupleImpl(PT: PathTuple, PS: PathString): any {
   let pT = PT
   let pS = PS
   while (true) {
@@ -156,7 +157,7 @@ export function JoinPathTupleImpl(PT: PathTuple, PS: PathString) {
 
 // ✓ JoinPathTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JoinPathTuple(PT: PathTuple) {
+export function JoinPathTuple(PT: PathTuple): any {
   const m1 = matches<[ Hole<"K">, ...Hole<"R"> ]>(PT)
   if (m1) {
     return JoinPathTupleImpl(AsPathTuple(m1.R), AsKey(m1.K))
@@ -170,7 +171,7 @@ export function JoinPathTuple(PT: PathTuple) {
 
 // ✓ MapKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapKeys(T) {
+export function MapKeys(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[ToKey(K)] = T[K]
@@ -183,7 +184,7 @@ export function MapKeys(T) {
 
 // ✓ TryAccess: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TryAccess(T, K) {
+export function TryAccess(T, K): any {
   if (K in T) {
     return T[K]
   }
@@ -198,7 +199,7 @@ export function TryAccess(T, K) {
 
 // ✓ TryAccessArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TryAccessArray(T: ReadonlyArray<any>, K: Key) {
+export function TryAccessArray(T: ReadonlyArray<any>, K: Key): any {
   if (matches<`${ArrayKey}`>(K)) {
     return T[number]
   }
@@ -211,7 +212,7 @@ export function TryAccessArray(T: ReadonlyArray<any>, K: Key) {
 
 // ✓ EvaluateKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EvaluateKey(T, K: Key) {
+export function EvaluateKey(T, K: Key): any {
   if (matches<ReadonlyArray<any>>(T)) {
     if (matches<true>(IsTuple(T))) {
       return TryAccess(T, K)
@@ -229,7 +230,7 @@ export function EvaluateKey(T, K: Key) {
 
 // ✓ EvaluatePath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EvaluatePath(T, PT: PathTuple) {
+export function EvaluatePath(T, PT: PathTuple): any {
   let t = T
   let pT = PT
   while (true) {
@@ -252,7 +253,7 @@ export function EvaluatePath(T, PT: PathTuple) {
 
 // ✓ TupleKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TupleKeys(T: ReadonlyArray<any>) {
+export function TupleKeys(T: ReadonlyArray<any>): any {
   return Exclude(keyof(T), keyof(arrayOf(any)))
 }
 /* compiles to:
@@ -261,7 +262,7 @@ export function TupleKeys(T: ReadonlyArray<any>) {
 
 // ✓ NumericObjectKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NumericObjectKeys(T: Traversable) {
+export function NumericObjectKeys(T: Traversable): any {
   return ToKey(Extract(keyof(T), anyOf(ArrayKey, `${ArrayKey}`)))
 }
 /* compiles to:
@@ -272,7 +273,7 @@ export function NumericObjectKeys(T: Traversable) {
 
 // ✓ NumericKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NumericKeys(T: Traversable) {
+export function NumericKeys(T: Traversable): any {
   return UnionToIntersection(matches<ReadonlyArray<any>>(T) ? (matches<true>(IsTuple(T)) ? [TupleKeys(T)] : [ToKey(ArrayKey)]) : [NumericObjectKeys(T)])[never]
 }
 /* compiles to:
@@ -286,7 +287,7 @@ export function NumericKeys(T: Traversable) {
 
 // ✓ ObjectKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ObjectKeys(T: Traversable) {
+export function ObjectKeys(T: Traversable): any {
   return Exclude(ToKey(keyof(T)), anyOf(`${string}.${string}`, ''))
 }
 /* compiles to:
@@ -298,7 +299,7 @@ export function ObjectKeys(T: Traversable) {
 
 // ✓ CheckKeyConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CheckKeyConstraint(T, K: Key, U) {
+export function CheckKeyConstraint(T, K: Key, U): any {
   if (matches<any>(K)) {
     if (matches<typeof U>(EvaluateKey(T, K))) {
       return K
@@ -314,7 +315,7 @@ export function CheckKeyConstraint(T, K: Key, U) {
 
 // ✓ ContainsIndexable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ContainsIndexable(T) {
+export function ContainsIndexable(T): any {
   if (matches<true>(IsNever(Extract(T, readonlyArrayOf(any))))) {
     return false
   }
@@ -327,7 +328,7 @@ export function ContainsIndexable(T) {
 
 // ✓ KeysImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function KeysImpl(T) {
+export function KeysImpl(T): any {
   if (matches<[ Traversable ]>([T])) {
     if (matches<true>(ContainsIndexable(T))) {
       return NumericKeys(T)
@@ -345,7 +346,7 @@ export function KeysImpl(T) {
 
 // ✓ Keys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Keys(T, U = unknown) {
+export function Keys(T, U = unknown): any {
   if (matches<true>(IsAny(T))) {
     return Key
   }
@@ -367,7 +368,7 @@ export function Keys(T, U = unknown) {
 
 // ✓ HasKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasKey(T, K: Key) {
+export function HasKey(T, K: Key): any {
   return IsNever(Exclude(K, Keys(T)))
 }
 /* compiles to:
@@ -376,7 +377,7 @@ export function HasKey(T, K: Key) {
 
 // ✓ ValidPathPrefixImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidPathPrefixImpl(T, PT: PathTuple, VPT: PathTuple) {
+export function ValidPathPrefixImpl(T, PT: PathTuple, VPT: PathTuple): any {
   const m1 = matches<[ Hole<"K">, ...Hole<"R"> ]>(PT)
   if (m1) {
     if (matches<true>(HasKey(T, AsKey(m1.K)))) {
@@ -397,7 +398,7 @@ export function ValidPathPrefixImpl(T, PT: PathTuple, VPT: PathTuple) {
 
 // ✓ ValidPathPrefix: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidPathPrefix(T, PT: PathTuple) {
+export function ValidPathPrefix(T, PT: PathTuple): any {
   return ValidPathPrefixImpl(T, PT, [])
 }
 /* compiles to:
@@ -406,7 +407,7 @@ export function ValidPathPrefix(T, PT: PathTuple) {
 
 // ✓ HasPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasPath(T, PT: PathTuple) {
+export function HasPath(T, PT: PathTuple): any {
   if (matches<typeof PT>(ValidPathPrefix(T, PT))) {
     return true
   }

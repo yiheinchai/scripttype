@@ -16,7 +16,10 @@ type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Unionize: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Unionize(O: object, O1: object, K: Key = Key) {
+/**
+ * @param {object} O
+ */
+export function Unionize(O, O1: object, K: Key = Key): any {
   const out = emptyObject
   for (const P in keyof(O)) {
     out[P] = matches<typeof K>(P) ? (O[P] | At(O1, P)) : O[P]

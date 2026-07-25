@@ -9,7 +9,7 @@
  */
 // ✓ TrimLeft: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TrimLeft(S: string) {
+export function TrimLeft(S: string): any {
   return any
 }
 /* compiles to:

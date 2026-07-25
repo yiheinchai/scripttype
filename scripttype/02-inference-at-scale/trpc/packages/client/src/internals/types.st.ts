@@ -9,7 +9,7 @@
  */
 // ✓ NonEmptyArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonEmptyArray(TItem) {
+export function NonEmptyArray(TItem): any {
   return [TItem, ...arrayOf(TItem)]
 }
 /* compiles to:

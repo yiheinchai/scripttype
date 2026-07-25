@@ -7,20 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { THyphen } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/char.js'
+import type { TTrim } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/trim.js'
+import type { TUnsignedNumber } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/unsigned_number.js'
+declare namespace m1 {
+  export type Sign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type SignRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type UnsignedInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type UnsignedIntegerRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const THyphen: any
 declare const TOptional: any
 declare const TTrim: any
 declare const TUnsignedNumber: any
-type THyphen<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TTrim<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TUnsignedNumber<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeSign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeSign(Input: string) {
+export function TTakeSign(Input: string): any {
   return TOptional(THyphen, Input)
 }
 /* compiles to:
@@ -29,7 +38,7 @@ export function TTakeSign(Input: string) {
 
 // ✓ TTakeSignedNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeSignedNumber(Input: string) {
+export function TTakeSignedNumber(Input: string): any {
   const m1 = matches<[ Hole<"Sign", string>, Hole<"SignRest", string> ]>(TTakeSign(Input))
   if (m1) {
     const m2 = matches<[ Hole<"UnsignedInteger", string>, Hole<"UnsignedIntegerRest", string> ]>(TUnsignedNumber(m1.SignRest))
@@ -41,12 +50,17 @@ export function TTakeSignedNumber(Input: string) {
   return []
 }
 /* compiles to:
- * export type TTakeSignedNumber<Input extends string> = TTakeSign<Input> extends [infer Sign extends string, infer SignRest extends string] ? TUnsignedNumber<SignRest> extends [infer UnsignedInteger extends string, infer UnsignedIntegerRest extends string] ? [`${Sign}${UnsignedInteger}`, UnsignedIntegerRest] : [] : []
+ * export type TTakeSignedNumber<Input extends string> =
+ *   TTakeSign<Input> extends [infer Sign extends string, infer SignRest extends string]
+ *     ? TUnsignedNumber<SignRest> extends [infer UnsignedInteger extends string, infer UnsignedIntegerRest extends string]
+ *       ? [`${Sign}${UnsignedInteger}`, UnsignedIntegerRest]
+ *       : []
+ *     : []
  */
 
 // ✓ TNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TNumber(Input: string) {
+export function TNumber(Input: string): any {
   return TTakeSignedNumber(TTrim(Input))
 }
 /* compiles to:

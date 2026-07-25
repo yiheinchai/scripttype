@@ -7,11 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TEvaluateUnionFast } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TFormatArrayIndexer } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/indexed/array_indexer.js'
+import type { TExtendsTrueLike } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/result.js'
+import type { TLiteral } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare namespace ExtendsResult {
   export type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const ExtendsResult: any
 declare const TEvaluateUnionFast: any
@@ -23,17 +33,12 @@ declare const TLiteral: any
 declare const TNumber: any
 declare const TSchema: any
 type ExtendsResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateUnionFast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TExtends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TFormatArrayIndexer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIndexElementsWithIndexer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndexElementsWithIndexer(Types: TSchema[], Indexer: TSchema, Result: TSchema[] = []) {
+export function TIndexElementsWithIndexer(Types: TSchema[], Indexer: TSchema, Result: TSchema[] = []): any {
   const m1 = matches<[ ...Hole<"Left", TSchema[]>, Hole<"Right", TSchema> ]>(Types)
   if (m1) {
     if (matches<ExtendsResult.TExtendsTrueLike>(TExtends({}, TLiteral(m1.Left['length']), Indexer))) {
@@ -58,7 +63,7 @@ export function TIndexElementsWithIndexer(Types: TSchema[], Indexer: TSchema, Re
 
 // ✓ TFromTupleWithIndexer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromTupleWithIndexer(Types: TSchema[], Indexer: TSchema, ArrayIndexer: TSchema = TFormatArrayIndexer(Indexer), Elements: TSchema[] = TIndexElementsWithIndexer(Types, ArrayIndexer), Result: TSchema = TEvaluateUnionFast(Elements)) {
+export function TFromTupleWithIndexer(Types: TSchema[], Indexer: TSchema, ArrayIndexer: TSchema = TFormatArrayIndexer(Indexer), Elements: TSchema[] = TIndexElementsWithIndexer(Types, ArrayIndexer), Result: TSchema = TEvaluateUnionFast(Elements)): any {
   return Result
 }
 /* compiles to:
@@ -74,7 +79,7 @@ export function TFromTupleWithIndexer(Types: TSchema[], Indexer: TSchema, ArrayI
 
 // ✓ TFromTupleWithoutIndexer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromTupleWithoutIndexer(Types: TSchema[], Result: TSchema = TEvaluateUnionFast(Types)) {
+export function TFromTupleWithoutIndexer(Types: TSchema[], Result: TSchema = TEvaluateUnionFast(Types)): any {
   return Result
 }
 /* compiles to:
@@ -87,7 +92,7 @@ export function TFromTupleWithoutIndexer(Types: TSchema[], Result: TSchema = TEv
 
 // ✓ TFromTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromTuple__v1(Types, Indexer) {
+export function TFromTuple__v1(Types, Indexer): any {
   const m1 = matches<TLiteral<Hole<"_", 'length'>>>(Indexer)
   if (m1) {
     return TLiteral(Types['length'])
@@ -97,7 +102,7 @@ export function TFromTuple__v1(Types, Indexer) {
   }
   return TFromTupleWithIndexer(Types, Indexer)
 }
-export function TFromTuple(Types: TSchema[], Indexer: TSchema, Result: TSchema = TFromTuple__v1(Types, Indexer)) {
+export function TFromTuple(Types: TSchema[], Indexer: TSchema, Result: TSchema = TFromTuple__v1(Types, Indexer)): any {
   return Result
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ MyPick: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MyPick(T, K) {
+export function MyPick(T, K): any {
   return any
 }
 /* compiles to:

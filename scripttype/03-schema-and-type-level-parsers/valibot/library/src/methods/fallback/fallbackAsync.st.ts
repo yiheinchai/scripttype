@@ -7,9 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Config } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/config.js'
+import type { OutputDataset, UnknownDataset } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/dataset.js'
+import type { InferInput, InferIssue, InferOutput } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/infer.js'
+import type { BaseIssue } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/issue.js'
+import type { BaseSchema, BaseSchemaAsync } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/schema.js'
+import type { StandardProps } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/standard.js'
+import type { MaybeDeepReadonly, MaybePromise } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/utils.js'
 declare const BaseIssue: any
 declare const BaseSchema: any
 declare const BaseSchemaAsync: any
@@ -22,23 +30,10 @@ declare const MaybePromise: any
 declare const OutputDataset: any
 declare const StandardProps: any
 declare const UnknownDataset: any
-type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Config<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FallbackAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeDeepReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OutputDataset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StandardProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnknownDataset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FallbackAsync: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FallbackAsync(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>) {
-  return MaybeDeepReadonly(InferOutput(TSchema)) | fnType([OutputDataset(InferOutput(TSchema), InferIssue(TSchema)), Config(InferIssue(TSchema))], MaybePromise(MaybeDeepReadonly(InferOutput(TSchema))))
+export function FallbackAsync(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>): any {
+  return MaybeDeepReadonly(InferOutput(TSchema)) | fnType([optElem(OutputDataset(InferOutput(TSchema), InferIssue(TSchema))), optElem(Config(InferIssue(TSchema)))], MaybePromise(MaybeDeepReadonly(InferOutput(TSchema))))
 }
 /* compiles to:
  * export type FallbackAsync<
@@ -47,15 +42,19 @@ export function FallbackAsync(TSchema: BaseSchema<unknown, unknown, BaseIssue<un
  *   | MaybeDeepReadonly<InferOutput<TSchema>>
  *   | (
  *       (
- *         a0: OutputDataset<InferOutput<TSchema>, InferIssue<TSchema>>,
- *         a1: Config<InferIssue<TSchema>>
+ *         a0?: OutputDataset<InferOutput<TSchema>, InferIssue<TSchema>>,
+ *         a1?: Config<InferIssue<TSchema>>
  *       ) => MaybePromise<MaybeDeepReadonly<InferOutput<TSchema>>>
  *     )
  */
 
 // ✓ SchemaWithFallbackAsync: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SchemaWithFallbackAsync(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, TFallback: FallbackAsync<typeof TSchema>) {
+/**
+ * @param {BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>} TSchema
+ * @param {FallbackAsync<typeof TSchema>} TFallback
+ */
+export function SchemaWithFallbackAsync(TSchema, TFallback): any {
   return merge(Omit(TSchema, anyOf('async', '~standard', '~run')), { fallback: readonlyProp(TFallback), async: readonlyProp(true), '~standard': readonlyProp(StandardProps(InferInput(TSchema), InferOutput(TSchema))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], t<Promise<OutputDataset<InferOutput<typeof TSchema>, InferIssue<typeof TSchema>>>>())) })
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Last: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Last(T: any[]) {
+export function Last(T: any[]): any {
   return any
 }
 /* compiles to:

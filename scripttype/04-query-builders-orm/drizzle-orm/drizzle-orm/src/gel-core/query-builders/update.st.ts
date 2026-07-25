@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GetColumnData } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
+import type { AnyGelUpdate } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/gel-core/query-builders/update.js'
+import type { GelQueryResultKind } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/gel-core/session.js'
+import type { AppendToNullabilityMap, AppendToResult, GetSelectTableName, GetSelectTableSelection, JoinNullability, JoinType, SelectMode, SelectResult } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { ColumnsSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sql/sql.js'
+import type { Assume } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+declare namespace m1 {
+  export type TJoin<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyGelUpdate: any
 declare const AppendToNullabilityMap: any
 declare const AppendToResult: any
@@ -35,34 +46,21 @@ declare const SelectResult: any
 declare const SelectedFields: any
 declare const Subquery: any
 declare const Table: any
-type AnyGelUpdate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToNullabilityMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelPreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GelQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelUpdateBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelViewBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetColumnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetSelectTableName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetSelectTableSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Join<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinNullability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectedFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GelUpdateSetSource: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdateSetSource(TTable: GelTable) {
+export function GelUpdateSetSource(TTable: GelTable): any {
   const out = emptyObject
   for (const Key in keyof(TTable['$inferInsert'])) {
     out[Key] = optional(GetColumnData(TTable['_']['columns'][Key]) | SQL | GelColumn)
@@ -81,7 +79,11 @@ export function GelUpdateSetSource(TTable: GelTable) {
 
 // ✓ GelUpdateWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdateWithout(T: AnyGelUpdate, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnyGelUpdate} T
+ * @param {keyof typeof T & string} K
+ */
+export function GelUpdateWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -112,7 +114,7 @@ export function GelUpdateWithout(T: AnyGelUpdate, TDynamic: boolean, K: keyof ty
 
 // ✓ GelUpdateWithJoins: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdateWithJoins(T: AnyGelUpdate, TDynamic: boolean, TFrom: GelTable | Subquery | GelViewBase | SQL) {
+export function GelUpdateWithJoins(T: AnyGelUpdate, TDynamic: boolean, TFrom: GelTable | Subquery | GelViewBase | SQL): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -152,7 +154,7 @@ export function GelUpdateWithJoins(T: AnyGelUpdate, TDynamic: boolean, TFrom: Ge
 
 // ✓ GelUpdateJoinFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdateJoinFn(T: AnyGelUpdate, TDynamic: boolean, TJoinType: JoinType) {
+export function GelUpdateJoinFn(T: AnyGelUpdate, TDynamic: boolean, TJoinType: JoinType): any {
   return genericFnType(['TJoinedTable extends GelTable | Subquery | GelViewBase | SQL'], [TJoinedTable, anyOf(fnType([T['_']['table']['_']['columns'], matches<GelTable>(T['_']['from']) ? T['_']['from']['_']['columns'] : (matches<Subquery | GelViewBase>(T['_']['from']) ? T['_']['from']['_']['selectedFields'] : never)], anyOf(SQL, Undefined)), SQL, Undefined)], GelUpdateJoin(T, TDynamic, TJoinType, TJoinedTable))
 }
 /* compiles to:
@@ -169,7 +171,7 @@ export function GelUpdateJoinFn(T: AnyGelUpdate, TDynamic: boolean, TJoinType: J
 
 // ✓ GelUpdateJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdateJoin(T: AnyGelUpdate, TDynamic: boolean, TJoinType: JoinType, TJoinedTable: GelTable | Subquery | GelViewBase | SQL) {
+export function GelUpdateJoin(T: AnyGelUpdate, TDynamic: boolean, TJoinType: JoinType, TJoinedTable: GelTable | Subquery | GelViewBase | SQL): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -205,7 +207,7 @@ export function GelUpdateJoin(T: AnyGelUpdate, TDynamic: boolean, TJoinType: Joi
 
 // ✓ AccumulateToResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AccumulateToResult(T: AnyGelUpdate, TSelectMode: SelectMode, TJoins: Join[], TSelectedFields: ColumnsSelection) {
+export function AccumulateToResult(T: AnyGelUpdate, TSelectMode: SelectMode, TJoins: Join[], TSelectedFields: ColumnsSelection): any {
   let tSelectMode = TSelectMode
   let tJoins = TJoins
   let tSelectedFields = TSelectedFields
@@ -257,7 +259,7 @@ export function AccumulateToResult(T: AnyGelUpdate, TSelectMode: SelectMode, TJo
 
 // ✓ GelUpdateReturningAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdateReturningAll(T: AnyGelUpdate, TDynamic: boolean) {
+export function GelUpdateReturningAll(T: AnyGelUpdate, TDynamic: boolean): any {
   return GelUpdateWithout(GelUpdateBase(T['_']['table'], T['_']['queryResult'], T['_']['from'], SelectResult(AccumulateToResult(T, 'single', T['_']['joins'], GetSelectTableSelection(T['_']['table'])), 'partial', T['_']['nullabilityMap']), T['_']['nullabilityMap'], T['_']['joins'], TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
@@ -283,7 +285,7 @@ export function GelUpdateReturningAll(T: AnyGelUpdate, TDynamic: boolean) {
 
 // ✓ GelUpdateReturning: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdateReturning(T: AnyGelUpdate, TDynamic: boolean, TSelectedFields: SelectedFields) {
+export function GelUpdateReturning(T: AnyGelUpdate, TDynamic: boolean, TSelectedFields: SelectedFields): any {
   return GelUpdateWithout(GelUpdateBase(T['_']['table'], T['_']['queryResult'], T['_']['from'], SelectResult(AccumulateToResult(T, 'partial', T['_']['joins'], TSelectedFields), 'partial', T['_']['nullabilityMap']), T['_']['nullabilityMap'], T['_']['joins'], TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
@@ -314,7 +316,7 @@ export function GelUpdateReturning(T: AnyGelUpdate, TDynamic: boolean, TSelected
 
 // ✓ GelUpdatePrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdatePrepare(T: AnyGelUpdate) {
+export function GelUpdatePrepare(T: AnyGelUpdate): any {
   return GelPreparedQuery(merge(PreparedQueryConfig, { execute: typeof T['_']['returning'] === 'undefined' ? GelQueryResultKind(T['_']['queryResult'], never) : arrayOf(T['_']['returning']) }))
 }
 /* compiles to:
@@ -330,7 +332,7 @@ export function GelUpdatePrepare(T: AnyGelUpdate) {
 
 // ✓ GelUpdateDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdateDynamic(T: AnyGelUpdate) {
+export function GelUpdateDynamic(T: AnyGelUpdate): any {
   return GelUpdate(T['_']['table'], T['_']['queryResult'], T['_']['from'], T['_']['returning'], T['_']['nullabilityMap'])
 }
 /* compiles to:
@@ -345,7 +347,7 @@ export function GelUpdateDynamic(T: AnyGelUpdate) {
 
 // ✓ GelUpdate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelUpdate(TTable: GelTable = GelTable, TQueryResult: GelQueryResultHKT = GelQueryResultHKT, TFrom: GelTable | Subquery | GelViewBase | SQL | undefined = Undefined, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined), TNullabilityMap: Record<string, JoinNullability> = Record(TTable['_']['name'], 'not-null'), TJoins: Join[] = []) {
+export function GelUpdate(TTable: GelTable = GelTable, TQueryResult: GelQueryResultHKT = GelQueryResultHKT, TFrom: GelTable | Subquery | GelViewBase | SQL | undefined = Undefined, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined), TNullabilityMap: Record<string, JoinNullability> = Record(TTable['_']['name'], 'not-null'), TJoins: Join[] = []): any {
   return GelUpdateBase(TTable, TQueryResult, TFrom, TReturning, TNullabilityMap, TJoins, true, never)
 }
 /* compiles to:

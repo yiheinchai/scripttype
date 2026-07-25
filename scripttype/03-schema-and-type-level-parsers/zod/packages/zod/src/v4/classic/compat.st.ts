@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { $ZodFlattenedError, $ZodFormattedError } from '../../../../../../../../03-schema-and-type-level-parsers/zod/packages/zod/src/v4/core/errors.js'
 declare namespace core {
   export type $ZodFlattenedError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type $ZodFormattedError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -17,14 +19,18 @@ declare namespace core {
   export type $brand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const $ZodFlattenedError: any
+declare const $ZodFormattedError: any
 declare const $ZodType: any
 declare const core: any
+declare const output: any
 type $ZodType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type core<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ inferFlattenedErrors: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferFlattenedErrors(T: core.$ZodType, U = string) {
-  return core.$ZodFlattenedError(core.output(T), U)
+export function inferFlattenedErrors(T: core.$ZodType, U = string): any {
+  return t<core.$ZodFlattenedError<core.output<typeof T>, typeof U>>()
 }
 /* compiles to:
  * export type inferFlattenedErrors<T extends core.$ZodType, U = string> = core.$ZodFlattenedError<
@@ -35,8 +41,8 @@ export function inferFlattenedErrors(T: core.$ZodType, U = string) {
 
 // ✓ inferFormattedError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferFormattedError(T: core.$ZodType<any, any>, U = string) {
-  return core.$ZodFormattedError(core.output(T), U)
+export function inferFormattedError(T: core.$ZodType<any, any>, U = string): any {
+  return t<core.$ZodFormattedError<core.output<typeof T>, typeof U>>()
 }
 /* compiles to:
  * export type inferFormattedError<T extends core.$ZodType<any, any>, U = string> = core.$ZodFormattedError<
@@ -47,7 +53,7 @@ export function inferFormattedError(T: core.$ZodType<any, any>, U = string) {
 
 // ✓ BRAND: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BRAND(T: string | number | symbol = string | number | symbol) {
+export function BRAND(T: string | number | symbol = string | number | symbol): any {
   const out = emptyObject
   for (const k in keySet(T)) {
     out[k] = true

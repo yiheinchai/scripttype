@@ -9,7 +9,10 @@
  */
 // ✓ _UndefinableKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _UndefinableKeys(O: object) {
+/**
+ * @param {object} O
+ */
+export function _UndefinableKeys(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = required(matches<[ never ]>([merge(O[K], Undefined)]) ? never : K)
@@ -23,7 +26,7 @@ export function _UndefinableKeys(O: object) {
 
 // ✓ UndefinableKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndefinableKeys(O: object) {
+export function UndefinableKeys(O: object): any {
   if (matches<unknown>(O)) {
     return _UndefinableKeys(O)
   }

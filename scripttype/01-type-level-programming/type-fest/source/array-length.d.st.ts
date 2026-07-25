@@ -9,7 +9,7 @@
  */
 // ✓ ArrayLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayLength(T: readonly unknown[]) {
+export function ArrayLength(T: readonly unknown[]): any {
   return T['length']
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ MyCapitalize: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MyCapitalize(S: string) {
+export function MyCapitalize(S: string): any {
   return any
 }
 /* compiles to:

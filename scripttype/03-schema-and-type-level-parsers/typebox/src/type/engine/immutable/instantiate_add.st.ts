@@ -7,22 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TInstantiateType, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TImmutable } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/_immutable.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare const TImmutable: any
 declare const TInstantiateType: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TImmutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TAddImmutableOperation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TAddImmutableOperation(Type: TSchema, Result: TSchema = '~immutable' in Type ? Type : TImmutable(Type)) {
+export function TAddImmutableOperation(Type: TSchema, Result: TSchema = '~immutable' in Type ? Type : TImmutable(Type)): any {
   return Result
 }
 /* compiles to:
@@ -35,7 +35,7 @@ export function TAddImmutableOperation(Type: TSchema, Result: TSchema = '~immuta
 
 // ✓ TAddImmutableAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TAddImmutableAction(Type: TSchema, Result: TSchema = TAddImmutableOperation(Type)) {
+export function TAddImmutableAction(Type: TSchema, Result: TSchema = TAddImmutableOperation(Type)): any {
   return Result
 }
 /* compiles to:
@@ -48,7 +48,7 @@ export function TAddImmutableAction(Type: TSchema, Result: TSchema = TAddImmutab
 
 // ✓ TAddImmutableInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TAddImmutableInstantiate(Context: TProperties, State: TState, Type: TSchema, InstantiateType: TSchema = TInstantiateType(Context, State, Type)) {
+export function TAddImmutableInstantiate(Context: TProperties, State: TState, Type: TSchema, InstantiateType: TSchema = TInstantiateType(Context, State, Type)): any {
   return TAddImmutableAction(InstantiateType)
 }
 /* compiles to:

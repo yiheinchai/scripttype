@@ -7,9 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { BaseMappedPropInner, OptionalMappedPropInner } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/structure/structure.js'
+import type { Default, withDefault } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/attributes.js'
+import type { BaseTypeProp, DefaultedTypeProp } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/variants/object.js'
+import type { array, listable } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/arrays.js'
+import type { show } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
+import type { Key } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/keys.js'
+import type { optionalKeyOf } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/records.js'
+import type { intersectUnion } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/unionToTuple.js'
+declare namespace m1 {
+  export type defaultValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type k<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type t<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace type {
+  export type cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseMappedPropInner: any
 declare const BaseTypeProp: any
 declare const Default: any
@@ -17,6 +34,7 @@ declare const DefaultedTypeProp: any
 declare const Key: any
 declare const OptionalMappedPropInner: any
 declare const array: any
+declare const cast: any
 declare const inferred: any
 declare const intersectUnion: any
 declare const listable: any
@@ -24,27 +42,16 @@ declare const optionalKeyOf: any
 declare const show: any
 declare const type: any
 declare const withDefault: any
-type BaseMappedPropInner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type BaseTypeProp<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Default<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultedTypeProp<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Key<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MappedTypeProp<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalMappedPropInner<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type intersectUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type listable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type optionalKeyOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type show<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type type<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type withDefault<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MappedTypeProp<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type inferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ typePropOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function typePropOf(o, $) {
+export function typePropOf(o, $): any {
   const m1 = matches<Hole<"k">>(keyof(o))
   if (m1) {
-    if (matches<keyof typeof o>(m1.k)) {
+    if (m1.k in o) {
       return typeProp(o, m1.k, $)
     }
     return never
@@ -52,12 +59,16 @@ export function typePropOf(o, $) {
   return never
 }
 /* compiles to:
- * export type typePropOf<o, $> = keyof o extends infer k ? k extends keyof o ? typeProp<o, k, $> : never : never
+ * export type typePropOf<o, $> =
+ *   keyof o extends infer k ? k extends keyof o ? typeProp<o, k, $> : never : never
  */
 
 // ✓ typeProp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function typeProp(o, k: keyof typeof o, $, t = merge(o[k], anyOf({}, Null))) {
+/**
+ * @param {keyof typeof o} k
+ */
+export function typeProp(o, k, $, t = merge(o[k], anyOf({}, Null))): any {
   const m1 = matches<Default<Hole<"t">, Hole<"defaultValue">>>(t)
   if (m1) {
     return DefaultedTypeProp(merge(k, Key), m1.t, m1.defaultValue, $)
@@ -65,48 +76,56 @@ export function typeProp(o, k: keyof typeof o, $, t = merge(o[k], anyOf({}, Null
   return BaseTypeProp(matches<optionalKeyOf<typeof o>>(k) ? 'optional' : 'required', merge(k, Key), t, $)
 }
 /* compiles to:
- * export type typeProp<o, k extends keyof o, $, t = o[k] & ({} | null)> = t extends Default<infer t, infer defaultValue> ? DefaultedTypeProp<k & Key, t, defaultValue, $> : BaseTypeProp<k extends optionalKeyOf<o> ? 'optional' : 'required', k & Key, t, $>
+ * export type typeProp<o, k extends keyof o, $, t = o[k] & ({} | null)> =
+ *   t extends Default<infer t, infer defaultValue>
+ *     ? DefaultedTypeProp<k & Key, t, defaultValue, $>
+ *     : BaseTypeProp<k extends optionalKeyOf<o> ? 'optional' : 'required', k & Key, t, $>
  */
 
 // ✓ MappedTypeProp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MappedTypeProp(k: Key = Key, v = unknown) {
+export function MappedTypeProp(k: Key = Key, v = unknown): any {
   return BaseMappedTypeProp(k, v) | OptionalMappedTypeProp(k, v)
 }
 /* compiles to:
- * export type MappedTypeProp<k extends Key = Key, v = unknown> = BaseMappedTypeProp<k, v> | OptionalMappedTypeProp<k, v>
+ * export type MappedTypeProp<k extends Key = Key, v = unknown> =
+ *   BaseMappedTypeProp<k, v> | OptionalMappedTypeProp<k, v>
  */
 
 // ✓ BaseMappedTypeProp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseMappedTypeProp(k: Key, v) {
-  return merge(BaseMappedPropInner, { key: k, value: type.cast(v) })
+export function BaseMappedTypeProp(k: Key, v): any {
+  return merge(BaseMappedPropInner, { key: k, value: t<type.cast<typeof v>>() })
 }
 /* compiles to:
- * export type BaseMappedTypeProp<k extends Key, v> = BaseMappedPropInner & { key: k; value: type.cast<v> }
+ * export type BaseMappedTypeProp<k extends Key, v> =
+ *   BaseMappedPropInner & { key: k; value: type.cast<v> }
  */
 
 // ✓ OptionalMappedTypeProp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalMappedTypeProp(k: Key, v) {
-  return merge(OptionalMappedPropInner, { key: k, value: type.cast(v), default: optional(v) })
+export function OptionalMappedTypeProp(k: Key, v): any {
+  return merge(OptionalMappedPropInner, { key: k, value: t<type.cast<typeof v>>(), default: optional(v) })
 }
 /* compiles to:
- * export type OptionalMappedTypeProp<k extends Key, v> = OptionalMappedPropInner & { key: k; value: type.cast<v>; default?: v }
+ * export type OptionalMappedTypeProp<k extends Key, v> =
+ *   OptionalMappedPropInner & { key: k; value: type.cast<v>; default?: v }
  */
 
 // ✓ constructMapped: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function constructMapped(t, transformed: listable<MappedTypeProp>) {
+export function constructMapped(t, transformed: listable<MappedTypeProp>): any {
   return show(intersectUnion(fromTypeProps(t, matches<array>(transformed) ? transformed : [transformed])))
 }
 /* compiles to:
- * export type constructMapped<t, transformed extends listable<MappedTypeProp>> = show<intersectUnion<fromTypeProps<t, transformed extends array ? transformed : [transformed]>>>
+ * export type constructMapped<t, transformed extends listable<MappedTypeProp>> = show<
+ *   intersectUnion<fromTypeProps<t, transformed extends array ? transformed : [transformed]>>
+ * >
  */
 
 // ✓ fromTypeProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function fromTypeProps(t, props: array<MappedTypeProp>) {
+export function fromTypeProps(t, props: array<MappedTypeProp>): any {
   const out = emptyObject
   for (const prop in keySet(props[number])) {
     out[Extract(applyHomomorphicOptionality(t, prop), { kind: 'required' })['key']] = prop['value'][inferred]
@@ -119,20 +138,36 @@ export function fromTypeProps(t, props: array<MappedTypeProp>) {
   for (const prop in keySet(props[number])) {
     out3[Extract(applyHomomorphicOptionality(t, prop), { kind: 'optional', default: unknown })['key']] = withDefault(prop['value'][inferred], prop[merge('default', keyof(prop))])
   }
-  return show(out & out2 & out3)
+  return show(merge(out, out2, out3))
 }
 /* compiles to:
- * export type fromTypeProps<t, props extends array<MappedTypeProp>> = show<{ [Prop in props[number] as Extract<applyHomomorphicOptionality<t, Prop>, { kind: 'required' }>['key']]: Prop['value'][inferred] } & { [Prop1 in props[number] as Extract<applyHomomorphicOptionality<t, Prop1>, { kind: 'optional'; default?: never }>['key']]?: Prop1['value'][inferred] } & { [Prop2 in props[number] as Extract<applyHomomorphicOptionality<t, Prop2>, { kind: 'optional'; default: unknown }>['key']]: withDefault<Prop2['value'][inferred], Prop2['default' & keyof Prop2]> }>
+ * export type fromTypeProps<t, props extends array<MappedTypeProp>> = show<
+ *   & {
+ *       [Prop in props[number] as Extract<applyHomomorphicOptionality<t, Prop>, { kind: 'required' }>['key']]: Prop['value'][inferred]
+ *     }
+ *   & {
+ *       [Prop1 in props[number] as Extract<applyHomomorphicOptionality<t, Prop1>, { kind: 'optional'; default?: never }>['key']]?: Prop1['value'][inferred]
+ *     }
+ *   & {
+ *       [Prop2 in props[number] as Extract<applyHomomorphicOptionality<t, Prop2>, { kind: 'optional'; default: unknown }>['key']]: withDefault<
+ *         Prop2['value'][inferred],
+ *         Prop2['default' & keyof Prop2]
+ *       >
+ *     }
+ * >
  */
 
 // ✓ applyHomomorphicOptionality: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function applyHomomorphicOptionality(t, prop: MappedTypeProp) {
-  if (matches<string>(prop['kind'])) {
+export function applyHomomorphicOptionality(t, prop: MappedTypeProp): any {
+  if (typeof prop['kind'] === 'string') {
     return prop
   }
   return merge(prop, { kind: matches<optionalKeyOf<typeof t>>(prop['key']) ? 'optional' : 'required' })
 }
 /* compiles to:
- * export type applyHomomorphicOptionality<t, prop extends MappedTypeProp> = prop['kind'] extends string ? prop : prop & { kind: prop['key'] extends optionalKeyOf<t> ? 'optional' : 'required' }
+ * export type applyHomomorphicOptionality<t, prop extends MappedTypeProp> =
+ *   prop['kind'] extends string
+ *     ? prop
+ *     : prop & { kind: prop['key'] extends optionalKeyOf<t> ? 'optional' : 'required' }
  */

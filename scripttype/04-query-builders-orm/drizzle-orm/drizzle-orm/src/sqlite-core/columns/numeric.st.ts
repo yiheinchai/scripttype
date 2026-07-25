@@ -18,7 +18,7 @@ type SQLiteNumericBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 =
 type SQLiteNumericNumberBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLiteNumericBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteNumericBuilderInitial(TName: string) {
+export function SQLiteNumericBuilderInitial(TName: string): any {
   return SQLiteNumericBuilder({ name: TName, dataType: 'string', columnType: 'SQLiteNumeric', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function SQLiteNumericBuilderInitial(TName: string) {
 
 // ✓ SQLiteNumericNumberBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteNumericNumberBuilderInitial(TName: string) {
+export function SQLiteNumericNumberBuilderInitial(TName: string): any {
   return SQLiteNumericNumberBuilder({ name: TName, dataType: 'number', columnType: 'SQLiteNumericNumber', data: number, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
@@ -54,7 +54,7 @@ export function SQLiteNumericNumberBuilderInitial(TName: string) {
 
 // ✓ SQLiteNumericBigIntBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteNumericBigIntBuilderInitial(TName: string) {
+export function SQLiteNumericBigIntBuilderInitial(TName: string): any {
   return SQLiteNumericBigIntBuilder({ name: TName, dataType: 'bigint', columnType: 'SQLiteNumericBigInt', data: bigint, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
@@ -72,7 +72,7 @@ export function SQLiteNumericBigIntBuilderInitial(TName: string) {
 
 // ✓ SQLiteNumericConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteNumericConfig(T: 'string' | 'number' | 'bigint' = anyOf('string', 'number', 'bigint')) {
+export function SQLiteNumericConfig(T: 'string' | 'number' | 'bigint' = anyOf('string', 'number', 'bigint')): any {
   return { mode: T }
 }
 /* compiles to:

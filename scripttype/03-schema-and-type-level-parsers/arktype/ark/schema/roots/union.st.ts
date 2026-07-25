@@ -7,22 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { CaseContext, DiscriminantKind, DiscriminantKinds } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/roots/union.js'
 declare const BaseRoot: any
 declare const CaseContext: any
 declare const DiscriminantKind: any
 declare const DiscriminantKinds: any
 declare const PropertyKey: any
 type BaseRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CaseContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DiscriminantKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DiscriminantKinds<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CaseKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CaseKey(kind: DiscriminantKind = DiscriminantKind) {
+export function CaseKey(kind: DiscriminantKind = DiscriminantKind): any {
   if (matches<typeof kind>(DiscriminantKind)) {
     return string
   }
@@ -36,7 +35,7 @@ export function CaseKey(kind: DiscriminantKind = DiscriminantKind) {
 // ✗ DiscriminantLocation: the ScriptType does not itself typecheck as TypeScript
 //   DiscriminantLocation.st.ts(3:26) TS2693: 'PropertyKey' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
-export function DiscriminantLocation(kind: DiscriminantKind = DiscriminantKind) {
+export function DiscriminantLocation(kind: DiscriminantKind = DiscriminantKind): any {
   return { path: arrayOf(PropertyKey), optionallyChainedPropString: string, kind: kind }
 }
 /* compiles to:
@@ -50,7 +49,7 @@ export function DiscriminantLocation(kind: DiscriminantKind = DiscriminantKind) 
 // ✗ DiscriminantCandidate: the ScriptType does not itself typecheck as TypeScript
 //   DiscriminantCandidate.st.ts(3:26) TS2693: 'PropertyKey' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
-export function DiscriminantCandidate(kind: DiscriminantKind = DiscriminantKind) {
+export function DiscriminantCandidate(kind: DiscriminantKind = DiscriminantKind): any {
   return { path: arrayOf(PropertyKey), kind: kind, cases: CandidateCases(kind) }
 }
 /* compiles to:
@@ -64,7 +63,7 @@ export function DiscriminantCandidate(kind: DiscriminantKind = DiscriminantKind)
 // ✗ CandidateCases: does not compile yet
 //   Type 'CaseKey' is not generic.
 /* @scripttype preserveParamNames */
-export function CandidateCases(kind: DiscriminantKind = DiscriminantKind) {
+export function CandidateCases(kind: DiscriminantKind = DiscriminantKind): any {
   const out = emptyObject
   for (const caseKey in keySet(CaseKey(kind))) {
     out[caseKey] = CaseContext
@@ -80,7 +79,7 @@ export function CandidateCases(kind: DiscriminantKind = DiscriminantKind) {
 // ✗ DiscriminatedCases: does not compile yet
 //   Type 'CaseKey' is not generic.
 /* @scripttype preserveParamNames */
-export function DiscriminatedCases(kind: DiscriminantKind = DiscriminantKind) {
+export function DiscriminatedCases(kind: DiscriminantKind = DiscriminantKind): any {
   const out = emptyObject
   for (const caseKey in keySet(CaseKey(kind))) {
     out[caseKey] = anyOf(BaseRoot, true)

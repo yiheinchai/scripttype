@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DefinedTRPCQueryOptionsIn, DefinedTRPCQueryOptionsOut, UndefinedTRPCQueryOptionsIn, UndefinedTRPCQueryOptionsOut, UnusedSkipTokenTRPCQueryOptionsIn, UnusedSkipTokenTRPCQueryOptionsOut } from '../../../../../../../02-inference-at-scale/trpc/packages/react-query/src/shared/types.js'
+import type { DefaultFeatureFlags, FeatureFlags } from '../../../../../../../02-inference-at-scale/trpc/packages/tanstack-react-query/src/internals/types.js'
 declare const DefaultFeatureFlags: any
 declare const DefinedTRPCQueryOptionsIn: any
 declare const DefinedTRPCQueryOptionsOut: any
@@ -18,17 +21,9 @@ declare const UndefinedTRPCQueryOptionsIn: any
 declare const UndefinedTRPCQueryOptionsOut: any
 declare const UnusedSkipTokenTRPCQueryOptionsIn: any
 declare const UnusedSkipTokenTRPCQueryOptionsOut: any
-type DefaultFeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DefinedTRPCQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DefinedTRPCQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UndefinedTRPCQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UndefinedTRPCQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnusedSkipTokenTRPCQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnusedSkipTokenTRPCQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyTRPCQueryOptionsIn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyTRPCQueryOptionsIn(TFeatureFlags: FeatureFlags) {
+export function AnyTRPCQueryOptionsIn(TFeatureFlags: FeatureFlags): any {
   return DefinedTRPCQueryOptionsIn(unknown, unknown, unknown, TFeatureFlags) | UnusedSkipTokenTRPCQueryOptionsIn(unknown, unknown, unknown, TFeatureFlags) | UndefinedTRPCQueryOptionsIn(unknown, unknown, unknown, TFeatureFlags)
 }
 /* compiles to:
@@ -40,7 +35,7 @@ export function AnyTRPCQueryOptionsIn(TFeatureFlags: FeatureFlags) {
 
 // ✓ AnyTRPCQueryOptionsOut: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyTRPCQueryOptionsOut(TFeatureFlags: FeatureFlags = DefaultFeatureFlags) {
+export function AnyTRPCQueryOptionsOut(TFeatureFlags: FeatureFlags = DefaultFeatureFlags): any {
   return DefinedTRPCQueryOptionsOut(unknown, unknown, unknown, TFeatureFlags) | UnusedSkipTokenTRPCQueryOptionsOut(unknown, unknown, unknown, TFeatureFlags) | UndefinedTRPCQueryOptionsOut(unknown, unknown, unknown, TFeatureFlags)
 }
 /* compiles to:

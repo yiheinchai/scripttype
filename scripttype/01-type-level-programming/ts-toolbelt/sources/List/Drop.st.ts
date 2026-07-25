@@ -7,9 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Pos } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+import type { Prev } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Prev.js'
+import type { Way } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/_Internal.js'
+import type { Prepend } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Prepend.js'
+import type { Tail } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Tail.js'
+import type { Naked } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/_Internal.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Cast: any
 declare const Extends: any
 declare const Iteration: any
@@ -21,49 +35,47 @@ declare const Prepend: any
 declare const Prev: any
 declare const Tail: any
 declare const Way: any
-type Cast<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Iteration<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IterationOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Naked<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Pos<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prepend<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Prev<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Tail<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Way<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ DropForth: does not compile yet
 //   Type '0 extends Pos<N> ? 1 : 0' cannot be used to index type '{ '0': DropForth__st0<Tail<L>, Prev<N>>; '1': L; }'.
 /* @scripttype preserveParamNames */
-export function DropForth(L: List, N: Iteration) {
+export function DropForth(L: List, N: Iteration): any {
   return { 0: DropForth(Tail(L), Prev(N)), 1: L }[Extends(0, Pos(N))]
 }
 /* compiles to:
- * export type DropForth<L extends List, N extends Iteration> = { '0': DropForth<Tail<L>, Prev<N>>; '1': L }[Extends<0, Pos<N>>]
+ * export type DropForth<L extends List, N extends Iteration> =
+ *   { '0': DropForth<Tail<L>, Prev<N>>; '1': L }[Extends<0, Pos<N>>]
  */
 
 // ✗ DropBack: does not compile yet
 //   Type '-1 extends Pos<I> ? 1 : 0' cannot be used to index type '{ '0': DropBack__st1<L, N, Prev<I>, [L[Pos<I>], ...LN]>; '1': LN; }'.
 /* @scripttype preserveParamNames */
-export function DropBack(L: List, N: Iteration, I: Iteration = Prev(N), LN: List = []) {
+export function DropBack(L: List, N: Iteration, I: Iteration = Prev(N), LN: List = []): any {
   return { 0: DropBack(L, N, Prev(I), Prepend(LN, L[Pos(I)])), 1: LN }[Extends(-1, Pos(I))]
 }
 /* compiles to:
- * export type DropBack<L extends List, N extends Iteration, I extends Iteration = Prev<N>, LN extends List = []> = { '0': DropBack<L, N, Prev<I>, Prepend<LN, L[Pos<I>]>>; '1': LN }[Extends<-1, Pos<I>>]
+ * export type DropBack<
+ *   L extends List,
+ *   N extends Iteration,
+ *   I extends Iteration = Prev<N>,
+ *   LN extends List = []
+ * > =
+ *   { '0': DropBack<L, N, Prev<I>, Prepend<LN, L[Pos<I>]>>; '1': LN }[Extends<-1, Pos<I>>]
  */
 
 // ✓ __Drop: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function __Drop(L: List, N: Iteration, way: Way) {
+export function __Drop(L: List, N: Iteration, way: Way): any {
   return { '->': DropForth(L, N), '<-': DropBack(L, N) }[way]
 }
 /* compiles to:
- * export type __Drop<L extends List, N extends Iteration, way extends Way> = { '->': DropForth<L, N>; '<-': DropBack<L, N> }[way]
+ * export type __Drop<L extends List, N extends Iteration, way extends Way> =
+ *   { '->': DropForth<L, N>; '<-': DropBack<L, N> }[way]
  */
 
 // ✓ _Drop: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Drop(L: List, N: number, way: Way = '->') {
+export function _Drop(L: List, N: number, way: Way = '->'): any {
   const m1 = matches<Hole<"X">>(__Drop(Naked(L), IterationOf(N), way))
   if (m1) {
     return Cast(m1.X, List)
@@ -71,12 +83,13 @@ export function _Drop(L: List, N: number, way: Way = '->') {
   return never
 }
 /* compiles to:
- * export type _Drop<L extends List, N extends number, way extends Way = '->'> = __Drop<Naked<L>, IterationOf<N>, way> extends infer X ? Cast<X, List> : never
+ * export type _Drop<L extends List, N extends number, way extends Way = '->'> =
+ *   __Drop<Naked<L>, IterationOf<N>, way> extends infer X ? Cast<X, List> : never
  */
 
 // ✓ Drop: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Drop(L: List, N: number, way: Way = '->') {
+export function Drop(L: List, N: number, way: Way = '->'): any {
   if (matches<unknown>(L)) {
     if (matches<unknown>(N)) {
       return _Drop(L, N, way)
@@ -86,5 +99,6 @@ export function Drop(L: List, N: number, way: Way = '->') {
   return never
 }
 /* compiles to:
- * export type Drop<L extends List, N extends number, way extends Way = '->'> = L extends unknown ? N extends unknown ? _Drop<L, N, way> : never : never
+ * export type Drop<L extends List, N extends number, way extends Way = '->'> =
+ *   L extends unknown ? N extends unknown ? _Drop<L, N, way> : never : never
  */

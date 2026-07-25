@@ -9,7 +9,7 @@
  */
 // ✓ ElementFrom: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ElementFrom(T: unknown[]) {
+export function ElementFrom(T: unknown[]): any {
   return T[number]
 }
 /* compiles to:

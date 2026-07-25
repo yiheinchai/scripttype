@@ -7,9 +7,58 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TAny } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/any.js'
+import type { TArray } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/array.js'
+import type { TConstructor } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/constructor.js'
+import type { TCyclic } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/cyclic.js'
+import type { TFunction } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/function.js'
+import type { TIntersect } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/intersect.js'
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TRecord } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/record.js'
+import type { TRef } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/ref.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TTuple } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/tuple.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+import type { TUnknown } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/unknown.js'
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Ref<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type InstanceType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Parameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type Parameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m6 {
+  export type Properties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m7 {
+  export type Pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m8 {
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m9 {
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TAny: any
 declare const TArray: any
 declare const TConstructor: any
@@ -24,23 +73,10 @@ declare const TSchema: any
 declare const TTuple: any
 declare const TUnion: any
 declare const TUnknown: any
-type TAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromRef(_Ref: string) {
+export function TFromRef(_Ref: string): any {
   return TAny
 }
 /* compiles to:
@@ -49,14 +85,17 @@ export function TFromRef(_Ref: string) {
 
 // ✓ TFromProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromProperties__v1(Properties) {
+export function TFromProperties__v1(Properties): any {
   const out = emptyObject
   for (const Key in keyof(Properties)) {
     out[Key] = TFromType(Properties[Key])
   }
   return out
 }
-export function TFromProperties(Properties: TProperties, Result: TProperties = TFromProperties__v1(Properties)) {
+/**
+ * @param {TProperties} Result
+ */
+export function TFromProperties(Properties: TProperties, Result = TFromProperties__v1(Properties)): any {
   const out = emptyObject
   for (const Key in keyof(Result)) {
     out[Key] = Result[Key]
@@ -76,7 +115,7 @@ export function TFromProperties(Properties: TProperties, Result: TProperties = T
 
 // ✓ TFromTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromTypes(Types: TSchema[]) {
+export function TFromTypes(Types: TSchema[]): any {
   let Result: any[] = []
   let types = Types
   while (true) {
@@ -99,7 +138,7 @@ export function TFromTypes(Types: TSchema[]) {
 
 // ✓ TFromType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromType(Type: TSchema) {
+export function TFromType(Type: TSchema): any {
   const m1 = matches<TRef<Hole<"Ref", string>>>(Type)
   if (m1) {
     return TFromRef(m1.Ref)
@@ -158,7 +197,7 @@ export function TFromType(Type: TSchema) {
 
 // ✓ TCyclicAnyFromParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCyclicAnyFromParameters(Defs: TProperties, Ref: string) {
+export function TCyclicAnyFromParameters(Defs: TProperties, Ref: string): any {
   if (Ref in Defs) {
     return TFromType(Defs[Ref])
   }
@@ -171,7 +210,7 @@ export function TCyclicAnyFromParameters(Defs: TProperties, Ref: string) {
 
 // ✓ TCyclicExtends: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCyclicExtends(Type: TCyclic, Result: TSchema = TCyclicAnyFromParameters(Type['$defs'], Type['$ref'])) {
+export function TCyclicExtends(Type: TCyclic, Result: TSchema = TCyclicAnyFromParameters(Type['$defs'], Type['$ref'])): any {
   return Result
 }
 /* compiles to:

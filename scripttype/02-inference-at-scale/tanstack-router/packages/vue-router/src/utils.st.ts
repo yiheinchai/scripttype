@@ -13,12 +13,14 @@
 declare namespace Vue {
   export type VNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const VNode: any
 declare const Vue: any
+type VNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Vue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParentProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ParentProps(T = {}) {
-  return merge(T, { children: optional(Vue.VNode | arrayOf(Vue.VNode) | string) })
+export function ParentProps(T = {}): any {
+  return merge(T, { children: optional(t<Vue.VNode>() | arrayOf(t<Vue.VNode>()) | string) })
 }
 /* compiles to:
  * export type ParentProps<T = {}> = T & { children?: Vue.VNode | Vue.VNode[] | string }

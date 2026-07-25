@@ -7,22 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Operation, OperationResultEnvelope } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/links/types.js'
+import type { InferrableClientTypes } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inferrable.js'
+import type { AnyRouter } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
 declare const AnyRouter: any
 declare const InferrableClientTypes: any
 declare const Operation: any
 declare const OperationResultEnvelope: any
 declare const TRPCClientError: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferrableClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Operation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OperationResultEnvelope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TRPCClientError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ EnableFnOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EnableFnOptions(TRouter: InferrableClientTypes) {
+export function EnableFnOptions(TRouter: InferrableClientTypes): any {
   return anyOf({ direction: 'down', result: OperationResultEnvelope(unknown, TRPCClientError(TRouter)) | TRPCClientError(TRouter) }, merge(Operation, { direction: 'up' }))
 }
 /* compiles to:
@@ -37,7 +37,7 @@ export function EnableFnOptions(TRouter: InferrableClientTypes) {
 
 // ✓ EnabledFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EnabledFn(TRouter: AnyRouter) {
+export function EnabledFn(TRouter: AnyRouter): any {
   return fnType([EnableFnOptions(TRouter)], boolean)
 }
 /* compiles to:
@@ -46,7 +46,7 @@ export function EnabledFn(TRouter: AnyRouter) {
 
 // ✓ LoggerLinkFnOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LoggerLinkFnOptions(TRouter: AnyRouter) {
+export function LoggerLinkFnOptions(TRouter: AnyRouter): any {
   return merge(Operation, anyOf({ direction: 'down', result: OperationResultEnvelope(unknown, TRPCClientError(TRouter)) | TRPCClientError(TRouter), elapsedMs: number }, { direction: 'up' }))
 }
 /* compiles to:
@@ -65,7 +65,7 @@ export function LoggerLinkFnOptions(TRouter: AnyRouter) {
 
 // ✓ LoggerLinkFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LoggerLinkFn(TRouter: AnyRouter) {
+export function LoggerLinkFn(TRouter: AnyRouter): any {
   return fnType([LoggerLinkFnOptions(TRouter)], voidType())
 }
 /* compiles to:

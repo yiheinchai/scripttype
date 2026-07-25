@@ -9,7 +9,7 @@
  */
 // ✓ Push: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Push(T, U) {
+export function Push(T, U): any {
   return any
 }
 /* compiles to:

@@ -7,9 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TUnionToTuple } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/helpers/union.js'
+import type { TProperties } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/properties.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { StaticDirection, StaticEvaluate, StaticType } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/static.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const PropertyKey: any
 declare const StaticDirection: any
 declare const StaticEvaluate: any
@@ -20,24 +29,18 @@ declare const TReadonly: any
 declare const TSchema: any
 declare const TUnionToTuple: any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticEvaluate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadonlyOptionalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyOptionalKeys__v1(Properties) {
+export function ReadonlyOptionalKeys__v1(Properties): any {
   const out = emptyObject
   for (const Key in keyof(Properties)) {
     out[Key] = matches<TReadonly<TSchema>>(Properties[Key]) ? (matches<TOptional<(typeof Properties)[typeof Key]>>(Properties[Key]) ? Key : never) : never
   }
   return out
 }
-export function ReadonlyOptionalKeys(Properties: TProperties, Result: PropertyKey = ReadonlyOptionalKeys__v1(Properties)[keyof(Properties)]) {
+export function ReadonlyOptionalKeys(Properties: TProperties, Result: PropertyKey = ReadonlyOptionalKeys__v1(Properties)[keyof(Properties)]): any {
   return Result
 }
 /* compiles to:
@@ -55,14 +58,14 @@ export function ReadonlyOptionalKeys(Properties: TProperties, Result: PropertyKe
 
 // ✓ ReadonlyKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyKeys__v1(Properties) {
+export function ReadonlyKeys__v1(Properties): any {
   const out = emptyObject
   for (const Key in keyof(Properties)) {
     out[Key] = matches<TReadonly<TSchema>>(Properties[Key]) ? (matches<TOptional<(typeof Properties)[typeof Key]>>(Properties[Key]) ? never : Key) : never
   }
   return out
 }
-export function ReadonlyKeys(Properties: TProperties, Result: PropertyKey = ReadonlyKeys__v1(Properties)[keyof(Properties)]) {
+export function ReadonlyKeys(Properties: TProperties, Result: PropertyKey = ReadonlyKeys__v1(Properties)[keyof(Properties)]): any {
   return Result
 }
 /* compiles to:
@@ -80,14 +83,14 @@ export function ReadonlyKeys(Properties: TProperties, Result: PropertyKey = Read
 
 // ✓ OptionalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalKeys__v1(Properties) {
+export function OptionalKeys__v1(Properties): any {
   const out = emptyObject
   for (const Key in keyof(Properties)) {
     out[Key] = matches<TOptional<TSchema>>(Properties[Key]) ? (matches<TReadonly<(typeof Properties)[typeof Key]>>(Properties[Key]) ? never : Key) : never
   }
   return out
 }
-export function OptionalKeys(Properties: TProperties, Result: PropertyKey = OptionalKeys__v1(Properties)[keyof(Properties)]) {
+export function OptionalKeys(Properties: TProperties, Result: PropertyKey = OptionalKeys__v1(Properties)[keyof(Properties)]): any {
   return Result
 }
 /* compiles to:
@@ -105,7 +108,7 @@ export function OptionalKeys(Properties: TProperties, Result: PropertyKey = Opti
 
 // ✓ RequiredKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequiredKeys(Properties: TProperties, Result: PropertyKey = keyof(Omit(Properties, ReadonlyOptionalKeys(Properties) | ReadonlyKeys(Properties) | OptionalKeys(Properties)))) {
+export function RequiredKeys(Properties: TProperties, Result: PropertyKey = keyof(Omit(Properties, anyOf(ReadonlyOptionalKeys(Properties), ReadonlyKeys(Properties), OptionalKeys(Properties))))): any {
   return Result
 }
 /* compiles to:
@@ -118,8 +121,8 @@ export function RequiredKeys(Properties: TProperties, Result: PropertyKey = keyo
 
 // ✓ StaticPropertiesWithModifiers: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticPropertiesWithModifiers(Properties: TProperties, PropertiesWithoutModifiers: Record<PropertyKey, unknown>) {
-  return StaticEvaluate(Readonly(Partial(Pick(PropertiesWithoutModifiers, ReadonlyOptionalKeys(Properties)))) & Readonly(Pick(PropertiesWithoutModifiers, ReadonlyKeys(Properties))) & Partial(Pick(PropertiesWithoutModifiers, OptionalKeys(Properties))) & Required(Pick(PropertiesWithoutModifiers, RequiredKeys(Properties))))
+export function StaticPropertiesWithModifiers(Properties: TProperties, PropertiesWithoutModifiers: Record<PropertyKey, unknown>): any {
+  return StaticEvaluate(merge(Readonly(Partial(Pick(PropertiesWithoutModifiers, ReadonlyOptionalKeys(Properties)))), Readonly(Pick(PropertiesWithoutModifiers, ReadonlyKeys(Properties))), Partial(Pick(PropertiesWithoutModifiers, OptionalKeys(Properties))), Required(Pick(PropertiesWithoutModifiers, RequiredKeys(Properties)))))
 }
 /* compiles to:
  * export type StaticPropertiesWithModifiers<
@@ -136,14 +139,14 @@ export function StaticPropertiesWithModifiers(Properties: TProperties, Propertie
 
 // ✓ StaticPropertiesWithoutModifiers: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticPropertiesWithoutModifiers__v1(Stack, Direction, Context, This, Properties) {
+export function StaticPropertiesWithoutModifiers__v1(Stack, Direction, Context, This, Properties): any {
   const out = emptyObject
   for (const Key in keyof(Properties)) {
     out[Key] = StaticType(Stack, Direction, Context, This, Properties[Key])
   }
   return out
 }
-export function StaticPropertiesWithoutModifiers(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Properties: TProperties, Result: Record<PropertyKey, unknown> = StaticPropertiesWithoutModifiers__v1(Stack, Direction, Context, This, Properties)) {
+export function StaticPropertiesWithoutModifiers(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Properties: TProperties, Result: Record<PropertyKey, unknown> = StaticPropertiesWithoutModifiers__v1(Stack, Direction, Context, This, Properties)): any {
   return Result
 }
 /* compiles to:
@@ -163,14 +166,14 @@ export function StaticPropertiesWithoutModifiers(Stack: string[], Direction: Sta
 
 // ✓ StaticProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticProperties__v1(PropertiesWithModifiers) {
+export function StaticProperties__v1(PropertiesWithModifiers): any {
   const out = emptyObject
   for (const Key in keyof(PropertiesWithModifiers)) {
     out[Key] = PropertiesWithModifiers[Key]
   }
   return out
 }
-export function StaticProperties(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Properties: TProperties, PropertiesWithoutModifiers: Record<PropertyKey, unknown> = StaticPropertiesWithoutModifiers(Stack, Direction, Context, This, Properties), PropertiesWithModifiers: Record<PropertyKey, unknown> = StaticPropertiesWithModifiers(Properties, PropertiesWithoutModifiers), Result: Record<PropertyKey, unknown> = StaticProperties__v1(PropertiesWithModifiers)) {
+export function StaticProperties(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Properties: TProperties, PropertiesWithoutModifiers: Record<PropertyKey, unknown> = StaticPropertiesWithoutModifiers(Stack, Direction, Context, This, Properties), PropertiesWithModifiers: Record<PropertyKey, unknown> = StaticPropertiesWithModifiers(Properties, PropertiesWithoutModifiers), Result: Record<PropertyKey, unknown> = StaticProperties__v1(PropertiesWithModifiers)): any {
   return Result
 }
 /* compiles to:
@@ -192,14 +195,14 @@ export function StaticProperties(Stack: string[], Direction: StaticDirection, Co
 
 // ✓ TRequiredArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRequiredArray__v1(Properties) {
+export function TRequiredArray__v1(Properties): any {
   const out = emptyObject
   for (const Key in keyof(Properties)) {
     out[matches<TOptional<(typeof Properties)[typeof Key]>>(Properties[Key]) ? never : Key] = Properties[Key]
   }
   return out
 }
-export function TRequiredArray(Properties: TProperties, RequiredProperties: TProperties = TRequiredArray__v1(Properties), RequiredKeys: string[] = TUnionToTuple(Extract(keyof(RequiredProperties), string)), Result: string[] | undefined = matches<[ ]>(RequiredKeys) ? Undefined : RequiredKeys) {
+export function TRequiredArray(Properties: TProperties, RequiredProperties: TProperties = TRequiredArray__v1(Properties), RequiredKeys: string[] = TUnionToTuple(Extract(keyof(RequiredProperties), string)), Result: string[] | undefined = matches<[ ]>(RequiredKeys) ? Undefined : RequiredKeys): any {
   return Result
 }
 /* compiles to:
@@ -217,7 +220,7 @@ export function TRequiredArray(Properties: TProperties, RequiredProperties: TPro
 
 // ✓ TKeyToString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeyToString(Key: number | string) {
+export function TKeyToString(Key: number | string): any {
   return `${Key}`
 }
 /* compiles to:
@@ -226,7 +229,7 @@ export function TKeyToString(Key: number | string) {
 
 // ✓ TPropertyKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeys(Properties: TProperties, ExtractKey: number | string = Extract(keyof(Properties), number | string), StringKey: string = TKeyToString(ExtractKey), Result: string[] = TUnionToTuple(StringKey)) {
+export function TPropertyKeys(Properties: TProperties, ExtractKey: number | string = Extract(keyof(Properties), anyOf(number, string)), StringKey: string = TKeyToString(ExtractKey), Result: string[] = TUnionToTuple(StringKey)): any {
   return Result
 }
 /* compiles to:
@@ -241,7 +244,7 @@ export function TPropertyKeys(Properties: TProperties, ExtractKey: number | stri
 
 // ✓ TPropertyValuesReduce: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyValuesReduce(Properties: TProperties, Keys: string[], Result: TSchema[] = []) {
+export function TPropertyValuesReduce(Properties: TProperties, Keys: string[], Result: TSchema[] = []): any {
   const m1 = matches<[ Hole<"Left", string>, ...Hole<"Right", string[]> ]>(Keys)
   if (m1) {
     if (m1.Left in Properties) {
@@ -266,7 +269,7 @@ export function TPropertyValuesReduce(Properties: TProperties, Keys: string[], R
 
 // ✓ TPropertyValues: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyValues(Properties: TProperties, Keys: string[] = TPropertyKeys(Properties), Result: TSchema[] = TPropertyValuesReduce(Properties, Keys)) {
+export function TPropertyValues(Properties: TProperties, Keys: string[] = TPropertyKeys(Properties), Result: TSchema[] = TPropertyValuesReduce(Properties, Keys)): any {
   return Result
 }
 /* compiles to:

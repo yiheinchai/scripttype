@@ -7,9 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { Pos } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+import type { Prev } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Prev.js'
+import type { Way } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/_Internal.js'
+import type { Prepend } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Prepend.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Cast: any
 declare const Extends: any
 declare const Iteration: any
@@ -20,20 +33,11 @@ declare const Pos: any
 declare const Prepend: any
 declare const Prev: any
 declare const Way: any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prepend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Way<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ RangeForth: does not compile yet
 //   Type 'Extends<From, To>' cannot be used to index type '{ '0': RangeForth__st0<Prev<From>, To, [Pos<From>, ...L]>; '1': L; }'.
 /* @scripttype preserveParamNames */
-export function RangeForth(From: Iteration, To: Iteration, L: List = []) {
+export function RangeForth(From: Iteration, To: Iteration, L: List = []): any {
   return { 0: RangeForth(Prev(From), To, Prepend(L, Pos(From))), 1: L }[Extends(From, To)]
 }
 /* compiles to:
@@ -44,7 +48,7 @@ export function RangeForth(From: Iteration, To: Iteration, L: List = []) {
 // ✗ RangeBack: does not compile yet
 //   Type 'Extends<From, To>' cannot be used to index type '{ '0': RangeBack__st1<Next<From>, To, [Pos<From>, ...L]>; '1': L; }'.
 /* @scripttype preserveParamNames */
-export function RangeBack(From: Iteration, To: Iteration, L: List = []) {
+export function RangeBack(From: Iteration, To: Iteration, L: List = []): any {
   return { 0: RangeBack(Next(From), To, Prepend(L, Pos(From))), 1: L }[Extends(From, To)]
 }
 /* compiles to:
@@ -54,7 +58,7 @@ export function RangeBack(From: Iteration, To: Iteration, L: List = []) {
 
 // ✓ __Range: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function __Range(From: Iteration, To: Iteration, way: Way) {
+export function __Range(From: Iteration, To: Iteration, way: Way): any {
   return { '->': RangeForth(To, Prev(From)), '<-': RangeBack(From, Next(To)) }[way]
 }
 /* compiles to:
@@ -64,7 +68,7 @@ export function __Range(From: Iteration, To: Iteration, way: Way) {
 
 // ✓ _Range: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Range(From: number, To: number, way: Way) {
+export function _Range(From: number, To: number, way: Way): any {
   const m1 = matches<Hole<"X">>(__Range(IterationOf(From), IterationOf(To), way))
   if (m1) {
     return Cast(m1.X, arrayOf(string | number))
@@ -80,7 +84,7 @@ export function _Range(From: number, To: number, way: Way) {
 
 // ✓ Range: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Range(From: number, To: number, way: Way = '->') {
+export function Range(From: number, To: number, way: Way = '->'): any {
   if (matches<unknown>(From)) {
     if (matches<unknown>(To)) {
       return _Range(From, To, way)

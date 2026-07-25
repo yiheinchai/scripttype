@@ -7,53 +7,64 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FetchCreateContextFnOptions } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/adapters/fetch/types.js'
+import type { HTTPBaseHandlerOptions } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/http/types.js'
+import type { CreateContextCallback } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/rootConfig.js'
+import type { AnyRouter, inferRouterContext } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
 declare const AnyRouter: any
 declare const CreateContextCallback: any
 declare const FetchCreateContextFnOptions: any
 declare const HTTPBaseHandlerOptions: any
 declare const Request: any
 declare const inferRouterContext: any
-type AnyRouter<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateContextCallback<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type FetchCreateContextFnOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPBaseHandlerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Request<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type inferRouterContext<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Request<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FetchCreateContextFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FetchCreateContextFn(TRouter: AnyRouter) {
+export function FetchCreateContextFn(TRouter: AnyRouter): any {
   return fnType([FetchCreateContextFnOptions], inferRouterContext(TRouter) | t<Promise<inferRouterContext<typeof TRouter>>>())
 }
 /* compiles to:
- * export type FetchCreateContextFn<TRouter extends AnyRouter> = (a0: FetchCreateContextFnOptions) => inferRouterContext<TRouter> | Promise<inferRouterContext<TRouter>>
+ * export type FetchCreateContextFn<TRouter extends AnyRouter> =
+ *   (a0: FetchCreateContextFnOptions) => | inferRouterContext<TRouter>
+ *   | Promise<inferRouterContext<TRouter>>
  */
 
 // ✓ FetchCreateContextOption: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FetchCreateContextOption(TRouter: AnyRouter) {
+export function FetchCreateContextOption(TRouter: AnyRouter): any {
   return CreateContextCallback(inferRouterContext(TRouter), FetchCreateContextFn(TRouter))
 }
 /* compiles to:
- * export type FetchCreateContextOption<TRouter extends AnyRouter> = CreateContextCallback<inferRouterContext<TRouter>, FetchCreateContextFn<TRouter>>
+ * export type FetchCreateContextOption<TRouter extends AnyRouter> = CreateContextCallback<
+ *   inferRouterContext<TRouter>,
+ *   FetchCreateContextFn<TRouter>
+ * >
  */
 
 // ✓ FetchHandlerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FetchHandlerOptions(TRouter: AnyRouter) {
+export function FetchHandlerOptions(TRouter: AnyRouter): any {
   return merge(FetchCreateContextOption(TRouter), HTTPBaseHandlerOptions(TRouter, Request), { req: Request, endpoint: string })
 }
 /* compiles to:
- * export type FetchHandlerOptions<TRouter extends AnyRouter> = FetchCreateContextOption<TRouter> & HTTPBaseHandlerOptions<TRouter, Request> & { req: Request; endpoint: string }
+ * export type FetchHandlerOptions<TRouter extends AnyRouter> =
+ *   & FetchCreateContextOption<TRouter>
+ *   & HTTPBaseHandlerOptions<TRouter, Request>
+ *   & { req: Request; endpoint: string }
  */
 
 // ✓ FetchHandlerRequestOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FetchHandlerRequestOptions(TRouter: AnyRouter) {
+export function FetchHandlerRequestOptions(TRouter: AnyRouter): any {
   return merge(HTTPBaseHandlerOptions(TRouter, Request), CreateContextCallback(inferRouterContext(TRouter), FetchCreateContextFn(TRouter)), { req: Request, endpoint: string })
 }
 /* compiles to:
- * export type FetchHandlerRequestOptions<TRouter extends AnyRouter> = HTTPBaseHandlerOptions<TRouter, Request> & CreateContextCallback<inferRouterContext<TRouter>, FetchCreateContextFn<TRouter>> & { req: Request; endpoint: string }
+ * export type FetchHandlerRequestOptions<TRouter extends AnyRouter> =
+ *   & HTTPBaseHandlerOptions<TRouter, Request>
+ *   & CreateContextCallback<inferRouterContext<TRouter>, FetchCreateContextFn<TRouter>>
+ *   & { req: Request; endpoint: string }
  */

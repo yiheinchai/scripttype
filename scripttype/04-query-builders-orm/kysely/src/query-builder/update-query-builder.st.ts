@@ -7,24 +7,38 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AliasedExpression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { DrainOuterGeneric, Nullable, ShallowRecord } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type QA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type QO<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type QA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type QO<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AliasedExpression: any
 declare const DrainOuterGeneric: any
 declare const Nullable: any
 declare const ShallowRecord: any
-declare const TableExpression: any
 declare const UpdateQueryBuilder: any
-type AliasedExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Nullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TableExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UpdateQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UpdateQueryBuilderWithInnerJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateQueryBuilderWithInnerJoin(DB, UT: keyof typeof DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
+/**
+ * @param {keyof typeof DB} UT
+ * @param {keyof typeof DB} TB
+ * @param {TableExpression<typeof DB, typeof TB>} TE
+ */
+export function UpdateQueryBuilderWithInnerJoin(DB, UT, TB, O, TE): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
     if (m1.T in DB) {
@@ -64,11 +78,15 @@ export function UpdateQueryBuilderWithInnerJoin(DB, UT: keyof typeof DB, TB: key
 
 // ✓ InnerJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InnerJoinedBuilder(DB, UT: keyof typeof DB, TB: keyof typeof DB, O, A: string, R) {
+/**
+ * @param {keyof typeof DB} UT
+ * @param {keyof typeof DB} TB
+ */
+export function InnerJoinedBuilder(DB, UT, TB, O, A: string, R): any {
   if (A in DB) {
     return UpdateQueryBuilder(InnerJoinedDB(DB, A, R), UT, anyOf(TB, A), O)
   }
-  return UpdateQueryBuilder(DB & ShallowRecord(A, R), UT, anyOf(TB, A), O)
+  return UpdateQueryBuilder(merge(DB, ShallowRecord(A, R)), UT, anyOf(TB, A), O)
 }
 /* compiles to:
  * export type InnerJoinedBuilder<
@@ -86,7 +104,7 @@ export function InnerJoinedBuilder(DB, UT: keyof typeof DB, TB: keyof typeof DB,
 
 // ✓ InnerJoinedDB: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InnerJoinedDB(DB, A: string, R) {
+export function InnerJoinedDB(DB, A: string, R): any {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
     out[C] = matches<typeof A>(C) ? R : (C in DB ? DB[C] : never)
@@ -101,7 +119,12 @@ export function InnerJoinedDB(DB, A: string, R) {
 
 // ✓ UpdateQueryBuilderWithLeftJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateQueryBuilderWithLeftJoin(DB, UT: keyof typeof DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
+/**
+ * @param {keyof typeof DB} UT
+ * @param {keyof typeof DB} TB
+ * @param {TableExpression<typeof DB, typeof TB>} TE
+ */
+export function UpdateQueryBuilderWithLeftJoin(DB, UT, TB, O, TE): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
     if (m1.T in DB) {
@@ -141,11 +164,15 @@ export function UpdateQueryBuilderWithLeftJoin(DB, UT: keyof typeof DB, TB: keyo
 
 // ✓ LeftJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LeftJoinedBuilder(DB, UT: keyof typeof DB, TB: keyof typeof DB, O, A: keyof any, R) {
+/**
+ * @param {keyof typeof DB} UT
+ * @param {keyof typeof DB} TB
+ */
+export function LeftJoinedBuilder(DB, UT, TB, O, A: keyof any, R): any {
   if (A in DB) {
     return UpdateQueryBuilder(LeftJoinedDB(DB, A, R), UT, anyOf(TB, A), O)
   }
-  return UpdateQueryBuilder(DB & ShallowRecord(A, Nullable(R)), UT, anyOf(TB, A), O)
+  return UpdateQueryBuilder(merge(DB, ShallowRecord(A, Nullable(R))), UT, anyOf(TB, A), O)
 }
 /* compiles to:
  * export type LeftJoinedBuilder<
@@ -163,7 +190,7 @@ export function LeftJoinedBuilder(DB, UT: keyof typeof DB, TB: keyof typeof DB, 
 
 // ✓ LeftJoinedDB: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LeftJoinedDB(DB, A: keyof any, R) {
+export function LeftJoinedDB(DB, A: keyof any, R): any {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
     out[C] = matches<typeof A>(C) ? Nullable(R) : (C in DB ? DB[C] : never)
@@ -178,7 +205,12 @@ export function LeftJoinedDB(DB, A: keyof any, R) {
 
 // ✓ UpdateQueryBuilderWithRightJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateQueryBuilderWithRightJoin(DB, UT: keyof typeof DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
+/**
+ * @param {keyof typeof DB} UT
+ * @param {keyof typeof DB} TB
+ * @param {TableExpression<typeof DB, typeof TB>} TE
+ */
+export function UpdateQueryBuilderWithRightJoin(DB, UT, TB, O, TE): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
     if (m1.T in DB) {
@@ -218,7 +250,11 @@ export function UpdateQueryBuilderWithRightJoin(DB, UT: keyof typeof DB, TB: key
 
 // ✓ RightJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RightJoinedBuilder(DB, UT: keyof typeof DB, TB: keyof typeof DB, O, A: keyof any, R) {
+/**
+ * @param {keyof typeof DB} UT
+ * @param {keyof typeof DB} TB
+ */
+export function RightJoinedBuilder(DB, UT, TB, O, A: keyof any, R): any {
   return UpdateQueryBuilder(RightJoinedDB(DB, TB, A, R), UT, anyOf(TB, A), O)
 }
 /* compiles to:
@@ -235,7 +271,10 @@ export function RightJoinedBuilder(DB, UT: keyof typeof DB, TB: keyof typeof DB,
 
 // ✓ RightJoinedDB: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RightJoinedDB(DB, TB: keyof typeof DB, A: keyof any, R) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function RightJoinedDB(DB, TB, A: keyof any, R): any {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
     out[C] = matches<typeof A>(C) ? R : (matches<typeof TB>(C) ? Nullable(DB[C]) : (C in DB ? DB[C] : never))
@@ -255,7 +294,12 @@ export function RightJoinedDB(DB, TB: keyof typeof DB, A: keyof any, R) {
 
 // ✓ UpdateQueryBuilderWithFullJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateQueryBuilderWithFullJoin(DB, UT: keyof typeof DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
+/**
+ * @param {keyof typeof DB} UT
+ * @param {keyof typeof DB} TB
+ * @param {TableExpression<typeof DB, typeof TB>} TE
+ */
+export function UpdateQueryBuilderWithFullJoin(DB, UT, TB, O, TE): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
     if (m1.T in DB) {
@@ -295,7 +339,11 @@ export function UpdateQueryBuilderWithFullJoin(DB, UT: keyof typeof DB, TB: keyo
 
 // ✓ OuterJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OuterJoinedBuilder(DB, UT: keyof typeof DB, TB: keyof typeof DB, O, A: keyof any, R) {
+/**
+ * @param {keyof typeof DB} UT
+ * @param {keyof typeof DB} TB
+ */
+export function OuterJoinedBuilder(DB, UT, TB, O, A: keyof any, R): any {
   return UpdateQueryBuilder(OuterJoinedBuilderDB(DB, TB, A, R), UT, anyOf(TB, A), O)
 }
 /* compiles to:
@@ -312,7 +360,10 @@ export function OuterJoinedBuilder(DB, UT: keyof typeof DB, TB: keyof typeof DB,
 
 // ✓ OuterJoinedBuilderDB: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OuterJoinedBuilderDB(DB, TB: keyof typeof DB, A: keyof any, R) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function OuterJoinedBuilderDB(DB, TB, A: keyof any, R): any {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
     out[C] = matches<typeof A>(C) ? Nullable(R) : (matches<typeof TB>(C) ? Nullable(DB[C]) : (C in DB ? DB[C] : never))

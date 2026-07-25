@@ -7,20 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { LimitLiteral } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/attributes.js'
+import type { Comparator, InvertedComparators, MinComparator } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/reduce/shared.js'
 declare const Comparator: any
 declare const InvertedComparators: any
 declare const LimitLiteral: any
 declare const MinComparator: any
-type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InvertedComparators<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LimitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MinComparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ writeOpenRangeMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeOpenRangeMessage(min: LimitLiteral, comparator: MinComparator) {
+export function writeOpenRangeMessage(min: LimitLiteral, comparator: MinComparator): any {
   return `Left bounds are only valid when paired with right bounds (try ...${comparator}${min})`
 }
 /* compiles to:
@@ -29,7 +28,7 @@ export function writeOpenRangeMessage(min: LimitLiteral, comparator: MinComparat
 
 // ✓ writeUnpairableComparatorMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnpairableComparatorMessage(comparator: Comparator) {
+export function writeUnpairableComparatorMessage(comparator: Comparator): any {
   return `Left-bounded expressions must specify their limits using < or <= (was ${comparator})`
 }
 /* compiles to:
@@ -38,7 +37,7 @@ export function writeUnpairableComparatorMessage(comparator: Comparator) {
 
 // ✓ writeMultipleLeftBoundsMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeMultipleLeftBoundsMessage(openLimit: LimitLiteral, openComparator: MinComparator, limit: LimitLiteral, comparator: MinComparator) {
+export function writeMultipleLeftBoundsMessage(openLimit: LimitLiteral, openComparator: MinComparator, limit: LimitLiteral, comparator: MinComparator): any {
   return `An expression may have at most one left bound (parsed ${openLimit}${InvertedComparators[openComparator]}, ${limit}${InvertedComparators[comparator]})`
 }
 /* compiles to:

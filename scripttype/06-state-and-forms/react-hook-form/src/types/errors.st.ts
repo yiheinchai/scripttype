@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FieldError, GlobalError } from '../../../../../06-state-and-forms/react-hook-form/src/types/errors.js'
+import type { FieldValues } from '../../../../../06-state-and-forms/react-hook-form/src/types/fields.js'
+import type { BrowserNativeObject, Merge } from '../../../../../06-state-and-forms/react-hook-form/src/types/utils.js'
 declare const Blob: any
 declare const BrowserNativeObject: any
 declare const FieldError: any
@@ -17,14 +21,9 @@ declare const FieldValues: any
 declare const GlobalError: any
 declare const Merge: any
 type Blob<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BrowserNativeObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FieldError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GlobalError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DeepRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeepRequired(T) {
+export function DeepRequired(T): any {
   if (matches<BrowserNativeObject | Blob>(T)) {
     return T
   }
@@ -43,7 +42,10 @@ export function DeepRequired(T) {
 
 // ✓ FieldErrorsImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldErrorsImpl(T: FieldValues = FieldValues) {
+/**
+ * @param {FieldValues} T
+ */
+export function FieldErrorsImpl(T = FieldValues): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = optional(matches<BrowserNativeObject | Blob>(T[K]) ? FieldError : (matches<'root' | `root.${string}`>(K) ? GlobalError : (matches<object>(T[K]) ? Merge(FieldError, FieldErrorsImpl(T[K])) : FieldError)))
@@ -61,7 +63,7 @@ export function FieldErrorsImpl(T: FieldValues = FieldValues) {
 
 // ✓ FieldErrors: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldErrors(T: FieldValues = FieldValues) {
+export function FieldErrors(T: FieldValues = FieldValues): any {
   return merge(Partial(FieldErrorsImpl(DeepRequired(T))), { root: optional(Record(string, GlobalError) & GlobalError), form: optional(GlobalError) })
 }
 /* compiles to:

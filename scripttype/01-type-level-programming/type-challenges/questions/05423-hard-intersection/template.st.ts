@@ -9,7 +9,7 @@
  */
 // ✓ Intersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Intersection(T) {
+export function Intersection(T): any {
   return any
 }
 /* compiles to:

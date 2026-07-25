@@ -9,7 +9,7 @@
  */
 // ✓ ConditionalSimplify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConditionalSimplify(Type, ExcludeType = never, IncludeType = unknown) {
+export function ConditionalSimplify(Type, ExcludeType = never, IncludeType = unknown): any {
   if (matches<typeof ExcludeType>(Type)) {
     return Type
   }

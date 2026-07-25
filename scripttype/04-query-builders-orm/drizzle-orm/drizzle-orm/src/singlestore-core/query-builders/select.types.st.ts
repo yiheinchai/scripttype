@@ -7,9 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AppendToNullabilityMap, AppendToResult, BuildSubquerySelection, GetSelectTableName, JoinNullability, JoinType, MapColumnsToTableAlias, SelectMode, SelectResult } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { AnySingleStoreSelect, AnySingleStoreSelectQueryBuilder, AnySingleStoreSetOperatorInterface, SelectedFields, SingleStoreSelectHKTBase, SingleStoreSelectQueryBuilderHKT, SingleStoreSetOperatorExcludedMethods, SingleStoreSetOperatorInterface } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/query-builders/select.types.js'
+import type { SingleStorePreparedQueryConfig } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/session.js'
+import type { SingleStoreTableWithColumns } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/table.js'
+import type { ColumnsSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sql/sql.js'
+import type { UpdateTableConfig } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
+import type { Assume, ValidateShape } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TValueResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TValueResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnySingleStoreSelect: any
 declare const AnySingleStoreSelectQueryBuilder: any
 declare const AnySingleStoreSetOperatorInterface: any
@@ -43,49 +59,21 @@ declare const TypedQueryBuilder: any
 declare const UpdateTableConfig: any
 declare const ValidateShape: any
 declare const View: any
-declare const _: any
-declare const cross: any
-declare const selection: any
-type AnySingleStoreSelect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySingleStoreSelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySingleStoreSetOperatorInterface<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToNullabilityMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BuildSubquerySelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetSelectTableName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinNullability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapColumnsToTableAlias<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+declare const a1: any
 type PreparedQueryHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectedFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStorePreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStoreSelectBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreSelectHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStoreSelectQueryBuilderBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreSelectQueryBuilderHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreSetOperatorExcludedMethods<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreSetOperatorInterface<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreSetOperatorWithResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStoreTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreTableWithColumns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TypedQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UpdateTableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidateShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type cross<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type selection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type a1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildAliasTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildAliasTable(TTable: SingleStoreTable | View, TAlias: string) {
+export function BuildAliasTable(TTable: SingleStoreTable | View, TAlias: string): any {
   if (matches<Table>(TTable)) {
     return SingleStoreTableWithColumns(UpdateTableConfig(TTable['_']['config'], { name: TAlias, columns: MapColumnsToTableAlias(TTable['_']['columns'], TAlias, 'singlestore') }))
   }
@@ -108,7 +96,11 @@ export function BuildAliasTable(TTable: SingleStoreTable | View, TAlias: string)
 
 // ✓ SingleStoreJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreJoin(T: AnySingleStoreSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TJoinedTable: SingleStoreTable | Subquery | SQL, TJoinedName: GetSelectTableName<typeof TJoinedTable> = GetSelectTableName(TJoinedTable)) {
+/**
+ * @param {SingleStoreTable | Subquery | SQL} TJoinedTable
+ * @param {GetSelectTableName<typeof TJoinedTable>} TJoinedName
+ */
+export function SingleStoreJoin(T: AnySingleStoreSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TJoinedTable, TJoinedName = GetSelectTableName(TJoinedTable)): any {
   if (matches<any>(T)) {
     return SingleStoreSelectWithout(SingleStoreSelectKind(T['_']['hkt'], T['_']['tableName'], AppendToResult(T['_']['tableName'], T['_']['selection'], TJoinedName, matches<SingleStoreTable>(TJoinedTable) ? TJoinedTable['_']['columns'] : (matches<Subquery>(TJoinedTable) ? Assume(TJoinedTable['_']['selectedFields'], SelectedFields) : never), T['_']['selectMode']), matches<'partial'>(T['_']['selectMode']) ? T['_']['selectMode'] : 'multiple', T['_']['preparedQueryHKT'], AppendToNullabilityMap(T['_']['nullabilityMap'], TJoinedName, TJoinType), TDynamic, T['_']['excludedMethods']), TDynamic, T['_']['excludedMethods'])
   }
@@ -152,22 +144,42 @@ export function SingleStoreJoin(T: AnySingleStoreSelectQueryBuilder, TDynamic: b
 // ✗ SingleStoreJoinFn: does not compile yet
 //   Unterminated string literal.
 /* @scripttype preserveParamNames */
-export function SingleStoreJoinFn(T: AnySingleStoreSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TIsLateral: boolean) {
-  return genericFnType(['TJoinedTable extends (TIsLateral extends true ? Subquery | SQL
-		: SingleStoreTable | Subquery | SQL /* | SingleStoreViewBase */)', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [TJoinedTable, anyOf(fnType([T['_']['selection']], anyOf(SQL, Undefined)), SQL, Undefined)], SingleStoreJoin(T, TDynamic, TJoinType, TJoinedTable, TJoinedName))
+export function SingleStoreJoinFn(T: AnySingleStoreSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TIsLateral: boolean): any {
+  return genericFnType(['TJoinedTable extends (TIsLateral extends true ? Subquery | SQL : SingleStoreTable | Subquery | SQL /* | SingleStoreViewBase */)', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [TJoinedTable, anyOf(fnType([T['_']['selection']], anyOf(SQL, Undefined)), SQL, Undefined)], SingleStoreJoin(T, TDynamic, TJoinType, TJoinedTable, TJoinedName))
 }
+/* compiles to:
+ * export type SingleStoreJoinFn<
+ *   T extends AnySingleStoreSelectQueryBuilder,
+ *   TDynamic extends boolean,
+ *   TJoinType extends JoinType,
+ *   TIsLateral extends boolean
+ * > =
+ *   <TJoinedTable extends (TIsLateral extends true ? Subquery | SQL : SingleStoreTable | Subquery | SQL /* | SingleStoreViewBase */), TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>>(
+ *     a0: TJoinedTable,
+ *     a1: ((a0: T['_']['selection']) => SQL | undefined) | SQL | undefined
+ *   ) => SingleStoreJoin<T, TDynamic, TJoinType, TJoinedTable, TJoinedName>
+ */
 
 // ✗ SingleStoreCrossJoinFn: does not compile yet
 //   Unterminated string literal.
 /* @scripttype preserveParamNames */
-export function SingleStoreCrossJoinFn(T: AnySingleStoreSelectQueryBuilder, TDynamic: boolean, TIsLateral: boolean) {
-  return genericFnType(['TJoinedTable extends (TIsLateral extends true ? Subquery | SQL
-		: SingleStoreTable | Subquery | SQL /* | SingleStoreViewBase */)', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [TJoinedTable], SingleStoreJoin(T, TDynamic, 'cross', TJoinedTable, TJoinedName))
+export function SingleStoreCrossJoinFn(T: AnySingleStoreSelectQueryBuilder, TDynamic: boolean, TIsLateral: boolean): any {
+  return genericFnType(['TJoinedTable extends (TIsLateral extends true ? Subquery | SQL : SingleStoreTable | Subquery | SQL /* | SingleStoreViewBase */)', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [TJoinedTable], SingleStoreJoin(T, TDynamic, 'cross', TJoinedTable, TJoinedName))
 }
+/* compiles to:
+ * export type SingleStoreCrossJoinFn<
+ *   T extends AnySingleStoreSelectQueryBuilder,
+ *   TDynamic extends boolean,
+ *   TIsLateral extends boolean
+ * > =
+ *   <TJoinedTable extends (TIsLateral extends true ? Subquery | SQL : SingleStoreTable | Subquery | SQL /* | SingleStoreViewBase */), TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>>(
+ *     a0: TJoinedTable
+ *   ) => SingleStoreJoin<T, TDynamic, 'cross', TJoinedTable, TJoinedName>
+ */
 
 // ✓ SingleStoreSelectKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreSelectKind(T: SingleStoreSelectHKTBase, TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode, TPreparedQueryHKT: PreparedQueryHKTBase, TNullabilityMap: Record<string, JoinNullability>, TDynamic: boolean, TExcludedMethods: string, TResult = arrayOf(SelectResult(TSelection, TSelectMode, TNullabilityMap)), TSelectedFields = BuildSubquerySelection(TSelection, TNullabilityMap)) {
+export function SingleStoreSelectKind(T: SingleStoreSelectHKTBase, TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode, TPreparedQueryHKT: PreparedQueryHKTBase, TNullabilityMap: Record<string, JoinNullability>, TDynamic: boolean, TExcludedMethods: string, TResult = arrayOf(SelectResult(TSelection, TSelectMode, TNullabilityMap)), TSelectedFields = BuildSubquerySelection(TSelection, TNullabilityMap)): any {
   return (merge(T, { tableName: TTableName, selection: TSelection, selectMode: TSelectMode, preparedQueryHKT: TPreparedQueryHKT, nullabilityMap: TNullabilityMap, dynamic: TDynamic, excludedMethods: TExcludedMethods, result: TResult, selectedFields: TSelectedFields }))['_type']
 }
 /* compiles to:
@@ -201,11 +213,15 @@ export function SingleStoreSelectKind(T: SingleStoreSelectHKTBase, TTableName: s
 
 // ✓ SingleStoreSelectWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreSelectWithout(T: AnySingleStoreSelectQueryBuilder, TDynamic: boolean, K: keyof typeof T & string, TResetExcluded: boolean = false) {
+/**
+ * @param {AnySingleStoreSelectQueryBuilder} T
+ * @param {keyof typeof T & string} K
+ */
+export function SingleStoreSelectWithout(T, TDynamic: boolean, K, TResetExcluded: boolean = false): any {
   if (matches<true>(TDynamic)) {
     return T
   }
-  return Omit(SingleStoreSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['selection'], T['_']['selectMode'], T['_']['preparedQueryHKT'], T['_']['nullabilityMap'], TDynamic, matches<true>(TResetExcluded) ? K : (anyOf(T['_']['excludedMethods'], K)), T['_']['result'], T['_']['selectedFields']), matches<true>(TResetExcluded) ? K : (anyOf(T['_']['excludedMethods'], K)))
+  return Omit(SingleStoreSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['selection'], T['_']['selectMode'], T['_']['preparedQueryHKT'], T['_']['nullabilityMap'], TDynamic, matches<true>(TResetExcluded) ? K : (T['_']['excludedMethods'] | K), T['_']['result'], T['_']['selectedFields']), matches<true>(TResetExcluded) ? K : (T['_']['excludedMethods'] | K))
 }
 /* compiles to:
  * export type SingleStoreSelectWithout<
@@ -235,7 +251,7 @@ export function SingleStoreSelectWithout(T: AnySingleStoreSelectQueryBuilder, TD
 
 // ✓ SingleStoreSelectPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreSelectPrepare(T: AnySingleStoreSelect) {
+export function SingleStoreSelectPrepare(T: AnySingleStoreSelect): any {
   return PreparedQueryKind(T['_']['preparedQueryHKT'], merge(SingleStorePreparedQueryConfig, { execute: T['_']['result'], iterator: T['_']['result'][number] }), true)
 }
 /* compiles to:
@@ -249,7 +265,7 @@ export function SingleStoreSelectPrepare(T: AnySingleStoreSelect) {
 
 // ✓ SingleStoreSelectDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreSelectDynamic(T: AnySingleStoreSelectQueryBuilder) {
+export function SingleStoreSelectDynamic(T: AnySingleStoreSelectQueryBuilder): any {
   return SingleStoreSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['selection'], T['_']['selectMode'], T['_']['preparedQueryHKT'], T['_']['nullabilityMap'], true, never, T['_']['result'], T['_']['selectedFields'])
 }
 /* compiles to:
@@ -269,7 +285,7 @@ export function SingleStoreSelectDynamic(T: AnySingleStoreSelectQueryBuilder) {
 
 // ✓ CreateSingleStoreSelectFromBuilderMode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateSingleStoreSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode, TPreparedQueryHKT: PreparedQueryHKTBase) {
+export function CreateSingleStoreSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode, TPreparedQueryHKT: PreparedQueryHKTBase): any {
   if (matches<'db'>(TBuilderMode)) {
     return SingleStoreSelectBase(TTableName, TSelection, TSelectMode, TPreparedQueryHKT)
   }
@@ -296,7 +312,7 @@ export function CreateSingleStoreSelectFromBuilderMode(TBuilderMode: 'db' | 'qb'
 
 // ✓ SingleStoreSelectQueryBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreSelectQueryBuilder(THKT: SingleStoreSelectHKTBase = SingleStoreSelectQueryBuilderHKT, TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = ColumnsSelection, TSelectMode: SelectMode = SelectMode, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability), TResult: any[] = arrayOf(unknown), TSelectedFields: ColumnsSelection = ColumnsSelection) {
+export function SingleStoreSelectQueryBuilder(THKT: SingleStoreSelectHKTBase = SingleStoreSelectQueryBuilderHKT, TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = ColumnsSelection, TSelectMode: SelectMode = SelectMode, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability), TResult: any[] = arrayOf(unknown), TSelectedFields: ColumnsSelection = ColumnsSelection): any {
   return SingleStoreSelectQueryBuilderBase(THKT, TTableName, TSelection, TSelectMode, TPreparedQueryHKT, TNullabilityMap, true, never, TResult, TSelectedFields)
 }
 /* compiles to:
@@ -326,7 +342,7 @@ export function SingleStoreSelectQueryBuilder(THKT: SingleStoreSelectHKTBase = S
 
 // ✓ SingleStoreSetOperatorWithResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreSetOperatorWithResult(TResult: any[]) {
+export function SingleStoreSetOperatorWithResult(TResult: any[]): any {
   return SingleStoreSetOperatorInterface(any, any, any, any, any, any, any, TResult, any)
 }
 /* compiles to:
@@ -345,7 +361,7 @@ export function SingleStoreSetOperatorWithResult(TResult: any[]) {
 
 // ✓ SingleStoreSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreSelect(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)) {
+export function SingleStoreSelect(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)): any {
   return SingleStoreSelectBase(TTableName, TSelection, TSelectMode, PreparedQueryHKTBase, TNullabilityMap, true, never)
 }
 /* compiles to:
@@ -368,7 +384,7 @@ export function SingleStoreSelect(TTableName: string | undefined = anyOf(string,
 
 // ✓ SingleStoreSetOperator: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreSetOperator(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)) {
+export function SingleStoreSetOperator(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)): any {
   return SingleStoreSelectBase(TTableName, TSelection, TSelectMode, TPreparedQueryHKT, TNullabilityMap, true, SingleStoreSetOperatorExcludedMethods)
 }
 /* compiles to:
@@ -392,7 +408,11 @@ export function SingleStoreSetOperator(TTableName: string | undefined = anyOf(st
 
 // ✓ SetOperatorRightSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetOperatorRightSelect(TValue: SingleStoreSetOperatorWithResult<typeof TResult>, TResult: any[]) {
+/**
+ * @param {SingleStoreSetOperatorWithResult<typeof TResult>} TValue
+ * @param {any[]} TResult
+ */
+export function SetOperatorRightSelect(TValue, TResult): any {
   const m1 = matches<SingleStoreSetOperatorInterface<any, any, any, any, any, any, any, Hole<"TValueResult">, any>>(TValue)
   if (m1) {
     return ValidateShape(m1.TValueResult[number], TResult[number], TypedQueryBuilder(any, m1.TValueResult))
@@ -411,7 +431,11 @@ export function SetOperatorRightSelect(TValue: SingleStoreSetOperatorWithResult<
 
 // ✓ SetOperatorRestSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetOperatorRestSelect(TValue: readonly SingleStoreSetOperatorWithResult<typeof TResult>[], TResult: any[]) {
+/**
+ * @param {readonly SingleStoreSetOperatorWithResult<typeof TResult>[]} TValue
+ * @param {any[]} TResult
+ */
+export function SetOperatorRestSelect(TValue, TResult): any {
   const m1 = matches<[ Hole<"First">, ...Hole<"Rest"> ]>(TValue)
   if (m1) {
     const m2 = matches<SingleStoreSetOperatorInterface<any, any, any, any, any, any, any, Hole<"TValueResult">, any>>(m1.First)

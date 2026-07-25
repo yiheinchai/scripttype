@@ -12,20 +12,24 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Subtract: any
 declare const TupleOf: any
-type Subtract<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TupleOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Subtract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IntRange: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IntRange(Start: number, End: number, Step: number = 1) {
+export function IntRange(Start: number, End: number, Step: number = 1): any {
   return PrivateIntRange(Start, End, Step)
 }
 /* compiles to:
- * export type IntRange<Start extends number, End extends number, Step extends number = 1> = PrivateIntRange<Start, End, Step>
+ * export type IntRange<Start extends number, End extends number, Step extends number = 1> = PrivateIntRange<
+ *   Start,
+ *   End,
+ *   Step
+ * >
  */
 
 // ✓ PrivateIntRange: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PrivateIntRange(Start: number, End: number, Step: number, Gap: number = Subtract(Step, 1), List: unknown[] = TupleOf(Start, never), EndLengthTuple: unknown[] = TupleOf(End)) {
+export function PrivateIntRange(Start: number, End: number, Step: number, Gap: number = Subtract(Step, 1), List: unknown[] = TupleOf(Start, never), EndLengthTuple: unknown[] = TupleOf(End)): any {
   if (matches<0>(Gap)) {
     if (matches<typeof End>(List['length'])) {
       return Exclude(List[number], never)
@@ -39,5 +43,18 @@ export function PrivateIntRange(Start: number, End: number, Step: number, Gap: n
   return PrivateIntRange(Start, End, Step, Gap, [...List, List['length'], ...TupleOf(Gap, never)])
 }
 /* compiles to:
- * export type PrivateIntRange<Start extends number, End extends number, Step extends number, Gap extends number = Subtract<Step, 1>, List extends unknown[] = TupleOf<Start, never>, EndLengthTuple extends unknown[] = TupleOf<End>> = Gap extends 0 ? List['length'] extends End ? Exclude<List[number], never> : PrivateIntRange<Start, End, Step, Gap, [...List, List['length']]> : List extends [...unknown[], ...EndLengthTuple] ? Exclude<List[number], never> : PrivateIntRange<Start, End, Step, Gap, [...List, List['length'], ...TupleOf<Gap, never>]>
+ * export type PrivateIntRange<
+ *   Start extends number,
+ *   End extends number,
+ *   Step extends number,
+ *   Gap extends number = Subtract<Step, 1>,
+ *   List extends unknown[] = TupleOf<Start, never>,
+ *   EndLengthTuple extends unknown[] = TupleOf<End>
+ * > =
+ *   Gap extends 0
+ *     ? List['length'] extends End
+ *       ? Exclude<List[number], never>
+ *       : PrivateIntRange<Start, End, Step, Gap, [...List, List['length']]>
+ *   : List extends [...any[], ...EndLengthTuple] ? Exclude<List[number], never>
+ *   : PrivateIntRange<Start, End, Step, Gap, [...List, List['length'], ...TupleOf<Gap, never>]>
  */

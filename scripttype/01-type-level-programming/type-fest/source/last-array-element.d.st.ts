@@ -10,6 +10,16 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type AfterRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type BeforeRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const If: any
 declare const IfNotAnyOrNever: any
 declare const IsExactOptionalPropertyTypesEnabled: any
@@ -22,7 +32,7 @@ type SplitOnRestElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = a
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ LastArrayElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LastArrayElement(TArray: UnknownArray) {
+export function LastArrayElement(TArray: UnknownArray): any {
   const m1 = matches<readonly [ Hole<"BeforeRest", UnknownArray>, Hole<"Rest", UnknownArray>, Hole<"AfterRest", UnknownArray> ]>(SplitOnRestElement(TArray))
   return IfNotAnyOrNever(TArray, { ifNot: matches<UnknownArray>(TArray) ? (m1 ? _LastArrayElement(m1.BeforeRest, m1.Rest, m1.AfterRest) : never) : never })
 }
@@ -41,12 +51,12 @@ export function LastArrayElement(TArray: UnknownArray) {
 
 // ✓ _LastArrayElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _LastArrayElement(BeforeRest: UnknownArray, Rest: UnknownArray, AfterRest: UnknownArray) {
+export function _LastArrayElement(BeforeRest: UnknownArray, Rest: UnknownArray, AfterRest: UnknownArray): any {
   const m1 = matches<readonly [ ...any, Hole<"Last"> ]>(AfterRest)
   if (m1) {
     return m1.Last
   }
-  return Rest[number] | BeforeRestLastElement(BeforeRest)
+  return anyOf(Rest[number], BeforeRestLastElement(BeforeRest))
 }
 /* compiles to:
  * export type _LastArrayElement<
@@ -61,7 +71,7 @@ export function _LastArrayElement(BeforeRest: UnknownArray, Rest: UnknownArray, 
 
 // ✓ BeforeRestLastElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BeforeRestLastElement(BeforeRest: UnknownArray, Accumulator = never) {
+export function BeforeRestLastElement(BeforeRest: UnknownArray, Accumulator = never): any {
   if (matches<readonly [ ]>(BeforeRest)) {
     return anyOf(Accumulator, Undefined)
   }
@@ -71,7 +81,7 @@ export function BeforeRestLastElement(BeforeRest: UnknownArray, Accumulator = ne
   }
   const m2 = matches<readonly [ ...Hole<"Rest">, (Hole<"Last">)? ]>(BeforeRest)
   if (m2) {
-    return BeforeRestLastElement(m2.Rest, m2.Last | Accumulator | If(IsExactOptionalPropertyTypesEnabled, never, Undefined))
+    return BeforeRestLastElement(m2.Rest, anyOf(m2.Last, Accumulator, If(IsExactOptionalPropertyTypesEnabled, never, Undefined)))
   }
   return never
 }

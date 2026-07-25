@@ -9,7 +9,7 @@
  */
 // ✓ Shift: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Shift(T) {
+export function Shift(T): any {
   return any
 }
 /* compiles to:

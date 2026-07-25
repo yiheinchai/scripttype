@@ -9,7 +9,7 @@
  */
 // ✓ MapTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapTypes(T, R) {
+export function MapTypes(T, R): any {
   return any
 }
 /* compiles to:

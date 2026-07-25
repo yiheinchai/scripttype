@@ -9,7 +9,10 @@
  */
 // ✓ IsRequiredKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsRequiredKey(T, K: keyof typeof T) {
+/**
+ * @param {keyof typeof T} K
+ */
+export function IsRequiredKey(T, K): any {
   return any
 }
 /* compiles to:

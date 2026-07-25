@@ -9,7 +9,7 @@
  */
 // ✓ JSONSchema2TS: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JSONSchema2TS(T) {
+export function JSONSchema2TS(T): any {
   return any
 }
 /* compiles to:

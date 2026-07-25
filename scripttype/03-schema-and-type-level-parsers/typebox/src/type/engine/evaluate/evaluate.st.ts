@@ -7,9 +7,43 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TBroaden } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/broaden.js'
+import type { TDistribute } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/distribute.js'
+import type { TExcludeOperation } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/exclude/operation.js'
+import type { TTemplateLiteralDecode } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/template_literal/decode.js'
+import type { TEnum, TEnumValue } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/enum.js'
+import type { TIntersect } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/intersect.js'
+import type { TLiteral } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TNever } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/never.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Else<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Then<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Values<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type Pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TBroaden: any
 declare const TDependent: any
 declare const TDistribute: any
@@ -23,22 +57,11 @@ declare const TSchema: any
 declare const TTemplateLiteral: any
 declare const TTemplateLiteralDecode: any
 declare const TUnion: any
-type TBroaden<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TDependent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TDistribute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEnumValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExcludeOperation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTemplateLiteralDecode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TEvaluateDependent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEvaluateDependent(If: TSchema, Then: TSchema, Else: TSchema, Intersect: TSchema = TIntersect([If, Then]), Excluded: TSchema = TExcludeOperation(Else, If), Result: TSchema = TEvaluateUnion([Intersect, Excluded])) {
+export function TEvaluateDependent(If: TSchema, Then: TSchema, Else: TSchema, Intersect: TSchema = TIntersect([If, Then]), Excluded: TSchema = TExcludeOperation(Else, If), Result: TSchema = TEvaluateUnion([Intersect, Excluded])): any {
   return Result
 }
 /* compiles to:
@@ -55,7 +78,7 @@ export function TEvaluateDependent(If: TSchema, Then: TSchema, Else: TSchema, In
 
 // ✓ TEvaluateEnum: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEvaluateEnum(Values: TEnumValue[]) {
+export function TEvaluateEnum(Values: TEnumValue[]): any {
   let Result: any[] = []
   let values = Values
   while (true) {
@@ -78,7 +101,7 @@ export function TEvaluateEnum(Values: TEnumValue[]) {
 
 // ✓ TEvaluateIntersect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEvaluateIntersect(Types: TSchema[], Distribution: TSchema[] = TDistribute(Types), Broadend: TSchema[] = TBroaden(Distribution), Result: TSchema = TEvaluateUnionFast(Broadend)) {
+export function TEvaluateIntersect(Types: TSchema[], Distribution: TSchema[] = TDistribute(Types), Broadend: TSchema[] = TBroaden(Distribution), Result: TSchema = TEvaluateUnionFast(Broadend)): any {
   return Result
 }
 /* compiles to:
@@ -93,7 +116,7 @@ export function TEvaluateIntersect(Types: TSchema[], Distribution: TSchema[] = T
 
 // ✓ TEvaluateTemplateLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEvaluateTemplateLiteral(Pattern: string, Evaluated: TSchema = TTemplateLiteralDecode(Pattern), Result: TSchema = TEvaluateType(Evaluated)) {
+export function TEvaluateTemplateLiteral(Pattern: string, Evaluated: TSchema = TTemplateLiteralDecode(Pattern), Result: TSchema = TEvaluateType(Evaluated)): any {
   return Result
 }
 /* compiles to:
@@ -107,7 +130,7 @@ export function TEvaluateTemplateLiteral(Pattern: string, Evaluated: TSchema = T
 
 // ✓ TEvaluateUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEvaluateUnion(Types: TSchema[], Broadend: TSchema[] = TBroaden(Types), Result: TSchema = TEvaluateUnionFast(Broadend)) {
+export function TEvaluateUnion(Types: TSchema[], Broadend: TSchema[] = TBroaden(Types), Result: TSchema = TEvaluateUnionFast(Broadend)): any {
   return Result
 }
 /* compiles to:
@@ -121,7 +144,7 @@ export function TEvaluateUnion(Types: TSchema[], Broadend: TSchema[] = TBroaden(
 
 // ✓ TEvaluateType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEvaluateType__v1(Type) {
+export function TEvaluateType__v1(Type): any {
   const m1 = matches<TDependent<Hole<"If", TSchema>, Hole<"Then", TSchema>, Hole<"Else", TSchema>>>(Type)
   if (m1) {
     return TEvaluateDependent(m1.If, m1.Then, m1.Else)
@@ -144,7 +167,7 @@ export function TEvaluateType__v1(Type) {
   }
   return Type
 }
-export function TEvaluateType(Type: TSchema, Result: TSchema = TEvaluateType__v1(Type)) {
+export function TEvaluateType(Type: TSchema, Result: TSchema = TEvaluateType__v1(Type)): any {
   return Result
 }
 /* compiles to:
@@ -166,7 +189,7 @@ export function TEvaluateType(Type: TSchema, Result: TSchema = TEvaluateType__v1
 
 // ✓ TEvaluateUnionFast: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEvaluateUnionFast__v1(Types) {
+export function TEvaluateUnionFast__v1(Types): any {
   const m1 = matches<[ Hole<"Type", TSchema> ]>(Types)
   if (m1) {
     return m1.Type
@@ -176,7 +199,7 @@ export function TEvaluateUnionFast__v1(Types) {
   }
   return TUnion(Types)
 }
-export function TEvaluateUnionFast(Types: TSchema[], Result: TSchema = TEvaluateUnionFast__v1(Types)) {
+export function TEvaluateUnionFast(Types: TSchema[], Result: TSchema = TEvaluateUnionFast__v1(Types)): any {
   return Result
 }
 /* compiles to:

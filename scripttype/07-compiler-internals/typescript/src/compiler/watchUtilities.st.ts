@@ -9,7 +9,7 @@
  */
 // ✓ GetDetailWatchInfo: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetDetailWatchInfo(X, Y) {
+export function GetDetailWatchInfo(X, Y): any {
   return fnType([X, anyOf(Y, Undefined)], string)
 }
 /* compiles to:

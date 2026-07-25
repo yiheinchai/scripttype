@@ -7,23 +7,32 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Result } from '../../../../../05-functional-effects-hkt/neverthrow/src/result.js'
+declare namespace m1 {
+  export type E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Result: any
 declare const ResultAsync: any
-type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResultAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtractOkTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractOkTypes__v1(T, idx) {
+export function ExtractOkTypes__v1(T, idx): any {
   const m1 = matches<Result<Hole<"U">, unknown>>(T[idx])
   if (m1) {
     return m1.U
   }
   return never
 }
-export function ExtractOkTypes(T: readonly Result<unknown, unknown>[]) {
+/**
+ * @param {readonly Result<unknown, unknown>[]} T
+ */
+export function ExtractOkTypes(T): any {
   const out = emptyObject
   for (const idx in keyof(T)) {
     out[idx] = ExtractOkTypes__v1(T, idx)
@@ -39,14 +48,17 @@ export function ExtractOkTypes(T: readonly Result<unknown, unknown>[]) {
 
 // ✓ ExtractOkAsyncTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractOkAsyncTypes__v1(T, idx) {
+export function ExtractOkAsyncTypes__v1(T, idx): any {
   const m1 = matches<ResultAsync<Hole<"U">, unknown>>(T[idx])
   if (m1) {
     return m1.U
   }
   return never
 }
-export function ExtractOkAsyncTypes(T: readonly ResultAsync<unknown, unknown>[]) {
+/**
+ * @param {readonly ResultAsync<unknown, unknown>[]} T
+ */
+export function ExtractOkAsyncTypes(T): any {
   const out = emptyObject
   for (const idx in keyof(T)) {
     out[idx] = ExtractOkAsyncTypes__v1(T, idx)
@@ -63,14 +75,17 @@ export function ExtractOkAsyncTypes(T: readonly ResultAsync<unknown, unknown>[])
 
 // ✓ ExtractErrTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractErrTypes__v1(T, idx) {
+export function ExtractErrTypes__v1(T, idx): any {
   const m1 = matches<Result<unknown, Hole<"E">>>(T[idx])
   if (m1) {
     return m1.E
   }
   return never
 }
-export function ExtractErrTypes(T: readonly Result<unknown, unknown>[]) {
+/**
+ * @param {readonly Result<unknown, unknown>[]} T
+ */
+export function ExtractErrTypes(T): any {
   const out = emptyObject
   for (const idx in keyof(T)) {
     out[idx] = ExtractErrTypes__v1(T, idx)
@@ -86,14 +101,17 @@ export function ExtractErrTypes(T: readonly Result<unknown, unknown>[]) {
 
 // ✓ ExtractErrAsyncTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractErrAsyncTypes__v1(T, idx) {
+export function ExtractErrAsyncTypes__v1(T, idx): any {
   const m1 = matches<ResultAsync<unknown, Hole<"E">>>(T[idx])
   if (m1) {
     return m1.E
   }
   return never
 }
-export function ExtractErrAsyncTypes(T: readonly ResultAsync<unknown, unknown>[]) {
+/**
+ * @param {readonly ResultAsync<unknown, unknown>[]} T
+ */
+export function ExtractErrAsyncTypes(T): any {
   const out = emptyObject
   for (const idx in keyof(T)) {
     out[idx] = ExtractErrAsyncTypes__v1(T, idx)
@@ -110,7 +128,7 @@ export function ExtractErrAsyncTypes(T: readonly ResultAsync<unknown, unknown>[]
 
 // ✓ InferOkTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferOkTypes(R) {
+export function InferOkTypes(R): any {
   const m1 = matches<Result<Hole<"T">, unknown>>(R)
   if (m1) {
     return m1.T
@@ -123,7 +141,7 @@ export function InferOkTypes(R) {
 
 // ✓ InferErrTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferErrTypes(R) {
+export function InferErrTypes(R): any {
   const m1 = matches<Result<unknown, Hole<"E">>>(R)
   if (m1) {
     return m1.E
@@ -136,7 +154,7 @@ export function InferErrTypes(R) {
 
 // ✓ InferAsyncOkTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferAsyncOkTypes(R) {
+export function InferAsyncOkTypes(R): any {
   const m1 = matches<ResultAsync<Hole<"T">, unknown>>(R)
   if (m1) {
     return m1.T
@@ -149,7 +167,7 @@ export function InferAsyncOkTypes(R) {
 
 // ✓ InferAsyncErrTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferAsyncErrTypes(R) {
+export function InferAsyncErrTypes(R): any {
   const m1 = matches<ResultAsync<unknown, Hole<"E">>>(R)
   if (m1) {
     return m1.E

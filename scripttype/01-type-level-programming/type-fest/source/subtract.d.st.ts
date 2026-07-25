@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Absolute: any
 declare const IsNegative: any
 declare const LessThan: any
@@ -26,7 +29,7 @@ type ReverseSign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 
 type TupleOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Subtract: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Subtract(A: number, B: number) {
+export function Subtract(A: number, B: number): any {
   if (matches<typeof A | typeof B>(number)) {
     return number
   }
@@ -72,7 +75,7 @@ export function Subtract(A: number, B: number) {
 
 // ✓ SubtractPostChecks: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SubtractPostChecks(A: number, B: number, AreNegative = [IsNegative(A), IsNegative(B)]) {
+export function SubtractPostChecks(A: number, B: number, AreNegative = [IsNegative(A), IsNegative(B)]): any {
   if (matches<[ false, false ]>(AreNegative)) {
     return SubtractPositives(A, B)
   }
@@ -103,7 +106,7 @@ export function SubtractPostChecks(A: number, B: number, AreNegative = [IsNegati
 
 // ✓ SubtractPositives: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SubtractPositives(A: number, B: number) {
+export function SubtractPositives(A: number, B: number): any {
   if (matches<true>(LessThan(A, B))) {
     return ReverseSign(SubtractIfAGreaterThanB(B, A))
   }
@@ -118,7 +121,7 @@ export function SubtractPositives(A: number, B: number) {
 
 // ✓ SubtractIfAGreaterThanB: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SubtractIfAGreaterThanB(A: number, B: number) {
+export function SubtractIfAGreaterThanB(A: number, B: number): any {
   const m1 = matches<[ ...TupleOf<typeof B>, ...Hole<"R"> ]>(TupleOf(A))
   if (m1) {
     return m1.R['length']

@@ -7,9 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TIndexDeferred } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/indexed.js'
+import type { TCanInstantiate, TInstantiateType, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TCollapseToObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/object/collapse.js'
+import type { TCyclic } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/cyclic.js'
+import type { TIntersect } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/intersect.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
 declare const TCanInstantiate: any
 declare const TCollapseToObject: any
 declare const TCyclic: any
@@ -22,21 +30,12 @@ declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
 declare const TUnion: any
-type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TCollapseToObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TDependent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TIndexDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TNormalizeType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TNormalizeType(Type: TSchema, Result: TSchema = matches<TCyclic>(Type) ? TCollapseToObject(Type) : (matches<TDependent>(Type) ? TCollapseToObject(Type) : (matches<TIntersect>(Type) ? TCollapseToObject(Type) : (matches<TUnion>(Type) ? TCollapseToObject(Type) : Type)))) {
+export function TNormalizeType(Type: TSchema, Result: TSchema = matches<TCyclic>(Type) ? TCollapseToObject(Type) : (matches<TDependent>(Type) ? TCollapseToObject(Type) : (matches<TIntersect>(Type) ? TCollapseToObject(Type) : (matches<TUnion>(Type) ? TCollapseToObject(Type) : Type)))): any {
   return Result
 }
 /* compiles to:
@@ -49,7 +48,7 @@ export function TNormalizeType(Type: TSchema, Result: TSchema = matches<TCyclic>
 
 // ✓ TIndexAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndexAction(Type: TSchema, Indexer: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type, Indexer])) ? TFromType(TNormalizeType(Type), Indexer) : TIndexDeferred(Type, Indexer)) {
+export function TIndexAction(Type: TSchema, Indexer: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type, Indexer])) ? TFromType(TNormalizeType(Type), Indexer) : TIndexDeferred(Type, Indexer)): any {
   return Result
 }
 /* compiles to:
@@ -63,7 +62,7 @@ export function TIndexAction(Type: TSchema, Indexer: TSchema, Result: TSchema = 
 
 // ✓ TIndexInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndexInstantiate(Context: TProperties, State: TState, Type: TSchema, Indexer: TSchema, InstantiatedType: TSchema = TInstantiateType(Context, State, Type), InstantiatedIndexer: TSchema = TInstantiateType(Context, State, Indexer)) {
+export function TIndexInstantiate(Context: TProperties, State: TState, Type: TSchema, Indexer: TSchema, InstantiatedType: TSchema = TInstantiateType(Context, State, Type), InstantiatedIndexer: TSchema = TInstantiateType(Context, State, Indexer)): any {
   return TIndexAction(InstantiatedType, InstantiatedIndexer)
 }
 /* compiles to:

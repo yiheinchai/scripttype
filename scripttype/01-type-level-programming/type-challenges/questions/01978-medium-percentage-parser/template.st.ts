@@ -9,7 +9,7 @@
  */
 // ✓ PercentageParser: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PercentageParser(A: string) {
+export function PercentageParser(A: string): any {
   return any
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Assign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assign(T: Record<string, unknown>, U) {
+export function Assign(T: Record<string, unknown>, U): any {
   return any
 }
 /* compiles to:

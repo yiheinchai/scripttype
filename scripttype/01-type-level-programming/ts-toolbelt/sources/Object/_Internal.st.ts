@@ -9,7 +9,7 @@
  */
 // ✓ Anyfy: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Anyfy(O: object) {
+export function Anyfy(O: object): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = any

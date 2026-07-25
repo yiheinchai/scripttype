@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
+// Names this file references but does not define: types from elsewhere in the
+// library, and local functions used in type position. Declared so the generated
+// ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 // ✓ DropLast: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DropLast(T: ReadonlyArray<unknown>) {
+export function DropLast(T: ReadonlyArray<unknown>): any {
   const m1 = matches<readonly [ ...Hole<"R">, unknown ]>(T)
   if (m1) {
     return asReadonly([...m1.R])
@@ -23,7 +29,7 @@ export function DropLast(T: ReadonlyArray<unknown>) {
 
 // ✓ TuplePrefixes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TuplePrefixes(T: ReadonlyArray<unknown>) {
+export function TuplePrefixes(T: ReadonlyArray<unknown>): any {
   if (matches<readonly [ ]>(T)) {
     return asReadonly([])
   }
@@ -36,7 +42,7 @@ export function TuplePrefixes(T: ReadonlyArray<unknown>) {
 
 // ✓ Updater: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Updater(TInput, TOutput) {
+export function Updater(TInput, TOutput): any {
   return TOutput | fnType([TInput], TOutput)
 }
 /* compiles to:

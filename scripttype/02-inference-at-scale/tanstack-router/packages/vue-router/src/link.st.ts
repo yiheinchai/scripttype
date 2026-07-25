@@ -7,12 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { LinkOptions } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/link.js'
+import type { AnyRouter, RegisteredRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { ActiveLinkOptionProps, CreateLinkProps, LinkPropsChildren } from '../../../../../../02-inference-at-scale/tanstack-router/packages/vue-router/src/link.js'
 declare namespace Vue {
   export type Component<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type VNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type P<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type P<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const ActiveLinkOptionProps: any
 declare const AnyRouter: any
@@ -24,27 +34,21 @@ declare const LinkHTMLAttributes: any
 declare const LinkOptions: any
 declare const LinkPropsChildren: any
 declare const RegisteredRouter: any
-declare const RoutePaths: any
+declare const VNode: any
 declare const ValidateLinkOptions: any
 declare const ValidateLinkOptionsArray: any
 declare const Vue: any
-type ActiveLinkOptionProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Component<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CreateLinkProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Event<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLElementTagNameMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type LinkHTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LinkOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LinkPropsChildren<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RoutePaths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type VNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidateLinkOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidateLinkOptionsArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Vue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ EventHandler: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EventHandler(TEvent = Event) {
+export function EventHandler(TEvent = Event): any {
   return fnType([TEvent], voidType())
 }
 /* compiles to:
@@ -53,7 +57,7 @@ export function EventHandler(TEvent = Event) {
 
 // ✓ PropsOfComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PropsOfComponent(TComp) {
+export function PropsOfComponent(TComp): any {
   const m1 = matches<(props: Hole<"P">, ...args: Array<unknown>) => any>(TComp)
   if (m1) {
     return m1.P
@@ -73,7 +77,12 @@ export function PropsOfComponent(TComp) {
 
 // ✓ UseLinkPropsOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseLinkPropsOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: RoutePaths<(typeof TRouter)['routeTree']> | string = string, TTo: string | undefined = '.', TMaskFrom: RoutePaths<(typeof TRouter)['routeTree']> | string = TFrom, TMaskTo: string = '.') {
+/**
+ * @param {AnyRouter} TRouter
+ * @param {RoutePaths<(typeof TRouter)['routeTree']> | string} TFrom
+ * @param {RoutePaths<(typeof TRouter)['routeTree']> | string} TMaskFrom
+ */
+export function UseLinkPropsOptions(TRouter = RegisteredRouter, TFrom = string, TTo: string | undefined = '.', TMaskFrom = TFrom, TMaskTo: string = '.'): any {
   return ActiveLinkOptions('a', TRouter, TFrom, TTo, TMaskFrom, TMaskTo) & LinkHTMLAttributes
 }
 /* compiles to:
@@ -89,7 +98,7 @@ export function UseLinkPropsOptions(TRouter: AnyRouter = RegisteredRouter, TFrom
 
 // ✓ ActiveLinkOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ActiveLinkOptions(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.') {
+export function ActiveLinkOptions(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.'): any {
   return LinkOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo) & ActiveLinkOptionProps(TComp)
 }
 /* compiles to:
@@ -106,7 +115,7 @@ export function ActiveLinkOptions(TComp = 'a', TRouter: AnyRouter = RegisteredRo
 
 // ✓ ActiveLinkProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ActiveLinkProps(TComp) {
+export function ActiveLinkProps(TComp): any {
   return Partial(merge(TComp in HTMLElementTagNameMap ? LinkHTMLAttributes : PropsOfComponent(TComp), indexRecord(`data-${string}`, unknown)))
 }
 /* compiles to:
@@ -118,7 +127,7 @@ export function ActiveLinkProps(TComp) {
 
 // ✓ LinkProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.') {
+export function LinkProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.'): any {
   return ActiveLinkOptions(TComp, TRouter, TFrom, TTo, TMaskFrom, TMaskTo) & LinkPropsChildren
 }
 /* compiles to:
@@ -135,7 +144,7 @@ export function LinkProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TF
 
 // ✓ LinkComponentVueProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkComponentVueProps(TComp) {
+export function LinkComponentVueProps(TComp): any {
   if (TComp in HTMLElementTagNameMap) {
     return Omit(LinkHTMLAttributes, keyof(CreateLinkProps))
   }
@@ -150,7 +159,7 @@ export function LinkComponentVueProps(TComp) {
 
 // ✓ LinkComponentProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkComponentProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.') {
+export function LinkComponentProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.'): any {
   return LinkComponentVueProps(TComp) & LinkProps(TComp, TRouter, TFrom, TTo, TMaskFrom, TMaskTo)
 }
 /* compiles to:
@@ -167,8 +176,8 @@ export function LinkComponentProps(TComp = 'a', TRouter: AnyRouter = RegisteredR
 
 // ✓ LinkComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkComponent(TComp, TDefaultFrom: string = string) {
-  return genericFnType(['TRouter extends AnyRouter = RegisteredRouter', 'const TFrom extends string = TDefaultFrom', 'const TTo extends string | undefined = undefined', 'const TMaskFrom extends string = TFrom', 'const TMaskTo extends string = \'\''], [LinkComponentProps(TComp, TRouter, TFrom, TTo, TMaskFrom, TMaskTo)], Vue.VNode)
+export function LinkComponent(TComp, TDefaultFrom: string = string): any {
+  return genericFnType(['TRouter extends AnyRouter = RegisteredRouter', 'const TFrom extends string = TDefaultFrom', 'const TTo extends string | undefined = undefined', 'const TMaskFrom extends string = TFrom', 'const TMaskTo extends string = \'\''], [LinkComponentProps(TComp, TRouter, TFrom, TTo, TMaskFrom, TMaskTo)], t<Vue.VNode>())
 }
 /* compiles to:
  * export type LinkComponent<TComp, TDefaultFrom extends string = string> =
@@ -179,7 +188,7 @@ export function LinkComponent(TComp, TDefaultFrom: string = string) {
 
 // ✓ LinkOptionsFnOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkOptionsFnOptions(TOptions, TComp, TRouter: AnyRouter = RegisteredRouter) {
+export function LinkOptionsFnOptions(TOptions, TComp, TRouter: AnyRouter = RegisteredRouter): any {
   if (matches<ReadonlyArray<any>>(TOptions)) {
     return ValidateLinkOptionsArray(TRouter, TOptions, string, TComp)
   }
@@ -198,7 +207,7 @@ export function LinkOptionsFnOptions(TOptions, TComp, TRouter: AnyRouter = Regis
 
 // ✓ LinkOptionsFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkOptionsFn(TComp) {
+export function LinkOptionsFn(TComp): any {
   return genericFnType(['const TOptions', 'TRouter extends AnyRouter = RegisteredRouter'], [LinkOptionsFnOptions(TOptions, TComp, TRouter)], TOptions)
 }
 /* compiles to:

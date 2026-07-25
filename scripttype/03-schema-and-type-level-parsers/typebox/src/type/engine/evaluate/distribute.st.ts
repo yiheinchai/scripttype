@@ -7,9 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TEvaluateIntersect, TEvaluateType } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TNarrow } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/narrow.js'
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TTuple } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/tuple.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type UnionTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TComposite: any
 declare const TEvaluateIntersect: any
 declare const TEvaluateType: any
@@ -20,17 +37,10 @@ declare const TSchema: any
 declare const TTuple: any
 declare const TUnion: any
 type TComposite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNarrow<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIsObjectLike: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIsObjectLike(Type: TSchema) {
+export function TIsObjectLike(Type: TSchema): any {
   const m1 = matches<TObject<Hole<"_", TProperties>>>(Type)
   if (m1) {
     return true
@@ -48,7 +58,7 @@ export function TIsObjectLike(Type: TSchema) {
 
 // ✓ TIsUnionOperand: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIsUnionOperand(Left: TSchema, Right: TSchema, IsUnionLeft: boolean = matches<TUnion>(Left) ? true : false, IsUnionRight: boolean = matches<TUnion>(Right) ? true : false, Result: boolean = matches<true>(IsUnionLeft) ? true : (matches<true>(IsUnionRight) ? true : false)) {
+export function TIsUnionOperand(Left: TSchema, Right: TSchema, IsUnionLeft: boolean = matches<TUnion>(Left) ? true : false, IsUnionRight: boolean = matches<TUnion>(Right) ? true : false, Result: boolean = matches<true>(IsUnionLeft) ? true : (matches<true>(IsUnionRight) ? true : false)): any {
   return Result
 }
 /* compiles to:
@@ -64,7 +74,7 @@ export function TIsUnionOperand(Left: TSchema, Right: TSchema, IsUnionLeft: bool
 
 // ✓ TDistributeOperation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDistributeOperation(Left: TSchema, Right: TSchema, EvaluatedLeft: TSchema = TEvaluateType(Left), EvaluatedRight: TSchema = TEvaluateType(Right), IsUnionOperand: boolean = TIsUnionOperand(EvaluatedLeft, EvaluatedRight), IsObjectLeft: boolean = TIsObjectLike(EvaluatedLeft), IsObjectRight: boolean = TIsObjectLike(EvaluatedRight), Result: TSchema = matches<[ true ]>([IsUnionOperand]) ? TEvaluateIntersect([EvaluatedLeft, EvaluatedRight]) : (matches<[ true, true ]>([IsObjectLeft, IsObjectRight]) ? TComposite(EvaluatedLeft, EvaluatedRight) : (matches<[ true, false ]>([IsObjectLeft, IsObjectRight]) ? EvaluatedLeft : (matches<[ false, true ]>([IsObjectLeft, IsObjectRight]) ? EvaluatedRight : TNarrow(EvaluatedLeft, EvaluatedRight))))) {
+export function TDistributeOperation(Left: TSchema, Right: TSchema, EvaluatedLeft: TSchema = TEvaluateType(Left), EvaluatedRight: TSchema = TEvaluateType(Right), IsUnionOperand: boolean = TIsUnionOperand(EvaluatedLeft, EvaluatedRight), IsObjectLeft: boolean = TIsObjectLike(EvaluatedLeft), IsObjectRight: boolean = TIsObjectLike(EvaluatedRight), Result: TSchema = matches<[ true ]>([IsUnionOperand]) ? TEvaluateIntersect([EvaluatedLeft, EvaluatedRight]) : (matches<[ true, true ]>([IsObjectLeft, IsObjectRight]) ? TComposite(EvaluatedLeft, EvaluatedRight) : (matches<[ true, false ]>([IsObjectLeft, IsObjectRight]) ? EvaluatedLeft : (matches<[ false, true ]>([IsObjectLeft, IsObjectRight]) ? EvaluatedRight : TNarrow(EvaluatedLeft, EvaluatedRight))))): any {
   return Result
 }
 /* compiles to:
@@ -83,7 +93,7 @@ export function TDistributeOperation(Left: TSchema, Right: TSchema, EvaluatedLef
 
 // ✓ TDistributeType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDistributeType(Type: TSchema, Distribution: TSchema[]) {
+export function TDistributeType(Type: TSchema, Distribution: TSchema[]): any {
   let Result: any[] = []
   let distribution = Distribution
   while (true) {
@@ -115,7 +125,7 @@ export function TDistributeType(Type: TSchema, Distribution: TSchema[]) {
 
 // ✓ TDistributeUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDistributeUnion(Types: TSchema[], Distribution: TSchema[]) {
+export function TDistributeUnion(Types: TSchema[], Distribution: TSchema[]): any {
   let Result: any[] = []
   let types = Types
   while (true) {
@@ -150,7 +160,7 @@ export function TDistributeUnion(Types: TSchema[], Distribution: TSchema[]) {
 
 // ✓ TDistribute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDistribute(Types: TSchema[], Result: TSchema[] = []) {
+export function TDistribute(Types: TSchema[], Result: TSchema[] = []): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(Types)
   if (m1) {
     const m2 = matches<TUnion<Hole<"UnionTypes", TSchema[]>>>(m1.Left)

@@ -9,7 +9,7 @@
  */
 // ✓ AllCombinations: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AllCombinations(S) {
+export function AllCombinations(S): any {
   return any
 }
 /* compiles to:

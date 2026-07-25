@@ -9,7 +9,7 @@
  */
 // ✓ Combs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Combs(T: any[]) {
+export function Combs(T: any[]): any {
   return any
 }
 /* compiles to:

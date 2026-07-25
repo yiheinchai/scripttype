@@ -9,7 +9,7 @@
  */
 // ✓ Extends: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Extends(A1: any, A2: any) {
+export function Extends(A1: any, A2: any): any {
   if (matches<[ never ]>([A1])) {
     return 0
   }

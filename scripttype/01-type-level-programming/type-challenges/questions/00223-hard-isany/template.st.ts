@@ -9,7 +9,7 @@
  */
 // ✓ IsAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsAny(T) {
+export function IsAny(T): any {
   return any
 }
 /* compiles to:

@@ -7,29 +7,33 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ValueAccessor } from '../../../../../../02-inference-at-scale/tanstack-query/packages/lit-query/src/accessor.js'
 declare const Accessor: any
 declare const Mutation: any
 declare const MutationFilters: any
 declare const ValueAccessor: any
-type Accessor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Mutation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MutationFilters<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueAccessor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Accessor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Mutation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MutationFilters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MutationStateOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MutationStateOptions(TResult) {
+export function MutationStateOptions(TResult): any {
   return { filters: optional(Accessor(MutationFilters)), select: optional(fnType([Mutation], TResult)) }
 }
 /* compiles to:
- * export type MutationStateOptions<TResult> = { filters?: Accessor<MutationFilters>; select?: (a0: Mutation) => TResult }
+ * export type MutationStateOptions<TResult> = {
+ *   filters?: Accessor<MutationFilters>
+ *   select?: (a0: Mutation) => TResult
+ * }
  */
 
 // ✓ MutationStateAccessor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MutationStateAccessor(TResult) {
+export function MutationStateAccessor(TResult): any {
   return merge(ValueAccessor(arrayOf(TResult)), { destroy: fnType([], voidType()) })
 }
 /* compiles to:

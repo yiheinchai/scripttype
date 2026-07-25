@@ -7,18 +7,27 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { array } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/arrays.js'
+import type { Fn } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/functions.js'
+import type { conform } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
+declare namespace m1 {
+  export type args<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type branch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type current<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type intersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type returns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Fn: any
 declare const array: any
 declare const conform: any
-type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type conform<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ stringifyUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function stringifyUnion(t: string, delimiter: string = ', ') {
+export function stringifyUnion(t: string, delimiter: string = ', '): any {
   return join(unionToTuple(t), delimiter)
 }
 /* compiles to:
@@ -30,7 +39,7 @@ export function stringifyUnion(t: string, delimiter: string = ', ') {
 
 // ✓ unionToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function unionToTuple(t) {
+export function unionToTuple(t): any {
   const m1 = matches<Hole<"result">>(_unionToTuple(t, []))
   if (m1) {
     return conform(m1.result, arrayOf(t))
@@ -44,7 +53,7 @@ export function unionToTuple(t) {
 
 // ✓ _unionToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _unionToTuple(t, result: unknown[]) {
+export function _unionToTuple(t, result: unknown[]): any {
   const m1 = matches<Hole<"current">>(getLastBranch(t))
   if (m1) {
     if (matches<[ never ]>([t])) {
@@ -63,7 +72,7 @@ export function _unionToTuple(t, result: unknown[]) {
 
 // ✓ getLastBranch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function getLastBranch(t) {
+export function getLastBranch(t): any {
   const m1 = matches<((x: Hole<"branch">) => void)>(intersectUnion(matches<unknown>(t) ? fnType([t], voidType()) : never))
   if (m1) {
     return m1.branch
@@ -79,7 +88,7 @@ export function getLastBranch(t) {
 
 // ✓ intersectUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function intersectUnion(t) {
+export function intersectUnion(t): any {
   const m1 = matches<((_: Hole<"intersection">) => void)>(matches<unknown>(t) ? fnType([t], voidType()) : never)
   if (m1) {
     return m1.intersection
@@ -95,7 +104,7 @@ export function intersectUnion(t) {
 
 // ✓ intersectOverloadReturns: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function intersectOverloadReturns(fn: Fn) {
+export function intersectOverloadReturns(fn: Fn): any {
   return intersectUnion(ReturnType(overloadOf(fn)))
 }
 /* compiles to:
@@ -104,7 +113,7 @@ export function intersectOverloadReturns(fn: Fn) {
 
 // ✓ overloadOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function overloadOf(fn: Fn, givenArgs: array = array) {
+export function overloadOf(fn: Fn, givenArgs: array = array): any {
   return Exclude(collectSignatures(merge(fnType([], never), fn), givenArgs, unknown), matches<() => never>(fn) ? never : fnType([], never))
 }
 /* compiles to:
@@ -116,13 +125,13 @@ export function overloadOf(fn: Fn, givenArgs: array = array) {
 
 // ✓ collectSignatures: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function collectSignatures(fn, givenArgs: array, result) {
+export function collectSignatures(fn, givenArgs: array, result): any {
   const m1 = matches<(...args: Hole<"args">) => Hole<"returns">>(result & fn)
   if (m1) {
     if (matches<typeof fn>(result)) {
       return never
     }
-    return collectSignatures(fn, givenArgs, Pick(fn, keyof(fn)) & result & fnType([m1.args], m1.returns)) | (matches<typeof givenArgs>(m1.args) ? fnType([m1.args], m1.returns) : never)
+    return collectSignatures(fn, givenArgs, merge(Pick(fn, keyof(fn)), result, fnType([...m1.args], m1.returns))) | (matches<typeof givenArgs>(m1.args) ? fnType([...m1.args], m1.returns) : never)
   }
   return never
 }
@@ -131,7 +140,11 @@ export function collectSignatures(fn, givenArgs: array, result) {
  *   result & fn extends (...args: infer args) => infer returns
  *     ? result extends fn
  *       ? never
- *       : | collectSignatures<fn, givenArgs, Pick<fn, keyof fn> & result & ((a0: args) => returns)>
- *       | (args extends givenArgs ? (a0: args) => returns : never)
+ *       : | collectSignatures<
+ *           fn,
+ *           givenArgs,
+ *           Pick<fn, keyof fn> & result & ((...a0: args) => returns)
+ *         >
+ *       | (args extends givenArgs ? (...a0: args) => returns : never)
  *     : never
  */

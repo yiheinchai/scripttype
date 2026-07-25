@@ -7,22 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Kind2, URIS, URIS2 } from '../../../../05-functional-effects-hkt/fp-ts/src/HKT.js'
+import type { Option } from '../../../../05-functional-effects-hkt/fp-ts/src/Option.js'
 declare const Kind: any
 declare const Kind2: any
 declare const Option: any
 declare const URIS: any
 declare const URIS2: any
 type Kind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Kind2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Option<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type URIS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type URIS2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OptionT1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionT1(M: URIS, A) {
+export function OptionT1(M: URIS, A): any {
   return Kind(M, Option(A))
 }
 /* compiles to:
@@ -31,7 +30,7 @@ export function OptionT1(M: URIS, A) {
 
 // ✓ OptionT2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionT2(M: URIS2, E, A) {
+export function OptionT2(M: URIS2, E, A): any {
   return Kind2(M, E, Option(A))
 }
 /* compiles to:

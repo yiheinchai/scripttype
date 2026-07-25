@@ -7,20 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { EntityId, EntityState } from '../../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/entities/models.js'
 declare const CastAny: any
 declare const Draft: any
 declare const EntityId: any
 declare const EntityState: any
 type CastAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Draft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EntityId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EntityState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Comparer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Comparer(T) {
+export function Comparer(T): any {
   return fnType([T, T], number)
 }
 /* compiles to:
@@ -29,7 +29,7 @@ export function Comparer(T) {
 
 // ✓ IdSelector: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IdSelector(T, Id: EntityId) {
+export function IdSelector(T, Id: EntityId): any {
   return fnType([T], Id)
 }
 /* compiles to:
@@ -38,7 +38,7 @@ export function IdSelector(T, Id: EntityId) {
 
 // ✓ Update: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Update(T, Id: EntityId) {
+export function Update(T, Id: EntityId): any {
   return { id: Id, changes: Partial(T) }
 }
 /* compiles to:
@@ -47,7 +47,7 @@ export function Update(T, Id: EntityId) {
 
 // ✓ PreventAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PreventAny(S, T, Id: EntityId) {
+export function PreventAny(S, T, Id: EntityId): any {
   return CastAny(S, EntityState(T, Id))
 }
 /* compiles to:
@@ -56,7 +56,7 @@ export function PreventAny(S, T, Id: EntityId) {
 
 // ✓ DraftableEntityState: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DraftableEntityState(T, Id: EntityId) {
+export function DraftableEntityState(T, Id: EntityId): any {
   return EntityState(T, Id) | Draft(EntityState(T, Id))
 }
 /* compiles to:

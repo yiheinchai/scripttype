@@ -7,9 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ColumnBuilderBase, ColumnBuilderBaseConfig, ColumnDataType, Dialect, GeneratedIdentityConfig, GeneratedStorageMode, GeneratedType } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column-builder.js'
+import type { Assume, Simplify } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+declare namespace m1 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type G<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type G<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Assume: any
 declare const Column: any
 declare const ColumnBuilderBase: any
@@ -29,28 +45,19 @@ declare const SQL: any
 declare const SQLiteColumn: any
 declare const Simplify: any
 declare const SingleStoreColumn: any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnBuilderBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnBuilderBaseConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnDataType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Dialect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ExtraConfigColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type G<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelExtraConfigColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GeneratedIdentityConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GeneratedStorageMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GeneratedType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MySqlColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStoreColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GeneratedColumnConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GeneratedColumnConfig(TDataType) {
+export function GeneratedColumnConfig(TDataType): any {
   return { as: TDataType | SQL | fnType([], SQL), type: optional(GeneratedType), mode: optional(GeneratedStorageMode) }
 }
 /* compiles to:
@@ -63,14 +70,14 @@ export function GeneratedColumnConfig(TDataType) {
 
 // ✓ MakeColumnConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MakeColumnConfig__v1(T) {
+export function MakeColumnConfig__v1(T): any {
   const m1 = matches<{ $type: Hole<"U">; }>(T)
   if (m1) {
     return m1.U
   }
   return T['data']
 }
-export function MakeColumnConfig(T: ColumnBuilderBaseConfig<ColumnDataType, string>, TTableName: string, TData = MakeColumnConfig__v1(T)) {
+export function MakeColumnConfig(T: ColumnBuilderBaseConfig<ColumnDataType, string>, TTableName: string, TData = MakeColumnConfig__v1(T)): any {
   const m1 = matches<{ baseBuilder: Hole<"U", ColumnBuilderBase>; }>(T)
   const m2 = matches<{ generated: Hole<"G">; }>(T)
   return merge({ name: T['name'], tableName: TTableName, dataType: T['dataType'], columnType: T['columnType'], data: TData, driverParam: T['driverParam'], notNull: matches<{ notNull: true; }>(T) ? true : false, hasDefault: matches<{ hasDefault: true; }>(T) ? true : false, isPrimaryKey: matches<{ isPrimaryKey: true; }>(T) ? true : false, isAutoincrement: matches<{ isAutoincrement: true; }>(T) ? true : false, hasRuntimeDefault: matches<{ hasRuntimeDefault: true; }>(T) ? true : false, enumValues: T['enumValues'], baseColumn: m1 ? BuildColumn(TTableName, m1.U, 'common') : never, identity: matches<{ identity: 'always'; }>(T) ? 'always' : (matches<{ identity: 'byDefault'; }>(T) ? 'byDefault' : Undefined), generated: m2 ? (matches<typeof m2.G>(unknown) ? Undefined : (typeof m2.G === 'undefined' ? Undefined : m2.G)) : Undefined }, {})
@@ -110,7 +117,7 @@ export function MakeColumnConfig(T: ColumnBuilderBaseConfig<ColumnDataType, stri
 
 // ✓ ColumnBuilderTypeConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ColumnBuilderTypeConfig(T: ColumnBuilderBaseConfig<ColumnDataType, string>, TTypeConfig: object = object) {
+export function ColumnBuilderTypeConfig(T: ColumnBuilderBaseConfig<ColumnDataType, string>, TTypeConfig: object = object): any {
   const m1 = matches<{ notNull: Hole<"U">; }>(T)
   const m2 = matches<{ hasDefault: Hole<"U">; }>(T)
   const m3 = matches<{ identity: Hole<"U">; }>(T)
@@ -144,7 +151,7 @@ export function ColumnBuilderTypeConfig(T: ColumnBuilderBaseConfig<ColumnDataTyp
 
 // ✓ ColumnBuilderRuntimeConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ColumnBuilderRuntimeConfig(TData, TRuntimeConfig: object = object) {
+export function ColumnBuilderRuntimeConfig(TData, TRuntimeConfig: object = object): any {
   return merge({ name: string, keyAsName: boolean, notNull: boolean, default: anyOf(TData, SQL, Undefined), defaultFn: anyOf(fnType([], TData | SQL), Undefined), onUpdateFn: anyOf(fnType([], TData | SQL), Undefined), hasDefault: boolean, primaryKey: boolean, isUnique: boolean, uniqueName: anyOf(string, Undefined), uniqueType: anyOf(string, Undefined), dataType: string, columnType: string, generated: anyOf(GeneratedColumnConfig(TData), Undefined), generatedIdentity: anyOf(GeneratedIdentityConfig, Undefined) }, TRuntimeConfig)
 }
 /* compiles to:
@@ -171,7 +178,7 @@ export function ColumnBuilderRuntimeConfig(TData, TRuntimeConfig: object = objec
 
 // ✓ NotNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NotNull(T: ColumnBuilderBase) {
+export function NotNull(T: ColumnBuilderBase): any {
   return merge(T, { _: { notNull: true } })
 }
 /* compiles to:
@@ -180,7 +187,7 @@ export function NotNull(T: ColumnBuilderBase) {
 
 // ✓ HasDefault: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasDefault(T: ColumnBuilderBase) {
+export function HasDefault(T: ColumnBuilderBase): any {
   return merge(T, { _: { hasDefault: true } })
 }
 /* compiles to:
@@ -189,7 +196,7 @@ export function HasDefault(T: ColumnBuilderBase) {
 
 // ✓ IsPrimaryKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsPrimaryKey(T: ColumnBuilderBase) {
+export function IsPrimaryKey(T: ColumnBuilderBase): any {
   return merge(T, { _: { isPrimaryKey: true } })
 }
 /* compiles to:
@@ -198,7 +205,7 @@ export function IsPrimaryKey(T: ColumnBuilderBase) {
 
 // ✓ IsAutoincrement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsAutoincrement(T: ColumnBuilderBase) {
+export function IsAutoincrement(T: ColumnBuilderBase): any {
   return merge(T, { _: { isAutoincrement: true } })
 }
 /* compiles to:
@@ -207,7 +214,7 @@ export function IsAutoincrement(T: ColumnBuilderBase) {
 
 // ✓ HasRuntimeDefault: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasRuntimeDefault(T: ColumnBuilderBase) {
+export function HasRuntimeDefault(T: ColumnBuilderBase): any {
   return merge(T, { _: { hasRuntimeDefault: true } })
 }
 /* compiles to:
@@ -217,7 +224,7 @@ export function HasRuntimeDefault(T: ColumnBuilderBase) {
 
 // ✓ $Type: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function $Type(T: ColumnBuilderBase, TType) {
+export function $Type(T: ColumnBuilderBase, TType): any {
   return merge(T, { _: { $type: TType } })
 }
 /* compiles to:
@@ -226,7 +233,7 @@ export function $Type(T: ColumnBuilderBase, TType) {
 
 // ✓ HasGenerated: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasGenerated(T: ColumnBuilderBase, TGenerated: {} = {}) {
+export function HasGenerated(T: ColumnBuilderBase, TGenerated: {} = {}): any {
   return merge(T, { _: { hasDefault: true, generated: TGenerated } })
 }
 /* compiles to:
@@ -236,7 +243,7 @@ export function HasGenerated(T: ColumnBuilderBase, TGenerated: {} = {}) {
 
 // ✓ IsIdentity: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsIdentity(T: ColumnBuilderBase, TType: 'always' | 'byDefault') {
+export function IsIdentity(T: ColumnBuilderBase, TType: 'always' | 'byDefault'): any {
   return merge(T, { _: { notNull: true, hasDefault: true, identity: TType } })
 }
 /* compiles to:
@@ -246,7 +253,7 @@ export function IsIdentity(T: ColumnBuilderBase, TType: 'always' | 'byDefault') 
 
 // ✓ BuildColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildColumn(TTableName: string, TBuilder: ColumnBuilderBase, TDialect: Dialect) {
+export function BuildColumn(TTableName: string, TBuilder: ColumnBuilderBase, TDialect: Dialect): any {
   if (matches<'pg'>(TDialect)) {
     return PgColumn(MakeColumnConfig(TBuilder['_'], TTableName), {}, Simplify(Omit(TBuilder['_'], anyOf(keyof(MakeColumnConfig(TBuilder['_'], TTableName)), 'brand', 'dialect'))))
   }
@@ -352,7 +359,7 @@ export function BuildColumn(TTableName: string, TBuilder: ColumnBuilderBase, TDi
 
 // ✓ BuildIndexColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildIndexColumn(TDialect: Dialect) {
+export function BuildIndexColumn(TDialect: Dialect): any {
   if (matches<'pg'>(TDialect)) {
     return ExtraConfigColumn
   }
@@ -370,7 +377,10 @@ export function BuildIndexColumn(TDialect: Dialect) {
 
 // ✓ BuildColumns: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildColumns(TTableName: string, TConfigMap: Record<string, ColumnBuilderBase>, TDialect: Dialect) {
+/**
+ * @param {Record<string, ColumnBuilderBase>} TConfigMap
+ */
+export function BuildColumns(TTableName: string, TConfigMap, TDialect: Dialect): any {
   const out = emptyObject
   for (const Key in keyof(TConfigMap)) {
     out[Key] = BuildColumn(TTableName, { _: merge(Omit(TConfigMap[Key]['_'], 'name'), { name: matches<''>(TConfigMap[Key]['_']['name']) ? Assume(Key, string) : TConfigMap[Key]['_']['name'] }) }, TDialect)
@@ -402,7 +412,7 @@ export function BuildColumns(TTableName: string, TConfigMap: Record<string, Colu
 
 // ✓ BuildExtraConfigColumns: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildExtraConfigColumns(_TTableName: string, TConfigMap: Record<string, ColumnBuilderBase>, TDialect: Dialect) {
+export function BuildExtraConfigColumns(_TTableName: string, TConfigMap: Record<string, ColumnBuilderBase>, TDialect: Dialect): any {
   const out = emptyObject
   for (const Key in keyof(TConfigMap)) {
     out[Key] = BuildIndexColumn(TDialect)
@@ -420,7 +430,7 @@ export function BuildExtraConfigColumns(_TTableName: string, TConfigMap: Record<
 
 // ✓ ChangeColumnTableName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ChangeColumnTableName(TColumn: Column, TAlias: string, TDialect: Dialect) {
+export function ChangeColumnTableName(TColumn: Column, TAlias: string, TDialect: Dialect): any {
   if (matches<'pg'>(TDialect)) {
     return PgColumn(MakeColumnConfig(TColumn['_'], TAlias))
   }

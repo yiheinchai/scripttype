@@ -7,25 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Append } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Append.js'
+import type { _Drop } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Drop.js'
+import type { _Take } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Take.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Append: any
 declare const Cast: any
 declare const Extends: any
 declare const List: any
 declare const _Drop: any
 declare const _Take: any
-type Append<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _Drop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _Take<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Group: does not compile yet
 //   Type 'Extends<L, List<never>>' cannot be used to index type '{ '0': __Group__st0<_Drop<L, N>, N, [...LN, _Take<L, N>]>; '1': LN; }'.
 /* @scripttype preserveParamNames */
-export function __Group(L: List, N: number, LN: List = []) {
+export function __Group(L: List, N: number, LN: List = []): any {
   return { 0: __Group(_Drop(L, N), N, Append(LN, _Take(L, N))), 1: LN }[Extends(L, List(never))]
 }
 /* compiles to:
@@ -35,7 +39,7 @@ export function __Group(L: List, N: number, LN: List = []) {
 
 // ✓ _Group: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Group(L: List, N: number) {
+export function _Group(L: List, N: number): any {
   const m1 = matches<Hole<"X">>(__Group(L, N))
   if (m1) {
     return Cast(m1.X, List)
@@ -49,7 +53,7 @@ export function _Group(L: List, N: number) {
 
 // ✓ Group: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Group(L: List, N: number) {
+export function Group(L: List, N: number): any {
   if (matches<unknown>(L)) {
     if (matches<unknown>(N)) {
       return _Group(L, N)

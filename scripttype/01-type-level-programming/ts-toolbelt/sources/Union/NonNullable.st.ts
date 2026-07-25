@@ -9,7 +9,7 @@
  */
 // ✓ NonNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNullable(U: any) {
+export function NonNullable(U: any): any {
   return Exclude(U, anyOf(Undefined, Null))
 }
 /* compiles to:

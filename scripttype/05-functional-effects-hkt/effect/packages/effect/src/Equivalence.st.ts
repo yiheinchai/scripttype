@@ -9,7 +9,7 @@
  */
 // ✓ Equivalence: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Equivalence(A) {
+export function Equivalence(A): any {
   return fnType([A, A], boolean)
 }
 /* compiles to:

@@ -7,19 +7,31 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Request } from '../../../../../../05-functional-effects-hkt/effect/packages/effect/src/Request.js'
 declare namespace Exit {
   export type Exit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare const A: any
+declare const E: any
 declare const Exit: any
 declare const Request: any
+type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Exit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Request<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Error: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Error(T: Request<any, any, any>) {
+export function Error(T: Request<any, any, any>): any {
   const m1 = matches<[ Request<Hole<"_A">, Hole<"_E">, Hole<"_R">> ]>([T])
   if (m1) {
     return m1._E
@@ -28,12 +40,12 @@ export function Error(T: Request<any, any, any>) {
 }
 /* compiles to:
  * export type Error<T extends Request<any, any, any>> =
- *   [T] extends [Request<unknown, infer _E, unknown>] ? _E : never
+ *   [T] extends [Request<any, infer _E, any>] ? _E : never
  */
 
 // ✓ Success: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Success(T: Request<any, any, any>) {
+export function Success(T: Request<any, any, any>): any {
   const m1 = matches<[ Request<Hole<"_A">, Hole<"_E">, Hole<"_R">> ]>([T])
   if (m1) {
     return m1._A
@@ -42,12 +54,12 @@ export function Success(T: Request<any, any, any>) {
 }
 /* compiles to:
  * export type Success<T extends Request<any, any, any>> =
- *   [T] extends [Request<infer _A, unknown, unknown>] ? _A : never
+ *   [T] extends [Request<infer _A, any, any>] ? _A : never
  */
 
 // ✓ Services: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Services(T: Request<any, any, any>) {
+export function Services(T: Request<any, any, any>): any {
   const m1 = matches<[ Request<Hole<"_A">, Hole<"_E">, Hole<"_R">> ]>([T])
   if (m1) {
     return m1._R
@@ -56,19 +68,19 @@ export function Services(T: Request<any, any, any>) {
 }
 /* compiles to:
  * export type Services<T extends Request<any, any, any>> =
- *   [T] extends [Request<unknown, unknown, infer _R>] ? _R : never
+ *   [T] extends [Request<any, any, infer _R>] ? _R : never
  */
 
 // ✓ Result: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Result(T: Request<any, any, any>) {
+export function Result(T: Request<any, any, any>): any {
   const m1 = matches<Request<Hole<"A">, Hole<"E">, Hole<"_R">>>(T)
   if (m1) {
-    return Exit.Exit(m1.A, m1.E)
+    return t<Exit.Exit<typeof m1.A, typeof m1.E>>()
   }
   return never
 }
 /* compiles to:
  * export type Result<T extends Request<any, any, any>> =
- *   T extends Request<infer A, infer E, unknown> ? Exit.Exit<A, E> : never
+ *   T extends Request<infer A, infer E, any> ? Exit.Exit<A, E> : never
  */

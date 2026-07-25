@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { BuiltIn } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Misc/BuiltIn.js'
+import type { Depth } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
 declare const At: any
 declare const BuiltIn: any
 declare const Depth: any
@@ -19,8 +22,6 @@ declare const Length: any
 declare const List: any
 declare const _Omit: any
 type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Has<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -29,7 +30,7 @@ type _Omit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any,
 // ✗ Longer: does not compile yet
 //   Type 'Has<keyof L, keyof L1>' cannot be used to index type '{ '0': 0; '1': 1; }'.
 /* @scripttype preserveParamNames */
-export function Longer(L: List, L1: List) {
+export function Longer(L: List, L1: List): any {
   if (matches<unknown>(L)) {
     if (matches<unknown>(L1)) {
       return { 0: 0, 1: 1 }[Has(keyof(L), keyof(L1))]
@@ -47,7 +48,7 @@ export function Longer(L: List, L1: List) {
 
 // ✓ PatchProp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PatchProp(OK, O1K, fill, OKeys: Key, K: Key) {
+export function PatchProp(OK, O1K, fill, OKeys: Key, K: Key): any {
   if (matches<typeof OKeys>(K)) {
     if (matches<typeof fill>(OK)) {
       return O1K
@@ -63,7 +64,7 @@ export function PatchProp(OK, O1K, fill, OKeys: Key, K: Key) {
 
 // ✓ PatchFlatObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PatchFlatObject(O: object, O1: object, fill, OKeys: Key = keyof(O)) {
+export function PatchFlatObject(O: object, O1: object, fill, OKeys: Key = keyof(O)): any {
   const out = emptyObject
   for (const K in keyof(merge(O, _Omit(O1, OKeys)))) {
     out[K] = PatchProp(At(O, K), At(O1, K), fill, OKeys, K)
@@ -82,7 +83,11 @@ export function PatchFlatObject(O: object, O1: object, fill, OKeys: Key = keyof(
 
 // ✓ PatchFlatList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PatchFlatList(L: List, L1: List, ignore: object, fill) {
+/**
+ * @param {List} L
+ * @param {List} L1
+ */
+export function PatchFlatList(L, L1, ignore: object, fill): any {
   if (matches<Length<typeof L | typeof L1>>(number)) {
     return arrayOf(PatchFlatChoice(L[number], L1[number], ignore, fill))
   }
@@ -108,7 +113,7 @@ export function PatchFlatList(L: List, L1: List, ignore: object, fill) {
 
 // ✓ PatchFlatChoice: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PatchFlatChoice(O: object, O1: object, ignore: object, fill) {
+export function PatchFlatChoice(O: object, O1: object, ignore: object, fill): any {
   if (matches<typeof ignore>(O)) {
     return O
   }
@@ -134,7 +139,7 @@ export function PatchFlatChoice(O: object, O1: object, ignore: object, fill) {
 
 // ✓ PatchFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PatchFlat(O: object, O1: object, ignore: object = BuiltIn, fill = never) {
+export function PatchFlat(O: object, O1: object, ignore: object = BuiltIn, fill = never): any {
   if (matches<unknown>(O)) {
     if (matches<unknown>(O1)) {
       return PatchFlatChoice(O, O1, ignore, fill)
@@ -155,7 +160,11 @@ export function PatchFlat(O: object, O1: object, ignore: object = BuiltIn, fill 
 
 // ✓ PatchDeepList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PatchDeepList(L: List, L1: List, ignore: object, fill) {
+/**
+ * @param {List} L
+ * @param {List} L1
+ */
+export function PatchDeepList(L, L1, ignore: object, fill): any {
   if (matches<Length<typeof L | typeof L1>>(number)) {
     return arrayOf(PatchDeepChoice(L[number], L1[number], ignore, fill, never, any))
   }
@@ -183,7 +192,7 @@ export function PatchDeepList(L: List, L1: List, ignore: object, fill) {
 
 // ✓ PatchDeepObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PatchDeepObject(O: object, O1: object, ignore: object, fill, OKeys: Key = keyof(O)) {
+export function PatchDeepObject(O: object, O1: object, ignore: object, fill, OKeys: Key = keyof(O)): any {
   const out = emptyObject
   for (const K in keyof(merge(O, _Omit(O1, OKeys)))) {
     out[K] = PatchDeepChoice(At(O, K), At(O1, K), ignore, fill, OKeys, K)
@@ -212,7 +221,7 @@ export function PatchDeepObject(O: object, O1: object, ignore: object, fill, OKe
 
 // ✓ PatchDeepChoice: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PatchDeepChoice(OK, O1K, ignore: object, fill, OKeys: Key, K: Key) {
+export function PatchDeepChoice(OK, O1K, ignore: object, fill, OKeys: Key, K: Key): any {
   if (matches<[ never ]>([OK])) {
     return PatchProp(OK, O1K, fill, OKeys, K)
   }
@@ -265,7 +274,7 @@ export function PatchDeepChoice(OK, O1K, ignore: object, fill, OKeys: Key, K: Ke
 
 // ✓ PatchDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PatchDeep(O: object, O1: object, ignore: object, fill) {
+export function PatchDeep(O: object, O1: object, ignore: object, fill): any {
   if (matches<unknown>(O)) {
     if (matches<unknown>(O1)) {
       return PatchDeepChoice(O, O1, ignore, fill, 'x', 'y')
@@ -283,7 +292,7 @@ export function PatchDeep(O: object, O1: object, ignore: object, fill) {
 
 // ✓ Patch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Patch(O: object, O1: object, depth: Depth = 'flat', ignore: object = BuiltIn, fill: any = never) {
+export function Patch(O: object, O1: object, depth: Depth = 'flat', ignore: object = BuiltIn, fill: any = never): any {
   return { 'flat': PatchFlat(O, O1, ignore, fill), 'deep': PatchDeep(O, O1, ignore, fill) }[depth]
 }
 /* compiles to:

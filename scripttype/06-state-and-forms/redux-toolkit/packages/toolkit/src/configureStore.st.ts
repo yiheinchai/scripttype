@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExtractStateExtensions, ExtractStoreExtensions, UnknownIfNonSpecific } from '../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/tsHelpers.js'
 declare const Action: any
 declare const Enhancers: any
 declare const ExtractStateExtensions: any
@@ -20,15 +22,12 @@ declare const UnknownAction: any
 declare const UnknownIfNonSpecific: any
 type Action<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Enhancers<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractStateExtensions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractStoreExtensions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Middleware<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Store<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnknownAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnknownIfNonSpecific<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Middlewares: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Middlewares(S) {
+export function Middlewares(S): any {
   return readonlyArrayOf(Middleware({}, S))
 }
 /* compiles to:
@@ -37,7 +36,7 @@ export function Middlewares(S) {
 
 // ✓ EnhancedStore: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EnhancedStore(S = any, A: Action = UnknownAction, E: Enhancers = Enhancers) {
+export function EnhancedStore(S = any, A: Action = UnknownAction, E: Enhancers = Enhancers): any {
   return ExtractStoreExtensions(E) & Store(S, A, UnknownIfNonSpecific(ExtractStateExtensions(E)))
 }
 /* compiles to:

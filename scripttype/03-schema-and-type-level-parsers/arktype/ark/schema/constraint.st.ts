@@ -7,24 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Prerequisite, nodeOfKind } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/kinds.js'
+import type { ConstraintKind, kindLeftOf } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/shared/implement.js'
+import type { describe } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/describe.js'
 declare const ConstraintKind: any
 declare const Disjoint: any
 declare const Prerequisite: any
 declare const describe: any
 declare const kindLeftOf: any
 declare const nodeOfKind: any
-type ConstraintKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Disjoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prerequisite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type describe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type kindLeftOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type nodeOfKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ constraintKindLeftOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function constraintKindLeftOf(kind: ConstraintKind) {
+export function constraintKindLeftOf(kind: ConstraintKind): any {
   return ConstraintKind & kindLeftOf(kind)
 }
 /* compiles to:
@@ -34,7 +33,7 @@ export function constraintKindLeftOf(kind: ConstraintKind) {
 
 // ✓ constraintKindOrLeftOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function constraintKindOrLeftOf(kind: ConstraintKind) {
+export function constraintKindOrLeftOf(kind: ConstraintKind): any {
   return anyOf(kind, constraintKindLeftOf(kind))
 }
 /* compiles to:
@@ -44,7 +43,7 @@ export function constraintKindOrLeftOf(kind: ConstraintKind) {
 
 // ✓ intersectConstraintKinds: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function intersectConstraintKinds(l: ConstraintKind, r: ConstraintKind) {
+export function intersectConstraintKinds(l: ConstraintKind, r: ConstraintKind): any {
   return nodeOfKind(anyOf(l, r, 'unit', 'union')) | Disjoint | Null
 }
 /* compiles to:
@@ -54,7 +53,7 @@ export function intersectConstraintKinds(l: ConstraintKind, r: ConstraintKind) {
 
 // ✓ writeInvalidOperandMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeInvalidOperandMessage(kind: ConstraintKind, actual) {
+export function writeInvalidOperandMessage(kind: ConstraintKind, actual): any {
   return `${Capitalize(kind)} operand must be ${describe(Prerequisite(kind))} (was ${describe(Exclude(actual, Prerequisite(kind)))})`
 }
 /* compiles to:

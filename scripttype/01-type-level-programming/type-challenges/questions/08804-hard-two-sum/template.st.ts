@@ -9,7 +9,7 @@
  */
 // ✓ TwoSum: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TwoSum(T: number[], U: number) {
+export function TwoSum(T: number[], U: number): any {
   return any
 }
 /* compiles to:

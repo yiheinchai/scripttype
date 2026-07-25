@@ -7,14 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { WhitespaceChar } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/strings.js'
+declare namespace m1 {
+  export type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type init<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const WhitespaceChar: any
-type WhitespaceChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ firstChar: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function firstChar(s: string) {
+export function firstChar(s: string): any {
   const m1 = matches<`${Hole<"head">}${string}`>(s)
   if (m1) {
     return m1.head
@@ -27,7 +33,7 @@ export function firstChar(s: string) {
 
 // ✓ charsAfterFirst: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function charsAfterFirst(s: string) {
+export function charsAfterFirst(s: string): any {
   const m1 = matches<`${string}${Hole<"tail">}`>(s)
   if (m1) {
     return m1.tail
@@ -40,7 +46,7 @@ export function charsAfterFirst(s: string) {
 
 // ✓ lastChar: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function lastChar(s: string) {
+export function lastChar(s: string): any {
   const m1 = matches<`${Hole<"head">}${Hole<"tail">}`>(s)
   if (m1) {
     if (matches<"">(m1.tail)) {
@@ -57,7 +63,7 @@ export function lastChar(s: string) {
 
 // ✓ charsBeforeLast: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function charsBeforeLast(s: string) {
+export function charsBeforeLast(s: string): any {
   const m1 = matches<`${Hole<"head">}${Hole<"tail">}`>(s)
   if (m1) {
     if (matches<"">(m1.tail)) {
@@ -76,7 +82,7 @@ export function charsBeforeLast(s: string) {
 
 // ✓ contains: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function contains(s: string, sub: string) {
+export function contains(s: string, sub: string): any {
   if (matches<`${string}${typeof sub}${string}`>(s)) {
     return true
   }
@@ -89,7 +95,7 @@ export function contains(s: string, sub: string) {
 
 // ✓ trim: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function trim(s: string) {
+export function trim(s: string): any {
   return trimEnd(trimStart(s))
 }
 /* compiles to:
@@ -98,7 +104,7 @@ export function trim(s: string) {
 
 // ✓ trimStart: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function trimStart(s: string) {
+export function trimStart(s: string): any {
   const m1 = matches<`${WhitespaceChar}${Hole<"tail">}`>(s)
   if (m1) {
     return trimEnd(m1.tail)
@@ -112,7 +118,7 @@ export function trimStart(s: string) {
 
 // ✓ trimEnd: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function trimEnd(s: string) {
+export function trimEnd(s: string): any {
   let s_ = s
   while (true) {
     const m1 = matches<`${Hole<"init">}${WhitespaceChar}`>(s_)
@@ -131,7 +137,7 @@ export function trimEnd(s: string) {
 
 // ✓ isStringLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function isStringLiteral(t) {
+export function isStringLiteral(t): any {
   if (matches<[ string ]>([t])) {
     if (matches<[ typeof t ]>([string])) {
       return false

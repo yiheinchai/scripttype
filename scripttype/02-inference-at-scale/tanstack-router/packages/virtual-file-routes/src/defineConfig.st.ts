@@ -9,7 +9,7 @@
  */
 // ✓ ConfigFnObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConfigFnObject(TConfig) {
+export function ConfigFnObject(TConfig): any {
   return fnType([], TConfig)
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function ConfigFnObject(TConfig) {
 
 // ✓ ConfigFnPromise: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConfigFnPromise(TConfig) {
+export function ConfigFnPromise(TConfig): any {
   return fnType([], t<Promise<typeof TConfig>>())
 }
 /* compiles to:
@@ -27,7 +27,7 @@ export function ConfigFnPromise(TConfig) {
 
 // ✓ ConfigFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConfigFn(TConfig) {
+export function ConfigFn(TConfig): any {
   return fnType([], TConfig | t<Promise<typeof TConfig>>())
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function ConfigFn(TConfig) {
 
 // ✓ ConfigExport: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConfigExport(TConfig) {
+export function ConfigExport(TConfig): any {
   return TConfig | t<Promise<typeof TConfig>>() | ConfigFnObject(TConfig) | ConfigFnPromise(TConfig) | ConfigFn(TConfig)
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Split: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Split(S: string, SEP: string) {
+export function Split(S: string, SEP: string): any {
   return any
 }
 /* compiles to:

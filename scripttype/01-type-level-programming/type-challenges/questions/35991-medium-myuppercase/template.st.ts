@@ -9,7 +9,7 @@
  */
 // ✓ MyUppercase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MyUppercase(T: string) {
+export function MyUppercase(T: string): any {
   return any
 }
 /* compiles to:

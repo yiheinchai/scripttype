@@ -7,9 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Expression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { Compilable } from '../../../../../04-query-builders-orm/kysely/src/util/compilable.js'
+import type { ShallowRecord } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type C<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type CL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TB<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Q<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Compilable: any
 declare const DeleteQueryBuilder: any
 declare const Expression: any
@@ -17,16 +34,13 @@ declare const InsertQueryBuilder: any
 declare const QueryCreator: any
 declare const ShallowRecord: any
 declare const UpdateQueryBuilder: any
-type Compilable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DeleteQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InsertQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type QueryCreator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UpdateQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CommonTableExpression(DB, CN) {
+export function CommonTableExpression(DB, CN): any {
   return CommonTableExpressionOutput(DB, CN) | CommonTableExpressionFactory(DB, CN)
 }
 /* compiles to:
@@ -36,7 +50,7 @@ export function CommonTableExpression(DB, CN) {
 
 // ✓ CommonTableExpressionFactory: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CommonTableExpressionFactory(DB, CN) {
+export function CommonTableExpressionFactory(DB, CN): any {
   return fnType([QueryCreator(DB)], CommonTableExpressionOutput(DB, CN))
 }
 /* compiles to:
@@ -46,12 +60,12 @@ export function CommonTableExpressionFactory(DB, CN) {
 
 // ✓ RecursiveCommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RecursiveCommonTableExpression(DB, CN: string) {
+export function RecursiveCommonTableExpression(DB, CN: string): any {
   const out = emptyObject
   for (const K in keySet(ExtractTableFromCommonTableExpressionName(CN))) {
     out[K] = ExtractRowFromCommonTableExpressionName(CN)
   }
-  return fnType([QueryCreator(DB & out)], CommonTableExpressionOutput(DB, CN))
+  return fnType([QueryCreator(merge(DB, out))], CommonTableExpressionOutput(DB, CN))
 }
 /* compiles to:
  * export type RecursiveCommonTableExpression<DB, CN extends string> =
@@ -62,12 +76,12 @@ export function RecursiveCommonTableExpression(DB, CN: string) {
 
 // ✓ QueryCreatorWithCommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function QueryCreatorWithCommonTableExpression(DB, CN: string, CTE) {
+export function QueryCreatorWithCommonTableExpression(DB, CN: string, CTE): any {
   const out = emptyObject
   for (const K in keySet(ExtractTableFromCommonTableExpressionName(CN))) {
     out[K] = ExtractRowFromCommonTableExpression(CTE)
   }
-  return QueryCreator(DB & out)
+  return QueryCreator(merge(DB, out))
 }
 /* compiles to:
  * export type QueryCreatorWithCommonTableExpression<DB, CN extends string, CTE> = QueryCreator<
@@ -82,7 +96,7 @@ export function QueryCreatorWithCommonTableExpression(DB, CN: string, CTE) {
 
 // ✓ CommonTableExpressionOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CommonTableExpressionOutput(DB, CN) {
+export function CommonTableExpressionOutput(DB, CN): any {
   return Expression(ExtractRowFromCommonTableExpressionName(CN)) | InsertQueryBuilder(DB, any, ExtractRowFromCommonTableExpressionName(CN)) | UpdateQueryBuilder(DB, any, any, ExtractRowFromCommonTableExpressionName(CN)) | DeleteQueryBuilder(DB, any, ExtractRowFromCommonTableExpressionName(CN))
 }
 /* compiles to:
@@ -95,7 +109,7 @@ export function CommonTableExpressionOutput(DB, CN) {
 
 // ✓ ExtractRowFromCommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractRowFromCommonTableExpression(CTE) {
+export function ExtractRowFromCommonTableExpression(CTE): any {
   const m1 = matches<Expression<Hole<"O">> | Compilable<Hole<"O">>>(CTE)
   if (m1) {
     return m1.O
@@ -120,7 +134,7 @@ export function ExtractRowFromCommonTableExpression(CTE) {
 
 // ✓ ExtractTableFromCommonTableExpressionName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTableFromCommonTableExpressionName(CN) {
+export function ExtractTableFromCommonTableExpressionName(CN): any {
   const m1 = matches<`${Hole<"TB">}(${string})`>(CN)
   if (m1) {
     return m1.TB
@@ -134,7 +148,7 @@ export function ExtractTableFromCommonTableExpressionName(CN) {
 
 // ✓ ExtractRowFromCommonTableExpressionName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractRowFromCommonTableExpressionName(CN) {
+export function ExtractRowFromCommonTableExpressionName(CN): any {
   const m1 = matches<`${string}(${Hole<"CL">})`>(CN)
   if (m1) {
     const out = emptyObject
@@ -154,7 +168,7 @@ export function ExtractRowFromCommonTableExpressionName(CN) {
 
 // ✓ ExtractColumnNamesFromColumnList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractColumnNamesFromColumnList(R) {
+export function ExtractColumnNamesFromColumnList(R): any {
   const m1 = matches<`${Hole<"C">}, ${Hole<"RS">}`>(R)
   if (m1) {
     return m1.C | ExtractColumnNamesFromColumnList(m1.RS)

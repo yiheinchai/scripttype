@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Assume, DrizzleTypeError, Simplify } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+import type { GetZodType } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-zod/src/column.types.js'
+declare namespace m1 {
+  export type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare namespace z {
   export type ZodAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type ZodNullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -26,28 +32,39 @@ declare const GetZodType: any
 declare const HandleColumn: any
 declare const SelectedFieldsFlat: any
 declare const Simplify: any
+declare const TObject: any
+declare const TSchema: any
 declare const Table: any
 declare const View: any
+declare const ZodAny: any
+declare const ZodNullable: any
+declare const ZodObject: any
+declare const ZodOptional: any
 declare const ZodType: any
 declare const z: any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BuildSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ColumnIsGeneratedAlwaysAs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrizzleTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GetSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetZodType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HandleColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HandleRefinement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsRefinementDefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectedFieldsFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ZodAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ZodNullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ZodObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ZodOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ZodType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type z<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildRefineField: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildRefineField(T) {
+export function BuildRefineField(T): any {
   if (matches<z.ZodType>(T)) {
-    return fnType([T], z.ZodType) | z.ZodType
+    return fnType([T], t<z.ZodType>()) | t<z.ZodType>()
   }
   return never
 }
@@ -58,7 +75,10 @@ export function BuildRefineField(T) {
 
 // ✓ BuildRefine: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildRefine(TColumns: Record<string, any>, TCoerce: Partial<Record<'bigint' | 'boolean' | 'date' | 'number' | 'string', true>> | true | undefined) {
+/**
+ * @param {Record<string, any>} TColumns
+ */
+export function BuildRefine(TColumns, TCoerce: Partial<Record<'bigint' | 'boolean' | 'date' | 'number' | 'string', true>> | true | undefined): any {
   const out = emptyObject
   for (const K in keyof(TColumns)) {
     out[matches<Column | SelectedFieldsFlat<Column> | Table | View>(TColumns[K]) ? K : never] = optional(matches<Column>(TColumns[K]) ? BuildRefineField(GetZodType(TColumns[K], TCoerce)) : BuildRefine(GetSelection(TColumns[K]), TCoerce))
@@ -79,16 +99,16 @@ export function BuildRefine(TColumns: Record<string, any>, TCoerce: Partial<Reco
 
 // ✓ HandleRefinement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleRefinement(TType: 'select' | 'insert' | 'update', TRefinement, TColumn: Column) {
+export function HandleRefinement(TType: 'select' | 'insert' | 'update', TRefinement, TColumn: Column): any {
   if (matches<(schema: any) => z.ZodType>(TRefinement)) {
-    const m1 = matches<Hole<"TSchema", z.ZodType>>(matches<true>(TColumn['_']['notNull']) ? ReturnType(TRefinement) : z.ZodNullable(ReturnType(TRefinement)))
+    const m1 = matches<Hole<"TSchema", z.ZodType>>(matches<true>(TColumn['_']['notNull']) ? ReturnType(TRefinement) : t<z.ZodNullable<ReturnType<typeof TRefinement>>>())
     if (m1) {
       if (matches<'update'>(TType)) {
-        return z.ZodOptional(m1.TSchema)
+        return t<z.ZodOptional<typeof m1.TSchema>>()
       }
       return m1.TSchema
     }
-    return z.ZodType
+    return t<z.ZodType>()
   }
   return TRefinement
 }
@@ -108,7 +128,7 @@ export function HandleRefinement(TType: 'select' | 'insert' | 'update', TRefinem
 // ✗ IsRefinementDefined: the ScriptType does not itself typecheck as TypeScript
 //   IsRefinementDefined.st.ts(4:53) TS18048: 'TRefinements' is possibly 'undefined'.
 /* @scripttype preserveParamNames */
-export function IsRefinementDefined(TRefinements: Record<string | symbol | number, any> | undefined, TKey: string | symbol | number) {
+export function IsRefinementDefined(TRefinements: Record<string | symbol | number, any> | undefined, TKey: string | symbol | number): any {
   if (matches<object>(TRefinements)) {
     if (matches<z.ZodType | ((schema: any) => any)>(TRefinements[TKey])) {
       return true
@@ -129,44 +149,14 @@ export function IsRefinementDefined(TRefinements: Record<string | symbol | numbe
 
 // ✓ BuildSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildSchema__v1(TType, TColumns, TRefinements, TCoerce, K) {
-  const m1 = matches<Hole<"TColumn", Column>>(TColumns[K])
-  if (m1) {
-    if (matches<true>(IsRefinementDefined(TRefinements, K))) {
-      return Assume(HandleRefinement(TType, TRefinements[K & keyof(TRefinements)], m1.TColumn), z.ZodType)
-    }
-    return HandleColumn(TType, m1.TColumn, TCoerce)
-  }
-  const m2 = matches<Hole<"TObject", SelectedFieldsFlat<Column> | Table | View>>(TColumns[K])
-  if (m2) {
-    return BuildSchema(TType, GetSelection(m2.TObject), matches<object>(TRefinements) ? TRefinements[K & keyof(TRefinements)] : Undefined, TCoerce)
-  }
-  return z.ZodAny
-}
-export function BuildSchema(TType: 'select' | 'insert' | 'update', TColumns: Record<string, any>, TRefinements: Record<string, any> | undefined, TCoerce: Partial<Record<'bigint' | 'boolean' | 'date' | 'number' | 'string', true>> | true | undefined) {
-  const out = emptyObject
-  for (const K in keyof(TColumns)) {
-    out[matches<true>(ColumnIsGeneratedAlwaysAs(TColumns[K])) ? (matches<'select'>(TType) ? K : never) : K] = BuildSchema__v1(TType, TColumns, TRefinements, TCoerce, K)
-  }
-  return z.ZodObject(Simplify(out), { out: {}, in: {} })
+/**
+ * @param {Record<string, any>} TColumns
+ * @param {Record<string, any> | undefined} TRefinements
+ */
+export function BuildSchema(TType: 'select' | 'insert' | 'update', TColumns, TRefinements, TCoerce: Partial<Record<'bigint' | 'boolean' | 'date' | 'number' | 'string', true>> | true | undefined): any {
+  return t<z.ZodObject<Simplify<{ [K in keyof typeof TColumns as ColumnIsGeneratedAlwaysAs<(typeof TColumns)[K]> extends true ? typeof TType extends 'select' ? K : never : K]: (typeof TColumns)[K] extends Hole<"TColumn", Column> ? IsRefinementDefined<typeof TRefinements, K> extends true ? Assume<HandleRefinement<typeof TType, (typeof TRefinements)[K & keyof typeof TRefinements], TColumn>, z.ZodType> : HandleColumn<typeof TType, TColumn, typeof TCoerce> : (typeof TColumns)[K] extends Hole<"TObject", SelectedFieldsFlat<Column> | Table | View> ? BuildSchema<typeof TType, GetSelection<TObject>, typeof TRefinements extends object ? (typeof TRefinements)[K & keyof typeof TRefinements] : undefined, typeof TCoerce> : z.ZodAny; }>, { out: {}; in: {}; }>>()
 }
 /* compiles to:
- * export type BuildSchema__v1<TType, TColumns, TRefinements, TCoerce, K> =
- *   TColumns[K] extends (infer TColumn extends Column)
- *     ? IsRefinementDefined<TRefinements, K> extends true
- *       ? Assume<
- *         HandleRefinement<TType, TRefinements[K & keyof TRefinements], TColumn>,
- *         z.ZodType
- *       >
- *       : HandleColumn<TType, TColumn, TCoerce>
- *   : TColumns[K] extends (infer TObject extends SelectedFieldsFlat<Column> | Table | View)
- *     ? BuildSchema<
- *       TType,
- *       GetSelection<TObject>,
- *       TRefinements extends object ? TRefinements[K & keyof TRefinements] : undefined,
- *       TCoerce
- *     >
- *   : z.ZodAny
  * export type BuildSchema<
  *   TType extends 'select' | 'insert' | 'update',
  *   TColumns extends Record<string, any>,
@@ -175,23 +165,19 @@ export function BuildSchema(TType: 'select' | 'insert' | 'update', TColumns: Rec
  * > =
  *   z.ZodObject<
  *     Simplify<
- *       {
- *         [K in keyof TColumns as ColumnIsGeneratedAlwaysAs<TColumns[K]> extends true ? TType extends 'select' ? K : never : K]: BuildSchema__v1<
- *           TType,
- *           TColumns,
- *           TRefinements,
- *           TCoerce,
- *           K
- *         >
- *       }
+ *       { [K in keyof TColumns as ColumnIsGeneratedAlwaysAs<(TColumns)[K]> extends true ? TType extends 'select' ? K : never : K]: (TColumns)[K] extends infer TColumn extends Column ? IsRefinementDefined<TRefinements, K> extends true ? Assume<HandleRefinement<TType, (TRefinements)[K & keyof TRefinements], TColumn>, z.ZodType> : HandleColumn<TType, TColumn, TCoerce> : (TColumns)[K] extends infer TObject extends SelectedFieldsFlat<Column> | Table | View ? BuildSchema<TType, GetSelection<TObject>, TRefinements extends object ? (TRefinements)[K & keyof TRefinements] : undefined, TCoerce> : z.ZodAny; }
  *     >,
- *     { out: {}; in: {} }
+ *     { out: {}; in: {}; }
  *   >
  */
 
 // ✓ NoUnknownKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NoUnknownKeys(TRefinement: Record<string, any>, TCompare: Record<string, any>) {
+/**
+ * @param {Record<string, any>} TRefinement
+ * @param {Record<string, any>} TCompare
+ */
+export function NoUnknownKeys(TRefinement, TCompare): any {
   const out = emptyObject
   for (const K in keyof(TRefinement)) {
     out[K] = K in TCompare ? (matches<Record<string, z.ZodType>>(TRefinement[K]) ? NoUnknownKeys(TRefinement[K], TCompare[K]) : TRefinement[K]) : DrizzleTypeError(`Found unknown key in refinement: "${merge(K, string)}"`)

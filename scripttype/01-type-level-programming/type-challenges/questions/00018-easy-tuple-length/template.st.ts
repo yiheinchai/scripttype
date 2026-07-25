@@ -9,7 +9,7 @@
  */
 // ✓ Length: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Length(T) {
+export function Length(T): any {
   return any
 }
 /* compiles to:

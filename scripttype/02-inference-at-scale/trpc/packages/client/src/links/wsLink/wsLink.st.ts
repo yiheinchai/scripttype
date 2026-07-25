@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TransformerOptions } from '../../../../../../../../02-inference-at-scale/trpc/packages/client/src/internals/transformer.js'
+import type { TRPCWebSocketClient } from '../../../../../../../../02-inference-at-scale/trpc/packages/client/src/links/wsLink/createWsClient.js'
+import type { inferClientTypes } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inferrable.js'
+import type { AnyRouter } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
 declare const AnyRouter: any
 declare const TRPCWebSocketClient: any
 declare const TransformerOptions: any
 declare const inferClientTypes: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCWebSocketClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TransformerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WebSocketLinkOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WebSocketLinkOptions(TRouter: AnyRouter) {
+export function WebSocketLinkOptions(TRouter: AnyRouter): any {
   return merge({ client: TRPCWebSocketClient }, TransformerOptions(inferClientTypes(TRouter)))
 }
 /* compiles to:

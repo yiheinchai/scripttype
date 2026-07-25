@@ -9,7 +9,7 @@
  */
 // ✓ ReadonlyNonEmptyArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyNonEmptyArray(A) {
+export function ReadonlyNonEmptyArray(A): any {
   return merge(readonlyArrayOf(A), { 0: readonlyProp(A) })
 }
 /* compiles to:

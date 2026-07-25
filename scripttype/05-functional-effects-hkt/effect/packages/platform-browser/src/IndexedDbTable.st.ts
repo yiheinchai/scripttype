@@ -7,16 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Any, AnySchemaStruct } from '../../../../../../05-functional-effects-hkt/effect/packages/platform-browser/src/IndexedDbTable.js'
 declare const Any: any
 declare const AnySchemaStruct: any
-type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySchemaStruct<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TableName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TableName(Table: Any) {
+export function TableName(Table: Any): any {
   return Table['tableName']
 }
 /* compiles to:
@@ -25,7 +25,7 @@ export function TableName(Table: Any) {
 
 // ✓ KeyPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function KeyPath(Table: Any) {
+export function KeyPath(Table: Any): any {
   return Table['keyPath']
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function KeyPath(Table: Any) {
 
 // ✓ AutoIncrement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AutoIncrement(Table: Any) {
+export function AutoIncrement(Table: Any): any {
   return Table['autoIncrement']
 }
 /* compiles to:
@@ -43,7 +43,7 @@ export function AutoIncrement(Table: Any) {
 
 // ✓ TableSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TableSchema(Table: Any) {
+export function TableSchema(Table: Any): any {
   return Table['tableSchema']
 }
 /* compiles to:
@@ -52,8 +52,8 @@ export function TableSchema(Table: Any) {
 
 // ✓ Context: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Context(Table: Any) {
-  return Table['tableSchema']['DecodingServices'] | Table['tableSchema']['EncodingServices']
+export function Context(Table: Any): any {
+  return anyOf(Table['tableSchema']['DecodingServices'], Table['tableSchema']['EncodingServices'])
 }
 /* compiles to:
  * export type Context<Table extends Any> =
@@ -62,7 +62,7 @@ export function Context(Table: Any) {
 
 // ✓ Encoded: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Encoded(Table: Any) {
+export function Encoded(Table: Any): any {
   return Table['tableSchema']['Encoded']
 }
 /* compiles to:
@@ -71,7 +71,7 @@ export function Encoded(Table: Any) {
 
 // ✓ Indexes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Indexes(Table: Any) {
+export function Indexes(Table: Any): any {
   return Table['indexes']
 }
 /* compiles to:
@@ -80,7 +80,7 @@ export function Indexes(Table: Any) {
 
 // ✓ WithName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithName(Table: Any, TableName: string) {
+export function WithName(Table: Any, TableName: string): any {
   return Extract(Table, { tableName: readonlyProp(TableName) })
 }
 /* compiles to:
@@ -92,7 +92,7 @@ export function WithName(Table: Any, TableName: string) {
 
 // ✓ IsValidAutoIncrementKeyPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsValidAutoIncrementKeyPath(TableSchema: AnySchemaStruct, KeyPath) {
+export function IsValidAutoIncrementKeyPath(TableSchema: AnySchemaStruct, KeyPath): any {
   if (KeyPath in TableSchema['Encoded']) {
     if (typeof TableSchema['Encoded'][KeyPath] === 'number') {
       return true

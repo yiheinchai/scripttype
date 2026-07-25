@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Closeable } from '../../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/Scope.js'
 declare namespace Deferred {
   export type Deferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -19,6 +21,7 @@ declare namespace MutableHashMap {
 declare namespace Scope {
   export type Closeable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const Closeable: any
 declare const Deferred: any
 declare const MutableHashMap: any
 declare const Scope: any
@@ -28,8 +31,8 @@ type MutableHashMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, 
 type Scope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BackingMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BackingMap(K, A, E) {
-  return anyOf({ _tag: readonlyProp('Equal'), map: readonlyProp(MutableHashMap.MutableHashMap(K, Entry(A, E))) }, { _tag: readonlyProp('Referential'), map: readonlyProp(t<Map<typeof K, Entry<typeof A, typeof E>>>()) })
+export function BackingMap(K, A, E): any {
+  return anyOf({ _tag: readonlyProp('Equal'), map: readonlyProp(t<MutableHashMap.MutableHashMap<typeof K, Entry<typeof A, typeof E>>>()) }, { _tag: readonlyProp('Referential'), map: readonlyProp(t<Map<typeof K, Entry<typeof A, typeof E>>>()) })
 }
 /* compiles to:
  * export type BackingMap<K, A, E> =
@@ -39,8 +42,8 @@ export function BackingMap(K, A, E) {
 
 // ✓ Entry: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Entry(A, E) {
-  return { scope: readonlyProp(Scope.Closeable), deferred: readonlyProp(Deferred.Deferred(A, E)) }
+export function Entry(A, E): any {
+  return { scope: readonlyProp(t<Scope.Closeable>()), deferred: readonlyProp(t<Deferred.Deferred<typeof A, typeof E>>()) }
 }
 /* compiles to:
  * export type Entry<A, E> = {

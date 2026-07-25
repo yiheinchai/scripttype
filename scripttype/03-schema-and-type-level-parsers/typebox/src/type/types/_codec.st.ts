@@ -7,20 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { StaticDirection, StaticType } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/static.js'
 declare const StaticDirection: any
 declare const StaticType: any
 declare const TProperties: any
 declare const TSchema: any
-type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticCodec: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticCodec(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Type: TSchema, Decoded: unknown) {
+export function StaticCodec(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Type: TSchema, Decoded: unknown): any {
   if (matches<'Decode'>(Direction)) {
     return Decoded
   }
@@ -42,7 +42,7 @@ export function StaticCodec(Stack: string[], Direction: StaticDirection, Context
 
 // ✓ TDecodeCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDecodeCallback(Encoded: unknown, Decoded = unknown) {
+export function TDecodeCallback(Encoded: unknown, Decoded = unknown): any {
   return fnType([Encoded], Decoded)
 }
 /* compiles to:
@@ -51,7 +51,7 @@ export function TDecodeCallback(Encoded: unknown, Decoded = unknown) {
 
 // ✓ TEncodeCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEncodeCallback(Encoded: unknown, Decoded = unknown) {
+export function TEncodeCallback(Encoded: unknown, Decoded = unknown): any {
   return fnType([Decoded], Encoded)
 }
 /* compiles to:
@@ -60,7 +60,7 @@ export function TEncodeCallback(Encoded: unknown, Decoded = unknown) {
 
 // ✓ TCodec: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCodec(Type: TSchema = TSchema, Decoded: unknown = unknown) {
+export function TCodec(Type: TSchema = TSchema, Decoded: unknown = unknown): any {
   return merge(Type, { '~codec': { encode: TDecodeCallback(unknown, Decoded), decode: TEncodeCallback(unknown, Decoded) } })
 }
 /* compiles to:

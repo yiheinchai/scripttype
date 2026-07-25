@@ -7,24 +7,27 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Match } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/_Internal.js'
+import type { ObjectOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/ObjectOf.js'
 declare const List: any
 declare const ListOf: any
 declare const Match: any
 declare const ODiff: any
 declare const ObjectOf: any
-type List<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ListOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Match<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ODiff<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ObjectOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ODiff<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Diff: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Diff(L: List, L1: List, match: Match = 'default') {
+export function Diff(L: List, L1: List, match: Match = 'default'): any {
   return ListOf(ODiff(ObjectOf(L), ObjectOf(L1), match))
 }
 /* compiles to:
- * export type Diff<L extends List, L1 extends List, match extends Match = 'default'> = ListOf<ODiff<ObjectOf<L>, ObjectOf<L1>, match>>
+ * export type Diff<L extends List, L1 extends List, match extends Match = 'default'> = ListOf<
+ *   ODiff<ObjectOf<L>, ObjectOf<L1>, match>
+ * >
  */

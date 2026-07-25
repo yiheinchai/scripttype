@@ -9,7 +9,7 @@
  */
 // ✓ UnionToObjectFromKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToObjectFromKey(Union, Key) {
+export function UnionToObjectFromKey(Union, Key): any {
   return any
 }
 /* compiles to:

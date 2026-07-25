@@ -18,7 +18,7 @@ type PgNumericBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any
 type PgNumericNumberBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgNumericBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgNumericBuilderInitial(TName: string) {
+export function PgNumericBuilderInitial(TName: string): any {
   return PgNumericBuilder({ name: TName, dataType: 'string', columnType: 'PgNumeric', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function PgNumericBuilderInitial(TName: string) {
 
 // ✓ PgNumericNumberBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgNumericNumberBuilderInitial(TName: string) {
+export function PgNumericNumberBuilderInitial(TName: string): any {
   return PgNumericNumberBuilder({ name: TName, dataType: 'number', columnType: 'PgNumericNumber', data: number, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
@@ -54,7 +54,7 @@ export function PgNumericNumberBuilderInitial(TName: string) {
 
 // ✓ PgNumericBigIntBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgNumericBigIntBuilderInitial(TName: string) {
+export function PgNumericBigIntBuilderInitial(TName: string): any {
   return PgNumericBigIntBuilder({ name: TName, dataType: 'bigint', columnType: 'PgNumericBigInt', data: bigint, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
@@ -72,7 +72,7 @@ export function PgNumericBigIntBuilderInitial(TName: string) {
 
 // ✓ PgNumericConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgNumericConfig(T: 'string' | 'number' | 'bigint' = anyOf('string', 'number', 'bigint')) {
+export function PgNumericConfig(T: 'string' | 'number' | 'bigint' = anyOf('string', 'number', 'bigint')): any {
   return anyOf({ precision: number, scale: optional(number), mode: optional(T) }, { precision: optional(number), scale: number, mode: optional(T) }, { precision: optional(number), scale: optional(number), mode: T })
 }
 /* compiles to:

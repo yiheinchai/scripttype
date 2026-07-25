@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExecutionPlan } from '../../../../../../05-functional-effects-hkt/effect/packages/effect/src/ExecutionPlan.js'
 declare namespace Context {
   export type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -19,21 +21,37 @@ declare namespace Layer {
 declare namespace Schedule {
   export type Schedule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m3 {
+  export type Plan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Step<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type P<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Step<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type I<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m6 {
+  export type I<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Context: any
 declare const ExecutionPlan: any
 declare const Layer: any
 declare const Schedule: any
 type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExecutionPlan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Layer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Schedule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StepProvides: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StepProvides(Steps: ReadonlyArray<any>, Out = unknown) {
+export function StepProvides(Steps: ReadonlyArray<any>, Out = unknown): any {
   const m3 = matches<readonly [ Hole<"Step">, ...Hole<"Rest"> ]>(Steps)
   if (m3) {
     const m4 = matches<{ readonly provide: Context.Context<Hole<"P">> | Layer.Layer<Hole<"P">, Hole<"_E">, Hole<"_R">>; }>(m3.Step)
-    return StepProvides(m3.Rest, Out & (m4 ? m4.P : unknown))
+    return StepProvides(m3.Rest, merge(Out, m4 ? m4.P : unknown))
   }
   return Out
 }
@@ -54,11 +72,11 @@ export function StepProvides(Steps: ReadonlyArray<any>, Out = unknown) {
 
 // ✓ PlanProvides: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PlanProvides(Plans: ReadonlyArray<any>, Out = unknown) {
+export function PlanProvides(Plans: ReadonlyArray<any>, Out = unknown): any {
   const m3 = matches<readonly [ Hole<"Plan">, ...Hole<"Rest"> ]>(Plans)
   if (m3) {
     const m4 = matches<ExecutionPlan<Hole<"T">>>(m3.Plan)
-    return PlanProvides(m3.Rest, Out & (m4 ? m4.T['provides'] : unknown))
+    return PlanProvides(m3.Rest, merge(Out, m4 ? m4.T['provides'] : unknown))
   }
   return Out
 }
@@ -71,7 +89,7 @@ export function PlanProvides(Plans: ReadonlyArray<any>, Out = unknown) {
 
 // ✓ StepInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StepInput(Steps: ReadonlyArray<any>, Out = unknown) {
+export function StepInput(Steps: ReadonlyArray<any>, Out = unknown): any {
   const m4 = matches<readonly [ Hole<"Step">, ...Hole<"Rest"> ]>(Steps)
   if (m4) {
     const m5 = matches<{ readonly while: (input: Hole<"I">) => Hole<"_">; }>(m4.Step)
@@ -98,11 +116,11 @@ export function StepInput(Steps: ReadonlyArray<any>, Out = unknown) {
 
 // ✓ PlanInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PlanInput(Plans: ReadonlyArray<any>, Out = unknown) {
+export function PlanInput(Plans: ReadonlyArray<any>, Out = unknown): any {
   const m3 = matches<readonly [ Hole<"Plan">, ...Hole<"Rest"> ]>(Plans)
   if (m3) {
     const m4 = matches<ExecutionPlan<Hole<"T">>>(m3.Plan)
-    return PlanInput(m3.Rest, Out & (m4 ? m4.T['input'] : unknown))
+    return PlanInput(m3.Rest, merge(Out, m4 ? m4.T['input'] : unknown))
   }
   return Out
 }

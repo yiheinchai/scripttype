@@ -9,7 +9,7 @@
  */
 // ✓ MessageBoard: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MessageBoard(M) {
+export function MessageBoard(M): any {
   return fnType([M], string)
 }
 /* compiles to:

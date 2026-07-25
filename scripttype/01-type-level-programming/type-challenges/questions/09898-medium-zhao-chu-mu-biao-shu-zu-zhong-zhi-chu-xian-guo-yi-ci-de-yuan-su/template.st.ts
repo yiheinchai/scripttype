@@ -9,7 +9,7 @@
  */
 // ✓ FindEles: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FindEles(T: any[]) {
+export function FindEles(T: any[]): any {
   return any
 }
 /* compiles to:

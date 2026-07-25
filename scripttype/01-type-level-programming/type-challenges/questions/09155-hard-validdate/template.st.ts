@@ -9,7 +9,7 @@
  */
 // ✓ ValidDate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidDate(T: string) {
+export function ValidDate(T: string): any {
   return any
 }
 /* compiles to:

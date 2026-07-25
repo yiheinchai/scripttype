@@ -7,17 +7,38 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TUnreachable } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/system/unreachable/unreachable.js'
+import type { TExtendsRight } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/extends_right.js'
+import type { TExtendsFalse, TExtendsTrue } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/result.js'
+import type { TBoolean } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/boolean.js'
+import type { TLiteral, TLiteralValue } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare namespace Result {
   export type TExtendsFalse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TExtendsTrue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Result: any
 declare const TBigInt: any
 declare const TBoolean: any
+declare const TExtendsFalse: any
 declare const TExtendsRight: any
+declare const TExtendsTrue: any
 declare const TLiteral: any
 declare const TLiteralValue: any
 declare const TNumber: any
@@ -27,22 +48,16 @@ declare const TString: any
 declare const TUnreachable: any
 type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TBigInt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TBoolean<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsRight<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnreachable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsLiteralValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsLiteralValue(Inferred: TProperties, Left: TLiteralValue, Right: TLiteralValue) {
+export function TExtendsLiteralValue(Inferred: TProperties, Left: TLiteralValue, Right: TLiteralValue): any {
   if (matches<typeof Right>(Left)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TExtendsLiteralValue<
@@ -55,13 +70,13 @@ export function TExtendsLiteralValue(Inferred: TProperties, Left: TLiteralValue,
 
 // ✓ TExtendsLiteralBigInt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsLiteralBigInt(Inferred: TProperties, Left: bigint, Right: TSchema) {
+export function TExtendsLiteralBigInt(Inferred: TProperties, Left: bigint, Right: TSchema): any {
   const m1 = matches<TLiteral<Hole<"Value", bigint>>>(Right)
   if (m1) {
     return TExtendsLiteralValue(Inferred, Left, m1.Value)
   }
   if (matches<TBigInt>(Right)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
   return TExtendsRight(Inferred, TLiteral(Left), Right)
 }
@@ -79,13 +94,13 @@ export function TExtendsLiteralBigInt(Inferred: TProperties, Left: bigint, Right
 
 // ✓ TExtendsLiteralBoolean: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsLiteralBoolean(Inferred: TProperties, Left: boolean, Right: TSchema) {
+export function TExtendsLiteralBoolean(Inferred: TProperties, Left: boolean, Right: TSchema): any {
   const m1 = matches<TLiteral<Hole<"Value", boolean>>>(Right)
   if (m1) {
     return TExtendsLiteralValue(Inferred, Left, m1.Value)
   }
   if (matches<TBoolean>(Right)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
   return TExtendsRight(Inferred, TLiteral(Left), Right)
 }
@@ -103,13 +118,13 @@ export function TExtendsLiteralBoolean(Inferred: TProperties, Left: boolean, Rig
 
 // ✓ TExtendsLiteralNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsLiteralNumber(Inferred: TProperties, Left: number, Right: TSchema) {
+export function TExtendsLiteralNumber(Inferred: TProperties, Left: number, Right: TSchema): any {
   const m1 = matches<TLiteral<Hole<"Value", number>>>(Right)
   if (m1) {
     return TExtendsLiteralValue(Inferred, Left, m1.Value)
   }
   if (matches<TNumber>(Right)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
   return TExtendsRight(Inferred, TLiteral(Left), Right)
 }
@@ -127,13 +142,13 @@ export function TExtendsLiteralNumber(Inferred: TProperties, Left: number, Right
 
 // ✓ TExtendsLiteralString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsLiteralString(Inferred: TProperties, Left: string, Right: TSchema) {
+export function TExtendsLiteralString(Inferred: TProperties, Left: string, Right: TSchema): any {
   const m1 = matches<TLiteral<Hole<"Value", string>>>(Right)
   if (m1) {
     return TExtendsLiteralValue(Inferred, Left, m1.Value)
   }
   if (matches<TString>(Right)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
   return TExtendsRight(Inferred, TLiteral(Left), Right)
 }
@@ -151,7 +166,7 @@ export function TExtendsLiteralString(Inferred: TProperties, Left: string, Right
 
 // ✓ TExtendsLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsLiteral(Inferred: TProperties, Left: TLiteral, Right: TSchema) {
+export function TExtendsLiteral(Inferred: TProperties, Left: TLiteral, Right: TSchema): any {
   const m1 = matches<TLiteral<Hole<"Value", bigint>>>(Left)
   if (m1) {
     return TExtendsLiteralBigInt(Inferred, m1.Value, Right)

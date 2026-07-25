@@ -9,7 +9,7 @@
  */
 // ✓ MinusOne: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MinusOne(T: number) {
+export function MinusOne(T: number): any {
   return any
 }
 /* compiles to:

@@ -20,14 +20,13 @@ For hand-written ScriptType in the intended imperative style — loops, mutable 
 `push()` — see the `corpus/` directory, where each target is authored by hand and held to a
 stricter per-sample equivalence gate.
 
-- files: 1833
-- aliases: 7066
-- verified type-identical: 5812 (82.3%)
+- files: 1869
+- aliases: 7375
+- verified type-identical: 6738 (91.4%)
 
 | status | count | meaning |
 |---|--:|---|
-| `covered` | 5812 | verified type-identical to the original |
-| `compile-error` | 666 | does not compile yet |
-| `mismatch` | 302 | compiles but is not type-identical yet |
-| `typecheck-error` | 185 | the ScriptType does not itself typecheck as TypeScript |
-| `raw` | 101 | uses raw() — language gap, does not count as covered |
+| `covered` | 6738 | verified type-identical to the original |
+| `compile-error` | 431 | does not compile yet |
+| `typecheck-error` | 131 | the ScriptType does not itself typecheck as TypeScript |
+| `mismatch` | 75 | compiles but is not type-identical yet |

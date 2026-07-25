@@ -9,7 +9,7 @@
  */
 // ✓ ParseUrlParams: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ParseUrlParams(T) {
+export function ParseUrlParams(T): any {
   return any
 }
 /* compiles to:

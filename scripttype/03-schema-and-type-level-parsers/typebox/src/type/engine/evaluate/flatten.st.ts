@@ -7,23 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TSchema: any
 declare const TUnion: any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFlattenType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFlattenType__v1(Type) {
+export function TFlattenType__v1(Type): any {
   const m1 = matches<TUnion<Hole<"Types", TSchema[]>>>(Type)
   if (m1) {
     return TFlatten(m1.Types)
   }
   return [Type]
 }
-export function TFlattenType(Type: TSchema, Result: TSchema[] = TFlattenType__v1(Type)) {
+export function TFlattenType(Type: TSchema, Result: TSchema[] = TFlattenType__v1(Type)): any {
   return Result
 }
 /* compiles to:
@@ -38,7 +44,7 @@ export function TFlattenType(Type: TSchema, Result: TSchema[] = TFlattenType__v1
 
 // ✓ TFlatten: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFlatten(Types: TSchema[]) {
+export function TFlatten(Types: TSchema[]): any {
   let Result: any[] = []
   let types = Types
   while (true) {

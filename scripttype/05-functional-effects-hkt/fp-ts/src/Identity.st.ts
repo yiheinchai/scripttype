@@ -9,7 +9,7 @@
  */
 // ✓ Identity: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Identity(A) {
+export function Identity(A): any {
   return A
 }
 /* compiles to:

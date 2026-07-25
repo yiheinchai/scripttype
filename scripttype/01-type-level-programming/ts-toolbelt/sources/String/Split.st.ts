@@ -7,16 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+declare namespace T {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type AS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type BS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Cast: any
 declare const Pop: any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Pop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ __Split: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function __Split(S: string, D: string) {
+export function __Split(S: string, D: string): any {
   let T: any[] = []
   let s = S
   while (true) {
@@ -37,7 +46,7 @@ export function __Split(S: string, D: string) {
 
 // ✓ _Split: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Split(S: string, D: string = '') {
+export function _Split(S: string, D: string = ''): any {
   if (matches<''>(D)) {
     return Pop(__Split(S, D))
   }
@@ -50,7 +59,7 @@ export function _Split(S: string, D: string = '') {
 
 // ✓ Split: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Split(S: string, D: string = '') {
+export function Split(S: string, D: string = ''): any {
   const m1 = matches<Hole<"X">>(_Split(S, D))
   if (m1) {
     return Cast(m1.X, arrayOf(string))

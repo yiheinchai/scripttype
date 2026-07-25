@@ -7,44 +7,41 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TAssign } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/system/memory/assign.js'
+import type { TCyclicTarget } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/cyclic/target.js'
+import type { TCyclic } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/cyclic.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare namespace Memory {
   export type TAssign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const Memory: any
+declare const TAssign: any
 declare const TCyclic: any
 declare const TCyclicTarget: any
 declare const TFromType: any
 declare const TProperties: any
 declare const TSchema: any
+declare const _: any
 type Memory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TCyclicTarget<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromCyclic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromCyclic__v1(Ref, Partial) {
-  const out = emptyObject
-  for (const _ in keySet(Ref)) {
-    out[_] = Partial
-  }
-  return out
-}
-export function TFromCyclic(Defs: TProperties, Ref: string, Target: TSchema = TCyclicTarget(Defs, Ref), Partial: TSchema = TFromType(Target), Result: TSchema = TCyclic(Memory.TAssign(Defs, TFromCyclic__v1(Ref, Partial)), Ref)) {
+export function TFromCyclic(Defs: TProperties, Ref: string, Target: TSchema = TCyclicTarget(Defs, Ref), Partial: TSchema = TFromType(Target), Result: TSchema = TCyclic(t<Memory.TAssign<typeof Defs, { [_ in typeof Ref]: typeof Partial; }>>(), Ref)): any {
   return Result
 }
 /* compiles to:
- * export type TFromCyclic__v1<Ref, Partial> = { [_ in Ref]: Partial }
  * export type TFromCyclic<
  *   Defs extends TProperties,
  *   Ref extends string,
  *   Target extends TSchema = TCyclicTarget<Defs, Ref>,
  *   Partial extends TSchema = TFromType<Target>,
- *   Result extends TSchema = TCyclic<Memory.TAssign<Defs, TFromCyclic__v1<Ref, Partial>>, Ref>
+ *   Result extends TSchema = TCyclic<Memory.TAssign<Defs, { [_ in Ref]: Partial; }>, Ref>
  * > =
  *   Result
  */

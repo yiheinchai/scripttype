@@ -7,22 +7,31 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Expression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { ExtractRowFromCommonTableExpressionName, ExtractTableFromCommonTableExpressionName } from '../../../../../04-query-builders-orm/kysely/src/parser/with-parser.js'
+import type { SelectQueryBuilder } from '../../../../../04-query-builders-orm/kysely/src/query-builder/select-query-builder.js'
+import type { ReadonlyQueryCreator } from '../../../../../04-query-builders-orm/kysely/src/readonly/readonly-query-creator.js'
+declare namespace m1 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Q<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Expression: any
 declare const ExtractRowFromCommonTableExpressionName: any
 declare const ExtractTableFromCommonTableExpressionName: any
 declare const ReadonlyQueryCreator: any
 declare const SelectQueryBuilder: any
-type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractRowFromCommonTableExpressionName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractTableFromCommonTableExpressionName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyQueryCreator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadonlyCommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyCommonTableExpression(DB, CN) {
+export function ReadonlyCommonTableExpression(DB, CN): any {
   return ReadonlyCommonTableExpressionOutput(DB, CN) | ReadonlyCommonTableExpressionFactory(DB, CN)
 }
 /* compiles to:
@@ -32,7 +41,7 @@ export function ReadonlyCommonTableExpression(DB, CN) {
 
 // ✓ ReadonlyCommonTableExpressionFactory: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyCommonTableExpressionFactory(DB, CN) {
+export function ReadonlyCommonTableExpressionFactory(DB, CN): any {
   return fnType([ReadonlyQueryCreator(DB)], ReadonlyCommonTableExpressionOutput(DB, CN))
 }
 /* compiles to:
@@ -42,12 +51,12 @@ export function ReadonlyCommonTableExpressionFactory(DB, CN) {
 
 // ✓ ReadonlyRecursiveCommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyRecursiveCommonTableExpression(DB, CN: string) {
+export function ReadonlyRecursiveCommonTableExpression(DB, CN: string): any {
   const out = emptyObject
   for (const K in keySet(ExtractTableFromCommonTableExpressionName(CN))) {
     out[K] = ExtractRowFromCommonTableExpressionName(CN)
   }
-  return fnType([ReadonlyQueryCreator(DB & out)], ReadonlyCommonTableExpressionOutput(DB, CN))
+  return fnType([ReadonlyQueryCreator(merge(DB, out))], ReadonlyCommonTableExpressionOutput(DB, CN))
 }
 /* compiles to:
  * export type ReadonlyRecursiveCommonTableExpression<DB, CN extends string> =
@@ -58,7 +67,7 @@ export function ReadonlyRecursiveCommonTableExpression(DB, CN: string) {
 
 // ✓ ReadonlyCommonTableExpressionOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyCommonTableExpressionOutput(DB, CN) {
+export function ReadonlyCommonTableExpressionOutput(DB, CN): any {
   return SelectQueryBuilder(DB, any, any) | Expression(ExtractRowFromCommonTableExpressionName(CN))
 }
 /* compiles to:
@@ -68,12 +77,12 @@ export function ReadonlyCommonTableExpressionOutput(DB, CN) {
 
 // ✓ ReadonlyQueryCreatorWithCommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyQueryCreatorWithCommonTableExpression(DB, CN: string, CTE) {
+export function ReadonlyQueryCreatorWithCommonTableExpression(DB, CN: string, CTE): any {
   const out = emptyObject
   for (const K in keySet(ExtractTableFromCommonTableExpressionName(CN))) {
     out[K] = ReadonlyExtractRowFromCommonTableExpression(CTE)
   }
-  return ReadonlyQueryCreator(DB & out)
+  return ReadonlyQueryCreator(merge(DB, out))
 }
 /* compiles to:
  * export type ReadonlyQueryCreatorWithCommonTableExpression<DB, CN extends string, CTE> = ReadonlyQueryCreator<
@@ -88,7 +97,7 @@ export function ReadonlyQueryCreatorWithCommonTableExpression(DB, CN: string, CT
 
 // ✓ ReadonlyExtractRowFromCommonTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyExtractRowFromCommonTableExpression(CTE) {
+export function ReadonlyExtractRowFromCommonTableExpression(CTE): any {
   const m1 = matches<Expression<Hole<"O">>>(CTE)
   if (m1) {
     return m1.O

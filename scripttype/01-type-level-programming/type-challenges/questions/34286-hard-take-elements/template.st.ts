@@ -9,7 +9,7 @@
  */
 // ✓ Take: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Take(N, Arr) {
+export function Take(N, Arr): any {
   return Arr
 }
 /* compiles to:

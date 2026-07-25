@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SomeExtendOptions } from '../../../../01-type-level-programming/type-fest/source/some-extend.d.js'
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ApplyDefaultOptions: any
 declare const CollapseRestElement: any
 declare const DefaultSomeExtendOptions: any
@@ -28,11 +34,10 @@ type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any,
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SomeExtendOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SomeExtend: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SomeExtend(TArray: UnknownArray, Type, Options: SomeExtendOptions = {}) {
+export function SomeExtend(TArray: UnknownArray, Type, Options: SomeExtendOptions = {}): any {
   return _SomeExtend(CollapseRestElement(TArray), Type, ApplyDefaultOptions(SomeExtendOptions, DefaultSomeExtendOptions, Options))
 }
 /* compiles to:
@@ -50,7 +55,7 @@ export function SomeExtend(TArray: UnknownArray, Type, Options: SomeExtendOption
 
 // ✓ _SomeExtend: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SomeExtend(TArray: UnknownArray, Type, Options: Required<SomeExtendOptions>) {
+export function _SomeExtend(TArray: UnknownArray, Type, Options: Required<SomeExtendOptions>): any {
   const m1 = matches<readonly [ Hole<"First">, ...Hole<"Rest"> ]>(TArray)
   return IfNotAnyOrNever(TArray, { ifNot: m1 ? (matches<true>(IsNever(m1.First)) ? (matches<true>(Or(Or(IsNever(Type), IsAny(Type)), Not(Options['strictNever']))) ? true : _SomeExtend(m1.Rest, Type, Options)) : (matches<typeof Type>(m1.First) ? true : _SomeExtend(m1.Rest, Type, Options))) : false, ifAny: false, ifNever: false })
 }

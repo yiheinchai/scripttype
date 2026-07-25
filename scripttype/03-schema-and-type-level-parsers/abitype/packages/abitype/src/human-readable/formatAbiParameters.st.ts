@@ -7,20 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
-declare const AbiEventParameter: any
-declare const AbiParameter: any
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FormatAbiParameter } from '../../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/human-readable/formatAbiParameter.js'
+import type { Join } from '../../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/types.js'
 declare const FormatAbiParameter: any
 declare const Join: any
-type AbiEventParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FormatAbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Join<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FormatAbiParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FormatAbiParameters(abiParameters: readonly [ AbiParameter | AbiEventParameter, ...(readonly (AbiParameter | AbiEventParameter)[]) ]) {
+/**
+ * @param {readonly [ AbiParameter | AbiEventParameter, ...(readonly (AbiParameter | AbiEventParameter)[]) ]} abiParameters
+ */
+export function FormatAbiParameters(abiParameters): any {
   const out = emptyObject
   for (const key in keyof(abiParameters)) {
     out[key] = FormatAbiParameter(abiParameters[key])

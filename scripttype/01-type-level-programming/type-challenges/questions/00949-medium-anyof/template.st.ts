@@ -9,7 +9,7 @@
  */
 // ✓ AnyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyOf(T: readonly any[]) {
+export function AnyOf(T: readonly any[]): any {
   return any
 }
 /* compiles to:

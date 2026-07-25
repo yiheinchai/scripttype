@@ -22,7 +22,7 @@ type PathsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type SomeTypeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SomeType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SomeType(Options: PathsOptions = {}) {
+export function SomeType(Options: PathsOptions = {}): any {
   return _SomeType(ApplyDefaultOptions(PathsOptions, DefaultPathsOptions, Options))
 }
 /* compiles to:
@@ -33,7 +33,7 @@ export function SomeType(Options: PathsOptions = {}) {
 
 // ✓ _SomeType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SomeType(Options: Required<PathsOptions>) {
+export function _SomeType(Options: Required<PathsOptions>): any {
   return Options
 }
 /* compiles to:
@@ -43,7 +43,7 @@ export function _SomeType(Options: Required<PathsOptions>) {
 // ✗ SomeType2: does not compile yet
 //   Type 'ApplyDefaultOptions<PathsOptions, DefaultPathsOptions, Options>' does not satisfy the constraint 'Required<PathsOptions> & { extra: string; }'.   Type 'Re
 /* @scripttype preserveParamNames */
-export function SomeType2(Options: PathsOptions = {}) {
+export function SomeType2(Options: PathsOptions = {}): any {
   return _SomeType2(ApplyDefaultOptions(PathsOptions, DefaultPathsOptions, Options))
 }
 /* compiles to:
@@ -54,7 +54,7 @@ export function SomeType2(Options: PathsOptions = {}) {
 
 // ✓ _SomeType2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SomeType2(Options: Required<PathsOptions> & { extra: string; }) {
+export function _SomeType2(Options: Required<PathsOptions> & { extra: string; }): any {
   return Options
 }
 /* compiles to:
@@ -63,7 +63,7 @@ export function _SomeType2(Options: Required<PathsOptions> & { extra: string; })
 
 // ✓ SomeType3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SomeType3(Options: SomeTypeOptions) {
+export function SomeType3(Options: SomeTypeOptions): any {
   return _SomeType3(ApplyDefaultOptions(SomeTypeOptions, DefaultSomeTypeOptions, Options))
 }
 /* compiles to:
@@ -74,7 +74,7 @@ export function SomeType3(Options: SomeTypeOptions) {
 
 // ✓ _SomeType3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SomeType3(Options: Required<SomeTypeOptions>) {
+export function _SomeType3(Options: Required<SomeTypeOptions>): any {
   return Options
 }
 /* compiles to:
@@ -84,7 +84,7 @@ export function _SomeType3(Options: Required<SomeTypeOptions>) {
 // ✗ SomeType4: does not compile yet
 //   Type 'ApplyDefaultOptions<SomeTypeOptions, DefaultSomeTypeOptions, Options>' does not satisfy the constraint 'Required<SomeTypeOptions> & { extra: string; }'.  
 /* @scripttype preserveParamNames */
-export function SomeType4(Options: SomeTypeOptions) {
+export function SomeType4(Options: SomeTypeOptions): any {
   return _SomeType4(ApplyDefaultOptions(SomeTypeOptions, DefaultSomeTypeOptions, Options))
 }
 /* compiles to:
@@ -95,7 +95,7 @@ export function SomeType4(Options: SomeTypeOptions) {
 
 // ✓ _SomeType4: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SomeType4(Options: Required<SomeTypeOptions> & { extra: string; }) {
+export function _SomeType4(Options: Required<SomeTypeOptions> & { extra: string; }): any {
   return Options
 }
 /* compiles to:

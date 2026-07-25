@@ -28,7 +28,7 @@ type SetStateAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, 
 type SuccessAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Action: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Action(TData, TError) {
+export function Action(TData, TError): any {
   return ContinueAction | ErrorAction(TError) | FailedAction(TError) | FetchAction | InvalidateAction | PauseAction | SetStateAction(TData, TError) | SuccessAction(TData)
 }
 /* compiles to:

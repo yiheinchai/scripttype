@@ -9,7 +9,7 @@
  */
 // ✓ CompareArrayLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CompareArrayLength(T: any[], U: any[]) {
+export function CompareArrayLength(T: any[], U: any[]): any {
   return any
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Trace: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Trace(T: any[][]) {
+export function Trace(T: any[][]): any {
   return any
 }
 /* compiles to:

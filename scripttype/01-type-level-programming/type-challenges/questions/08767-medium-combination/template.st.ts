@@ -9,7 +9,7 @@
  */
 // ✓ Combination: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Combination(T: string[]) {
+export function Combination(T: string[]): any {
   return any
 }
 /* compiles to:

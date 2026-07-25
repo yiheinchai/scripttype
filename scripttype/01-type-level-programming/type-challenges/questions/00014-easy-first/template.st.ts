@@ -9,7 +9,7 @@
  */
 // ✓ First: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function First(T: any[]) {
+export function First(T: any[]): any {
   return any
 }
 /* compiles to:

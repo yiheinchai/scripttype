@@ -7,14 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
-declare const Paths: any
-type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PathsConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PathsConstraint(T, _U: Paths<typeof T>) {
+/**
+ * @param {Paths<typeof T>} _U
+ */
+export function PathsConstraint(T, _U): any {
   return never
 }
 /* compiles to:
@@ -23,7 +21,7 @@ export function PathsConstraint(T, _U: Paths<typeof T>) {
 
 // ✓ Generic1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Generic1(T) {
+export function Generic1(T): any {
   return { bar: { baz: T } }
 }
 /* compiles to:
@@ -32,7 +30,7 @@ export function Generic1(T) {
 
 // ✓ Test1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test1(T) {
+export function Test1(T): any {
   return PathsConstraint(Generic1(T), 'bar.baz')
 }
 /* compiles to:
@@ -41,7 +39,7 @@ export function Test1(T) {
 
 // ✓ Generic2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Generic2(T, U) {
+export function Generic2(T, U): any {
   return { bar: { baz: { qux: T }, fizz: anyOf({ buzz: U }, U, T) } }
 }
 /* compiles to:
@@ -50,7 +48,7 @@ export function Generic2(T, U) {
 
 // ✓ Test2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test2(T, U) {
+export function Test2(T, U): any {
   return PathsConstraint(Generic2(T, U), anyOf('bar', 'bar.baz', 'bar.baz.qux', 'bar.fizz', 'bar.fizz.buzz'))
 }
 /* compiles to:
@@ -62,7 +60,10 @@ export function Test2(T, U) {
 
 // ✓ LeavesOnlyPathsConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LeavesOnlyPathsConstraint(T, _U: Paths<typeof T, { leavesOnly: true; }>) {
+/**
+ * @param {Paths<typeof T, { leavesOnly: true; }>} _U
+ */
+export function LeavesOnlyPathsConstraint(T, _U): any {
   return never
 }
 /* compiles to:
@@ -71,7 +72,7 @@ export function LeavesOnlyPathsConstraint(T, _U: Paths<typeof T, { leavesOnly: t
 
 // ✓ Generic3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Generic3(T) {
+export function Generic3(T): any {
   return { bar: { baz: T, qux: string } }
 }
 /* compiles to:
@@ -80,7 +81,7 @@ export function Generic3(T) {
 
 // ✓ Test3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test3(T) {
+export function Test3(T): any {
   return LeavesOnlyPathsConstraint(Generic3(T), 'bar.qux')
 }
 /* compiles to:
@@ -90,7 +91,7 @@ export function Test3(T) {
 // ✗ Test4: does not compile yet
 //   Type '"bar"' does not satisfy the constraint '"bar.qux" | `bar.baz${_Paths<T, { maxRecursionDepth: 5; bracketNotation: false; depth: number; leavesOnly: true; }
 /* @scripttype preserveParamNames */
-export function Test4(T) {
+export function Test4(T): any {
   return LeavesOnlyPathsConstraint(Generic3(T), 'bar')
 }
 /* compiles to:
@@ -100,7 +101,7 @@ export function Test4(T) {
 // ✗ Test5: does not compile yet
 //   Type '"bar.baz"' does not satisfy the constraint '"bar.qux" | `bar.baz${_Paths<T, { maxRecursionDepth: 5; bracketNotation: false; depth: number; leavesOnly: tru
 /* @scripttype preserveParamNames */
-export function Test5(T) {
+export function Test5(T): any {
   return LeavesOnlyPathsConstraint(Generic3(T), 'bar.baz')
 }
 /* compiles to:
@@ -109,7 +110,10 @@ export function Test5(T) {
 
 // ✓ DepthPathsConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DepthPathsConstraint(T, _U: Paths<typeof T, { depth: 1; }>) {
+/**
+ * @param {Paths<typeof T, { depth: 1; }>} _U
+ */
+export function DepthPathsConstraint(T, _U): any {
   return never
 }
 /* compiles to:
@@ -118,7 +122,7 @@ export function DepthPathsConstraint(T, _U: Paths<typeof T, { depth: 1; }>) {
 
 // ✓ Generic4: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Generic4(T) {
+export function Generic4(T): any {
   return { bar: { baz: T }, qux: [T] }
 }
 /* compiles to:
@@ -127,7 +131,7 @@ export function Generic4(T) {
 
 // ✓ Test6: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test6(T) {
+export function Test6(T): any {
   return DepthPathsConstraint(Generic4(T), anyOf('bar.baz', 'qux.0'))
 }
 /* compiles to:
@@ -137,7 +141,7 @@ export function Test6(T) {
 // ✗ Test7: does not compile yet
 //   Type '"bar"' does not satisfy the constraint 'InternalPaths<Required<Generic4<T>>, { maxRecursionDepth: 5; bracketNotation: false; leavesOnly: false; depth: 1; 
 /* @scripttype preserveParamNames */
-export function Test7(T) {
+export function Test7(T): any {
   return DepthPathsConstraint(Generic4(T), 'bar')
 }
 /* compiles to:
@@ -147,7 +151,7 @@ export function Test7(T) {
 // ✗ Test8: does not compile yet
 //   Type '"qux"' does not satisfy the constraint 'InternalPaths<Required<Generic4<T>>, { maxRecursionDepth: 5; bracketNotation: false; leavesOnly: false; depth: 1; 
 /* @scripttype preserveParamNames */
-export function Test8(T) {
+export function Test8(T): any {
   return DepthPathsConstraint(Generic4(T), 'qux')
 }
 /* compiles to:
@@ -156,7 +160,10 @@ export function Test8(T) {
 
 // ✓ BracketNotationPathsConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BracketNotationPathsConstraint(T, _U: Paths<typeof T, { bracketNotation: true; }>) {
+/**
+ * @param {Paths<typeof T, { bracketNotation: true; }>} _U
+ */
+export function BracketNotationPathsConstraint(T, _U): any {
   return never
 }
 /* compiles to:
@@ -169,7 +176,7 @@ export function BracketNotationPathsConstraint(T, _U: Paths<typeof T, { bracketN
 
 // ✓ Generic5: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Generic5(T) {
+export function Generic5(T): any {
   return { 1: { 2: T }, 3: [T] }
 }
 /* compiles to:
@@ -178,7 +185,7 @@ export function Generic5(T) {
 
 // ✓ Test9: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test9(T) {
+export function Test9(T): any {
   return BracketNotationPathsConstraint(Generic5(T), anyOf('[1]', '[1][2]', '[3]', '[3][0]'))
 }
 /* compiles to:
@@ -190,7 +197,10 @@ export function Test9(T) {
 
 // ✓ MaxRecursionDepthPathsConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MaxRecursionDepthPathsConstraint(T, _U: Paths<typeof T, { maxRecursionDepth: 2; }>) {
+/**
+ * @param {Paths<typeof T, { maxRecursionDepth: 2; }>} _U
+ */
+export function MaxRecursionDepthPathsConstraint(T, _U): any {
   return never
 }
 /* compiles to:
@@ -203,7 +213,7 @@ export function MaxRecursionDepthPathsConstraint(T, _U: Paths<typeof T, { maxRec
 
 // ✓ Generic6: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Generic6(T) {
+export function Generic6(T): any {
   return { foo: { bar: T }, baz: T, fizz: { buzz: { qux: { quxx: T } } } }
 }
 /* compiles to:
@@ -212,7 +222,7 @@ export function Generic6(T) {
 
 // ✓ Test10: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test10(T) {
+export function Test10(T): any {
   return MaxRecursionDepthPathsConstraint(Generic6(T), anyOf('foo', 'foo.bar', 'baz', 'fizz', 'fizz.buzz', 'fizz.buzz.qux'))
 }
 /* compiles to:
@@ -225,7 +235,7 @@ export function Test10(T) {
 // ✗ Test11: does not compile yet
 //   Type '"fizz.buzz.qux.quxx"' does not satisfy the constraint 'InternalPaths<Required<Generic6<T>>, { bracketNotation: false; leavesOnly: false; depth: number; ma
 /* @scripttype preserveParamNames */
-export function Test11(T) {
+export function Test11(T): any {
   return MaxRecursionDepthPathsConstraint(Generic6(T), 'fizz.buzz.qux.quxx')
 }
 /* compiles to:
@@ -234,7 +244,10 @@ export function Test11(T) {
 
 // ✓ LeavesOnlyAndDepthPathsConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LeavesOnlyAndDepthPathsConstraint(T, _U: Paths<typeof T, { leavesOnly: true; depth: 1; }>) {
+/**
+ * @param {Paths<typeof T, { leavesOnly: true; depth: 1; }>} _U
+ */
+export function LeavesOnlyAndDepthPathsConstraint(T, _U): any {
   return never
 }
 /* compiles to:
@@ -247,7 +260,7 @@ export function LeavesOnlyAndDepthPathsConstraint(T, _U: Paths<typeof T, { leave
 
 // ✓ Generic7: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Generic7(T) {
+export function Generic7(T): any {
   return { foo: { bar: T, baz: string, fizz: { buzz: number } }, qux: string }
 }
 /* compiles to:
@@ -256,7 +269,7 @@ export function Generic7(T) {
 
 // ✓ Test12: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test12(T) {
+export function Test12(T): any {
   return LeavesOnlyAndDepthPathsConstraint(Generic7(T), 'foo.baz')
 }
 /* compiles to:
@@ -266,7 +279,7 @@ export function Test12(T) {
 // ✗ Test13: does not compile yet
 //   Type '"qux"' does not satisfy the constraint 'InternalPaths<Required<Generic7<T>>, { maxRecursionDepth: 5; bracketNotation: false; leavesOnly: true; depth: 1; }
 /* @scripttype preserveParamNames */
-export function Test13(T) {
+export function Test13(T): any {
   return LeavesOnlyAndDepthPathsConstraint(Generic7(T), 'qux')
 }
 /* compiles to:
@@ -276,7 +289,7 @@ export function Test13(T) {
 // ✗ Test14: does not compile yet
 //   Type '"foo.fizz"' does not satisfy the constraint 'InternalPaths<Required<Generic7<T>>, { maxRecursionDepth: 5; bracketNotation: false; leavesOnly: true; depth:
 /* @scripttype preserveParamNames */
-export function Test14(T) {
+export function Test14(T): any {
   return LeavesOnlyAndDepthPathsConstraint(Generic7(T), 'foo.fizz')
 }
 /* compiles to:
@@ -286,7 +299,7 @@ export function Test14(T) {
 // ✗ Test15: does not compile yet
 //   Type '"foo.bar"' does not satisfy the constraint 'InternalPaths<Required<Generic7<T>>, { maxRecursionDepth: 5; bracketNotation: false; leavesOnly: true; depth: 
 /* @scripttype preserveParamNames */
-export function Test15(T) {
+export function Test15(T): any {
   return LeavesOnlyAndDepthPathsConstraint(Generic7(T), 'foo.bar')
 }
 /* compiles to:

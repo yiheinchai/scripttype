@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnySingleStoreQueryResultHKT, SingleStorePreparedQueryConfig, SingleStoreQueryResultHKT, SingleStoreQueryResultKind } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/session.js'
 declare const AnySingleStoreDeleteBase: any
 declare const AnySingleStoreQueryResultHKT: any
 declare const PreparedQueryHKTBase: any
@@ -20,17 +22,17 @@ declare const SingleStoreQueryResultHKT: any
 declare const SingleStoreQueryResultKind: any
 declare const SingleStoreTable: any
 type AnySingleStoreDeleteBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySingleStoreQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStoreDeleteBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStorePreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStoreTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreDeleteWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreDeleteWithout(T: AnySingleStoreDeleteBase, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnySingleStoreDeleteBase} T
+ * @param {keyof typeof T & string} K
+ */
+export function SingleStoreDeleteWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -58,7 +60,7 @@ export function SingleStoreDeleteWithout(T: AnySingleStoreDeleteBase, TDynamic: 
 
 // ✓ SingleStoreDelete: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreDelete(TTable: SingleStoreTable = SingleStoreTable, TQueryResult: SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase) {
+export function SingleStoreDelete(TTable: SingleStoreTable = SingleStoreTable, TQueryResult: SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase): any {
   return SingleStoreDeleteBase(TTable, TQueryResult, TPreparedQueryHKT, true, never)
 }
 /* compiles to:
@@ -72,7 +74,7 @@ export function SingleStoreDelete(TTable: SingleStoreTable = SingleStoreTable, T
 
 // ✓ SingleStoreDeletePrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreDeletePrepare(T: AnySingleStoreDeleteBase) {
+export function SingleStoreDeletePrepare(T: AnySingleStoreDeleteBase): any {
   return PreparedQueryKind(T['_']['preparedQueryHKT'], merge(SingleStorePreparedQueryConfig, { execute: SingleStoreQueryResultKind(T['_']['queryResult'], never), iterator: never }), true)
 }
 /* compiles to:
@@ -86,7 +88,7 @@ export function SingleStoreDeletePrepare(T: AnySingleStoreDeleteBase) {
 
 // ✓ SingleStoreDeleteDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreDeleteDynamic(T: AnySingleStoreDeleteBase) {
+export function SingleStoreDeleteDynamic(T: AnySingleStoreDeleteBase): any {
   return SingleStoreDelete(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'])
 }
 /* compiles to:

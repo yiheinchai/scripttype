@@ -10,11 +10,19 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const JoinableItem: any
 type JoinableItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NullishCoalesce: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NullishCoalesce(Value: JoinableItem, Fallback: string) {
+export function NullishCoalesce(Value: JoinableItem, Fallback: string): any {
   if (matches<undefined | null>(Value)) {
     return anyOf(NonNullable(Value), Fallback)
   }
@@ -27,7 +35,7 @@ export function NullishCoalesce(Value: JoinableItem, Fallback: string) {
 
 // ✓ Join: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Join(Items: readonly JoinableItem[], Delimiter: string) {
+export function Join(Items: readonly JoinableItem[], Delimiter: string): any {
   if (matches<readonly [ ]>(Items)) {
     return ''
   }

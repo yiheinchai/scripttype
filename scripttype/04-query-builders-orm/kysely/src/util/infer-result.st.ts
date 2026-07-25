@@ -7,9 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Compilable } from '../../../../../04-query-builders-orm/kysely/src/util/compilable.js'
+import type { Simplify } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Compilable: any
 declare const CompiledQuery: any
 declare const DeleteResult: any
@@ -17,16 +26,14 @@ declare const InsertResult: any
 declare const MergeResult: any
 declare const Simplify: any
 declare const UpdateResult: any
-type Compilable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type CompiledQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DeleteResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InsertResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MergeResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UpdateResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferResult(C: Compilable<any> | CompiledQuery<any>) {
+export function InferResult(C: Compilable<any> | CompiledQuery<any>): any {
   const m1 = matches<Compilable<Hole<"O">>>(C)
   if (m1) {
     return ResolveResult(m1.O)
@@ -46,7 +53,7 @@ export function InferResult(C: Compilable<any> | CompiledQuery<any>) {
 
 // ✓ ResolveResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolveResult(O) {
+export function ResolveResult(O): any {
   if (matches<InsertResult | UpdateResult | DeleteResult | MergeResult>(O)) {
     return arrayOf(O)
   }

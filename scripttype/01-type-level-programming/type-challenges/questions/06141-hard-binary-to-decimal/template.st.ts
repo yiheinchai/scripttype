@@ -9,7 +9,7 @@
  */
 // ✓ BinaryToDecimal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BinaryToDecimal(S: string) {
+export function BinaryToDecimal(S: string): any {
   return any
 }
 /* compiles to:

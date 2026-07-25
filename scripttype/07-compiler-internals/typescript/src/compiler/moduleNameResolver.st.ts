@@ -9,7 +9,7 @@
  */
 // ✓ SearchResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SearchResult(T) {
+export function SearchResult(T): any {
   return anyOf({ value: anyOf(T, Undefined) }, Undefined)
 }
 /* compiles to:

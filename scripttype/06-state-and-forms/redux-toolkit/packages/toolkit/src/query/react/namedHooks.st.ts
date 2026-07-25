@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { EndpointDefinitions, InfiniteQueryDefinition, MutationDefinition, QueryDefinition } from '../../../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/query/endpointDefinitions.js'
+import type { UseInfiniteQuery, UseLazyQuery, UseMutation, UseQuery } from '../../../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/query/react/buildHooks.js'
 declare namespace DefinitionType {
   export type infinitequery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type mutation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -28,20 +31,15 @@ declare const infinitequery: any
 declare const mutation: any
 declare const query: any
 type DefinitionType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EndpointDefinitions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InfiniteQueryDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MutationDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseInfiniteQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseLazyQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseMutation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type infinitequery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type mutation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type query<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ QueryHookNames: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function QueryHookNames(Definitions: EndpointDefinitions) {
+/**
+ * @param {EndpointDefinitions} Definitions
+ */
+export function QueryHookNames(Definitions): any {
   const out = emptyObject
   for (const K in keyof(Definitions)) {
     out[matches<{ type: DefinitionType.query; }>(Definitions[K]) ? `use${Capitalize(merge(K, string))}Query` : never] = UseQuery(Extract(Definitions[K], QueryDefinition(any, any, any, any)))
@@ -58,7 +56,10 @@ export function QueryHookNames(Definitions: EndpointDefinitions) {
 
 // ✓ LazyQueryHookNames: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LazyQueryHookNames(Definitions: EndpointDefinitions) {
+/**
+ * @param {EndpointDefinitions} Definitions
+ */
+export function LazyQueryHookNames(Definitions): any {
   const out = emptyObject
   for (const K in keyof(Definitions)) {
     out[matches<{ type: DefinitionType.query; }>(Definitions[K]) ? `useLazy${Capitalize(merge(K, string))}Query` : never] = UseLazyQuery(Extract(Definitions[K], QueryDefinition(any, any, any, any)))
@@ -75,7 +76,10 @@ export function LazyQueryHookNames(Definitions: EndpointDefinitions) {
 
 // ✓ InfiniteQueryHookNames: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InfiniteQueryHookNames(Definitions: EndpointDefinitions) {
+/**
+ * @param {EndpointDefinitions} Definitions
+ */
+export function InfiniteQueryHookNames(Definitions): any {
   const out = emptyObject
   for (const K in keyof(Definitions)) {
     out[matches<{ type: DefinitionType.infinitequery; }>(Definitions[K]) ? `use${Capitalize(merge(K, string))}InfiniteQuery` : never] = UseInfiniteQuery(Extract(Definitions[K], InfiniteQueryDefinition(any, any, any, any, any)))
@@ -92,7 +96,10 @@ export function InfiniteQueryHookNames(Definitions: EndpointDefinitions) {
 
 // ✓ MutationHookNames: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MutationHookNames(Definitions: EndpointDefinitions) {
+/**
+ * @param {EndpointDefinitions} Definitions
+ */
+export function MutationHookNames(Definitions): any {
   const out = emptyObject
   for (const K in keyof(Definitions)) {
     out[matches<{ type: DefinitionType.mutation; }>(Definitions[K]) ? `use${Capitalize(merge(K, string))}Mutation` : never] = UseMutation(Extract(Definitions[K], MutationDefinition(any, any, any, any)))
@@ -109,7 +116,7 @@ export function MutationHookNames(Definitions: EndpointDefinitions) {
 
 // ✓ HooksWithUniqueNames: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HooksWithUniqueNames(Definitions: EndpointDefinitions) {
+export function HooksWithUniqueNames(Definitions: EndpointDefinitions): any {
   return QueryHookNames(Definitions) & LazyQueryHookNames(Definitions) & InfiniteQueryHookNames(Definitions) & MutationHookNames(Definitions)
 }
 /* compiles to:

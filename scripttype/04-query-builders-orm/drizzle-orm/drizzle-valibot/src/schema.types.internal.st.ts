@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Assume, DrizzleTypeError, Simplify } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+import type { GenericSchema } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-typebox/src/column.types.js'
+import type { ExtractAdditionalProperties, GetValibotType, HasBaseColumn } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-valibot/src/column.types.js'
+declare namespace m1 {
+  export type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare namespace v {
   export type AnySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type GenericSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -17,6 +24,7 @@ declare namespace v {
   export type ObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type OptionalSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const AnySchema: any
 declare const Assume: any
 declare const Column: any
 declare const ColumnIsGeneratedAlwaysAs: any
@@ -27,31 +35,38 @@ declare const GetSelection: any
 declare const GetValibotType: any
 declare const HandleColumn: any
 declare const HasBaseColumn: any
+declare const NullableSchema: any
+declare const ObjectSchema: any
+declare const OptionalSchema: any
 declare const SelectedFieldsFlat: any
 declare const Simplify: any
+declare const TObject: any
+declare const TSchema: any
 declare const Table: any
 declare const View: any
 declare const v: any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type AnySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BuildSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ColumnIsGeneratedAlwaysAs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrizzleTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractAdditionalProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GenericSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GetSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetValibotType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HandleColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type HasBaseColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HandleRefinement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsRefinementDefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NullableSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectedFieldsFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type v<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildRefineField: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildRefineField(T) {
+export function BuildRefineField(T): any {
   if (matches<v.GenericSchema>(T)) {
-    return fnType([T], v.GenericSchema) | v.GenericSchema
+    return fnType([T], t<v.GenericSchema>()) | t<v.GenericSchema>()
   }
   return never
 }
@@ -62,7 +77,10 @@ export function BuildRefineField(T) {
 
 // ✓ BuildRefine: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildRefine(TColumns: Record<string, any>) {
+/**
+ * @param {Record<string, any>} TColumns
+ */
+export function BuildRefine(TColumns): any {
   const out = emptyObject
   for (const K in keyof(TColumns)) {
     out[matches<Column | SelectedFieldsFlat<Column> | Table | View>(TColumns[K]) ? K : never] = optional(matches<Column>(TColumns[K]) ? BuildRefineField(GetValibotType(TColumns[K]['_']['data'], TColumns[K]['_']['dataType'], TColumns[K]['_']['columnType'], TColumns[K]['_']['enumValues'], matches<true>(HasBaseColumn(TColumns[K])) ? Assume(TColumns[K]['_']['baseColumn'], Column) : Undefined, ExtractAdditionalProperties(TColumns[K]))) : BuildRefine(GetSelection(TColumns[K])))
@@ -90,16 +108,16 @@ export function BuildRefine(TColumns: Record<string, any>) {
 
 // ✓ HandleRefinement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleRefinement(TType: 'select' | 'insert' | 'update', TRefinement, TColumn: Column) {
+export function HandleRefinement(TType: 'select' | 'insert' | 'update', TRefinement, TColumn: Column): any {
   if (matches<(schema: any) => v.GenericSchema>(TRefinement)) {
-    const m1 = matches<Hole<"TSchema">>(matches<true>(TColumn['_']['notNull']) ? ReturnType(TRefinement) : v.NullableSchema(ReturnType(TRefinement), Undefined))
+    const m1 = matches<Hole<"TSchema">>(matches<true>(TColumn['_']['notNull']) ? ReturnType(TRefinement) : t<v.NullableSchema<ReturnType<typeof TRefinement>, undefined>>())
     if (m1) {
       if (matches<'update'>(TType)) {
-        return v.OptionalSchema(Assume(m1.TSchema, v.GenericSchema), Undefined)
+        return t<v.OptionalSchema<Assume<typeof m1.TSchema, v.GenericSchema>, undefined>>()
       }
       return m1.TSchema
     }
-    return v.AnySchema
+    return t<v.AnySchema>()
   }
   return TRefinement
 }
@@ -121,7 +139,7 @@ export function HandleRefinement(TType: 'select' | 'insert' | 'update', TRefinem
 // ✗ IsRefinementDefined: the ScriptType does not itself typecheck as TypeScript
 //   IsRefinementDefined.st.ts(4:59) TS18048: 'TRefinements' is possibly 'undefined'.
 /* @scripttype preserveParamNames */
-export function IsRefinementDefined(TRefinements: Record<string | symbol | number, any> | undefined, TKey: string | symbol | number) {
+export function IsRefinementDefined(TRefinements: Record<string | symbol | number, any> | undefined, TKey: string | symbol | number): any {
   if (matches<object>(TRefinements)) {
     if (matches<v.GenericSchema | ((schema: any) => any)>(TRefinements[TKey])) {
       return true
@@ -142,43 +160,14 @@ export function IsRefinementDefined(TRefinements: Record<string | symbol | numbe
 
 // ✓ BuildSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildSchema__v1(TType, TColumns, TRefinements, K) {
-  const m1 = matches<Hole<"TColumn", Column>>(TColumns[K])
-  if (m1) {
-    if (matches<true>(IsRefinementDefined(TRefinements, Assume(K, string)))) {
-      return Assume(HandleRefinement(TType, TRefinements[K & keyof(TRefinements)], m1.TColumn), v.GenericSchema)
-    }
-    return HandleColumn(TType, m1.TColumn)
-  }
-  const m2 = matches<Hole<"TObject", SelectedFieldsFlat<Column> | Table | View>>(TColumns[K])
-  if (m2) {
-    return BuildSchema(TType, GetSelection(m2.TObject), matches<object>(TRefinements) ? TRefinements[K & keyof(TRefinements)] : Undefined)
-  }
-  return v.AnySchema
-}
-export function BuildSchema(TType: 'select' | 'insert' | 'update', TColumns: Record<string, any>, TRefinements: Record<string, any> | undefined) {
-  const out = emptyObject
-  for (const K in keyof(TColumns)) {
-    out[matches<true>(ColumnIsGeneratedAlwaysAs(TColumns[K])) ? never : K] = readonlyProp(BuildSchema__v1(TType, TColumns, TRefinements, K))
-  }
-  return v.ObjectSchema(Simplify(out), Undefined)
+/**
+ * @param {Record<string, any>} TColumns
+ * @param {Record<string, any> | undefined} TRefinements
+ */
+export function BuildSchema(TType: 'select' | 'insert' | 'update', TColumns, TRefinements): any {
+  return t<v.ObjectSchema<Simplify<{ readonly [K in keyof typeof TColumns as ColumnIsGeneratedAlwaysAs<(typeof TColumns)[K]> extends true ? never : K]: (typeof TColumns)[K] extends Hole<"TColumn", Column> ? IsRefinementDefined<typeof TRefinements, Assume<K, string>> extends true ? Assume<HandleRefinement<typeof TType, (typeof TRefinements)[K & keyof typeof TRefinements], TColumn>, v.GenericSchema> : HandleColumn<typeof TType, TColumn> : (typeof TColumns)[K] extends Hole<"TObject", SelectedFieldsFlat<Column> | Table | View> ? BuildSchema<typeof TType, GetSelection<TObject>, typeof TRefinements extends object ? (typeof TRefinements)[K & keyof typeof TRefinements] : undefined> : v.AnySchema; }>, undefined>>()
 }
 /* compiles to:
- * export type BuildSchema__v1<TType, TColumns, TRefinements, K> =
- *   TColumns[K] extends (infer TColumn extends Column)
- *     ? IsRefinementDefined<TRefinements, Assume<K, string>> extends true
- *       ? Assume<
- *         HandleRefinement<TType, TRefinements[K & keyof TRefinements], TColumn>,
- *         v.GenericSchema
- *       >
- *       : HandleColumn<TType, TColumn>
- *   : TColumns[K] extends (infer TObject extends SelectedFieldsFlat<Column> | Table | View)
- *     ? BuildSchema<
- *       TType,
- *       GetSelection<TObject>,
- *       TRefinements extends object ? TRefinements[K & keyof TRefinements] : undefined
- *     >
- *   : v.AnySchema
  * export type BuildSchema<
  *   TType extends 'select' | 'insert' | 'update',
  *   TColumns extends Record<string, any>,
@@ -186,14 +175,7 @@ export function BuildSchema(TType: 'select' | 'insert' | 'update', TColumns: Rec
  * > =
  *   v.ObjectSchema<
  *     Simplify<
- *       {
- *         readonly [K in keyof TColumns as ColumnIsGeneratedAlwaysAs<TColumns[K]> extends true ? never : K]: BuildSchema__v1<
- *           TType,
- *           TColumns,
- *           TRefinements,
- *           K
- *         >
- *       }
+ *       { readonly [K in keyof TColumns as ColumnIsGeneratedAlwaysAs<(TColumns)[K]> extends true ? never : K]: (TColumns)[K] extends infer TColumn extends Column ? IsRefinementDefined<TRefinements, Assume<K, string>> extends true ? Assume<HandleRefinement<TType, (TRefinements)[K & keyof TRefinements], TColumn>, v.GenericSchema> : HandleColumn<TType, TColumn> : (TColumns)[K] extends infer TObject extends SelectedFieldsFlat<Column> | Table | View ? BuildSchema<TType, GetSelection<TObject>, TRefinements extends object ? (TRefinements)[K & keyof TRefinements] : undefined> : v.AnySchema; }
  *     >,
  *     undefined
  *   >
@@ -201,7 +183,11 @@ export function BuildSchema(TType: 'select' | 'insert' | 'update', TColumns: Rec
 
 // ✓ NoUnknownKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NoUnknownKeys(TRefinement: Record<string, any>, TCompare: Record<string, any>) {
+/**
+ * @param {Record<string, any>} TRefinement
+ * @param {Record<string, any>} TCompare
+ */
+export function NoUnknownKeys(TRefinement, TCompare): any {
   const out = emptyObject
   for (const K in keyof(TRefinement)) {
     out[K] = K in TCompare ? (matches<Record<string, v.GenericSchema>>(TRefinement[K]) ? NoUnknownKeys(TRefinement[K], TCompare[K]) : TRefinement[K]) : DrizzleTypeError(`Found unknown key in refinement: "${merge(K, string)}"`)

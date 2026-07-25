@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { _IsPositive } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Number/IsPositive.js'
+import type { _Sub } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Number/Sub.js'
 declare const Iteration: any
 declare const IterationOf: any
 declare const _IsPositive: any
 declare const _Sub: any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _IsPositive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _Sub<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _Greater: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Greater(N1: Iteration, N2: Iteration) {
+export function _Greater(N1: Iteration, N2: Iteration): any {
   return _IsPositive(_Sub(N1, N2))
 }
 /* compiles to:
@@ -29,7 +30,7 @@ export function _Greater(N1: Iteration, N2: Iteration) {
 
 // ✓ Greater: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Greater(N1: number, N2: number) {
+export function Greater(N1: number, N2: number): any {
   if (matches<unknown>(N1)) {
     if (matches<unknown>(N2)) {
       return _Greater(IterationOf(N1), IterationOf(N2))

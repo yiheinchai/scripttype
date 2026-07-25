@@ -9,7 +9,7 @@
  */
 // ✓ IsEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsEqual(X, Y) {
+export function IsEqual(X, Y): any {
   return any
 }
 /* compiles to:

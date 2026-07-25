@@ -7,9 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { All, Equal, IsLiteral, IsPlainObject, IsUnion, Length, Primitives, ValueOf } from '../../../../../01-type-level-programming/ts-pattern/src/types/helpers.js'
+declare namespace m1 {
+  export type a1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type aRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type b1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type bRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type a1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type aRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type b1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type bInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type a1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type aInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const All: any
 declare const Equal: any
 declare const IsLiteral: any
@@ -19,19 +39,11 @@ declare const Length: any
 declare const Primitives: any
 declare const ValueOf: any
 declare const k: any
-type All<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsMatching<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsPlainObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Primitives<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValueOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type k<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsMatchingTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsMatchingTuple(a: readonly any[], b: readonly any[]) {
+export function IsMatchingTuple(a: readonly any[], b: readonly any[]): any {
   if (matches<[ readonly [ ], readonly [ ] ]>([a, b])) {
     return true
   }
@@ -54,7 +66,7 @@ export function IsMatchingTuple(a: readonly any[], b: readonly any[]) {
 
 // ✓ IsMatchingArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsMatchingArray(a: readonly any[], b: readonly any[]) {
+export function IsMatchingArray(a: readonly any[], b: readonly any[]): any {
   if (matches<readonly [ ]>(b)) {
     return true
   }
@@ -113,9 +125,9 @@ export function IsMatchingArray(a: readonly any[], b: readonly any[]) {
  */
 
 // ✗ IsMatching: does not compile yet
-//   'b' only refers to a type, but is being used as a value here.
+//   Cannot find name 'extends'.
 /* @scripttype preserveParamNames */
-export function IsMatching(a, b) {
+export function IsMatching(a, b): any {
   if (matches<IsUnion<typeof a> | IsUnion<typeof b>>(true)) {
     if (matches<(typeof b extends any ? (typeof a extends any ? IsMatching<typeof a, typeof b> : never) : never)>(true)) {
       return true
@@ -166,7 +178,7 @@ export function IsMatching(a, b) {
 /* compiles to:
  * export type IsMatching<a, b> =
  *   true extends IsUnion<a> | IsUnion<b>
- *     ? true extends typeof b extends any ? (typeof a extends any ? IsMatching<typeof a, typeof b> : never) : never
+ *     ? true extends b extends any ? (a extends any ? IsMatching<a, b> : never) : never
  *       ? true
  *       : false
  *   : unknown extends b ? true
@@ -180,7 +192,7 @@ export function IsMatching(a, b) {
  *         : IsMatchingArray<a, b>
  *       : false
  *   : IsPlainObject<b> extends true
- *     ? true extends typeof a extends any ? [ keyof typeof b & keyof typeof a ] extends [ never ] ? false : { [k in keyof typeof b & keyof typeof a]: IsMatching<(typeof a)[k], (typeof b)[k]>; }[keyof typeof b & keyof typeof a] extends true ? true : false : never
+ *     ? true extends a extends any ? [ keyof b & keyof a ] extends [ never ] ? false : { [k in keyof b & keyof a]: IsMatching<(a)[k], (b)[k]>; }[keyof b & keyof a] extends true ? true : false : never
  *       ? true
  *       : false
  *   : b extends a ? true

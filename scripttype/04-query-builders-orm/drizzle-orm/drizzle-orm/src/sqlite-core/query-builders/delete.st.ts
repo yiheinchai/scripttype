@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SelectResultFields } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { AnySQLiteDeleteBase } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sqlite-core/query-builders/delete.js'
+import type { DrizzleTypeError } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
 declare const AnySQLiteDeleteBase: any
 declare const DrizzleTypeError: any
 declare const SQLiteDeleteBase: any
@@ -17,16 +21,17 @@ declare const SQLitePreparedQuery: any
 declare const SQLiteTable: any
 declare const SelectResultFields: any
 declare const SelectedFieldsFlat: any
-type AnySQLiteDeleteBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrizzleTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteDeleteBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLitePreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResultFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectedFieldsFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLiteDeleteWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteDeleteWithout(T: AnySQLiteDeleteBase, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnySQLiteDeleteBase} T
+ * @param {keyof typeof T & string} K
+ */
+export function SQLiteDeleteWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -55,7 +60,7 @@ export function SQLiteDeleteWithout(T: AnySQLiteDeleteBase, TDynamic: boolean, K
 
 // ✓ SQLiteDelete: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteDelete(TTable: SQLiteTable = SQLiteTable, TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TReturning: Record<string, unknown> | undefined = Undefined) {
+export function SQLiteDelete(TTable: SQLiteTable = SQLiteTable, TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TReturning: Record<string, unknown> | undefined = Undefined): any {
   return SQLiteDeleteBase(TTable, TResultType, TRunResult, TReturning, true, never)
 }
 /* compiles to:
@@ -70,7 +75,7 @@ export function SQLiteDelete(TTable: SQLiteTable = SQLiteTable, TResultType: 'sy
 
 // ✓ SQLiteDeleteReturningAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteDeleteReturningAll(T: AnySQLiteDeleteBase, TDynamic: boolean) {
+export function SQLiteDeleteReturningAll(T: AnySQLiteDeleteBase, TDynamic: boolean): any {
   return SQLiteDeleteWithout(SQLiteDeleteBase(T['_']['table'], T['_']['resultType'], T['_']['runResult'], T['_']['table']['$inferSelect'], T['_']['dynamic'], T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
@@ -90,7 +95,7 @@ export function SQLiteDeleteReturningAll(T: AnySQLiteDeleteBase, TDynamic: boole
 
 // ✓ SQLiteDeleteReturning: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteDeleteReturning(T: AnySQLiteDeleteBase, TDynamic: boolean, TSelectedFields: SelectedFieldsFlat) {
+export function SQLiteDeleteReturning(T: AnySQLiteDeleteBase, TDynamic: boolean, TSelectedFields: SelectedFieldsFlat): any {
   return SQLiteDeleteWithout(SQLiteDeleteBase(T['_']['table'], T['_']['resultType'], T['_']['runResult'], SelectResultFields(TSelectedFields), T['_']['dynamic'], T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
@@ -115,7 +120,7 @@ export function SQLiteDeleteReturning(T: AnySQLiteDeleteBase, TDynamic: boolean,
 
 // ✓ SQLiteDeleteExecute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteDeleteExecute(T: AnySQLiteDeleteBase) {
+export function SQLiteDeleteExecute(T: AnySQLiteDeleteBase): any {
   if (typeof T['_']['returning'] === 'undefined') {
     return T['_']['runResult']
   }
@@ -128,7 +133,7 @@ export function SQLiteDeleteExecute(T: AnySQLiteDeleteBase) {
 
 // ✓ SQLiteDeletePrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteDeletePrepare(T: AnySQLiteDeleteBase) {
+export function SQLiteDeletePrepare(T: AnySQLiteDeleteBase): any {
   return SQLitePreparedQuery({ type: T['_']['resultType'], run: T['_']['runResult'], all: typeof T['_']['returning'] === 'undefined' ? DrizzleTypeError('.all() cannot be used without .returning()') : arrayOf(T['_']['returning']), get: typeof T['_']['returning'] === 'undefined' ? DrizzleTypeError('.get() cannot be used without .returning()') : (anyOf(T['_']['returning'], Undefined)), values: typeof T['_']['returning'] === 'undefined' ? DrizzleTypeError('.values() cannot be used without .returning()') : arrayOf(arrayOf(any)), execute: SQLiteDeleteExecute(T) })
 }
 /* compiles to:
@@ -152,7 +157,7 @@ export function SQLiteDeletePrepare(T: AnySQLiteDeleteBase) {
 
 // ✓ SQLiteDeleteDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteDeleteDynamic(T: AnySQLiteDeleteBase) {
+export function SQLiteDeleteDynamic(T: AnySQLiteDeleteBase): any {
   return SQLiteDelete(T['_']['table'], T['_']['resultType'], T['_']['runResult'], T['_']['returning'])
 }
 /* compiles to:

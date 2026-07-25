@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Keys } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Keys.js'
+import type { ObjectOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/ObjectOf.js'
+import type { _ListOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/ListOf.js'
+declare namespace m1 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Key: any
 declare const Keys: any
 declare const List: any
@@ -17,14 +24,11 @@ declare const OAtLeast: any
 declare const ObjectOf: any
 declare const _ListOf: any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OAtLeast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _ListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AtLeast: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AtLeast(L: List, K: Key = Keys(L)) {
+export function AtLeast(L: List, K: Key = Keys(L)): any {
   const m1 = matches<Hole<"U">>(OAtLeast(ObjectOf(L), anyOf(`${merge(K, number)}`, K)))
   if (m1) {
     if (matches<unknown>(m1.U)) {

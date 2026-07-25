@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { EdgeIndex, Graph, MutableGraph, NodeIndex } from '../../../../../../05-functional-effects-hkt/effect/packages/effect/src/Graph.js'
 declare namespace MutableHashMap {
   export type MutableHashMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -21,15 +23,11 @@ declare const MutableHashMap: any
 declare const NodeIndex: any
 declare const Walker: any
 type Edge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EdgeIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Graph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MutableGraph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MutableHashMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NodeIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Walker<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DirectedGraph: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DirectedGraph(N, E) {
+export function DirectedGraph(N, E): any {
   return Graph(N, E, 'directed')
 }
 /* compiles to:
@@ -38,7 +36,7 @@ export function DirectedGraph(N, E) {
 
 // ✓ UndirectedGraph: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndirectedGraph(N, E) {
+export function UndirectedGraph(N, E): any {
   return Graph(N, E, 'undirected')
 }
 /* compiles to:
@@ -47,7 +45,7 @@ export function UndirectedGraph(N, E) {
 
 // ✓ MutableDirectedGraph: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MutableDirectedGraph(N, E) {
+export function MutableDirectedGraph(N, E): any {
   return MutableGraph(N, E, 'directed')
 }
 /* compiles to:
@@ -56,7 +54,7 @@ export function MutableDirectedGraph(N, E) {
 
 // ✓ MutableUndirectedGraph: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MutableUndirectedGraph(N, E) {
+export function MutableUndirectedGraph(N, E): any {
   return MutableGraph(N, E, 'undirected')
 }
 /* compiles to:
@@ -65,8 +63,8 @@ export function MutableUndirectedGraph(N, E) {
 
 // ✓ NodeMaps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NodeMaps(N, I) {
-  return { byIdentity: readonlyProp(MutableHashMap.MutableHashMap(I, N)), byIndex: readonlyProp(t<Map<NodeIndex, typeof I>>()) }
+export function NodeMaps(N, I): any {
+  return { byIdentity: readonlyProp(t<MutableHashMap.MutableHashMap<typeof I, typeof N>>()), byIndex: readonlyProp(t<Map<NodeIndex, typeof I>>()) }
 }
 /* compiles to:
  * export type NodeMaps<N, I> = {
@@ -77,7 +75,7 @@ export function NodeMaps(N, I) {
 
 // ✓ NodeWalker: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NodeWalker(N) {
+export function NodeWalker(N): any {
   return Walker(NodeIndex, N)
 }
 /* compiles to:
@@ -86,7 +84,7 @@ export function NodeWalker(N) {
 
 // ✓ EdgeWalker: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EdgeWalker(E) {
+export function EdgeWalker(E): any {
   return Walker(EdgeIndex, Edge(E))
 }
 /* compiles to:

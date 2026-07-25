@@ -7,9 +7,46 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { PrivateDeclaration } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/scope.js'
+import type { validateRange } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/bounds.js'
+import type { validateDefault } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/default.js'
+import type { validateDivisor } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/divisor.js'
+import type { GenericInstantiationAst, validateGenericInstantiation } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/generic.js'
+import type { DefAst, InferredAst, PostfixExpression } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/infer.js'
+import type { validateKeyof } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/keyof.js'
+import type { astToString } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/utils.js'
+import type { BranchOperator } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/reduce/shared.js'
+import type { UnitLiteral } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/operator/default.js'
+import type { Completion, ErrorMessage } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
+import type { anyOrNever } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
+import type { BigintLiteral, NumberLiteral } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/numbers.js'
+declare namespace m1 {
+  export type ast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type e<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type name<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type e<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type operand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type l<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type operator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type r<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type text<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type operand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type argAsts<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type g<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BigintLiteral: any
 declare const BranchOperator: any
 declare const Comparator: any
@@ -36,36 +73,18 @@ declare const validateRange: any
 declare const writeInvalidGenericArgCountMessage: any
 declare const writeMalformedNumericLiteralMessage: any
 declare const writeMissingSubmoduleAccessMessage: any
-type BigintLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BranchOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Comparator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Completion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DefAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Generic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GenericInstantiationAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferredAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InfixExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NumberLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PostfixExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PrivateDeclaration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type arkKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type astToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateDivisor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateGenericInstantiation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateRange<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type writeInvalidGenericArgCountMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type writeMalformedNumericLiteralMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type writeMissingSubmoduleAccessMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ validateAst: does not compile yet
 //   Type 'name' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function validateAst(ast, $, args) {
+export function validateAst(ast, $, args): any {
   if (matches<ErrorMessage>(ast)) {
     return ast
   }
@@ -95,7 +114,7 @@ export function validateAst(ast, $, args) {
       return validateDivisor(m3.l, $, args)
     }
     if (matches<"=">(m3.operator)) {
-      return validateDefault(m3.l, m3.r & UnitLiteral, $, args)
+      return validateDefault(m3.l, merge(m3.r, UnitLiteral), $, args)
     }
     if (matches<"#">(m3.operator)) {
       return validateAst(m3.l, $, args)
@@ -136,7 +155,7 @@ export function validateAst(ast, $, args) {
 
 // ✓ writeUnexpectedExpressionMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnexpectedExpressionMessage(expression: string) {
+export function writeUnexpectedExpressionMessage(expression: string): any {
   return `Failed to parse the expression resulting from ${expression}`
 }
 /* compiles to:
@@ -145,7 +164,7 @@ export function writeUnexpectedExpressionMessage(expression: string) {
 
 // ✓ writePrefixedPrivateReferenceMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writePrefixedPrivateReferenceMessage(name: string) {
+export function writePrefixedPrivateReferenceMessage(name: string): any {
   return `Private type references should not include '#'. Use '${name}' instead.`
 }
 /* compiles to:
@@ -155,7 +174,7 @@ export function writePrefixedPrivateReferenceMessage(name: string) {
 // ✗ validateInferredAst: does not compile yet
 //   Type 'name' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function validateInferredAst(inferred, def: string) {
+export function validateInferredAst(inferred, def: string): any {
   if (matches<NumberLiteral>(def)) {
     if (matches<typeof inferred>(number)) {
       return ErrorMessage(writeMalformedNumericLiteralMessage(def, 'number'))
@@ -214,7 +233,7 @@ export function validateInferredAst(inferred, def: string) {
 
 // ✓ validateString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function validateString(def: string, $, args) {
+export function validateString(def: string, $, args): any {
   const m1 = matches<Hole<"ast">>(parseString(def, $, args))
   if (m1) {
     const m2 = matches<Hole<"result", ErrorMessage>>(validateAst(m1.ast, $, args))
@@ -240,7 +259,7 @@ export function validateString(def: string, $, args) {
 
 // ✓ validateInfix: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function validateInfix(ast: InfixExpression, $, args) {
+export function validateInfix(ast: InfixExpression, $, args): any {
   const m1 = matches<Hole<"e", ErrorMessage>>(validateAst(ast[0], $, args))
   if (m1) {
     return m1.e

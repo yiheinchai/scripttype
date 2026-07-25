@@ -9,7 +9,7 @@
  */
 // ✓ IsNegativeNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNegativeNumber(T: number) {
+export function IsNegativeNumber(T: number): any {
   return any
 }
 /* compiles to:

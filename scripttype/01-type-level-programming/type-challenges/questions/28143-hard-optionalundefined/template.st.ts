@@ -9,7 +9,7 @@
  */
 // ✓ OptionalUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalUndefined(T, Props) {
+export function OptionalUndefined(T, Props): any {
   return any
 }
 /* compiles to:

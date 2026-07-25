@@ -7,24 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TObject } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { StaticDirection, StaticType } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/static.js'
+import type { TUnknown } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/unknown.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const StaticDirection: any
 declare const StaticType: any
 declare const TObject: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TUnknown: any
-type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CyclicStackLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CyclicStackLength(Stack: unknown[], MaxLength: number, Buffer: unknown[] = []) {
+export function CyclicStackLength(Stack: unknown[], MaxLength: number, Buffer: unknown[] = []): any {
   const m1 = matches<[ Hole<"Left">, ...Hole<"Right"> ]>(Stack)
   if (m1) {
     if (matches<typeof MaxLength>(Buffer['length'])) {
@@ -49,7 +53,7 @@ export function CyclicStackLength(Stack: unknown[], MaxLength: number, Buffer: u
 
 // ✓ CyclicGuard: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CyclicGuard(Stack: unknown[], Ref: string) {
+export function CyclicGuard(Stack: unknown[], Ref: string): any {
   if (matches<(typeof Stack)[number]>(Ref)) {
     return CyclicStackLength(Stack, 2)
   }
@@ -62,7 +66,7 @@ export function CyclicGuard(Stack: unknown[], Ref: string) {
 
 // ✓ StaticGuardedRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticGuardedRef(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Ref: string, Type: TSchema) {
+export function StaticGuardedRef(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Ref: string, Type: TSchema): any {
   if (matches<true>(CyclicGuard(Stack, Ref))) {
     return StaticType([...Stack, Ref], Direction, Context, This, Type)
   }
@@ -84,7 +88,7 @@ export function StaticGuardedRef(Stack: string[], Direction: StaticDirection, Co
 
 // ✓ StaticRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticRef(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Ref: string, Target: TSchema = Ref in Context ? Context[Ref] : TUnknown, Result: unknown = matches<TObject>(Target) ? StaticType([], Direction, Context, This, Target) : StaticGuardedRef(Stack, Direction, Context, This, Ref, Target)) {
+export function StaticRef(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Ref: string, Target: TSchema = Ref in Context ? Context[Ref] : TUnknown, Result: unknown = matches<TObject>(Target) ? StaticType([], Direction, Context, This, Target) : StaticGuardedRef(Stack, Direction, Context, This, Ref, Target)): any {
   return Result
 }
 /* compiles to:

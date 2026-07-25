@@ -9,7 +9,7 @@
  */
 // ✓ ToNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToNumber(S: string) {
+export function ToNumber(S: string): any {
   return any
 }
 /* compiles to:

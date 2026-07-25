@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const DigitCharacter: any
 declare const IsNegative: any
 declare const IsNumericLiteral: any
@@ -18,7 +22,7 @@ type IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 =
 type IsNumericLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringRepeat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StringRepeat(S: string, Count: number) {
+export function StringRepeat(S: string, Count: number): any {
   if (matches<unknown>(Count)) {
     if (matches<true>(IsNegative(Count))) {
       return never
@@ -49,7 +53,7 @@ export function StringRepeat(S: string, Count: number) {
 
 // ✓ BuildStringDigitByDigit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildStringDigitByDigit(S: string, Count: string) {
+export function BuildStringDigitByDigit(S: string, Count: string): any {
   let Accumulator = ''
   let count = Count
   while (true) {
@@ -84,7 +88,7 @@ export function BuildStringDigitByDigit(S: string, Count: string) {
 
 // ✓ RepeatStringTenTimes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RepeatStringTenTimes(S: string) {
+export function RepeatStringTenTimes(S: string): any {
   return `${S}${S}${S}${S}${S}${S}${S}${S}${S}${S}`
 }
 /* compiles to:
@@ -93,7 +97,7 @@ export function RepeatStringTenTimes(S: string) {
 
 // ✓ DigitStringRepeat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DigitStringRepeat(S: string, Digit: DigitCharacter) {
+export function DigitStringRepeat(S: string, Digit: DigitCharacter): any {
   return ['', `${S}`, `${S}${S}`, `${S}${S}${S}`, `${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}${S}${S}`, `${S}${S}${S}${S}${S}${S}${S}${S}${S}`][Digit]
 }
 /* compiles to:

@@ -7,31 +7,39 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AddAliasToSelection } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { ColumnsSelection } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sql/sql.js'
 declare const AddAliasToSelection: any
 declare const ColumnsSelection: any
 declare const Subquery: any
 declare const WithSubquery: any
-type AddAliasToSelection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ColumnsSelection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Subquery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type WithSubquery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WithSubquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SubqueryWithSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SubqueryWithSelection(TSelection: ColumnsSelection, TAlias: string) {
+export function SubqueryWithSelection(TSelection: ColumnsSelection, TAlias: string): any {
   return Subquery(TAlias, AddAliasToSelection(TSelection, TAlias, 'singlestore')) & AddAliasToSelection(TSelection, TAlias, 'singlestore')
 }
 /* compiles to:
- * export type SubqueryWithSelection<TSelection extends ColumnsSelection, TAlias extends string> = Subquery<TAlias, AddAliasToSelection<TSelection, TAlias, 'singlestore'>> & AddAliasToSelection<TSelection, TAlias, 'singlestore'>
+ * export type SubqueryWithSelection<TSelection extends ColumnsSelection, TAlias extends string> =
+ *   & Subquery<TAlias, AddAliasToSelection<TSelection, TAlias, 'singlestore'>>
+ *   & AddAliasToSelection<TSelection, TAlias, 'singlestore'>
  */
 
 // ✓ WithSubqueryWithSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithSubqueryWithSelection(TSelection: ColumnsSelection, TAlias: string) {
+export function WithSubqueryWithSelection(TSelection: ColumnsSelection, TAlias: string): any {
   return WithSubquery(TAlias, AddAliasToSelection(TSelection, TAlias, 'singlestore')) & AddAliasToSelection(TSelection, TAlias, 'singlestore')
 }
 /* compiles to:
- * export type WithSubqueryWithSelection<TSelection extends ColumnsSelection, TAlias extends string> = WithSubquery<TAlias, AddAliasToSelection<TSelection, TAlias, 'singlestore'>> & AddAliasToSelection<TSelection, TAlias, 'singlestore'>
+ * export type WithSubqueryWithSelection<
+ *   TSelection extends ColumnsSelection,
+ *   TAlias extends string
+ * > =
+ *   & WithSubquery<TAlias, AddAliasToSelection<TSelection, TAlias, 'singlestore'>>
+ *   & AddAliasToSelection<TSelection, TAlias, 'singlestore'>
  */

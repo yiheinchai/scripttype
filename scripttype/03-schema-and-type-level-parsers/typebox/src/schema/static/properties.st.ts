@@ -7,20 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { XStaticSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/schema.js'
+import type { XRequired } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/required.js'
+import type { XSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/schema.js'
+declare namespace m1 {
+  export type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const PropertyKey: any
 declare const XRequired: any
 declare const XSchema: any
 declare const XStaticSchema: any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XRequired<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XIsReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XIsReadonly(Schema: XSchema) {
+export function XIsReadonly(Schema: XSchema): any {
   if (matches<{ readOnly: true; }>(Schema)) {
     return true
   }
@@ -38,14 +42,14 @@ export function XIsReadonly(Schema: XSchema) {
 
 // ✓ XRequiredArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XRequiredArray__v1(Schema) {
+export function XRequiredArray__v1(Schema): any {
   const m1 = matches<XRequired<Hole<"Keys", string[]>>>(Schema)
   if (m1) {
     return m1.Keys
   }
   return []
 }
-export function XRequiredArray(Schema: XSchema, Result: PropertyKey[] = XRequiredArray__v1(Schema)) {
+export function XRequiredArray(Schema: XSchema, Result: PropertyKey[] = XRequiredArray__v1(Schema)): any {
   return Result
 }
 /* compiles to:
@@ -60,14 +64,14 @@ export function XRequiredArray(Schema: XSchema, Result: PropertyKey[] = XRequire
 
 // ✓ XReadonlyKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XReadonlyKeys__v1(Properties) {
+export function XReadonlyKeys__v1(Properties): any {
   const out = emptyObject
   for (const Key in keyof(Properties)) {
     out[matches<true>(XIsReadonly(Properties[Key])) ? Key : never] = unknown
   }
   return out
 }
-export function XReadonlyKeys(Properties: Record<PropertyKey, XSchema>, ReadonlyProperties: Record<PropertyKey, unknown> = XReadonlyKeys__v1(Properties), Result: PropertyKey = keyof(ReadonlyProperties)) {
+export function XReadonlyKeys(Properties: Record<PropertyKey, XSchema>, ReadonlyProperties: Record<PropertyKey, unknown> = XReadonlyKeys__v1(Properties), Result: PropertyKey = keyof(ReadonlyProperties)): any {
   return Result
 }
 /* compiles to:
@@ -84,7 +88,7 @@ export function XReadonlyKeys(Properties: Record<PropertyKey, XSchema>, Readonly
 
 // ✓ XRequiredKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XRequiredKeys(Properties: Record<PropertyKey, XSchema>, RequiredArray: string[], Result: PropertyKey = matches<[ ]>(RequiredArray) ? never : Extract(keyof(Properties), RequiredArray[number])) {
+export function XRequiredKeys(Properties: Record<PropertyKey, XSchema>, RequiredArray: string[], Result: PropertyKey = matches<[ ]>(RequiredArray) ? never : Extract(keyof(Properties), RequiredArray[number])): any {
   return Result
 }
 /* compiles to:
@@ -98,7 +102,7 @@ export function XRequiredKeys(Properties: Record<PropertyKey, XSchema>, Required
 
 // ✓ XUnknownKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XUnknownKeys(Properties: Record<PropertyKey, XSchema>, RequiredArray: string[], Result: PropertyKey = Exclude(RequiredArray[number], keyof(Properties))) {
+export function XUnknownKeys(Properties: Record<PropertyKey, XSchema>, RequiredArray: string[], Result: PropertyKey = Exclude(RequiredArray[number], keyof(Properties))): any {
   return Result
 }
 /* compiles to:
@@ -112,7 +116,7 @@ export function XUnknownKeys(Properties: Record<PropertyKey, XSchema>, RequiredA
 
 // ✓ XOptionalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XOptionalKeys(Properties: Record<PropertyKey, XSchema>, RequiredArray: string[], Result: PropertyKey = matches<[ ]>(RequiredArray) ? keyof(Properties) : Exclude(keyof(Properties), RequiredArray[number])) {
+export function XOptionalKeys(Properties: Record<PropertyKey, XSchema>, RequiredArray: string[], Result: PropertyKey = matches<[ ]>(RequiredArray) ? keyof(Properties) : Exclude(keyof(Properties), RequiredArray[number])): any {
   return Result
 }
 /* compiles to:
@@ -126,7 +130,10 @@ export function XOptionalKeys(Properties: Record<PropertyKey, XSchema>, Required
 
 // ✓ XReadonlyOptionalProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XReadonlyOptionalProperties(Stack: string[], Root: XSchema, OptionalKeys: PropertyKey, Properties: Record<PropertyKey, XSchema>) {
+/**
+ * @param {Record<PropertyKey, XSchema>} Properties
+ */
+export function XReadonlyOptionalProperties(Stack: string[], Root: XSchema, OptionalKeys: PropertyKey, Properties): any {
   const out = emptyObject
   for (const Key in keySet(Extract(keyof(Properties), OptionalKeys))) {
     out[Key] = readonlyProp(optional(XStaticSchema(Stack, Root, Properties[Key])))
@@ -151,7 +158,10 @@ export function XReadonlyOptionalProperties(Stack: string[], Root: XSchema, Opti
 
 // ✓ XReadonlyRequiredProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XReadonlyRequiredProperties(Stack: string[], Root: XSchema, RequiredKeys: PropertyKey, Properties: Record<PropertyKey, XSchema>) {
+/**
+ * @param {Record<PropertyKey, XSchema>} Properties
+ */
+export function XReadonlyRequiredProperties(Stack: string[], Root: XSchema, RequiredKeys: PropertyKey, Properties): any {
   const out = emptyObject
   for (const Key in keySet(Extract(keyof(Properties), RequiredKeys))) {
     out[Key] = readonlyProp(XStaticSchema(Stack, Root, Properties[Key]))
@@ -176,7 +186,10 @@ export function XReadonlyRequiredProperties(Stack: string[], Root: XSchema, Requ
 
 // ✓ XOptionalProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XOptionalProperties(Stack: string[], Root: XSchema, OptionalKeys: PropertyKey, Properties: Record<PropertyKey, XSchema>) {
+/**
+ * @param {Record<PropertyKey, XSchema>} Properties
+ */
+export function XOptionalProperties(Stack: string[], Root: XSchema, OptionalKeys: PropertyKey, Properties): any {
   const out = emptyObject
   for (const Key in keySet(Extract(keyof(Properties), OptionalKeys))) {
     out[Key] = optional(XStaticSchema(Stack, Root, Properties[Key]))
@@ -201,7 +214,10 @@ export function XOptionalProperties(Stack: string[], Root: XSchema, OptionalKeys
 
 // ✓ XRequiredProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XRequiredProperties(Stack: string[], Root: XSchema, RequiredKeys: PropertyKey, Properties: Record<PropertyKey, XSchema>) {
+/**
+ * @param {Record<PropertyKey, XSchema>} Properties
+ */
+export function XRequiredProperties(Stack: string[], Root: XSchema, RequiredKeys: PropertyKey, Properties): any {
   const out = emptyObject
   for (const Key in keySet(Extract(keyof(Properties), RequiredKeys))) {
     out[Key] = XStaticSchema(Stack, Root, Properties[Key])
@@ -226,7 +242,7 @@ export function XRequiredProperties(Stack: string[], Root: XSchema, RequiredKeys
 
 // ✓ XUnknownProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XUnknownProperties(UnknownKeys: PropertyKey) {
+export function XUnknownProperties(UnknownKeys: PropertyKey): any {
   const out = emptyObject
   for (const Key in keySet(UnknownKeys)) {
     out[Key] = unknown
@@ -241,7 +257,7 @@ export function XUnknownProperties(UnknownKeys: PropertyKey) {
 
 // ✓ XStaticProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XStaticProperties(Stack: string[], Root: XSchema, Schema: XSchema, Properties: Record<PropertyKey, XSchema>, RequiredArray: string[] = XRequiredArray(Schema), ReadonlyKeys: PropertyKey = XReadonlyKeys(Properties), OptionalKeys: PropertyKey = XOptionalKeys(Properties, RequiredArray), RequiredKeys: PropertyKey = XRequiredKeys(Properties, RequiredArray), UnknownKeys: PropertyKey = XUnknownKeys(Properties, RequiredArray), ReadonlyOptionalProperties: Record<PropertyKey, unknown> = XReadonlyOptionalProperties(Stack, Root, Extract(OptionalKeys, ReadonlyKeys), Properties), ReadonlyRequiredProperties: Record<PropertyKey, unknown> = XReadonlyRequiredProperties(Stack, Root, Extract(RequiredKeys, ReadonlyKeys), Properties), OptionalProperties: Record<PropertyKey, unknown> = XOptionalProperties(Stack, Root, Exclude(OptionalKeys, ReadonlyKeys), Properties), RequiredProperties: Record<PropertyKey, unknown> = XRequiredProperties(Stack, Root, Exclude(RequiredKeys, ReadonlyKeys), Properties), UnknownProperties: Record<PropertyKey, unknown> = XUnknownProperties(UnknownKeys), Result: Record<PropertyKey, unknown> = merge(ReadonlyOptionalProperties, ReadonlyRequiredProperties, OptionalProperties, RequiredProperties, UnknownProperties)) {
+export function XStaticProperties(Stack: string[], Root: XSchema, Schema: XSchema, Properties: Record<PropertyKey, XSchema>, RequiredArray: string[] = XRequiredArray(Schema), ReadonlyKeys: PropertyKey = XReadonlyKeys(Properties), OptionalKeys: PropertyKey = XOptionalKeys(Properties, RequiredArray), RequiredKeys: PropertyKey = XRequiredKeys(Properties, RequiredArray), UnknownKeys: PropertyKey = XUnknownKeys(Properties, RequiredArray), ReadonlyOptionalProperties: Record<PropertyKey, unknown> = XReadonlyOptionalProperties(Stack, Root, Extract(OptionalKeys, ReadonlyKeys), Properties), ReadonlyRequiredProperties: Record<PropertyKey, unknown> = XReadonlyRequiredProperties(Stack, Root, Extract(RequiredKeys, ReadonlyKeys), Properties), OptionalProperties: Record<PropertyKey, unknown> = XOptionalProperties(Stack, Root, Exclude(OptionalKeys, ReadonlyKeys), Properties), RequiredProperties: Record<PropertyKey, unknown> = XRequiredProperties(Stack, Root, Exclude(RequiredKeys, ReadonlyKeys), Properties), UnknownProperties: Record<PropertyKey, unknown> = XUnknownProperties(UnknownKeys), Result: Record<PropertyKey, unknown> = merge(ReadonlyOptionalProperties, ReadonlyRequiredProperties, OptionalProperties, RequiredProperties, UnknownProperties)): any {
   return Result
 }
 /* compiles to:

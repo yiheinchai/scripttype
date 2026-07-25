@@ -7,18 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyColumn } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
 declare namespace SQL {
   export type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const Aliased: any
 declare const AnyColumn: any
 declare const Column: any
 declare const SQL: any
 declare const Subquery: any
 declare const Table: any
-type AnyColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RequiredKeyOnly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -26,7 +29,7 @@ type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = a
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequiredKeyOnly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequiredKeyOnly(TKey: string, T: Column) {
+export function RequiredKeyOnly(TKey: string, T: Column): any {
   if (matches<AnyColumn<{ notNull: true; hasDefault: false; }>>(T)) {
     return TKey
   }
@@ -39,7 +42,7 @@ export function RequiredKeyOnly(TKey: string, T: Column) {
 
 // ✓ OptionalKeyOnly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalKeyOnly(TKey: string, T: Column, OverrideT: boolean | undefined = false) {
+export function OptionalKeyOnly(TKey: string, T: Column, OverrideT: boolean | undefined = false): any {
   if (matches<RequiredKeyOnly<typeof TKey, typeof T>>(TKey)) {
     return never
   }
@@ -73,8 +76,8 @@ export function OptionalKeyOnly(TKey: string, T: Column, OverrideT: boolean | un
 
 // ✓ SelectedFieldsFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectedFieldsFlat(TColumn: Column) {
-  return Record(string, anyOf(TColumn, SQL, SQL.Aliased, Subquery))
+export function SelectedFieldsFlat(TColumn: Column): any {
+  return Record(string, anyOf(TColumn, SQL, t<SQL.Aliased>(), Subquery))
 }
 /* compiles to:
  * export type SelectedFieldsFlat<TColumn extends Column> = Record<
@@ -85,8 +88,8 @@ export function SelectedFieldsFlat(TColumn: Column) {
 
 // ✓ SelectedFieldsFlatFull: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectedFieldsFlatFull(TColumn: Column) {
-  return Record(string, anyOf(TColumn, SQL, SQL.Aliased))
+export function SelectedFieldsFlatFull(TColumn: Column): any {
+  return Record(string, anyOf(TColumn, SQL, t<SQL.Aliased>()))
 }
 /* compiles to:
  * export type SelectedFieldsFlatFull<TColumn extends Column> = Record<
@@ -97,7 +100,7 @@ export function SelectedFieldsFlatFull(TColumn: Column) {
 
 // ✓ SelectedFields: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectedFields(TColumn: Column, TTable: Table) {
+export function SelectedFields(TColumn: Column, TTable: Table): any {
   return Record(string, anyOf(SelectedFieldsFlat(TColumn)[string], TTable, SelectedFieldsFlat(TColumn)))
 }
 /* compiles to:
@@ -109,8 +112,8 @@ export function SelectedFields(TColumn: Column, TTable: Table) {
 
 // ✓ SelectedFieldsOrdered: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectedFieldsOrdered(TColumn: Column) {
-  return arrayOf({ path: arrayOf(string), field: anyOf(TColumn, SQL, SQL.Aliased, Subquery) })
+export function SelectedFieldsOrdered(TColumn: Column): any {
+  return arrayOf({ path: arrayOf(string), field: anyOf(TColumn, SQL, t<SQL.Aliased>(), Subquery) })
 }
 /* compiles to:
  * export type SelectedFieldsOrdered<TColumn extends Column> =

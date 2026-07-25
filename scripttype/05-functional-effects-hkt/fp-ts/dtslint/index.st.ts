@@ -9,7 +9,7 @@
  */
 // ✓ Tuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Tuple(E, A) {
+export function Tuple(E, A): any {
   return asReadonly([A, E])
 }
 /* compiles to:

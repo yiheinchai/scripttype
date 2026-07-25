@@ -14,7 +14,7 @@ declare const Base: any
 type Base<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InfiniteType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InfiniteType(T) {
+export function InfiniteType(T): any {
   return Base(InfiniteType(T), T)
 }
 /* compiles to:
@@ -23,7 +23,7 @@ export function InfiniteType(T) {
 
 // ✓ NullableInfiniteType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NullableInfiniteType(T) {
+export function NullableInfiniteType(T): any {
   return anyOf(Null, Undefined, Partial(Base(NullableInfiniteType(T), T)))
 }
 /* compiles to:
@@ -33,7 +33,7 @@ export function NullableInfiniteType(T) {
 
 // ✓ Depth3Type: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Depth3Type(T) {
+export function Depth3Type(T): any {
   return Base(Base(Base(never, T), T), T)
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ BEM: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BEM(B: string, E: string[], M: string[]) {
+export function BEM(B: string, E: string[], M: string[]): any {
   return any
 }
 /* compiles to:

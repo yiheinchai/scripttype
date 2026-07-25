@@ -18,7 +18,7 @@ type MySqlDecimalBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = 
 type MySqlDecimalNumberBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlDecimalBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlDecimalBuilderInitial(TName: string) {
+export function MySqlDecimalBuilderInitial(TName: string): any {
   return MySqlDecimalBuilder({ name: TName, dataType: 'string', columnType: 'MySqlDecimal', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function MySqlDecimalBuilderInitial(TName: string) {
 
 // ✓ MySqlDecimalNumberBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlDecimalNumberBuilderInitial(TName: string) {
+export function MySqlDecimalNumberBuilderInitial(TName: string): any {
   return MySqlDecimalNumberBuilder({ name: TName, dataType: 'number', columnType: 'MySqlDecimalNumber', data: number, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
@@ -54,7 +54,7 @@ export function MySqlDecimalNumberBuilderInitial(TName: string) {
 
 // ✓ MySqlDecimalBigIntBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlDecimalBigIntBuilderInitial(TName: string) {
+export function MySqlDecimalBigIntBuilderInitial(TName: string): any {
   return MySqlDecimalBigIntBuilder({ name: TName, dataType: 'bigint', columnType: 'MySqlDecimalBigInt', data: bigint, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:

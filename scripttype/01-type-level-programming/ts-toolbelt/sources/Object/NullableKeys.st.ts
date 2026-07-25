@@ -9,7 +9,10 @@
  */
 // ✓ _NullableKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _NullableKeys(O: object) {
+/**
+ * @param {object} O
+ */
+export function _NullableKeys(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = required(matches<[ never ]>([merge(O[K], anyOf(Undefined, Null))]) ? never : K)
@@ -23,7 +26,7 @@ export function _NullableKeys(O: object) {
 
 // ✓ NullableKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NullableKeys(O: object) {
+export function NullableKeys(O: object): any {
   if (matches<unknown>(O)) {
     return _NullableKeys(O)
   }

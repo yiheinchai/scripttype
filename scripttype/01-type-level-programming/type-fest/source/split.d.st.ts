@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SplitOptions } from '../../../../01-type-level-programming/type-fest/source/split.d.js'
+declare namespace m1 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const And: any
 declare const ApplyDefaultOptions: any
 declare const DefaultSplitOptions: any
@@ -23,10 +29,9 @@ type DefaultSplitOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = 
 type IsStringLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SplitOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Split: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Split(S: string, Delimiter: string, Options: SplitOptions = {}) {
+export function Split(S: string, Delimiter: string, Options: SplitOptions = {}): any {
   return SplitHelper(S, Delimiter, ApplyDefaultOptions(SplitOptions, DefaultSplitOptions, Options))
 }
 /* compiles to:
@@ -40,7 +45,7 @@ export function Split(S: string, Delimiter: string, Options: SplitOptions = {}) 
 
 // ✓ SplitHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SplitHelper(S: string, Delimiter: string, Options: Required<SplitOptions>, Accumulator: string[] = []) {
+export function SplitHelper(S: string, Delimiter: string, Options: Required<SplitOptions>, Accumulator: string[] = []): any {
   if (typeof S === 'string') {
     if (typeof Delimiter === 'string') {
       if (matches<true>(Or(Not(Options['strictLiteralChecks']), And(IsStringLiteral(S), IsStringLiteral(Delimiter))))) {

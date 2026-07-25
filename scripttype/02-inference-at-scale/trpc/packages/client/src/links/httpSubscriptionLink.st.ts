@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TransformerOptions } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/internals/transformer.js'
+import type { UrlOptionsWithConnectionParams } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/links/internals/urlWithConnectionParams.js'
+import type { Operation } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/links/types.js'
+import type { AnyClientTypes } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inferrable.js'
 declare namespace EventSourceLike {
   export type AnyConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type InitDictOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -22,18 +27,14 @@ declare const InitDictOf: any
 declare const Operation: any
 declare const TransformerOptions: any
 declare const UrlOptionsWithConnectionParams: any
-type AnyClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AnyConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EventSource<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EventSourceLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InitDictOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Operation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TransformerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UrlOptionsWithConnectionParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ HTTPSubscriptionLinkOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HTTPSubscriptionLinkOptions(TRoot: AnyClientTypes, TEventSource: EventSourceLike.AnyConstructor = t<typeof EventSource>()) {
-  return merge({ EventSource: optional(TEventSource), eventSourceOptions: optional(EventSourceLike.InitDictOf(TEventSource) | fnType([{ op: Operation }], EventSourceLike.InitDictOf(TEventSource) | t<Promise<EventSourceLike.InitDictOf<typeof TEventSource>>>())) }, TransformerOptions(TRoot), UrlOptionsWithConnectionParams)
+export function HTTPSubscriptionLinkOptions(TRoot: AnyClientTypes, TEventSource: EventSourceLike.AnyConstructor = t<typeof EventSource>()): any {
+  return merge({ EventSource: optional(TEventSource), eventSourceOptions: optional(t<EventSourceLike.InitDictOf<typeof TEventSource>>() | fnType([{ op: Operation }], t<EventSourceLike.InitDictOf<typeof TEventSource>>() | t<Promise<EventSourceLike.InitDictOf<typeof TEventSource>>>())) }, TransformerOptions(TRoot), UrlOptionsWithConnectionParams)
 }
 /* compiles to:
  * export type HTTPSubscriptionLinkOptions<

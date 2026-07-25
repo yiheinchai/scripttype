@@ -9,7 +9,7 @@
  */
 // ✓ IsAlphabet: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsAlphabet(S: string) {
+export function IsAlphabet(S: string): any {
   return any
 }
 /* compiles to:

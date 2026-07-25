@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Add } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/addition.js'
 declare namespace StrIter {
   export type CutAt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type Double<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -19,29 +21,52 @@ declare namespace StrIter {
   export type Size<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type $DoubleIt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type $Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type $Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type $Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare const $DoubleIt: any
 declare const Add: any
+declare const CutAt: any
+declare const Double: any
+declare const Init: any
 declare const Iterator: any
+declare const Prev: any
+declare const Size: any
 declare const StrIter: any
-type Add<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+declare const Value: any
+type $DoubleIt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CutAt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Double<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Init<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Iterator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Size<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StrIter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ LengthUp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LengthUp(Str: string, Length: number | bigint = 0, It: StrIter.Iterator = StrIter.Init) {
-  const m1 = matches<Hole<"$DoubleIt", StrIter.Iterator>>(StrIter.Double(It))
+export function LengthUp(Str: string, Length: number | bigint = 0, It: StrIter.Iterator = t<StrIter.Init>()): any {
+  const m1 = matches<Hole<"$DoubleIt", StrIter.Iterator>>(t<StrIter.Double<typeof It>>())
   if (m1) {
-    const m2 = matches<`${Hole<"$Rest">}`>(StrIter.CutAt(Str, m1.$DoubleIt))
+    const m2 = matches<`${Hole<"$Rest">}`>(t<StrIter.CutAt<typeof Str, typeof m1.$DoubleIt>>())
     if (m2) {
-      if (matches<12>(StrIter.Size(It))) {
-        return LengthDown(m2.$Rest, Add(Length, StrIter.Value(m1.$DoubleIt)), m1.$DoubleIt)
+      if (matches<12>(t<StrIter.Size<typeof It>>())) {
+        return LengthDown(m2.$Rest, Add(Length, t<StrIter.Value<typeof m1.$DoubleIt>>()), m1.$DoubleIt)
       }
-      return LengthUp(m2.$Rest, Add(Length, StrIter.Value(m1.$DoubleIt)), m1.$DoubleIt)
+      return LengthUp(m2.$Rest, Add(Length, t<StrIter.Value<typeof m1.$DoubleIt>>()), m1.$DoubleIt)
     }
-    const m3 = matches<`${Hole<"$Rest">}`>(StrIter.CutAt(Str, It))
+    const m3 = matches<`${Hole<"$Rest">}`>(t<StrIter.CutAt<typeof Str, typeof It>>())
     if (m3) {
-      return LengthUp(m3.$Rest, Add(Length, StrIter.Value(It)), It)
+      return LengthUp(m3.$Rest, Add(Length, t<StrIter.Value<typeof It>>()), It)
     }
-    return LengthDown(Str, Length, StrIter.Prev(It))
+    return LengthDown(Str, Length, t<StrIter.Prev<typeof It>>())
   }
   return never
 }
@@ -64,13 +89,13 @@ export function LengthUp(Str: string, Length: number | bigint = 0, It: StrIter.I
 
 // ✓ LengthDown: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LengthDown(Str: string, Length: number | bigint, It) {
+export function LengthDown(Str: string, Length: number | bigint, It): any {
   if (matches<StrIter.Iterator>(It)) {
-    const m1 = matches<`${Hole<"$Rest">}`>(StrIter.CutAt(Str, It))
+    const m1 = matches<`${Hole<"$Rest">}`>(t<StrIter.CutAt<typeof Str, typeof It>>())
     if (m1) {
-      return LengthDown(m1.$Rest, Add(Length, StrIter.Value(It)), It)
+      return LengthDown(m1.$Rest, Add(Length, t<StrIter.Value<typeof It>>()), It)
     }
-    return LengthDown(Str, Length, StrIter.Prev(It))
+    return LengthDown(Str, Length, t<StrIter.Prev<typeof It>>())
   }
   return Length
 }
@@ -85,7 +110,7 @@ export function LengthDown(Str: string, Length: number | bigint, It) {
 
 // ✓ Length: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Length(T: string) {
+export function Length(T: string): any {
   if (matches<"">(T)) {
     return 0
   }

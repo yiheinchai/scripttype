@@ -7,9 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { MetadataAction } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/actions/metadata/metadata.js'
+import type { SchemaWithPipe } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/methods/pipe/pipe.js'
+import type { SchemaWithPipeAsync } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/methods/pipe/pipeAsync.js'
+import type { BaseSchema, BaseSchemaAsync } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/schema.js'
+import type { Merge, Prettify } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/utils.js'
+declare namespace m1 {
+  export type TFirstItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPipeRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TNestedPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type TCurrentMetadata<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseSchema: any
 declare const BaseSchemaAsync: any
 declare const BasicPipeItem: any
@@ -19,18 +36,11 @@ declare const Prettify: any
 declare const Schema: any
 declare const SchemaWithPipe: any
 declare const SchemaWithPipeAsync: any
-type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type BasicPipeItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MetadataAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SchemaWithPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SchemaWithPipeAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RecursiveMerge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RecursiveMerge(TRootPipe: readonly BasicPipeItem[], TCollectedMetadata: Record<string, unknown> = {}) {
+export function RecursiveMerge(TRootPipe: readonly BasicPipeItem[], TCollectedMetadata: Record<string, unknown> = {}): any {
   const m1 = matches<readonly [ Hole<"TFirstItem">, ...Hole<"TPipeRest", readonly BasicPipeItem[]> ]>(TRootPipe)
   if (m1) {
     const m2 = matches<SchemaWithPipe<Hole<"TNestedPipe">> | SchemaWithPipeAsync<Hole<"TNestedPipe">>>(m1.TFirstItem)
@@ -61,7 +71,7 @@ export function RecursiveMerge(TRootPipe: readonly BasicPipeItem[], TCollectedMe
 
 // ✓ InferMetadata: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferMetadata(TSchema: Schema) {
+export function InferMetadata(TSchema: Schema): any {
   if (matches<typeof TSchema>(BaseSchema(any, any, any))) {
     return Record(string, unknown)
   }

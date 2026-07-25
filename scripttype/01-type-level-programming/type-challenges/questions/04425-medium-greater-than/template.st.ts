@@ -9,7 +9,7 @@
  */
 // ✓ GreaterThan: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GreaterThan(T: number, U: number) {
+export function GreaterThan(T: number, U: number): any {
   return any
 }
 /* compiles to:

@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const UnionToIntersection: any
 declare const end: any
 declare const start: any
@@ -18,7 +22,7 @@ type end<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T
 type start<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Expand: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Expand(T) {
+export function Expand(T): any {
   const m1 = matches<Hole<"O">>(T)
   if (m1) {
     const out = emptyObject
@@ -35,7 +39,7 @@ export function Expand(T) {
 
 // ✓ IsUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsUnion(T) {
+export function IsUnion(T): any {
   if (matches<[ UnionToIntersection<typeof T> ]>([T])) {
     return false
   }
@@ -47,7 +51,7 @@ export function IsUnion(T) {
 
 // ✓ LastTupleElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LastTupleElement(TArr: any[]) {
+export function LastTupleElement(TArr: any[]): any {
   const m1 = matches<[ ...start: Hole<"_">, end: Hole<"Last"> ]>(TArr)
   if (m1) {
     return m1.Last
@@ -55,13 +59,15 @@ export function LastTupleElement(TArr: any[]) {
   return never
 }
 /* compiles to:
- * export type LastTupleElement<TArr extends any[]> =
- *   TArr extends [unknown, infer Last] ? Last : never
+ * export type LastTupleElement<TArr extends any[]> = TArr extends [any, infer Last] ? Last : never
  */
 
 // ✓ UniqueArrayOfUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UniqueArrayOfUnion(TUnion, TArray: (typeof TUnion)[]) {
+/**
+ * @param {(typeof TUnion)[]} TArray
+ */
+export function UniqueArrayOfUnion(TUnion, TArray): any {
   if (matches<never>(Exclude(TUnion, TArray[number]))) {
     return [TUnion]
   }

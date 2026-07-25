@@ -9,7 +9,7 @@
  */
 // ✓ NonEmptyString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonEmptyString(T: string) {
+export function NonEmptyString(T: string): any {
   if (matches<typeof T>('')) {
     return never
   }

@@ -14,7 +14,7 @@ declare const SingleStoreYearBuilder: any
 type SingleStoreYearBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreYearBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreYearBuilderInitial(TName: string) {
+export function SingleStoreYearBuilderInitial(TName: string): any {
   return SingleStoreYearBuilder({ name: TName, dataType: 'number', columnType: 'SingleStoreYear', data: number, driverParam: number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:

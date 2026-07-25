@@ -7,16 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ElysiaCookie } from '../../../../02-inference-at-scale/elysia/src/cookies.js'
+import type { SelectiveStatus } from '../../../../02-inference-at-scale/elysia/src/error.js'
+import type { HTTPHeaders, InputSchema, Prettify, ResolvePath, RouteSchema, SingletonBase } from '../../../../02-inference-at-scale/elysia/src/types.js'
+import type { Server } from '../../../../02-inference-at-scale/elysia/src/universal/server.js'
 declare const Code: any
 declare const Cookie: any
 declare const ElysiaCookie: any
+declare const ElysiaCustomStatusResponse: any
 declare const HTTPHeaders: any
 declare const InputSchema: any
-declare const InvertedStatusMap: any
-declare const InvertedStatusMapKey: any
 declare const Prettify: any
 declare const Redirect: any
 declare const Request: any
@@ -26,37 +30,17 @@ declare const SelectiveStatus: any
 declare const Server: any
 declare const SingletonBase: any
 declare const StatusMap: any
-declare const decorator: any
-declare const derive: any
-declare const resolve: any
-declare const response: any
 declare const status: any
-declare const store: any
 type Code<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Cookie<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ElysiaCookie<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type HTTPHeaders<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InputSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InvertedStatusMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InvertedStatusMapKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ElysiaCustomStatusResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Redirect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Request<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolvePath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectiveStatus<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Server<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingletonBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StatusMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type decorator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type derive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type resolve<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type status<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type store<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CheckExcessProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CheckExcessProps(T, U) {
+export function CheckExcessProps(T, U): any {
   if (matches<1 & typeof T>(0)) {
     return T
   }
@@ -89,7 +73,7 @@ export function CheckExcessProps(T, U) {
 // ✗ ErrorContext: does not compile yet
 //   Unterminated string literal.
 /* @scripttype preserveParamNames */
-export function ErrorContext(Route: RouteSchema = {}, Singleton: SingletonBase = { decorator: {}, store: {}, derive: {}, resolve: {} }, Path: string | undefined = Undefined) {
+export function ErrorContext(Route: RouteSchema = {}, Singleton: SingletonBase = { decorator: {}, store: {}, derive: {}, resolve: {} }, Path: string | undefined = Undefined): any {
   const out = emptyObject
   for (const key in keySet(string)) {
     out[key] = string
@@ -98,22 +82,60 @@ export function ErrorContext(Route: RouteSchema = {}, Singleton: SingletonBase =
   for (const key in keyof(Route['cookie'])) {
     out2[key] = required(NonNullable(Cookie(Route['cookie'][key])))
   }
-  return Prettify(merge({ body: Route['body'], query: matches<(typeof Route)['query']>(Undefined) ? Record(string, anyOf(string, Undefined)) : Route['query'], params: matches<(typeof Route)['params']>(Undefined) ? (matches<`${string}/${':' | '*'}${string}`>(Path) ? ResolvePath(Path) : out) : Route['params'], headers: matches<(typeof Route)['headers']>(Undefined) ? Record(string, anyOf(string, Undefined)) : Route['headers'], cookie: matches<(typeof Route)['cookie']>(Undefined) ? Record(string, Cookie(anyOf(string, Undefined))) : (Record(string, Cookie(anyOf(string, Undefined))) & out2), server: Server | Null, redirect: Redirect, set: { headers: HTTPHeaders, status: optional(number | keyof(StatusMap)), redirect: optional(string), cookie: optional(Record(string, ElysiaCookie)) }, status: matches<(typeof Route)['response']>({}) ? t<typeof status>() : genericFnType(['const Code extends
-						| keyof Route[\'response\']
-						| InvertedStatusMap[Extract<
-								InvertedStatusMapKey,
-								keyof Route[\'response\']
-						  >]', 'T extends Code extends keyof Route[\'response\']
-						? Route[\'response\'][Code]
-						: Code extends keyof StatusMap
-							? // @ts-ignore StatusMap[Code] always valid because Code generic check
-								Route[\'response\'][StatusMap[Code]]
-							: never'], [Code, CheckExcessProps(T, Code in Route['response'] ? Route['response'][Code] : (Code in StatusMap ? Route['response'][StatusMap[Code]] : never))], ElysiaCustomStatusResponse(Code, T)), path: string, route: string, request: Request, store: Singleton['store'] }, Singleton['decorator'], Singleton['derive'], Singleton['resolve']))
+  return Prettify(merge({ body: Route['body'], query: matches<(typeof Route)['query']>(Undefined) ? Record(string, anyOf(string, Undefined)) : Route['query'], params: matches<(typeof Route)['params']>(Undefined) ? (matches<`${string}/${':' | '*'}${string}`>(Path) ? ResolvePath(Path) : out) : Route['params'], headers: matches<(typeof Route)['headers']>(Undefined) ? Record(string, anyOf(string, Undefined)) : Route['headers'], cookie: matches<(typeof Route)['cookie']>(Undefined) ? Record(string, Cookie(anyOf(string, Undefined))) : (Record(string, Cookie(anyOf(string, Undefined))) & out2), server: Server | Null, redirect: Redirect, set: { headers: HTTPHeaders, status: optional(number | keyof(StatusMap)), redirect: optional(string), cookie: optional(Record(string, ElysiaCookie)) }, status: matches<(typeof Route)['response']>({}) ? t<typeof status>() : genericFnType(['const Code extends | keyof Route[\'response\'] | InvertedStatusMap[Extract< InvertedStatusMapKey, keyof Route[\'response\'] >]', 'T extends Code extends keyof Route[\'response\'] ? Route[\'response\'][Code] : Code extends keyof StatusMap ? // @ts-ignore StatusMap[Code] always valid because Code generic check Route[\'response\'][StatusMap[Code]] : never'], [Code, CheckExcessProps(T, Code in Route['response'] ? Route['response'][Code] : (Code in StatusMap ? Route['response'][StatusMap[Code]] : never))], ElysiaCustomStatusResponse(Code, T)), path: string, route: string, request: Request, store: Singleton['store'] }, Singleton['decorator'], Singleton['derive'], Singleton['resolve']))
 }
+/* compiles to:
+ * export type ErrorContext<
+ *   Route extends RouteSchema = {},
+ *   Singleton extends SingletonBase = { decorator: {}; store: {}; derive: {}; resolve: {} },
+ *   Path extends string | undefined = undefined
+ * > =
+ *   Prettify<
+ *     & {
+ *         body: Route['body']
+ *         query: undefined extends Route['query']
+ *           ? Record<string, string | undefined>
+ *           : Route['query']
+ *         params: undefined extends Route['params']
+ *           ? Path extends `${string}/${':' | '*'}${string}`
+ *             ? ResolvePath<Path>
+ *             : { [Key in string]: string }
+ *           : Route['params']
+ *         headers: undefined extends Route['headers']
+ *           ? Record<string, string | undefined>
+ *           : Route['headers']
+ *         cookie: undefined extends Route['cookie']
+ *           ? Record<string, Cookie<string | undefined>>
+ *           : & Record<string, Cookie<string | undefined>>
+ *           & { [Key1 in keyof Route['cookie']]-?: NonNullable<Cookie<Route['cookie'][Key1]>> }
+ *         server: Server | null
+ *         redirect: Redirect
+ *         set: {
+ *           headers: HTTPHeaders
+ *           status?: number | keyof StatusMap
+ *           redirect?: string
+ *           cookie?: Record<string, ElysiaCookie>
+ *         }
+ *         status: {} extends Route['response']
+ *           ? status
+ *           : <const Code extends | keyof Route['response'] | InvertedStatusMap[Extract< InvertedStatusMapKey, keyof Route['response'] >], T extends Code extends keyof Route['response'] ? Route['response'][Code] : Code extends keyof StatusMap ? // @ts-ignore StatusMap[Code] always valid because Code generic check Route['response'][StatusMap[Code]] : never>(
+ *             a0: Code,
+ *             a1: CheckExcessProps<T, Code extends keyof Route['response'] ? Route['response'][Code] : Code extends keyof StatusMap ? Route['response'][StatusMap[Code]] : never>
+ *           ) => ElysiaCustomStatusResponse<Code, T>
+ *         path: string
+ *         route: string
+ *         request: Request
+ *         store: Singleton['store']
+ *       }
+ *     & Singleton['decorator']
+ *     & Singleton['derive']
+ *     & Singleton['resolve']
+ *   >
+ */
 
 // ✓ PrettifyIfObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PrettifyIfObject(T) {
+export function PrettifyIfObject(T): any {
   if (matches<object>(T)) {
     return Prettify(T)
   }
@@ -126,7 +148,7 @@ export function PrettifyIfObject(T) {
 // ✗ Context: does not compile yet
 //   'status' refers to a value, but is being used as a type here. Did you mean 'typeof status'?
 /* @scripttype preserveParamNames */
-export function Context(Route: RouteSchema = {}, Singleton: SingletonBase = { decorator: {}, store: {}, derive: {}, resolve: {} }, Path: string | undefined = Undefined) {
+export function Context(Route: RouteSchema = {}, Singleton: SingletonBase = { decorator: {}, store: {}, derive: {}, resolve: {} }, Path: string | undefined = Undefined): any {
   const out = emptyObject
   for (const key in keyof(Route['cookie'])) {
     out[key] = required(Cookie(Route['cookie'][key]))
@@ -135,7 +157,7 @@ export function Context(Route: RouteSchema = {}, Singleton: SingletonBase = { de
   for (const key in keyof(Singleton['resolve']['cookie'])) {
     out2[key] = required(Cookie(Singleton['resolve']['cookie'][key]))
   }
-  return Prettify(merge({ body: PrettifyIfObject(Route['body'] & Singleton['resolve']['body']), query: matches<(typeof Route)['query']>(Undefined) ? (matches<NonNullable<(typeof Singleton)['resolve']['query']>>({}) ? Record(string, string) : Singleton['resolve']['query']) : PrettifyIfObject(Route['query'] & Singleton['resolve']['query']), params: matches<(typeof Route)['params']>(Undefined) ? (matches<typeof Path>(Undefined) ? (matches<NonNullable<(typeof Singleton)['resolve']['params']>>({}) ? Record(string, string) : Singleton['resolve']['params']) : (matches<`${string}/${':' | '*'}${string}`>(Path) ? ResolvePath(Path) : never)) : PrettifyIfObject(Route['params'] & Singleton['resolve']['params']), headers: matches<(typeof Route)['headers']>(Undefined) ? (matches<NonNullable<(typeof Singleton)['resolve']['headers']>>({}) ? Record(string, anyOf(string, Undefined)) : Singleton['resolve']['headers']) : PrettifyIfObject(Route['headers'] & Singleton['resolve']['headers']), cookie: matches<(typeof Route)['cookie']>(Undefined) ? Record(string, Cookie(unknown)) : (Record(string, Cookie(unknown)) & Prettify(out & out2)), server: Server | Null, redirect: Redirect, set: { headers: HTTPHeaders, status: optional(number | keyof(StatusMap)), redirect: optional(string), cookie: optional(Record(string, ElysiaCookie)) }, path: string, route: string, request: Request, store: Singleton['store'], status: matches<(typeof Route)['response']>({}) ? t<typeof status>() : SelectiveStatus(Route['response']) }, Singleton['decorator'], Singleton['derive'], Omit(Singleton['resolve'], keyof(InputSchema))))
+  return Prettify(merge({ body: PrettifyIfObject(merge(Route['body'], Singleton['resolve']['body'])), query: matches<(typeof Route)['query']>(Undefined) ? (matches<NonNullable<(typeof Singleton)['resolve']['query']>>({}) ? Record(string, string) : Singleton['resolve']['query']) : PrettifyIfObject(merge(Route['query'], Singleton['resolve']['query'])), params: matches<(typeof Route)['params']>(Undefined) ? (matches<typeof Path>(Undefined) ? (matches<NonNullable<(typeof Singleton)['resolve']['params']>>({}) ? Record(string, string) : Singleton['resolve']['params']) : (matches<`${string}/${':' | '*'}${string}`>(Path) ? ResolvePath(Path) : never)) : PrettifyIfObject(merge(Route['params'], Singleton['resolve']['params'])), headers: matches<(typeof Route)['headers']>(Undefined) ? (matches<NonNullable<(typeof Singleton)['resolve']['headers']>>({}) ? Record(string, anyOf(string, Undefined)) : Singleton['resolve']['headers']) : PrettifyIfObject(merge(Route['headers'], Singleton['resolve']['headers'])), cookie: matches<(typeof Route)['cookie']>(Undefined) ? Record(string, Cookie(unknown)) : (Record(string, Cookie(unknown)) & Prettify(merge(out, out2))), server: Server | Null, redirect: Redirect, set: { headers: HTTPHeaders, status: optional(number | keyof(StatusMap)), redirect: optional(string), cookie: optional(Record(string, ElysiaCookie)) }, path: string, route: string, request: Request, store: Singleton['store'], status: matches<(typeof Route)['response']>({}) ? t<typeof status>() : SelectiveStatus(Route['response']) }, Singleton['decorator'], Singleton['derive'], Omit(Singleton['resolve'], keyof(InputSchema))))
 }
 /* compiles to:
  * export type Context<
@@ -198,7 +220,7 @@ export function Context(Route: RouteSchema = {}, Singleton: SingletonBase = { de
 // ✗ PreContext: does not compile yet
 //   'status' refers to a value, but is being used as a type here. Did you mean 'typeof status'?
 /* @scripttype preserveParamNames */
-export function PreContext(Singleton: SingletonBase = { decorator: {}, store: {}, derive: {}, resolve: {} }) {
+export function PreContext(Singleton: SingletonBase = { decorator: {}, store: {}, derive: {}, resolve: {} }): any {
   return Prettify(merge({ store: Singleton['store'], request: Request, redirect: Redirect, server: Server | Null, set: { headers: HTTPHeaders, status: optional(number), redirect: optional(string) }, status: t<typeof status>() }, Singleton['decorator']))
 }
 /* compiles to:

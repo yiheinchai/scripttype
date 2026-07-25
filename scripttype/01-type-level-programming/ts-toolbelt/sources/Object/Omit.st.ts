@@ -16,7 +16,7 @@ type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T
 type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _Omit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Omit(O: object, K: Key) {
+export function _Omit(O: object, K: Key): any {
   return _Pick(O, Exclude(keyof(O), K))
 }
 /* compiles to:
@@ -25,7 +25,7 @@ export function _Omit(O: object, K: Key) {
 
 // ✓ Omit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Omit(O: object, K: Key) {
+export function Omit(O: object, K: Key): any {
   if (matches<unknown>(O)) {
     return _Omit(O, K)
   }

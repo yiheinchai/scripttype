@@ -7,10 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
-declare const AnySingleStoreColumn: any
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnySingleStoreInsert } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/query-builders/insert.js'
+import type { SingleStoreUpdateSetSource } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/query-builders/update.js'
+import type { AnySingleStoreQueryResultHKT, SingleStorePreparedQueryConfig, SingleStoreQueryResultHKT, SingleStoreQueryResultKind } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/session.js'
+import type { InferModelFromColumns } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
 declare const AnySingleStoreInsert: any
 declare const AnySingleStoreQueryResultHKT: any
 declare const InferModelFromColumns: any
@@ -24,26 +28,18 @@ declare const SingleStoreQueryResultHKT: any
 declare const SingleStoreQueryResultKind: any
 declare const SingleStoreTable: any
 declare const SingleStoreUpdateSetSource: any
-type AnySingleStoreColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySingleStoreInsert<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySingleStoreQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferModelFromColumns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Placeholder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStoreInsertBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStorePreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStoreTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreUpdateSetSource<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreInsertValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreInsertValue(TTable: SingleStoreTable) {
+export function SingleStoreInsertValue(TTable: SingleStoreTable): any {
   const out = emptyObject
   for (const Key in keyof(TTable['$inferInsert'])) {
-    out[Key] = TTable['$inferInsert'][Key] | SQL | Placeholder
+    out[Key] = anyOf(TTable['$inferInsert'][Key], SQL, Placeholder)
   }
   return merge(out, {})
 }
@@ -55,7 +51,11 @@ export function SingleStoreInsertValue(TTable: SingleStoreTable) {
 
 // ✓ SingleStoreInsertWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreInsertWithout(T: AnySingleStoreInsert, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnySingleStoreInsert} T
+ * @param {keyof typeof T & string} K
+ */
+export function SingleStoreInsertWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -84,7 +84,7 @@ export function SingleStoreInsertWithout(T: AnySingleStoreInsert, TDynamic: bool
 
 // ✓ SingleStoreInsertDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreInsertDynamic(T: AnySingleStoreInsert) {
+export function SingleStoreInsertDynamic(T: AnySingleStoreInsert): any {
   return SingleStoreInsert(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], T['_']['returning'])
 }
 /* compiles to:
@@ -98,7 +98,7 @@ export function SingleStoreInsertDynamic(T: AnySingleStoreInsert) {
 
 // ✓ SingleStoreInsertPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreInsertPrepare(T: AnySingleStoreInsert, TReturning: Record<string, unknown> | undefined = Undefined) {
+export function SingleStoreInsertPrepare(T: AnySingleStoreInsert, TReturning: Record<string, unknown> | undefined = Undefined): any {
   return PreparedQueryKind(T['_']['preparedQueryHKT'], merge(SingleStorePreparedQueryConfig, { execute: typeof TReturning === 'undefined' ? SingleStoreQueryResultKind(T['_']['queryResult'], never) : arrayOf(TReturning), iterator: never }), true)
 }
 /* compiles to:
@@ -121,7 +121,7 @@ export function SingleStoreInsertPrepare(T: AnySingleStoreInsert, TReturning: Re
 
 // ✓ SingleStoreInsertOnDuplicateKeyUpdateConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreInsertOnDuplicateKeyUpdateConfig(T: AnySingleStoreInsert) {
+export function SingleStoreInsertOnDuplicateKeyUpdateConfig(T: AnySingleStoreInsert): any {
   return { set: SingleStoreUpdateSetSource(T['_']['table']) }
 }
 /* compiles to:
@@ -132,7 +132,7 @@ export function SingleStoreInsertOnDuplicateKeyUpdateConfig(T: AnySingleStoreIns
 
 // ✓ SingleStoreInsert: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreInsert(TTable: SingleStoreTable = SingleStoreTable, TQueryResult: SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined)) {
+export function SingleStoreInsert(TTable: SingleStoreTable = SingleStoreTable, TQueryResult: SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined)): any {
   return SingleStoreInsertBase(TTable, TQueryResult, TPreparedQueryHKT, TReturning, true, never)
 }
 /* compiles to:
@@ -147,7 +147,7 @@ export function SingleStoreInsert(TTable: SingleStoreTable = SingleStoreTable, T
 
 // ✓ SingleStoreInsertReturning: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreInsertReturning(T: AnySingleStoreInsert, TDynamic: boolean) {
+export function SingleStoreInsertReturning(T: AnySingleStoreInsert, TDynamic: boolean): any {
   return SingleStoreInsertBase(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], InferModelFromColumns(GetPrimarySerialOrDefaultKeys(T['_']['table']['_']['columns'])), TDynamic, anyOf(T['_']['excludedMethods'], '$returning'))
 }
 /* compiles to:
@@ -168,7 +168,10 @@ export function SingleStoreInsertReturning(T: AnySingleStoreInsert, TDynamic: bo
 // ✗ PrimaryKeyKeys: does not compile yet
 //   Type '"_"' cannot be used to index type 'T[K]'.
 /* @scripttype preserveParamNames */
-export function PrimaryKeyKeys(T: Record<string, AnySingleStoreColumn>) {
+/**
+ * @param {Record<string, AnySingleStoreColumn>} T
+ */
+export function PrimaryKeyKeys(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = matches<true>(T[K]['_']['isPrimaryKey']) ? (matches<true>(T[K]['_']['isAutoincrement']) ? K : (matches<true>(T[K]['_']['hasRuntimeDefault']) ? (matches<true>(T[K]['_']['isPrimaryKey']) ? K : never) : never)) : (matches<true>(T[K]['_']['hasRuntimeDefault']) ? (matches<true>(T[K]['_']['isPrimaryKey']) ? K : never) : never)
@@ -191,7 +194,10 @@ export function PrimaryKeyKeys(T: Record<string, AnySingleStoreColumn>) {
 
 // ✓ GetPrimarySerialOrDefaultKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetPrimarySerialOrDefaultKeys(T: Record<string, AnySingleStoreColumn>) {
+/**
+ * @param {Record<string, AnySingleStoreColumn>} T
+ */
+export function GetPrimarySerialOrDefaultKeys(T): any {
   const out = emptyObject
   for (const K in keySet(PrimaryKeyKeys(T))) {
     out[K] = T[K]

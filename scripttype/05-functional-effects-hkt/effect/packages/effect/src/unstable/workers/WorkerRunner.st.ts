@@ -9,7 +9,7 @@
  */
 // ✓ PlatformMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PlatformMessage(I) {
+export function PlatformMessage(I): any {
   return asReadonly([0, I]) | asReadonly([1])
 }
 /* compiles to:

@@ -9,7 +9,11 @@
  */
 // ✓ Overwrite: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Overwrite(O: object, O1: object) {
+/**
+ * @param {object} O
+ * @param {object} O1
+ */
+export function Overwrite(O, O1): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = K in O1 ? O1[K] : O[K]

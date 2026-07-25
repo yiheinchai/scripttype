@@ -9,7 +9,7 @@
  */
 // ✓ AsyncAtomState: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AsyncAtomState(Data, Error = unknown) {
+export function AsyncAtomState(Data, Error = unknown): any {
   return anyOf({ status: 'pending' }, { status: 'done', data: Data }, { status: 'error', error: t<typeof Error>() })
 }
 /* compiles to:

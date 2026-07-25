@@ -9,7 +9,7 @@
  */
 // ✓ Cast: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Cast(A1: any, A2: any) {
+export function Cast(A1: any, A2: any): any {
   if (matches<typeof A2>(A1)) {
     return A1
   }

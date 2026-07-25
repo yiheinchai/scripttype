@@ -7,26 +7,27 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { XStaticSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/schema.js'
+import type { XSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/schema.js'
 declare const PropertyKey: any
 declare const XSchema: any
 declare const XStaticSchema: any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ XStaticPatternProperties: the ScriptType does not itself typecheck as TypeScript
 //   XStaticPatternProperties.st.ts(9:124) TS2693: 'PropertyKey' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
-export function XStaticPatternProperties__v1(Stack, Root, Properties) {
+export function XStaticPatternProperties__v1(Stack, Root, Properties): any {
   const out = emptyObject
   for (const Key in keyof(Properties)) {
     out[Key] = XStaticSchema(Stack, Root, Properties[Key])
   }
   return out
 }
-export function XStaticPatternProperties(Stack: string[], Root: XSchema, Properties: Record<PropertyKey, XSchema> = Record(PropertyKey, XSchema), InferredProperties: Record<PropertyKey, unknown> = XStaticPatternProperties__v1(Stack, Root, Properties), EvaluatedProperties: unknown = indexRecord(string, InferredProperties[keyof(InferredProperties)])) {
+export function XStaticPatternProperties(Stack: string[], Root: XSchema, Properties: Record<PropertyKey, XSchema> = Record(PropertyKey, XSchema), InferredProperties: Record<PropertyKey, unknown> = XStaticPatternProperties__v1(Stack, Root, Properties), EvaluatedProperties: unknown = indexRecord(string, InferredProperties[keyof(InferredProperties)])): any {
   return EvaluatedProperties
 }
 /* compiles to:

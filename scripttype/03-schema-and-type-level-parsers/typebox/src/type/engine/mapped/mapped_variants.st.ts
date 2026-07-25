@@ -7,9 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TEvaluateEnum, TEvaluateTemplateLiteral } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TEnum, TEnumValue } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/enum.js'
+import type { TLiteral, TLiteralValue } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Values<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type Pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TEnum: any
 declare const TEnumValue: any
 declare const TEvaluateEnum: any
@@ -19,18 +39,10 @@ declare const TLiteralValue: any
 declare const TSchema: any
 declare const TTemplateLiteral: any
 declare const TUnion: any
-type TEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEnumValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromTemplateLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromTemplateLiteral(Pattern: string, Evaluated: TSchema = TEvaluateTemplateLiteral(Pattern), Result: TSchema[] = TFromType(Evaluated)) {
+export function TFromTemplateLiteral(Pattern: string, Evaluated: TSchema = TEvaluateTemplateLiteral(Pattern), Result: TSchema[] = TFromType(Evaluated)): any {
   return Result
 }
 /* compiles to:
@@ -44,7 +56,7 @@ export function TFromTemplateLiteral(Pattern: string, Evaluated: TSchema = TEval
 
 // ✓ TFromUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromUnion(Types: TSchema[]) {
+export function TFromUnion(Types: TSchema[]): any {
   let Result: any[] = []
   let types = Types
   while (true) {
@@ -67,7 +79,7 @@ export function TFromUnion(Types: TSchema[]) {
 
 // ✓ TFromEnum: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromEnum(Values: TEnumValue[], Evaluated: TSchema = TEvaluateEnum(Values), Result: TSchema[] = TFromType(Evaluated)) {
+export function TFromEnum(Values: TEnumValue[], Evaluated: TSchema = TEvaluateEnum(Values), Result: TSchema[] = TFromType(Evaluated)): any {
   return Result
 }
 /* compiles to:
@@ -81,7 +93,7 @@ export function TFromEnum(Values: TEnumValue[], Evaluated: TSchema = TEvaluateEn
 
 // ✓ TFromLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromLiteral(Value: TLiteralValue, Result: TSchema[] = typeof Value === 'number' ? [TLiteral(`${Value}`)] : [TLiteral(Value)]) {
+export function TFromLiteral(Value: TLiteralValue, Result: TSchema[] = typeof Value === 'number' ? [TLiteral(`${Value}`)] : [TLiteral(Value)]): any {
   return Result
 }
 /* compiles to:
@@ -94,7 +106,7 @@ export function TFromLiteral(Value: TLiteralValue, Result: TSchema[] = typeof Va
 
 // ✓ TFromType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromType__v1(Type) {
+export function TFromType__v1(Type): any {
   const m1 = matches<TEnum<Hole<"Values", TEnumValue[]>>>(Type)
   if (m1) {
     return TFromEnum(m1.Values)
@@ -113,7 +125,7 @@ export function TFromType__v1(Type) {
   }
   return [Type]
 }
-export function TFromType(Type: TSchema, Result: TSchema[] = TFromType__v1(Type)) {
+export function TFromType(Type: TSchema, Result: TSchema[] = TFromType__v1(Type)): any {
   return Result
 }
 /* compiles to:
@@ -128,7 +140,7 @@ export function TFromType(Type: TSchema, Result: TSchema[] = TFromType__v1(Type)
 
 // ✓ TMappedVariants: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedVariants(Type: TSchema, Result: TSchema[] = TFromType(Type)) {
+export function TMappedVariants(Type: TSchema, Result: TSchema[] = TFromType(Type)): any {
   return Result
 }
 /* compiles to:

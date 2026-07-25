@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DefaultError, InfiniteData, InitialDataFunction, NonUndefinedGuard, OmitKeyof, QueryKey } from '../../../../../../02-inference-at-scale/tanstack-query/packages/query-core/src/types.js'
+import type { SkipToken } from '../../../../../../02-inference-at-scale/tanstack-query/packages/query-core/src/utils.js'
 declare const DefaultError: any
 declare const InfiniteData: any
 declare const InitialDataFunction: any
@@ -18,17 +21,10 @@ declare const OmitKeyof: any
 declare const QueryKey: any
 declare const SkipToken: any
 declare const UseInfiniteQueryOptions: any
-type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InfiniteData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InitialDataFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonUndefinedGuard<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OmitKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SkipToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UseInfiniteQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UndefinedInitialDataInfiniteOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndefinedInitialDataInfiniteOptions(TQueryFnData, TError = DefaultError, TData = InfiniteData(TQueryFnData), TQueryKey: QueryKey = QueryKey, TPageParam = unknown) {
+export function UndefinedInitialDataInfiniteOptions(TQueryFnData, TError = DefaultError, TData = InfiniteData(TQueryFnData), TQueryKey: QueryKey = QueryKey, TPageParam = unknown): any {
   return merge(UseInfiniteQueryOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam), { initialData: optional(anyOf(Undefined, NonUndefinedGuard(InfiniteData(TQueryFnData, TPageParam)), InitialDataFunction(NonUndefinedGuard(InfiniteData(TQueryFnData, TPageParam))))) })
 }
 /* compiles to:
@@ -50,7 +46,7 @@ export function UndefinedInitialDataInfiniteOptions(TQueryFnData, TError = Defau
 // ✗ UnusedSkipTokenInfiniteOptions: does not compile yet
 //   Property 'queryFn' does not exist on type 'UseInfiniteQueryOptions<TQueryFnData, TError, TData, TQueryKey, TPageParam>'.
 /* @scripttype preserveParamNames */
-export function UnusedSkipTokenInfiniteOptions(TQueryFnData, TError = DefaultError, TData = InfiniteData(TQueryFnData), TQueryKey: QueryKey = QueryKey, TPageParam = unknown) {
+export function UnusedSkipTokenInfiniteOptions(TQueryFnData, TError = DefaultError, TData = InfiniteData(TQueryFnData), TQueryKey: QueryKey = QueryKey, TPageParam = unknown): any {
   return merge(OmitKeyof(UseInfiniteQueryOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam), 'queryFn'), { queryFn: optional(Exclude(UseInfiniteQueryOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam)['queryFn'], anyOf(SkipToken, Undefined))) })
 }
 /* compiles to:
@@ -75,7 +71,7 @@ export function UnusedSkipTokenInfiniteOptions(TQueryFnData, TError = DefaultErr
 
 // ✓ DefinedInitialDataInfiniteOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DefinedInitialDataInfiniteOptions(TQueryFnData, TError = DefaultError, TData = InfiniteData(TQueryFnData), TQueryKey: QueryKey = QueryKey, TPageParam = unknown) {
+export function DefinedInitialDataInfiniteOptions(TQueryFnData, TError = DefaultError, TData = InfiniteData(TQueryFnData), TQueryKey: QueryKey = QueryKey, TPageParam = unknown): any {
   return merge(UseInfiniteQueryOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam), { initialData: anyOf(NonUndefinedGuard(InfiniteData(TQueryFnData, TPageParam)), fnType([], NonUndefinedGuard(InfiniteData(TQueryFnData, TPageParam))), Undefined) })
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ RequiredByKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequiredByKeys(T, K) {
+export function RequiredByKeys(T, K): any {
   return any
 }
 /* compiles to:

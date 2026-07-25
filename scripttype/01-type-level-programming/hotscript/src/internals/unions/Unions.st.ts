@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Call, Fn, PartialApply, _, unset } from '../../../../../../01-type-level-programming/hotscript/src/internals/core/Core.js'
 declare const Call: any
 declare const ExcludeFn: any
 declare const ExtractFn: any
@@ -22,22 +24,17 @@ declare const ToIntersectionFn: any
 declare const ToTupleFn: any
 declare const _: any
 declare const unset: any
-type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ExcludeFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ExtractFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MapFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonNullableFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RangeFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ToIntersectionFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ToTupleFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Extract: does not compile yet
-//   Cannot find name 'ExtractFn'. Did you mean 'Extract'?
+//   Cannot find name 'ExtractFn'.
 /* @scripttype preserveParamNames */
-export function Extract(unionOrExtracted = unset, extracted = unset) {
+export function Extract(unionOrExtracted = unset, extracted = unset): any {
   return PartialApply(ExtractFn, matches<unset>(extracted) ? [unset, unionOrExtracted] : [unionOrExtracted, extracted])
 }
 /* compiles to:
@@ -50,7 +47,7 @@ export function Extract(unionOrExtracted = unset, extracted = unset) {
 // ✗ ExtractByImpl: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function ExtractByImpl(union, predicate: Fn) {
+export function ExtractByImpl(union, predicate: Fn): any {
   if (matches<any>(union)) {
     if (matches<true>(Call(predicate, union))) {
       return union
@@ -65,9 +62,9 @@ export function ExtractByImpl(union, predicate: Fn) {
  */
 
 // ✗ Exclude: does not compile yet
-//   Cannot find name 'ExcludeFn'. Did you mean 'excluded'?
+//   Cannot find name 'ExcludeFn'.
 /* @scripttype preserveParamNames */
-export function Exclude(unionOrExcluded = unset, excluded = unset) {
+export function Exclude(unionOrExcluded = unset, excluded = unset): any {
   return PartialApply(ExcludeFn, matches<unset>(excluded) ? [unset, unionOrExcluded] : [unionOrExcluded, excluded])
 }
 /* compiles to:
@@ -79,7 +76,7 @@ export function Exclude(unionOrExcluded = unset, excluded = unset) {
 
 // ✓ ExcludeByImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExcludeByImpl(union, predicate: Fn) {
+export function ExcludeByImpl(union, predicate: Fn): any {
   if (matches<any>(union)) {
     if (matches<true>(Call(predicate, union))) {
       return never
@@ -96,7 +93,7 @@ export function ExcludeByImpl(union, predicate: Fn) {
 // ✗ MapImpl: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function MapImpl(fn: Fn, union) {
+export function MapImpl(fn: Fn, union): any {
   if (matches<any>(union)) {
     return Call(fn, union)
   }
@@ -107,9 +104,9 @@ export function MapImpl(fn: Fn, union) {
  */
 
 // ✗ Map: does not compile yet
-//   Cannot find name 'MapFn'. Did you mean 'Map'?
+//   Cannot find name 'MapFn'.
 /* @scripttype preserveParamNames */
-export function Map(fn: Fn, u = unset) {
+export function Map(fn: Fn, u = unset): any {
   return PartialApply(MapFn, [fn, u])
 }
 /* compiles to:
@@ -117,9 +114,9 @@ export function Map(fn: Fn, u = unset) {
  */
 
 // ✗ Range: does not compile yet
-//   Cannot find name 'RangeFn'. Did you mean 'Range'?
+//   Cannot find name 'RangeFn'.
 /* @scripttype preserveParamNames */
-export function Range(start: number | _ | unset = unset, end: number | _ | unset = unset) {
+export function Range(start: number | _ | unset = unset, end: number | _ | unset = unset): any {
   return PartialApply(RangeFn, [start, end])
 }
 /* compiles to:
@@ -133,7 +130,7 @@ export function Range(start: number | _ | unset = unset, end: number | _ | unset
 // ✗ ToTuple: does not compile yet
 //   Cannot find name 'ToTupleFn'.
 /* @scripttype preserveParamNames */
-export function ToTuple(union = unset) {
+export function ToTuple(union = unset): any {
   return PartialApply(ToTupleFn, [union])
 }
 /* compiles to:
@@ -141,9 +138,9 @@ export function ToTuple(union = unset) {
  */
 
 // ✗ NonNullable: does not compile yet
-//   Cannot find name 'NonNullableFn'. Did you mean 'NonNullable'?
+//   Cannot find name 'NonNullableFn'.
 /* @scripttype preserveParamNames */
-export function NonNullable(union = unset) {
+export function NonNullable(union = unset): any {
   return PartialApply(NonNullableFn, [union])
 }
 /* compiles to:
@@ -153,7 +150,7 @@ export function NonNullable(union = unset) {
 // ✗ ToIntersection: does not compile yet
 //   Cannot find name 'ToIntersectionFn'.
 /* @scripttype preserveParamNames */
-export function ToIntersection(union = unset) {
+export function ToIntersection(union = unset): any {
   return PartialApply(ToIntersectionFn, [union])
 }
 /* compiles to:

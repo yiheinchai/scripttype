@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
+// Names this file references but does not define: types from elsewhere in the
+// library, and local functions used in type position. Declared so the generated
+// ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 // ✓ XFromTypeNames: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XFromTypeNames(TypeNames: string[]) {
+export function XFromTypeNames(TypeNames: string[]): any {
   let Result = never
   let typeNames = TypeNames
   while (true) {
@@ -32,7 +39,7 @@ export function XFromTypeNames(TypeNames: string[]) {
 
 // ✓ XFromTypeName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XFromTypeName(TypeName: string) {
+export function XFromTypeName(TypeName: string): any {
   if (matches<'object'>(TypeName)) {
     return object
   }
@@ -102,7 +109,7 @@ export function XFromTypeName(TypeName: string) {
 
 // ✓ XStaticType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XStaticType(TypeName: string[] | string) {
+export function XStaticType(TypeName: string[] | string): any {
   if (matches<string[]>(TypeName)) {
     return XFromTypeNames(TypeName)
   }

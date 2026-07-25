@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { MergeDeepOptions } from '../../../../01-type-level-programming/type-fest/source/merge-deep.d.js'
 declare const EnforceOptional: any
 declare const FirstArrayElement: any
 declare const IsBothExtends: any
@@ -29,7 +31,6 @@ type FirstArrayElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = an
 type IsBothExtends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MergeDeepInternalOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MergeDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonEmptyTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OmitIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PickIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -40,7 +41,10 @@ type UnknownRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T
 type _ArrayTail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Writable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Writable(TArray: UnknownArray) {
+/**
+ * @param {UnknownArray} TArray
+ */
+export function Writable(TArray): any {
   const out = emptyObject
   for (const Key in keyof(TArray)) {
     out[Key] = mutable(TArray[Key])
@@ -55,7 +59,7 @@ export function Writable(TArray: UnknownArray) {
 
 // ✓ ArrayTail: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayTail(TArray: UnknownArray) {
+export function ArrayTail(TArray: UnknownArray): any {
   if (matches<unknown>(TArray)) {
     if (matches<never>(merge(keyof(TArray), `${number}`))) {
       return []
@@ -73,7 +77,7 @@ export function ArrayTail(TArray: UnknownArray) {
 
 // ✓ SimplifyDeepExcludeArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SimplifyDeepExcludeArray(T) {
+export function SimplifyDeepExcludeArray(T): any {
   return SimplifyDeep(T, UnknownArray)
 }
 /* compiles to:
@@ -82,7 +86,7 @@ export function SimplifyDeepExcludeArray(T) {
 
 // ✓ MergeDeepRecordProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepRecordProperty(Destination, Source, Options: MergeDeepInternalOptions) {
+export function MergeDeepRecordProperty(Destination, Source, Options: MergeDeepInternalOptions): any {
   if (matches<typeof Source>(Undefined)) {
     return MergeDeepOrReturn(Source, Exclude(Destination, Undefined), Exclude(Source, Undefined), Options) | (matches<typeof Destination>(Undefined) ? Undefined : never)
   }
@@ -107,7 +111,11 @@ export function MergeDeepRecordProperty(Destination, Source, Options: MergeDeepI
 
 // ✓ DoMergeDeepRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DoMergeDeepRecord(Destination: UnknownRecord, Source: UnknownRecord, Options: MergeDeepInternalOptions) {
+/**
+ * @param {UnknownRecord} Destination
+ * @param {UnknownRecord} Source
+ */
+export function DoMergeDeepRecord(Destination, Source, Options: MergeDeepInternalOptions): any {
   const out = emptyObject
   for (const Key in keyof(Destination)) {
     out[Key in Source ? never : Key] = Destination[Key]
@@ -141,7 +149,7 @@ export function DoMergeDeepRecord(Destination: UnknownRecord, Source: UnknownRec
 
 // ✓ MergeDeepRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepRecord(Destination: UnknownRecord, Source: UnknownRecord, Options: MergeDeepInternalOptions) {
+export function MergeDeepRecord(Destination: UnknownRecord, Source: UnknownRecord, Options: MergeDeepInternalOptions): any {
   return DoMergeDeepRecord(OmitIndexSignature(Destination), OmitIndexSignature(Source), Options) & Merge(PickIndexSignature(Destination), PickIndexSignature(Source))
 }
 /* compiles to:
@@ -156,7 +164,7 @@ export function MergeDeepRecord(Destination: UnknownRecord, Source: UnknownRecor
 
 // ✓ PickRestTypeHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickRestTypeHelper(Tail: UnknownArrayOrTuple, Type) {
+export function PickRestTypeHelper(Tail: UnknownArrayOrTuple, Type): any {
   if (matches<[ ]>(Tail)) {
     return Type
   }
@@ -169,7 +177,7 @@ export function PickRestTypeHelper(Tail: UnknownArrayOrTuple, Type) {
 
 // ✓ PickRestType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickRestType(Type: UnknownArrayOrTuple) {
+export function PickRestType(Type: UnknownArrayOrTuple): any {
   if (matches<(typeof Type)['length']>(number)) {
     return PickRestTypeHelper(ArrayTail(Type), Type)
   }
@@ -182,7 +190,7 @@ export function PickRestType(Type: UnknownArrayOrTuple) {
 
 // ✓ OmitRestTypeHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OmitRestTypeHelper(Tail: UnknownArrayOrTuple, Type: UnknownArrayOrTuple, Result: UnknownArrayOrTuple = []) {
+export function OmitRestTypeHelper(Tail: UnknownArrayOrTuple, Type: UnknownArrayOrTuple, Result: UnknownArrayOrTuple = []): any {
   if (matches<[ ]>(Tail)) {
     return Result
   }
@@ -199,7 +207,7 @@ export function OmitRestTypeHelper(Tail: UnknownArrayOrTuple, Type: UnknownArray
 
 // ✓ OmitRestType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OmitRestType(Type: UnknownArrayOrTuple, Result: UnknownArrayOrTuple = []) {
+export function OmitRestType(Type: UnknownArrayOrTuple, Result: UnknownArrayOrTuple = []): any {
   if (matches<(typeof Type)['length']>(number)) {
     return OmitRestTypeHelper(ArrayTail(Type), Type, Result)
   }
@@ -215,7 +223,7 @@ export function OmitRestType(Type: UnknownArrayOrTuple, Result: UnknownArrayOrTu
 
 // ✓ TypeNumberOrType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TypeNumberOrType(Type: UnknownArrayOrTuple) {
+export function TypeNumberOrType(Type: UnknownArrayOrTuple): any {
   if (matches<never>(Type[number])) {
     return Type
   }
@@ -228,7 +236,7 @@ export function TypeNumberOrType(Type: UnknownArrayOrTuple) {
 
 // ✓ PickRestTypeFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickRestTypeFlat(Type: UnknownArrayOrTuple) {
+export function PickRestTypeFlat(Type: UnknownArrayOrTuple): any {
   return TypeNumberOrType(PickRestType(Type))
 }
 /* compiles to:
@@ -239,7 +247,7 @@ export function PickRestTypeFlat(Type: UnknownArrayOrTuple) {
 
 // ✓ MergeDeepArrayOrTupleElements: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepArrayOrTupleElements(Destination, Source, Options: MergeDeepInternalOptions) {
+export function MergeDeepArrayOrTupleElements(Destination, Source, Options: MergeDeepInternalOptions): any {
   if (matches<[ ]>(Source)) {
     return Destination
   }
@@ -261,7 +269,7 @@ export function MergeDeepArrayOrTupleElements(Destination, Source, Options: Merg
 
 // ✓ DoMergeDeepTupleAndTupleRecursive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DoMergeDeepTupleAndTupleRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, DestinationRestType, SourceRestType, Options: MergeDeepInternalOptions) {
+export function DoMergeDeepTupleAndTupleRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, DestinationRestType, SourceRestType, Options: MergeDeepInternalOptions): any {
   if (matches<[ ]>(Destination)) {
     if (matches<[ ]>(Source)) {
       return []
@@ -302,7 +310,7 @@ export function DoMergeDeepTupleAndTupleRecursive(Destination: UnknownArrayOrTup
 
 // ✓ MergeDeepTupleAndTupleRecursive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepTupleAndTupleRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
+export function MergeDeepTupleAndTupleRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions): any {
   return [...DoMergeDeepTupleAndTupleRecursive(OmitRestType(Destination), OmitRestType(Source), PickRestTypeFlat(Destination), PickRestTypeFlat(Source), Options), ...MergeDeepArrayOrTupleElements(PickRestType(Destination), PickRestType(Source), Options)]
 }
 /* compiles to:
@@ -325,7 +333,7 @@ export function MergeDeepTupleAndTupleRecursive(Destination: UnknownArrayOrTuple
 
 // ✓ MergeTupleAndArrayType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeTupleAndArrayType(Tuple: UnknownArrayOrTuple, ArrayType, Options: MergeDeepInternalOptions) {
+export function MergeTupleAndArrayType(Tuple: UnknownArrayOrTuple, ArrayType, Options: MergeDeepInternalOptions): any {
   if (matches<[ ]>(Tuple)) {
     return Tuple
   }
@@ -347,7 +355,7 @@ export function MergeTupleAndArrayType(Tuple: UnknownArrayOrTuple, ArrayType, Op
 
 // ✓ MergeDeepTupleAndArrayRecursive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepTupleAndArrayRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
+export function MergeDeepTupleAndArrayRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions): any {
   return [...MergeTupleAndArrayType(OmitRestType(Destination), Source[number], Options), ...MergeDeepArrayOrTupleElements(PickRestType(Destination), PickRestType(Source), Options)]
 }
 /* compiles to:
@@ -364,7 +372,7 @@ export function MergeDeepTupleAndArrayRecursive(Destination: UnknownArrayOrTuple
 
 // ✓ MergeArrayTypeAndTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeArrayTypeAndTuple(ArrayType, Tuple: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
+export function MergeArrayTypeAndTuple(ArrayType, Tuple: UnknownArrayOrTuple, Options: MergeDeepInternalOptions): any {
   if (matches<[ ]>(Tuple)) {
     return Tuple
   }
@@ -386,7 +394,7 @@ export function MergeArrayTypeAndTuple(ArrayType, Tuple: UnknownArrayOrTuple, Op
 
 // ✓ MergeDeepArrayAndTupleRecursive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepArrayAndTupleRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
+export function MergeDeepArrayAndTupleRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions): any {
   return [...MergeArrayTypeAndTuple(Destination[number], OmitRestType(Source), Options), ...MergeDeepArrayOrTupleElements(PickRestType(Destination), PickRestType(Source), Options)]
 }
 /* compiles to:
@@ -403,7 +411,7 @@ export function MergeDeepArrayAndTupleRecursive(Destination: UnknownArrayOrTuple
 
 // ✓ ShouldSpread: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ShouldSpread(Options: MergeDeepInternalOptions) {
+export function ShouldSpread(Options: MergeDeepInternalOptions): any {
   if (matches<false>(Options['spreadTopLevelArrays'])) {
     if (matches<'spread'>(Options['arrayMergeMode'])) {
       return true
@@ -421,7 +429,7 @@ export function ShouldSpread(Options: MergeDeepInternalOptions) {
 
 // ✓ DoMergeArrayOrTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DoMergeArrayOrTuple(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
+export function DoMergeArrayOrTuple(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions): any {
   if (matches<true>(ShouldSpread(Options))) {
     return arrayOf(Exclude(Destination, Undefined)[number] | Exclude(Source, Undefined)[number])
   }
@@ -440,7 +448,7 @@ export function DoMergeArrayOrTuple(Destination: UnknownArrayOrTuple, Source: Un
 
 // ✓ MergeDeepArrayRecursive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepArrayRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
+export function MergeDeepArrayRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions): any {
   if (matches<UnknownArrayOrTuple>(Destination[number])) {
     if (matches<UnknownArrayOrTuple>(Source[number])) {
       return arrayOf(MergeDeepArrayOrTupleRecursive(Destination[number], Source[number], Options))
@@ -474,7 +482,7 @@ export function MergeDeepArrayRecursive(Destination: UnknownArrayOrTuple, Source
 
 // ✓ MergeDeepArrayOrTupleRecursive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepArrayOrTupleRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
+export function MergeDeepArrayOrTupleRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions): any {
   if (matches<true>(IsBothExtends(NonEmptyTuple, Destination, Source))) {
     return MergeDeepTupleAndTupleRecursive(Destination, Source, Options)
   }
@@ -502,7 +510,7 @@ export function MergeDeepArrayOrTupleRecursive(Destination: UnknownArrayOrTuple,
 
 // ✓ MergeDeepArrayOrTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepArrayOrTuple(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
+export function MergeDeepArrayOrTuple(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions): any {
   if (matches<true>(Options['recurseIntoArrays'])) {
     return MergeDeepArrayOrTupleRecursive(Destination, Source, Options)
   }
@@ -521,7 +529,7 @@ export function MergeDeepArrayOrTuple(Destination: UnknownArrayOrTuple, Source: 
 
 // ✓ MergeDeepOrReturn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepOrReturn(DefaultType, Destination, Source, Options: MergeDeepInternalOptions) {
+export function MergeDeepOrReturn(DefaultType, Destination, Source, Options: MergeDeepInternalOptions): any {
   return SimplifyDeepExcludeArray(matches<[ typeof Destination | typeof Source ]>([Undefined]) ? DefaultType : (matches<UnknownRecord>(Destination) ? (matches<UnknownRecord>(Source) ? MergeDeepRecord(Destination, Source, Options) : DefaultType) : (matches<UnknownArrayOrTuple>(Destination) ? (matches<UnknownArrayOrTuple>(Source) ? MergeDeepArrayOrTuple(Destination, Source, EnforceOptional(Merge(Options, { spreadTopLevelArrays: false }))) : DefaultType) : DefaultType)))
 }
 /* compiles to:
@@ -551,7 +559,7 @@ export function MergeDeepOrReturn(DefaultType, Destination, Source, Options: Mer
 
 // ✓ DefaultMergeDeepOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DefaultMergeDeepOptions(Options: MergeDeepOptions) {
+export function DefaultMergeDeepOptions(Options: MergeDeepOptions): any {
   return Merge({ arrayMergeMode: 'replace', recurseIntoArrays: false, spreadTopLevelArrays: true }, Options)
 }
 /* compiles to:
@@ -563,7 +571,7 @@ export function DefaultMergeDeepOptions(Options: MergeDeepOptions) {
 
 // ✓ MergeDeepWithDefaultOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepWithDefaultOptions(Destination, Source, Options: MergeDeepOptions) {
+export function MergeDeepWithDefaultOptions(Destination, Source, Options: MergeDeepOptions): any {
   return SimplifyDeepExcludeArray(matches<[ typeof Destination | typeof Source ]>([Undefined]) ? never : (matches<UnknownRecord>(Destination) ? (matches<UnknownRecord>(Source) ? MergeDeepRecord(Destination, Source, DefaultMergeDeepOptions(Options)) : never) : (matches<UnknownArrayOrTuple>(Destination) ? (matches<UnknownArrayOrTuple>(Source) ? MergeDeepArrayOrTuple(Destination, Source, DefaultMergeDeepOptions(Options)) : never) : never)))
 }
 /* compiles to:
@@ -588,7 +596,7 @@ export function MergeDeepWithDefaultOptions(Destination, Source, Options: MergeD
 
 // ✓ MergeDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeep(Destination, Source, Options: MergeDeepOptions = {}) {
+export function MergeDeep(Destination, Source, Options: MergeDeepOptions = {}): any {
   return MergeDeepWithDefaultOptions(SimplifyDeepExcludeArray(Destination), SimplifyDeepExcludeArray(Source), Options)
 }
 /* compiles to:

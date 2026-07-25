@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ElysiaFormData } from '../../../../../02-inference-at-scale/elysia/src/utils.js'
 declare const ElysiaFormData: any
 declare const TObject: any
 declare const TProperties: any
 declare const TUnsafe: any
-type ElysiaFormData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TUnsafe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NonEmptyArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonEmptyArray(T) {
+export function NonEmptyArray(T): any {
   return [T, ...arrayOf(T)]
 }
 /* compiles to:
@@ -29,7 +30,7 @@ export function NonEmptyArray(T) {
 
 // ✓ TForm: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TForm(T: TProperties = TProperties) {
+export function TForm(T: TProperties = TProperties): any {
   return TUnsafe(ElysiaFormData(TObject(T)['static']))
 }
 /* compiles to:
@@ -40,7 +41,7 @@ export function TForm(T: TProperties = TProperties) {
 
 // ✓ TransformFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TransformFunction(T = any, U = any) {
+export function TransformFunction(T = any, U = any): any {
   return fnType([T], U)
 }
 /* compiles to:
@@ -49,7 +50,7 @@ export function TransformFunction(T = any, U = any) {
 
 // ✓ AssertNumericEnum: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AssertNumericEnum(T: Record<string, string | number>) {
+export function AssertNumericEnum(T: Record<string, string | number>): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = typeof K === 'number' ? string : (matches<`${number}`>(K) ? string : (typeof K === 'string' ? number : never))

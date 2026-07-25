@@ -10,15 +10,25 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type ArrayIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Path<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RealKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RecordKeyInPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RestPaths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type SubPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type ArrayIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ArrayIndex: any
 declare const ArraySplice: any
 declare const ExactKey: any
 declare const IsArrayReadonly: any
 declare const IsEqual: any
 declare const IsNever: any
-declare const LiteralUnion: any
 declare const NonRecursiveType: any
-declare const Paths: any
 declare const PropertyKey: any
 declare const SetArrayAccess: any
 declare const SimplifyDeep: any
@@ -31,9 +41,7 @@ type ExactKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = a
 type IsArrayReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LiteralUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SetArrayAccess<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SimplifyDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -42,7 +50,10 @@ type UnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OmitDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OmitDeep(T, PathUnion: LiteralUnion<Paths<typeof T>, string>) {
+/**
+ * @param {LiteralUnion<Paths<typeof T>, string>} PathUnion
+ */
+export function OmitDeep(T, PathUnion): any {
   return SimplifyDeep(OmitDeepHelper(T, UnionToTuple(PathUnion)), UnknownArray)
 }
 /* compiles to:
@@ -54,7 +65,7 @@ export function OmitDeep(T, PathUnion: LiteralUnion<Paths<typeof T>, string>) {
 
 // ✓ OmitDeepHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OmitDeepHelper(T, PathTuple: UnknownArray) {
+export function OmitDeepHelper(T, PathTuple: UnknownArray): any {
   let t = T
   let pathTuple = PathTuple
   while (true) {
@@ -80,7 +91,7 @@ export function OmitDeepHelper(T, PathTuple: UnknownArray) {
 
 // ✓ OmitDeepWithOnePath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OmitDeepWithOnePath(T, Path: string | number) {
+export function OmitDeepWithOnePath(T, Path: string | number): any {
   if (matches<NonRecursiveType>(T)) {
     return T
   }
@@ -103,7 +114,7 @@ export function OmitDeepWithOnePath(T, Path: string | number) {
 
 // ✓ OmitDeepObjectWithOnePath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OmitDeepObjectWithOnePath__v1(ObjectT, SubPath, Key) {
+export function OmitDeepObjectWithOnePath__v1(ObjectT, SubPath, Key): any {
   const m1 = matches<Hole<"RealKey">>(ExactKey(ObjectT, Key))
   if (m1) {
     if (m1.RealKey in ObjectT) {
@@ -113,7 +124,10 @@ export function OmitDeepObjectWithOnePath__v1(ObjectT, SubPath, Key) {
   }
   return ObjectT[Key]
 }
-export function OmitDeepObjectWithOnePath(ObjectT: object, P: string | number) {
+/**
+ * @param {object} ObjectT
+ */
+export function OmitDeepObjectWithOnePath(ObjectT, P: string | number): any {
   const m1 = matches<`${Hole<"RecordKeyInPath">}.${Hole<"SubPath">}`>(P)
   if (m1) {
     const out = emptyObject
@@ -157,7 +171,7 @@ export function OmitDeepObjectWithOnePath(ObjectT: object, P: string | number) {
 
 // ✓ OmitDeepArrayWithOnePath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OmitDeepArrayWithOnePath(ArrayType: UnknownArray, P: string | number) {
+export function OmitDeepArrayWithOnePath(ArrayType: UnknownArray, P: string | number): any {
   const m1 = matches<`${Hole<"ArrayIndex", number>}.${Hole<"SubPath">}`>(P)
   if (m1) {
     if (matches<typeof m1.ArrayIndex>(number)) {

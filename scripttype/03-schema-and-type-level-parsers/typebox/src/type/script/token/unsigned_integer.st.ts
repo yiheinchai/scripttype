@@ -7,9 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TNonZero, TUnderScore, TZero } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/char.js'
+import type { TMany } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/many.js'
+import type { TTake } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/take.js'
+import type { TTrim } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/trim.js'
+declare namespace m1 {
+  export type Zero<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ZeroRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type NonZero<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type NonZeroRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type Digits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type DigitsRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TAllowedDigits: any
 declare const TMany: any
 declare const TNonZero: any
@@ -18,15 +35,9 @@ declare const TTrim: any
 declare const TUnderScore: any
 declare const TZero: any
 type TAllowedDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TMany<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNonZero<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnderScore<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TZero<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeNonZero: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeNonZero(Input: string) {
+export function TTakeNonZero(Input: string): any {
   return TTake(TNonZero, Input)
 }
 /* compiles to:
@@ -35,7 +46,7 @@ export function TTakeNonZero(Input: string) {
 
 // ✓ TTakeDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeDigits(Input: string) {
+export function TTakeDigits(Input: string): any {
   return TMany(TAllowedDigits, [TUnderScore], Input)
 }
 /* compiles to:
@@ -44,7 +55,7 @@ export function TTakeDigits(Input: string) {
 
 // ✓ TTakeUnsignedInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeUnsignedInteger(Input: string) {
+export function TTakeUnsignedInteger(Input: string): any {
   const m1 = matches<[ Hole<"Zero", string>, Hole<"ZeroRest", string> ]>(TTake([TZero], Input))
   if (m1) {
     return [m1.Zero, m1.ZeroRest]
@@ -72,7 +83,7 @@ export function TTakeUnsignedInteger(Input: string) {
 
 // ✓ TUnsignedInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TUnsignedInteger(Input: string) {
+export function TUnsignedInteger(Input: string): any {
   return TTakeUnsignedInteger(TTrim(Input))
 }
 /* compiles to:

@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ComputeRaw } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Compute.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Keys } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Keys.js'
+import type { OptionalFlat } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/Optional.js'
+import type { RequiredFlat } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/Required.js'
 declare const ComputeRaw: any
 declare const Extends: any
 declare const Key: any
@@ -17,16 +23,11 @@ declare const Keys: any
 declare const OptionalFlat: any
 declare const RequiredFlat: any
 declare const _Pick: any
-type ComputeRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RequiredFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequiredIfKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequiredIfKeys(O: object, K: Key) {
+export function RequiredIfKeys(O: object, K: Key): any {
   if (matches<1>(Extends(merge(keyof(O), K), K))) {
     return RequiredFlat(O)
   }
@@ -39,7 +40,7 @@ export function RequiredIfKeys(O: object, K: Key) {
 
 // ✓ __AtLeast: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function __AtLeast(O: object, K: Key) {
+export function __AtLeast(O: object, K: Key): any {
   if (K in O) {
     return _Pick(O, K) & OptionalFlat(O)
   }
@@ -52,7 +53,7 @@ export function __AtLeast(O: object, K: Key) {
 
 // ✓ _AtLeast: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _AtLeast(O: object, K: Key) {
+export function _AtLeast(O: object, K: Key): any {
   return ComputeRaw(__AtLeast(RequiredIfKeys(O, K), K))
 }
 /* compiles to:
@@ -63,7 +64,7 @@ export function _AtLeast(O: object, K: Key) {
 
 // ✓ AtLeast: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AtLeast(O: object, K: Key = Keys(O)) {
+export function AtLeast(O: object, K: Key = Keys(O)): any {
   if (matches<unknown>(O)) {
     return _AtLeast(O, K)
   }

@@ -25,7 +25,7 @@ type Request<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type Rpc<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Envelope: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Envelope(R: Rpc.Any) {
+export function Envelope(R: Rpc.Any): any {
   return Request(R) | AckChunk | Interrupt
 }
 /* compiles to:

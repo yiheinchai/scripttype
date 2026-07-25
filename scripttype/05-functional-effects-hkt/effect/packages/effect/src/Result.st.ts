@@ -10,10 +10,14 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type _A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Result: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Result(A, E = never) {
+export function Result(A, E = never): any {
   return Success(A, E) | Failure(A, E)
 }
 /* compiles to:
@@ -22,7 +26,7 @@ export function Result(A, E = never) {
 
 // ✓ Failure: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Failure(T: Result<any, any>) {
+export function Failure(T: Result<any, any>): any {
   const m1 = matches<[ Result<Hole<"_A">, Hole<"_E">> ]>([T])
   if (m1) {
     return m1._E
@@ -31,12 +35,12 @@ export function Failure(T: Result<any, any>) {
 }
 /* compiles to:
  * export type Failure<T extends Result<any, any>> =
- *   [T] extends [Result<unknown, infer _E>] ? _E : never
+ *   [T] extends [Result<any, infer _E>] ? _E : never
  */
 
 // ✓ Success: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Success(T: Result<any, any>) {
+export function Success(T: Result<any, any>): any {
   const m1 = matches<[ Result<Hole<"_A">, Hole<"_E">> ]>([T])
   if (m1) {
     return m1._A
@@ -45,5 +49,5 @@ export function Success(T: Result<any, any>) {
 }
 /* compiles to:
  * export type Success<T extends Result<any, any>> =
- *   [T] extends [Result<infer _A, unknown>] ? _A : never
+ *   [T] extends [Result<infer _A, any>] ? _A : never
  */

@@ -9,7 +9,7 @@
  */
 // ✓ Get: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Get(T, K) {
+export function Get(T, K): any {
   return string
 }
 /* compiles to:

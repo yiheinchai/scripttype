@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { MySqlSchema } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-kit/src/serializer/mysqlSchema.js'
+import type { PgSchema } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-kit/src/serializer/pgSchema.js'
 declare const AbstractGenerator: any
 declare const BaseSQLiteDatabase: any
 declare const MySqlColumn: any
@@ -29,11 +32,9 @@ type AbstractGenerator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = an
 type BaseSQLiteDatabase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MySqlColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MySqlDatabase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MySqlSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MySqlTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgDatabase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Relations<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -42,7 +43,7 @@ type generatorsFuncs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any,
 type generatorsFuncsV2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferCallbackType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferCallbackType__v1(SCHEMA, table) {
+export function InferCallbackType__v1(SCHEMA, table): any {
   const out = emptyObject
   for (const column in keyof(SCHEMA[table])) {
     out[matches<PgColumn>(SCHEMA[table][column]) ? column : never] = optional(AbstractGenerator(any))
@@ -50,7 +51,7 @@ export function InferCallbackType__v1(SCHEMA, table) {
   return out
 }
 
-export function InferCallbackType__v2(SCHEMA) {
+export function InferCallbackType__v2(SCHEMA): any {
   const out = emptyObject
   for (const refTable in keyof(SCHEMA)) {
     out[matches<PgTable>(SCHEMA[refTable]) ? refTable : never] = optional(number | arrayOf({ weight: number, count: number | arrayOf(number) }))
@@ -58,7 +59,7 @@ export function InferCallbackType__v2(SCHEMA) {
   return out
 }
 
-export function InferCallbackType__v3(SCHEMA, table) {
+export function InferCallbackType__v3(SCHEMA, table): any {
   const out = emptyObject
   for (const column in keyof(SCHEMA[table])) {
     out[matches<MySqlColumn>(SCHEMA[table][column]) ? column : never] = optional(AbstractGenerator(any))
@@ -66,7 +67,7 @@ export function InferCallbackType__v3(SCHEMA, table) {
   return out
 }
 
-export function InferCallbackType__v4(SCHEMA) {
+export function InferCallbackType__v4(SCHEMA): any {
   const out = emptyObject
   for (const refTable in keyof(SCHEMA)) {
     out[matches<MySqlTable>(SCHEMA[refTable]) ? refTable : never] = optional(number | arrayOf({ weight: number, count: number | arrayOf(number) }))
@@ -74,7 +75,7 @@ export function InferCallbackType__v4(SCHEMA) {
   return out
 }
 
-export function InferCallbackType__v5(SCHEMA, table) {
+export function InferCallbackType__v5(SCHEMA, table): any {
   const out = emptyObject
   for (const column in keyof(SCHEMA[table])) {
     out[matches<SQLiteColumn>(SCHEMA[table][column]) ? column : never] = optional(AbstractGenerator(any))
@@ -82,14 +83,17 @@ export function InferCallbackType__v5(SCHEMA, table) {
   return out
 }
 
-export function InferCallbackType__v6(SCHEMA) {
+export function InferCallbackType__v6(SCHEMA): any {
   const out = emptyObject
   for (const refTable in keyof(SCHEMA)) {
     out[matches<SQLiteTable>(SCHEMA[refTable]) ? refTable : never] = optional(number | arrayOf({ weight: number, count: number | arrayOf(number) }))
   }
   return out
 }
-export function InferCallbackType(DB: PgDatabase<any, any> | MySqlDatabase<any, any> | BaseSQLiteDatabase<any, any>, SCHEMA: { [key: string]: PgTable | PgSchema | MySqlTable | MySqlSchema | SQLiteTable | Relations; }) {
+/**
+ * @param {{ [key: string]: PgTable | PgSchema | MySqlTable | MySqlSchema | SQLiteTable | Relations; }} SCHEMA
+ */
+export function InferCallbackType(DB: PgDatabase<any, any> | MySqlDatabase<any, any> | BaseSQLiteDatabase<any, any>, SCHEMA): any {
   if (matches<PgDatabase<any, any>>(DB)) {
     if (matches<{ [key: string]: PgTable | PgSchema | MySqlTable | MySqlSchema | SQLiteTable | Relations; }>(SCHEMA)) {
       const out = emptyObject
@@ -190,7 +194,7 @@ export function InferCallbackType(DB: PgDatabase<any, any> | MySqlDatabase<any, 
 // ✗ FunctionsVersioning: does not compile yet
 //   'generatorsFuncs' refers to a value, but is being used as a type here. Did you mean 'typeof generatorsFuncs'?
 /* @scripttype preserveParamNames */
-export function FunctionsVersioning(VERSION: string | undefined) {
+export function FunctionsVersioning(VERSION: string | undefined): any {
   if (matches<`1`>(VERSION)) {
     return t<typeof generatorsFuncs>()
   }

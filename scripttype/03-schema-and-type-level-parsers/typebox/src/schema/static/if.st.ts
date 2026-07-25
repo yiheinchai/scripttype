@@ -7,22 +7,27 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { XStaticSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/schema.js'
+import type { XElse } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/else.js'
+import type { XIf } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/if.js'
+import type { XSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/schema.js'
+import type { XThen } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/then.js'
+declare namespace m1 {
+  export type ElseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ThenSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const XElse: any
 declare const XIf: any
 declare const XSchema: any
 declare const XStaticSchema: any
 declare const XThen: any
-type XElse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XIf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XThen<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XStaticIf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XStaticIf__v1(Stack, Root, Schema) {
+export function XStaticIf__v1(Stack, Root, Schema): any {
   const m1 = matches<XThen<Hole<"ThenSchema", XSchema>>>(Schema)
   if (m1) {
     return XStaticSchema(Stack, Root, m1.ThenSchema)
@@ -30,14 +35,14 @@ export function XStaticIf__v1(Stack, Root, Schema) {
   return never
 }
 
-export function XStaticIf__v2(Stack, Root, Schema) {
+export function XStaticIf__v2(Stack, Root, Schema): any {
   const m1 = matches<XElse<Hole<"ElseSchema", XSchema>>>(Schema)
   if (m1) {
     return XStaticSchema(Stack, Root, m1.ElseSchema)
   }
   return never
 }
-export function XStaticIf(Stack: string[], Root: XSchema, Schema: XIf, IfSchema: XSchema, If: unknown = XStaticSchema(Stack, Root, IfSchema), Then: unknown = XStaticIf__v1(Stack, Root, Schema), Else: unknown = XStaticIf__v2(Stack, Root, Schema), IsThen: boolean = matches<XThen>(Schema) ? true : false, IsElse: boolean = matches<XElse>(Schema) ? true : false, Result: unknown = matches<[ true, true ]>([IsThen, IsElse]) ? (anyOf(merge(If, Then), Exclude(Else, If))) : (matches<[ true, false ]>([IsThen, IsElse]) ? (merge(If, Then)) : (matches<[ false, true ]>([IsThen, IsElse]) ? Exclude(Else, If) : unknown))) {
+export function XStaticIf(Stack: string[], Root: XSchema, Schema: XIf, IfSchema: XSchema, If: unknown = XStaticSchema(Stack, Root, IfSchema), Then: unknown = XStaticIf__v1(Stack, Root, Schema), Else: unknown = XStaticIf__v2(Stack, Root, Schema), IsThen: boolean = matches<XThen>(Schema) ? true : false, IsElse: boolean = matches<XElse>(Schema) ? true : false, Result: unknown = matches<[ true, true ]>([IsThen, IsElse]) ? (anyOf(merge(If, Then), Exclude(Else, If))) : (matches<[ true, false ]>([IsThen, IsElse]) ? (merge(If, Then)) : (matches<[ false, true ]>([IsThen, IsElse]) ? Exclude(Else, If) : unknown))): any {
   return Result
 }
 /* compiles to:

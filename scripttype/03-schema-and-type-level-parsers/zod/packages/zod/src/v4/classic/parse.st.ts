@@ -14,7 +14,7 @@ declare const ZodError: any
 type ZodError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ZodSafeParseResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ZodSafeParseResult(T) {
+export function ZodSafeParseResult(T): any {
   return ZodSafeParseSuccess(T) | ZodSafeParseError(T)
 }
 /* compiles to:
@@ -23,7 +23,7 @@ export function ZodSafeParseResult(T) {
 
 // ✓ ZodSafeParseSuccess: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ZodSafeParseSuccess(T) {
+export function ZodSafeParseSuccess(T): any {
   return { success: true, data: T, error: optional(never) }
 }
 /* compiles to:
@@ -32,7 +32,7 @@ export function ZodSafeParseSuccess(T) {
 
 // ✓ ZodSafeParseError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ZodSafeParseError(T) {
+export function ZodSafeParseError(T): any {
   return { success: false, data: optional(never), error: ZodError(T) }
 }
 /* compiles to:

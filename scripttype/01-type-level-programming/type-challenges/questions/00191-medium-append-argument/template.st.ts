@@ -9,7 +9,7 @@
  */
 // ✓ AppendArgument: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AppendArgument(Fn, A) {
+export function AppendArgument(Fn, A): any {
   return any
 }
 /* compiles to:

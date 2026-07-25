@@ -9,7 +9,7 @@
  */
 // ✓ Enum: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Enum(T: readonly string[], N: boolean = false) {
+export function Enum(T: readonly string[], N: boolean = false): any {
   return any
 }
 /* compiles to:

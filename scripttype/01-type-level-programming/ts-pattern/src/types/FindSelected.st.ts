@@ -7,9 +7,56 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyMatcher, Matcher, Pattern } from '../../../../../01-type-level-programming/ts-pattern/src/types/Pattern.js'
+import type { Equal, IsUnion, MergeUnion, Primitives, ValueOf } from '../../../../../01-type-level-programming/ts-pattern/src/types/helpers.js'
+declare namespace m1 {
+  export type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type iItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type matcherType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type sel<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type subpath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type u<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type v<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type k<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type p1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type i1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type iItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type iRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type k<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type p1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pkey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pvalue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type v<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type i1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type iInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type k<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pkey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pvalue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type v<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m6 {
+  export type pRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type v<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m7 {
+  export type k<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare namespace symbols {
   export type anonymousSelectKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -24,21 +71,13 @@ declare const SelectionsRecord: any
 declare const ValueOf: any
 declare const anonymousSelectKey: any
 declare const symbols: any
-type AnyMatcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Matcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MergeUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Primitives<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectionsRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Some<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValueOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type anonymousSelectKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type symbols<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Some: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Some(key: string) {
+export function Some(key: string): any {
   return { type: 'some', key: key }
 }
 /* compiles to:
@@ -47,14 +86,14 @@ export function Some(key: string) {
 
 // ✓ MapOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapOptional__v1(selections, k) {
+export function MapOptional__v1(selections, k): any {
   const m1 = matches<[ Hole<"v">, Hole<"subpath"> ]>(selections[k])
   if (m1) {
     return [anyOf(m1.v, Undefined), m1.subpath]
   }
   return never
 }
-export function MapOptional(selections) {
+export function MapOptional(selections): any {
   const out = emptyObject
   for (const k in keyof(selections)) {
     out[k] = MapOptional__v1(selections, k)
@@ -71,14 +110,14 @@ export function MapOptional(selections) {
 
 // ✓ MapList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapList__v1(selections, k) {
+export function MapList__v1(selections, k): any {
   const m1 = matches<[ Hole<"v">, Hole<"subpath"> ]>(selections[k])
   if (m1) {
     return [arrayOf(m1.v), m1.subpath]
   }
   return never
 }
-export function MapList(selections) {
+export function MapList(selections): any {
   const out = emptyObject
   for (const k in keyof(selections)) {
     out[k] = MapList__v1(selections, k)
@@ -93,7 +132,7 @@ export function MapList(selections) {
 
 // ✓ ReduceFindSelectionUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReduceFindSelectionUnion(i, ps: readonly any[]) {
+export function ReduceFindSelectionUnion(i, ps: readonly any[]): any {
   let output = never
   let ps_ = ps
   while (true) {
@@ -120,7 +159,7 @@ export function ReduceFindSelectionUnion(i, ps: readonly any[]) {
 
 // ✓ FindSelectionUnionInArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FindSelectionUnionInArray(i, p, path: any[] = [], output = never) {
+export function FindSelectionUnionInArray(i, p, path: any[] = [], output = never): any {
   const m1 = matches<readonly (Hole<"iItem">)[]>(i)
   if (m1) {
     if (matches<readonly [ ]>(p)) {
@@ -130,17 +169,17 @@ export function FindSelectionUnionInArray(i, p, path: any[] = [], output = never
     if (m2) {
       const m3 = matches<readonly [ Hole<"i1">, ...Hole<"iRest"> ]>(i)
       if (m3) {
-        return FindSelectionUnionInArray(m3.iRest, m2.pRest, [...path, p['length']], output | FindSelectionUnion(m3.i1, m2.p1, [...path, p['length']]))
+        return FindSelectionUnionInArray(m3.iRest, m2.pRest, [...path, p['length']], anyOf(output, FindSelectionUnion(m3.i1, m2.p1, [...path, p['length']])))
       }
-      return FindSelectionUnionInArray(arrayOf(m1.iItem), m2.pRest, [...path, p['length']], output | FindSelectionUnion(m1.iItem, m2.p1, [...path, p['length']]))
+      return FindSelectionUnionInArray(arrayOf(m1.iItem), m2.pRest, [...path, p['length']], anyOf(output, FindSelectionUnion(m1.iItem, m2.p1, [...path, p['length']])))
     }
     const m4 = matches<readonly [ ...Hole<"pInit">, Hole<"p1"> ]>(p)
     if (m4) {
       const m5 = matches<readonly [ ...Hole<"iInit">, Hole<"i1"> ]>(i)
       if (m5) {
-        return FindSelectionUnionInArray(m5.iInit, m4.pInit, [...path, p['length']], output | FindSelectionUnion(m5.i1, m4.p1, [...path, p['length']]))
+        return FindSelectionUnionInArray(m5.iInit, m4.pInit, [...path, p['length']], anyOf(output, FindSelectionUnion(m5.i1, m4.p1, [...path, p['length']])))
       }
-      return FindSelectionUnionInArray(arrayOf(m1.iItem), m4.pInit, [...path, p['length']], output | FindSelectionUnion(m1.iItem, m4.p1, [...path, p['length']]))
+      return FindSelectionUnionInArray(arrayOf(m1.iItem), m4.pInit, [...path, p['length']], anyOf(output, FindSelectionUnion(m1.iItem, m4.p1, [...path, p['length']])))
     }
     const m6 = matches<readonly [ ...(readonly (Hole<"pRest"> & AnyMatcher)[]) ]>(p)
     if (m6) {
@@ -191,7 +230,7 @@ export function FindSelectionUnionInArray(i, p, path: any[] = [], output = never
 
 // ✓ FindSelectionUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FindSelectionUnion(i, p, path: any[] = []) {
+export function FindSelectionUnion(i, p, path: any[] = []): any {
   if (matches<1 & typeof i>(0)) {
     return never
   }
@@ -275,7 +314,7 @@ export function FindSelectionUnion(i, p, path: any[] = []) {
 
 // ✓ SeveralAnonymousSelectError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SeveralAnonymousSelectError(a = 'You can only use a single anonymous selection (with `select()`) in your pattern. If you need to select multiple values, give them names with `select(<name>)` instead') {
+export function SeveralAnonymousSelectError(a = 'You can only use a single anonymous selection (with `select()`) in your pattern. If you need to select multiple values, give them names with `select(<name>)` instead'): any {
   return merge({ __error: never }, a)
 }
 /* compiles to:
@@ -287,7 +326,7 @@ export function SeveralAnonymousSelectError(a = 'You can only use a single anony
 
 // ✓ MixedNamedAndAnonymousSelectError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MixedNamedAndAnonymousSelectError(a = 'Mixing named selections (`select("name")`) and anonymous selections (`select()`) is forbiden. Please, only use named selections.') {
+export function MixedNamedAndAnonymousSelectError(a = 'Mixing named selections (`select("name")`) and anonymous selections (`select()`) is forbiden. Please, only use named selections.'): any {
   return merge({ __error: never }, a)
 }
 /* compiles to:
@@ -299,13 +338,16 @@ export function MixedNamedAndAnonymousSelectError(a = 'Mixing named selections (
 
 // ✓ SelectionToArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectionToArgs(selections: SelectionsRecord) {
-  if (symbols.anonymousSelectKey in selections) {
-    if (matches<true>(IsUnion(selections[symbols.anonymousSelectKey][1]))) {
+/**
+ * @param {SelectionsRecord} selections
+ */
+export function SelectionToArgs(selections): any {
+  if (t<symbols.anonymousSelectKey>() in selections) {
+    if (matches<true>(IsUnion(selections[t<symbols.anonymousSelectKey>()][1]))) {
       return SeveralAnonymousSelectError
     }
     if (matches<symbols.anonymousSelectKey>(keyof(selections))) {
-      return selections[symbols.anonymousSelectKey][0]
+      return selections[t<symbols.anonymousSelectKey>()][0]
     }
     return MixedNamedAndAnonymousSelectError
   }
@@ -328,7 +370,7 @@ export function SelectionToArgs(selections: SelectionsRecord) {
 
 // ✓ Selections: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Selections(i, p) {
+export function Selections(i, p): any {
   const m1 = matches<Hole<"u">>(FindSelectionUnion(i, p))
   if (m1) {
     if (matches<[ never ]>([m1.u])) {
@@ -347,7 +389,7 @@ export function Selections(i, p) {
 
 // ✓ FindSelected: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FindSelected(i, p) {
+export function FindSelected(i, p): any {
   if (matches<true>(Equal(p, Pattern(i)))) {
     return i
   }

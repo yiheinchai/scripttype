@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DefaultError, InfiniteQueryObserverResult, QueryKey } from '../../../../../../02-inference-at-scale/tanstack-query/packages/query-core/src/types.js'
+import type { DeepUnwrapRef, MaybeRef, MaybeRefDeep, MaybeRefOrGetter, ShallowOption } from '../../../../../../02-inference-at-scale/tanstack-query/packages/vue-query/src/types.js'
+import type { UseBaseQueryReturnType } from '../../../../../../02-inference-at-scale/tanstack-query/packages/vue-query/src/useBaseQuery.js'
 declare const DeepUnwrapRef: any
 declare const DefaultError: any
 declare const InfiniteQueryObserverOptions: any
@@ -20,24 +24,15 @@ declare const MaybeRefOrGetter: any
 declare const QueryKey: any
 declare const ShallowOption: any
 declare const UseBaseQueryReturnType: any
-type DeepUnwrapRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InfiniteQueryObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InfiniteQueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeRefDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeRefOrGetter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ShallowOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseBaseQueryReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseInfiniteQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseInfiniteQueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey, TPageParam = unknown) {
+export function UseInfiniteQueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey, TPageParam = unknown): any {
   const out = emptyObject
   for (const Property in keyof(InfiniteQueryObserverOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam))) {
     out[Property] = matches<'enabled'>(Property) ? MaybeRefOrGetter(InfiniteQueryObserverOptions(TQueryFnData, TError, TData, DeepUnwrapRef(TQueryKey), TPageParam)[Property]) : MaybeRefDeep(InfiniteQueryObserverOptions(TQueryFnData, TError, TData, DeepUnwrapRef(TQueryKey), TPageParam)[Property])
   }
-  return MaybeRef(out & ShallowOption)
+  return MaybeRef(merge(out, ShallowOption))
 }
 /* compiles to:
  * export type UseInfiniteQueryOptions<
@@ -75,7 +70,7 @@ export function UseInfiniteQueryOptions(TQueryFnData = unknown, TError = Default
 
 // ✓ UseInfiniteQueryReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseInfiniteQueryReturnType(TData, TError) {
+export function UseInfiniteQueryReturnType(TData, TError): any {
   return UseBaseQueryReturnType(TData, TError, InfiniteQueryObserverResult(TData, TError))
 }
 /* compiles to:

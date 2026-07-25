@@ -14,7 +14,7 @@ declare const ZeroWidthSpace: any
 type ZeroWidthSpace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ noSuggest: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function noSuggest(s: string = string) {
+export function noSuggest(s: string = string): any {
   return ` ${s}`
 }
 /* compiles to:
@@ -23,7 +23,7 @@ export function noSuggest(s: string = string) {
 
 // ✓ ErrorMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ErrorMessage(message: string = string) {
+export function ErrorMessage(message: string = string): any {
   return `${message}${ZeroWidthSpace}`
 }
 /* compiles to:
@@ -32,7 +32,7 @@ export function ErrorMessage(message: string = string) {
 
 // ✓ Completion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Completion(text: string = string) {
+export function Completion(text: string = string): any {
   return `${text}${ZeroWidthSpace}${ZeroWidthSpace}`
 }
 /* compiles to:

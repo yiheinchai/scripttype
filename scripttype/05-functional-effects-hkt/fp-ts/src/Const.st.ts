@@ -9,7 +9,7 @@
  */
 // ✓ Const: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Const(E, A) {
+export function Const(E, A): any {
   return merge(E, { _A: readonlyProp(A) })
 }
 /* compiles to:

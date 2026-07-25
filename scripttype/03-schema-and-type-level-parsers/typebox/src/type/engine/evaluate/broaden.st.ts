@@ -7,9 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TCompare } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/compare.js'
+import type { TEvaluateType } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TFlatten } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/flatten.js'
+import type { TAny } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/any.js'
+import type { TNever } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/never.js'
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ResultEqual: any
 declare const ResultLeftInside: any
 declare const ResultRightInside: any
@@ -23,17 +35,10 @@ declare const TSchema: any
 type ResultEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResultLeftInside<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResultRightInside<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TCompare<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TFlatten<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TBroadFilter: does not compile yet
 //   'ResultRightInside' refers to a value, but is being used as a type here. Did you mean 'typeof ResultRightInside'?
 /* @scripttype preserveParamNames */
-export function TBroadFilter(Type: TSchema, Types: TSchema[], Result: TSchema[] = []) {
+export function TBroadFilter(Type: TSchema, Types: TSchema[], Result: TSchema[] = []): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(Types)
   if (m1) {
     if (matches<typeof ResultRightInside>(TCompare(Type, m1.Left))) {
@@ -59,7 +64,7 @@ export function TBroadFilter(Type: TSchema, Types: TSchema[], Result: TSchema[] 
 // ✗ TIsBroadestType: does not compile yet
 //   'ResultLeftInside' refers to a value, but is being used as a type here. Did you mean 'typeof ResultLeftInside'?
 /* @scripttype preserveParamNames */
-export function TIsBroadestType(Type: TSchema, Types: TSchema[]) {
+export function TIsBroadestType(Type: TSchema, Types: TSchema[]): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(Types)
   if (m1) {
     if (matches<typeof ResultLeftInside | typeof ResultEqual>(TCompare(Type, m1.Left))) {
@@ -80,7 +85,7 @@ export function TIsBroadestType(Type: TSchema, Types: TSchema[]) {
 
 // ✓ TBroadenType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBroadenType(Type: TSchema, Types: TSchema[], Evaluated: TSchema = TEvaluateType(Type), Result: TSchema[] = matches<TAny>(Evaluated) ? [Evaluated] : (matches<true>(TIsBroadestType(Evaluated, Types)) ? [...TBroadFilter(Evaluated, Types), Evaluated] : Types)) {
+export function TBroadenType(Type: TSchema, Types: TSchema[], Evaluated: TSchema = TEvaluateType(Type), Result: TSchema[] = matches<TAny>(Evaluated) ? [Evaluated] : (matches<true>(TIsBroadestType(Evaluated, Types)) ? [...TBroadFilter(Evaluated, Types), Evaluated] : Types)): any {
   return Result
 }
 /* compiles to:
@@ -95,7 +100,7 @@ export function TBroadenType(Type: TSchema, Types: TSchema[], Evaluated: TSchema
 
 // ✓ TBroadenTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBroadenTypes(Types: TSchema[], Result: TSchema[] = []) {
+export function TBroadenTypes(Types: TSchema[], Result: TSchema[] = []): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(Types)
   if (m1) {
     if (matches<TObject>(m1.Left)) {
@@ -119,7 +124,7 @@ export function TBroadenTypes(Types: TSchema[], Result: TSchema[] = []) {
 
 // ✓ TBroaden: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBroaden(Types: TSchema[], Broadened: TSchema[] = TBroadenTypes(Types), Flattened: TSchema[] = TFlatten(Broadened)) {
+export function TBroaden(Types: TSchema[], Broadened: TSchema[] = TBroadenTypes(Types), Flattened: TSchema[] = TFlatten(Broadened)): any {
   return Flattened
 }
 /* compiles to:

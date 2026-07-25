@@ -9,7 +9,7 @@
  */
 // ✓ ExtractValuesOfTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractValuesOfTuple(T: any[]) {
+export function ExtractValuesOfTuple(T: any[]): any {
   return T[keyof(T) & number]
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Arrayable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Arrayable(T) {
+export function Arrayable(T): any {
   return T | arrayOf(T)
 }
 /* compiles to:

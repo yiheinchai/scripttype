@@ -7,9 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ReadonlyAction } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/actions/readonly/readonly.js'
+import type { LooseObjectSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/looseObject/looseObject.js'
+import type { LooseObjectSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/looseObject/looseObjectAsync.js'
+import type { LooseObjectIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/looseObject/types.js'
+import type { ObjectSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/object/object.js'
+import type { ObjectSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/object/objectAsync.js'
+import type { ObjectIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/object/types.js'
+import type { ObjectWithRestSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/objectWithRest/objectWithRest.js'
+import type { ObjectWithRestSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/objectWithRest/objectWithRestAsync.js'
+import type { ObjectWithRestIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/objectWithRest/types.js'
+import type { StrictObjectSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/strictObject/strictObject.js'
+import type { StrictObjectSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/strictObject/strictObjectAsync.js'
+import type { StrictObjectIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/strictObject/types.js'
+import type { InferInput, InferIssue, InferOutput } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/infer.js'
+import type { BaseIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/issue.js'
+import type { ObjectEntries, ObjectEntriesAsync, OptionalEntrySchema, OptionalEntrySchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/object.js'
+import type { ErrorMessage } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/other.js'
+import type { BaseSchema, BaseSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/schema.js'
+import type { MarkOptional, MaybeReadonly, Prettify } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/utils.js'
 declare const BaseIssue: any
 declare const BaseSchema: any
 declare const BaseSchemaAsync: any
@@ -37,39 +57,9 @@ declare const ReadonlyAction: any
 declare const StrictObjectIssue: any
 declare const StrictObjectSchema: any
 declare const StrictObjectSchemaAsync: any
-type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferEntriesInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferEntriesOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MarkOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectEntries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectEntriesAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectWithRestIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectWithRestSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectWithRestSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalEntrySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalEntrySchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OutputWithQuestionMarks<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ObjectKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ObjectKeys(TSchema: LooseObjectSchema<ObjectEntries, ErrorMessage<LooseObjectIssue> | undefined> | LooseObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<LooseObjectIssue> | undefined> | ObjectSchema<ObjectEntries, ErrorMessage<ObjectIssue> | undefined> | ObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<ObjectIssue> | undefined> | ObjectWithRestSchema<ObjectEntries, BaseSchema<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | ObjectWithRestSchemaAsync<ObjectEntriesAsync, BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | StrictObjectSchema<ObjectEntries, ErrorMessage<StrictObjectIssue> | undefined> | StrictObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<StrictObjectIssue> | undefined>) {
+export function ObjectKeys(TSchema: LooseObjectSchema<ObjectEntries, ErrorMessage<LooseObjectIssue> | undefined> | LooseObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<LooseObjectIssue> | undefined> | ObjectSchema<ObjectEntries, ErrorMessage<ObjectIssue> | undefined> | ObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<ObjectIssue> | undefined> | ObjectWithRestSchema<ObjectEntries, BaseSchema<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | ObjectWithRestSchemaAsync<ObjectEntriesAsync, BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined> | StrictObjectSchema<ObjectEntries, ErrorMessage<StrictObjectIssue> | undefined> | StrictObjectSchemaAsync<ObjectEntriesAsync, ErrorMessage<StrictObjectIssue> | undefined>): any {
   return MaybeReadonly([keyof(TSchema['entries']), ...arrayOf(keyof(TSchema['entries']))])
 }
 /* compiles to:
@@ -81,7 +71,10 @@ export function ObjectKeys(TSchema: LooseObjectSchema<ObjectEntries, ErrorMessag
 
 // ✓ InferEntriesInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferEntriesInput(TEntries: ObjectEntries | ObjectEntriesAsync) {
+/**
+ * @param {ObjectEntries | ObjectEntriesAsync} TEntries
+ */
+export function InferEntriesInput(TEntries): any {
   const out = emptyObject
   for (const TKey in keyof(TEntries)) {
     out[TKey] = mutable(InferInput(TEntries[TKey]))
@@ -96,7 +89,10 @@ export function InferEntriesInput(TEntries: ObjectEntries | ObjectEntriesAsync) 
 
 // ✓ InferEntriesOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferEntriesOutput(TEntries: ObjectEntries | ObjectEntriesAsync) {
+/**
+ * @param {ObjectEntries | ObjectEntriesAsync} TEntries
+ */
+export function InferEntriesOutput(TEntries): any {
   const out = emptyObject
   for (const TKey in keyof(TEntries)) {
     out[TKey] = mutable(InferOutput(TEntries[TKey]))
@@ -111,7 +107,10 @@ export function InferEntriesOutput(TEntries: ObjectEntries | ObjectEntriesAsync)
 
 // ✓ OptionalInputKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalInputKeys(TEntries: ObjectEntries | ObjectEntriesAsync) {
+/**
+ * @param {ObjectEntries | ObjectEntriesAsync} TEntries
+ */
+export function OptionalInputKeys(TEntries): any {
   const out = emptyObject
   for (const TKey in keyof(TEntries)) {
     out[TKey] = matches<OptionalEntrySchema | OptionalEntrySchemaAsync>(TEntries[TKey]) ? TKey : never
@@ -129,7 +128,10 @@ export function OptionalInputKeys(TEntries: ObjectEntries | ObjectEntriesAsync) 
 
 // ✓ OptionalOutputKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalOutputKeys(TEntries: ObjectEntries | ObjectEntriesAsync) {
+/**
+ * @param {ObjectEntries | ObjectEntriesAsync} TEntries
+ */
+export function OptionalOutputKeys(TEntries): any {
   const out = emptyObject
   for (const TKey in keyof(TEntries)) {
     out[TKey] = matches<OptionalEntrySchema | OptionalEntrySchemaAsync>(TEntries[TKey]) ? (matches<(typeof TEntries)[typeof TKey]['default']>(Undefined) ? TKey : never) : never
@@ -147,7 +149,11 @@ export function OptionalOutputKeys(TEntries: ObjectEntries | ObjectEntriesAsync)
 
 // ✓ InputWithQuestionMarks: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InputWithQuestionMarks(TEntries: ObjectEntries | ObjectEntriesAsync, TObject: InferEntriesInput<typeof TEntries>) {
+/**
+ * @param {ObjectEntries | ObjectEntriesAsync} TEntries
+ * @param {InferEntriesInput<typeof TEntries>} TObject
+ */
+export function InputWithQuestionMarks(TEntries, TObject): any {
   return MarkOptional(TObject, OptionalInputKeys(TEntries))
 }
 /* compiles to:
@@ -160,7 +166,11 @@ export function InputWithQuestionMarks(TEntries: ObjectEntries | ObjectEntriesAs
 
 // ✓ OutputWithQuestionMarks: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OutputWithQuestionMarks(TEntries: ObjectEntries | ObjectEntriesAsync, TObject: InferEntriesOutput<typeof TEntries>) {
+/**
+ * @param {ObjectEntries | ObjectEntriesAsync} TEntries
+ * @param {InferEntriesOutput<typeof TEntries>} TObject
+ */
+export function OutputWithQuestionMarks(TEntries, TObject): any {
   return MarkOptional(TObject, OptionalOutputKeys(TEntries))
 }
 /* compiles to:
@@ -173,7 +183,10 @@ export function OutputWithQuestionMarks(TEntries: ObjectEntries | ObjectEntriesA
 
 // ✓ ReadonlyOutputKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyOutputKeys(TEntries: ObjectEntries | ObjectEntriesAsync) {
+/**
+ * @param {ObjectEntries | ObjectEntriesAsync} TEntries
+ */
+export function ReadonlyOutputKeys(TEntries): any {
   const out = emptyObject
   for (const TKey in keyof(TEntries)) {
     out[TKey] = matches<{ readonly pipe: readonly unknown[]; }>(TEntries[TKey]) ? (matches<(typeof TEntries)[typeof TKey]['pipe'][number]>(ReadonlyAction(any)) ? TKey : never) : never
@@ -191,7 +204,11 @@ export function ReadonlyOutputKeys(TEntries: ObjectEntries | ObjectEntriesAsync)
 
 // ✓ OutputWithReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OutputWithReadonly(TEntries: ObjectEntries | ObjectEntriesAsync, TObject: OutputWithQuestionMarks<typeof TEntries, InferEntriesOutput<typeof TEntries>>) {
+/**
+ * @param {ObjectEntries | ObjectEntriesAsync} TEntries
+ * @param {OutputWithQuestionMarks<typeof TEntries, InferEntriesOutput<typeof TEntries>>} TObject
+ */
+export function OutputWithReadonly(TEntries, TObject): any {
   if (matches<never>(ReadonlyOutputKeys(TEntries))) {
     return TObject
   }
@@ -209,7 +226,7 @@ export function OutputWithReadonly(TEntries: ObjectEntries | ObjectEntriesAsync,
 
 // ✓ InferObjectInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferObjectInput(TEntries: ObjectEntries | ObjectEntriesAsync) {
+export function InferObjectInput(TEntries: ObjectEntries | ObjectEntriesAsync): any {
   return Prettify(InputWithQuestionMarks(TEntries, InferEntriesInput(TEntries)))
 }
 /* compiles to:
@@ -220,7 +237,7 @@ export function InferObjectInput(TEntries: ObjectEntries | ObjectEntriesAsync) {
 
 // ✓ InferObjectOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferObjectOutput(TEntries: ObjectEntries | ObjectEntriesAsync) {
+export function InferObjectOutput(TEntries: ObjectEntries | ObjectEntriesAsync): any {
   return Prettify(OutputWithReadonly(TEntries, OutputWithQuestionMarks(TEntries, InferEntriesOutput(TEntries))))
 }
 /* compiles to:
@@ -231,7 +248,7 @@ export function InferObjectOutput(TEntries: ObjectEntries | ObjectEntriesAsync) 
 
 // ✓ InferObjectIssue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferObjectIssue(TEntries: ObjectEntries | ObjectEntriesAsync) {
+export function InferObjectIssue(TEntries: ObjectEntries | ObjectEntriesAsync): any {
   return InferIssue(TEntries[keyof(TEntries)])
 }
 /* compiles to:

@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DeepBrandOptions, DeepBrandOptionsDefaults, StrictEqualUsingBranding } from '../../../../01-type-level-programming/expect-type/src/branding.js'
+import type { And, Extends, ExtendsExcludingAnyOrNever, IsAny, IsNever, IsUnknown, Not, OptionalKeys, StrictEqualUsingTSInternalIdenticalToOperator, UsefulKeys } from '../../../../01-type-level-programming/expect-type/src/utils.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const And: any
 declare const DeepBrandOptions: any
 declare const DeepBrandOptionsDefaults: any
@@ -39,19 +45,6 @@ declare const expectUndefined: any
 declare const expectUnknown: any
 declare const expectVoid: any
 declare const inverted: any
-type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DeepBrandOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DeepBrandOptionsDefaults<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtendsExcludingAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictEqualUsingBranding<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictEqualUsingTSInternalIdenticalToOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UsefulKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type expectAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type expectArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type expectBigInt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -70,7 +63,7 @@ type expectVoid<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 =
 type inverted<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PrintType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PrintType(T) {
+export function PrintType(T): any {
   if (matches<true>(IsUnknown(T))) {
     return 'unknown'
   }
@@ -136,7 +129,7 @@ export function PrintType(T) {
 
 // ✓ MismatchInfo: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MismatchInfo(Actual, Expected, Options: DeepBrandOptions = DeepBrandOptionsDefaults) {
+export function MismatchInfo(Actual, Expected, Options: DeepBrandOptions = DeepBrandOptionsDefaults): any {
   if (matches<true>(And([Extends(PrintType(Actual), '...'), Not(IsAny(Actual))]))) {
     if (matches<true>(And([Extends(arrayOf(any), Actual), Extends(arrayOf(any), Expected)]))) {
       return arrayOf(MismatchInfo(Extract(Actual, arrayOf(any))[number], Extract(Expected, arrayOf(any))[number], Options))
@@ -177,7 +170,7 @@ export function MismatchInfo(Actual, Expected, Options: DeepBrandOptions = DeepB
 
 // ✓ Optionalify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Optionalify(T, TOptionalKeys) {
+export function Optionalify(T, TOptionalKeys): any {
   if (matches<[ never ]>([TOptionalKeys])) {
     return T
   }
@@ -209,7 +202,7 @@ export function Optionalify(T, TOptionalKeys) {
 
 // ✓ Inverted: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Inverted(T) {
+export function Inverted(T): any {
   return { [inverted]: T }
 }
 /* compiles to:
@@ -218,7 +211,7 @@ export function Inverted(T) {
 
 // ✓ ExpectNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectNull(T) {
+export function ExpectNull(T): any {
   return { [expectNull]: T, result: ExtendsExcludingAnyOrNever(T, Null) }
 }
 /* compiles to:
@@ -227,7 +220,7 @@ export function ExpectNull(T) {
 
 // ✓ ExpectUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectUndefined(T) {
+export function ExpectUndefined(T): any {
   return { [expectUndefined]: T, result: ExtendsExcludingAnyOrNever(T, Undefined) }
 }
 /* compiles to:
@@ -239,7 +232,7 @@ export function ExpectUndefined(T) {
 
 // ✓ ExpectNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectNumber(T) {
+export function ExpectNumber(T): any {
   return { [expectNumber]: T, result: ExtendsExcludingAnyOrNever(T, number) }
 }
 /* compiles to:
@@ -251,7 +244,7 @@ export function ExpectNumber(T) {
 
 // ✓ ExpectString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectString(T) {
+export function ExpectString(T): any {
   return { [expectString]: T, result: ExtendsExcludingAnyOrNever(T, string) }
 }
 /* compiles to:
@@ -263,7 +256,7 @@ export function ExpectString(T) {
 
 // ✓ ExpectBoolean: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectBoolean(T) {
+export function ExpectBoolean(T): any {
   return { [expectBoolean]: T, result: ExtendsExcludingAnyOrNever(T, boolean) }
 }
 /* compiles to:
@@ -275,7 +268,7 @@ export function ExpectBoolean(T) {
 
 // ✓ ExpectVoid: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectVoid(T) {
+export function ExpectVoid(T): any {
   return { [expectVoid]: T, result: ExtendsExcludingAnyOrNever(T, voidType()) }
 }
 /* compiles to:
@@ -284,19 +277,19 @@ export function ExpectVoid(T) {
 
 // ✓ ExpectFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectFunction(T) {
-  return { [expectFunction]: T, result: ExtendsExcludingAnyOrNever(T, fnType([arrayOf(any)], any)) }
+export function ExpectFunction(T): any {
+  return { [expectFunction]: T, result: ExtendsExcludingAnyOrNever(T, fnType([...arrayOf(any)], any)) }
 }
 /* compiles to:
  * export type ExpectFunction<T> = {
  *   [expectFunction]: T
- *   result: ExtendsExcludingAnyOrNever<T, (a0: any[]) => any>
+ *   result: ExtendsExcludingAnyOrNever<T, (...a0: any[]) => any>
  * }
  */
 
 // ✓ ExpectObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectObject(T) {
+export function ExpectObject(T): any {
   return { [expectObject]: T, result: ExtendsExcludingAnyOrNever(T, object) }
 }
 /* compiles to:
@@ -308,7 +301,7 @@ export function ExpectObject(T) {
 
 // ✓ ExpectArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectArray(T) {
+export function ExpectArray(T): any {
   return { [expectArray]: T, result: ExtendsExcludingAnyOrNever(T, arrayOf(any)) }
 }
 /* compiles to:
@@ -317,7 +310,7 @@ export function ExpectArray(T) {
 
 // ✓ ExpectSymbol: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectSymbol(T) {
+export function ExpectSymbol(T): any {
   return { [expectSymbol]: T, result: ExtendsExcludingAnyOrNever(T, symbol) }
 }
 /* compiles to:
@@ -329,7 +322,7 @@ export function ExpectSymbol(T) {
 
 // ✓ ExpectAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectAny(T) {
+export function ExpectAny(T): any {
   return { [expectAny]: T, result: IsAny(T) }
 }
 /* compiles to:
@@ -338,7 +331,7 @@ export function ExpectAny(T) {
 
 // ✓ ExpectUnknown: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectUnknown(T) {
+export function ExpectUnknown(T): any {
   return { [expectUnknown]: T, result: IsUnknown(T) }
 }
 /* compiles to:
@@ -347,7 +340,7 @@ export function ExpectUnknown(T) {
 
 // ✓ ExpectNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectNever(T) {
+export function ExpectNever(T): any {
   return { [expectNever]: T, result: IsNever(T) }
 }
 /* compiles to:
@@ -356,7 +349,7 @@ export function ExpectNever(T) {
 
 // ✓ ExpectNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectNullable(T) {
+export function ExpectNullable(T): any {
   return { [expectNullable]: T, result: Not(StrictEqualUsingTSInternalIdenticalToOperator(T, NonNullable(T))) }
 }
 /* compiles to:
@@ -368,7 +361,7 @@ export function ExpectNullable(T) {
 
 // ✓ ExpectBigInt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectBigInt(T) {
+export function ExpectBigInt(T): any {
   return { [expectBigInt]: T, result: ExtendsExcludingAnyOrNever(T, bigint) }
 }
 /* compiles to:
@@ -380,7 +373,7 @@ export function ExpectBigInt(T) {
 
 // ✓ Scolder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Scolder(Expecter: { result: boolean; }, Options: { positive: boolean; }) {
+export function Scolder(Expecter: { result: boolean; }, Options: { positive: boolean; }): any {
   if (matches<(typeof Options)['positive']>(Expecter['result'])) {
     return fnType([], true)
   }

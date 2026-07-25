@@ -9,7 +9,7 @@
  */
 // ✓ _UnionOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _UnionOf(O: object) {
+export function _UnionOf(O: object): any {
   return O[keyof(O)]
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function _UnionOf(O: object) {
 
 // ✓ UnionOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionOf(O: object) {
+export function UnionOf(O: object): any {
   if (matches<unknown>(O)) {
     return _UnionOf(O)
   }

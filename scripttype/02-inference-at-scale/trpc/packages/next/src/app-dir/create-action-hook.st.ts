@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TRPCProcedureOptions } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/internals/types.js'
+import type { ActionHandlerDef } from '../../../../../../../02-inference-at-scale/trpc/packages/next/src/app-dir/shared.js'
 declare const ActionHandlerDef: any
 declare const FormData: any
 declare const TRPCProcedureOptions: any
@@ -17,9 +20,7 @@ declare const UseTRPCActionErrorResult: any
 declare const UseTRPCActionIdleResult: any
 declare const UseTRPCActionLoadingResult: any
 declare const UseTRPCActionSuccessResult: any
-type ActionHandlerDef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FormData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCProcedureOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UseTRPCActionErrorResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UseTRPCActionIdleResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UseTRPCActionLoadingResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -27,11 +28,11 @@ type UseTRPCActionSuccessResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any
 // ✗ MutationArgs: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function MutationArgs(TDef: ActionHandlerDef) {
+export function MutationArgs(TDef: ActionHandlerDef): any {
   if (matches<void>(TDef['input'])) {
     return [anyOf(Undefined, voidType()), TRPCProcedureOptions]
   }
-  return [FormData | TDef['input'], TRPCProcedureOptions]
+  return [anyOf(FormData, TDef['input']), TRPCProcedureOptions]
 }
 /* compiles to:
  * export type MutationArgs<TDef extends ActionHandlerDef> =
@@ -42,7 +43,7 @@ export function MutationArgs(TDef: ActionHandlerDef) {
 
 // ✓ UseTRPCActionResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseTRPCActionResult(TDef: ActionHandlerDef) {
+export function UseTRPCActionResult(TDef: ActionHandlerDef): any {
   return UseTRPCActionErrorResult(TDef) | UseTRPCActionIdleResult(TDef) | UseTRPCActionLoadingResult(TDef) | UseTRPCActionSuccessResult(TDef)
 }
 /* compiles to:

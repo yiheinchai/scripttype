@@ -9,7 +9,7 @@
  */
 // ✓ Unique: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Unique(T) {
+export function Unique(T): any {
   return any
 }
 /* compiles to:

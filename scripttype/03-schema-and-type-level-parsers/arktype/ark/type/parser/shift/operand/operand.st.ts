@@ -7,11 +7,32 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { StaticState } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/reduce/static.js'
+import type { EnclosingQuote, EnclosingStartToken } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/operand/enclosed.js'
+import type { BaseCompletions } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/string.js'
+import type { WhitespaceChar } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/strings.js'
 declare namespace Scanner {
   export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type lookahead<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type unscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type enclosing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace s {
+  export type completion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type reduceGroupOpen<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type scanTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const BaseCompletions: any
 declare const EnclosingQuote: any
@@ -19,32 +40,35 @@ declare const EnclosingStartToken: any
 declare const Scanner: any
 declare const StaticState: any
 declare const WhitespaceChar: any
+declare const completion: any
 declare const parseEnclosed: any
 declare const parseUnenclosed: any
+declare const reduceGroupOpen: any
+declare const scanTo: any
 declare const shift: any
-type BaseCompletions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EnclosingQuote<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EnclosingStartToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+declare const unscanned: any
 type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type WhitespaceChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type completion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseEnclosed<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseUnenclosed<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type reduceGroupOpen<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type scanTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseOperand: does not compile yet
-//   only direct calls are supported
+//   Type 'unscanned' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function parseOperand(s: StaticState, $, args) {
+export function parseOperand(s: StaticState, $, args): any {
   const m1 = matches<Scanner.shift<Hole<"lookahead">, Hole<"unscanned">>>(s['unscanned'])
   if (m1) {
     if (matches<"(">(m1.lookahead)) {
-      return s.reduceGroupOpen(s, m1.unscanned)
+      return t<s.reduceGroupOpen<typeof s, typeof m1.unscanned>>()
     }
     if (matches<EnclosingStartToken>(m1.lookahead)) {
       return parseEnclosed(s, m1.lookahead, m1.unscanned)
     }
     if (matches<WhitespaceChar>(m1.lookahead)) {
-      return parseOperand(s.scanTo(s, m1.unscanned), $, args)
+      return parseOperand(t<s.scanTo<typeof s, typeof m1.unscanned>>(), $, args)
     }
     if (matches<"d">(m1.lookahead)) {
       const m2 = matches<(Scanner.shift<Hole<"enclosing", EnclosingQuote>, Hole<"nextUnscanned">>)>(m1.unscanned)
@@ -62,5 +86,22 @@ export function parseOperand(s: StaticState, $, args) {
     }
     return parseUnenclosed(s, $, args)
   }
-  return s.completion(`${s['scanned']}${BaseCompletions($, args)}`)
+  return t<s.completion<`${(typeof s)["scanned"]}${BaseCompletions<typeof $, typeof args>}`>>()
 }
+/* compiles to:
+ * export type parseOperand<s extends StaticState, $, args> =
+ *   s['unscanned'] extends Scanner.shift<infer lookahead, infer unscanned>
+ *     ? lookahead extends '(' ? s.reduceGroupOpen<s, unscanned>
+ *     : lookahead extends EnclosingStartToken ? parseEnclosed<s, lookahead, unscanned>
+ *     : lookahead extends WhitespaceChar ? parseOperand<s.scanTo<s, unscanned>, $, args>
+ *     : lookahead extends 'd'
+ *       ? unscanned extends Scanner.shift<infer enclosing extends EnclosingQuote, infer nextUnscanned>
+ *         ? parseEnclosed<s, `d${enclosing}`, nextUnscanned>
+ *         : parseUnenclosed<s, $, args>
+ *     : lookahead extends 'x'
+ *       ? unscanned extends Scanner.shift<'/', infer nextUnscanned>
+ *         ? parseEnclosed<s, 'x/', nextUnscanned>
+ *         : parseUnenclosed<s, $, args>
+ *     : parseUnenclosed<s, $, args>
+ *     : s.completion<`${s['scanned']}${BaseCompletions<$, args>}`>
+ */

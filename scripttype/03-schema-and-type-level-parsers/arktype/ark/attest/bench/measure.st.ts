@@ -14,7 +14,7 @@ declare const MeasureUnit: any
 type MeasureUnit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Measure: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Measure(Unit: MeasureUnit = MeasureUnit) {
+export function Measure(Unit: MeasureUnit = MeasureUnit): any {
   return [number, Unit]
 }
 /* compiles to:
@@ -23,7 +23,7 @@ export function Measure(Unit: MeasureUnit = MeasureUnit) {
 
 // ✓ MeasureComparison: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MeasureComparison(Unit: MeasureUnit = MeasureUnit) {
+export function MeasureComparison(Unit: MeasureUnit = MeasureUnit): any {
   return { updated: Measure(Unit), baseline: anyOf(Measure(Unit), Undefined) }
 }
 /* compiles to:

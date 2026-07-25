@@ -9,7 +9,7 @@
  */
 // ✓ LookUp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LookUp(U, T) {
+export function LookUp(U, T): any {
   return any
 }
 /* compiles to:

@@ -7,14 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DateLiteral } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/attributes.js'
+declare namespace m1 {
+  export type source<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const DateLiteral: any
-type DateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ extractDateLiteralSource: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function extractDateLiteralSource(literal: DateLiteral) {
+export function extractDateLiteralSource(literal: DateLiteral): any {
   const m1 = matches<DateLiteral<Hole<"source">>>(literal)
   if (m1) {
     return m1.source
@@ -28,7 +32,7 @@ export function extractDateLiteralSource(literal: DateLiteral) {
 
 // ✓ writeInvalidDateMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeInvalidDateMessage(source: string) {
+export function writeInvalidDateMessage(source: string): any {
   return `'${source}' could not be parsed by the Date constructor`
 }
 /* compiles to:
@@ -38,7 +42,7 @@ export function writeInvalidDateMessage(source: string) {
 // ✗ DateParseResult: the ScriptType does not itself typecheck as TypeScript
 //   DateParseResult.st.ts(2:33) TS2322: Type 'number' is not assignable to type 'string | boolean'.
 /* @scripttype preserveParamNames */
-export function DateParseResult(errorOnFail: boolean | string = boolean | string) {
+export function DateParseResult(errorOnFail: boolean | string = boolean | string): any {
   return t<Date>() | (matches<true | string>(errorOnFail) ? never : Undefined)
 }
 /* compiles to:

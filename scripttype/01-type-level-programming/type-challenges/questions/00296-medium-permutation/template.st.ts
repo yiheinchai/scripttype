@@ -9,7 +9,7 @@
  */
 // ✓ Permutation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Permutation(T) {
+export function Permutation(T): any {
   return any
 }
 /* compiles to:

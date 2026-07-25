@@ -7,22 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ComputeRaw } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Compute.js'
+import type { IntersectOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Union/IntersectOf.js'
+import type { Strict } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Union/Strict.js'
 declare const At: any
 declare const ComputeRaw: any
 declare const IntersectOf: any
 declare const Overwrite: any
 declare const Strict: any
 type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ComputeRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IntersectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Overwrite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Strict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _Merge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Merge(U: object) {
+export function _Merge(U: object): any {
   const out = emptyObject
   for (const K in keyof(U)) {
     out[K] = required(At(U, K))
@@ -35,7 +36,7 @@ export function _Merge(U: object) {
 
 // ✓ Merge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Merge(U: object) {
+export function Merge(U: object): any {
   return ComputeRaw(_Merge(Strict(U)))
 }
 /* compiles to:

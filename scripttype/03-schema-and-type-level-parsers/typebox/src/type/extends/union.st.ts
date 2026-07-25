@@ -7,16 +7,34 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TExtendsLeft } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/extends_left.js'
+import type { TInferUnionResult, TInferable, TTryInferable } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/inference.js'
+import type { TExtendsFalse, TExtendsTrue, TExtendsTrueLike } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/result.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnion } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
 declare namespace Result {
   export type TExtendsFalse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TExtendsTrue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Name<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Inferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Result: any
+declare const TExtendsFalse: any
 declare const TExtendsLeft: any
+declare const TExtendsTrue: any
 declare const TExtendsTrueLike: any
 declare const TInferUnionResult: any
 declare const TInferable: any
@@ -25,26 +43,19 @@ declare const TSchema: any
 declare const TTryInferable: any
 declare const TUnion: any
 type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInferUnionResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInferable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTryInferable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsUnionSome: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsUnionSome(Inferred: TProperties, Type: TSchema, UnionTypes: TSchema[]) {
+export function TExtendsUnionSome(Inferred: TProperties, Type: TSchema, UnionTypes: TSchema[]): any {
   const m1 = matches<[ Hole<"Head", TSchema>, ...Hole<"Tail", TSchema[]> ]>(UnionTypes)
   if (m1) {
     const m2 = matches<Result.TExtendsTrueLike<Hole<"Inferred", TProperties>>>(TExtendsLeft(Inferred, Type, m1.Head))
     if (m2) {
-      return Result.TExtendsTrue(m2.Inferred)
+      return t<Result.TExtendsTrue<typeof m2.Inferred>>()
     }
     return TExtendsUnionSome(Inferred, Type, m1.Tail)
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TExtendsUnionSome<
@@ -61,16 +72,16 @@ export function TExtendsUnionSome(Inferred: TProperties, Type: TSchema, UnionTyp
 
 // ✓ TExtendsUnionLeft: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsUnionLeft(Inferred: TProperties, Left: TSchema[], Right: TSchema[]) {
+export function TExtendsUnionLeft(Inferred: TProperties, Left: TSchema[], Right: TSchema[]): any {
   const m1 = matches<[ Hole<"Head", TSchema>, ...Hole<"Tail", TSchema[]> ]>(Left)
   if (m1) {
     const m2 = matches<Result.TExtendsTrueLike<Hole<"Inferred", TProperties>>>(TExtendsUnionSome(Inferred, m1.Head, Right))
     if (m2) {
       return TExtendsUnionLeft(m2.Inferred, m1.Tail, Right)
     }
-    return Result.TExtendsFalse
+    return t<Result.TExtendsFalse>()
   }
-  return Result.TExtendsTrue(Inferred)
+  return t<Result.TExtendsTrue<typeof Inferred>>()
 }
 /* compiles to:
  * export type TExtendsUnionLeft<
@@ -87,7 +98,7 @@ export function TExtendsUnionLeft(Inferred: TProperties, Left: TSchema[], Right:
 
 // ✓ TExtendsUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsUnion(Inferred: TProperties, Left: TSchema[], Right: TSchema, Inferrable: TInferable | undefined = TTryInferable(Right)) {
+export function TExtendsUnion(Inferred: TProperties, Left: TSchema[], Right: TSchema, Inferrable: TInferable | undefined = TTryInferable(Right)): any {
   const m1 = matches<TInferable<Hole<"Name", string>, Hole<"Type", TSchema>>>(Inferrable)
   if (m1) {
     return TInferUnionResult(Inferred, m1.Name, Left, m1.Type)

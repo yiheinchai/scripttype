@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { PartialApply, _, unset } from '../../../../../../01-type-level-programming/hotscript/src/internals/core/Core.js'
 declare namespace Impl {
   export type With<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -20,12 +22,9 @@ declare const _: any
 declare const unset: any
 type Impl<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MatchFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Match: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Match(valueOrWithClauses = unset, withClauses: Impl.With<any, any>[] | unset | _ = unset) {
+export function Match(valueOrWithClauses = unset, withClauses: Impl.With<any, any>[] | unset | _ = unset): any {
   return PartialApply(MatchFn, matches<unset>(withClauses) ? [unset, valueOrWithClauses] : [valueOrWithClauses, withClauses])
 }
 /* compiles to:
@@ -42,8 +41,8 @@ export function Match(valueOrWithClauses = unset, withClauses: Impl.With<any, an
 // ✗ With: does not compile yet
 //   Namespace '"/Users/yihein.chai/Documents/learn/ScriptType/01-type-level-programming/hotscript/src/internals/match/impl/match"' has no exported member 'With__st1
 /* @scripttype preserveParamNames */
-export function With(pattern, handler) {
-  return Impl.With(pattern, handler)
+export function With(pattern, handler): any {
+  return t<Impl.With<typeof pattern, typeof handler>>()
 }
 /* compiles to:
  * export type With<pattern, handler> = Impl.With<pattern, handler>

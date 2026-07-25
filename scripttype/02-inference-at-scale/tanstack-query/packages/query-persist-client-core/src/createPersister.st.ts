@@ -9,7 +9,7 @@
  */
 // ✓ MaybePromise: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MaybePromise(T) {
+export function MaybePromise(T): any {
   return T | t<Promise<typeof T>>()
 }
 /* compiles to:

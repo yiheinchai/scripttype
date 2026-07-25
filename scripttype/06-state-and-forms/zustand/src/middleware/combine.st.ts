@@ -9,7 +9,7 @@
  */
 // ✓ Write: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Write(T, U) {
+export function Write(T, U): any {
   return Omit(T, keyof(U)) & U
 }
 /* compiles to:

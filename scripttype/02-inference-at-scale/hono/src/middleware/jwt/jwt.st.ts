@@ -9,7 +9,7 @@
  */
 // ✓ JwtVariables: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JwtVariables(T = any) {
+export function JwtVariables(T = any): any {
   return { jwtPayload: T }
 }
 /* compiles to:

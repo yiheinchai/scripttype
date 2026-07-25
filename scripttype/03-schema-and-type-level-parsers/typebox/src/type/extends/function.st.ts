@@ -7,49 +7,55 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TExtendsParameters } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/parameters.js'
+import type { TExtendsFalse, TExtendsTrue, TExtendsTrueLike } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/result.js'
+import type { TExtendsReturnType } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/return_type.js'
+import type { TAny } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/any.js'
+import type { TFunction } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/function.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnknown } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/unknown.js'
 declare namespace Result {
   export type TExtendsFalse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TExtendsTrue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type Inferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Result: any
 declare const TAny: any
+declare const TExtendsFalse: any
 declare const TExtendsParameters: any
 declare const TExtendsReturnType: any
+declare const TExtendsTrue: any
 declare const TExtendsTrueLike: any
 declare const TFunction: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TUnknown: any
 type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsFunction(Inferred: TProperties, Parameters: TSchema[], ReturnType: TSchema, Right: TSchema) {
+export function TExtendsFunction(Inferred: TProperties, Parameters: TSchema[], ReturnType: TSchema, Right: TSchema): any {
   if (matches<TAny>(Right)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
   if (matches<TUnknown>(Right)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
   if (matches<TFunction>(Right)) {
     const m1 = matches<Result.TExtendsTrueLike<Hole<"Inferred", TProperties>>>(TExtendsParameters(Inferred, Parameters, Right['parameters']))
     if (m1) {
       return TExtendsReturnType(m1.Inferred, ReturnType, Right['returnType'])
     }
-    return Result.TExtendsFalse
+    return t<Result.TExtendsFalse>()
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TExtendsFunction<

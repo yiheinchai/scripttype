@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { reducibleKindOf } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/kinds.js'
+import type { LimitSchemaValue, UnknownRangeSchema } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/refinements/range.js'
+import type { StructuralOperationName } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/roots/root.js'
+import type { NodeKind, RootKind, kindRightOf } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/shared/implement.js'
 declare const LimitSchemaValue: any
 declare const NodeKind: any
 declare const RootKind: any
@@ -17,16 +22,9 @@ declare const StructuralOperationName: any
 declare const UnknownRangeSchema: any
 declare const kindRightOf: any
 declare const reducibleKindOf: any
-type LimitSchemaValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RootKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StructuralOperationName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnknownRangeSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type kindRightOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type reducibleKindOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ exclusivizeRangeSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function exclusivizeRangeSchema(schema: UnknownRangeSchema) {
+export function exclusivizeRangeSchema(schema: UnknownRangeSchema): any {
   if (matches<LimitSchemaValue>(schema)) {
     return { rule: schema, exclusive: true }
   }
@@ -39,7 +37,7 @@ export function exclusivizeRangeSchema(schema: UnknownRangeSchema) {
 
 // ✓ intersectRoot: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function intersectRoot(l: RootKind, r: NodeKind) {
+export function intersectRoot(l: RootKind, r: NodeKind): any {
   if (matches<[ typeof r, typeof l ]>([l, r])) {
     return l
   }
@@ -52,7 +50,7 @@ export function intersectRoot(l: RootKind, r: NodeKind) {
 
 // ✓ asymmetricIntersectionOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function asymmetricIntersectionOf(l: NodeKind, r: NodeKind) {
+export function asymmetricIntersectionOf(l: NodeKind, r: NodeKind): any {
   if (matches<unknown>(l)) {
     if (matches<kindRightOf<typeof l>>(r)) {
       return anyOf(l, reducibleKindOf(l))
@@ -68,7 +66,7 @@ export function asymmetricIntersectionOf(l: NodeKind, r: NodeKind) {
 
 // ✓ schemaKindRightOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function schemaKindRightOf(kind: RootKind) {
+export function schemaKindRightOf(kind: RootKind): any {
   return Extract(kindRightOf(kind), RootKind)
 }
 /* compiles to:
@@ -77,7 +75,7 @@ export function schemaKindRightOf(kind: RootKind) {
 
 // ✓ schemaKindOrRightOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function schemaKindOrRightOf(kind: RootKind) {
+export function schemaKindOrRightOf(kind: RootKind): any {
   return anyOf(kind, schemaKindRightOf(kind))
 }
 /* compiles to:
@@ -86,7 +84,7 @@ export function schemaKindOrRightOf(kind: RootKind) {
 
 // ✓ writeNonStructuralOperandMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeNonStructuralOperandMessage(operation: StructuralOperationName, operand: string) {
+export function writeNonStructuralOperandMessage(operation: StructuralOperationName, operand: string): any {
   return `${operation} operand must be an object (was ${operand})`
 }
 /* compiles to:

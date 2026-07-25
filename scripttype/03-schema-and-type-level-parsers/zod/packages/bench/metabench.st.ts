@@ -9,7 +9,7 @@
  */
 // ✓ Benchmarks: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Benchmarks(T = unknown) {
+export function Benchmarks(T = unknown): any {
   return indexRecord(string, fnType([T], any))
 }
 /* compiles to:

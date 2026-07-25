@@ -22,12 +22,12 @@ type PickIndexSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = a
 type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SimpleMerge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SimpleMerge(Destination, Source) {
+export function SimpleMerge(Destination, Source): any {
   const out = emptyObject
   for (const Key in keyof(Destination)) {
     out[Key in Source ? never : Key] = Destination[Key]
   }
-  return Simplify(out & Source)
+  return Simplify(merge(out, Source))
 }
 /* compiles to:
  * export type SimpleMerge<Destination, Source> = Simplify<
@@ -38,7 +38,7 @@ export function SimpleMerge(Destination, Source) {
 
 // ✓ Merge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Merge(Destination, Source) {
+export function Merge(Destination, Source): any {
   if (matches<unknown>(Destination)) {
     if (matches<unknown>(Source)) {
       return If(IsEqual(Destination, Source), Destination, _Merge(Destination, Source))
@@ -58,8 +58,8 @@ export function Merge(Destination, Source) {
 
 // ✓ _Merge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Merge(Destination, Source) {
-  return Simplify(SimpleMerge(PickIndexSignature(Destination), PickIndexSignature(Source)) & SimpleMerge(OmitIndexSignature(Destination), OmitIndexSignature(Source)))
+export function _Merge(Destination, Source): any {
+  return Simplify(merge(SimpleMerge(PickIndexSignature(Destination), PickIndexSignature(Source)), SimpleMerge(OmitIndexSignature(Destination), OmitIndexSignature(Source))))
 }
 /* compiles to:
  * export type _Merge<Destination, Source> = Simplify<

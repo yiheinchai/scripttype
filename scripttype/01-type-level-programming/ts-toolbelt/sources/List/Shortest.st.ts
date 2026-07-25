@@ -17,7 +17,7 @@ type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, 
 // ✗ Shortest: does not compile yet
 //   Type 'Has<keyof L1, keyof L>' cannot be used to index type '{ '0': L1; '1': L; }'.
 /* @scripttype preserveParamNames */
-export function Shortest(L: List, L1: List) {
+export function Shortest(L: List, L1: List): any {
   if (matches<unknown>(L)) {
     if (matches<unknown>(L1)) {
       return { 0: L1, 1: L }[Has(keyof(L1), keyof(L))]

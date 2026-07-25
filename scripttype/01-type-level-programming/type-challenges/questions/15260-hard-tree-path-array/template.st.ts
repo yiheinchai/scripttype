@@ -9,7 +9,7 @@
  */
 // ✓ Path: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Path(T) {
+export function Path(T): any {
   return any
 }
 /* compiles to:

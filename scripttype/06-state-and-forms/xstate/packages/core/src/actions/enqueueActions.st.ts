@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { MachineContext, ParameterizedObject, ProvidedActor } from '../../../../../../../06-state-and-forms/xstate/packages/core/src/types.js'
 declare const CollectActionsArg: any
 declare const EventObject: any
 declare const MachineContext: any
@@ -17,12 +19,9 @@ declare const ParameterizedObject: any
 declare const ProvidedActor: any
 type CollectActionsArg<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParameterizedObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ProvidedActor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CollectActions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CollectActions(TContext: MachineContext, TExpressionEvent: EventObject, TParams: ParameterizedObject['params'] | undefined, TEvent: EventObject, TActor: ProvidedActor, TAction: ParameterizedObject, TGuard: ParameterizedObject, TDelay: string, TEmitted: EventObject) {
+export function CollectActions(TContext: MachineContext, TExpressionEvent: EventObject, TParams: ParameterizedObject['params'] | undefined, TEvent: EventObject, TActor: ProvidedActor, TAction: ParameterizedObject, TGuard: ParameterizedObject, TDelay: string, TEmitted: EventObject): any {
   return fnType([CollectActionsArg(TContext, TExpressionEvent, TEvent, TActor, TAction, TGuard, TDelay, TEmitted), TParams], voidType())
 }
 /* compiles to:

@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { NegativeInfinity, PositiveInfinity, _Numeric } from '../../../../01-type-level-programming/type-fest/source/numeric.d.js'
 declare const IsFloat: any
 declare const IsInteger: any
 declare const NegativeInfinity: any
@@ -19,13 +21,10 @@ declare const _Numeric: any
 type IsFloat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Negative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Zero<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _Numeric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Finite: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Finite(T: number) {
+export function Finite(T: number): any {
   if (matches<PositiveInfinity | NegativeInfinity>(T)) {
     return never
   }
@@ -37,7 +36,7 @@ export function Finite(T: number) {
 
 // ✓ Integer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Integer(T) {
+export function Integer(T): any {
   if (matches<unknown>(T)) {
     if (matches<true>(IsInteger(T))) {
       return T
@@ -52,7 +51,7 @@ export function Integer(T) {
 
 // ✓ Float: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Float(T) {
+export function Float(T): any {
   if (matches<unknown>(T)) {
     if (matches<true>(IsFloat(T))) {
       return T
@@ -67,7 +66,7 @@ export function Float(T) {
 
 // ✓ NegativeFloat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NegativeFloat(T: number) {
+export function NegativeFloat(T: number): any {
   return Negative(Float(T))
 }
 /* compiles to:
@@ -76,7 +75,7 @@ export function NegativeFloat(T: number) {
 
 // ✓ Negative: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Negative(T: _Numeric) {
+export function Negative(T: _Numeric): any {
   if (matches<Zero>(T)) {
     return never
   }
@@ -92,7 +91,7 @@ export function Negative(T: _Numeric) {
 
 // ✓ NegativeInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NegativeInteger(T: number) {
+export function NegativeInteger(T: number): any {
   return Negative(Integer(T))
 }
 /* compiles to:
@@ -101,7 +100,7 @@ export function NegativeInteger(T: number) {
 
 // ✓ NonNegative: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNegative(T: _Numeric) {
+export function NonNegative(T: _Numeric): any {
   if (matches<Zero>(T)) {
     return T
   }
@@ -117,7 +116,7 @@ export function NonNegative(T: _Numeric) {
 
 // ✓ NonNegativeInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNegativeInteger(T: number) {
+export function NonNegativeInteger(T: number): any {
   return NonNegative(Integer(T))
 }
 /* compiles to:
@@ -126,7 +125,7 @@ export function NonNegativeInteger(T: number) {
 
 // ✓ IsNegative: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNegative(T: _Numeric) {
+export function IsNegative(T: _Numeric): any {
   if (matches<Negative<typeof T>>(T)) {
     return true
   }

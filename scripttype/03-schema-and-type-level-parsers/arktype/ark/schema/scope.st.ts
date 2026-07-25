@@ -7,9 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { InternalModule } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/module.js'
+import type { InternalResolution } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/scope.js'
+import type { anyOrNever, show } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
+import type { intersectUnion } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/unionToTuple.js'
+declare namespace m1 {
+  export type alias<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type k<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type kind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseRoot: any
 declare const BaseScope: any
 declare const GenericRoot: any
@@ -23,19 +33,13 @@ declare const show: any
 type BaseRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type BaseScope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GenericRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InternalModule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InternalResolution<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PrivateDeclaration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type arkKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type intersectUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type noSuggest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type resolvableReferenceIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type show<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ exportedNameOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function exportedNameOf($) {
-  return Exclude(keyof($) & string, PrivateDeclaration)
+export function exportedNameOf($): any {
+  return Exclude(merge(keyof($), string), PrivateDeclaration)
 }
 /* compiles to:
  * export type exportedNameOf<$> = Exclude<keyof $ & string, PrivateDeclaration>
@@ -43,7 +47,7 @@ export function exportedNameOf($) {
 
 // ✓ resolvableReferenceIn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function resolvableReferenceIn__v1(k) {
+export function resolvableReferenceIn__v1(k): any {
   const m1 = matches<PrivateDeclaration<Hole<"alias">>>(k)
   if (m1) {
     return m1.alias
@@ -53,7 +57,7 @@ export function resolvableReferenceIn__v1(k) {
   }
   return k
 }
-export function resolvableReferenceIn($) {
+export function resolvableReferenceIn($): any {
   const out = emptyObject
   for (const k in keyof($)) {
     out[k] = typeof k === 'string' ? (resolvableReferenceIn__v1(k)) : never
@@ -69,7 +73,10 @@ export function resolvableReferenceIn($) {
 
 // ✓ resolveReference: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function resolveReference(reference: resolvableReferenceIn<typeof $>, $) {
+/**
+ * @param {resolvableReferenceIn<typeof $>} reference
+ */
+export function resolveReference(reference, $): any {
   if (reference in $) {
     return $[reference]
   }
@@ -82,7 +89,7 @@ export function resolveReference(reference: resolvableReferenceIn<typeof $>, $) 
 
 // ✓ flatResolutionsOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function flatResolutionsOf($) {
+export function flatResolutionsOf($): any {
   const m1 = matches<Hole<"k">>(resolvableReferenceIn($))
   return show(intersectUnion(m1 ? (matches<keyof typeof $ & string>(m1.k) ? resolutionsOfReference(m1.k, $[m1.k]) : unknown) : unknown))
 }
@@ -98,7 +105,7 @@ export function flatResolutionsOf($) {
 
 // ✓ resolutionsOfReference: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function resolutionsOfReference(k: string, v) {
+export function resolutionsOfReference(k: string, v): any {
   if (matches<[ { [arkKind]: "module"; } ]>([v])) {
     if (matches<[ anyOrNever ]>([v])) {
       const out = emptyObject
@@ -131,7 +138,7 @@ export function resolutionsOfReference(k: string, v) {
 
 // ✓ prefixKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function prefixKeys(o, prefix: string) {
+export function prefixKeys(o, prefix: string): any {
   const out = emptyObject
   for (const k in keySet(keyof(o) & string)) {
     out[`${prefix}.${k}`] = o[k]
@@ -145,7 +152,7 @@ export function prefixKeys(o, prefix: string) {
 
 // ✓ PrivateDeclaration: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PrivateDeclaration(key: string = string) {
+export function PrivateDeclaration(key: string = string): any {
   return `#${key}`
 }
 /* compiles to:
@@ -155,7 +162,7 @@ export function PrivateDeclaration(key: string = string) {
 // ✗ toInternalScope: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function toInternalScope__v1($, k) {
+export function toInternalScope__v1($, k): any {
   const m1 = matches<{ [arkKind]: Hole<"kind">; }>($[k])
   if (m1) {
     if (matches<[ anyOrNever ]>([$[k]])) {
@@ -171,7 +178,7 @@ export function toInternalScope__v1($, k) {
   }
   return BaseRoot
 }
-export function toInternalScope($) {
+export function toInternalScope($): any {
   const out = emptyObject
   for (const k in keyof($)) {
     out[k] = toInternalScope__v1($, k)
@@ -191,7 +198,7 @@ export function toInternalScope($) {
 
 // ✓ writeDuplicateAliasError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeDuplicateAliasError(alias: string) {
+export function writeDuplicateAliasError(alias: string): any {
   return `#${alias} duplicates public alias ${alias}`
 }
 /* compiles to:
@@ -200,7 +207,7 @@ export function writeDuplicateAliasError(alias: string) {
 
 // ✓ instantiateAliases: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function instantiateAliases(aliases) {
+export function instantiateAliases(aliases): any {
   const out = emptyObject
   for (const k in keyof(aliases)) {
     out[k] = matches<InternalResolution>(aliases[k]) ? aliases[k] : BaseRoot
@@ -215,7 +222,7 @@ export function instantiateAliases(aliases) {
 
 // ✓ writeUnresolvableMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnresolvableMessage(token: string) {
+export function writeUnresolvableMessage(token: string): any {
   return `'${token}' is unresolvable`
 }
 /* compiles to:
@@ -224,7 +231,7 @@ export function writeUnresolvableMessage(token: string) {
 
 // ✓ writeNonSubmoduleDotMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeNonSubmoduleDotMessage(name: string) {
+export function writeNonSubmoduleDotMessage(name: string): any {
   return `'${name}' must reference a module to be accessed using dot syntax`
 }
 /* compiles to:
@@ -233,7 +240,7 @@ export function writeNonSubmoduleDotMessage(name: string) {
 
 // ✓ writeMissingSubmoduleAccessMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeMissingSubmoduleAccessMessage(name: string) {
+export function writeMissingSubmoduleAccessMessage(name: string): any {
   return `Reference to submodule '${name}' must specify an alias`
 }
 /* compiles to:

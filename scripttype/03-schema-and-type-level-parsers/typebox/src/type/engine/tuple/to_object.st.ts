@@ -7,20 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TTuple } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/tuple.js'
+declare namespace m2 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TObject: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TTuple: any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTupleElementsToProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTupleElementsToProperties(Types: TSchema[], Result: TProperties = {}) {
+/**
+ * @param {TProperties} Result
+ */
+export function TTupleElementsToProperties(Types: TSchema[], Result = {}): any {
   const m2 = matches<[ ...Hole<"Left", TSchema[]>, Hole<"Right", TSchema> ]>(Types)
   if (m2) {
     const out3 = emptyObject
@@ -47,7 +55,7 @@ export function TTupleElementsToProperties(Types: TSchema[], Result: TProperties
 
 // ✓ TTupleToObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTupleToObject(Type: TTuple, Properties: TProperties = TTupleElementsToProperties(Type['items']), Result: TSchema = TObject(Properties)) {
+export function TTupleToObject(Type: TTuple, Properties: TProperties = TTupleElementsToProperties(Type['items']), Result: TSchema = TObject(Properties)): any {
   return Result
 }
 /* compiles to:

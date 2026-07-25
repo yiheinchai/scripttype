@@ -14,7 +14,7 @@ declare const OptionalKeysOf: any
 type OptionalKeysOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequiredKeysOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequiredKeysOf(Type: object) {
+export function RequiredKeysOf(Type: object): any {
   if (matches<unknown>(Type)) {
     return Exclude(keyof(Type), OptionalKeysOf(Type))
   }

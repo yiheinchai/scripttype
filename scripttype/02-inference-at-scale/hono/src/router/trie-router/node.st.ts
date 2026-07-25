@@ -9,7 +9,7 @@
  */
 // ✓ HandlerSet: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandlerSet(T) {
+export function HandlerSet(T): any {
   return { handler: T, possibleKeys: arrayOf(string), score: number }
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function HandlerSet(T) {
 
 // ✓ HandlerParamsSet: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandlerParamsSet(T) {
+export function HandlerParamsSet(T): any {
   return merge(HandlerSet(T), { params: Record(string, string) })
 }
 /* compiles to:

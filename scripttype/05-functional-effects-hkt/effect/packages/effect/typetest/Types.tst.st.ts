@@ -10,7 +10,7 @@
 // ✗ TaggedValues: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function TaggedValues(A) {
+export function TaggedValues(A): any {
   return { _tag: readonlyProp(string), value: readonlyProp(readonlyArrayOf(A)) }
 }
 /* compiles to:

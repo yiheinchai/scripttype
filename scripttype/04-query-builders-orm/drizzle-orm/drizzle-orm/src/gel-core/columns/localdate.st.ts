@@ -16,7 +16,7 @@ type GelLocalDateStringBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any,
 type LocalDate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GelLocalDateStringBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelLocalDateStringBuilderInitial(TName: string) {
+export function GelLocalDateStringBuilderInitial(TName: string): any {
   return GelLocalDateStringBuilder({ name: TName, dataType: 'localDate', columnType: 'GelLocalDateString', data: LocalDate, driverParam: LocalDate, enumValues: Undefined })
 }
 /* compiles to:

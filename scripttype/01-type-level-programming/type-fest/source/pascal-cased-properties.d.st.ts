@@ -20,7 +20,7 @@ type PascalCase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 =
 type _DefaultCamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PascalCasedProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PascalCasedProperties(Value, Options: CamelCaseOptions = {}) {
+export function PascalCasedProperties(Value, Options: CamelCaseOptions = {}): any {
   if (matches<Function>(Value)) {
     return Value
   }
@@ -37,7 +37,7 @@ export function PascalCasedProperties(Value, Options: CamelCaseOptions = {}) {
 /* compiles to:
  * export type PascalCasedProperties<Value, Options extends CamelCaseOptions = {}> =
  *   Value extends Function ? Value
- *   : Value extends Array<unknown> ? Value
+ *   : Value extends Array<any> ? Value
  *   : {
  *     [K in keyof Value as PascalCase<K, ApplyDefaultOptions<CamelCaseOptions, _DefaultCamelCaseOptions, Options>>]: Value[K]
  *   }

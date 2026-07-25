@@ -9,7 +9,7 @@
  */
 // ✓ Unbox: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Unbox(T) {
+export function Unbox(T): any {
   return any
 }
 /* compiles to:

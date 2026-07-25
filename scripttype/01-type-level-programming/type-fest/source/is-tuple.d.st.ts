@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { IsTupleOptions } from '../../../../01-type-level-programming/type-fest/source/is-tuple.d.js'
 declare const ApplyDefaultOptions: any
 declare const DefaultIsTupleOptions: any
 declare const If: any
@@ -22,11 +24,10 @@ type DefaultIsTupleOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 
 type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsTupleOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsTuple(TArray: UnknownArray, Options: IsTupleOptions = {}) {
+export function IsTuple(TArray: UnknownArray, Options: IsTupleOptions = {}): any {
   return _IsTuple(TArray, ApplyDefaultOptions(IsTupleOptions, DefaultIsTupleOptions, Options))
 }
 /* compiles to:
@@ -38,7 +39,7 @@ export function IsTuple(TArray: UnknownArray, Options: IsTupleOptions = {}) {
 
 // ✓ _IsTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _IsTuple(TArray: UnknownArray, Options: Required<IsTupleOptions>) {
+export function _IsTuple(TArray: UnknownArray, Options: Required<IsTupleOptions>): any {
   return If(IsAny(TArray), boolean, If(IsNever(TArray), false, matches<unknown>(TArray) ? (matches<(typeof TArray)['length']>(number) ? (matches<false>(Options['fixedLengthOnly']) ? If(IsNever(merge(keyof(TArray), `${number}`)), matches<readonly [ ...any, any ]>(TArray) ? true : false, true) : false) : true) : false))
 }
 /* compiles to:

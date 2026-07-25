@@ -14,7 +14,7 @@ declare const PgMacaddr8Builder: any
 type PgMacaddr8Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgMacaddr8BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgMacaddr8BuilderInitial(TName: string) {
+export function PgMacaddr8BuilderInitial(TName: string): any {
   return PgMacaddr8Builder({ name: TName, dataType: 'string', columnType: 'PgMacaddr8', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:

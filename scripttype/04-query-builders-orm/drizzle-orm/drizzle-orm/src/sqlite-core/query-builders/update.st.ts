@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GetColumnData } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
+import type { SelectResultFields } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { AnySQLiteUpdate } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sqlite-core/query-builders/update.js'
+import type { DrizzleTypeError } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
 declare const AnySQLiteUpdate: any
 declare const DrizzleTypeError: any
 declare const GetColumnData: any
@@ -23,22 +28,18 @@ declare const SelectResultFields: any
 declare const SelectedFields: any
 declare const Subquery: any
 declare const TJoinedTable: any
-type AnySQLiteUpdate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrizzleTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetColumnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLitePreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteUpdateBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteViewBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResultFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectedFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TJoinedTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLiteUpdateSetSource: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdateSetSource(TTable: SQLiteTable) {
+export function SQLiteUpdateSetSource(TTable: SQLiteTable): any {
   const out = emptyObject
   for (const Key in keyof(TTable['$inferInsert'])) {
     out[Key] = optional(anyOf(GetColumnData(TTable['_']['columns'][Key], 'query'), SQL, SQLiteColumn, Undefined))
@@ -58,7 +59,11 @@ export function SQLiteUpdateSetSource(TTable: SQLiteTable) {
 
 // ✓ SQLiteUpdateWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdateWithout(T: AnySQLiteUpdate, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnySQLiteUpdate} T
+ * @param {keyof typeof T & string} K
+ */
+export function SQLiteUpdateWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -88,7 +93,7 @@ export function SQLiteUpdateWithout(T: AnySQLiteUpdate, TDynamic: boolean, K: ke
 
 // ✓ SQLiteUpdateWithJoins: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdateWithJoins(T: AnySQLiteUpdate, TDynamic: boolean, TFrom: SQLiteTable | Subquery | SQLiteViewBase | SQL) {
+export function SQLiteUpdateWithJoins(T: AnySQLiteUpdate, TDynamic: boolean, TFrom: SQLiteTable | Subquery | SQLiteViewBase | SQL): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -124,7 +129,7 @@ export function SQLiteUpdateWithJoins(T: AnySQLiteUpdate, TDynamic: boolean, TFr
 
 // ✓ SQLiteUpdateReturningAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdateReturningAll(T: AnySQLiteUpdate, TDynamic: boolean) {
+export function SQLiteUpdateReturningAll(T: AnySQLiteUpdate, TDynamic: boolean): any {
   return SQLiteUpdateWithout(SQLiteUpdateBase(T['_']['table'], T['_']['resultType'], T['_']['runResult'], T['_']['from'], T['_']['table']['$inferSelect'], TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
@@ -145,7 +150,7 @@ export function SQLiteUpdateReturningAll(T: AnySQLiteUpdate, TDynamic: boolean) 
 
 // ✓ SQLiteUpdateReturning: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdateReturning(T: AnySQLiteUpdate, TDynamic: boolean, TSelectedFields: SelectedFields) {
+export function SQLiteUpdateReturning(T: AnySQLiteUpdate, TDynamic: boolean, TSelectedFields: SelectedFields): any {
   return SQLiteUpdateWithout(SQLiteUpdateBase(T['_']['table'], T['_']['resultType'], T['_']['runResult'], T['_']['from'], SelectResultFields(TSelectedFields), TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
@@ -171,7 +176,7 @@ export function SQLiteUpdateReturning(T: AnySQLiteUpdate, TDynamic: boolean, TSe
 
 // ✓ SQLiteUpdateExecute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdateExecute(T: AnySQLiteUpdate) {
+export function SQLiteUpdateExecute(T: AnySQLiteUpdate): any {
   if (typeof T['_']['returning'] === 'undefined') {
     return T['_']['runResult']
   }
@@ -184,7 +189,7 @@ export function SQLiteUpdateExecute(T: AnySQLiteUpdate) {
 
 // ✓ SQLiteUpdatePrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdatePrepare(T: AnySQLiteUpdate) {
+export function SQLiteUpdatePrepare(T: AnySQLiteUpdate): any {
   return SQLitePreparedQuery({ type: T['_']['resultType'], run: T['_']['runResult'], all: typeof T['_']['returning'] === 'undefined' ? DrizzleTypeError('.all() cannot be used without .returning()') : arrayOf(T['_']['returning']), get: typeof T['_']['returning'] === 'undefined' ? DrizzleTypeError('.get() cannot be used without .returning()') : T['_']['returning'], values: typeof T['_']['returning'] === 'undefined' ? DrizzleTypeError('.values() cannot be used without .returning()') : arrayOf(arrayOf(any)), execute: SQLiteUpdateExecute(T) })
 }
 /* compiles to:
@@ -208,7 +213,7 @@ export function SQLiteUpdatePrepare(T: AnySQLiteUpdate) {
 
 // ✓ SQLiteUpdateJoinFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdateJoinFn(T: AnySQLiteUpdate) {
+export function SQLiteUpdateJoinFn(T: AnySQLiteUpdate): any {
   return genericFnType(['TJoinedTable extends SQLiteTable | Subquery | SQLiteViewBase | SQL'], [TJoinedTable, anyOf(fnType([T['_']['table']['_']['columns'], matches<SQLiteTable>(T['_']['from']) ? T['_']['from']['_']['columns'] : (matches<Subquery | SQLiteViewBase>(T['_']['from']) ? T['_']['from']['_']['selectedFields'] : never)], anyOf(SQL, Undefined)), SQL, Undefined)], T)
 }
 /* compiles to:
@@ -221,7 +226,7 @@ export function SQLiteUpdateJoinFn(T: AnySQLiteUpdate) {
 
 // ✓ SQLiteUpdateDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdateDynamic(T: AnySQLiteUpdate) {
+export function SQLiteUpdateDynamic(T: AnySQLiteUpdate): any {
   return SQLiteUpdate(T['_']['table'], T['_']['resultType'], T['_']['runResult'], T['_']['returning'])
 }
 /* compiles to:
@@ -235,7 +240,7 @@ export function SQLiteUpdateDynamic(T: AnySQLiteUpdate) {
 
 // ✓ SQLiteUpdate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteUpdate(TTable: SQLiteTable = SQLiteTable, TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = any, TFrom: SQLiteTable | Subquery | SQLiteViewBase | SQL | undefined = Undefined, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined)) {
+export function SQLiteUpdate(TTable: SQLiteTable = SQLiteTable, TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = any, TFrom: SQLiteTable | Subquery | SQLiteViewBase | SQL | undefined = Undefined, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined)): any {
   return SQLiteUpdateBase(TTable, TResultType, TRunResult, TFrom, TReturning, true, never)
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Maximum: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Maximum(T: any[]) {
+export function Maximum(T: any[]): any {
   return any
 }
 /* compiles to:

@@ -7,19 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { BaseQueryApi } from '../../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/query/baseQueryTypes.js'
+import type { UnwrapPromise } from '../../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/query/tsHelpers.js'
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Unwrapped<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseQueryApi: any
 declare const MaybePromise: any
 declare const UnwrapPromise: any
-type BaseQueryApi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type BaseQueryFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MaybePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnwrapPromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ QueryReturnValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function QueryReturnValue(T = unknown, E = unknown, M = unknown) {
+export function QueryReturnValue(T = unknown, E = unknown, M = unknown): any {
   return anyOf({ error: E, data: optional(Undefined), meta: optional(M) }, { error: optional(Undefined), data: T, meta: optional(M) })
 }
 /* compiles to:
@@ -29,7 +34,7 @@ export function QueryReturnValue(T = unknown, E = unknown, M = unknown) {
 
 // ✓ BaseQueryFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseQueryFn(Args = any, Result = unknown, Error = unknown, DefinitionExtraOptions = {}, Meta = {}) {
+export function BaseQueryFn(Args = any, Result = unknown, Error = unknown, DefinitionExtraOptions = {}, Meta = {}): any {
   return fnType([Args, BaseQueryApi, DefinitionExtraOptions], MaybePromise(QueryReturnValue(Result, t<typeof Error>(), Meta)))
 }
 /* compiles to:
@@ -47,8 +52,8 @@ export function BaseQueryFn(Args = any, Result = unknown, Error = unknown, Defin
 
 // ✓ BaseQueryEnhancer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseQueryEnhancer(AdditionalArgs = unknown, AdditionalDefinitionExtraOptions = unknown, Config = voidType()) {
-  return genericFnType(['BaseQuery extends BaseQueryFn'], [BaseQuery, Config], BaseQueryFn(BaseQueryArg(BaseQuery) & AdditionalArgs, BaseQueryResult(BaseQuery), BaseQueryError(BaseQuery), BaseQueryExtraOptions(BaseQuery) & AdditionalDefinitionExtraOptions, NonNullable(BaseQueryMeta(BaseQuery))))
+export function BaseQueryEnhancer(AdditionalArgs = unknown, AdditionalDefinitionExtraOptions = unknown, Config = voidType()): any {
+  return genericFnType(['BaseQuery extends BaseQueryFn'], [BaseQuery, Config], BaseQueryFn(merge(BaseQueryArg(BaseQuery), AdditionalArgs), BaseQueryResult(BaseQuery), BaseQueryError(BaseQuery), merge(BaseQueryExtraOptions(BaseQuery), AdditionalDefinitionExtraOptions), NonNullable(BaseQueryMeta(BaseQuery))))
 }
 /* compiles to:
  * export type BaseQueryEnhancer<
@@ -67,7 +72,7 @@ export function BaseQueryEnhancer(AdditionalArgs = unknown, AdditionalDefinition
 
 // ✓ BaseQueryResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseQueryResult(BaseQuery: BaseQueryFn) {
+export function BaseQueryResult(BaseQuery: BaseQueryFn): any {
   const m1 = matches<Hole<"Unwrapped">>(UnwrapPromise(ReturnType(BaseQuery)))
   if (m1) {
     if (matches<{ data: any; }>(m1.Unwrapped)) {
@@ -86,7 +91,7 @@ export function BaseQueryResult(BaseQuery: BaseQueryFn) {
 
 // ✓ BaseQueryMeta: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseQueryMeta(BaseQuery: BaseQueryFn) {
+export function BaseQueryMeta(BaseQuery: BaseQueryFn): any {
   return UnwrapPromise(ReturnType(BaseQuery))['meta']
 }
 /* compiles to:
@@ -95,7 +100,7 @@ export function BaseQueryMeta(BaseQuery: BaseQueryFn) {
 
 // ✓ BaseQueryError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseQueryError(BaseQuery: BaseQueryFn) {
+export function BaseQueryError(BaseQuery: BaseQueryFn): any {
   return Exclude(UnwrapPromise(ReturnType(BaseQuery)), { error: optional(Undefined) })['error']
 }
 /* compiles to:
@@ -105,7 +110,7 @@ export function BaseQueryError(BaseQuery: BaseQueryFn) {
 
 // ✓ BaseQueryArg: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseQueryArg(T: (arg: any, ...args: any[]) => any) {
+export function BaseQueryArg(T: (arg: any, ...args: any[]) => any): any {
   const m1 = matches<(arg: Hole<"A">, ...args: any[]) => any>(T)
   if (m1) {
     return m1.A
@@ -119,7 +124,7 @@ export function BaseQueryArg(T: (arg: any, ...args: any[]) => any) {
 
 // ✓ BaseQueryExtraOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseQueryExtraOptions(BaseQuery: BaseQueryFn) {
+export function BaseQueryExtraOptions(BaseQuery: BaseQueryFn): any {
   return Parameters(BaseQuery)[2]
 }
 /* compiles to:

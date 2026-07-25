@@ -7,9 +7,34 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExtractErrAsyncTypes, ExtractOkAsyncTypes } from '../../../../05-functional-effects-hkt/neverthrow/src/_internals/utils.js'
+import type { Combine, Dedup, EmptyArrayToNever, IsLiteralArray, MemberListOf, MembersToUnion, Result } from '../../../../05-functional-effects-hkt/neverthrow/src/result.js'
+declare namespace m1 {
+  export type Errs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type H<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Oks<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type HI<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type I<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Errs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Oks<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type HI<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type L<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Combine: any
 declare const Dedup: any
 declare const EmptyArrayToNever: any
@@ -19,24 +44,13 @@ declare const IsLiteralArray: any
 declare const MemberListOf: any
 declare const MembersToUnion: any
 declare const Ok: any
-declare const PromiseLike: any
 declare const Result: any
 declare const ResultAsync: any
-type Combine<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Dedup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EmptyArrayToNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractErrAsyncTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractOkAsyncTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsLiteralArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MemberListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MembersToUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Ok<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PromiseLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResultAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CombineResultAsyncs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CombineResultAsyncs(T: readonly ResultAsync<unknown, unknown>[]) {
+export function CombineResultAsyncs(T: readonly ResultAsync<unknown, unknown>[]): any {
   if (matches<1>(IsLiteralArray(T))) {
     return TraverseAsync(UnwrapAsync(T))
   }
@@ -51,7 +65,7 @@ export function CombineResultAsyncs(T: readonly ResultAsync<unknown, unknown>[])
 
 // ✓ CombineResultsWithAllErrorsArrayAsync: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CombineResultsWithAllErrorsArrayAsync(T: readonly ResultAsync<unknown, unknown>[]) {
+export function CombineResultsWithAllErrorsArrayAsync(T: readonly ResultAsync<unknown, unknown>[]): any {
   if (matches<1>(IsLiteralArray(T))) {
     return TraverseWithAllErrorsAsync(UnwrapAsync(T))
   }
@@ -68,7 +82,7 @@ export function CombineResultsWithAllErrorsArrayAsync(T: readonly ResultAsync<un
 
 // ✓ UnwrapAsync: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnwrapAsync(T) {
+export function UnwrapAsync(T): any {
   if (matches<1>(IsLiteralArray(T))) {
     const m1 = matches<[ Hole<"H">, ...Hole<"Rest"> ]>(Writable(T))
     if (m1) {
@@ -114,7 +128,7 @@ export function UnwrapAsync(T) {
 
 // ✓ TraverseAsync: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TraverseAsync(T, Depth: number = 5) {
+export function TraverseAsync(T, Depth: number = 5): any {
   if (matches<1>(IsLiteralArray(T))) {
     const m1 = matches<[ Hole<"Oks">, Hole<"Errs"> ]>(Combine(T, Depth))
     if (m1) {
@@ -161,7 +175,7 @@ export function TraverseAsync(T, Depth: number = 5) {
 
 // ✓ TraverseWithAllErrorsAsync: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TraverseWithAllErrorsAsync(T, Depth: number = 5) {
+export function TraverseWithAllErrorsAsync(T, Depth: number = 5): any {
   const m1 = matches<ResultAsync<Hole<"Oks">, Hole<"Errs">>>(TraverseAsync(T, Depth))
   if (m1) {
     return ResultAsync(m1.Oks, arrayOf(m1.Errs))
@@ -177,7 +191,7 @@ export function TraverseWithAllErrorsAsync(T, Depth: number = 5) {
 
 // ✓ Writable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Writable(T) {
+export function Writable(T): any {
   if (matches<ReadonlyArray<unknown>>(T)) {
     return [...T]
   }

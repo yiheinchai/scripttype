@@ -9,7 +9,7 @@
  */
 // ✓ NoInfer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NoInfer(A: any) {
+export function NoInfer(A: any): any {
   return [A][matches<any>(A) ? 0 : never]
 }
 /* compiles to:

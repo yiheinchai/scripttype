@@ -9,7 +9,7 @@
  */
 // ✓ MutableKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MutableKeys(T) {
+export function MutableKeys(T): any {
   return any
 }
 /* compiles to:

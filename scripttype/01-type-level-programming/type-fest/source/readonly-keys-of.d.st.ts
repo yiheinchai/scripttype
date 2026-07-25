@@ -14,7 +14,7 @@ declare const IsReadonlyKeyOf: any
 type IsReadonlyKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadonlyKeysOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyKeysOf(Type: object) {
+export function ReadonlyKeysOf(Type: object): any {
   if (matches<unknown>(Type)) {
     const out = emptyObject
     for (const Key in keyof(Type)) {

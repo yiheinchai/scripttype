@@ -9,7 +9,7 @@
  */
 // ✓ InclusiveRange: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InclusiveRange(Lower: number, Higher: number) {
+export function InclusiveRange(Lower: number, Higher: number): any {
   return any
 }
 /* compiles to:

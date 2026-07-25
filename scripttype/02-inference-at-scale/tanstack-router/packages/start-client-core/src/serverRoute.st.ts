@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyRoute } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/route.js'
+import type { Assign, UnionToIntersection } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
+import type { AssignAllServerRequestContext } from '../../../../../../02-inference-at-scale/tanstack-router/packages/start-client-core/src/createMiddleware.js'
+import type { CreateMethodFnOpts, RouteMethod, RouteMethodBuilderOptions, RouteMethodHandlerCtx } from '../../../../../../02-inference-at-scale/tanstack-router/packages/start-client-core/src/serverRoute.js'
+declare namespace m1 {
+  export type TServerContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TServerContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyRoute: any
 declare const Assign: any
 declare const AssignAllServerRequestContext: any
@@ -28,16 +39,9 @@ declare const TMethodPostMiddlewares: any
 declare const TMethodPutMiddlewares: any
 declare const UnionToIntersection: any
 declare const createHandlersSymbol: any
-type AnyRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Assign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AssignAllServerRequestContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CreateMethodFnOpts<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type CustomHandlerFunctionsRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteMethod<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteMethodBuilderOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RouteMethodHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteMethodHandlerCtx<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RouteMethodResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TMethodAllMiddlewares<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TMethodDeleteMiddlewares<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -47,11 +51,10 @@ type TMethodOptionsMiddlewares<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any,
 type TMethodPatchMiddlewares<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TMethodPostMiddlewares<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TMethodPutMiddlewares<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type createHandlersSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtractHandlersContext: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractHandlersContext(THandlers) {
+export function ExtractHandlersContext(THandlers): any {
   const m1 = matches<(...args: any) => CustomHandlerFunctionsRecord<any, any, any, any, any, any, Hole<"TServerContext">>>(THandlers)
   if (m1) {
     return UnionToIntersection(m1.TServerContext)
@@ -73,7 +76,7 @@ export function ExtractHandlersContext(THandlers) {
 
 // ✓ CustomHandlerFunctionsRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CustomHandlerFunctionsRecord(TRegister, TParentRoute: AnyRoute, TFullPath: string, TParams, TServerMiddlewares, TMethodMiddlewares, TServerContext) {
+export function CustomHandlerFunctionsRecord(TRegister, TParentRoute: AnyRoute, TFullPath: string, TParams, TServerMiddlewares, TMethodMiddlewares, TServerContext): any {
   return merge({ [createHandlersSymbol]: true }, Partial(Record(RouteMethod, RouteMethodHandler(TRegister, TParentRoute, TFullPath, TParams, TServerMiddlewares, TMethodMiddlewares, TServerContext))))
 }
 /* compiles to:
@@ -105,7 +108,7 @@ export function CustomHandlerFunctionsRecord(TRegister, TParentRoute: AnyRoute, 
 
 // ✓ CreateHandlersFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateHandlersFn(TRegister, TParentRoute: AnyRoute, TFullPath: string, TParams, TServerMiddlewares) {
+export function CreateHandlersFn(TRegister, TParentRoute: AnyRoute, TFullPath: string, TParams, TServerMiddlewares): any {
   return genericFnType(['const TMethodAllMiddlewares', 'const TMethodGetMiddlewares', 'const TMethodPostMiddlewares', 'const TMethodPutMiddlewares', 'const TMethodPatchMiddlewares', 'const TMethodDeleteMiddlewares', 'const TMethodOptionsMiddlewares', 'const TMethodHeadMiddlewares', 'TServerContext'], [CreateMethodFnOpts(TRegister, TParentRoute, TFullPath, TParams, TServerMiddlewares, TMethodAllMiddlewares, TMethodGetMiddlewares, TMethodPostMiddlewares, TMethodPutMiddlewares, TMethodPatchMiddlewares, TMethodDeleteMiddlewares, TMethodOptionsMiddlewares, TMethodHeadMiddlewares, TServerContext)], CustomHandlerFunctionsRecord(TRegister, TParentRoute, TFullPath, TParams, TServerMiddlewares, any, TServerContext))
 }
 /* compiles to:
@@ -131,7 +134,7 @@ export function CreateHandlersFn(TRegister, TParentRoute: AnyRoute, TFullPath: s
 
 // ✓ RouteMethodHandler: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteMethodHandler(TRegister, TParentRoute: AnyRoute, TFullPath: string, TParams, TServerMiddlewares, TMethodMiddlewares, TServerContext) {
+export function RouteMethodHandler(TRegister, TParentRoute: AnyRoute, TFullPath: string, TParams, TServerMiddlewares, TMethodMiddlewares, TServerContext): any {
   return RouteMethodHandlerFn(TRegister, TParentRoute, TFullPath, TParams, TServerMiddlewares, TMethodMiddlewares, TServerContext) | RouteMethodBuilderOptions(TRegister, TParentRoute, TFullPath, TParams, TServerMiddlewares, TMethodMiddlewares, TServerContext)
 }
 /* compiles to:
@@ -166,7 +169,7 @@ export function RouteMethodHandler(TRegister, TParentRoute: AnyRoute, TFullPath:
 
 // ✓ ResolveAllServerContext: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolveAllServerContext(TRegister, TParentRoute: AnyRoute, TServerMiddlewares) {
+export function ResolveAllServerContext(TRegister, TParentRoute: AnyRoute, TServerMiddlewares): any {
   if (matches<typeof TParentRoute>(unknown)) {
     return AssignAllServerRequestContext(TRegister, TServerMiddlewares, {})
   }
@@ -188,7 +191,7 @@ export function ResolveAllServerContext(TRegister, TParentRoute: AnyRoute, TServ
 
 // ✓ RouteMethodHandlerFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteMethodHandlerFn(TRegister, TParentRoute: AnyRoute, TFullPath: string, TParams, TServerMiddlewares, TMethodMiddlewares, TServerContext) {
+export function RouteMethodHandlerFn(TRegister, TParentRoute: AnyRoute, TFullPath: string, TParams, TServerMiddlewares, TMethodMiddlewares, TServerContext): any {
   return fnType([RouteMethodHandlerCtx(TRegister, TParentRoute, TFullPath, TParams, TServerMiddlewares, TMethodMiddlewares)], RouteMethodResult(TServerContext) | t<Promise<RouteMethodResult<typeof TServerContext>>>())
 }
 /* compiles to:
@@ -208,7 +211,7 @@ export function RouteMethodHandlerFn(TRegister, TParentRoute: AnyRoute, TFullPat
 
 // ✓ RouteMethodResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteMethodResult(TContext) {
+export function RouteMethodResult(TContext): any {
   return anyOf(Response, Undefined, RouteMethodNextResult(TContext))
 }
 /* compiles to:
@@ -217,7 +220,7 @@ export function RouteMethodResult(TContext) {
 
 // ✓ RouteMethodNextResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteMethodNextResult(TContext) {
+export function RouteMethodNextResult(TContext): any {
   return { isNext: true, context: TContext }
 }
 /* compiles to:
@@ -226,7 +229,7 @@ export function RouteMethodNextResult(TContext) {
 
 // ✓ MergeMethodMiddlewares: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeMethodMiddlewares(TServerMiddlewares, TMethodMiddlewares) {
+export function MergeMethodMiddlewares(TServerMiddlewares, TMethodMiddlewares): any {
   if (matches<ReadonlyArray<any>>(TServerMiddlewares)) {
     if (matches<ReadonlyArray<any>>(TMethodMiddlewares)) {
       return asReadonly([...TServerMiddlewares, ...TMethodMiddlewares])
@@ -246,7 +249,7 @@ export function MergeMethodMiddlewares(TServerMiddlewares, TMethodMiddlewares) {
 
 // ✓ AssignAllMethodContext: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AssignAllMethodContext(TRegister, TParentRoute: AnyRoute, TServerMiddlewares, TMethodMiddlewares) {
+export function AssignAllMethodContext(TRegister, TParentRoute: AnyRoute, TServerMiddlewares, TMethodMiddlewares): any {
   return ResolveAllServerContext(TRegister, TParentRoute, MergeMethodMiddlewares(TServerMiddlewares, TMethodMiddlewares))
 }
 /* compiles to:

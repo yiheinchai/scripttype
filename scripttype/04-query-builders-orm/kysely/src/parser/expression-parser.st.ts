@@ -7,20 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExpressionBuilder } from '../../../../../04-query-builders-orm/kysely/src/expression/expression-builder.js'
+import type { AliasedExpression, Expression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { SelectQueryBuilderExpression } from '../../../../../04-query-builders-orm/kysely/src/query-builder/select-query-builder-expression.js'
 declare const AliasedExpression: any
 declare const Expression: any
 declare const ExpressionBuilder: any
 declare const SelectQueryBuilderExpression: any
-type AliasedExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectQueryBuilderExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OperandExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OperandExpression(V) {
+export function OperandExpression(V): any {
   return Expression(V) | SelectQueryBuilderExpression(Record(string, V))
 }
 /* compiles to:
@@ -30,7 +30,10 @@ export function OperandExpression(V) {
 
 // ✓ ExpressionOrFactory: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpressionOrFactory(DB, TB: keyof typeof DB, V) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExpressionOrFactory(DB, TB, V): any {
   return OperandExpression(V) | OperandExpressionFactory(DB, TB, V)
 }
 /* compiles to:
@@ -40,7 +43,10 @@ export function ExpressionOrFactory(DB, TB: keyof typeof DB, V) {
 
 // ✓ AliasedExpressionOrFactory: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AliasedExpressionOrFactory(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function AliasedExpressionOrFactory(DB, TB): any {
   return AliasedExpression(any, any) | AliasedExpressionFactory(DB, TB)
 }
 /* compiles to:
@@ -50,7 +56,10 @@ export function AliasedExpressionOrFactory(DB, TB: keyof typeof DB) {
 
 // ✓ ExpressionFactory: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpressionFactory(DB, TB: keyof typeof DB, V) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExpressionFactory(DB, TB, V): any {
   return fnType([ExpressionBuilder(DB, TB)], Expression(V))
 }
 /* compiles to:
@@ -60,7 +69,10 @@ export function ExpressionFactory(DB, TB: keyof typeof DB, V) {
 
 // ✓ OperandExpressionFactory: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OperandExpressionFactory(DB, TB: keyof typeof DB, V) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function OperandExpressionFactory(DB, TB, V): any {
   return fnType([ExpressionBuilder(DB, TB)], OperandExpression(V))
 }
 /* compiles to:
@@ -70,7 +82,10 @@ export function OperandExpressionFactory(DB, TB: keyof typeof DB, V) {
 
 // ✓ AliasedExpressionFactory: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AliasedExpressionFactory(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function AliasedExpressionFactory(DB, TB): any {
   return fnType([ExpressionBuilder(DB, TB)], AliasedExpression(any, any))
 }
 /* compiles to:

@@ -20,8 +20,8 @@ type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SimplifyDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SimplifyDeep(Type, ExcludeType = never) {
-  return ConditionalSimplifyDeep(Type, ExcludeType | NonRecursiveType | Exclude(MapsSetsOrArrays, UnknownArray), object)
+export function SimplifyDeep(Type, ExcludeType = never): any {
+  return ConditionalSimplifyDeep(Type, anyOf(ExcludeType, NonRecursiveType, Exclude(MapsSetsOrArrays, UnknownArray)), object)
 }
 /* compiles to:
  * export type SimplifyDeep<Type, ExcludeType = never> = ConditionalSimplifyDeep<

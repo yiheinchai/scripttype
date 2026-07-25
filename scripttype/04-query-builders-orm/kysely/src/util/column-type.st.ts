@@ -7,19 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DrainOuterGeneric, IsNever, IsNullable } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type I<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type S<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const DrainOuterGeneric: any
 declare const IsNever: any
 declare const IsNullable: any
 type ColumnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ColumnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ColumnType(SelectType, InsertType = SelectType, UpdateType = SelectType) {
+export function ColumnType(SelectType, InsertType = SelectType, UpdateType = SelectType): any {
   return { __select__: readonlyProp(SelectType), __insert__: readonlyProp(InsertType), __update__: readonlyProp(UpdateType) }
 }
 /* compiles to:
@@ -32,7 +36,7 @@ export function ColumnType(SelectType, InsertType = SelectType, UpdateType = Sel
 
 // ✓ Generated: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Generated(S) {
+export function Generated(S): any {
   return ColumnType(S, anyOf(S, Undefined), S)
 }
 /* compiles to:
@@ -41,7 +45,7 @@ export function Generated(S) {
 
 // ✓ GeneratedAlways: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GeneratedAlways(S) {
+export function GeneratedAlways(S): any {
   return ColumnType(S, never, never)
 }
 /* compiles to:
@@ -50,7 +54,7 @@ export function GeneratedAlways(S) {
 
 // ✓ JSONColumnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JSONColumnType(SelectType: object | null, InsertType = string, UpdateType = string) {
+export function JSONColumnType(SelectType: object | null, InsertType = string, UpdateType = string): any {
   return ColumnType(SelectType, InsertType, UpdateType)
 }
 /* compiles to:
@@ -64,7 +68,7 @@ export function JSONColumnType(SelectType: object | null, InsertType = string, U
 
 // ✓ IfNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IfNullable(T, K) {
+export function IfNullable(T, K): any {
   if (matches<true>(IsNullable(T))) {
     return K
   }
@@ -76,7 +80,7 @@ export function IfNullable(T, K) {
 
 // ✓ IfNotNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IfNotNullable(T, K) {
+export function IfNotNullable(T, K): any {
   if (matches<true>(IsNullable(T))) {
     return never
   }
@@ -88,7 +92,7 @@ export function IfNotNullable(T, K) {
 
 // ✓ IfNotNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IfNotNever(T, K) {
+export function IfNotNever(T, K): any {
   if (matches<true>(IsNever(T))) {
     return never
   }
@@ -100,7 +104,7 @@ export function IfNotNever(T, K) {
 
 // ✓ SelectType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectType(T) {
+export function SelectType(T): any {
   const m1 = matches<ColumnType<Hole<"S">, any, any>>(T)
   if (m1) {
     return m1.S
@@ -113,7 +117,7 @@ export function SelectType(T) {
 
 // ✓ InsertType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InsertType(T) {
+export function InsertType(T): any {
   const m1 = matches<ColumnType<any, Hole<"I">, any>>(T)
   if (m1) {
     return m1.I
@@ -126,7 +130,7 @@ export function InsertType(T) {
 
 // ✓ UpdateType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateType(T) {
+export function UpdateType(T): any {
   const m1 = matches<ColumnType<any, any, Hole<"U">>>(T)
   if (m1) {
     return m1.U
@@ -139,7 +143,7 @@ export function UpdateType(T) {
 
 // ✓ NullableInsertKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NullableInsertKeys(R) {
+export function NullableInsertKeys(R): any {
   const out = emptyObject
   for (const K in keyof(R)) {
     out[K] = IfNullable(InsertType(R[K]), K)
@@ -152,7 +156,7 @@ export function NullableInsertKeys(R) {
 
 // ✓ NonNullableInsertKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNullableInsertKeys(R) {
+export function NonNullableInsertKeys(R): any {
   const out = emptyObject
   for (const K in keyof(R)) {
     out[K] = IfNotNullable(InsertType(R[K]), K)
@@ -165,7 +169,7 @@ export function NonNullableInsertKeys(R) {
 
 // ✓ NonNeverSelectKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNeverSelectKeys(R) {
+export function NonNeverSelectKeys(R): any {
   const out = emptyObject
   for (const K in keyof(R)) {
     out[K] = IfNotNever(SelectType(R[K]), K)
@@ -178,7 +182,7 @@ export function NonNeverSelectKeys(R) {
 
 // ✓ UpdateKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateKeys(R) {
+export function UpdateKeys(R): any {
   const out = emptyObject
   for (const K in keyof(R)) {
     out[K] = IfNotNever(UpdateType(R[K]), K)
@@ -191,7 +195,7 @@ export function UpdateKeys(R) {
 
 // ✓ Selectable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Selectable(R) {
+export function Selectable(R): any {
   const out = emptyObject
   for (const K in keySet(NonNeverSelectKeys(R))) {
     out[K] = SelectType(R[K])
@@ -206,7 +210,7 @@ export function Selectable(R) {
 
 // ✓ Insertable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Insertable(R) {
+export function Insertable(R): any {
   const out = emptyObject
   for (const K in keySet(NonNullableInsertKeys(R))) {
     out[K] = InsertType(R[K])
@@ -215,7 +219,7 @@ export function Insertable(R) {
   for (const K in keySet(NullableInsertKeys(R))) {
     out2[K] = optional(InsertType(R[K]))
   }
-  return DrainOuterGeneric(object & out & out2)
+  return DrainOuterGeneric(merge(object, out, out2))
 }
 /* compiles to:
  * export type Insertable<R> = DrainOuterGeneric<
@@ -227,7 +231,7 @@ export function Insertable(R) {
 
 // ✓ Updateable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Updateable(R) {
+export function Updateable(R): any {
   const out = emptyObject
   for (const K in keySet(UpdateKeys(R))) {
     out[K] = optional(anyOf(UpdateType(R[K]), Undefined))
@@ -242,7 +246,7 @@ export function Updateable(R) {
 
 // ✓ NonDehydrateable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonDehydrateable(T) {
+export function NonDehydrateable(T): any {
   const m1 = matches<[ ColumnType<Hole<"S">, Hole<"I">, Hole<"U">> ]>([T])
   if (m1) {
     return ColumnType(merge(m1.S, { __kysely_dehydrate__: optional(false) }), m1.I, m1.U)

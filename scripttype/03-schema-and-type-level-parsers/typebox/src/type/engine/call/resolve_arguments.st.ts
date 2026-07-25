@@ -7,32 +7,36 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TAssign } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/system/memory/assign.js'
+import type { TInstantiateType, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare namespace Memory {
   export type TAssign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Memory: any
+declare const TAssign: any
 declare const TInstantiateType: any
 declare const TParameter: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
+declare const _: any
 type Memory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TBindArgument: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBindArgument(Context: TProperties, State: TState, Name: string, Extends: TSchema, Type: TSchema, InstantiatedArgument: TSchema = TInstantiateType(Context, State, Type)) {
-  const out = emptyObject
-  for (const _ in keySet(Name)) {
-    out[_] = InstantiatedArgument
-  }
-  return Memory.TAssign(Context, out)
+export function TBindArgument(Context: TProperties, State: TState, Name: string, Extends: TSchema, Type: TSchema, InstantiatedArgument: TSchema = TInstantiateType(Context, State, Type)): any {
+  return t<Memory.TAssign<typeof Context, { [_ in typeof Name]: typeof InstantiatedArgument; }>>()
 }
 /* compiles to:
  * export type TBindArgument<
@@ -43,12 +47,12 @@ export function TBindArgument(Context: TProperties, State: TState, Name: string,
  *   Type extends TSchema,
  *   InstantiatedArgument extends TSchema = TInstantiateType<Context, State, Type>
  * > =
- *   Memory.TAssign<Context, { [_ in Name]: InstantiatedArgument }>
+ *   Memory.TAssign<Context, { [_ in Name]: InstantiatedArgument; }>
  */
 
 // ✓ TBindArguments: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBindArguments(Context: TProperties, State: TState, ParameterLeft: TParameter, ParameterRight: TParameter[], Arguments: TSchema[], InstantiatedExtends: TSchema = TInstantiateType(Context, State, ParameterLeft['extends']), InstantiatedEquals: TSchema = TInstantiateType(Context, State, ParameterLeft['equals'])) {
+export function TBindArguments(Context: TProperties, State: TState, ParameterLeft: TParameter, ParameterRight: TParameter[], Arguments: TSchema[], InstantiatedExtends: TSchema = TInstantiateType(Context, State, ParameterLeft['extends']), InstantiatedEquals: TSchema = TInstantiateType(Context, State, ParameterLeft['equals'])): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(Arguments)
   if (m1) {
     return TBindParameters(TBindArgument(Context, State, ParameterLeft['name'], InstantiatedExtends, m1.Left), State, ParameterRight, m1.Right)
@@ -88,7 +92,7 @@ export function TBindArguments(Context: TProperties, State: TState, ParameterLef
 
 // ✓ TBindParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBindParameters(Context: TProperties, State: TState, Parameters: TParameter[], Arguments: TSchema[]) {
+export function TBindParameters(Context: TProperties, State: TState, Parameters: TParameter[], Arguments: TSchema[]): any {
   const m1 = matches<[ Hole<"Left", TParameter>, ...Hole<"Right", TParameter[]> ]>(Parameters)
   if (m1) {
     return TBindArguments(Context, State, m1.Left, m1.Right, Arguments)
@@ -109,7 +113,7 @@ export function TBindParameters(Context: TProperties, State: TState, Parameters:
 
 // ✓ TResolveArgumentsContext: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TResolveArgumentsContext(Context: TProperties, State: TState, Parameters: TParameter[], Arguments: TSchema[], Result: TProperties = TBindParameters(Context, State, Parameters, Arguments)) {
+export function TResolveArgumentsContext(Context: TProperties, State: TState, Parameters: TParameter[], Arguments: TSchema[], Result: TProperties = TBindParameters(Context, State, Parameters, Arguments)): any {
   return Result
 }
 /* compiles to:

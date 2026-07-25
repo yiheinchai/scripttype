@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SharedUnionFieldsDeepOptions } from '../../../../01-type-level-programming/type-fest/source/shared-union-fields-deep.d.js'
+declare namespace m1 {
+  export type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type OptionsWithDefaults<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ApplyDefaultOptions: any
 declare const DefaultSharedUnionFieldsDeepOptions: any
 declare const IsArrayReadonly: any
@@ -29,7 +35,6 @@ type IsArrayReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any,
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SetArrayAccess<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SharedUnionFieldsDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StaticPartOfArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TupleLength<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnionMax<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -38,7 +43,7 @@ type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type VariablePartOfArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SharedUnionFieldsDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SharedUnionFieldsDeep(Union, Options: SharedUnionFieldsDeepOptions = {}) {
+export function SharedUnionFieldsDeep(Union, Options: SharedUnionFieldsDeepOptions = {}): any {
   const m1 = matches<Hole<"OptionsWithDefaults", Required<SharedUnionFieldsDeepOptions>>>(ApplyDefaultOptions(SharedUnionFieldsDeepOptions, DefaultSharedUnionFieldsDeepOptions, Options))
   if (m1) {
     if (matches<[ NonRecursiveType | ReadonlyMap<unknown, unknown> | ReadonlySet<unknown> ]>([Union])) {
@@ -76,7 +81,7 @@ export function SharedUnionFieldsDeep(Union, Options: SharedUnionFieldsDeepOptio
 
 // ✓ SharedObjectUnionFieldsDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SharedObjectUnionFieldsDeep(Union, Options: Required<SharedUnionFieldsDeepOptions>) {
+export function SharedObjectUnionFieldsDeep(Union, Options: Required<SharedUnionFieldsDeepOptions>): any {
   const m1 = matches<Hole<"Keys">>(keyof(Union))
   if (m1) {
     if (matches<false>(IsNever(m1.Keys))) {
@@ -109,7 +114,7 @@ export function SharedObjectUnionFieldsDeep(Union, Options: Required<SharedUnion
 
 // ✓ SharedArrayUnionFieldsDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SharedArrayUnionFieldsDeep(Union: UnknownArray, Options: Required<SharedUnionFieldsDeepOptions>) {
+export function SharedArrayUnionFieldsDeep(Union: UnknownArray, Options: Required<SharedUnionFieldsDeepOptions>): any {
   return SetArrayAccess(InternalSharedArrayUnionFieldsDeep(Union, Options), IsArrayReadonly(Union))
 }
 /* compiles to:
@@ -122,7 +127,7 @@ export function SharedArrayUnionFieldsDeep(Union: UnknownArray, Options: Require
 
 // ✓ InternalSharedArrayUnionFieldsDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InternalSharedArrayUnionFieldsDeep(Union: UnknownArray, Options: Required<SharedUnionFieldsDeepOptions>, ResultTuple: UnknownArray = []) {
+export function InternalSharedArrayUnionFieldsDeep(Union: UnknownArray, Options: Required<SharedUnionFieldsDeepOptions>, ResultTuple: UnknownArray = []): any {
   if (matches<true>(IsNever(TupleLength(Union)))) {
     if (matches<UnionMax<StaticPartOfArray<typeof Union>['length']>>(ResultTuple['length'])) {
       return [...ResultTuple, ...arrayOf(SharedUnionFieldsDeep(VariablePartOfArray(Union)[number], Options))]

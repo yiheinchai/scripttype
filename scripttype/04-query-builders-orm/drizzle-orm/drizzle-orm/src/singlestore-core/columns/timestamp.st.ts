@@ -16,7 +16,7 @@ type SingleStoreTimestampBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = an
 type SingleStoreTimestampStringBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreTimestampBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreTimestampBuilderInitial(TName: string) {
+export function SingleStoreTimestampBuilderInitial(TName: string): any {
   return SingleStoreTimestampBuilder({ name: TName, dataType: 'date', columnType: 'SingleStoreTimestamp', data: t<Date>(), driverParam: string | number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
@@ -35,7 +35,7 @@ export function SingleStoreTimestampBuilderInitial(TName: string) {
 
 // ✓ SingleStoreTimestampStringBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreTimestampStringBuilderInitial(TName: string) {
+export function SingleStoreTimestampStringBuilderInitial(TName: string): any {
   return SingleStoreTimestampStringBuilder({ name: TName, dataType: 'string', columnType: 'SingleStoreTimestampString', data: string, driverParam: string | number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:

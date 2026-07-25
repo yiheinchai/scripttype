@@ -10,11 +10,19 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Schemas<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const PropertyKey: any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XCanonicalTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XCanonicalTuple(Value: readonly unknown[]) {
+export function XCanonicalTuple(Value: readonly unknown[]): any {
   const m1 = matches<[ Hole<"Left">, ...Hole<"Right", unknown[]> ]>(Value)
   if (m1) {
     return [XCanonical(m1.Left), ...XCanonicalTuple(m1.Right)]
@@ -30,7 +38,7 @@ export function XCanonicalTuple(Value: readonly unknown[]) {
 
 // ✓ XCanonicalArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XCanonicalArray(Value: unknown, Result: unknown[] = arrayOf(XCanonical(Value))) {
+export function XCanonicalArray(Value: unknown, Result: unknown[] = arrayOf(XCanonical(Value))): any {
   return Result
 }
 /* compiles to:
@@ -39,14 +47,14 @@ export function XCanonicalArray(Value: unknown, Result: unknown[] = arrayOf(XCan
 
 // ✓ XCanonicalObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XCanonicalObject__v1(Value) {
+export function XCanonicalObject__v1(Value): any {
   const out = emptyObject
   for (const Key in keyof(Value)) {
     out[Key] = mutable(XCanonical(Value[Key]))
   }
   return out
 }
-export function XCanonicalObject(Value: object, Result: Record<PropertyKey, unknown> = XCanonicalObject__v1(Value)) {
+export function XCanonicalObject(Value: object, Result: Record<PropertyKey, unknown> = XCanonicalObject__v1(Value)): any {
   return Result
 }
 /* compiles to:
@@ -62,7 +70,7 @@ export function XCanonicalObject(Value: object, Result: Record<PropertyKey, unkn
 
 // ✓ XCanonical: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XCanonical(Schema: unknown) {
+export function XCanonical(Schema: unknown): any {
   const m1 = matches<readonly [ ...Hole<"Schemas", unknown[]> ]>(Schema)
   if (m1) {
     return XCanonicalTuple(m1.Schemas)

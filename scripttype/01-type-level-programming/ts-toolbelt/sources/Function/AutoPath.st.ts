@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Head } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Head.js'
+import type { Tail } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Tail.js'
+import type { Join } from '../../../../../01-type-level-programming/ts-toolbelt/sources/String/Join.js'
+import type { Split } from '../../../../../01-type-level-programming/ts-toolbelt/sources/String/Split.js'
 declare const Head: any
 declare const Index: any
 declare const Join: any
@@ -21,20 +26,16 @@ declare const Select: any
 declare const Split: any
 declare const Tail: any
 declare const UnionOf: any
-type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Index<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Join<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Path<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Pop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Select<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Split<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnionOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ KeyToIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function KeyToIndex(K: Key, SP: List<Index>) {
+export function KeyToIndex(K: Key, SP: List<Index>): any {
   if (matches<typeof K>(number)) {
     return Head(SP)
   }
@@ -48,7 +49,7 @@ export function KeyToIndex(K: Key, SP: List<Index>) {
 // ✗ MetaPath: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function MetaPath(O, D: string, SP: List<Index> = [], P: List<Index> = []) {
+export function MetaPath(O, D: string, SP: List<Index> = [], P: List<Index> = []): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = MetaPath(O[K], D, Tail(SP), [...P, KeyToIndex(K, SP)]) | Join([...P, KeyToIndex(K, SP)], D)
@@ -70,7 +71,7 @@ export function MetaPath(O, D: string, SP: List<Index> = [], P: List<Index> = []
 
 // ✓ NextPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NextPath(OP) {
+export function NextPath(OP): any {
   return Select(UnionOf(merge(Exclude(OP, string), {})), string)
 }
 /* compiles to:
@@ -79,7 +80,7 @@ export function NextPath(OP) {
 
 // ✓ ExecPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExecPath(A, SP: List<Index>, Delimiter: string) {
+export function ExecPath(A, SP: List<Index>, Delimiter: string): any {
   return NextPath(Path(MetaPath(A, Delimiter, SP), SP))
 }
 /* compiles to:
@@ -90,7 +91,7 @@ export function ExecPath(A, SP: List<Index>, Delimiter: string) {
 
 // ✓ HintPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HintPath(A, P: string, SP: List<Index>, Exec: string, D: string) {
+export function HintPath(A, P: string, SP: List<Index>, Exec: string, D: string): any {
   if (matches<[ never ]>([Exec])) {
     return ExecPath(A, Pop(SP), D)
   }
@@ -109,7 +110,7 @@ export function HintPath(A, P: string, SP: List<Index>, Exec: string, D: string)
 
 // ✓ _AutoPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _AutoPath(A, P: string, D: string, SP: List<Index> = Split(P, D)) {
+export function _AutoPath(A, P: string, D: string, SP: List<Index> = Split(P, D)): any {
   return HintPath(A, P, SP, ExecPath(A, SP, D), D)
 }
 /* compiles to:
@@ -124,7 +125,7 @@ export function _AutoPath(A, P: string, D: string, SP: List<Index> = Split(P, D)
 
 // ✓ AutoPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AutoPath(O: any, P: string, D: string = '.') {
+export function AutoPath(O: any, P: string, D: string = '.'): any {
   return _AutoPath(O, P, D)
 }
 /* compiles to:

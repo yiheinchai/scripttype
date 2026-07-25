@@ -7,17 +7,31 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { resolvableReferenceIn } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/scope.js'
+import type { inferAstRoot } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/infer.js'
+import type { StringifiablePrefixOperator } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/reduce/shared.js'
+import type { StaticState } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/reduce/static.js'
+import type { resolutionToAst } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/scope.js'
+import type { ErrorMessage } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
 declare namespace ArkAmbient {
   export type $<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type child<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace s {
+  export type initialize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const ArkAmbient: any
 declare const ErrorMessage: any
 declare const StaticState: any
 declare const StringifiablePrefixOperator: any
 declare const inferAstRoot: any
+declare const initialize: any
 declare const parseDefault: any
 declare const parseOperand: any
 declare const parseOperator: any
@@ -25,19 +39,14 @@ declare const resolutionToAst: any
 declare const resolvableReferenceIn: any
 declare const writeUnexpectedCharacterMessage: any
 type ArkAmbient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StringifiablePrefixOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferAstRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type initialize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseOperand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseOperator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type resolutionToAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type resolvableReferenceIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type writeUnexpectedCharacterMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ parseString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function parseString(def: string, $, args) {
+export function parseString(def: string, $, args): any {
   if (def in $) {
     return resolutionToAst(def, $[def])
   }
@@ -46,9 +55,9 @@ export function parseString(def: string, $, args) {
     if (m1.child in $) {
       return [resolutionToAst(m1.child, $[m1.child]), '[]']
     }
-    return fullStringParse(s.initialize(def), $, args)
+    return fullStringParse(t<s.initialize<typeof def>>(), $, args)
   }
-  return fullStringParse(s.initialize(def), $, args)
+  return fullStringParse(t<s.initialize<typeof def>>(), $, args)
 }
 /* compiles to:
  * export type parseString<def extends string, $, args> =
@@ -62,7 +71,7 @@ export function parseString(def: string, $, args) {
 
 // ✓ inferString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferString(def: string, $, args) {
+export function inferString(def: string, $, args): any {
   return inferAstRoot(parseString(def, $, args), $, args)
 }
 /* compiles to:
@@ -75,8 +84,8 @@ export function inferString(def: string, $, args) {
 
 // ✓ BaseCompletions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseCompletions($, args, otherSuggestions: string = never) {
-  return anyOf(resolvableReferenceIn($), resolvableReferenceIn(ArkAmbient.$), keyof(args) & string, StringifiablePrefixOperator, otherSuggestions)
+export function BaseCompletions($, args, otherSuggestions: string = never): any {
+  return anyOf(resolvableReferenceIn($), resolvableReferenceIn(t<ArkAmbient.$>()), keyof(args) & string, StringifiablePrefixOperator, otherSuggestions)
 }
 /* compiles to:
  * export type BaseCompletions<$, args, otherSuggestions extends string = never> =
@@ -90,7 +99,7 @@ export function BaseCompletions($, args, otherSuggestions: string = never) {
 // ✗ fullStringParse: does not compile yet
 //   Type instantiation is excessively deep and possibly infinite.
 /* @scripttype preserveParamNames */
-export function fullStringParse(s: StaticState, $, args) {
+export function fullStringParse(s: StaticState, $, args): any {
   return extractFinalizedResult(parseUntilFinalizer(s, $, args))
 }
 /* compiles to:
@@ -102,7 +111,7 @@ export function fullStringParse(s: StaticState, $, args) {
 // ✗ parseUntilFinalizer: does not compile yet
 //   Type instantiation is excessively deep and possibly infinite.
 /* @scripttype preserveParamNames */
-export function parseUntilFinalizer(s: StaticState, $, args) {
+export function parseUntilFinalizer(s: StaticState, $, args): any {
   if (typeof s['finalizer'] === 'undefined') {
     return parseUntilFinalizer(next(s, $, args), $, args)
   }
@@ -115,7 +124,7 @@ export function parseUntilFinalizer(s: StaticState, $, args) {
 
 // ✓ next: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function next(s: StaticState, $, args) {
+export function next(s: StaticState, $, args): any {
   if (typeof s['root'] === 'undefined') {
     return parseOperand(s, $, args)
   }
@@ -128,7 +137,7 @@ export function next(s: StaticState, $, args) {
 
 // ✓ extractFinalizedResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function extractFinalizedResult(s: StaticState) {
+export function extractFinalizedResult(s: StaticState): any {
   if (matches<"">(s['finalizer'])) {
     return s['root']
   }
@@ -141,7 +150,7 @@ export function extractFinalizedResult(s: StaticState) {
   if (matches<"=">(s['finalizer'])) {
     return parseDefault(s['root'], s['unscanned'])
   }
-  return ErrorMessage(writeUnexpectedCharacterMessage(s['finalizer'] & string))
+  return ErrorMessage(writeUnexpectedCharacterMessage(merge(s['finalizer'], string)))
 }
 /* compiles to:
  * export type extractFinalizedResult<s extends StaticState> =

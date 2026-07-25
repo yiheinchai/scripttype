@@ -14,7 +14,7 @@ declare const RemoveSuffix: any
 type RemoveSuffix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Assignability: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability(S: string) {
+export function Assignability(S: string): any {
   return S
 }
 /* compiles to:
@@ -23,7 +23,7 @@ export function Assignability(S: string) {
 
 // ✓ Test1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test1(S: string, Suffix: string) {
+export function Test1(S: string, Suffix: string): any {
   return Assignability(RemoveSuffix(S, Suffix))
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function Test1(S: string, Suffix: string) {
 
 // ✓ Test2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test2(S: Uppercase<string>, Suffix: '-' | '/' | '#') {
+export function Test2(S: Uppercase<string>, Suffix: '-' | '/' | '#'): any {
   return Assignability(RemoveSuffix(S, Suffix))
 }
 /* compiles to:

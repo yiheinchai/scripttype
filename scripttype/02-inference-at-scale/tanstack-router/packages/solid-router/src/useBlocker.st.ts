@@ -7,24 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { HistoryAction } from '../../../../../../02-inference-at-scale/tanstack-router/packages/history/src/index.js'
+import type { AnyRoute } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/route.js'
+import type { ParseRoute } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/routeInfo.js'
+import type { AnyRouter, RegisteredRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { SolidNode } from '../../../../../../02-inference-at-scale/tanstack-router/packages/solid-router/src/route.js'
 declare const AnyRoute: any
 declare const AnyRouter: any
 declare const HistoryAction: any
 declare const ParseRoute: any
 declare const RegisteredRouter: any
 declare const SolidNode: any
-type AnyRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type HistoryAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParseRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SolidNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ShouldBlockFnLocation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ShouldBlockFnLocation(TRouteId, TFullPath, TAllParams, TFullSearchSchema) {
+export function ShouldBlockFnLocation(TRouteId, TFullPath, TAllParams, TFullSearchSchema): any {
   return { routeId: TRouteId, fullPath: TFullPath, pathname: string, params: TAllParams, search: TFullSearchSchema }
 }
 /* compiles to:
@@ -39,7 +39,7 @@ export function ShouldBlockFnLocation(TRouteId, TFullPath, TAllParams, TFullSear
 
 // ✓ MakeShouldBlockFnLocationUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MakeShouldBlockFnLocationUnion(TRouter: AnyRouter = RegisteredRouter, TRoute: AnyRoute = ParseRoute(TRouter['routeTree'])) {
+export function MakeShouldBlockFnLocationUnion(TRouter: AnyRouter = RegisteredRouter, TRoute: AnyRoute = ParseRoute(TRouter['routeTree'])): any {
   if (matches<any>(TRoute)) {
     return ShouldBlockFnLocation(TRoute['id'], TRoute['fullPath'], TRoute['types']['allParams'], TRoute['types']['fullSearchSchema'])
   }
@@ -62,7 +62,7 @@ export function MakeShouldBlockFnLocationUnion(TRouter: AnyRouter = RegisteredRo
 
 // ✓ BlockerResolver: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BlockerResolver(TRouter: AnyRouter = RegisteredRouter) {
+export function BlockerResolver(TRouter: AnyRouter = RegisteredRouter): any {
   return anyOf({ status: 'blocked', current: MakeShouldBlockFnLocationUnion(TRouter), next: MakeShouldBlockFnLocationUnion(TRouter), action: HistoryAction, proceed: fnType([], voidType()), reset: fnType([], voidType()) }, { status: 'idle', current: Undefined, next: Undefined, action: Undefined, proceed: Undefined, reset: Undefined })
 }
 /* compiles to:
@@ -87,7 +87,7 @@ export function BlockerResolver(TRouter: AnyRouter = RegisteredRouter) {
 
 // ✓ ShouldBlockFnArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ShouldBlockFnArgs(TRouter: AnyRouter = RegisteredRouter) {
+export function ShouldBlockFnArgs(TRouter: AnyRouter = RegisteredRouter): any {
   return { current: MakeShouldBlockFnLocationUnion(TRouter), next: MakeShouldBlockFnLocationUnion(TRouter), action: HistoryAction }
 }
 /* compiles to:
@@ -100,7 +100,7 @@ export function ShouldBlockFnArgs(TRouter: AnyRouter = RegisteredRouter) {
 
 // ✓ ShouldBlockFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ShouldBlockFn(TRouter: AnyRouter = RegisteredRouter) {
+export function ShouldBlockFn(TRouter: AnyRouter = RegisteredRouter): any {
   return fnType([ShouldBlockFnArgs(TRouter)], boolean | t<Promise<boolean>>())
 }
 /* compiles to:
@@ -110,7 +110,7 @@ export function ShouldBlockFn(TRouter: AnyRouter = RegisteredRouter) {
 
 // ✓ UseBlockerOpts: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseBlockerOpts(TRouter: AnyRouter = RegisteredRouter, TWithResolver: boolean = boolean) {
+export function UseBlockerOpts(TRouter: AnyRouter = RegisteredRouter, TWithResolver: boolean = boolean): any {
   return { shouldBlockFn: ShouldBlockFn(TRouter), enableBeforeUnload: optional(boolean | fnType([], boolean)), disabled: optional(boolean), withResolver: optional(TWithResolver) }
 }
 /* compiles to:
@@ -128,7 +128,7 @@ export function UseBlockerOpts(TRouter: AnyRouter = RegisteredRouter, TWithResol
 
 // ✓ PromptProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PromptProps(TRouter: AnyRouter = RegisteredRouter, TWithResolver: boolean = boolean, TParams = matches<true>(TWithResolver) ? BlockerResolver(TRouter) : voidType()) {
+export function PromptProps(TRouter: AnyRouter = RegisteredRouter, TWithResolver: boolean = boolean, TParams = matches<true>(TWithResolver) ? BlockerResolver(TRouter) : voidType()): any {
   return merge(UseBlockerOpts(TRouter, TWithResolver), { children: optional(SolidNode | fnType([TParams], SolidNode)) })
 }
 /* compiles to:

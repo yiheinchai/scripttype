@@ -10,11 +10,14 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type I<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Expect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Expect(T: true) {
+export function Expect(T: true): any {
   return T
 }
 /* compiles to:
@@ -23,7 +26,7 @@ export function Expect(T: true) {
 
 // ✓ ExpectTrue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectTrue(T: true) {
+export function ExpectTrue(T: true): any {
   return T
 }
 /* compiles to:
@@ -32,7 +35,7 @@ export function ExpectTrue(T: true) {
 
 // ✓ ExpectFalse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectFalse(T: false) {
+export function ExpectFalse(T: false): any {
   return T
 }
 /* compiles to:
@@ -41,7 +44,7 @@ export function ExpectFalse(T: false) {
 
 // ✓ IsTrue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsTrue(T: true) {
+export function IsTrue(T: true): any {
   return T
 }
 /* compiles to:
@@ -50,7 +53,7 @@ export function IsTrue(T: true) {
 
 // ✓ IsFalse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsFalse(T: false) {
+export function IsFalse(T: false): any {
   return T
 }
 /* compiles to:
@@ -59,7 +62,7 @@ export function IsFalse(T: false) {
 
 // ✓ Equal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Equal(X, Y) {
+export function Equal(X, Y): any {
   if (matches<(<T>() => T extends typeof Y ? 1 : 2)>(genericFnType(['T'], [], matches<typeof X>(T) ? 1 : 2))) {
     return true
   }
@@ -67,12 +70,12 @@ export function Equal(X, Y) {
 }
 /* compiles to:
  * export type Equal<X, Y> =
- *   (<T>() => T extends X ? 1 : 2) extends <T>() => T extends typeof Y ? 1 : 2 ? true : false
+ *   (<T>() => T extends X ? 1 : 2) extends <T>() => T extends Y ? 1 : 2 ? true : false
  */
 
 // ✓ NotEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NotEqual(X, Y) {
+export function NotEqual(X, Y): any {
   if (matches<Equal<typeof X, typeof Y>>(true)) {
     return false
   }
@@ -84,7 +87,7 @@ export function NotEqual(X, Y) {
 
 // ✓ IsAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsAny(T) {
+export function IsAny(T): any {
   if (matches<(1 & typeof T)>(0)) {
     return true
   }
@@ -96,7 +99,7 @@ export function IsAny(T) {
 
 // ✓ NotAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NotAny(T) {
+export function NotAny(T): any {
   if (matches<IsAny<typeof T>>(true)) {
     return false
   }
@@ -108,7 +111,7 @@ export function NotAny(T) {
 
 // ✓ Debug: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Debug(T) {
+export function Debug(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = T[K]
@@ -121,7 +124,7 @@ export function Debug(T) {
 
 // ✓ MergeInsertions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeInsertions(T) {
+export function MergeInsertions(T): any {
   if (matches<object>(T)) {
     const out = emptyObject
     for (const K in keyof(T)) {
@@ -138,7 +141,7 @@ export function MergeInsertions(T) {
 
 // ✓ Alike: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Alike(X, Y) {
+export function Alike(X, Y): any {
   return Equal(MergeInsertions(X), MergeInsertions(Y))
 }
 /* compiles to:
@@ -147,7 +150,7 @@ export function Alike(X, Y) {
 
 // ✓ ExpectExtends: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectExtends(VALUE, EXPECTED) {
+export function ExpectExtends(VALUE, EXPECTED): any {
   if (matches<typeof VALUE>(EXPECTED)) {
     return true
   }
@@ -159,7 +162,7 @@ export function ExpectExtends(VALUE, EXPECTED) {
 
 // ✓ ExpectValidArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExpectValidArgs(FUNC: (...args: any[]) => any, ARGS: any[]) {
+export function ExpectValidArgs(FUNC: (...args: any[]) => any, ARGS: any[]): any {
   if (matches<Parameters<typeof FUNC>>(ARGS)) {
     return true
   }
@@ -172,7 +175,7 @@ export function ExpectValidArgs(FUNC: (...args: any[]) => any, ARGS: any[]) {
 
 // ✓ UnionToIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToIntersection(U) {
+export function UnionToIntersection(U): any {
   const m1 = matches<(k: Hole<"I">) => void>(matches<any>(U) ? fnType([U], voidType()) : never)
   if (m1) {
     return m1.I

@@ -9,7 +9,7 @@
  */
 // ✓ FizzBuzz: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FizzBuzz(N: number) {
+export function FizzBuzz(N: number): any {
   return any
 }
 /* compiles to:

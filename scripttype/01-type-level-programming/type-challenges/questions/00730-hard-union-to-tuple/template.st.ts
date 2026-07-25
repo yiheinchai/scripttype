@@ -9,7 +9,7 @@
  */
 // ✓ UnionToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToTuple(T) {
+export function UnionToTuple(T): any {
   return any
 }
 /* compiles to:

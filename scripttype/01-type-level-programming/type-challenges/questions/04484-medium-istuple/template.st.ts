@@ -9,7 +9,7 @@
  */
 // ✓ IsTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsTuple(T) {
+export function IsTuple(T): any {
   return any
 }
 /* compiles to:

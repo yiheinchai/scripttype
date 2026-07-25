@@ -7,9 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GenericAst } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/generic.js'
+import type { PreparsedNodeResolution } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/module.js'
+import type { anyOrNever } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
+declare namespace m1 {
+  export type body<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type body$<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type params<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type exports<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BoundModule: any
 declare const Generic: any
 declare const GenericAst: any
@@ -20,16 +32,13 @@ declare const anyOrNever: any
 declare const inferred: any
 type BoundModule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Generic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GenericAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PreparsedNodeResolution<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RootModule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Submodule<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type inferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ exportScope: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function exportScope($) {
+export function exportScope($): any {
   return bindExportsToScope($, $)
 }
 /* compiles to:
@@ -38,7 +47,7 @@ export function exportScope($) {
 
 // ✓ bindExportsToScope: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function bindExportsToScope(exports, $) {
+export function bindExportsToScope(exports, $): any {
   const out = emptyObject
   for (const k in keyof(exports)) {
     out[k] = instantiateExport(exports[k], $)
@@ -52,7 +61,7 @@ export function bindExportsToScope(exports, $) {
 
 // ✓ Submodule: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Submodule(exports: {}) {
+export function Submodule(exports: {}): any {
   return RootModule(merge(exports, 'root' in exports ? { [inferred]: exports['root'] } : {}))
 }
 /* compiles to:
@@ -64,7 +73,7 @@ export function Submodule(exports: {}) {
 // ✗ instantiateExport: does not compile yet
 //   Type 'exports' does not satisfy the constraint '{}'.
 /* @scripttype preserveParamNames */
-export function instantiateExport(t, $) {
+export function instantiateExport(t, $): any {
   if (matches<[ PreparsedNodeResolution ]>([t])) {
     if (matches<[ anyOrNever ]>([t])) {
       return Type(t, $)

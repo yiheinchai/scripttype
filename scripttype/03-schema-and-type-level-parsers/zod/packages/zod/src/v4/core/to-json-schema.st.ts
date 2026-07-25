@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { BaseSchema } from '../../../../../../../../03-schema-and-type-level-parsers/zod/packages/zod/src/v4/core/json-schema.js'
+import type { StandardSchemaWithJSONProps } from '../../../../../../../../03-schema-and-type-level-parsers/zod/packages/zod/src/v4/core/standard-schema.js'
+import type { ProcessParams, ToJSONSchemaContext } from '../../../../../../../../03-schema-and-type-level-parsers/zod/packages/zod/src/v4/core/to-json-schema.js'
 declare namespace JSONSchema {
   export type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -21,23 +25,25 @@ declare namespace schemas {
   export type $ZodType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const $ZodType: any
+declare const BaseSchema: any
 declare const JSONSchema: any
 declare const ProcessParams: any
 declare const StandardSchemaWithJSONProps: any
 declare const ToJSONSchemaContext: any
 declare const core: any
+declare const input: any
+declare const output: any
 declare const schemas: any
 type $ZodType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type JSONSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ProcessParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StandardSchemaWithJSONProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToJSONSchemaContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type core<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type schemas<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Processor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Processor(T: schemas.$ZodType = schemas.$ZodType) {
-  return fnType([T, ToJSONSchemaContext, JSONSchema.BaseSchema, ProcessParams], voidType())
+export function Processor(T: schemas.$ZodType = t<schemas.$ZodType>()): any {
+  return fnType([T, ToJSONSchemaContext, t<JSONSchema.BaseSchema>(), ProcessParams], voidType())
 }
 /* compiles to:
  * export type Processor<T extends schemas.$ZodType = schemas.$ZodType> =
@@ -46,8 +52,8 @@ export function Processor(T: schemas.$ZodType = schemas.$ZodType) {
 
 // ✓ ZodStandardSchemaWithJSON: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ZodStandardSchemaWithJSON(T) {
-  return StandardSchemaWithJSONProps(core.input(T), core.output(T))
+export function ZodStandardSchemaWithJSON(T): any {
+  return StandardSchemaWithJSONProps(t<core.input<typeof T>>(), t<core.output<typeof T>>())
 }
 /* compiles to:
  * export type ZodStandardSchemaWithJSON<T> = StandardSchemaWithJSONProps<

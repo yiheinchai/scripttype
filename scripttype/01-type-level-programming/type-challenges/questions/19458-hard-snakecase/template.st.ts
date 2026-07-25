@@ -9,7 +9,7 @@
  */
 // ✓ SnakeCase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SnakeCase(T) {
+export function SnakeCase(T): any {
   return any
 }
 /* compiles to:

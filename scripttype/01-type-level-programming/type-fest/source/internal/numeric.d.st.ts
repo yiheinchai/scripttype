@@ -10,6 +10,15 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace T {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type P<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Finite: any
 declare const IfNotAnyOrNever: any
 declare const IsAnyOrNever: any
@@ -26,7 +35,7 @@ type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsNumberLike: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNumberLike(N) {
+export function IsNumberLike(N): any {
   return IfNotAnyOrNever(N, { ifNot: matches<number | `${number}`>(N) ? true : false, ifAny: boolean, ifNever: false })
 }
 /* compiles to:
@@ -38,7 +47,7 @@ export function IsNumberLike(N) {
 
 // ✓ UnionMin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionMin(N: number) {
+export function UnionMin(N: number): any {
   if (matches<true>(IsAnyOrNever(N))) {
     return N
   }
@@ -64,7 +73,7 @@ export function UnionMin(N: number) {
 
 // ✓ InternalUnionMin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InternalUnionMin(N: number) {
+export function InternalUnionMin(N: number): any {
   let T: any[] = []
   while (true) {
     if (matches<typeof N>(T['length'])) {
@@ -82,7 +91,7 @@ export function InternalUnionMin(N: number) {
 
 // ✓ UnionMax: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionMax(N: number) {
+export function UnionMax(N: number): any {
   if (matches<true>(IsAnyOrNever(N))) {
     return N
   }
@@ -108,7 +117,7 @@ export function UnionMax(N: number) {
 
 // ✓ InternalUnionMax: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InternalUnionMax(N: number, T: UnknownArray = []) {
+export function InternalUnionMax(N: number, T: UnknownArray = []): any {
   if (matches<true>(IsNever(N))) {
     return T['length']
   }
@@ -126,7 +135,7 @@ export function InternalUnionMax(N: number, T: UnknownArray = []) {
 
 // ✓ ReverseSign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReverseSign(N: number) {
+export function ReverseSign(N: number): any {
   if (matches<0>(N)) {
     return 0
   }

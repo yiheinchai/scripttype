@@ -16,7 +16,7 @@ type MySqlEnumColumnBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6
 type MySqlEnumObjectColumnBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlEnumColumnBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlEnumColumnBuilderInitial(TName: string, TEnum: string[]) {
+export function MySqlEnumColumnBuilderInitial(TName: string, TEnum: string[]): any {
   return MySqlEnumColumnBuilder({ name: TName, dataType: 'string', columnType: 'MySqlEnumColumn', data: TEnum[number], driverParam: string, enumValues: TEnum })
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function MySqlEnumColumnBuilderInitial(TName: string, TEnum: string[]) {
 
 // ✓ MySqlEnumObjectColumnBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlEnumObjectColumnBuilderInitial(TName: string, TEnum: object) {
+export function MySqlEnumObjectColumnBuilderInitial(TName: string, TEnum: object): any {
   return MySqlEnumObjectColumnBuilder({ name: TName, dataType: 'string', columnType: 'MySqlEnumObjectColumn', data: TEnum[keyof(TEnum)], driverParam: string, enumValues: arrayOf(string) })
 }
 /* compiles to:

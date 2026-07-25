@@ -9,7 +9,7 @@
  */
 // ✓ Slice: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Slice(Arr, Start, End) {
+export function Slice(Arr, Start, End): any {
   return any
 }
 /* compiles to:

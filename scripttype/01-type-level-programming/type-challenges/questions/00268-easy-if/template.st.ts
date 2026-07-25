@@ -9,7 +9,7 @@
  */
 // ✓ If: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function If(C, T, F) {
+export function If(C, T, F): any {
   return any
 }
 /* compiles to:

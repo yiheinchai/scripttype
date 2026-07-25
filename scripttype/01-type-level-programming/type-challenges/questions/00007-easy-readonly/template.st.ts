@@ -9,7 +9,7 @@
  */
 // ✓ MyReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MyReadonly(T) {
+export function MyReadonly(T): any {
   return any
 }
 /* compiles to:

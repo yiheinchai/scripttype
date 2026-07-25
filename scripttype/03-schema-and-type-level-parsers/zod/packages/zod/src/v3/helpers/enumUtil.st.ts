@@ -7,10 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
+// Names this file references but does not define: types from elsewhere in the
+// library, and local functions used in type position. Declared so the generated
+// ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Tuple {
+  export type unshift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Intersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 // ✗ UnionToIntersectionFn: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function UnionToIntersectionFn(T) {
+export function UnionToIntersectionFn(T): any {
   const m1 = matches<(k: Hole<"Intersection">) => void>(matches<unknown>(T) ? fnType([fnType([], T)], voidType()) : never)
   if (m1) {
     return m1.Intersection
@@ -27,7 +37,7 @@ export function UnionToIntersectionFn(T) {
 // ✗ GetUnionLast: does not compile yet
 //   Cannot find name 'UnionToIntersectionFn'. Did you mean 'UnionToIntersectionFn__st0'?
 /* @scripttype preserveParamNames */
-export function GetUnionLast(T) {
+export function GetUnionLast(T): any {
   const m1 = matches<() => Hole<"Last">>(UnionToIntersectionFn(T))
   if (m1) {
     return m1.Last
@@ -40,7 +50,7 @@ export function GetUnionLast(T) {
 
 // ✓ UnionToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToTuple(T) {
+export function UnionToTuple(T): any {
   let Tuple: any[] = []
   let t = T
   while (true) {
@@ -65,7 +75,7 @@ export function UnionToTuple(T) {
 
 // ✓ CastToStringTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CastToStringTuple(T) {
+export function CastToStringTuple(T): any {
   if (matches<[ string, ...string[] ]>(T)) {
     return T
   }
@@ -78,7 +88,7 @@ export function CastToStringTuple(T) {
 // ✗ UnionToTupleString: does not compile yet
 //   Cannot find name 'CastToStringTuple'. Did you mean 'CastToStringTuple__st3'?
 /* @scripttype preserveParamNames */
-export function UnionToTupleString(T) {
+export function UnionToTupleString(T): any {
   return CastToStringTuple(UnionToTuple(T))
 }
 /* compiles to:

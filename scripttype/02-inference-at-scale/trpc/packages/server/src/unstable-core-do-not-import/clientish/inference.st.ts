@@ -7,9 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { inferObservableValue } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/observable/observable.js'
+import type { AnyClientTypes, InferrableClientTypes, inferClientTypes } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inferrable.js'
+import type { Serialize } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/serialize.js'
+import type { AnyProcedure, inferProcedureInput, inferProcedureOutput } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/procedure.js'
+import type { AnyRouter, RouterRecord } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
+declare namespace m1 {
+  export type $Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyClientTypes: any
 declare const AnyProcedure: any
 declare const AnyRouter: any
@@ -20,19 +29,9 @@ declare const inferClientTypes: any
 declare const inferObservableValue: any
 declare const inferProcedureInput: any
 declare const inferProcedureOutput: any
-type AnyClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferrableClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouterRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Serialize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferObservableValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferProcedureInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferProcedureOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ inferTransformedProcedureOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferTransformedProcedureOutput(TInferrable: InferrableClientTypes, TProcedure: AnyProcedure) {
+export function inferTransformedProcedureOutput(TInferrable: InferrableClientTypes, TProcedure: AnyProcedure): any {
   if (matches<false>(inferClientTypes(TInferrable)['transformer'])) {
     return Serialize(inferProcedureOutput(TProcedure))
   }
@@ -50,7 +49,7 @@ export function inferTransformedProcedureOutput(TInferrable: InferrableClientTyp
 
 // ✓ inferTransformedSubscriptionOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferTransformedSubscriptionOutput(TInferrable: InferrableClientTypes, TProcedure: AnyProcedure) {
+export function inferTransformedSubscriptionOutput(TInferrable: InferrableClientTypes, TProcedure: AnyProcedure): any {
   if (matches<false>(inferClientTypes(TInferrable)['transformer'])) {
     return Serialize(inferObservableValue(inferProcedureOutput(TProcedure)))
   }
@@ -68,7 +67,7 @@ export function inferTransformedSubscriptionOutput(TInferrable: InferrableClient
 
 // ✓ GetInferenceHelpers: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetInferenceHelpers__v1(TType, TRoot, TRecord, TKey) {
+export function GetInferenceHelpers__v1(TType, TRoot, TRecord, TKey): any {
   const m1 = matches<Hole<"$Value">>(TRecord[TKey])
   if (m1) {
     if (matches<AnyProcedure>(m1.$Value)) {
@@ -84,7 +83,10 @@ export function GetInferenceHelpers__v1(TType, TRoot, TRecord, TKey) {
   }
   return never
 }
-export function GetInferenceHelpers(TType: 'input' | 'output', TRoot: AnyClientTypes, TRecord: RouterRecord) {
+/**
+ * @param {RouterRecord} TRecord
+ */
+export function GetInferenceHelpers(TType: 'input' | 'output', TRoot: AnyClientTypes, TRecord): any {
   const out = emptyObject
   for (const TKey in keyof(TRecord)) {
     out[TKey] = GetInferenceHelpers__v1(TType, TRoot, TRecord, TKey)
@@ -111,7 +113,7 @@ export function GetInferenceHelpers(TType: 'input' | 'output', TRoot: AnyClientT
 
 // ✓ inferRouterInputs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferRouterInputs(TRouter: AnyRouter) {
+export function inferRouterInputs(TRouter: AnyRouter): any {
   return GetInferenceHelpers('input', TRouter['_def']['_config']['$types'], TRouter['_def']['record'])
 }
 /* compiles to:
@@ -124,7 +126,7 @@ export function inferRouterInputs(TRouter: AnyRouter) {
 
 // ✓ inferRouterOutputs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferRouterOutputs(TRouter: AnyRouter) {
+export function inferRouterOutputs(TRouter: AnyRouter): any {
   return GetInferenceHelpers('output', TRouter['_def']['_config']['$types'], TRouter['_def']['record'])
 }
 /* compiles to:

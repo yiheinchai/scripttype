@@ -7,23 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Abi, AbiEvent } from '../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/abi.js'
+import type { AbiParametersToPrimitiveTypes, ExtractAbiEvent, ExtractAbiEventNames } from '../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/utils.js'
 declare const Abi: any
 declare const AbiEvent: any
 declare const AbiParametersToPrimitiveTypes: any
 declare const ExtractAbiEvent: any
 declare const ExtractAbiEventNames: any
-type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AbiEvent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AbiParametersToPrimitiveTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractAbiEvent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractAbiEventNames<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WatchEventParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WatchEventParameters(abi: Abi | readonly unknown[], eventName: string, eventNames: string = matches<Abi>(abi) ? ExtractAbiEventNames(abi) : string, abiEvent: AbiEvent = matches<Abi>(abi) ? ExtractAbiEvent(abi, eventName) : AbiEvent, primitiveTypes = AbiParametersToPrimitiveTypes(abiEvent['inputs'], 'inputs', true)) {
-  return { abi: abi, eventName: anyOf(eventNames, matches<typeof eventNames>(eventName) ? eventName : never, matches<typeof abi>(Abi) ? string : never), onEmit: matches<typeof abi>(Abi) ? fnType([arrayOf(unknown)], voidType()) : (matches<Abi>(abi) ? fnType([matches<readonly unknown[]>(primitiveTypes) ? primitiveTypes : arrayOf(unknown)], voidType()) : fnType([arrayOf(unknown)], voidType())) }
+export function WatchEventParameters(abi: Abi | readonly unknown[], eventName: string, eventNames: string = matches<Abi>(abi) ? ExtractAbiEventNames(abi) : string, abiEvent: AbiEvent = matches<Abi>(abi) ? ExtractAbiEvent(abi, eventName) : AbiEvent, primitiveTypes = AbiParametersToPrimitiveTypes(abiEvent['inputs'], 'inputs', true)): any {
+  return { abi: abi, eventName: anyOf(eventNames, matches<typeof eventNames>(eventName) ? eventName : never, matches<typeof abi>(Abi) ? string : never), onEmit: matches<typeof abi>(Abi) ? fnType([...arrayOf(unknown)], voidType()) : (matches<Abi>(abi) ? fnType([...matches<readonly unknown[]>(primitiveTypes) ? primitiveTypes : arrayOf(unknown)], voidType()) : fnType([...arrayOf(unknown)], voidType())) }
 }
 /* compiles to:
  * export type WatchEventParameters<
@@ -38,9 +36,9 @@ export function WatchEventParameters(abi: Abi | readonly unknown[], eventName: s
  *     eventName: | eventNames
  *     | (eventName extends eventNames ? eventName : never)
  *     | (Abi extends abi ? string : never)
- *     onEmit: Abi extends abi ? (a0: unknown[]) => void
+ *     onEmit: Abi extends abi ? (...a0: unknown[]) => void
  *     : abi extends Abi
- *       ? (a0: primitiveTypes extends readonly unknown[] ? primitiveTypes : unknown[]) => void
- *     : (a0: unknown[]) => void
+ *       ? (...a0: primitiveTypes extends readonly unknown[] ? primitiveTypes : unknown[]) => void
+ *     : (...a0: unknown[]) => void
  *   }
  */

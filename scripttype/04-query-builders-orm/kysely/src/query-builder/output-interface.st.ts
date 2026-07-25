@@ -7,22 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExpressionBuilder } from '../../../../../04-query-builders-orm/kysely/src/expression/expression-builder.js'
+import type { AliasedExpressionOrFactory } from '../../../../../04-query-builders-orm/kysely/src/parser/expression-parser.js'
+import type { OutputPrefix } from '../../../../../04-query-builders-orm/kysely/src/query-builder/output-interface.js'
+import type { AnyAliasedColumnWithTable, AnyColumnWithTable } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type C<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type OE<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AliasedExpressionOrFactory: any
 declare const AnyAliasedColumnWithTable: any
 declare const AnyColumnWithTable: any
 declare const ExpressionBuilder: any
 declare const OutputPrefix: any
-type AliasedExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyAliasedColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OutputPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OutputDatabase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OutputDatabase(DB, TB: keyof typeof DB, OP: OutputPrefix = OutputPrefix) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function OutputDatabase(DB, TB, OP: OutputPrefix = OutputPrefix): any {
   const out = emptyObject
   for (const K in keySet(OP)) {
     out[K] = DB[TB]
@@ -37,7 +44,11 @@ export function OutputDatabase(DB, TB: keyof typeof DB, OP: OutputPrefix = Outpu
 
 // ✓ OutputExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OutputExpression(DB, TB: keyof typeof DB, OP: OutputPrefix = OutputPrefix, ODB = OutputDatabase(DB, TB, OP), OTB: keyof typeof ODB = keyof(ODB)) {
+/**
+ * @param {keyof typeof DB} TB
+ * @param {keyof typeof ODB} OTB
+ */
+export function OutputExpression(DB, TB, OP: OutputPrefix = OutputPrefix, ODB = OutputDatabase(DB, TB, OP), OTB = keyof(ODB)): any {
   return AnyAliasedColumnWithTable(ODB, OTB) | AnyColumnWithTable(ODB, OTB) | AliasedExpressionOrFactory(ODB, OTB)
 }
 /* compiles to:
@@ -55,7 +66,10 @@ export function OutputExpression(DB, TB: keyof typeof DB, OP: OutputPrefix = Out
 
 // ✓ OutputCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OutputCallback(DB, TB: keyof typeof DB, OP: OutputPrefix = OutputPrefix) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function OutputCallback(DB, TB, OP: OutputPrefix = OutputPrefix): any {
   return fnType([ExpressionBuilder(OutputDatabase(DB, TB, OP), OP)], readonlyArrayOf(OutputExpression(DB, TB, OP)))
 }
 /* compiles to:
@@ -65,7 +79,7 @@ export function OutputCallback(DB, TB: keyof typeof DB, OP: OutputPrefix = Outpu
 
 // ✓ SelectExpressionFromOutputExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectExpressionFromOutputExpression(OE) {
+export function SelectExpressionFromOutputExpression(OE): any {
   const m1 = matches<`${OutputPrefix}.${Hole<"C">}`>(OE)
   if (m1) {
     return m1.C
@@ -79,7 +93,7 @@ export function SelectExpressionFromOutputExpression(OE) {
 
 // ✓ SelectExpressionFromOutputCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectExpressionFromOutputCallback(CB) {
+export function SelectExpressionFromOutputCallback(CB): any {
   const m1 = matches<(eb: ExpressionBuilder<any, any>) => ReadonlyArray<Hole<"OE">>>(CB)
   if (m1) {
     return SelectExpressionFromOutputExpression(m1.OE)

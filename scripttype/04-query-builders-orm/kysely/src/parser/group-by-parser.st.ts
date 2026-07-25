@@ -7,16 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExpressionBuilder } from '../../../../../04-query-builders-orm/kysely/src/expression/expression-builder.js'
+import type { ReferenceExpression } from '../../../../../04-query-builders-orm/kysely/src/parser/reference-parser.js'
 declare const ExpressionBuilder: any
 declare const ReferenceExpression: any
-type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GroupByExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GroupByExpression(DB, TB: keyof typeof DB, O) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function GroupByExpression(DB, TB, O): any {
   return anyOf(ReferenceExpression(DB, TB), keyof(O) & string)
 }
 /* compiles to:
@@ -26,7 +30,10 @@ export function GroupByExpression(DB, TB: keyof typeof DB, O) {
 
 // ✓ GroupByArg: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GroupByArg(DB, TB: keyof typeof DB, O) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function GroupByArg(DB, TB, O): any {
   return GroupByExpression(DB, TB, O) | readonlyArrayOf(GroupByExpression(DB, TB, O)) | fnType([ExpressionBuilder(DB, TB)], readonlyArrayOf(GroupByExpression(DB, TB, O)))
 }
 /* compiles to:

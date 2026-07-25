@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
+// Names this file references but does not define: types from elsewhere in the
+// library, and local functions used in type position. Declared so the generated
+// ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type B<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 // ✓ Concat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Concat(A: string, B: string) {
+export function Concat(A: string, B: string): any {
   return `${A}${B}`
 }
 /* compiles to:
@@ -18,7 +24,7 @@ export function Concat(A: string, B: string) {
 
 // ✓ Trim: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Trim(A: string) {
+export function Trim(A: string): any {
   return TrimEnd(TrimStart(A))
 }
 /* compiles to:
@@ -28,7 +34,7 @@ export function Trim(A: string) {
 // ✗ TrimStart: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function TrimStart(A: string) {
+export function TrimStart(A: string): any {
   let a = A
   while (true) {
     const m1 = matches<`${" " | "\n" | "\t" | "\r"}${Hole<"B">}`>(a)
@@ -49,7 +55,7 @@ export function TrimStart(A: string) {
 // ✗ TrimEnd: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function TrimEnd(A: string) {
+export function TrimEnd(A: string): any {
   let a = A
   while (true) {
     const m1 = matches<`${Hole<"B">}${" " | "\n" | "\t" | "\r"}`>(a)

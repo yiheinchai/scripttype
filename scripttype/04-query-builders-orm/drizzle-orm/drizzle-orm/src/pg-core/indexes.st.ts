@@ -15,7 +15,7 @@ type PgColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = a
 // ✗ GetColumnsTableName: does not compile yet
 //   Type '"_"' cannot be used to index type 'TColumns'.
 /* @scripttype preserveParamNames */
-export function GetColumnsTableName(TColumns) {
+export function GetColumnsTableName(TColumns): any {
   if (matches<PgColumn>(TColumns)) {
     return TColumns['_']['name']
   }

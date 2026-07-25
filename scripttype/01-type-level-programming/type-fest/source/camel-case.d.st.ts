@@ -7,18 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { CamelCaseOptions, _DefaultCamelCaseOptions } from '../../../../01-type-level-programming/type-fest/source/camel-case.d.js'
+declare namespace m1 {
+  export type FirstWord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RemainingWords<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ApplyDefaultOptions: any
 declare const CamelCaseOptions: any
 declare const _DefaultCamelCaseOptions: any
 type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _DefaultCamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ LeadingUnderscores: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LeadingUnderscores(Type: string) {
+export function LeadingUnderscores(Type: string): any {
   let Underscores = ''
   let type = Type
   while (true) {
@@ -41,7 +46,7 @@ export function LeadingUnderscores(Type: string) {
 
 // ✓ CamelCaseFromArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CamelCaseFromArray(Words: string[], Options: Required<CamelCaseOptions>, OutputString: string = '') {
+export function CamelCaseFromArray(Words: string[], Options: Required<CamelCaseOptions>, OutputString: string = ''): any {
   const m1 = matches<[ Hole<"FirstWord", string>, ...Hole<"RemainingWords", string[]> ]>(Words)
   if (m1) {
     if (matches<true>(Options['preserveConsecutiveUppercase'])) {
@@ -66,7 +71,7 @@ export function CamelCaseFromArray(Words: string[], Options: Required<CamelCaseO
 
 // ✓ CamelCase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CamelCase(Type, Options: CamelCaseOptions = {}) {
+export function CamelCase(Type, Options: CamelCaseOptions = {}): any {
   if (typeof Type === 'string') {
     if (matches<typeof Type>(string)) {
       return Type

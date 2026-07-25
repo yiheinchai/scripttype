@@ -9,7 +9,7 @@
  */
 // ✓ Has: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Has(U: any, U1: any) {
+export function Has(U: any, U1: any): any {
   if (matches<[ typeof U ]>([U1])) {
     return 1
   }

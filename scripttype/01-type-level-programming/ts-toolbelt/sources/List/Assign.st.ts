@@ -7,22 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { BuiltIn } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Misc/BuiltIn.js'
+import type { Depth } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
 declare const BuiltIn: any
 declare const Cast: any
 declare const Depth: any
 declare const List: any
 declare const OAssign: any
-type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OAssign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Assign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assign(L: List, Ls: List<List>, depth: Depth = 'flat', ignore: object = BuiltIn, fill: any = never) {
+export function Assign(L: List, Ls: List<List>, depth: Depth = 'flat', ignore: object = BuiltIn, fill: any = never): any {
   return Cast(OAssign(L, Ls, depth, ignore, fill), List)
 }
 /* compiles to:

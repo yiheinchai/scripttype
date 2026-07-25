@@ -9,7 +9,10 @@
  */
 // ✓ ValueOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValueOf(ObjectType, ValueType: keyof typeof ObjectType = keyof(ObjectType)) {
+/**
+ * @param {keyof typeof ObjectType} ValueType
+ */
+export function ValueOf(ObjectType, ValueType = keyof(ObjectType)): any {
   return ObjectType[ValueType]
 }
 /* compiles to:

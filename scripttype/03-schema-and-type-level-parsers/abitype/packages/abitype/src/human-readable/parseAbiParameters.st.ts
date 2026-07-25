@@ -7,9 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AbiParameter } from '../../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/abi.js'
+import type { IsStructSignature, Modifier } from '../../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/human-readable/types/signatures.js'
+import type { ParseStructs } from '../../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/human-readable/types/structs.js'
+import type { SplitParameters } from '../../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/human-readable/types/utils.js'
+import type { Filter } from '../../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/types.js'
+declare namespace m1 {
+  export type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type structs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type mapped<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type content<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AbiParameter: any
 declare const Filter: any
 declare const IsStructSignature: any
@@ -17,16 +34,13 @@ declare const Modifier: any
 declare const ParseAbiParameters_: any
 declare const ParseStructs: any
 declare const SplitParameters: any
-type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Filter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsStructSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Modifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ParseAbiParameters_<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParseStructs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SplitParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParseAbiParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ParseAbiParameters(params: string | readonly string[] | readonly unknown[]) {
+/**
+ * @param {string | readonly string[] | readonly unknown[]} params
+ */
+export function ParseAbiParameters(params): any {
   const m1 = matches<Hole<"structs">>(ParseStructs(params))
   const out = emptyObject
   for (const key in keyof(params)) {
@@ -63,7 +77,7 @@ export function ParseAbiParameters(params: string | readonly string[] | readonly
 
 // ✓ DeepFlatten: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeepFlatten(T: readonly unknown[], Acc: readonly unknown[] = asReadonly([])) {
+export function DeepFlatten(T: readonly unknown[], Acc: readonly unknown[] = asReadonly([])): any {
   const m1 = matches<readonly [ Hole<"head">, ...Hole<"tail"> ]>(T)
   if (m1) {
     if (typeof m1.tail === 'undefined') {

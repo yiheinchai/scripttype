@@ -7,9 +7,34 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Expression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { ExpressionOrFactory } from '../../../../../04-query-builders-orm/kysely/src/parser/expression-parser.js'
+import type { OrderByDirection } from '../../../../../04-query-builders-orm/kysely/src/parser/order-by-parser.js'
+import type { SelectQueryBuilderExpression } from '../../../../../04-query-builders-orm/kysely/src/query-builder/select-query-builder-expression.js'
+import type { SelectType } from '../../../../../04-query-builders-orm/kysely/src/util/column-type.js'
+import type { AnyColumn, AnyColumnWithTable, ExtractColumnType } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type C<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type CL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type SC<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type C<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyColumn: any
 declare const AnyColumnWithTable: any
 declare const DynamicReferenceBuilder: any
@@ -19,18 +44,13 @@ declare const ExtractColumnType: any
 declare const OrderByDirection: any
 declare const SelectQueryBuilderExpression: any
 declare const SelectType: any
-type AnyColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DynamicReferenceBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractColumnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OrderByDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectQueryBuilderExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringReference: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StringReference(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function StringReference(DB, TB): any {
   return AnyColumn(DB, TB) | AnyColumnWithTable(DB, TB)
 }
 /* compiles to:
@@ -40,7 +60,10 @@ export function StringReference(DB, TB: keyof typeof DB) {
 
 // ✓ SimpleReferenceExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SimpleReferenceExpression(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function SimpleReferenceExpression(DB, TB): any {
   return StringReference(DB, TB) | DynamicReferenceBuilder(any)
 }
 /* compiles to:
@@ -50,7 +73,10 @@ export function SimpleReferenceExpression(DB, TB: keyof typeof DB) {
 
 // ✓ ReferenceExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReferenceExpression(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ReferenceExpression(DB, TB): any {
   return SimpleReferenceExpression(DB, TB) | ExpressionOrFactory(DB, TB, any)
 }
 /* compiles to:
@@ -60,7 +86,10 @@ export function ReferenceExpression(DB, TB: keyof typeof DB) {
 
 // ✓ ReferenceExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReferenceExpressionOrList(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ReferenceExpressionOrList(DB, TB): any {
   return ReferenceExpression(DB, TB) | readonlyArrayOf(ReferenceExpression(DB, TB))
 }
 /* compiles to:
@@ -70,7 +99,10 @@ export function ReferenceExpressionOrList(DB, TB: keyof typeof DB) {
 
 // ✓ ExtractTypeFromReferenceExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromReferenceExpression(DB, TB: keyof typeof DB, RE, DV = unknown) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractTypeFromReferenceExpression(DB, TB, RE, DV = unknown): any {
   return SelectType(ExtractRawTypeFromReferenceExpression(DB, TB, RE, DV))
 }
 /* compiles to:
@@ -81,7 +113,10 @@ export function ExtractTypeFromReferenceExpression(DB, TB: keyof typeof DB, RE, 
 
 // ✓ ExtractRawTypeFromReferenceExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractRawTypeFromReferenceExpression(DB, TB: keyof typeof DB, RE, DV = unknown) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractRawTypeFromReferenceExpression(DB, TB, RE, DV = unknown): any {
   if (typeof RE === 'string') {
     return ExtractTypeFromStringReference(DB, TB, RE)
   }
@@ -115,7 +150,10 @@ export function ExtractRawTypeFromReferenceExpression(DB, TB: keyof typeof DB, R
 
 // ✓ ExtractTypeFromStringReference: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromStringReference(DB, TB: keyof typeof DB, RE: string, DV = unknown) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractTypeFromStringReference(DB, TB, RE: string, DV = unknown): any {
   const m1 = matches<`${Hole<"SC">}.${Hole<"T">}.${Hole<"C">}`>(RE)
   if (m1) {
     if (matches<typeof TB>(`${m1.SC}.${m1.T}`)) {
@@ -160,7 +198,7 @@ export function ExtractTypeFromStringReference(DB, TB: keyof typeof DB, RE: stri
 
 // ✓ OrderedColumnName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OrderedColumnName(C: string) {
+export function OrderedColumnName(C: string): any {
   const m1 = matches<`${string} ${Hole<"O">}`>(C)
   if (m1) {
     if (matches<OrderByDirection>(m1.O)) {
@@ -177,7 +215,7 @@ export function OrderedColumnName(C: string) {
 
 // ✓ ExtractColumnNameFromOrderedColumnName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractColumnNameFromOrderedColumnName(C: string) {
+export function ExtractColumnNameFromOrderedColumnName(C: string): any {
   const m1 = matches<`${Hole<"CL">} ${Hole<"O">}`>(C)
   if (m1) {
     if (matches<OrderByDirection>(m1.O)) {

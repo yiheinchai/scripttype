@@ -9,7 +9,7 @@
  */
 // ✓ Pascal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Pascal(N: number) {
+export function Pascal(N: number): any {
   return any
 }
 /* compiles to:

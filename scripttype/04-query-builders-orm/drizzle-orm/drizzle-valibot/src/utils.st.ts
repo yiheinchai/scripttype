@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Column: any
 declare const SelectedFieldsFlat: any
 declare const Table: any
@@ -20,7 +24,7 @@ type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any,
 type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNever(T) {
+export function IsNever(T): any {
   if (matches<[ never ]>([T])) {
     return true
   }
@@ -32,7 +36,7 @@ export function IsNever(T) {
 
 // ✓ IsEnumDefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsEnumDefined(TEnum: string[] | undefined) {
+export function IsEnumDefined(TEnum: string[] | undefined): any {
   if (matches<typeof TEnum>([string, ...arrayOf(string)])) {
     return false
   }
@@ -49,7 +53,7 @@ export function IsEnumDefined(TEnum: string[] | undefined) {
 // ✗ ColumnIsGeneratedAlwaysAs: does not compile yet
 //   Type '"_"' cannot be used to index type 'TColumn'.
 /* @scripttype preserveParamNames */
-export function ColumnIsGeneratedAlwaysAs(TColumn) {
+export function ColumnIsGeneratedAlwaysAs(TColumn): any {
   if (matches<Column>(TColumn)) {
     if (matches<'always'>(TColumn['_']['identity'])) {
       return true
@@ -72,7 +76,7 @@ export function ColumnIsGeneratedAlwaysAs(TColumn) {
 
 // ✓ RemoveNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RemoveNever(T) {
+export function RemoveNever(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[matches<never>(T[K]) ? never : K] = T[K]
@@ -85,7 +89,7 @@ export function RemoveNever(T) {
 
 // ✓ RemoveNeverElements: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RemoveNeverElements(T: any[]) {
+export function RemoveNeverElements(T: any[]): any {
   const m1 = matches<[ Hole<"First">, ...Hole<"Rest"> ]>(T)
   if (m1) {
     if (matches<true>(IsNever(m1.First))) {
@@ -106,7 +110,7 @@ export function RemoveNeverElements(T: any[]) {
 
 // ✓ GetSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetSelection(T: SelectedFieldsFlat<Column> | Table | View) {
+export function GetSelection(T: SelectedFieldsFlat<Column> | Table | View): any {
   if (matches<Table>(T)) {
     return T['_']['columns']
   }

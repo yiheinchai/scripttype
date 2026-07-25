@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TGeneric } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/generic.js'
+import type { TRef } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/ref.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace m1 {
+  export type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Parameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Ref<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TFromNotGeneric: any
 declare const TFromNotResolvable: any
 declare const TGeneric: any
@@ -19,14 +30,11 @@ declare const TRef: any
 declare const TSchema: any
 type TFromNotGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TFromNotResolvable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromGeneric: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromGeneric(Name: string, Parameters: TParameter[], Expression: TSchema) {
+export function TFromGeneric(Name: string, Parameters: TParameter[], Expression: TSchema): any {
   return [Name, TGeneric(Parameters, Expression)]
 }
 /* compiles to:
@@ -40,7 +48,7 @@ export function TFromGeneric(Name: string, Parameters: TParameter[], Expression:
 
 // ✓ TFromRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromRef(Context: TProperties, Ref: string, Arguments: TSchema[]) {
+export function TFromRef(Context: TProperties, Ref: string, Arguments: TSchema[]): any {
   if (Ref in Context) {
     return TFromType(Context, Ref, Context[Ref], Arguments)
   }
@@ -59,7 +67,7 @@ export function TFromRef(Context: TProperties, Ref: string, Arguments: TSchema[]
 
 // ✓ TFromType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromType(Context: TProperties, Name: string, Type: TSchema, Arguments: TSchema[]) {
+export function TFromType(Context: TProperties, Name: string, Type: TSchema, Arguments: TSchema[]): any {
   const m1 = matches<TGeneric<Hole<"Parameters", TParameter[]>, Hole<"Expression", TSchema>>>(Type)
   if (m1) {
     return TFromGeneric(Name, m1.Parameters, m1.Expression)
@@ -85,7 +93,7 @@ export function TFromType(Context: TProperties, Name: string, Type: TSchema, Arg
 
 // ✓ TResolveTarget: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TResolveTarget(Context: TProperties, Target: TSchema, Arguments: TSchema[], Result: [ string, TSchema ] = TFromType(Context, '(anonymous)', Target, Arguments)) {
+export function TResolveTarget(Context: TProperties, Target: TSchema, Arguments: TSchema[], Result: [ string, TSchema ] = TFromType(Context, '(anonymous)', Target, Arguments)): any {
   return Result
 }
 /* compiles to:

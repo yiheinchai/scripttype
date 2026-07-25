@@ -9,7 +9,7 @@
  */
 // ✓ Subtract: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Subtract(M: number, S: number) {
+export function Subtract(M: number, S: number): any {
   return any
 }
 /* compiles to:

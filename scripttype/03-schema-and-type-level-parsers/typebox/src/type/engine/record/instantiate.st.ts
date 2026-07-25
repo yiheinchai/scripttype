@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TCanInstantiate, TInstantiateType, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TFromKey } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/record/from_key.js'
+import type { TRecordDeferred } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/record.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare const TCanInstantiate: any
 declare const TFromKey: any
 declare const TInstantiateType: any
@@ -17,16 +22,10 @@ declare const TProperties: any
 declare const TRecordDeferred: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TFromKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRecordDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRecordAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRecordAction(Key: TSchema, Value: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Key])) ? TFromKey(Key, Value) : TRecordDeferred(Key, Value)) {
+export function TRecordAction(Key: TSchema, Value: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Key])) ? TFromKey(Key, Value) : TRecordDeferred(Key, Value)): any {
   return Result
 }
 /* compiles to:
@@ -40,7 +39,7 @@ export function TRecordAction(Key: TSchema, Value: TSchema, Result: TSchema = ma
 
 // ✓ TRecordInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRecordInstantiate(Context: TProperties, State: TState, Key: TSchema, Value: TSchema, InstantiatedKey: TSchema = TInstantiateType(Context, State, Key), InstantiatedValue: TSchema = TInstantiateType(Context, State, Value)) {
+export function TRecordInstantiate(Context: TProperties, State: TState, Key: TSchema, Value: TSchema, InstantiatedKey: TSchema = TInstantiateType(Context, State, Key), InstantiatedValue: TSchema = TInstantiateType(Context, State, Value)): any {
   return TRecordAction(InstantiatedKey, InstantiatedValue)
 }
 /* compiles to:

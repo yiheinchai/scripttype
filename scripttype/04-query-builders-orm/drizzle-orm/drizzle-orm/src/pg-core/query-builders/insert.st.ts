@@ -7,12 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyPgColumn } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/pg-core/columns/common.js'
+import type { AnyPgInsert } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/pg-core/query-builders/insert.js'
+import type { PgQueryResultHKT, PgQueryResultKind } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/pg-core/session.js'
+import type { SelectResultFields } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { ColumnsSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sql/sql.js'
+import type { InferInsertModel } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
 declare namespace SQL {
   export type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const Aliased: any
 declare const AnyPgColumn: any
 declare const AnyPgInsert: any
 declare const ColumnsSelection: any
@@ -29,25 +37,19 @@ declare const SelectResultFields: any
 declare const SelectedFieldsFlat: any
 declare const TableConfig: any
 declare const TypedQueryBuilder: any
-type AnyPgColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyPgInsert<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferInsertModel<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgInsertBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgPreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Placeholder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResultFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectedFieldsFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TypedQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgInsertValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgInsertValue(TTable: PgTable<TableConfig>, OverrideT: boolean = false) {
+export function PgInsertValue(TTable: PgTable<TableConfig>, OverrideT: boolean = false): any {
   const out = emptyObject
   for (const Key in keyof(InferInsertModel(TTable, { dbColumnNames: false, override: OverrideT }))) {
     out[Key] = InferInsertModel(TTable, { dbColumnNames: false, override: OverrideT })[Key] | SQL | Placeholder
@@ -69,10 +71,10 @@ export function PgInsertValue(TTable: PgTable<TableConfig>, OverrideT: boolean =
 
 // ✓ PgInsertSelectQueryBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgInsertSelectQueryBuilder(TTable: PgTable) {
+export function PgInsertSelectQueryBuilder(TTable: PgTable): any {
   const out = emptyObject
   for (const K in keyof(TTable['$inferInsert'])) {
-    out[K] = AnyPgColumn | SQL | SQL.Aliased | TTable['$inferInsert'][K]
+    out[K] = anyOf(AnyPgColumn, SQL, t<SQL.Aliased>(), TTable['$inferInsert'][K])
   }
   return TypedQueryBuilder(out)
 }
@@ -89,7 +91,11 @@ export function PgInsertSelectQueryBuilder(TTable: PgTable) {
 
 // ✓ PgInsertWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgInsertWithout(T: AnyPgInsert, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnyPgInsert} T
+ * @param {keyof typeof T & string} K
+ */
+export function PgInsertWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -118,7 +124,7 @@ export function PgInsertWithout(T: AnyPgInsert, TDynamic: boolean, K: keyof type
 
 // ✓ PgInsertReturning: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgInsertReturning(T: AnyPgInsert, TDynamic: boolean, TSelectedFields: SelectedFieldsFlat) {
+export function PgInsertReturning(T: AnyPgInsert, TDynamic: boolean, TSelectedFields: SelectedFieldsFlat): any {
   return PgInsertBase(T['_']['table'], T['_']['queryResult'], TSelectedFields, SelectResultFields(TSelectedFields), TDynamic, T['_']['excludedMethods'])
 }
 /* compiles to:
@@ -139,7 +145,7 @@ export function PgInsertReturning(T: AnyPgInsert, TDynamic: boolean, TSelectedFi
 
 // ✓ PgInsertReturningAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgInsertReturningAll(T: AnyPgInsert, TDynamic: boolean) {
+export function PgInsertReturningAll(T: AnyPgInsert, TDynamic: boolean): any {
   return PgInsertBase(T['_']['table'], T['_']['queryResult'], T['_']['table']['_']['columns'], T['_']['table']['$inferSelect'], TDynamic, T['_']['excludedMethods'])
 }
 /* compiles to:
@@ -155,7 +161,7 @@ export function PgInsertReturningAll(T: AnyPgInsert, TDynamic: boolean) {
 
 // ✓ PgInsertPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgInsertPrepare(T: AnyPgInsert) {
+export function PgInsertPrepare(T: AnyPgInsert): any {
   return PgPreparedQuery(merge(PreparedQueryConfig, { execute: typeof T['_']['returning'] === 'undefined' ? PgQueryResultKind(T['_']['queryResult'], never) : arrayOf(T['_']['returning']) }))
 }
 /* compiles to:
@@ -171,7 +177,7 @@ export function PgInsertPrepare(T: AnyPgInsert) {
 
 // ✓ PgInsertDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgInsertDynamic(T: AnyPgInsert) {
+export function PgInsertDynamic(T: AnyPgInsert): any {
   return PgInsert(T['_']['table'], T['_']['queryResult'], T['_']['returning'])
 }
 /* compiles to:
@@ -184,7 +190,7 @@ export function PgInsertDynamic(T: AnyPgInsert) {
 
 // ✓ PgInsert: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgInsert(TTable: PgTable = PgTable, TQueryResult: PgQueryResultHKT = PgQueryResultHKT, TSelectedFields: ColumnsSelection | undefined = anyOf(ColumnsSelection, Undefined), TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined)) {
+export function PgInsert(TTable: PgTable = PgTable, TQueryResult: PgQueryResultHKT = PgQueryResultHKT, TSelectedFields: ColumnsSelection | undefined = anyOf(ColumnsSelection, Undefined), TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined)): any {
   return PgInsertBase(TTable, TQueryResult, TSelectedFields, TReturning, true, never)
 }
 /* compiles to:

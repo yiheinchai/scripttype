@@ -15,7 +15,7 @@ type INVALID<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type SyncParseReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DIRTY: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DIRTY(T) {
+export function DIRTY(T): any {
   return { status: 'dirty', value: T }
 }
 /* compiles to:
@@ -24,7 +24,7 @@ export function DIRTY(T) {
 
 // ✓ OK: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OK(T) {
+export function OK(T): any {
   return { status: 'valid', value: T }
 }
 /* compiles to:
@@ -33,7 +33,7 @@ export function OK(T) {
 
 // ✓ SyncParseReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SyncParseReturnType(T = any) {
+export function SyncParseReturnType(T = any): any {
   return OK(T) | DIRTY(T) | INVALID
 }
 /* compiles to:
@@ -42,7 +42,7 @@ export function SyncParseReturnType(T = any) {
 
 // ✓ AsyncParseReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AsyncParseReturnType(T) {
+export function AsyncParseReturnType(T): any {
   return t<Promise<SyncParseReturnType<typeof T>>>()
 }
 /* compiles to:
@@ -51,7 +51,7 @@ export function AsyncParseReturnType(T) {
 
 // ✓ ParseReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ParseReturnType(T) {
+export function ParseReturnType(T): any {
   return SyncParseReturnType(T) | AsyncParseReturnType(T)
 }
 /* compiles to:

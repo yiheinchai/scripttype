@@ -7,20 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TLiteral, TLiteralValue } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TLiteral: any
 declare const TLiteralValue: any
 declare const TSchema: any
 declare const TUnion: any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromLiteral(_Value: TLiteralValue) {
+export function TFromLiteral(_Value: TLiteralValue): any {
   return true
 }
 /* compiles to:
@@ -29,7 +37,7 @@ export function TFromLiteral(_Value: TLiteralValue) {
 
 // ✓ TFromTypesReduce: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromTypesReduce(Types: TSchema[]) {
+export function TFromTypesReduce(Types: TSchema[]): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(Types)
   if (m1) {
     if (matches<true>(TFromType(m1.Left))) {
@@ -48,7 +56,7 @@ export function TFromTypesReduce(Types: TSchema[]) {
 
 // ✓ TFromTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromTypes(Types: TSchema[], Result: boolean = matches<[ ]>(Types) ? false : TFromTypesReduce(Types)) {
+export function TFromTypes(Types: TSchema[], Result: boolean = matches<[ ]>(Types) ? false : TFromTypesReduce(Types)): any {
   return Result
 }
 /* compiles to:
@@ -61,7 +69,7 @@ export function TFromTypes(Types: TSchema[], Result: boolean = matches<[ ]>(Type
 
 // ✓ TFromType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromType(Type: TSchema) {
+export function TFromType(Type: TSchema): any {
   const m1 = matches<TUnion<Hole<"Types", TSchema[]>>>(Type)
   if (m1) {
     return TFromTypes(m1.Types)
@@ -81,7 +89,7 @@ export function TFromType(Type: TSchema) {
 
 // ✓ TIsTemplateLiteralFinite: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIsTemplateLiteralFinite(Types: TSchema[], Result: boolean = TFromTypes(Types)) {
+export function TIsTemplateLiteralFinite(Types: TSchema[], Result: boolean = TFromTypes(Types)): any {
   return Result
 }
 /* compiles to:

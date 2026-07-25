@@ -10,6 +10,24 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ApplyDefaultOptions: any
 declare const CamelCase: any
 declare const CamelCaseOptions: any
@@ -27,7 +45,7 @@ type _CamelCasedPropertiesDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any,
 type _DefaultCamelCaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CamelCasedPropertiesDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CamelCasedPropertiesDeep(Value, Options: CamelCaseOptions = {}) {
+export function CamelCasedPropertiesDeep(Value, Options: CamelCaseOptions = {}): any {
   return _CamelCasedPropertiesDeep(Value, ApplyDefaultOptions(CamelCaseOptions, _DefaultCamelCaseOptions, Options))
 }
 /* compiles to:
@@ -39,7 +57,7 @@ export function CamelCasedPropertiesDeep(Value, Options: CamelCaseOptions = {}) 
 
 // ✓ _CamelCasedPropertiesDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _CamelCasedPropertiesDeep(Value, Options: Required<CamelCaseOptions>) {
+export function _CamelCasedPropertiesDeep(Value, Options: Required<CamelCaseOptions>): any {
   if (matches<NonRecursiveType>(Value)) {
     return Value
   }
@@ -73,7 +91,7 @@ export function _CamelCasedPropertiesDeep(Value, Options: Required<CamelCaseOpti
 
 // ✓ CamelCasedPropertiesArrayDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CamelCasedPropertiesArrayDeep(Value: UnknownArray, Options: Required<CamelCaseOptions>) {
+export function CamelCasedPropertiesArrayDeep(Value: UnknownArray, Options: Required<CamelCaseOptions>): any {
   if (matches<[ ]>(Value)) {
     return []
   }

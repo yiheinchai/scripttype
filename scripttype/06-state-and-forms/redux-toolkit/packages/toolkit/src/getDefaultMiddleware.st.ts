@@ -7,26 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExcludeFromTuple } from '../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/tsHelpers.js'
+declare namespace m1 {
+  export type E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare const ExcludeFromTuple: any
 declare const GetDefaultMiddlewareOptions: any
 declare const ThunkMiddleware: any
+declare const Tuple: any
 declare const UnknownAction: any
-declare const actionCreatorCheck: any
-declare const immutableCheck: any
-declare const serializableCheck: any
-declare const thunk: any
 type GetDefaultMiddlewareOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ThunkMiddleware<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnknownAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type actionCreatorCheck<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type immutableCheck<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type serializableCheck<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type thunk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ThunkMiddlewareFor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ThunkMiddlewareFor(S, O: GetDefaultMiddlewareOptions = {}) {
+export function ThunkMiddlewareFor(S, O: GetDefaultMiddlewareOptions = {}): any {
   if (matches<{ thunk: false; }>(O)) {
     return never
   }
@@ -46,11 +46,12 @@ export function ThunkMiddlewareFor(S, O: GetDefaultMiddlewareOptions = {}) {
 // ✗ GetDefaultMiddleware: does not compile yet
 //   Unterminated string literal.
 /* @scripttype preserveParamNames */
-export function GetDefaultMiddleware(S = any) {
-  return genericFnType(['O extends GetDefaultMiddlewareOptions = {
-    thunk: true
-    immutableCheck: true
-    serializableCheck: true
-    actionCreatorCheck: true
-  }'], [O], Tuple(ExcludeFromTuple([ThunkMiddlewareFor(S, O)], never)))
+export function GetDefaultMiddleware(S = any): any {
+  return genericFnType(['O extends GetDefaultMiddlewareOptions = { thunk: true immutableCheck: true serializableCheck: true actionCreatorCheck: true }'], [optElem(O)], Tuple(ExcludeFromTuple([ThunkMiddlewareFor(S, O)], never)))
 }
+/* compiles to:
+ * export type GetDefaultMiddleware<S = any> =
+ *   <O extends GetDefaultMiddlewareOptions = { thunk: true immutableCheck: true serializableCheck: true actionCreatorCheck: true }>(
+ *     a0?: O
+ *   ) => Tuple<ExcludeFromTuple<[ThunkMiddlewareFor<S, O>], never>>
+ */

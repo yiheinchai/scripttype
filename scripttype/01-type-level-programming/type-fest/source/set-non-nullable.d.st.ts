@@ -9,7 +9,10 @@
  */
 // ✓ SetNonNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetNonNullable(BaseType, Keys: keyof typeof BaseType = keyof(BaseType)) {
+/**
+ * @param {keyof typeof BaseType} Keys
+ */
+export function SetNonNullable(BaseType, Keys = keyof(BaseType)): any {
   const out = emptyObject
   for (const Key in keyof(BaseType)) {
     out[Key] = matches<typeof Keys>(Key) ? NonNullable(BaseType[Key]) : BaseType[Key]

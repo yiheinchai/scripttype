@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Brand } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/actions/brand/brand.js'
+import type { ReadonlyAction } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/actions/readonly/readonly.js'
+import type { InferInput, InferOutput } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/infer.js'
+import type { BaseIssue } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/issue.js'
+import type { BaseSchema, BaseSchemaAsync } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/schema.js'
+import type { MarkOptional, Prettify } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/utils.js'
 declare const BaseIssue: any
 declare const BaseSchema: any
 declare const BaseSchemaAsync: any
@@ -19,19 +26,10 @@ declare const InferOutput: any
 declare const MarkOptional: any
 declare const Prettify: any
 declare const ReadonlyAction: any
-type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Brand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MarkOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type WithQuestionMarks<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsLiteral(TKey: string | number | symbol) {
+export function IsLiteral(TKey: string | number | symbol): any {
   if (matches<typeof TKey>(string)) {
     return false
   }
@@ -57,7 +55,7 @@ export function IsLiteral(TKey: string | number | symbol) {
 
 // ✓ OptionalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalKeys(TObject: Record<string | number | symbol, unknown>) {
+export function OptionalKeys(TObject: Record<string | number | symbol, unknown>): any {
   const out = emptyObject
   for (const TKey in keyof(TObject)) {
     out[TKey] = matches<true>(IsLiteral(TKey)) ? TKey : never
@@ -71,7 +69,7 @@ export function OptionalKeys(TObject: Record<string | number | symbol, unknown>)
 
 // ✓ WithQuestionMarks: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithQuestionMarks(TObject: Record<string | number | symbol, unknown>) {
+export function WithQuestionMarks(TObject: Record<string | number | symbol, unknown>): any {
   return MarkOptional(TObject, OptionalKeys(TObject))
 }
 /* compiles to:
@@ -83,7 +81,7 @@ export function WithQuestionMarks(TObject: Record<string | number | symbol, unkn
 
 // ✓ WithReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithReadonly(TValue: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, TObject: WithQuestionMarks<Record<string | number | symbol, unknown>>) {
+export function WithReadonly(TValue: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, TObject: WithQuestionMarks<Record<string | number | symbol, unknown>>): any {
   if (matches<{ readonly pipe: readonly unknown[]; }>(TValue)) {
     if (matches<(typeof TValue)['pipe'][number]>(ReadonlyAction(any))) {
       return Readonly(TObject)
@@ -104,7 +102,7 @@ export function WithReadonly(TValue: BaseSchema<unknown, unknown, BaseIssue<unkn
 
 // ✓ InferRecordInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferRecordInput(TKey: BaseSchema<string, string | number | symbol, BaseIssue<unknown>> | BaseSchemaAsync<string, string | number | symbol, BaseIssue<unknown>>, TValue: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>) {
+export function InferRecordInput(TKey: BaseSchema<string, string | number | symbol, BaseIssue<unknown>> | BaseSchemaAsync<string, string | number | symbol, BaseIssue<unknown>>, TValue: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>): any {
   return Prettify(WithQuestionMarks(Record(InferInput(TKey), InferInput(TValue))))
 }
 /* compiles to:
@@ -117,7 +115,7 @@ export function InferRecordInput(TKey: BaseSchema<string, string | number | symb
 
 // ✓ InferRecordOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferRecordOutput(TKey: BaseSchema<string, string | number | symbol, BaseIssue<unknown>> | BaseSchemaAsync<string, string | number | symbol, BaseIssue<unknown>>, TValue: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>) {
+export function InferRecordOutput(TKey: BaseSchema<string, string | number | symbol, BaseIssue<unknown>> | BaseSchemaAsync<string, string | number | symbol, BaseIssue<unknown>>, TValue: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>): any {
   return Prettify(WithReadonly(TValue, WithQuestionMarks(Record(InferOutput(TKey), InferOutput(TValue)))))
 }
 /* compiles to:

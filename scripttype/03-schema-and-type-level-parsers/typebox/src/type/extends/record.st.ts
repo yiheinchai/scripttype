@@ -7,16 +7,33 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TExtendsLeft } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/extends_left.js'
+import type { TExtendsFalse, TExtendsTrue } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/result.js'
+import type { TAny } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/any.js'
+import type { TObject } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TRecord, TRecordPatternToType } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/record.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnknown } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/unknown.js'
 declare namespace Result {
   export type TExtendsFalse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TExtendsTrue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type Pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Properties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Result: any
 declare const TAny: any
+declare const TExtendsFalse: any
 declare const TExtendsLeft: any
+declare const TExtendsTrue: any
 declare const TObject: any
 declare const TProperties: any
 declare const TRecord: any
@@ -24,21 +41,14 @@ declare const TRecordPatternToType: any
 declare const TSchema: any
 declare const TUnknown: any
 type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRecordPatternToType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromObject(Inferred: TProperties, Properties: TProperties) {
+export function TFromObject(Inferred: TProperties, Properties: TProperties): any {
   if (matches<never>(keyof(Properties))) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TFromObject<Inferred extends TProperties, Properties extends TProperties> =
@@ -47,7 +57,7 @@ export function TFromObject(Inferred: TProperties, Properties: TProperties) {
 
 // ✓ TFromRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromRecord(Inferred: TProperties, _LeftKey: TSchema, LeftValue: TSchema, _RightKey: TSchema, RightValue: TSchema) {
+export function TFromRecord(Inferred: TProperties, _LeftKey: TSchema, LeftValue: TSchema, _RightKey: TSchema, RightValue: TSchema): any {
   return TExtendsLeft(Inferred, LeftValue, RightValue)
 }
 /* compiles to:
@@ -63,7 +73,7 @@ export function TFromRecord(Inferred: TProperties, _LeftKey: TSchema, LeftValue:
 
 // ✓ TExtendsRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsRecord(Inferred: TProperties, LeftPattern: string, LeftValue: TSchema, Right: TSchema) {
+export function TExtendsRecord(Inferred: TProperties, LeftPattern: string, LeftValue: TSchema, Right: TSchema): any {
   const m1 = matches<TRecord<Hole<"Pattern", string>, Hole<"Value", TSchema>>>(Right)
   if (m1) {
     return TFromRecord(Inferred, TRecordPatternToType(LeftPattern), LeftValue, TRecordPatternToType(m1.Pattern), m1.Value)
@@ -73,12 +83,12 @@ export function TExtendsRecord(Inferred: TProperties, LeftPattern: string, LeftV
     return TFromObject(Inferred, m2.Properties)
   }
   if (matches<TAny>(Right)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
   if (matches<TUnknown>(Right)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TExtendsRecord<

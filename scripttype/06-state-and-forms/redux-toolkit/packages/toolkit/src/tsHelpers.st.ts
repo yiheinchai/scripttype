@@ -7,24 +7,45 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { HasMatchFunction, TypeGuard } from '../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/tsHelpers.js'
+declare namespace m1 {
+  export type EnhancerTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type I<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type MiddlewareTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Ext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type StateExt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type D<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Ext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type StateExt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const HasMatchFunction: any
 declare const Middleware: any
 declare const StoreEnhancer: any
 declare const Tuple: any
 declare const TypeGuard: any
-type HasMatchFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Matcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Middleware<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StoreEnhancer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Tuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TypeGuard<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ IsAny: does not compile yet
-//   'T' only refers to a type, but is being used as a value here.
+//   Cannot find name 'extends'.
 /* @scripttype preserveParamNames */
-export function IsAny(T, True, False = never) {
+export function IsAny(T, True, False = never): any {
   if (matches<(typeof T extends never ? true : false)>(anyOf(true, false))) {
     return True
   }
@@ -32,12 +53,12 @@ export function IsAny(T, True, False = never) {
 }
 /* compiles to:
  * export type IsAny<T, True, False = never> =
- *   true | false extends typeof T extends never ? true : false ? True : False
+ *   true | false extends T extends never ? true : false ? True : False
  */
 
 // ✓ CastAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CastAny(T, CastTo) {
+export function CastAny(T, CastTo): any {
   return IsAny(T, CastTo, T)
 }
 /* compiles to:
@@ -46,7 +67,7 @@ export function CastAny(T, CastTo) {
 
 // ✓ IsUnknown: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsUnknown(T, True, False = never) {
+export function IsUnknown(T, True, False = never): any {
   if (matches<typeof T>(unknown)) {
     return IsAny(T, False, True)
   }
@@ -59,7 +80,7 @@ export function IsUnknown(T, True, False = never) {
 
 // ✓ FallbackIfUnknown: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FallbackIfUnknown(T, Fallback) {
+export function FallbackIfUnknown(T, Fallback): any {
   return IsUnknown(T, Fallback, T)
 }
 /* compiles to:
@@ -68,7 +89,7 @@ export function FallbackIfUnknown(T, Fallback) {
 
 // ✓ IfMaybeUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IfMaybeUndefined(P, True, False) {
+export function IfMaybeUndefined(P, True, False): any {
   if (matches<[ typeof P ]>([Undefined])) {
     return True
   }
@@ -80,7 +101,7 @@ export function IfMaybeUndefined(P, True, False) {
 
 // ✓ IfVoid: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IfVoid(P, True, False) {
+export function IfVoid(P, True, False): any {
   if (matches<[ typeof P ]>([voidType()])) {
     return True
   }
@@ -92,7 +113,7 @@ export function IfVoid(P, True, False) {
 
 // ✓ IsEmptyObj: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsEmptyObj(T, True, False = never) {
+export function IsEmptyObj(T, True, False = never): any {
   if (matches<any>(T)) {
     if (matches<never>(keyof(T))) {
       return IsUnknown(T, False, IfMaybeUndefined(T, False, IfVoid(T, False, True)))
@@ -112,7 +133,7 @@ export function IsEmptyObj(T, True, False = never) {
 
 // ✓ AtLeastTS35: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AtLeastTS35(True, False) {
+export function AtLeastTS35(True, False): any {
   return [True, False][IsUnknown(ReturnType(genericFnType(['T'], [], T)), 0, 1)]
 }
 /* compiles to:
@@ -121,7 +142,7 @@ export function AtLeastTS35(True, False) {
 
 // ✓ IsUnknownOrNonInferrable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsUnknownOrNonInferrable(T, True, False) {
+export function IsUnknownOrNonInferrable(T, True, False): any {
   return AtLeastTS35(IsUnknown(T, True, False), IsEmptyObj(T, True, IsUnknown(T, True, False)))
 }
 /* compiles to:
@@ -133,7 +154,7 @@ export function IsUnknownOrNonInferrable(T, True, False) {
 
 // ✓ UnionToIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToIntersection(U) {
+export function UnionToIntersection(U): any {
   const m1 = matches<(k: Hole<"I">) => void>(matches<any>(U) ? fnType([U], voidType()) : never)
   if (m1) {
     return m1.I
@@ -147,7 +168,7 @@ export function UnionToIntersection(U) {
 
 // ✓ ExcludeFromTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExcludeFromTuple(T, E) {
+export function ExcludeFromTuple(T, E): any {
   let Acc: any[] = []
   let t = T
   while (true) {
@@ -170,7 +191,7 @@ export function ExcludeFromTuple(T, E) {
 
 // ✓ ExtractDispatchFromMiddlewareTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractDispatchFromMiddlewareTuple(MiddlewareTuple: readonly any[], Acc: {}) {
+export function ExtractDispatchFromMiddlewareTuple(MiddlewareTuple: readonly any[], Acc: {}): any {
   const m3 = matches<[ Hole<"Head">, ...Hole<"Tail"> ]>(MiddlewareTuple)
   if (m3) {
     const m4 = matches<Middleware<Hole<"D">>>(m3.Head)
@@ -193,7 +214,7 @@ export function ExtractDispatchFromMiddlewareTuple(MiddlewareTuple: readonly any
 
 // ✓ ExtractDispatchExtensions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractDispatchExtensions(M) {
+export function ExtractDispatchExtensions(M): any {
   const m1 = matches<Tuple<Hole<"MiddlewareTuple">>>(M)
   if (m1) {
     return ExtractDispatchFromMiddlewareTuple(m1.MiddlewareTuple, {})
@@ -213,7 +234,7 @@ export function ExtractDispatchExtensions(M) {
 
 // ✓ ExtractStoreExtensionsFromEnhancerTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractStoreExtensionsFromEnhancerTuple(EnhancerTuple: readonly any[], Acc: {}) {
+export function ExtractStoreExtensionsFromEnhancerTuple(EnhancerTuple: readonly any[], Acc: {}): any {
   const m3 = matches<[ Hole<"Head">, ...Hole<"Tail"> ]>(EnhancerTuple)
   if (m3) {
     const m4 = matches<StoreEnhancer<Hole<"Ext">>>(m3.Head)
@@ -236,7 +257,7 @@ export function ExtractStoreExtensionsFromEnhancerTuple(EnhancerTuple: readonly 
 
 // ✓ ExtractStoreExtensions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractStoreExtensions(E) {
+export function ExtractStoreExtensions(E): any {
   const m1 = matches<Tuple<Hole<"EnhancerTuple">>>(E)
   if (m1) {
     return ExtractStoreExtensionsFromEnhancerTuple(m1.EnhancerTuple, {})
@@ -262,7 +283,7 @@ export function ExtractStoreExtensions(E) {
 
 // ✓ ExtractStateExtensionsFromEnhancerTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractStateExtensionsFromEnhancerTuple(EnhancerTuple: readonly any[], Acc: {}) {
+export function ExtractStateExtensionsFromEnhancerTuple(EnhancerTuple: readonly any[], Acc: {}): any {
   const m3 = matches<[ Hole<"Head">, ...Hole<"Tail"> ]>(EnhancerTuple)
   if (m3) {
     const m4 = matches<StoreEnhancer<any, Hole<"StateExt">>>(m3.Head)
@@ -286,7 +307,7 @@ export function ExtractStateExtensionsFromEnhancerTuple(EnhancerTuple: readonly 
 
 // ✓ ExtractStateExtensions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractStateExtensions(E) {
+export function ExtractStateExtensions(E): any {
   const m1 = matches<Tuple<Hole<"EnhancerTuple">>>(E)
   if (m1) {
     return ExtractStateExtensionsFromEnhancerTuple(m1.EnhancerTuple, {})
@@ -312,7 +333,7 @@ export function ExtractStateExtensions(E) {
 
 // ✓ NonUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonUndefined(T) {
+export function NonUndefined(T): any {
   if (typeof T === 'undefined') {
     return never
   }
@@ -324,7 +345,10 @@ export function NonUndefined(T) {
 
 // ✓ WithRequiredProp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithRequiredProp(T, K: keyof typeof T) {
+/**
+ * @param {keyof typeof T} K
+ */
+export function WithRequiredProp(T, K): any {
   return Omit(T, K) & Required(Pick(T, K))
 }
 /* compiles to:
@@ -333,7 +357,10 @@ export function WithRequiredProp(T, K: keyof typeof T) {
 
 // ✓ WithOptionalProp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithOptionalProp(T, K: keyof typeof T) {
+/**
+ * @param {keyof typeof T} K
+ */
+export function WithOptionalProp(T, K): any {
   return Omit(T, K) & Partial(Pick(T, K))
 }
 /* compiles to:
@@ -342,7 +369,7 @@ export function WithOptionalProp(T, K: keyof typeof T) {
 
 // ✓ Matcher: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Matcher(T) {
+export function Matcher(T): any {
   return HasMatchFunction(T) | TypeGuard(T)
 }
 /* compiles to:
@@ -351,7 +378,7 @@ export function Matcher(T) {
 
 // ✓ ActionFromMatcher: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ActionFromMatcher(M: Matcher<any>) {
+export function ActionFromMatcher(M: Matcher<any>): any {
   const m1 = matches<Matcher<Hole<"T">>>(M)
   if (m1) {
     return m1.T
@@ -364,7 +391,7 @@ export function ActionFromMatcher(M: Matcher<any>) {
 
 // ✓ Id: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Id(T) {
+export function Id(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = T[K]
@@ -377,7 +404,7 @@ export function Id(T) {
 
 // ✓ Tail: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Tail(T: any[]) {
+export function Tail(T: any[]): any {
   const m1 = matches<[ any, ...Hole<"Tail"> ]>(T)
   if (m1) {
     return m1.Tail
@@ -390,7 +417,7 @@ export function Tail(T: any[]) {
 
 // ✓ UnknownIfNonSpecific: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnknownIfNonSpecific(T) {
+export function UnknownIfNonSpecific(T): any {
   if (matches<typeof T>({})) {
     return unknown
   }
@@ -403,7 +430,7 @@ export function UnknownIfNonSpecific(T) {
 // ✗ SafePromise: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function SafePromise(T) {
+export function SafePromise(T): any {
   return merge(t<Promise<typeof T>>(), { __linterBrands: 'SafePromise' })
 }
 /* compiles to:

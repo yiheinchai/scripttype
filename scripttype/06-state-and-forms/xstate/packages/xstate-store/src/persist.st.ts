@@ -7,20 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { PersistEventOptions, PersistSnapshotOptions } from '../../../../../../06-state-and-forms/xstate/packages/xstate-store/src/persist.js'
+import type { StoreContext } from '../../../../../../06-state-and-forms/xstate/packages/xstate-store/src/types.js'
 declare const EventObject: any
 declare const PersistEventOptions: any
 declare const PersistSnapshotOptions: any
 declare const StoreContext: any
 type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PersistEventOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PersistSnapshotOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StoreContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PersistOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PersistOptions(TContext = StoreContext, TEvent: EventObject = EventObject) {
+export function PersistOptions(TContext = StoreContext, TEvent: EventObject = EventObject): any {
   return PersistSnapshotOptions(TContext, TEvent) | PersistEventOptions(TContext, TEvent)
 }
 /* compiles to:

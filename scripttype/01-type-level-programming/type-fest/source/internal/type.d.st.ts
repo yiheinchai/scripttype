@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type B<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const B: any
 declare const IsAny: any
 declare const IsNever: any
@@ -20,7 +24,7 @@ type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsBothExtends: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsBothExtends(BaseType, FirstType, SecondType) {
+export function IsBothExtends(BaseType, FirstType, SecondType): any {
   if (matches<typeof BaseType>(FirstType)) {
     if (matches<typeof BaseType>(SecondType)) {
       return true
@@ -36,7 +40,7 @@ export function IsBothExtends(BaseType, FirstType, SecondType) {
 
 // ✓ HasMultipleCallSignatures: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasMultipleCallSignatures(T: (...arguments_: any[]) => unknown) {
+export function HasMultipleCallSignatures(T: (...arguments_: any[]) => unknown): any {
   const m1 = matches<{ (...arguments_: Hole<"A">): unknown; (...arguments_: Hole<"B">): unknown; }>(T)
   if (m1) {
     if (matches<typeof m1.A>(m1.B)) {
@@ -58,7 +62,7 @@ export function HasMultipleCallSignatures(T: (...arguments_: any[]) => unknown) 
 
 // ✓ IsNotFalse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNotFalse(T: boolean) {
+export function IsNotFalse(T: boolean): any {
   if (matches<[ false ]>([T])) {
     return false
   }
@@ -70,7 +74,7 @@ export function IsNotFalse(T: boolean) {
 
 // ✓ IsPrimitive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsPrimitive(T) {
+export function IsPrimitive(T): any {
   if (matches<[ Primitive ]>([T])) {
     return true
   }
@@ -82,7 +86,7 @@ export function IsPrimitive(T) {
 
 // ✓ Not: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Not(A: boolean) {
+export function Not(A: boolean): any {
   if (matches<true>(A)) {
     return false
   }
@@ -97,7 +101,7 @@ export function Not(A: boolean) {
 
 // ✓ IfNotAnyOrNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IfNotAnyOrNever(T, Cases: { ifNot: unknown; ifAny?: unknown; ifNever?: unknown; }) {
+export function IfNotAnyOrNever(T, Cases: { ifNot: unknown; ifAny?: unknown; ifNever?: unknown; }): any {
   if (matches<true>(IsAny(T))) {
     if ('ifAny' in Cases) {
       return Cases['ifAny']
@@ -124,8 +128,8 @@ export function IfNotAnyOrNever(T, Cases: { ifNot: unknown; ifAny?: unknown; ifN
 
 // ✓ IsAnyOrNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsAnyOrNever(T) {
-  return IsNotFalse(IsAny(T) | IsNever(T))
+export function IsAnyOrNever(T): any {
+  return IsNotFalse(anyOf(IsAny(T), IsNever(T)))
 }
 /* compiles to:
  * export type IsAnyOrNever<T> = IsNotFalse<IsAny<T> | IsNever<T>>

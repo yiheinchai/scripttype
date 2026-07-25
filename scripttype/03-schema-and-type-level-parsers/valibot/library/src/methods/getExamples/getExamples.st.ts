@@ -7,9 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExamplesAction } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/actions/examples/examples.js'
+import type { SchemaWithPipe } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/methods/pipe/pipe.js'
+import type { SchemaWithPipeAsync } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/methods/pipe/pipeAsync.js'
+import type { BaseIssue } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/issue.js'
+import type { PipeItem, PipeItemAsync } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/pipe.js'
+declare namespace m1 {
+  export type TFirstItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPipeRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TNestedPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type TCurrentExamples<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseIssue: any
 declare const ExamplesAction: any
 declare const PipeItem: any
@@ -17,16 +34,10 @@ declare const PipeItemAsync: any
 declare const Schema: any
 declare const SchemaWithPipe: any
 declare const SchemaWithPipeAsync: any
-type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExamplesAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PipeItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PipeItemAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SchemaWithPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SchemaWithPipeAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RecursiveConcat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RecursiveConcat(TRootPipe: readonly (PipeItem<any, unknown, BaseIssue<unknown>> | PipeItemAsync<any, unknown, BaseIssue<unknown>>)[], TCollectedExamples: unknown[] = []) {
+export function RecursiveConcat(TRootPipe: readonly (PipeItem<any, unknown, BaseIssue<unknown>> | PipeItemAsync<any, unknown, BaseIssue<unknown>>)[], TCollectedExamples: unknown[] = []): any {
   const m1 = matches<readonly [ Hole<"TFirstItem">, ...Hole<"TPipeRest", readonly (PipeItem<any, unknown, BaseIssue<unknown>> | PipeItemAsync<any, unknown, BaseIssue<unknown>>)[]> ]>(TRootPipe)
   if (m1) {
     const m2 = matches<SchemaWithPipe<Hole<"TNestedPipe">> | SchemaWithPipeAsync<Hole<"TNestedPipe">>>(m1.TFirstItem)
@@ -57,7 +68,7 @@ export function RecursiveConcat(TRootPipe: readonly (PipeItem<any, unknown, Base
 
 // ✓ InferExamples: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferExamples(TSchema: Schema) {
+export function InferExamples(TSchema: Schema): any {
   const m1 = matches<SchemaWithPipe<Hole<"TPipe">> | SchemaWithPipeAsync<Hole<"TPipe">>>(TSchema)
   if (m1) {
     return Readonly(RecursiveConcat(m1.TPipe))

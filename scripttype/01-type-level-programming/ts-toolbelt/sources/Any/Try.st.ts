@@ -9,7 +9,7 @@
  */
 // ✓ Try: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Try(A1: any, A2: any, Catch = never) {
+export function Try(A1: any, A2: any, Catch = never): any {
   if (matches<typeof A2>(A1)) {
     return A1
   }

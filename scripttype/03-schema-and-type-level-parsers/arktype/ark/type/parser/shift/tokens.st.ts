@@ -7,20 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TerminatingChar } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/tokens.js'
 declare namespace Scanner {
   export type skipWhitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Scanner: any
 declare const TerminatingChar: any
+declare const skipWhitespace: any
 type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TerminatingChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type skipWhitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ lookaheadIsFinalizing: does not compile yet
 //   Type 'string | number | symbol' is not assignable to type 'string | number | bigint | boolean | null | undefined'.   Type 'symbol' is not assignable to type 'st
 /* @scripttype preserveParamNames */
-export function lookaheadIsFinalizing(lookahead: string, unscanned: string) {
+export function lookaheadIsFinalizing(lookahead: string, unscanned: string): any {
   if (matches<">">(lookahead)) {
     const m1 = matches<`=${Hole<"nextUnscanned">}`>(unscanned)
     if (m1) {
@@ -29,7 +35,7 @@ export function lookaheadIsFinalizing(lookahead: string, unscanned: string) {
       }
       return false
     }
-    if (matches<("" | `${TerminatingChar}${string}`)>(Scanner.skipWhitespace(unscanned))) {
+    if (matches<("" | `${TerminatingChar}${string}`)>(t<Scanner.skipWhitespace<typeof unscanned>>())) {
       return true
     }
     return false

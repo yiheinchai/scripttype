@@ -9,7 +9,7 @@
  */
 // ✓ Box: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Box(T) {
+export function Box(T): any {
   return { current: T }
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ TRest: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRest(Input: string) {
+export function TRest(Input: string): any {
   if (matches<''>(Input)) {
     return []
   }

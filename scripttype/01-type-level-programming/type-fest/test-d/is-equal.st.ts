@@ -7,14 +7,9 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
-declare const IsEqual: any
-type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BranchOnWrappedTupleMatches: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BranchOnWrappedTupleMatches(Tpl) {
+export function BranchOnWrappedTupleMatches(Tpl): any {
   if (matches<[ [ 0, 2 ] ]>(Tpl)) {
     return 'Foo'
   }
@@ -26,7 +21,7 @@ export function BranchOnWrappedTupleMatches(Tpl) {
 
 // ✓ BranchOnWrappedTupleDoesNotMatch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BranchOnWrappedTupleDoesNotMatch(Tpl) {
+export function BranchOnWrappedTupleDoesNotMatch(Tpl): any {
   if (matches<[ [ 0, 1 ] ]>(Tpl)) {
     return 'Foo'
   }
@@ -38,7 +33,7 @@ export function BranchOnWrappedTupleDoesNotMatch(Tpl) {
 
 // ✓ BranchOnTupleMatches: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BranchOnTupleMatches(Tpl) {
+export function BranchOnTupleMatches(Tpl): any {
   if (matches<[ 0, 2 ]>(Tpl)) {
     return 'Foo'
   }
@@ -50,7 +45,7 @@ export function BranchOnTupleMatches(Tpl) {
 
 // ✓ BranchOnTupleDoesNotMatch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BranchOnTupleDoesNotMatch(Tpl) {
+export function BranchOnTupleDoesNotMatch(Tpl): any {
   if (matches<[ 0, 1 ]>(Tpl)) {
     return 'Foo'
   }
@@ -62,7 +57,10 @@ export function BranchOnTupleDoesNotMatch(Tpl) {
 
 // ✓ Assignability: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability(T, U, _V: IsEqual<typeof T, typeof U>) {
+/**
+ * @param {IsEqual<typeof T, typeof U>} _V
+ */
+export function Assignability(T, U, _V): any {
   return any
 }
 /* compiles to:
@@ -71,7 +69,7 @@ export function Assignability(T, U, _V: IsEqual<typeof T, typeof U>) {
 
 // ✓ TestAssignability: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TestAssignability(T) {
+export function TestAssignability(T): any {
   return Assignability(T, T, true)
 }
 /* compiles to:

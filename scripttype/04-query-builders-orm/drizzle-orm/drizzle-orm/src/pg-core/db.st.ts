@@ -9,7 +9,7 @@
  */
 // ✓ PgWithReplicas: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgWithReplicas(Q) {
+export function PgWithReplicas(Q): any {
   return merge(Q, { $primary: Q, $replicas: arrayOf(Q) })
 }
 /* compiles to:

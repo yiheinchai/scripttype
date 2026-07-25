@@ -9,7 +9,7 @@
  */
 // ✓ Nullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Nullable(U: any) {
+export function Nullable(U: any): any {
   return anyOf(U, Undefined, Null)
 }
 /* compiles to:

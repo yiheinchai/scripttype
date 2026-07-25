@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DistributiveOmit } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/types.js'
+import type { FeatureFlags, KeyPrefixOptions } from '../../../../../../../02-inference-at-scale/trpc/packages/tanstack-react-query/src/internals/types.js'
 declare const DistributiveOmit: any
 declare const FeatureFlags: any
 declare const KeyPrefixOptions: any
@@ -17,16 +20,13 @@ declare const ReservedOptions: any
 declare const TRPCMutationOptionsOut: any
 declare const TRPCQueryBaseOptions: any
 declare const UseMutationOptions: any
-type DistributiveOmit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type KeyPrefixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ReservedOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TRPCMutationOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TRPCQueryBaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UseMutationOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCMutationOptionsIn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCMutationOptionsIn(TInput, TError, TOutput, TContext, TFeatureFlags: FeatureFlags) {
+export function TRPCMutationOptionsIn(TInput, TError, TOutput, TContext, TFeatureFlags: FeatureFlags): any {
   return DistributiveOmit(UseMutationOptions(TOutput, TError, TInput, TContext), ReservedOptions) & TRPCQueryBaseOptions & KeyPrefixOptions(TFeatureFlags)
 }
 /* compiles to:
@@ -44,7 +44,7 @@ export function TRPCMutationOptionsIn(TInput, TError, TOutput, TContext, TFeatur
 
 // ✓ AnyTRPCMutationOptionsIn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyTRPCMutationOptionsIn(TFeatureFlags: FeatureFlags) {
+export function AnyTRPCMutationOptionsIn(TFeatureFlags: FeatureFlags): any {
   return TRPCMutationOptionsIn(unknown, unknown, unknown, unknown, TFeatureFlags)
 }
 /* compiles to:
@@ -59,7 +59,7 @@ export function AnyTRPCMutationOptionsIn(TFeatureFlags: FeatureFlags) {
 
 // ✓ AnyTRPCMutationOptionsOut: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyTRPCMutationOptionsOut(TFeatureFlags: FeatureFlags) {
+export function AnyTRPCMutationOptionsOut(TFeatureFlags: FeatureFlags): any {
   return TRPCMutationOptionsOut(unknown, unknown, unknown, unknown, TFeatureFlags)
 }
 /* compiles to:

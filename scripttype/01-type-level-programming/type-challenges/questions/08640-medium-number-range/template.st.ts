@@ -9,7 +9,7 @@
  */
 // ✓ NumberRange: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NumberRange(L, H) {
+export function NumberRange(L, H): any {
   return any
 }
 /* compiles to:

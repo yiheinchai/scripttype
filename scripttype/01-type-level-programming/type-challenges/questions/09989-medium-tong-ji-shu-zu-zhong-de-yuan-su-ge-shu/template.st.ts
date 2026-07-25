@@ -9,7 +9,7 @@
  */
 // ✓ CountElementNumberToObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CountElementNumberToObject(T) {
+export function CountElementNumberToObject(T): any {
   return any
 }
 /* compiles to:

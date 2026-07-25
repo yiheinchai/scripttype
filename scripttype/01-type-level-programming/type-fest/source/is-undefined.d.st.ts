@@ -9,7 +9,7 @@
  */
 // ✓ IsUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsUndefined(T) {
+export function IsUndefined(T): any {
   if (matches<[ undefined ]>([T])) {
     return true
   }

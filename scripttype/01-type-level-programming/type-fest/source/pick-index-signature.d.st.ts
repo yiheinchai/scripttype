@@ -9,7 +9,7 @@
  */
 // ✓ PickIndexSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickIndexSignature(ObjectType) {
+export function PickIndexSignature(ObjectType): any {
   const out = emptyObject
   for (const KeyType in keyof(ObjectType)) {
     out[matches<Record<typeof KeyType, unknown>>({}) ? KeyType : never] = ObjectType[KeyType]

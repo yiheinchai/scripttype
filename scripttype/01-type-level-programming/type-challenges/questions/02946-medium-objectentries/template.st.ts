@@ -9,7 +9,7 @@
  */
 // ✓ ObjectEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ObjectEntries(T) {
+export function ObjectEntries(T): any {
   return any
 }
 /* compiles to:

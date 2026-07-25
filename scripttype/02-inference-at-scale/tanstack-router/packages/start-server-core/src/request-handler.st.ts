@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { InlineCssOptions } from '../../../../../../02-inference-at-scale/tanstack-router/packages/start-plugin-core/src/start-manifest-plugin/manifestBuilder.js'
+declare namespace m1 {
+  export type TRequestContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseContext: any
 declare const EarlyHintsOptions: any
 declare const InlineCssOptions: any
@@ -17,13 +22,12 @@ declare const Request: any
 declare const Response: any
 type BaseContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EarlyHintsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InlineCssOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Request<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ RequestOptions: the ScriptType does not itself typecheck as TypeScript
 //   RequestOptions.st.ts(4:49) TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
 /* @scripttype preserveParamNames */
-export function RequestOptions(TRegister) {
+export function RequestOptions(TRegister): any {
   const m1 = matches<{ server: { requestContext: Hole<"TRequestContext">; }; }>(TRegister)
   return EarlyHintsOptions & InlineCssOptions & (m1 ? (typeof m1.TRequestContext === 'undefined' ? { context: optional(m1.TRequestContext & BaseContext) } : { context: m1.TRequestContext & BaseContext }) : { context: optional(BaseContext) })
 }
@@ -42,7 +46,7 @@ export function RequestOptions(TRegister) {
 
 // ✓ HasRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasRequired(T) {
+export function HasRequired(T): any {
   if (matches<never>(keyof(T))) {
     return false
   }
@@ -64,15 +68,15 @@ export function HasRequired(T) {
 
 // ✓ RequestHandler: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequestHandler(TRegister) {
+export function RequestHandler(TRegister): any {
   if (matches<true>(HasRequired(RequestOptions(TRegister)))) {
     return fnType([Request, RequestOptions(TRegister)], t<Promise<Response>>() | Response)
   }
-  return fnType([Request, RequestOptions(TRegister)], t<Promise<Response>>() | Response)
+  return fnType([Request, optElem(RequestOptions(TRegister))], t<Promise<Response>>() | Response)
 }
 /* compiles to:
  * export type RequestHandler<TRegister> =
  *   HasRequired<RequestOptions<TRegister>> extends true
  *     ? (a0: Request, a1: RequestOptions<TRegister>) => Promise<Response> | Response
- *     : (a0: Request, a1: RequestOptions<TRegister>) => Promise<Response> | Response
+ *     : (a0: Request, a1?: RequestOptions<TRegister>) => Promise<Response> | Response
  */

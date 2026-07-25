@@ -9,7 +9,7 @@
  */
 // ✓ Simplify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Simplify(T) {
+export function Simplify(T): any {
   const out = emptyObject
   for (const KeyType in keyof(T)) {
     out[KeyType] = T[KeyType]

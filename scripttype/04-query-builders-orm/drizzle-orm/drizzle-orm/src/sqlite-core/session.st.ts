@@ -16,7 +16,7 @@ type ExecuteResultSync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = an
 type SQLiteRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExecuteResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExecuteResult(TType: 'sync' | 'async', TResult) {
+export function ExecuteResult(TType: 'sync' | 'async', TResult): any {
   if (matches<'async'>(TType)) {
     return t<Promise<typeof TResult>>()
   }
@@ -29,7 +29,7 @@ export function ExecuteResult(TType: 'sync' | 'async', TResult) {
 
 // ✓ Result: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Result(TKind: 'sync' | 'async', TResult) {
+export function Result(TKind: 'sync' | 'async', TResult): any {
   return { sync: TResult, async: t<Promise<typeof TResult>>() }[TKind]
 }
 /* compiles to:
@@ -39,7 +39,7 @@ export function Result(TKind: 'sync' | 'async', TResult) {
 
 // ✓ DBResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DBResult(TKind: 'sync' | 'async', TResult) {
+export function DBResult(TKind: 'sync' | 'async', TResult): any {
   return { sync: TResult, async: SQLiteRaw(TResult) }[TKind]
 }
 /* compiles to:

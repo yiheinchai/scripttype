@@ -16,30 +16,38 @@ declare namespace JSX {
   export type InputHTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type SelectHTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const ButtonHTMLAttributes: any
+declare const HTMLAttributes: any
 declare const HTMLButtonElement: any
 declare const HTMLElementTagNameMap: any
 declare const HTMLInputElement: any
 declare const HTMLSelectElement: any
+declare const InputHTMLAttributes: any
 declare const JSX: any
+declare const SelectHTMLAttributes: any
+type ButtonHTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLButtonElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLElementTagNameMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLInputElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLSelectElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type InputHTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type JSX<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SelectHTMLAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StyledComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StyledComponent(T) {
+export function StyledComponent(T): any {
   if (matches<'button'>(T)) {
-    return JSX.ButtonHTMLAttributes(HTMLButtonElement)
+    return t<JSX.ButtonHTMLAttributes<HTMLButtonElement>>()
   }
   if (matches<'input'>(T)) {
-    return JSX.InputHTMLAttributes(HTMLInputElement)
+    return t<JSX.InputHTMLAttributes<HTMLInputElement>>()
   }
   if (matches<'select'>(T)) {
-    return JSX.SelectHTMLAttributes(HTMLSelectElement)
+    return t<JSX.SelectHTMLAttributes<HTMLSelectElement>>()
   }
   if (T in HTMLElementTagNameMap) {
-    return JSX.HTMLAttributes(HTMLElementTagNameMap[T])
+    return t<JSX.HTMLAttributes<HTMLElementTagNameMap[typeof T]>>()
   }
   return never
 }

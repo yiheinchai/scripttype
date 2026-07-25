@@ -7,9 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TDistributeArguments } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/call/distribute_arguments.js'
+import type { TResolveArgumentsContext } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/call/resolve_arguments.js'
+import type { TResolveTarget } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/call/resolve_target.js'
+import type { TEvaluateUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TInstantiateType, TInstantiateTypes, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TCallConstruct } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/call.js'
+import type { TGeneric } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/generic.js'
+import type { TRef } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/ref.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace m1 {
+  export type Arguments<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type DistributedArguments<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Parameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Top<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type ReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TCallConstruct: any
 declare const TDistributeArguments: any
 declare const TEvaluateUnion: any
@@ -23,29 +43,18 @@ declare const TResolveArgumentsContext: any
 declare const TResolveTarget: any
 declare const TSchema: any
 declare const TState: any
-type TCallConstruct<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TDistributeArguments<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TResolveArgumentsContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TResolveTarget<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TPeek: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPeek__v1(State) {
+export function TPeek__v1(State): any {
   const m1 = matches<[ ...Hole<"_", string[]>, Hole<"Top", string> ]>(State['callstack'])
   if (m1) {
     return m1.Top
   }
   return ''
 }
-export function TPeek(State: TState, Result: string = TPeek__v1(State)) {
+export function TPeek(State: TState, Result: string = TPeek__v1(State)): any {
   return Result
 }
 /* compiles to:
@@ -56,7 +65,7 @@ export function TPeek(State: TState, Result: string = TPeek__v1(State)) {
 
 // ✓ TIsTailCall: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIsTailCall(State: TState, Name: string, Result: boolean = matches<typeof Name>(TPeek(State)) ? true : false) {
+export function TIsTailCall(State: TState, Name: string, Result: boolean = matches<typeof Name>(TPeek(State)) ? true : false): any {
   return Result
 }
 /* compiles to:
@@ -70,7 +79,7 @@ export function TIsTailCall(State: TState, Name: string, Result: boolean = match
 
 // ✓ TCallDispatch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCallDispatch(Context: TProperties, State: TState, Target: TRef, Parameters: TParameter[], Expression: TSchema, Arguments: TSchema[], ArgumentsContext: TProperties = TResolveArgumentsContext(Context, State, Parameters, Arguments), ReturnType: TSchema = TInstantiateType(ArgumentsContext, TState([...State['callstack'], Target['$ref']], State['visited']), Expression)) {
+export function TCallDispatch(Context: TProperties, State: TState, Target: TRef, Parameters: TParameter[], Expression: TSchema, Arguments: TSchema[], ArgumentsContext: TProperties = TResolveArgumentsContext(Context, State, Parameters, Arguments), ReturnType: TSchema = TInstantiateType(ArgumentsContext, TState([...State['callstack'], Target['$ref']], State['visited']), Expression)): any {
   return TInstantiateType(ArgumentsContext, TState([], []), ReturnType)
 }
 /* compiles to:
@@ -89,7 +98,7 @@ export function TCallDispatch(Context: TProperties, State: TState, Target: TRef,
 
 // ✓ TCallDistributed: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCallDistributed(Context: TProperties, State: TState, Target: TRef, Parameters: TParameter[], Expression: TSchema, DistributedArguments: TSchema[][], Result: TSchema[] = []) {
+export function TCallDistributed(Context: TProperties, State: TState, Target: TRef, Parameters: TParameter[], Expression: TSchema, DistributedArguments: TSchema[][], Result: TSchema[] = []): any {
   const m1 = matches<[ Hole<"Arguments", TSchema[]>, ...Hole<"DistributedArguments", TSchema[][]> ]>(DistributedArguments)
   if (m1) {
     const m2 = matches<Hole<"ReturnType", TSchema>>(TCallDispatch(Context, State, Target, Parameters, Expression, m1.Arguments))
@@ -127,7 +136,7 @@ export function TCallDistributed(Context: TProperties, State: TState, Target: TR
 
 // ✓ TCallImmediate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCallImmediate(Context: TProperties, State: TState, Target: TRef, Parameters: TParameter[], Expression: TSchema, InstantiatedArguments: TSchema[], DistributedArguments: TSchema[][] = TDistributeArguments(Parameters, InstantiatedArguments, Expression), ReturnTypes: TSchema[] = TCallDistributed(Context, State, Target, Parameters, Expression, DistributedArguments), Result: TSchema = matches<1>(ReturnTypes['length']) ? ReturnTypes[0] : TEvaluateUnion(ReturnTypes)) {
+export function TCallImmediate(Context: TProperties, State: TState, Target: TRef, Parameters: TParameter[], Expression: TSchema, InstantiatedArguments: TSchema[], DistributedArguments: TSchema[][] = TDistributeArguments(Parameters, InstantiatedArguments, Expression), ReturnTypes: TSchema[] = TCallDistributed(Context, State, Target, Parameters, Expression, DistributedArguments), Result: TSchema = matches<1>(ReturnTypes['length']) ? ReturnTypes[0] : TEvaluateUnion(ReturnTypes)): any {
   return Result
 }
 /* compiles to:
@@ -147,7 +156,7 @@ export function TCallImmediate(Context: TProperties, State: TState, Target: TRef
 
 // ✓ TCallInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCallInstantiate__v1(Context, State, Target, InstantiatedArguments, Name, Type) {
+export function TCallInstantiate__v1(Context, State, Target, InstantiatedArguments, Name, Type): any {
   const m1 = matches<TGeneric<Hole<"Parameters", TParameter[]>, Hole<"Expression", TSchema>>>(Type)
   if (m1) {
     if (matches<true>(TIsTailCall(State, Name))) {
@@ -157,7 +166,7 @@ export function TCallInstantiate__v1(Context, State, Target, InstantiatedArgumen
   }
   return TCallConstruct(Target, InstantiatedArguments)
 }
-export function TCallInstantiate(Context: TProperties, State: TState, Target: TSchema, Arguments: TSchema[], InstantiatedArguments: TSchema[] = TInstantiateTypes(Context, State, Arguments), Resolved: [ string, TSchema ] = TResolveTarget(Context, Target, Arguments), Name: string = Resolved[0], Type: TSchema = Resolved[1], Result: TSchema = TCallInstantiate__v1(Context, State, Target, InstantiatedArguments, Name, Type)) {
+export function TCallInstantiate(Context: TProperties, State: TState, Target: TSchema, Arguments: TSchema[], InstantiatedArguments: TSchema[] = TInstantiateTypes(Context, State, Arguments), Resolved: [ string, TSchema ] = TResolveTarget(Context, Target, Arguments), Name: string = Resolved[0], Type: TSchema = Resolved[1], Result: TSchema = TCallInstantiate__v1(Context, State, Target, InstantiatedArguments, Name, Type)): any {
   return Result
 }
 /* compiles to:

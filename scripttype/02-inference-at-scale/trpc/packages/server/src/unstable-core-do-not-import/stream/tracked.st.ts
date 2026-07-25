@@ -7,20 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TrackedData } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/stream/tracked.js'
+declare namespace m1 {
+  export type $Data<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TrackedData: any
 declare const TrackedId: any
 declare const trackedSymbol: any
-type TrackedData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TrackedEnvelope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TrackedId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type trackedSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TrackedEnvelope: does not compile yet
 //   'trackedSymbol' refers to a value, but is being used as a type here. Did you mean 'typeof trackedSymbol'?
 /* @scripttype preserveParamNames */
-export function TrackedEnvelope(TData) {
+export function TrackedEnvelope(TData): any {
   return [TrackedId, TData, t<typeof trackedSymbol>()]
 }
 /* compiles to:
@@ -29,7 +33,7 @@ export function TrackedEnvelope(TData) {
 
 // ✓ inferTrackedOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferTrackedOutput(TData) {
+export function inferTrackedOutput(TData): any {
   const m1 = matches<TrackedEnvelope<Hole<"$Data">>>(TData)
   if (m1) {
     return TrackedData(m1.$Data)

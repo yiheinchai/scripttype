@@ -7,13 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
-declare namespace xstate {
-  export type route<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GuardPredicate } from '../../../../../../06-state-and-forms/xstate/packages/core/src/guards.js'
+import type { ActionFunction, AnyActorRef, AnyEventObject, Cast, DelayConfig, Invert, IsNever, MachineContext, MetaObject, NonReducibleUnknown, ParameterizedObject, RoutableStateId, ToChildren, ToStateValue, UnknownActorLogic, Values } from '../../../../../../06-state-and-forms/xstate/packages/core/src/types.js'
+declare namespace m1 {
+  export type E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type I<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TInvoke<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TSrc<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const ActionFunction: any
+declare const AnyActorRef: any
 declare const AnyEventObject: any
 declare const Cast: any
 declare const DelayConfig: any
@@ -25,16 +33,20 @@ declare const MachineContext: any
 declare const MetaObject: any
 declare const NonReducibleUnknown: any
 declare const ParameterizedObject: any
-declare const StateNodeConfig: any
-declare const StateSchema: any
+declare const RoutableStateId: any
+declare const StateMachine: any
 declare const TExtendActions: any
 declare const TExtendDelays: any
 declare const TExtendGuards: any
 declare const TResolvedChildren: any
 declare const TStateConfig: any
 declare const TTargetActor: any
+declare const ToChildren: any
+declare const ToStateValue: any
 declare const UnknownActorLogic: any
 declare const Values: any
+declare const action: any
+declare const assign: any
 declare const cancel: any
 declare const emit: any
 declare const enqueueActions: any
@@ -43,21 +55,8 @@ declare const raise: any
 declare const sendTo: any
 declare const spawnChild: any
 declare const stopChild: any
-declare const xstate: any
-type ActionFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyEventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DelayConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GuardPredicate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Invert<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MetaObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonReducibleUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParameterizedObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StateNodeConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StateSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StateMachine<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TExtendActions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TExtendDelays<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TExtendGuards<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -66,8 +65,8 @@ type TStateConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type TTargetActor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ToParameterizedObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ToProvidedActor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnknownActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Values<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type action<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type assign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type cancel<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type emit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type enqueueActions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -76,10 +75,12 @@ type raise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any,
 type sendTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type spawnChild<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type stopChild<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type xstate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ToParameterizedObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToParameterizedObject(TParameterizedMap: Record<string, ParameterizedObject['params'] | undefined>) {
+/**
+ * @param {Record<string, ParameterizedObject['params'] | undefined>} TParameterizedMap
+ */
+export function ToParameterizedObject(TParameterizedMap): any {
   const out = emptyObject
   for (const K in keyof(TParameterizedMap)) {
     out[merge(K, string)] = { type: merge(K, string), params: TParameterizedMap[K] }
@@ -102,7 +103,10 @@ export function ToParameterizedObject(TParameterizedMap: Record<string, Paramete
 
 // ✓ ToProvidedActor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToProvidedActor(TChildrenMap: Record<string, string>, TActors: Record<string, UnknownActorLogic>) {
+/**
+ * @param {Record<string, UnknownActorLogic>} TActors
+ */
+export function ToProvidedActor(TChildrenMap: Record<string, string>, TActors): any {
   const out = emptyObject
   for (const K in keyof(TActors)) {
     out[merge(K, string)] = { src: merge(K, string), logic: TActors[K], id: matches<true>(IsNever(TChildrenMap)) ? (anyOf(string, Undefined)) : (K in Invert(TChildrenMap) ? (Invert(TChildrenMap)[K] & string) : (anyOf(string, Undefined))) }
@@ -129,14 +133,17 @@ export function ToProvidedActor(TChildrenMap: Record<string, string>, TActors: R
 
 // ✓ ToStateSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToStateSchema__v1(TSchema) {
+export function ToStateSchema__v1(TSchema): any {
   const out = emptyObject
   for (const SK in keyof(TSchema['states'])) {
     out[SK] = ToStateSchema(NonNullable(TSchema['states'][SK]))
   }
   return out
 }
-export function ToStateSchema(TSchema: StateSchema) {
+/**
+ * @param {StateSchema} TSchema
+ */
+export function ToStateSchema(TSchema): any {
   const out = emptyObject
   for (const K in keyof(TSchema)) {
     out[merge(K, anyOf('id', 'states'))] = mutable(matches<'states'>(K) ? ToStateSchema__v1(TSchema) : TSchema[K])
@@ -156,7 +163,7 @@ export function ToStateSchema(TSchema: StateSchema) {
 
 // ✓ RequiredSetupKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequiredSetupKeys(TChildrenMap) {
+export function RequiredSetupKeys(TChildrenMap): any {
   if (matches<true>(IsNever(keyof(TChildrenMap)))) {
     return never
   }
@@ -169,7 +176,7 @@ export function RequiredSetupKeys(TChildrenMap) {
 
 // ✓ ExtractInvokeEntry: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractInvokeEntry(T) {
+export function ExtractInvokeEntry(T): any {
   const m1 = matches<{ id: Hole<"TId", string>; src: Hole<"TSrc", string>; }>(T)
   if (m1) {
     const out = emptyObject
@@ -189,7 +196,7 @@ export function ExtractInvokeEntry(T) {
 
 // ✓ ExtractInvokeChildren: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractInvokeChildren(T) {
+export function ExtractInvokeChildren(T): any {
   const m1 = matches<readonly (Hole<"E">)[]>(T)
   if (m1) {
     return UnionToIntersection(ExtractInvokeEntry(m1.E))
@@ -205,7 +212,7 @@ export function ExtractInvokeChildren(T) {
 
 // ✓ UnionToIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToIntersection(U) {
+export function UnionToIntersection(U): any {
   const m1 = matches<(x: Hole<"I">) => void>(matches<any>(U) ? fnType([U], voidType()) : never)
   if (m1) {
     return m1.I
@@ -219,7 +226,7 @@ export function UnionToIntersection(U) {
 
 // ✓ ExtractConfigChildren: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractConfigChildren(TConfig) {
+export function ExtractConfigChildren(TConfig): any {
   const m1 = matches<{ invoke: Hole<"TInvoke">; }>(TConfig)
   if (m1) {
     return ExtractInvokeChildren(m1.TInvoke)
@@ -233,7 +240,7 @@ export function ExtractConfigChildren(TConfig) {
 
 // ✓ MergeChildrenMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeChildrenMap(TExplicit: Record<string, string>, TInferred: Record<string, string>) {
+export function MergeChildrenMap(TExplicit: Record<string, string>, TInferred: Record<string, string>): any {
   if (matches<true>(IsNever(keyof(TExplicit)))) {
     return TInferred
   }
@@ -250,7 +257,7 @@ export function MergeChildrenMap(TExplicit: Record<string, string>, TInferred: R
 // ✗ SetupReturn: does not compile yet
 //   Unterminated string literal.
 /* @scripttype preserveParamNames */
-export function SetupReturn(TContext: MachineContext, TEvent: AnyEventObject, TActors: Record<string, UnknownActorLogic>, TChildrenMap: Record<string, string>, TActions: Record<string, ParameterizedObject['params'] | undefined>, TGuards: Record<string, ParameterizedObject['params'] | undefined>, TDelay: string, TTag: string, TInput, TOutput: NonReducibleUnknown, TEmitted: EventObject, TMeta: MetaObject) {
+export function SetupReturn(TContext: MachineContext, TEvent: AnyEventObject, TActors: Record<string, UnknownActorLogic>, TChildrenMap: Record<string, string>, TActions: Record<string, ParameterizedObject['params'] | undefined>, TGuards: Record<string, ParameterizedObject['params'] | undefined>, TDelay: string, TTag: string, TInput, TOutput: NonReducibleUnknown, TEmitted: EventObject, TMeta: MetaObject): any {
   const out = emptyObject
   for (const K in keyof(TExtendActions)) {
     out[K] = ActionFunction(TContext, TEvent, TEvent, TExtendActions[K], ToProvidedActor(TChildrenMap, TActors), ToParameterizedObject(merge(TActions, TExtendActions)), ToParameterizedObject(merge(TGuards, TExtendGuards)), anyOf(TDelay, TExtendDelays), TEmitted)
@@ -263,45 +270,13 @@ export function SetupReturn(TContext: MachineContext, TEvent: AnyEventObject, TA
   for (const K in keySet(TExtendDelays)) {
     out3[K] = DelayConfig(TContext, TEvent, ToParameterizedObject(merge(TActions, TExtendActions))['params'], TEvent)
   }
-  return { extend: genericFnType(['TExtendActions extends Record<
-      string,
-      ParameterizedObject[\'params\'] | undefined
-    > = {}', 'TExtendGuards extends Record<
-      string,
-      ParameterizedObject[\'params\'] | undefined
-    > = {}', 'TExtendDelays extends string = never'], [{ actions: optional(out), guards: optional(out2), delays: optional(out3) }], SetupReturn(TContext, TEvent, TActors, TChildrenMap, merge(TActions, TExtendActions), merge(TGuards, TExtendGuards), anyOf(TDelay, TExtendDelays), TTag, TInput, TOutput, TEmitted, TMeta)), createStateConfig: genericFnType(['TStateConfig extends StateNodeConfig<
-      TContext,
-      TEvent,
-      ToProvidedActor<TChildrenMap, TActors>,
-      ToParameterizedObject<TActions>,
-      ToParameterizedObject<TGuards>,
-      TDelay,
-      TTag,
-      unknown,
-      TEmitted,
-      TMeta
-    >'], [TStateConfig], TStateConfig), createAction: fnType([ActionFunction(TContext, TEvent, TEvent, unknown, ToProvidedActor(TChildrenMap, TActors), ToParameterizedObject(TActions), ToParameterizedObject(TGuards), TDelay, TEmitted)], t<typeof action>()), createMachine: genericFnType(['const TConfig extends MachineConfig<
-      TContext,
-      TEvent,
-      ToProvidedActor<TChildrenMap, TActors>,
-      ToParameterizedObject<TActions>,
-      ToParameterizedObject<TGuards>,
-      TDelay,
-      TTag,
-      TInput,
-      TOutput,
-      TEmitted,
-      TMeta
-    >', 'TResolvedChildren extends Record<string, string> = MergeChildrenMap<
-      TChildrenMap,
-      Cast<ExtractConfigChildren<TConfig>, Record<string, string>>
-    >'], [TConfig], StateMachine(TContext, anyOf(TEvent, matches<[ never ]>([RoutableStateId(TConfig)]) ? never : { type: 'xstate.route', to: RoutableStateId(TConfig) }), Cast(ToChildren(ToProvidedActor(TResolvedChildren, TActors)), Record(string, anyOf(AnyActorRef, Undefined))), ToProvidedActor(TResolvedChildren, TActors), ToParameterizedObject(TActions), ToParameterizedObject(TGuards), TDelay, ToStateValue(TConfig), TTag, TInput, TOutput, TEmitted, TMeta, ToStateSchema(TConfig))), assign: t<typeof assign<
+  return { extend: genericFnType(['TExtendActions extends Record< string, ParameterizedObject[\'params\'] | undefined > = {}', 'TExtendGuards extends Record< string, ParameterizedObject[\'params\'] | undefined > = {}', 'TExtendDelays extends string = never'], [{ actions: optional(out), guards: optional(out2), delays: optional(out3) }], SetupReturn(TContext, TEvent, TActors, TChildrenMap, merge(TActions, TExtendActions), merge(TGuards, TExtendGuards), anyOf(TDelay, TExtendDelays), TTag, TInput, TOutput, TEmitted, TMeta)), createStateConfig: genericFnType(['TStateConfig extends StateNodeConfig< TContext, TEvent, ToProvidedActor<TChildrenMap, TActors>, ToParameterizedObject<TActions>, ToParameterizedObject<TGuards>, TDelay, TTag, unknown, TEmitted, TMeta >'], [TStateConfig], TStateConfig), createAction: fnType([ActionFunction(TContext, TEvent, TEvent, unknown, ToProvidedActor(TChildrenMap, TActors), ToParameterizedObject(TActions), ToParameterizedObject(TGuards), TDelay, TEmitted)], t<typeof action>()), createMachine: genericFnType(['const TConfig extends MachineConfig< TContext, TEvent, ToProvidedActor<TChildrenMap, TActors>, ToParameterizedObject<TActions>, ToParameterizedObject<TGuards>, TDelay, TTag, TInput, TOutput, TEmitted, TMeta >', 'TResolvedChildren extends Record<string, string> = MergeChildrenMap< TChildrenMap, Cast<ExtractConfigChildren<TConfig>, Record<string, string>> >'], [TConfig], StateMachine(TContext, anyOf(TEvent, matches<[ never ]>([RoutableStateId(TConfig)]) ? never : { type: 'xstate.route', to: RoutableStateId(TConfig) }), Cast(ToChildren(ToProvidedActor(TResolvedChildren, TActors)), Record(string, anyOf(AnyActorRef, Undefined))), ToProvidedActor(TResolvedChildren, TActors), ToParameterizedObject(TActions), ToParameterizedObject(TGuards), TDelay, ToStateValue(TConfig), TTag, TInput, TOutput, TEmitted, TMeta, ToStateSchema(TConfig))), assign: t<typeof assign<
     TContext,
     TEvent,
     undefined,
     TEvent,
     ToProvidedActor<TChildrenMap, TActors>
-  >>(), sendTo: genericFnType(['TTargetActor extends AnyActorRef'], [Parameters(t<typeof sendTo<
+  >>(), sendTo: genericFnType(['TTargetActor extends AnyActorRef'], [...Parameters(t<typeof sendTo<
         TContext,
         TEvent,
         undefined,
@@ -335,3 +310,78 @@ export function SetupReturn(TContext: MachineContext, TEvent: AnyEventObject, TA
     ToProvidedActor<TChildrenMap, TActors>
   >>() }
 }
+/* compiles to:
+ * export type SetupReturn<
+ *   TContext extends MachineContext,
+ *   TEvent extends AnyEventObject,
+ *   TActors extends Record<string, UnknownActorLogic>,
+ *   TChildrenMap extends Record<string, string>,
+ *   TActions extends Record<string, ParameterizedObject['params'] | undefined>,
+ *   TGuards extends Record<string, ParameterizedObject['params'] | undefined>,
+ *   TDelay extends string,
+ *   TTag extends string,
+ *   TInput,
+ *   TOutput extends NonReducibleUnknown,
+ *   TEmitted extends EventObject,
+ *   TMeta extends MetaObject
+ * > =
+ *   {
+ *     extend: <TExtendActions extends Record< string, ParameterizedObject['params'] | undefined > = {}, TExtendGuards extends Record< string, ParameterizedObject['params'] | undefined > = {}, TExtendDelays extends string = never>(
+ *       a0: { actions?: { [K in keyof TExtendActions]: ActionFunction<TContext, TEvent, TEvent, TExtendActions[K], ToProvidedActor<TChildrenMap, TActors>, ToParameterizedObject<TActions & TExtendActions>, ToParameterizedObject<TGuards & TExtendGuards>, TDelay | TExtendDelays, TEmitted> }; guards?: { [K1 in keyof TExtendGuards]: GuardPredicate<TContext, TEvent, TExtendGuards[K1], ToParameterizedObject<TGuards & TExtendGuards>> }; delays?: { [K2 in TExtendDelays]: DelayConfig<TContext, TEvent, ToParameterizedObject<TActions & TExtendActions>['params'], TEvent> } }
+ *     ) => SetupReturn<
+ *       TContext,
+ *       TEvent,
+ *       TActors,
+ *       TChildrenMap,
+ *       TActions & TExtendActions,
+ *       TGuards & TExtendGuards,
+ *       TDelay | TExtendDelays,
+ *       TTag,
+ *       TInput,
+ *       TOutput,
+ *       TEmitted,
+ *       TMeta
+ *     >
+ *     createStateConfig: <TStateConfig extends StateNodeConfig< TContext, TEvent, ToProvidedActor<TChildrenMap, TActors>, ToParameterizedObject<TActions>, ToParameterizedObject<TGuards>, TDelay, TTag, unknown, TEmitted, TMeta >>(
+ *       a0: TStateConfig
+ *     ) => TStateConfig
+ *     createAction: (
+ *       a0: ActionFunction<TContext, TEvent, TEvent, unknown, ToProvidedActor<TChildrenMap, TActors>, ToParameterizedObject<TActions>, ToParameterizedObject<TGuards>, TDelay, TEmitted>
+ *     ) => action
+ *     createMachine: <const TConfig extends MachineConfig< TContext, TEvent, ToProvidedActor<TChildrenMap, TActors>, ToParameterizedObject<TActions>, ToParameterizedObject<TGuards>, TDelay, TTag, TInput, TOutput, TEmitted, TMeta >, TResolvedChildren extends Record<string, string> = MergeChildrenMap< TChildrenMap, Cast<ExtractConfigChildren<TConfig>, Record<string, string>> >>(
+ *       a0: TConfig
+ *     ) => StateMachine<
+ *       TContext,
+ *       | TEvent
+ *       | (
+ *           [RoutableStateId<TConfig>] extends [never]
+ *             ? never
+ *             : { type: 'xstate.route'; to: RoutableStateId<TConfig> }
+ *         ),
+ *       Cast<
+ *         ToChildren<ToProvidedActor<TResolvedChildren, TActors>>,
+ *         Record<string, AnyActorRef | undefined>
+ *       >,
+ *       ToProvidedActor<TResolvedChildren, TActors>,
+ *       ToParameterizedObject<TActions>,
+ *       ToParameterizedObject<TGuards>,
+ *       TDelay,
+ *       ToStateValue<TConfig>,
+ *       TTag,
+ *       TInput,
+ *       TOutput,
+ *       TEmitted,
+ *       TMeta,
+ *       ToStateSchema<TConfig>
+ *     >
+ *     assign: assign
+ *     sendTo: <TTargetActor extends AnyActorRef>(...a0: Parameters<sendTo>) => ReturnType<sendTo>
+ *     raise: raise
+ *     log: log
+ *     cancel: cancel
+ *     stopChild: stopChild
+ *     enqueueActions: enqueueActions
+ *     emit: emit
+ *     spawnChild: spawnChild
+ *   }
+ */

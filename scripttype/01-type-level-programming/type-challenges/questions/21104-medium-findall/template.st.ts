@@ -9,7 +9,7 @@
  */
 // ✓ FindAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FindAll(T: string, P: string) {
+export function FindAll(T: string, P: string): any {
   return any
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ SingleStoreWithReplicas: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreWithReplicas(Q) {
+export function SingleStoreWithReplicas(Q): any {
   return merge(Q, { $primary: Q, $replicas: arrayOf(Q) })
 }
 /* compiles to:

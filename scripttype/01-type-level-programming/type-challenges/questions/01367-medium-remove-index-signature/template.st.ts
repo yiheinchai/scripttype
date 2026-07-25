@@ -9,7 +9,7 @@
  */
 // ✓ RemoveIndexSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RemoveIndexSignature(T) {
+export function RemoveIndexSignature(T): any {
   return any
 }
 /* compiles to:

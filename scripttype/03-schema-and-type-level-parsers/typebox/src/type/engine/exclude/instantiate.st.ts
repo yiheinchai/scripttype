@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TExcludeDeferred } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/exclude.js'
+import type { TExcludeOperation } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/exclude/operation.js'
+import type { TCanInstantiate, TInstantiateType, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare const TCanInstantiate: any
 declare const TExcludeDeferred: any
 declare const TExcludeOperation: any
@@ -17,16 +22,10 @@ declare const TInstantiateType: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExcludeDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExcludeOperation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExcludeAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExcludeAction(Left: TSchema, Right: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Left, Right])) ? TExcludeOperation(Left, Right) : TExcludeDeferred(Left, Right)) {
+export function TExcludeAction(Left: TSchema, Right: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Left, Right])) ? TExcludeOperation(Left, Right) : TExcludeDeferred(Left, Right)): any {
   return Result
 }
 /* compiles to:
@@ -40,7 +39,7 @@ export function TExcludeAction(Left: TSchema, Right: TSchema, Result: TSchema = 
 
 // ✓ TExcludeInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExcludeInstantiate(Context: TProperties, State: TState, Left: TSchema, Right: TSchema, InstantiatedLeft: TSchema = TInstantiateType(Context, State, Left), InstantiatedRight: TSchema = TInstantiateType(Context, State, Right)) {
+export function TExcludeInstantiate(Context: TProperties, State: TState, Left: TSchema, Right: TSchema, InstantiatedLeft: TSchema = TInstantiateType(Context, State, Left), InstantiatedRight: TSchema = TInstantiateType(Context, State, Right)): any {
   return TExcludeAction(InstantiatedLeft, InstantiatedRight)
 }
 /* compiles to:

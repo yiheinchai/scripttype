@@ -9,7 +9,7 @@
  */
 // ✓ Mutable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Mutable(T) {
+export function Mutable(T): any {
   return any
 }
 /* compiles to:

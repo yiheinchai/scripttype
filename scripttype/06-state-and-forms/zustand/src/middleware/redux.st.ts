@@ -9,7 +9,7 @@
  */
 // ✓ Write: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Write(T, U) {
+export function Write(T, U): any {
   return Omit(T, keyof(U)) & U
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function Write(T, U) {
 
 // ✓ StoreRedux: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StoreRedux(A) {
+export function StoreRedux(A): any {
   return { dispatch: fnType([A], A), dispatchFromDevtools: true }
 }
 /* compiles to:
@@ -27,7 +27,7 @@ export function StoreRedux(A) {
 
 // ✓ ReduxState: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReduxState(A) {
+export function ReduxState(A): any {
   return { dispatch: StoreRedux(A)['dispatch'] }
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function ReduxState(A) {
 
 // ✓ WithRedux: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithRedux(S, A) {
+export function WithRedux(S, A): any {
   return Write(S, StoreRedux(A))
 }
 /* compiles to:

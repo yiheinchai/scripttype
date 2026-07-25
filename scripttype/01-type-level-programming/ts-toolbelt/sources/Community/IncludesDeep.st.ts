@@ -7,9 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Is } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Is.js'
+import type { Match } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/_Internal.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { Pos } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+import type { Prev } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Prev.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Cast: any
 declare const Is: any
 declare const Iteration: any
@@ -19,19 +31,11 @@ declare const Next: any
 declare const Pos: any
 declare const Prev: any
 declare const UnionOf: any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Is<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnionOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _IncludesDeep: does not compile yet
 //   Type 'Pos<Prev<I>> extends limit ? 2 : Is<O, M, match>' cannot be used to index type '{ '0': _IncludesDeep__st0<O extends object ? UnionOf<O> : O, M, match, lim
 /* @scripttype preserveParamNames */
-export function _IncludesDeep(O, M: any, match: Match, limit: number, I: Iteration = IterationOf(0)) {
+export function _IncludesDeep(O, M: any, match: Match, limit: number, I: Iteration = IterationOf(0)): any {
   return { 0: _IncludesDeep(matches<object>(O) ? UnionOf(O) : O, M, match, limit, Next(I)), 1: 1, 2: 0 }[matches<typeof limit>(Pos(Prev(I))) ? 2 : Is(O, M, match)]
 }
 /* compiles to:
@@ -51,7 +55,7 @@ export function _IncludesDeep(O, M: any, match: Match, limit: number, I: Iterati
 
 // ✓ IncludesDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IncludesDeep(O: object, M: any, match: Match = 'default', limit: number = 10) {
+export function IncludesDeep(O: object, M: any, match: Match = 'default', limit: number = 10): any {
   const m1 = matches<Hole<"X">>(_IncludesDeep(O, M, match, limit))
   if (m1) {
     return Cast(m1.X, t<Boolean>())

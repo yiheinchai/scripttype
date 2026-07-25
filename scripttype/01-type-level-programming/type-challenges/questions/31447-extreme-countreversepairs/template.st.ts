@@ -9,7 +9,7 @@
  */
 // ✓ CountReversePairs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CountReversePairs(T: number[]) {
+export function CountReversePairs(T: number[]): any {
   return any
 }
 /* compiles to:

@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyActorRef, IsNever, MachineContext, MetaObject, StateSchema, StateValue } from '../../../../../../06-state-and-forms/xstate/packages/core/src/types.js'
 declare const ActiveMachineSnapshot: any
 declare const AnyActorRef: any
 declare const DoneMachineSnapshot: any
@@ -22,19 +24,16 @@ declare const StateSchema: any
 declare const StateValue: any
 declare const StoppedMachineSnapshot: any
 type ActiveMachineSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyActorRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DoneMachineSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ErrorMachineSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MetaObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StateSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StateValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StoppedMachineSnapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ToTestStateValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToTestStateValue(TStateValue: StateValue) {
+/**
+ * @param {StateValue} TStateValue
+ */
+export function ToTestStateValue(TStateValue): any {
   if (typeof TStateValue === 'string') {
     return TStateValue
   }
@@ -57,7 +56,7 @@ export function ToTestStateValue(TStateValue: StateValue) {
 
 // ✓ MachineSnapshot: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MachineSnapshot(TContext: MachineContext, TEvent: EventObject, TChildren: Record<string, AnyActorRef | undefined>, TStateValue: StateValue, TTag: string, TOutput, TMeta: MetaObject, TStateSchema: StateSchema) {
+export function MachineSnapshot(TContext: MachineContext, TEvent: EventObject, TChildren: Record<string, AnyActorRef | undefined>, TStateValue: StateValue, TTag: string, TOutput, TMeta: MetaObject, TStateSchema: StateSchema): any {
   return ActiveMachineSnapshot(TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema) | DoneMachineSnapshot(TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema) | ErrorMachineSnapshot(TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema) | StoppedMachineSnapshot(TContext, TEvent, TChildren, TStateValue, TTag, TOutput, TMeta, TStateSchema)
 }
 /* compiles to:

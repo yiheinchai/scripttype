@@ -9,7 +9,7 @@
  */
 // ✓ TupleToNestedObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TupleToNestedObject(T, U) {
+export function TupleToNestedObject(T, U): any {
   return any
 }
 /* compiles to:

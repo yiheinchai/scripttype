@@ -10,6 +10,12 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type AddResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AddResult: any
 declare const And: any
 declare const ArraySplice: any
@@ -36,7 +42,7 @@ type Sum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T
 type TupleMin<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArraySlice: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArraySlice(Array_: readonly unknown[], Start: number = never, End: number = never) {
+export function ArraySlice(Array_: readonly unknown[], Start: number = never, End: number = never): any {
   if (matches<unknown>(Array_)) {
     if (matches<true>(IsNever(Start))) {
       if (matches<true>(IsNever(End))) {
@@ -83,7 +89,7 @@ export function ArraySlice(Array_: readonly unknown[], Start: number = never, En
 
 // ✓ _ArraySlice: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ArraySlice(Array_: readonly unknown[], Start: number = 0, End: number = Array_['length']) {
+export function _ArraySlice(Array_: readonly unknown[], Start: number = 0, End: number = Array_['length']): any {
   if (matches<true>(And(IsEqual(Start, never), IsEqual(End, never)))) {
     return Array_
   }
@@ -109,7 +115,7 @@ export function _ArraySlice(Array_: readonly unknown[], Start: number = 0, End: 
 
 // ✓ VariableLengthArraySliceHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function VariableLengthArraySliceHelper(Array_: readonly unknown[], Start: number, End: number) {
+export function VariableLengthArraySliceHelper(Array_: readonly unknown[], Start: number, End: number): any {
   if (matches<true>(And(Not(IsNegative(Start)), IsEqual(End, never)))) {
     return ArraySplice(Array_, 0, Start)
   }
@@ -132,7 +138,7 @@ export function VariableLengthArraySliceHelper(Array_: readonly unknown[], Start
 
 // ✓ ArraySliceHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArraySliceHelper__v1(Start, ArrayLength) {
+export function ArraySliceHelper__v1(Start, ArrayLength): any {
   const m1 = matches<Hole<"AddResult", number>>(Sum(ArrayLength, Start))
   if (m1) {
     if (matches<typeof m1.AddResult>(number)) {
@@ -145,7 +151,12 @@ export function ArraySliceHelper__v1(Start, ArrayLength) {
   }
   return never
 }
-export function ArraySliceHelper(Array_: readonly unknown[], Start: number = 0, End: number = Array_['length'], TraversedElement: Array<(typeof Array_)[number]> = [], Result: Array<(typeof Array_)[number]> = [], ArrayLength: number = Array_['length'], PositiveS: number = matches<true>(IsNegative(Start)) ? (ArraySliceHelper__v1(Start, ArrayLength)) : Start, PositiveE: number = matches<true>(IsNegative(End)) ? Sum(ArrayLength, End) : End) {
+/**
+ * @param {readonly unknown[]} Array_
+ * @param {Array<(typeof Array_)[number]>} TraversedElement
+ * @param {Array<(typeof Array_)[number]>} Result
+ */
+export function ArraySliceHelper(Array_, Start: number = 0, End: number = Array_['length'], TraversedElement = [], Result = [], ArrayLength: number = Array_['length'], PositiveS: number = matches<true>(IsNegative(Start)) ? (ArraySliceHelper__v1(Start, ArrayLength)) : Start, PositiveE: number = matches<true>(IsNegative(End)) ? Sum(ArrayLength, End) : End): any {
   if (matches<[ IsNegative<typeof PositiveS>, LessThanOrEqual<typeof PositiveE, typeof PositiveS>, GreaterThanOrEqual<typeof PositiveS, typeof ArrayLength> ][number]>(true)) {
     return []
   }
@@ -177,7 +188,7 @@ export function ArraySliceHelper(Array_: readonly unknown[], Start: number = 0, 
 
 // ✓ ArraySliceByPositiveIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArraySliceByPositiveIndex(Array_: readonly unknown[], Start: number, End: number) {
+export function ArraySliceByPositiveIndex(Array_: readonly unknown[], Start: number, End: number): any {
   let Result: any[] = []
   let start = Start
   while (true) {

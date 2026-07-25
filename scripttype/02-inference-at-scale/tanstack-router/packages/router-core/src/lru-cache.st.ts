@@ -9,7 +9,7 @@
  */
 // ✓ LRUCache: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LRUCache(TKey, TValue) {
+export function LRUCache(TKey, TValue): any {
   return { get: fnType([TKey], anyOf(TValue, Undefined)), set: fnType([TKey, TValue], voidType()), clear: fnType([], voidType()) }
 }
 /* compiles to:

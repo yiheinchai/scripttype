@@ -9,7 +9,7 @@
  */
 // ✓ MyOmit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MyOmit(T, K) {
+export function MyOmit(T, K): any {
   return any
 }
 /* compiles to:

@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { OperationContext, OperationResultEnvelope, TRPCClientRuntime } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/links/types.js'
+import type { AbortSignal } from '../../../../../../../02-inference-at-scale/trpc/packages/openapi/test/routers/nodeModulesJsDocRouter-heyapi/types.gen.js'
+import type { Observable, Observer } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/observable/types.js'
+import type { InferrableClientTypes } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inferrable.js'
+import type { Maybe } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/types.js'
 declare const AbortSignal: any
 declare const InferrableClientTypes: any
 declare const Maybe: any
@@ -19,18 +25,10 @@ declare const OperationContext: any
 declare const OperationResultEnvelope: any
 declare const TRPCClientError: any
 declare const TRPCClientRuntime: any
-type AbortSignal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferrableClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Maybe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Observable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Observer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OperationContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OperationResultEnvelope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TRPCClientError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCClientRuntime<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Operation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Operation(TInput = unknown) {
+export function Operation(TInput = unknown): any {
   return { id: number, type: anyOf('mutation', 'query', 'subscription'), input: TInput, path: string, context: OperationContext, signal: Maybe(AbortSignal) }
 }
 /* compiles to:
@@ -46,7 +44,7 @@ export function Operation(TInput = unknown) {
 
 // ✓ OperationResultObservable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OperationResultObservable(TInferrable: InferrableClientTypes, TOutput) {
+export function OperationResultObservable(TInferrable: InferrableClientTypes, TOutput): any {
   return Observable(OperationResultEnvelope(TOutput, TRPCClientError(TInferrable)), TRPCClientError(TInferrable))
 }
 /* compiles to:
@@ -58,7 +56,7 @@ export function OperationResultObservable(TInferrable: InferrableClientTypes, TO
 
 // ✓ OperationResultObserver: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OperationResultObserver(TInferrable: InferrableClientTypes, TOutput) {
+export function OperationResultObserver(TInferrable: InferrableClientTypes, TOutput): any {
   return Observer(OperationResultEnvelope(TOutput, TRPCClientError(TInferrable)), TRPCClientError(TInferrable))
 }
 /* compiles to:
@@ -70,7 +68,7 @@ export function OperationResultObserver(TInferrable: InferrableClientTypes, TOut
 
 // ✓ OperationLink: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OperationLink(TInferrable: InferrableClientTypes, TInput = unknown, TOutput = unknown) {
+export function OperationLink(TInferrable: InferrableClientTypes, TInput = unknown, TOutput = unknown): any {
   return fnType([{ op: Operation(TInput), next: fnType([Operation(TInput)], OperationResultObservable(TInferrable, TOutput)) }], OperationResultObservable(TInferrable, TOutput))
 }
 /* compiles to:
@@ -86,7 +84,7 @@ export function OperationLink(TInferrable: InferrableClientTypes, TInput = unkno
 
 // ✓ TRPCLink: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCLink(TInferrable: InferrableClientTypes) {
+export function TRPCLink(TInferrable: InferrableClientTypes): any {
   return fnType([TRPCClientRuntime], OperationLink(TInferrable))
 }
 /* compiles to:

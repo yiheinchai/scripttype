@@ -7,18 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { XPointerGet } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/pointer/pointer_get.js'
+import type { XStaticSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/schema.js'
+import type { XSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/schema.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const XPointerGet: any
 declare const XSchema: any
 declare const XStaticSchema: any
-type XPointerGet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XCyclicCheck: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XCyclicCheck(Stack: unknown[], MaxLength: number, Buffer: unknown[] = []) {
+export function XCyclicCheck(Stack: unknown[], MaxLength: number, Buffer: unknown[] = []): any {
   const m1 = matches<[ Hole<"Left">, ...Hole<"Right"> ]>(Stack)
   if (m1) {
     if (matches<typeof MaxLength>(Buffer['length'])) {
@@ -43,7 +49,7 @@ export function XCyclicCheck(Stack: unknown[], MaxLength: number, Buffer: unknow
 
 // ✓ XCyclicGuard: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XCyclicGuard(Stack: unknown[], Ref: string) {
+export function XCyclicGuard(Stack: unknown[], Ref: string): any {
   if (matches<(typeof Stack)[number]>(Ref)) {
     return XCyclicCheck(Stack, 2)
   }
@@ -56,14 +62,14 @@ export function XCyclicGuard(Stack: unknown[], Ref: string) {
 
 // ✓ XNormal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XNormal__v1(Pointer) {
+export function XNormal__v1(Pointer): any {
   const m1 = matches<`#${Hole<"Rest", string>}`>(Pointer)
   if (m1) {
     return m1.Rest
   }
   return Pointer
 }
-export function XNormal(Pointer: string, Result: string = XNormal__v1(Pointer)) {
+export function XNormal(Pointer: string, Result: string = XNormal__v1(Pointer)): any {
   return Result
 }
 /* compiles to:
@@ -74,7 +80,7 @@ export function XNormal(Pointer: string, Result: string = XNormal__v1(Pointer)) 
 
 // ✓ XStaticRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XStaticRef(Stack: string[], Root: XSchema, Ref: string, Normal: string = XNormal(Ref), Target: unknown = XPointerGet(Root, Normal), Schema: XSchema = matches<XSchema>(Target) ? Target : {}, Result: unknown = matches<true>(XCyclicGuard(Stack, Ref)) ? XStaticSchema([...Stack, Ref], Root, Schema) : any) {
+export function XStaticRef(Stack: string[], Root: XSchema, Ref: string, Normal: string = XNormal(Ref), Target: unknown = XPointerGet(Root, Normal), Schema: XSchema = matches<XSchema>(Target) ? Target : {}, Result: unknown = matches<true>(XCyclicGuard(Stack, Ref)) ? XStaticSchema([...Stack, Ref], Root, Schema) : any): any {
   return Result
 }
 /* compiles to:

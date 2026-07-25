@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { IntersectOptions, IntersectOptionsAsync } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/intersect/types.js'
+import type { InferInput, InferOutput } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/infer.js'
+import type { BaseIssue } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/issue.js'
+import type { BaseSchema, BaseSchemaAsync } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/schema.js'
+import type { IsNever, UnionToIntersect } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/utils.js'
+declare namespace m1 {
+  export type TInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseIssue: any
 declare const BaseSchema: any
 declare const BaseSchemaAsync: any
@@ -19,19 +30,10 @@ declare const IntersectOptions: any
 declare const IntersectOptionsAsync: any
 declare const IsNever: any
 declare const UnionToIntersect: any
-type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InferOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IntersectOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IntersectOptionsAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnionToIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferOption: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferOption(TInput, TOutput) {
+export function InferOption(TInput, TOutput): any {
   return BaseSchema(TInput, TOutput, BaseIssue(unknown)) | BaseSchemaAsync(TInput, TOutput, BaseIssue(unknown))
 }
 /* compiles to:
@@ -42,7 +44,7 @@ export function InferOption(TInput, TOutput) {
 
 // ✓ InferIntersectInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferIntersectInput(TOptions: IntersectOptions | IntersectOptionsAsync) {
+export function InferIntersectInput(TOptions: IntersectOptions | IntersectOptionsAsync): any {
   const m1 = matches<readonly [ InferOption<Hole<"TInput">, unknown>, ...Hole<"TRest"> ]>(TOptions)
   if (m1) {
     if (matches<readonly [ InferOption<unknown, unknown>, ...InferOption<unknown, unknown>[] ]>(m1.TRest)) {
@@ -67,7 +69,7 @@ export function InferIntersectInput(TOptions: IntersectOptions | IntersectOption
 
 // ✓ InferIntersectOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferIntersectOutput(TOptions: IntersectOptions | IntersectOptionsAsync) {
+export function InferIntersectOutput(TOptions: IntersectOptions | IntersectOptionsAsync): any {
   const m1 = matches<readonly [ InferOption<unknown, Hole<"TOutput">>, ...Hole<"TRest"> ]>(TOptions)
   if (m1) {
     if (matches<readonly [ InferOption<unknown, unknown>, ...InferOption<unknown, unknown>[] ]>(m1.TRest)) {

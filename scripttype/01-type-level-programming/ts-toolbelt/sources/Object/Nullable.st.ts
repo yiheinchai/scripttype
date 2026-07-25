@@ -7,22 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { PatchFlat } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/Patch.js'
+import type { Depth } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
 declare const Depth: any
 declare const Key: any
 declare const PatchFlat: any
 declare const UNullable: any
 declare const _Pick: any
-type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PatchFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UNullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NullableFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NullableFlat(O) {
+export function NullableFlat(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = UNullable(O[K])
@@ -35,7 +36,7 @@ export function NullableFlat(O) {
 
 // ✓ NullableDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NullableDeep(O) {
+export function NullableDeep(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = NullableDeep(UNullable(O[K]))
@@ -48,7 +49,7 @@ export function NullableDeep(O) {
 
 // ✓ NullablePart: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NullablePart(O: object, depth: Depth) {
+export function NullablePart(O: object, depth: Depth): any {
   return { 'flat': NullableFlat(O), 'deep': NullableDeep(O) }[depth]
 }
 /* compiles to:
@@ -58,7 +59,7 @@ export function NullablePart(O: object, depth: Depth) {
 
 // ✓ _Nullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Nullable(O: object, K: Key, depth: Depth) {
+export function _Nullable(O: object, K: Key, depth: Depth): any {
   return PatchFlat(NullablePart(_Pick(O, K), depth), O)
 }
 /* compiles to:
@@ -70,7 +71,7 @@ export function _Nullable(O: object, K: Key, depth: Depth) {
 
 // ✓ Nullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Nullable(O: object, K: Key = Key, depth: Depth = 'flat') {
+export function Nullable(O: object, K: Key = Key, depth: Depth = 'flat'): any {
   if (matches<unknown>(O)) {
     return _Nullable(O, K, depth)
   }

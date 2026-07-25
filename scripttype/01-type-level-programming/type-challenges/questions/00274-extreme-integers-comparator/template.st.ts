@@ -9,7 +9,7 @@
  */
 // ✓ Comparator: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Comparator(A: number, B: number) {
+export function Comparator(A: number, B: number): any {
   return any
 }
 /* compiles to:

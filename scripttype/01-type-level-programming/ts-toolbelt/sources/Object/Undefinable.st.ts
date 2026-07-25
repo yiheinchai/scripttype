@@ -7,22 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { BuiltIn } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Misc/BuiltIn.js'
+import type { PatchFlat } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/Patch.js'
+import type { Depth } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
 declare const BuiltIn: any
 declare const Depth: any
 declare const Key: any
 declare const PatchFlat: any
 declare const _Pick: any
-type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PatchFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UndefinableFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndefinableFlat(O) {
+export function UndefinableFlat(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = anyOf(O[K], Undefined)
@@ -35,7 +36,7 @@ export function UndefinableFlat(O) {
 
 // ✓ UndefinableDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndefinableDeep(O) {
+export function UndefinableDeep(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = matches<BuiltIn>(O[K]) ? O[K] : UndefinableDeep(anyOf(O[K], Undefined))
@@ -50,7 +51,7 @@ export function UndefinableDeep(O) {
 
 // ✓ UndefinablePart: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndefinablePart(O: object, depth: Depth) {
+export function UndefinablePart(O: object, depth: Depth): any {
   return { 'flat': UndefinableFlat(O), 'deep': UndefinableDeep(O) }[depth]
 }
 /* compiles to:
@@ -60,7 +61,7 @@ export function UndefinablePart(O: object, depth: Depth) {
 
 // ✓ _Undefinable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Undefinable(O: object, K: Key, depth: Depth) {
+export function _Undefinable(O: object, K: Key, depth: Depth): any {
   return PatchFlat(UndefinablePart(_Pick(O, K), depth), O)
 }
 /* compiles to:
@@ -72,7 +73,7 @@ export function _Undefinable(O: object, K: Key, depth: Depth) {
 
 // ✓ Undefinable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Undefinable(O: object, K: Key = Key, depth: Depth = 'flat') {
+export function Undefinable(O: object, K: Key = Key, depth: Depth = 'flat'): any {
   if (matches<unknown>(O)) {
     return _Undefinable(O, K, depth)
   }

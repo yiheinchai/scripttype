@@ -29,7 +29,7 @@ type OutgoingRequest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any,
 type Rpc<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Incoming: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Incoming(R: Rpc.Any) {
+export function Incoming(R: Rpc.Any): any {
   return IncomingRequest(R) | IncomingEnvelope
 }
 /* compiles to:
@@ -38,7 +38,7 @@ export function Incoming(R: Rpc.Any) {
 
 // ✓ IncomingLocal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IncomingLocal(R: Rpc.Any) {
+export function IncomingLocal(R: Rpc.Any): any {
   return IncomingRequestLocal(R) | IncomingEnvelope
 }
 /* compiles to:
@@ -47,7 +47,7 @@ export function IncomingLocal(R: Rpc.Any) {
 
 // ✓ Outgoing: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Outgoing(R: Rpc.Any) {
+export function Outgoing(R: Rpc.Any): any {
   return OutgoingRequest(R) | OutgoingEnvelope
 }
 /* compiles to:

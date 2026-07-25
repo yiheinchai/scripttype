@@ -7,20 +7,33 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { _, unset } from '../../../../../../../01-type-level-programming/hotscript/src/internals/core/Core.js'
+import type { IsNever } from '../../../../../../../01-type-level-programming/hotscript/src/internals/helpers.js'
+declare namespace m1 {
+  export type first<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type partialFirst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type partialRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type pipedFirst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pipedRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace output {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Equal: any
 declare const IsNever: any
 declare const _: any
 declare const unset: any
 type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExcludePlaceholders: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExcludePlaceholders(xs, output: any[] = []) {
+export function ExcludePlaceholders(xs, output: any[] = []): any {
   const m1 = matches<[ Hole<"first">, ...Hole<"rest"> ]>(xs)
   if (m1) {
     if (matches<true>(Equal(m1.first, _))) {
@@ -41,7 +54,7 @@ export function ExcludePlaceholders(xs, output: any[] = []) {
 
 // ✓ MergeArgsRec: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeArgsRec(pipedArgs: any[], partialArgs: any[], output: any[] = []) {
+export function MergeArgsRec(pipedArgs: any[], partialArgs: any[], output: any[] = []): any {
   const m1 = matches<[ Hole<"partialFirst">, ...Hole<"partialRest"> ]>(partialArgs)
   if (m1) {
     if (matches<true>(IsNever(m1.partialFirst))) {
@@ -77,7 +90,7 @@ export function MergeArgsRec(pipedArgs: any[], partialArgs: any[], output: any[]
 
 // ✓ EmptyIntoPlaceholder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EmptyIntoPlaceholder(x) {
+export function EmptyIntoPlaceholder(x): any {
   if (matches<true>(IsNever(x))) {
     return never
   }
@@ -93,7 +106,7 @@ export function EmptyIntoPlaceholder(x) {
 
 // ✓ MapEmptyIntoPlaceholder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapEmptyIntoPlaceholder(xs) {
+export function MapEmptyIntoPlaceholder(xs): any {
   let output: any[] = []
   let xs_ = xs
   while (true) {
@@ -116,7 +129,7 @@ export function MapEmptyIntoPlaceholder(xs) {
 
 // ✓ MergeArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeArgs(pipedArgs: any[], partialArgs: any[]) {
+export function MergeArgs(pipedArgs: any[], partialArgs: any[]): any {
   return MergeArgsRec(pipedArgs, MapEmptyIntoPlaceholder(partialArgs))
 }
 /* compiles to:

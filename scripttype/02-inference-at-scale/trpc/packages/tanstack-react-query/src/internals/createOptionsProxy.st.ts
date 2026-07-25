@@ -7,9 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { inferTransformedProcedureOutput } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inference.js'
+import type { inferProcedureInput } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/procedure.js'
+import type { DecorateInfiniteQueryProcedure, DecorateMutationProcedure, DecorateQueryProcedure, DecorateRouterKeyable, DecorateSubscriptionProcedure, TRPCOptionsProxyOptionsExternal, TRPCOptionsProxyOptionsInternal } from '../../../../../../../02-inference-at-scale/trpc/packages/tanstack-react-query/src/internals/createOptionsProxy.js'
+import type { MutationOptionsOverride } from '../../../../../../../02-inference-at-scale/trpc/packages/tanstack-react-query/src/internals/mutationOptions.js'
+import type { DefaultFeatureFlags, FeatureFlags, KeyPrefixOptions, OptionalCursorInput, ResolverDef } from '../../../../../../../02-inference-at-scale/trpc/packages/tanstack-react-query/src/internals/types.js'
+declare namespace m1 {
+  export type $Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyTRPCProcedure: any
 declare const AnyTRPCRootTypes: any
 declare const AnyTRPCRouter: any
@@ -34,27 +43,12 @@ declare const inferTransformedProcedureOutput: any
 type AnyTRPCProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AnyTRPCRootTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AnyTRPCRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DecorateInfiniteQueryProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DecorateMutationProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DecorateQueryProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DecorateRouterKeyable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DecorateSubscriptionProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DefaultFeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type KeyPrefixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MutationOptionsOverride<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalCursorInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type QueryClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolverDef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCOptionsProxyOptionsExternal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCOptionsProxyOptionsInternal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TRPCProcedureType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TRPCRouterRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferProcedureInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferTransformedProcedureOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ inferInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferInput(TProcedure: DecorateInfiniteQueryProcedure<any> | DecorateQueryProcedure<any> | DecorateMutationProcedure<any>) {
+export function inferInput(TProcedure: DecorateInfiniteQueryProcedure<any> | DecorateQueryProcedure<any> | DecorateMutationProcedure<any>): any {
   return TProcedure['~types']['input']
 }
 /* compiles to:
@@ -66,7 +60,7 @@ export function inferInput(TProcedure: DecorateInfiniteQueryProcedure<any> | Dec
 
 // ✓ inferOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferOutput(TProcedure: DecorateInfiniteQueryProcedure<any> | DecorateQueryProcedure<any> | DecorateMutationProcedure<any>) {
+export function inferOutput(TProcedure: DecorateInfiniteQueryProcedure<any> | DecorateQueryProcedure<any> | DecorateMutationProcedure<any>): any {
   return TProcedure['~types']['output']
 }
 /* compiles to:
@@ -78,7 +72,7 @@ export function inferOutput(TProcedure: DecorateInfiniteQueryProcedure<any> | De
 
 // ✓ DecorateProcedure: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DecorateProcedure(TType: TRPCProcedureType, TDef: ResolverDef) {
+export function DecorateProcedure(TType: TRPCProcedureType, TDef: ResolverDef): any {
   if (matches<'query'>(TType)) {
     return DecorateQueryProcedure(TDef) & (matches<OptionalCursorInput>(TDef['input']) ? DecorateInfiniteQueryProcedure(TDef) : Record(string, never))
   }
@@ -106,7 +100,7 @@ export function DecorateProcedure(TType: TRPCProcedureType, TDef: ResolverDef) {
 
 // ✓ DecoratedRouterRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DecoratedRouterRecord__v1(TRoot, TRecord, TFeatureFlags, TKey) {
+export function DecoratedRouterRecord__v1(TRoot, TRecord, TFeatureFlags, TKey): any {
   const m1 = matches<Hole<"$Value">>(TRecord[TKey])
   if (m1) {
     if (matches<TRPCRouterRecord>(m1.$Value)) {
@@ -119,7 +113,10 @@ export function DecoratedRouterRecord__v1(TRoot, TRecord, TFeatureFlags, TKey) {
   }
   return never
 }
-export function DecoratedRouterRecord(TRoot: AnyTRPCRootTypes, TRecord: TRPCRouterRecord, TFeatureFlags: FeatureFlags = DefaultFeatureFlags) {
+/**
+ * @param {TRPCRouterRecord} TRecord
+ */
+export function DecoratedRouterRecord(TRoot: AnyTRPCRootTypes, TRecord, TFeatureFlags: FeatureFlags = DefaultFeatureFlags): any {
   const out = emptyObject
   for (const TKey in keyof(TRecord)) {
     out[TKey] = DecoratedRouterRecord__v1(TRoot, TRecord, TFeatureFlags, TKey)
@@ -155,7 +152,7 @@ export function DecoratedRouterRecord(TRoot: AnyTRPCRootTypes, TRecord: TRPCRout
 
 // ✓ TRPCOptionsProxy: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCOptionsProxy(TRouter: AnyTRPCRouter, TFeatureFlags: FeatureFlags = DefaultFeatureFlags) {
+export function TRPCOptionsProxy(TRouter: AnyTRPCRouter, TFeatureFlags: FeatureFlags = DefaultFeatureFlags): any {
   return DecoratedRouterRecord(TRouter['_def']['_config']['$types'], TRouter['_def']['record'], TFeatureFlags) & DecorateRouterKeyable(TFeatureFlags)
 }
 /* compiles to:
@@ -173,7 +170,7 @@ export function TRPCOptionsProxy(TRouter: AnyTRPCRouter, TFeatureFlags: FeatureF
 
 // ✓ TRPCOptionsProxyOptionsBase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCOptionsProxyOptionsBase(TFeatureFlags: FeatureFlags = DefaultFeatureFlags) {
+export function TRPCOptionsProxyOptionsBase(TFeatureFlags: FeatureFlags = DefaultFeatureFlags): any {
   return merge({ queryClient: QueryClient | fnType([], QueryClient), overrides: optional({ mutations: optional(MutationOptionsOverride) }) }, KeyPrefixOptions(TFeatureFlags))
 }
 /* compiles to:
@@ -189,7 +186,7 @@ export function TRPCOptionsProxyOptionsBase(TFeatureFlags: FeatureFlags = Defaul
 
 // ✓ TRPCOptionsProxyOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCOptionsProxyOptions(TRouter: AnyTRPCRouter, TFeatureFlags: FeatureFlags = DefaultFeatureFlags) {
+export function TRPCOptionsProxyOptions(TRouter: AnyTRPCRouter, TFeatureFlags: FeatureFlags = DefaultFeatureFlags): any {
   return merge(TRPCOptionsProxyOptionsBase(TFeatureFlags), TRPCOptionsProxyOptionsInternal(TRouter) | TRPCOptionsProxyOptionsExternal(TRouter))
 }
 /* compiles to:

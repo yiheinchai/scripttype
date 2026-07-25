@@ -9,7 +9,7 @@
  */
 // ✓ Accessor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Accessor(T) {
+export function Accessor(T): any {
   return T | fnType([], T)
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function Accessor(T) {
 
 // ✓ ValueAccessor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValueAccessor(T) {
+export function ValueAccessor(T): any {
   return merge(fnType([], T), { current: readonlyProp(T) })
 }
 /* compiles to:

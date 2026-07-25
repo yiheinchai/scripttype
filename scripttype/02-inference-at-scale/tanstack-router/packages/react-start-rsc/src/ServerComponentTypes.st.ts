@@ -7,11 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { CompositeComponent, ReactSerializable, RenderableServerComponentAttributes } from '../../../../../../02-inference-at-scale/tanstack-router/packages/react-start-rsc/src/ServerComponentTypes.js'
+import type { ValidateSerializable } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/ssr/serializer/transformer.js'
+import type { Constrain, LooseAsyncReturnType, LooseReturnType } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
 declare namespace React {
   export type ReactNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const ComponentProps: any
 declare const ComponentType: any
@@ -26,19 +34,12 @@ declare const RenderableServerComponentAttributes: any
 declare const ValidateSerializable: any
 type ComponentProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ComponentType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CompositeComponent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Constrain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseAsyncReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type React<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ReactNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReactSerializable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RenderableServerComponentAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidateCompositeComponentResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidateSerializable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidateCompositeComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateCompositeComponent(TComp) {
+export function ValidateCompositeComponent(TComp): any {
   return Constrain(TComp, fnType([ValidateCompositeComponentProps(TComp)], ValidateCompositeComponentReturnType(TComp)))
 }
 /* compiles to:
@@ -50,7 +51,7 @@ export function ValidateCompositeComponent(TComp) {
 
 // ✓ ValidateCompositeComponentProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateCompositeComponentProps(TComp) {
+export function ValidateCompositeComponentProps(TComp): any {
   if (matches<typeof TComp>(unknown)) {
     return TComp
   }
@@ -65,7 +66,7 @@ export function ValidateCompositeComponentProps(TComp) {
 
 // ✓ ValidateCompositeComponentPropsObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateCompositeComponentPropsObject(TProps) {
+export function ValidateCompositeComponentPropsObject(TProps): any {
   if (matches<typeof TProps>(unknown)) {
     return TProps
   }
@@ -84,7 +85,7 @@ export function ValidateCompositeComponentPropsObject(TProps) {
 
 // ✓ CompositeComponentProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CompositeComponentProps(TComp) {
+export function CompositeComponentProps(TComp): any {
   const m1 = matches<(props: Hole<"TProps">) => any>(TComp)
   if (m1) {
     return m1.TProps
@@ -99,9 +100,9 @@ export function CompositeComponentProps(TComp) {
 // ✗ ValidateCompositeComponentProp: does not compile yet
 //   Cannot find namespace 'React'.
 /* @scripttype preserveParamNames */
-export function ValidateCompositeComponentProp(TProp) {
+export function ValidateCompositeComponentProp(TProp): any {
   if (matches<(...args: Array<any>) => any>(TProp)) {
-    return fnType([ValidateReactSerializable(Parameters(TProp))], React.ReactNode)
+    return fnType([...ValidateReactSerializable(Parameters(TProp))], t<React.ReactNode>())
   }
   if (matches<ComponentType<any>>(TProp)) {
     return ComponentType(ValidateReactSerializable(ComponentProps(TProp)))
@@ -109,12 +110,12 @@ export function ValidateCompositeComponentProp(TProp) {
   if (matches<React.ReactNode>(TProp)) {
     return TProp
   }
-  return React.ReactNode
+  return t<React.ReactNode>()
 }
 /* compiles to:
  * export type ValidateCompositeComponentProp<TProp> =
  *   TProp extends (...args: Array<any>) => any
- *     ? (a0: ValidateReactSerializable<Parameters<TProp>>) => React.ReactNode
+ *     ? (...a0: ValidateReactSerializable<Parameters<TProp>>) => React.ReactNode
  *   : TProp extends ComponentType<any>
  *     ? ComponentType<ValidateReactSerializable<ComponentProps<TProp>>>
  *   : TProp extends React.ReactNode ? TProp
@@ -123,7 +124,7 @@ export function ValidateCompositeComponentProp(TProp) {
 
 // ✓ ValidateReactSerializable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateReactSerializable(T) {
+export function ValidateReactSerializable(T): any {
   return ValidateSerializable(T, ReactSerializable)
 }
 /* compiles to:
@@ -133,9 +134,9 @@ export function ValidateReactSerializable(T) {
 // ✗ ValidateCompositeComponentReturnType: does not compile yet
 //   Cannot find namespace 'React'.
 /* @scripttype preserveParamNames */
-export function ValidateCompositeComponentReturnType(TComp) {
+export function ValidateCompositeComponentReturnType(TComp): any {
   if (matches<typeof TComp>(unknown)) {
-    return React.ReactNode
+    return t<React.ReactNode>()
   }
   return ValidateCompositeComponentResult(LooseReturnType(TComp))
 }
@@ -148,7 +149,7 @@ export function ValidateCompositeComponentReturnType(TComp) {
 
 // ✓ ValidateCompositeComponentResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateCompositeComponentResult(TNode) {
+export function ValidateCompositeComponentResult(TNode): any {
   return ValidateServerComponentResult(TNode)
 }
 /* compiles to:
@@ -158,7 +159,7 @@ export function ValidateCompositeComponentResult(TNode) {
 // ✗ ValidateServerComponentResult: does not compile yet
 //   Cannot find namespace 'React'.
 /* @scripttype preserveParamNames */
-export function ValidateServerComponentResult(TNode) {
+export function ValidateServerComponentResult(TNode): any {
   if (matches<Promise<any>>(TNode)) {
     return ValidateCompositeComponentPromiseResult(TNode)
   }
@@ -166,12 +167,12 @@ export function ValidateServerComponentResult(TNode) {
     return TNode
   }
   if (matches<(...args: Array<any>) => any>(TNode)) {
-    return React.ReactNode
+    return t<React.ReactNode>()
   }
   if (matches<object>(TNode)) {
     return ValidateCompositeComponentObjectResult(TNode)
   }
-  return React.ReactNode
+  return t<React.ReactNode>()
 }
 /* compiles to:
  * export type ValidateServerComponentResult<TNode> =
@@ -184,7 +185,7 @@ export function ValidateServerComponentResult(TNode) {
 
 // ✓ ValidateCompositeComponentPromiseResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateCompositeComponentPromiseResult(TPromise) {
+export function ValidateCompositeComponentPromiseResult(TPromise): any {
   const m1 = matches<Promise<Hole<"T">>>(TPromise)
   if (m1) {
     return t<Promise<ValidateCompositeComponentResult<typeof m1.T>>>()
@@ -198,7 +199,7 @@ export function ValidateCompositeComponentPromiseResult(TPromise) {
 
 // ✓ ValidateCompositeComponentObjectResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateCompositeComponentObjectResult(TObject) {
+export function ValidateCompositeComponentObjectResult(TObject): any {
   const out = emptyObject
   for (const TKey in keyof(TObject)) {
     out[TKey] = ValidateCompositeComponentResult(TObject[TKey])
@@ -213,7 +214,7 @@ export function ValidateCompositeComponentObjectResult(TObject) {
 
 // ✓ CompositeComponentResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CompositeComponentResult(TComp) {
+export function CompositeComponentResult(TComp): any {
   return CompositeComponentBuilder(TComp, LooseAsyncReturnType(TComp))
 }
 /* compiles to:
@@ -226,7 +227,7 @@ export function CompositeComponentResult(TComp) {
 // ✗ CompositeComponentBuilder: does not compile yet
 //   Cannot find namespace 'React'.
 /* @scripttype preserveParamNames */
-export function CompositeComponentBuilder(TComp, TReturn) {
+export function CompositeComponentBuilder(TComp, TReturn): any {
   if (matches<React.ReactNode>(TReturn)) {
     return CompositeComponent(TComp, TReturn)
   }
@@ -245,7 +246,7 @@ export function CompositeComponentBuilder(TComp, TReturn) {
 
 // ✓ ValidateRenderableServerComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateRenderableServerComponent(TNode) {
+export function ValidateRenderableServerComponent(TNode): any {
   return ValidateServerComponentResult(TNode)
 }
 /* compiles to:
@@ -255,7 +256,7 @@ export function ValidateRenderableServerComponent(TNode) {
 // ✗ RenderableServerComponentBuilder: does not compile yet
 //   Cannot find namespace 'React'.
 /* @scripttype preserveParamNames */
-export function RenderableServerComponentBuilder(T) {
+export function RenderableServerComponentBuilder(T): any {
   if (matches<React.ReactNode>(T)) {
     return RenderableServerComponent(T)
   }
@@ -275,7 +276,7 @@ export function RenderableServerComponentBuilder(T) {
 // ✗ RenderableServerComponent: does not compile yet
 //   Cannot find namespace 'React'.
 /* @scripttype preserveParamNames */
-export function RenderableServerComponent(TNode: React.ReactNode) {
+export function RenderableServerComponent(TNode: React.ReactNode): any {
   return merge(TNode, RenderableServerComponentAttributes(TNode))
 }
 /* compiles to:

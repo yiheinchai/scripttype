@@ -9,7 +9,7 @@
  */
 // ✓ GetTags: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetTags(B) {
+export function GetTags(B): any {
   return any
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function GetTags(B) {
 
 // ✓ Tag: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Tag(B, T: string) {
+export function Tag(B, T: string): any {
   return any
 }
 /* compiles to:
@@ -27,7 +27,7 @@ export function Tag(B, T: string) {
 
 // ✓ UnTag: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnTag(B) {
+export function UnTag(B): any {
   return any
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function UnTag(B) {
 
 // ✓ HasTag: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasTag(B, T: string) {
+export function HasTag(B, T: string): any {
   return any
 }
 /* compiles to:
@@ -45,7 +45,7 @@ export function HasTag(B, T: string) {
 
 // ✓ HasTags: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasTags(B, T: readonly string[]) {
+export function HasTags(B, T: readonly string[]): any {
   return any
 }
 /* compiles to:
@@ -54,7 +54,7 @@ export function HasTags(B, T: readonly string[]) {
 
 // ✓ HasExactTags: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasExactTags(B, T: readonly string[]) {
+export function HasExactTags(B, T: readonly string[]): any {
   return any
 }
 /* compiles to:

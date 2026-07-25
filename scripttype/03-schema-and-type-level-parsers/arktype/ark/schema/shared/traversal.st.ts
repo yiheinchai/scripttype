@@ -7,23 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { InternalTraversal } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/shared/traversal.js'
 declare const InternalTraversal: any
-type InternalTraversal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ TraversalMethodsByKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TraversalMethodsByKind(input = unknown) {
+export function TraversalMethodsByKind(input = unknown): any {
   return { Allows: TraverseAllows(input), Apply: TraverseApply(input), Optimistic: TraverseApply(input) }
 }
 /* compiles to:
- * export type TraversalMethodsByKind<input = unknown> = { Allows: TraverseAllows<input>; Apply: TraverseApply<input>; Optimistic: TraverseApply<input> }
+ * export type TraversalMethodsByKind<input = unknown> = {
+ *   Allows: TraverseAllows<input>
+ *   Apply: TraverseApply<input>
+ *   Optimistic: TraverseApply<input>
+ * }
  */
 
 // ✓ TraverseAllows: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TraverseAllows(data = unknown) {
+export function TraverseAllows(data = unknown): any {
   return fnType([data, InternalTraversal], boolean)
 }
 /* compiles to:
@@ -32,7 +37,7 @@ export function TraverseAllows(data = unknown) {
 
 // ✓ TraverseApply: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TraverseApply(data = unknown) {
+export function TraverseApply(data = unknown): any {
   return fnType([data, InternalTraversal], voidType())
 }
 /* compiles to:

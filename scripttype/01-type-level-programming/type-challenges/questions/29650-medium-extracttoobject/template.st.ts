@@ -9,7 +9,7 @@
  */
 // ✓ ExtractToObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractToObject(T, U) {
+export function ExtractToObject(T, U): any {
   return any
 }
 /* compiles to:

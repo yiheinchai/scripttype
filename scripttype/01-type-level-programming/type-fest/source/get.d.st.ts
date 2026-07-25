@@ -7,30 +7,35 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GetOptions } from '../../../../01-type-level-programming/type-fest/source/get.d.js'
+declare namespace m1 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Item<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Middle<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ApplyDefaultOptions: any
 declare const DefaultGetOptions: any
 declare const DigitCharacter: any
 declare const GetOptions: any
 declare const KeyAsString: any
-declare const Paths: any
 declare const Split: any
-declare const ToString: any
-declare const _LiteralStringUnion: any
 type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DefaultGetOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DigitCharacter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type KeyAsString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Split<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _LiteralStringUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GetWithPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetWithPath(BaseType, Keys, Options: Required<GetOptions>) {
+export function GetWithPath(BaseType, Keys, Options: Required<GetOptions>): any {
   if (matches<readonly [ ]>(Keys)) {
     return BaseType
   }
@@ -54,7 +59,7 @@ export function GetWithPath(BaseType, Keys, Options: Required<GetOptions>) {
 
 // ✓ Strictify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Strictify(Type, Options: Required<GetOptions>) {
+export function Strictify(Type, Options: Required<GetOptions>): any {
   if (matches<false>(Options['strict'])) {
     return Type
   }
@@ -67,7 +72,10 @@ export function Strictify(Type, Options: Required<GetOptions>) {
 
 // ✓ StrictPropertyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StrictPropertyOf(BaseType, Key: keyof typeof BaseType, Options: Required<GetOptions>) {
+/**
+ * @param {keyof typeof BaseType} Key
+ */
+export function StrictPropertyOf(BaseType, Key, Options: Required<GetOptions>): any {
   if (matches<typeof BaseType>(Record(string, any))) {
     if (string in BaseType) {
       return Strictify(BaseType[Key], Options)
@@ -89,7 +97,7 @@ export function StrictPropertyOf(BaseType, Key: keyof typeof BaseType, Options: 
 
 // ✓ ToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToPath(S: string) {
+export function ToPath(S: string): any {
   return Split(FixPathSquareBrackets(S), '.', { strictLiteralChecks: false })
 }
 /* compiles to:
@@ -102,7 +110,7 @@ export function ToPath(S: string) {
 
 // ✓ FixPathSquareBrackets: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FixPathSquareBrackets(Path: string) {
+export function FixPathSquareBrackets(Path: string): any {
   const m1 = matches<`[${Hole<"Head">}]${Hole<"Tail">}`>(Path)
   if (m1) {
     if (matches<`[${string}`>(m1.Tail)) {
@@ -129,7 +137,7 @@ export function FixPathSquareBrackets(Path: string) {
 
 // ✓ ConsistsOnlyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConsistsOnlyOf(LongString: string, Substring: string) {
+export function ConsistsOnlyOf(LongString: string, Substring: string): any {
   if (matches<''>(LongString)) {
     return true
   }
@@ -148,7 +156,7 @@ export function ConsistsOnlyOf(LongString: string, Substring: string) {
 
 // ✓ WithStringKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithStringKeys(BaseType) {
+export function WithStringKeys(BaseType): any {
   const out = emptyObject
   for (const Key in keySet(KeyAsString(BaseType))) {
     out[Key] = UncheckedIndex(BaseType, Key)
@@ -163,7 +171,7 @@ export function WithStringKeys(BaseType) {
 
 // ✓ UncheckedIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UncheckedIndex(T, U: string | number) {
+export function UncheckedIndex(T, U: string | number): any {
   if (matches<[ Record<string | number, any> ]>([T])) {
     return T[U]
   }
@@ -176,7 +184,7 @@ export function UncheckedIndex(T, U: string | number) {
 
 // ✓ PropertyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PropertyOf(BaseType, Key: string, Options: Required<GetOptions>) {
+export function PropertyOf(BaseType, Key: string, Options: Required<GetOptions>): any {
   if (matches<null | undefined>(BaseType)) {
     return Undefined
   }
@@ -226,7 +234,10 @@ export function PropertyOf(BaseType, Key: string, Options: Required<GetOptions>)
 
 // ✓ Get: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Get(BaseType, Path: readonly string[] | _LiteralStringUnion<ToString<Paths<typeof BaseType, { bracketNotation: false; maxRecursionDepth: 2; }> | Paths<typeof BaseType, { bracketNotation: true; maxRecursionDepth: 2; }>>>, Options: GetOptions = {}) {
+/**
+ * @param {readonly string[] | _LiteralStringUnion<ToString<Paths<typeof BaseType, { bracketNotation: false; maxRecursionDepth: 2; }> | Paths<typeof BaseType, { bracketNotation: true; maxRecursionDepth: 2; }>>>} Path
+ */
+export function Get(BaseType, Path, Options: GetOptions = {}): any {
   return GetWithPath(BaseType, typeof Path === 'string' ? ToPath(Path) : Path, ApplyDefaultOptions(GetOptions, DefaultGetOptions, Options))
 }
 /* compiles to:

@@ -9,7 +9,10 @@
  */
 // ✓ Mutable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Mutable(T: object) {
+/**
+ * @param {object} T
+ */
+export function Mutable(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = mutable(T[K])

@@ -10,6 +10,18 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Ignore<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Obj<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Z<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _Unify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type K<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ignoreSymbol: any
 declare const typeSymbol: any
 declare const unifySymbol: any
@@ -18,7 +30,7 @@ type typeSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 =
 type unifySymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MaybeReturn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MaybeReturn(F) {
+export function MaybeReturn(F): any {
   const m1 = matches<() => Hole<"R">>(F)
   if (m1) {
     return m1.R
@@ -31,7 +43,7 @@ export function MaybeReturn(F) {
 
 // ✓ Keys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Keys(X: [ any, any ]) {
+export function Keys(X: [ any, any ]): any {
   const m1 = matches<[ Hole<"A">, Hole<"Ignore"> ]>(X)
   if (m1) {
     return Exclude(keyof(m1.A), m1.Ignore)
@@ -45,7 +57,7 @@ export function Keys(X: [ any, any ]) {
 
 // ✓ Values: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Values(X: [ any, any ]) {
+export function Values(X: [ any, any ]): any {
   const m1 = matches<[ Hole<"A">, Hole<"Ignore"> ]>(X)
   if (m1) {
     const m2 = matches<Hole<"K">>(Keys([m1.A, m1.Ignore]))
@@ -68,7 +80,7 @@ export function Values(X: [ any, any ]) {
 
 // ✓ Ignore: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Ignore(X) {
+export function Ignore(X): any {
   const m1 = matches<{ [ignoreSymbol]?: Hole<"Obj">; }>(X)
   if (m1) {
     return keyof(NonNullable(m1.Obj))
@@ -82,7 +94,7 @@ export function Ignore(X) {
 
 // ✓ ExtractTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypes(X) {
+export function ExtractTypes(X): any {
   const m1 = matches<{ [typeSymbol]?: Hole<"_Type">; [unifySymbol]?: Hole<"_Unify">; }>(X)
   if (m1) {
     return [NonNullable(m1._Unify), Ignore(X)]
@@ -98,7 +110,7 @@ export function ExtractTypes(X) {
 
 // ✓ FilterIn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FilterIn(A) {
+export function FilterIn(A): any {
   if (matches<any>(A)) {
     if (typeSymbol in A) {
       return A
@@ -113,7 +125,7 @@ export function FilterIn(A) {
 
 // ✓ FilterInUnmatched: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FilterInUnmatched(A, K) {
+export function FilterInUnmatched(A, K): any {
   if (matches<any>(A)) {
     if (typeSymbol in A) {
       const m1 = matches<{ [unifySymbol]?: Hole<"U">; }>(A)
@@ -142,7 +154,7 @@ export function FilterInUnmatched(A, K) {
 
 // ✓ FilterOut: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FilterOut(A) {
+export function FilterOut(A): any {
   if (matches<any>(A)) {
     if (typeSymbol in A) {
       return never
@@ -157,7 +169,7 @@ export function FilterOut(A) {
 
 // ✓ Unify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Unify(A) {
+export function Unify(A): any {
   const m1 = matches<Hole<"Z">>(Values(ExtractTypes(merge(FilterIn(A), { [typeSymbol]: A }))))
   if (m1) {
     return m1.Z | FilterInUnmatched(A, Keys(ExtractTypes(merge(FilterIn(A), { [typeSymbol]: A })))) | FilterOut(A)

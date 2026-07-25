@@ -18,14 +18,17 @@ type HomomorphicPick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any,
 type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetOptional(BaseType, Keys: keyof typeof BaseType) {
-  return (matches<(...arguments_: never) => any>(BaseType) ? fnType([Parameters(BaseType)], ReturnType(BaseType)) : unknown) & _SetOptional(BaseType, Keys)
+/**
+ * @param {keyof typeof BaseType} Keys
+ */
+export function SetOptional(BaseType, Keys): any {
+  return (matches<(...arguments_: never) => any>(BaseType) ? fnType([...Parameters(BaseType)], ReturnType(BaseType)) : unknown) & _SetOptional(BaseType, Keys)
 }
 /* compiles to:
  * export type SetOptional<BaseType, Keys extends keyof BaseType> =
  *   & (
  *       BaseType extends (...arguments_: never) => any
- *         ? (a0: Parameters<BaseType>) => ReturnType<BaseType>
+ *         ? (...a0: Parameters<BaseType>) => ReturnType<BaseType>
  *         : unknown
  *     )
  *   & _SetOptional<BaseType, Keys>
@@ -33,9 +36,12 @@ export function SetOptional(BaseType, Keys: keyof typeof BaseType) {
 
 // ✓ _SetOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SetOptional(BaseType, Keys: keyof typeof BaseType) {
+/**
+ * @param {keyof typeof BaseType} Keys
+ */
+export function _SetOptional(BaseType, Keys): any {
   if (matches<unknown>(BaseType)) {
-    return Simplify(Except(BaseType, Keys) & Partial(HomomorphicPick(BaseType, Keys)))
+    return Simplify(merge(Except(BaseType, Keys), Partial(HomomorphicPick(BaseType, Keys))))
   }
   return never
 }

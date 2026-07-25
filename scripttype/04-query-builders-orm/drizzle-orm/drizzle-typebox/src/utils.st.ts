@@ -20,7 +20,7 @@ type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any,
 type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNever(T) {
+export function IsNever(T): any {
   if (matches<[ never ]>([T])) {
     return true
   }
@@ -32,7 +32,7 @@ export function IsNever(T) {
 
 // ✓ IsEnumDefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsEnumDefined(TEnum: string[] | undefined) {
+export function IsEnumDefined(TEnum: string[] | undefined): any {
   if (matches<typeof TEnum>([string, ...arrayOf(string)])) {
     return false
   }
@@ -49,7 +49,7 @@ export function IsEnumDefined(TEnum: string[] | undefined) {
 // ✗ ColumnIsGeneratedAlwaysAs: does not compile yet
 //   Type '"_"' cannot be used to index type 'TColumn'.
 /* @scripttype preserveParamNames */
-export function ColumnIsGeneratedAlwaysAs(TColumn) {
+export function ColumnIsGeneratedAlwaysAs(TColumn): any {
   if (matches<Column>(TColumn)) {
     if (matches<'always'>(TColumn['_']['identity'])) {
       return true
@@ -72,7 +72,7 @@ export function ColumnIsGeneratedAlwaysAs(TColumn) {
 
 // ✓ GetSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetSelection(T: SelectedFieldsFlat<Column> | Table | View) {
+export function GetSelection(T: SelectedFieldsFlat<Column> | Table | View): any {
   if (matches<Table>(T)) {
     return T['_']['columns']
   }

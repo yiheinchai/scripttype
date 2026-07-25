@@ -9,7 +9,7 @@
  */
 // ✓ Result: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Result(A, E) {
+export function Result(A, E): any {
   return anyOf({ _tag: readonlyProp('Success'), value: readonlyProp(A) }, { _tag: readonlyProp('Failure'), error: readonlyProp(E) })
 }
 /* compiles to:
@@ -20,7 +20,7 @@ export function Result(A, E) {
 
 // ✓ JSDocResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JSDocResult(A, E) {
+export function JSDocResult(A, E): any {
   return Result(A, E)
 }
 /* compiles to:

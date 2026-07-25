@@ -7,20 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SetFieldTypeOptions } from '../../../../01-type-level-programming/type-fest/source/set-field-type.d.js'
 declare const ApplyDefaultOptions: any
 declare const DefaultSetFieldTypeOptions: any
 declare const SetFieldTypeOptions: any
 declare const Simplify: any
 type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DefaultSetFieldTypeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SetFieldTypeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetFieldType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetFieldType(BaseType, Keys: keyof typeof BaseType, NewType, Options: SetFieldTypeOptions = {}) {
+/**
+ * @param {keyof typeof BaseType} Keys
+ */
+export function SetFieldType(BaseType, Keys, NewType, Options: SetFieldTypeOptions = {}): any {
   return _SetFieldType(BaseType, Keys, NewType, ApplyDefaultOptions(SetFieldTypeOptions, DefaultSetFieldTypeOptions, Options))
 }
 /* compiles to:
@@ -40,12 +44,15 @@ export function SetFieldType(BaseType, Keys: keyof typeof BaseType, NewType, Opt
 
 // ✓ _SetFieldType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SetFieldType(BaseType, Keys: keyof typeof BaseType, NewType, Options: Required<SetFieldTypeOptions>) {
+/**
+ * @param {keyof typeof BaseType} Keys
+ */
+export function _SetFieldType(BaseType, Keys, NewType, Options: Required<SetFieldTypeOptions>): any {
   const out = emptyObject
   for (const P in keyof(BaseType)) {
     out[P] = matches<typeof Keys>(P) ? NewType : BaseType[P]
   }
-  return Simplify(out & (matches<false>(Options['preservePropertyModifiers']) ? Record(Keys, NewType) : unknown))
+  return Simplify(merge(out, matches<false>(Options['preservePropertyModifiers']) ? Record(Keys, NewType) : unknown))
 }
 /* compiles to:
  * export type _SetFieldType<

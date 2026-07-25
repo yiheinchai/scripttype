@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AfterResponseHandler, BaseMacro, DocumentDecoration, ErrorHandler, MapResponse, MaybeArray, MaybePromise, OptionalHandler, Prettify, RouteSchema, SingletonBase, TransformHandler } from '../../../../../02-inference-at-scale/elysia/src/types.js'
 declare const AfterResponseHandler: any
 declare const BaseMacro: any
 declare const DocumentDecoration: any
@@ -24,23 +26,11 @@ declare const RouteSchema: any
 declare const SingletonBase: any
 declare const TransformHandler: any
 declare const TypedWebSocketHandler: any
-type AfterResponseHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseMacro<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DocumentDecoration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ElysiaWS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingletonBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TransformHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TypedWebSocketHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FlattenResponse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FlattenResponse(Response: RouteSchema['response']) {
+export function FlattenResponse(Response: RouteSchema['response']): any {
   if (matches<typeof Response>({})) {
     return unknown
   }
@@ -53,7 +43,7 @@ export function FlattenResponse(Response: RouteSchema['response']) {
 
 // ✓ WSParseHandler: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WSParseHandler(Route: RouteSchema, Context = {}) {
+export function WSParseHandler(Route: RouteSchema, Context = {}): any {
   return fnType([Prettify(ElysiaWS(Context, merge(Omit(Route, 'body'), { body: unknown }))), unknown], MaybePromise(anyOf(Route['body'], voidType(), Undefined)))
 }
 /* compiles to:
@@ -66,7 +56,7 @@ export function WSParseHandler(Route: RouteSchema, Context = {}) {
 // ✗ WSLocalHook: does not compile yet
 //   Property 'tags' does not exist on type 'DocumentDecoration'.
 /* @scripttype preserveParamNames */
-export function WSLocalHook(Input: BaseMacro, Schema: RouteSchema, Singleton: SingletonBase) {
+export function WSLocalHook(Input: BaseMacro, Schema: RouteSchema, Singleton: SingletonBase): any {
   return merge(Prettify(Input), { detail: optional(DocumentDecoration), upgrade: optional(Record(string, unknown) | fnType([Context], unknown)), parse: optional(MaybeArray(WSParseHandler(Schema))), transform: optional(MaybeArray(TransformHandler(Schema, Singleton))), beforeHandle: optional(MaybeArray(OptionalHandler(Schema, Singleton))), afterHandle: optional(MaybeArray(OptionalHandler(Schema, Singleton))), mapResponse: optional(MaybeArray(MapResponse(Schema, Singleton))), afterResponse: optional(MaybeArray(AfterResponseHandler(Schema, Singleton))), error: optional(MaybeArray(ErrorHandler({}, Schema, Singleton))), tags: optional(DocumentDecoration['tags']) }, TypedWebSocketHandler(merge(Omit(Context(Schema, Singleton), 'body'), { body: never }), Schema))
 }
 /* compiles to:

@@ -7,22 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { HasDefault, IsAutoincrement, IsPrimaryKey, NotNull } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column-builder.js'
 declare const HasDefault: any
 declare const IsAutoincrement: any
 declare const IsPrimaryKey: any
 declare const NotNull: any
 declare const SingleStoreSerialBuilder: any
-type HasDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsAutoincrement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsPrimaryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NotNull<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStoreSerialBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreSerialBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreSerialBuilderInitial(TName: string) {
+export function SingleStoreSerialBuilderInitial(TName: string): any {
   return IsAutoincrement(IsPrimaryKey(NotNull(HasDefault(SingleStoreSerialBuilder({ name: TName, dataType: 'number', columnType: 'SingleStoreSerial', data: number, driverParam: number, enumValues: Undefined, generated: Undefined })))))
 }
 /* compiles to:

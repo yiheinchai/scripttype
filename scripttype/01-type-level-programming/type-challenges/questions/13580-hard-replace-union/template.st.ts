@@ -9,7 +9,7 @@
  */
 // ✓ UnionReplace: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionReplace(T, U: [ any, any ][]) {
+export function UnionReplace(T, U: [ any, any ][]): any {
   return any
 }
 /* compiles to:

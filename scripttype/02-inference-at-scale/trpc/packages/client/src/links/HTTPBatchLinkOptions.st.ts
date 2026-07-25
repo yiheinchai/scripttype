@@ -7,24 +7,31 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { NonEmptyArray } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/internals/types.js'
+import type { HTTPLinkBaseOptions } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/links/internals/httpUtils.js'
+import type { HTTPHeaders, Operation } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/links/types.js'
+import type { AnyClientTypes } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inferrable.js'
 declare const AnyClientTypes: any
 declare const HTTPHeaders: any
 declare const HTTPLinkBaseOptions: any
 declare const NonEmptyArray: any
 declare const Operation: any
-type AnyClientTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPHeaders<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type HTTPLinkBaseOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type NonEmptyArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Operation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ HTTPBatchLinkOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HTTPBatchLinkOptions(TRoot: AnyClientTypes) {
+export function HTTPBatchLinkOptions(TRoot: AnyClientTypes): any {
   return merge(HTTPLinkBaseOptions(TRoot), { maxURLLength: optional(number), headers: optional(HTTPHeaders | fnType([{ opList: NonEmptyArray(Operation) }], HTTPHeaders | t<Promise<HTTPHeaders>>())), maxItems: optional(number) })
 }
 /* compiles to:
- * export type HTTPBatchLinkOptions<TRoot extends AnyClientTypes> = HTTPLinkBaseOptions<TRoot> & { maxURLLength?: number; headers?: HTTPHeaders | ((a0: { opList: NonEmptyArray<Operation> }) => HTTPHeaders | Promise<HTTPHeaders>); maxItems?: number }
+ * export type HTTPBatchLinkOptions<TRoot extends AnyClientTypes> =
+ *   & HTTPLinkBaseOptions<TRoot>
+ *   & {
+ *       maxURLLength?: number
+ *       headers?: | HTTPHeaders
+ *       | ((a0: { opList: NonEmptyArray<Operation> }) => HTTPHeaders | Promise<HTTPHeaders>)
+ *       maxItems?: number
+ *     }
  */

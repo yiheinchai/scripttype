@@ -7,9 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GetColumnData } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
+import type { OptionalKeyOnly, RequiredKeyOnly } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/operations.js'
+import type { TableConfig } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
+import type { Simplify, Update } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+declare namespace m1 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Column: any
 declare const GetColumnData: any
 declare const OptionalKeyOnly: any
@@ -19,16 +27,10 @@ declare const Table: any
 declare const TableConfig: any
 declare const Update: any
 type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetColumnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalKeyOnly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RequiredKeyOnly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Update<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UpdateTableConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateTableConfig(T: TableConfig, TUpdate: Partial<TableConfig>) {
+export function UpdateTableConfig(T: TableConfig, TUpdate: Partial<TableConfig>): any {
   return Required(Update(T, TUpdate))
 }
 /* compiles to:
@@ -39,7 +41,7 @@ export function UpdateTableConfig(T: TableConfig, TUpdate: Partial<TableConfig>)
 
 // ✓ AnyTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyTable(TPartial: Partial<TableConfig>) {
+export function AnyTable(TPartial: Partial<TableConfig>): any {
   return Table(UpdateTableConfig(TableConfig, TPartial))
 }
 /* compiles to:
@@ -50,7 +52,7 @@ export function AnyTable(TPartial: Partial<TableConfig>) {
 
 // ✓ MapColumnName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapColumnName(TName: string, TColumn: Column, TDBColumNames: boolean) {
+export function MapColumnName(TName: string, TColumn: Column, TDBColumNames: boolean): any {
   if (matches<true>(TDBColumNames)) {
     return TColumn['_']['name']
   }
@@ -67,7 +69,10 @@ export function MapColumnName(TName: string, TColumn: Column, TDBColumNames: boo
 
 // ✓ InferModelFromColumns: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferModelFromColumns(TColumns: Record<string, Column>, TInferMode: 'select' | 'insert' = 'select', TConfig: { dbColumnNames: boolean; override?: boolean; } = { dbColumnNames: false, override: false }) {
+/**
+ * @param {Record<string, Column>} TColumns
+ */
+export function InferModelFromColumns(TColumns, TInferMode: 'select' | 'insert' = 'select', TConfig: { dbColumnNames: boolean; override?: boolean; } = { dbColumnNames: false, override: false }): any {
   const out = emptyObject
   for (const Key in keySet(keyof(TColumns) & string)) {
     out[RequiredKeyOnly(MapColumnName(Key, TColumns[Key], TConfig['dbColumnNames']), TColumns[Key])] = GetColumnData(TColumns[Key], 'query')
@@ -111,7 +116,7 @@ export function InferModelFromColumns(TColumns: Record<string, Column>, TInferMo
 
 // ✓ InferModel: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferModel(TTable: Table, TInferMode: 'select' | 'insert' = 'select', TConfig: { dbColumnNames: boolean; } = { dbColumnNames: false }) {
+export function InferModel(TTable: Table, TInferMode: 'select' | 'insert' = 'select', TConfig: { dbColumnNames: boolean; } = { dbColumnNames: false }): any {
   return InferModelFromColumns(TTable['_']['columns'], TInferMode, TConfig)
 }
 /* compiles to:
@@ -125,7 +130,7 @@ export function InferModel(TTable: Table, TInferMode: 'select' | 'insert' = 'sel
 
 // ✓ InferSelectModel: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferSelectModel(TTable: Table, TConfig: { dbColumnNames: boolean; } = { dbColumnNames: false }) {
+export function InferSelectModel(TTable: Table, TConfig: { dbColumnNames: boolean; } = { dbColumnNames: false }): any {
   return InferModelFromColumns(TTable['_']['columns'], 'select', TConfig)
 }
 /* compiles to:
@@ -138,7 +143,7 @@ export function InferSelectModel(TTable: Table, TConfig: { dbColumnNames: boolea
 
 // ✓ InferInsertModel: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferInsertModel(TTable: Table, TConfig: { dbColumnNames: boolean; override?: boolean; } = { dbColumnNames: false, override: false }) {
+export function InferInsertModel(TTable: Table, TConfig: { dbColumnNames: boolean; override?: boolean; } = { dbColumnNames: false, override: false }): any {
   return InferModelFromColumns(TTable['_']['columns'], 'insert', TConfig)
 }
 /* compiles to:
@@ -151,7 +156,7 @@ export function InferInsertModel(TTable: Table, TConfig: { dbColumnNames: boolea
 
 // ✓ InferEnum: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferEnum(T) {
+export function InferEnum(T): any {
   const m1 = matches<{ enumValues: readonly (Hole<"U">)[]; }>(T)
   if (m1) {
     return m1.U

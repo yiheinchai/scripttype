@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { PathsOptions } from '../../../../01-type-level-programming/type-fest/source/paths.d.js'
+declare namespace m1 {
+  export type TransformedKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type _TransformedKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const And: any
 declare const ApplyDefaultOptions: any
 declare const DefaultPathsOptions: any
@@ -32,13 +43,12 @@ type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type IsNumberLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MapsSetsOrArrays<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PathsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Sum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Paths: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Paths(T, Options: PathsOptions = {}) {
+export function Paths(T, Options: PathsOptions = {}): any {
   return _Paths(T, ApplyDefaultOptions(PathsOptions, DefaultPathsOptions, Options))
 }
 /* compiles to:
@@ -50,7 +60,7 @@ export function Paths(T, Options: PathsOptions = {}) {
 
 // ✓ _Paths: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Paths(T, Options: Required<PathsOptions>, CurrentDepth: number = 0) {
+export function _Paths(T, Options: Required<PathsOptions>, CurrentDepth: number = 0): any {
   if (matches<NonRecursiveType | Exclude<MapsSetsOrArrays, UnknownArray>>(T)) {
     return never
   }
@@ -76,7 +86,7 @@ export function _Paths(T, Options: Required<PathsOptions>, CurrentDepth: number 
 
 // ✓ InternalPaths: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InternalPaths__v1(T, Options, CurrentDepth, Key) {
+export function InternalPaths__v1(T, Options, CurrentDepth, Key): any {
   const m1 = matches<Hole<"TransformedKey", string | number>>(matches<true>(And(Options['bracketNotation'], IsNumberLike(Key))) ? `[${Key}]` : (matches<0>(CurrentDepth) ? (Key | ToString(Key)) : `.${Key | ToString(Key)}`))
   if (m1) {
     const m2 = matches<Hole<"Value">>(T[Key])
@@ -85,7 +95,7 @@ export function InternalPaths__v1(T, Options, CurrentDepth, Key) {
   }
   return never
 }
-export function InternalPaths(T, Options: Required<PathsOptions>, CurrentDepth: number) {
+export function InternalPaths(T, Options: Required<PathsOptions>, CurrentDepth: number): any {
   const out = emptyObject
   for (const Key in keyof(T)) {
     out[Key] = matches<string | number>(Key) ? (InternalPaths__v1(T, Options, CurrentDepth, Key)) : never

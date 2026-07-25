@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { URIS, URIS2, URIS3, URIS4, URItoKind, URItoKind2, URItoKind3, URItoKind4 } from '../../../../05-functional-effects-hkt/fp-ts/src/HKT.js'
 declare const URIS: any
 declare const URIS2: any
 declare const URIS3: any
@@ -18,17 +20,9 @@ declare const URItoKind: any
 declare const URItoKind2: any
 declare const URItoKind3: any
 declare const URItoKind4: any
-type URIS<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type URIS2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type URIS3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type URIS4<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type URItoKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type URItoKind2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type URItoKind3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type URItoKind4<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Kind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Kind(URI: URIS, A) {
+export function Kind(URI: URIS, A): any {
   if (matches<URIS>(URI)) {
     return URItoKind(A)[URI]
   }
@@ -40,7 +34,7 @@ export function Kind(URI: URIS, A) {
 
 // ✓ Kind2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Kind2(URI: URIS2, E, A) {
+export function Kind2(URI: URIS2, E, A): any {
   if (matches<URIS2>(URI)) {
     return URItoKind2(E, A)[URI]
   }
@@ -52,7 +46,7 @@ export function Kind2(URI: URIS2, E, A) {
 
 // ✓ Kind3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Kind3(URI: URIS3, R, E, A) {
+export function Kind3(URI: URIS3, R, E, A): any {
   if (matches<URIS3>(URI)) {
     return URItoKind3(R, E, A)[URI]
   }
@@ -65,7 +59,7 @@ export function Kind3(URI: URIS3, R, E, A) {
 
 // ✓ Kind4: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Kind4(URI: URIS4, S, R, E, A) {
+export function Kind4(URI: URIS4, S, R, E, A): any {
   if (matches<URIS4>(URI)) {
     return URItoKind4(S, R, E, A)[URI]
   }

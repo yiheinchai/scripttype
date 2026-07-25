@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GetColumnData } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
+import type { AnySingleStoreUpdateBase } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/query-builders/update.js'
+import type { AnySingleStoreQueryResultHKT, SingleStorePreparedQueryConfig, SingleStoreQueryResultHKT, SingleStoreQueryResultKind } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/session.js'
 declare const AnySingleStoreQueryResultHKT: any
 declare const AnySingleStoreUpdateBase: any
 declare const GetColumnData: any
@@ -21,20 +25,14 @@ declare const SingleStoreQueryResultHKT: any
 declare const SingleStoreQueryResultKind: any
 declare const SingleStoreTable: any
 declare const SingleStoreUpdateBase: any
-type AnySingleStoreQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type AnySingleStoreUpdateBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GetColumnData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreparedQueryHKTBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type PreparedQueryKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SQL<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStorePreparedQueryConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreQueryResultHKT<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreQueryResultKind<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SingleStoreUpdateBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PreparedQueryHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type PreparedQueryKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SingleStoreUpdateBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreUpdateSetSource: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreUpdateSetSource(TTable: SingleStoreTable) {
+export function SingleStoreUpdateSetSource(TTable: SingleStoreTable): any {
   const out = emptyObject
   for (const Key in keyof(TTable['$inferInsert'])) {
     out[Key] = optional(anyOf(GetColumnData(TTable['_']['columns'][Key], 'query'), SQL, Undefined))
@@ -42,44 +40,84 @@ export function SingleStoreUpdateSetSource(TTable: SingleStoreTable) {
   return merge(out, {})
 }
 /* compiles to:
- * export type SingleStoreUpdateSetSource<TTable extends SingleStoreTable> = { [Key in keyof TTable['$inferInsert']]?: GetColumnData<TTable['_']['columns'][Key], 'query'> | SQL | undefined } & {}
+ * export type SingleStoreUpdateSetSource<TTable extends SingleStoreTable> =
+ *   & {
+ *       [Key in keyof TTable['$inferInsert']]?: | GetColumnData<TTable['_']['columns'][Key], 'query'>
+ *       | SQL
+ *       | undefined
+ *     }
+ *   & {}
  */
 
 // ✓ SingleStoreUpdateWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreUpdateWithout(T: AnySingleStoreUpdateBase, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnySingleStoreUpdateBase} T
+ * @param {keyof typeof T & string} K
+ */
+export function SingleStoreUpdateWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
   return Omit(SingleStoreUpdateBase(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], TDynamic, anyOf(T['_']['excludedMethods'], K)), anyOf(T['_']['excludedMethods'], K))
 }
 /* compiles to:
- * export type SingleStoreUpdateWithout<T extends AnySingleStoreUpdateBase, TDynamic extends boolean, K extends keyof T & string> = TDynamic extends true ? T : Omit<SingleStoreUpdateBase<T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], TDynamic, T['_']['excludedMethods'] | K>, T['_']['excludedMethods'] | K>
+ * export type SingleStoreUpdateWithout<
+ *   T extends AnySingleStoreUpdateBase,
+ *   TDynamic extends boolean,
+ *   K extends keyof T & string
+ * > =
+ *   TDynamic extends true
+ *     ? T
+ *     : Omit<
+ *       SingleStoreUpdateBase<
+ *         T['_']['table'],
+ *         T['_']['queryResult'],
+ *         T['_']['preparedQueryHKT'],
+ *         TDynamic,
+ *         T['_']['excludedMethods'] | K
+ *       >,
+ *       T['_']['excludedMethods'] | K
+ *     >
  */
 
 // ✓ SingleStoreUpdatePrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreUpdatePrepare(T: AnySingleStoreUpdateBase) {
+export function SingleStoreUpdatePrepare(T: AnySingleStoreUpdateBase): any {
   return PreparedQueryKind(T['_']['preparedQueryHKT'], merge(SingleStorePreparedQueryConfig, { execute: SingleStoreQueryResultKind(T['_']['queryResult'], never), iterator: never }), true)
 }
 /* compiles to:
- * export type SingleStoreUpdatePrepare<T extends AnySingleStoreUpdateBase> = PreparedQueryKind<T['_']['preparedQueryHKT'], SingleStorePreparedQueryConfig & { execute: SingleStoreQueryResultKind<T['_']['queryResult'], never>; iterator: never }, true>
+ * export type SingleStoreUpdatePrepare<T extends AnySingleStoreUpdateBase> = PreparedQueryKind<
+ *   T['_']['preparedQueryHKT'],
+ *   & SingleStorePreparedQueryConfig
+ *   & { execute: SingleStoreQueryResultKind<T['_']['queryResult'], never>; iterator: never },
+ *   true
+ * >
  */
 
 // ✓ SingleStoreUpdateDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreUpdateDynamic(T: AnySingleStoreUpdateBase) {
+export function SingleStoreUpdateDynamic(T: AnySingleStoreUpdateBase): any {
   return SingleStoreUpdate(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'])
 }
 /* compiles to:
- * export type SingleStoreUpdateDynamic<T extends AnySingleStoreUpdateBase> = SingleStoreUpdate<T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT']>
+ * export type SingleStoreUpdateDynamic<T extends AnySingleStoreUpdateBase> = SingleStoreUpdate<
+ *   T['_']['table'],
+ *   T['_']['queryResult'],
+ *   T['_']['preparedQueryHKT']
+ * >
  */
 
 // ✓ SingleStoreUpdate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreUpdate(TTable: SingleStoreTable = SingleStoreTable, TQueryResult: SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase) {
+export function SingleStoreUpdate(TTable: SingleStoreTable = SingleStoreTable, TQueryResult: SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase): any {
   return SingleStoreUpdateBase(TTable, TQueryResult, TPreparedQueryHKT, true, never)
 }
 /* compiles to:
- * export type SingleStoreUpdate<TTable extends SingleStoreTable = SingleStoreTable, TQueryResult extends SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT, TPreparedQueryHKT extends PreparedQueryHKTBase = PreparedQueryHKTBase> = SingleStoreUpdateBase<TTable, TQueryResult, TPreparedQueryHKT, true, never>
+ * export type SingleStoreUpdate<
+ *   TTable extends SingleStoreTable = SingleStoreTable,
+ *   TQueryResult extends SingleStoreQueryResultHKT = AnySingleStoreQueryResultHKT,
+ *   TPreparedQueryHKT extends PreparedQueryHKTBase = PreparedQueryHKTBase
+ * > =
+ *   SingleStoreUpdateBase<TTable, TQueryResult, TPreparedQueryHKT, true, never>
  */

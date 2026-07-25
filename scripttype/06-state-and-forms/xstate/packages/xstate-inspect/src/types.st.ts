@@ -9,7 +9,7 @@
  */
 // ✓ MaybeLazy: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MaybeLazy(T) {
+export function MaybeLazy(T): any {
   return T | fnType([], T)
 }
 /* compiles to:

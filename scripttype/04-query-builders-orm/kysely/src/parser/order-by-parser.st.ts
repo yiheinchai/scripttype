@@ -7,22 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExpressionOrFactory } from '../../../../../04-query-builders-orm/kysely/src/parser/expression-parser.js'
+import type { OrderByDirection } from '../../../../../04-query-builders-orm/kysely/src/parser/order-by-parser.js'
+import type { ReferenceExpression, StringReference } from '../../../../../04-query-builders-orm/kysely/src/parser/reference-parser.js'
 declare const DynamicReferenceBuilder: any
 declare const ExpressionOrFactory: any
 declare const OrderByDirection: any
 declare const ReferenceExpression: any
 declare const StringReference: any
 type DynamicReferenceBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OrderByDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StringReference<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OrderByExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OrderByExpression(DB, TB: keyof typeof DB, O) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function OrderByExpression(DB, TB, O): any {
   return anyOf(StringReference(DB, TB), keyof(O) & string, ExpressionOrFactory(DB, TB, any), DynamicReferenceBuilder(any))
 }
 /* compiles to:
@@ -35,7 +38,10 @@ export function OrderByExpression(DB, TB: keyof typeof DB, O) {
 
 // ✓ DirectedOrderByStringReference: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DirectedOrderByStringReference(DB, TB: keyof typeof DB, O) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function DirectedOrderByStringReference(DB, TB, O): any {
   return `${anyOf(StringReference(DB, TB), keyof(O) & string)} ${OrderByDirection}`
 }
 /* compiles to:
@@ -44,7 +50,10 @@ export function DirectedOrderByStringReference(DB, TB: keyof typeof DB, O) {
 
 // ✓ UndirectedOrderByExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndirectedOrderByExpression(DB, TB: keyof typeof DB, O) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function UndirectedOrderByExpression(DB, TB, O): any {
   return anyOf(ReferenceExpression(DB, TB), keyof(O) & string)
 }
 /* compiles to:

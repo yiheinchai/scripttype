@@ -7,9 +7,30 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TypeLambda } from '../../../../../../05-functional-effects-hkt/effect/packages/effect/src/HKT.js'
+import type { Variance } from '../../../../../../05-functional-effects-hkt/effect/packages/effect/src/Utils.js'
+declare namespace m1 {
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m6 {
+  export type E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const A: any
 declare const Generator: any
 declare const K: any
@@ -22,24 +43,22 @@ type Generator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = 
 type K<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Kind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Self<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TypeLambda<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Variance<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Gen: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function Gen(F: TypeLambda) {
+export function Gen(F: TypeLambda): any {
   const m1 = matches<[ Variance<typeof F, Hole<"R">, any, any> ]>([K])
   const m2 = matches<[ Kind<typeof F, Hole<"R">, any, any, any> ]>([K])
   const m3 = matches<[ Variance<typeof F, any, Hole<"O">, any> ]>([K])
   const m4 = matches<[ Kind<typeof F, any, Hole<"O">, any, any> ]>([K])
   const m5 = matches<[ Variance<typeof F, any, any, Hole<"E">> ]>([K])
   const m6 = matches<[ Kind<typeof F, any, any, Hole<"E">, any> ]>([K])
-  return genericFnType(['Self', 'K extends Variance<F, any, any, any> | Kind<F, any, any, any, any>', 'A'], [anyOf([Self, fnType([Self], t<Generator<K, A, never>>())], [fnType([], t<Generator<K, A, never>>())])], Kind(F, m1 ? m1.R : (m2 ? m2.R : never), m3 ? m3.O : (m4 ? m4.O : never), m5 ? m5.E : (m6 ? m6.E : never), A))
+  return genericFnType(['Self', 'K extends Variance<F, any, any, any> | Kind<F, any, any, any, any>', 'A'], [...anyOf([Self, fnType([Self], t<Generator<K, A, never>>())], [fnType([], t<Generator<K, A, never>>())])], Kind(F, m1 ? m1.R : (m2 ? m2.R : never), m3 ? m3.O : (m4 ? m4.O : never), m5 ? m5.E : (m6 ? m6.E : never), A))
 }
 /* compiles to:
  * export type Gen<F extends TypeLambda> =
  *   <Self, K extends Variance<F, any, any, any> | Kind<F, any, any, any, any>, A>(
- *     a0: [Self, (a0: Self) => Generator<K, A, never>] | [() => Generator<K, A, never>]
+ *     ...a0: [Self, (a0: Self) => Generator<K, A, never>] | [() => Generator<K, A, never>]
  *   ) => Kind<
  *     F,
  *     [K] extends [Variance<F, infer R, any, any>] ? R

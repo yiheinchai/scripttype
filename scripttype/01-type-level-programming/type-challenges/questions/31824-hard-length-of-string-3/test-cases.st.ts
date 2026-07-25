@@ -10,6 +10,20 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Acc {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type N0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type N1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type N2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type N3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type N4<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type N5<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type N6<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Deced: any
 declare const Signum: any
 declare const t0: any
@@ -30,7 +44,7 @@ type t5<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8
 type t6<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Reped: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Reped(S: string, C: Signum) {
+export function Reped(S: string, C: Signum): any {
   let R = ''
   let c = C
   while (true) {
@@ -50,7 +64,7 @@ export function Reped(S: string, C: Signum) {
 
 // ✓ Signums: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Signums(N: string) {
+export function Signums(N: string): any {
   let Acc: any[] = []
   let n = N
   while (true) {
@@ -73,7 +87,7 @@ export function Signums(N: string) {
 
 // ✓ Gened: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Gened(N: string) {
+export function Gened(N: string): any {
   const m1 = matches<[ Hole<"N6", Signum>, Hole<"N5", Signum>, Hole<"N4", Signum>, Hole<"N3", Signum>, Hole<"N2", Signum>, Hole<"N1", Signum>, Hole<"N0", Signum> ]>(Signums(N))
   if (m1) {
     return `${''}${Reped(t6, m1.N6)}${Reped(t5, m1.N5)}${Reped(t4, m1.N4)}${Reped(t3, m1.N3)}${Reped(t2, m1.N2)}${Reped(t1, m1.N1)}${Reped(t0, m1.N0)}`

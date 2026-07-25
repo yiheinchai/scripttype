@@ -9,7 +9,7 @@
  */
 // ✓ OmitByType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OmitByType(T, U) {
+export function OmitByType(T, U): any {
   return any
 }
 /* compiles to:

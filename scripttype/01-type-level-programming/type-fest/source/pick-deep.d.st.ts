@@ -10,12 +10,23 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type ArrayIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RecordKeyInPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type SubPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type ArrayIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ObjectV<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type ObjectV<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ArrayIndex: any
 declare const BuildObject: any
 declare const IsNever: any
 declare const NonRecursiveType: any
 declare const ObjectValue: any
-declare const Paths: any
 declare const Simplify: any
 declare const SimplifyDeep: any
 declare const TupleOf: any
@@ -26,7 +37,6 @@ type BuildObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ObjectValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SimplifyDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TupleOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -34,7 +44,10 @@ type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = 
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PickDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickDeep(T, PathUnion: Paths<typeof T>) {
+/**
+ * @param {Paths<typeof T>} PathUnion
+ */
+export function PickDeep(T, PathUnion): any {
   if (matches<NonRecursiveType>(T)) {
     return never
   }
@@ -68,7 +81,7 @@ export function PickDeep(T, PathUnion: Paths<typeof T>) {
 
 // ✓ InternalPickDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InternalPickDeep(T, Path: string | number) {
+export function InternalPickDeep(T, Path: string | number): any {
   if (matches<NonRecursiveType>(T)) {
     return never
   }
@@ -90,7 +103,7 @@ export function InternalPickDeep(T, Path: string | number) {
 
 // ✓ PickDeepObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickDeepObject(RecordType: object, P: string | number) {
+export function PickDeepObject(RecordType: object, P: string | number): any {
   const m1 = matches<`${Hole<"RecordKeyInPath">}.${Hole<"SubPath">}`>(P)
   if (m1) {
     const m2 = matches<Hole<"ObjectV">>(ObjectValue(RecordType, m1.RecordKeyInPath))
@@ -130,7 +143,7 @@ export function PickDeepObject(RecordType: object, P: string | number) {
 
 // ✓ PickDeepArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickDeepArray(ArrayType: UnknownArray, P: string | number) {
+export function PickDeepArray(ArrayType: UnknownArray, P: string | number): any {
   const m1 = matches<`${Hole<"ArrayIndex", number>}.${Hole<"SubPath">}`>(P)
   if (m1) {
     if (matches<typeof m1.ArrayIndex>(number)) {

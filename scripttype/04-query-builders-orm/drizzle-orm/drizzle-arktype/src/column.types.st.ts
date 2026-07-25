@@ -16,15 +16,17 @@ declare namespace type {
 declare const Column: any
 declare const Json: any
 declare const Type: any
+declare const infer: any
 declare const type: any
 type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Json<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type infer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArktypeNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArktypeNullable(TSchema) {
-  return Type(type.infer(TSchema) | Null)
+export function ArktypeNullable(TSchema): any {
+  return Type(anyOf(t<type.infer<typeof TSchema>>(), Null))
 }
 /* compiles to:
  * export type ArktypeNullable<TSchema> = Type<type.infer<TSchema> | null>
@@ -32,8 +34,8 @@ export function ArktypeNullable(TSchema) {
 
 // ✓ ArktypeOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArktypeOptional(TSchema) {
-  return [Type(type.infer(TSchema)), '?']
+export function ArktypeOptional(TSchema): any {
+  return [Type(t<type.infer<typeof TSchema>>()), '?']
 }
 /* compiles to:
  * export type ArktypeOptional<TSchema> = [Type<type.infer<TSchema>>, '?']
@@ -41,7 +43,7 @@ export function ArktypeOptional(TSchema) {
 
 // ✓ GetArktypeType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetArktypeType(TColumn: Column) {
+export function GetArktypeType(TColumn: Column): any {
   if (matches<'PgJson' | 'PgJsonb' | 'MySqlJson' | 'SingleStoreJson' | 'SQLiteTextJson' | 'SQLiteBlobJson'>(TColumn['_']['columnType'])) {
     if (matches<(typeof TColumn)['_']['data']>(unknown)) {
       return Type(Json)
@@ -59,7 +61,7 @@ export function GetArktypeType(TColumn: Column) {
 
 // ✓ HandleSelectColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleSelectColumn(TSchema, TColumn: Column) {
+export function HandleSelectColumn(TSchema, TColumn: Column): any {
   if (matches<true>(TColumn['_']['notNull'])) {
     return TSchema
   }
@@ -72,7 +74,7 @@ export function HandleSelectColumn(TSchema, TColumn: Column) {
 
 // ✓ HandleInsertColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleInsertColumn(TSchema, TColumn: Column) {
+export function HandleInsertColumn(TSchema, TColumn: Column): any {
   if (matches<true>(TColumn['_']['notNull'])) {
     if (matches<true>(TColumn['_']['hasDefault'])) {
       return ArktypeOptional(TSchema)
@@ -90,7 +92,7 @@ export function HandleInsertColumn(TSchema, TColumn: Column) {
 
 // ✓ HandleUpdateColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleUpdateColumn(TSchema, TColumn: Column) {
+export function HandleUpdateColumn(TSchema, TColumn: Column): any {
   if (matches<true>(TColumn['_']['notNull'])) {
     return ArktypeOptional(TSchema)
   }
@@ -105,7 +107,7 @@ export function HandleUpdateColumn(TSchema, TColumn: Column) {
 
 // ✓ HandleColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleColumn(TType: 'select' | 'insert' | 'update', TColumn: Column) {
+export function HandleColumn(TType: 'select' | 'insert' | 'update', TColumn: Column): any {
   if (matches<'select'>(TType)) {
     return HandleSelectColumn(GetArktypeType(TColumn), TColumn)
   }

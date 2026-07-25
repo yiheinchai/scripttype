@@ -7,21 +7,27 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TypeId } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/unstable/workers/WorkerError.js'
 declare namespace Schema {
   export type Constraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type P<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const Constraint: any
 declare const Schema: any
 declare const TypeId: any
 type Constraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TypeId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Provides: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Provides(A) {
+export function Provides(A): any {
   const m1 = matches<{ readonly [TypeId]: { readonly provides: Hole<"P">; }; }>(A)
   if (m1) {
     return m1.P
@@ -35,7 +41,7 @@ export function Provides(A) {
 
 // ✓ Requires: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Requires(A) {
+export function Requires(A): any {
   const m1 = matches<{ readonly [TypeId]: { readonly requires: Hole<"R">; }; }>(A)
   if (m1) {
     return m1.R
@@ -49,7 +55,7 @@ export function Requires(A) {
 
 // ✓ ApplyServices: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ApplyServices(A, R) {
+export function ApplyServices(A, R): any {
   return Exclude(R, Provides(A)) | Requires(A)
 }
 /* compiles to:
@@ -58,7 +64,7 @@ export function ApplyServices(A, R) {
 
 // ✓ ErrorSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ErrorSchema(A) {
+export function ErrorSchema(A): any {
   const m1 = matches<{ readonly [TypeId]: { readonly error: Hole<"E">; }; }>(A)
   if (m1) {
     if (matches<Schema.Constraint>(m1.E)) {
@@ -77,7 +83,7 @@ export function ErrorSchema(A) {
 
 // ✓ Error: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Error(A) {
+export function Error(A): any {
   return ErrorSchema(A)['Type']
 }
 /* compiles to:
@@ -86,7 +92,7 @@ export function Error(A) {
 
 // ✓ ErrorServicesEncode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ErrorServicesEncode(A) {
+export function ErrorServicesEncode(A): any {
   return ErrorSchema(A)['EncodingServices']
 }
 /* compiles to:
@@ -95,7 +101,7 @@ export function ErrorServicesEncode(A) {
 
 // ✓ ErrorServicesDecode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ErrorServicesDecode(A) {
+export function ErrorServicesDecode(A): any {
   return ErrorSchema(A)['DecodingServices']
 }
 /* compiles to:

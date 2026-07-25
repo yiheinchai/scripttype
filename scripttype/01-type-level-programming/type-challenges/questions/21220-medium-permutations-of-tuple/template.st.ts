@@ -9,7 +9,7 @@
  */
 // ✓ PermutationsOfTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PermutationsOfTuple(T: unknown[]) {
+export function PermutationsOfTuple(T: unknown[]): any {
   return any
 }
 /* compiles to:

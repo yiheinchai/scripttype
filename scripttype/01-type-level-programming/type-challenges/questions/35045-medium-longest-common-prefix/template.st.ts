@@ -9,7 +9,7 @@
  */
 // ✓ LongestCommonPrefix: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LongestCommonPrefix(T: string[], P: string = '') {
+export function LongestCommonPrefix(T: string[], P: string = ''): any {
   return any
 }
 /* compiles to:

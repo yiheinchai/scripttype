@@ -7,9 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { MutationLike } from '../../../../../../../../02-inference-at-scale/trpc/packages/react-query/src/shared/polymorphism/mutationLike.js'
+import type { QueryLike } from '../../../../../../../../02-inference-at-scale/trpc/packages/react-query/src/shared/polymorphism/queryLike.js'
+import type { AnyRootTypes } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/rootConfig.js'
+import type { AnyRouter, RouterRecord } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
+declare namespace m1 {
+  export type $Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyMutationProcedure: any
 declare const AnyQueryProcedure: any
 declare const AnyRootTypes: any
@@ -19,14 +27,9 @@ declare const QueryLike: any
 declare const RouterRecord: any
 type AnyMutationProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AnyQueryProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRootTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MutationLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouterRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RouterLike: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouterLike(TRouter: AnyRouter) {
+export function RouterLike(TRouter: AnyRouter): any {
   return RouterLikeInner(TRouter['_def']['_config']['$types'], TRouter['_def']['record'])
 }
 /* compiles to:
@@ -38,7 +41,7 @@ export function RouterLike(TRouter: AnyRouter) {
 
 // ✓ RouterLikeInner: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouterLikeInner__v1(TRoot, TRecord, TKey) {
+export function RouterLikeInner__v1(TRoot, TRecord, TKey): any {
   const m1 = matches<Hole<"$Value">>(TRecord[TKey])
   if (m1) {
     if (matches<AnyQueryProcedure>(m1.$Value)) {
@@ -54,7 +57,10 @@ export function RouterLikeInner__v1(TRoot, TRecord, TKey) {
   }
   return never
 }
-export function RouterLikeInner(TRoot: AnyRootTypes, TRecord: RouterRecord) {
+/**
+ * @param {RouterRecord} TRecord
+ */
+export function RouterLikeInner(TRoot: AnyRootTypes, TRecord): any {
   const out = emptyObject
   for (const TKey in keyof(TRecord)) {
     out[TKey] = RouterLikeInner__v1(TRoot, TRecord, TKey)

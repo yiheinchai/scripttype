@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const PropertyKey: any
 declare const tag: any
 type Opaque<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -20,7 +23,7 @@ type Tagged<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any
 type tag<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TagContainer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TagContainer(Token) {
+export function TagContainer(Token): any {
   return { [tag]: readonlyProp(Token) }
 }
 /* compiles to:
@@ -29,7 +32,7 @@ export function TagContainer(Token) {
 
 // ✓ Tag: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Tag(Token: PropertyKey, TagMetadata) {
+export function Tag(Token: PropertyKey, TagMetadata): any {
   const out = emptyObject
   for (const K in keySet(Token)) {
     out[K] = TagMetadata
@@ -44,7 +47,7 @@ export function Tag(Token: PropertyKey, TagMetadata) {
 
 // ✓ Tagged: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Tagged(Type, TagName: PropertyKey, TagMetadata = never) {
+export function Tagged(Type, TagName: PropertyKey, TagMetadata = never): any {
   return Type & Tag(TagName, TagMetadata)
 }
 /* compiles to:
@@ -54,7 +57,11 @@ export function Tagged(Type, TagName: PropertyKey, TagMetadata = never) {
 
 // ✓ GetTagMetadata: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetTagMetadata(Type: Tag<typeof TagName, unknown>, TagName: PropertyKey) {
+/**
+ * @param {Tag<typeof TagName, unknown>} Type
+ * @param {PropertyKey} TagName
+ */
+export function GetTagMetadata(Type, TagName): any {
   return Type[t<typeof tag>()][TagName]
 }
 /* compiles to:
@@ -63,7 +70,7 @@ export function GetTagMetadata(Type: Tag<typeof TagName, unknown>, TagName: Prop
 
 // ✓ UnwrapTagged: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnwrapTagged(TaggedType: Tag<PropertyKey, any>) {
+export function UnwrapTagged(TaggedType: Tag<PropertyKey, any>): any {
   return RemoveAllTags(TaggedType)
 }
 /* compiles to:
@@ -72,14 +79,14 @@ export function UnwrapTagged(TaggedType: Tag<PropertyKey, any>) {
 
 // ✓ RemoveAllTags: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RemoveAllTags__v1(T, ThisTag) {
+export function RemoveAllTags__v1(T, ThisTag): any {
   const m1 = matches<Tagged<Hole<"Type">, typeof ThisTag, (typeof T)[typeof tag][typeof ThisTag]>>(T)
   if (m1) {
     return RemoveAllTags(m1.Type)
   }
   return never
 }
-export function RemoveAllTags(T) {
+export function RemoveAllTags(T): any {
   if (matches<Tag<PropertyKey, any>>(T)) {
     const out = emptyObject
     for (const ThisTag in keyof(T[t<typeof tag>()])) {
@@ -100,7 +107,7 @@ export function RemoveAllTags(T) {
 
 // ✓ Opaque: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Opaque(Type, Token = unknown) {
+export function Opaque(Type, Token = unknown): any {
   return Type & TagContainer(Token)
 }
 /* compiles to:
@@ -109,7 +116,7 @@ export function Opaque(Type, Token = unknown) {
 
 // ✓ UnwrapOpaque: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnwrapOpaque(OpaqueType: TagContainer<unknown>) {
+export function UnwrapOpaque(OpaqueType: TagContainer<unknown>): any {
   if (matches<Tag<PropertyKey, any>>(OpaqueType)) {
     return RemoveAllTags(OpaqueType)
   }

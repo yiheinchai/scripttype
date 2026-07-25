@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { CreateWSSContextFnOptions } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/adapters/ws.js'
+import type { Encoder } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/adapters/wsEncoder.js'
+import type { BaseHandlerOptions } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/http/types.js'
+import type { CreateContextCallback } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/rootConfig.js'
+import type { AnyRouter, inferRouterContext } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
+import type { MaybePromise } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/types.js'
 declare namespace ws {
   export type WebSocketServer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -20,20 +27,15 @@ declare const CreateWSSContextFnOptions: any
 declare const Encoder: any
 declare const IncomingMessage: any
 declare const MaybePromise: any
+declare const WebSocketServer: any
 declare const inferRouterContext: any
 declare const ws: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseHandlerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CreateContextCallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CreateWSSContextFnOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Encoder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IncomingMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferRouterContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type WebSocketServer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ws<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateWSSContextFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateWSSContextFn(TRouter: AnyRouter) {
+export function CreateWSSContextFn(TRouter: AnyRouter): any {
   return fnType([CreateWSSContextFnOptions], MaybePromise(inferRouterContext(TRouter)))
 }
 /* compiles to:
@@ -43,7 +45,7 @@ export function CreateWSSContextFn(TRouter: AnyRouter) {
 
 // ✓ WSConnectionHandlerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WSConnectionHandlerOptions(TRouter: AnyRouter) {
+export function WSConnectionHandlerOptions(TRouter: AnyRouter): any {
   return BaseHandlerOptions(TRouter, IncomingMessage) & CreateContextCallback(inferRouterContext(TRouter), CreateWSSContextFn(TRouter))
 }
 /* compiles to:
@@ -54,8 +56,8 @@ export function WSConnectionHandlerOptions(TRouter: AnyRouter) {
 
 // ✓ WSSHandlerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WSSHandlerOptions(TRouter: AnyRouter) {
-  return merge(WSConnectionHandlerOptions(TRouter), { wss: ws.WebSocketServer, prefix: optional(string), keepAlive: optional({ enabled: boolean, pingMs: optional(number), pongWaitMs: optional(number) }), dangerouslyDisablePong: optional(boolean), experimental_encoder: optional(Encoder) })
+export function WSSHandlerOptions(TRouter: AnyRouter): any {
+  return merge(WSConnectionHandlerOptions(TRouter), { wss: t<ws.WebSocketServer>(), prefix: optional(string), keepAlive: optional({ enabled: boolean, pingMs: optional(number), pongWaitMs: optional(number) }), dangerouslyDisablePong: optional(boolean), experimental_encoder: optional(Encoder) })
 }
 /* compiles to:
  * export type WSSHandlerOptions<TRouter extends AnyRouter> =

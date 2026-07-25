@@ -7,16 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Env } from '../../../../../../02-inference-at-scale/hono/src/types.js'
 declare const Context: any
 declare const Env: any
 type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Env<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ServeStaticOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ServeStaticOptions(E: Env = Env) {
+export function ServeStaticOptions(E: Env = Env): any {
   return { root: optional(string), path: optional(string), precompressed: optional(boolean), mimes: optional(Record(string, string)), rewriteRequestPath: optional(fnType([string], string)), onFound: optional(fnType([string, Context(E)], voidType() | t<Promise<void>>())), onNotFound: optional(fnType([string, Context(E)], voidType() | t<Promise<void>>())) }
 }
 /* compiles to:

@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FieldValues, InternalFieldName } from '../../../../../06-state-and-forms/react-hook-form/src/types/fields.js'
+import type { IsFlatObject, Noop } from '../../../../../06-state-and-forms/react-hook-form/src/types/utils.js'
 declare const FieldValues: any
 declare const FileList: any
 declare const HTMLElement: any
@@ -20,19 +23,15 @@ declare const HTMLTextAreaElement: any
 declare const InternalFieldName: any
 declare const IsFlatObject: any
 declare const Noop: any
-type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FileList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLInputElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLOptionsCollection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLSelectElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HTMLTextAreaElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InternalFieldName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsFlatObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Noop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FieldName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldName(TFieldValues: FieldValues) {
+export function FieldName(TFieldValues: FieldValues): any {
   if (matches<true>(IsFlatObject(TFieldValues))) {
     return Extract(keyof(TFieldValues), string)
   }
@@ -45,7 +44,7 @@ export function FieldName(TFieldValues: FieldValues) {
 
 // ✓ CustomElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CustomElement(TFieldValues: FieldValues) {
+export function CustomElement(TFieldValues: FieldValues): any {
   return merge(Partial(HTMLElement), { name: FieldName(TFieldValues), type: optional(string), value: optional(any), disabled: optional(boolean), checked: optional(boolean), options: optional(HTMLOptionsCollection), files: optional(FileList | Null), focus: optional(Noop) })
 }
 /* compiles to:
@@ -65,7 +64,7 @@ export function CustomElement(TFieldValues: FieldValues) {
 
 // ✓ FieldValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldValue(TFieldValues: FieldValues) {
+export function FieldValue(TFieldValues: FieldValues): any {
   return TFieldValues[InternalFieldName]
 }
 /* compiles to:
@@ -74,7 +73,7 @@ export function FieldValue(TFieldValues: FieldValues) {
 
 // ✓ FieldElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldElement(TFieldValues: FieldValues = FieldValues) {
+export function FieldElement(TFieldValues: FieldValues = FieldValues): any {
   return HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | CustomElement(TFieldValues)
 }
 /* compiles to:

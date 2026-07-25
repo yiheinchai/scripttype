@@ -7,21 +7,27 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TypeOf } from '../../../../../../../03-schema-and-type-level-parsers/zod/packages/zod/src/v3/types.js'
+import type { OmitKeys } from '../../../../../../../03-schema-and-type-level-parsers/zod/packages/zod/src/v4/core/util.js'
+declare namespace Array {
+  export type isArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare namespace util {
   export type OmitKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const OmitKeys: any
 declare const TypeOf: any
 declare const ZodType: any
 declare const util: any
-type TypeOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ZodType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type util<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ allKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function allKeys(T) {
+export function allKeys(T): any {
   if (matches<any>(T)) {
     return keyof(T)
   }
@@ -33,7 +39,7 @@ export function allKeys(T) {
 
 // ✓ inferFlattenedErrors: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferFlattenedErrors(T: ZodType<any, any, any>, U = string) {
+export function inferFlattenedErrors(T: ZodType<any, any, any>, U = string): any {
   return typeToFlattenedError(TypeOf(T), U)
 }
 /* compiles to:
@@ -45,7 +51,7 @@ export function inferFlattenedErrors(T: ZodType<any, any, any>, U = string) {
 
 // ✓ typeToFlattenedError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function typeToFlattenedError(T, U = string) {
+export function typeToFlattenedError(T, U = string): any {
   const out = emptyObject
   for (const P in keySet(allKeys(T))) {
     out[P] = optional(arrayOf(U))
@@ -61,7 +67,7 @@ export function typeToFlattenedError(T, U = string) {
 
 // ✓ recursiveZodFormattedError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function recursiveZodFormattedError(T) {
+export function recursiveZodFormattedError(T): any {
   if (matches<[ any, ...any[] ]>(T)) {
     const out = emptyObject
     for (const K in keyof(T)) {
@@ -91,7 +97,7 @@ export function recursiveZodFormattedError(T) {
 
 // ✓ ZodFormattedError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ZodFormattedError(T, U = string) {
+export function ZodFormattedError(T, U = string): any {
   return merge({ _errors: arrayOf(U) }, recursiveZodFormattedError(NonNullable(T)))
 }
 /* compiles to:
@@ -101,7 +107,7 @@ export function ZodFormattedError(T, U = string) {
 
 // ✓ inferFormattedError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferFormattedError(T: ZodType<any, any, any>, U = string) {
+export function inferFormattedError(T: ZodType<any, any, any>, U = string): any {
   return ZodFormattedError(TypeOf(T), U)
 }
 /* compiles to:
@@ -113,9 +119,9 @@ export function inferFormattedError(T: ZodType<any, any, any>, U = string) {
 
 // ✓ stripPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function stripPath(T: object) {
+export function stripPath(T: object): any {
   if (matches<any>(T)) {
-    return util.OmitKeys(T, 'path')
+    return t<util.OmitKeys<typeof T, "path">>()
   }
   return never
 }

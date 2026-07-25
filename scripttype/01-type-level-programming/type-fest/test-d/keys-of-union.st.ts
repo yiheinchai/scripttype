@@ -18,7 +18,10 @@ type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 
 type UnknownRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Assignability1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability1(T, _K: keyof typeof T) {
+/**
+ * @param {keyof typeof T} _K
+ */
+export function Assignability1(T, _K): any {
   return unknown
 }
 /* compiles to:
@@ -28,7 +31,7 @@ export function Assignability1(T, _K: keyof typeof T) {
 // ✗ Test1: does not compile yet
 //   Type 'keyof UnionToIntersection<T extends unknown ? Record<keyof T, never> : never>' does not satisfy the constraint 'keyof T'.   Type 'string | number | symbol
 /* @scripttype preserveParamNames */
-export function Test1(T) {
+export function Test1(T): any {
   return Assignability1(T, KeysOfUnion(T))
 }
 /* compiles to:
@@ -37,7 +40,10 @@ export function Test1(T) {
 
 // ✓ Assignability2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability2(T, _K: KeysOfUnion<typeof T>) {
+/**
+ * @param {KeysOfUnion<typeof T>} _K
+ */
+export function Assignability2(T, _K): any {
   return unknown
 }
 /* compiles to:
@@ -46,7 +52,7 @@ export function Assignability2(T, _K: KeysOfUnion<typeof T>) {
 
 // ✓ Test2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test2(T) {
+export function Test2(T): any {
   return Assignability2(T, keyof(T))
 }
 /* compiles to:
@@ -55,7 +61,7 @@ export function Test2(T) {
 
 // ✓ Assignability3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability3(_T, _K: PropertyKey) {
+export function Assignability3(_T, _K: PropertyKey): any {
   return unknown
 }
 /* compiles to:
@@ -64,7 +70,7 @@ export function Assignability3(_T, _K: PropertyKey) {
 
 // ✓ Test3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test3(T) {
+export function Test3(T): any {
   return Assignability3(T, KeysOfUnion(T))
 }
 /* compiles to:
@@ -73,7 +79,10 @@ export function Test3(T) {
 
 // ✓ Assignability4: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability4(T, _K: KeysOfUnion<typeof T>) {
+/**
+ * @param {KeysOfUnion<typeof T>} _K
+ */
+export function Assignability4(T, _K): any {
   return unknown
 }
 /* compiles to:
@@ -83,7 +92,7 @@ export function Assignability4(T, _K: KeysOfUnion<typeof T>) {
 // ✗ Test4: the ScriptType does not itself typecheck as TypeScript
 //   Test4.st.ts(3:28) TS2693: 'PropertyKey' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
-export function Test4(T) {
+export function Test4(T): any {
   return Assignability4(T, PropertyKey)
 }
 /* compiles to:
@@ -92,7 +101,11 @@ export function Test4(T) {
 
 // ✓ Assignability5: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability5(T: Record<string, unknown>, _K: KeysOfUnion<typeof T>) {
+/**
+ * @param {Record<string, unknown>} T
+ * @param {KeysOfUnion<typeof T>} _K
+ */
+export function Assignability5(T, _K): any {
   return unknown
 }
 /* compiles to:
@@ -101,7 +114,7 @@ export function Assignability5(T: Record<string, unknown>, _K: KeysOfUnion<typeo
 
 // ✓ Test5: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test5(T: Record<string, unknown>) {
+export function Test5(T: Record<string, unknown>): any {
   return Assignability5(T, keyof(T))
 }
 /* compiles to:
@@ -110,7 +123,11 @@ export function Test5(T: Record<string, unknown>) {
 
 // ✓ Assignability6: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability6(T: object, _K: KeysOfUnion<typeof T>) {
+/**
+ * @param {object} T
+ * @param {KeysOfUnion<typeof T>} _K
+ */
+export function Assignability6(T, _K): any {
   return unknown
 }
 /* compiles to:
@@ -119,7 +136,7 @@ export function Assignability6(T: object, _K: KeysOfUnion<typeof T>) {
 
 // ✓ Test6: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test6(T: object) {
+export function Test6(T: object): any {
   return Assignability6(T, keyof(T))
 }
 /* compiles to:
@@ -128,7 +145,11 @@ export function Test6(T: object) {
 
 // ✓ Assignability7: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability7(T: UnknownRecord, _K: KeysOfUnion<typeof T>) {
+/**
+ * @param {UnknownRecord} T
+ * @param {KeysOfUnion<typeof T>} _K
+ */
+export function Assignability7(T, _K): any {
   return unknown
 }
 /* compiles to:
@@ -137,7 +158,7 @@ export function Assignability7(T: UnknownRecord, _K: KeysOfUnion<typeof T>) {
 
 // ✓ Test7: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test7(T: UnknownRecord) {
+export function Test7(T: UnknownRecord): any {
   return Assignability7(T, keyof(T))
 }
 /* compiles to:
@@ -146,7 +167,11 @@ export function Test7(T: UnknownRecord) {
 
 // ✓ Assignability8: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability8(T: Record<string, unknown>, _K: keyof typeof T) {
+/**
+ * @param {Record<string, unknown>} T
+ * @param {keyof typeof T} _K
+ */
+export function Assignability8(T, _K): any {
   return unknown
 }
 /* compiles to:
@@ -156,7 +181,7 @@ export function Assignability8(T: Record<string, unknown>, _K: keyof typeof T) {
 // ✗ Test8: does not compile yet
 //   Type 'keyof UnionToIntersection<T extends unknown ? Record<keyof T, never> : never>' does not satisfy the constraint 'keyof T'.   Type 'string | number | symbol
 /* @scripttype preserveParamNames */
-export function Test8(T: Record<string, unknown>) {
+export function Test8(T: Record<string, unknown>): any {
   return Assignability8(T, KeysOfUnion(T))
 }
 /* compiles to:
@@ -165,7 +190,11 @@ export function Test8(T: Record<string, unknown>) {
 
 // ✓ Assignability9: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability9(T: object, _K: keyof typeof T) {
+/**
+ * @param {object} T
+ * @param {keyof typeof T} _K
+ */
+export function Assignability9(T, _K): any {
   return unknown
 }
 /* compiles to:
@@ -175,7 +204,7 @@ export function Assignability9(T: object, _K: keyof typeof T) {
 // ✗ Test9: does not compile yet
 //   Type 'keyof UnionToIntersection<T extends unknown ? Record<keyof T, never> : never>' does not satisfy the constraint 'keyof T'.   Type 'string | number | symbol
 /* @scripttype preserveParamNames */
-export function Test9(T: object) {
+export function Test9(T: object): any {
   return Assignability9(T, KeysOfUnion(T))
 }
 /* compiles to:

@@ -7,13 +7,31 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TAssign } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/system/memory/assign.js'
+import type { TEvaluateIntersect, TEvaluateTemplateLiteral } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TInstantiateType, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TMappedVariants } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/mapped/mapped_variants.js'
+import type { TIdentifier } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/identifier.js'
+import type { TLiteral } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare namespace Memory {
   export type TAssign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Memory: any
+declare const TAssign: any
 declare const TEvaluateIntersect: any
 declare const TEvaluateTemplateLiteral: any
 declare const TIdentifier: any
@@ -26,27 +44,18 @@ declare const TSchema: any
 declare const TState: any
 declare const TTemplateLiteral: any
 type Memory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TIdentifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TMappedVariants<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCanonicalAs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCanonicalAs__v1(InstantiatedAs) {
+export function TCanonicalAs__v1(InstantiatedAs): any {
   const m1 = matches<TTemplateLiteral<Hole<"Pattern", string>>>(InstantiatedAs)
   if (m1) {
     return TEvaluateTemplateLiteral(m1.Pattern)
   }
   return InstantiatedAs
 }
-export function TCanonicalAs(InstantiatedAs: TSchema, Result: TSchema = TCanonicalAs__v1(InstantiatedAs)) {
+export function TCanonicalAs(InstantiatedAs: TSchema, Result: TSchema = TCanonicalAs__v1(InstantiatedAs)): any {
   return Result
 }
 /* compiles to:
@@ -63,27 +72,18 @@ export function TCanonicalAs(InstantiatedAs: TSchema, Result: TSchema = TCanonic
 
 // ✓ TMappedVariant: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedVariant__v1(Identifier, Variant) {
-  const out = emptyObject
-  for (const _ in keySet(Identifier['name'])) {
-    out[_] = Variant
-  }
-  return out
-}
-
-export function TMappedVariant__v2(CanonicalAs, InstantiatedProperty) {
+export function TMappedVariant__v1(CanonicalAs, InstantiatedProperty): any {
   const out = emptyObject
   for (const _ in keySet(CanonicalAs['const'])) {
     out[_] = InstantiatedProperty
   }
   return out
 }
-export function TMappedVariant(Context: TProperties, State: TState, Identifier: TIdentifier, Variant: TSchema, As: TSchema, Property: TSchema, VariantContext: TProperties = Memory.TAssign(Context, TMappedVariant__v1(Identifier, Variant)), InstantiatedAs: TSchema = TInstantiateType(VariantContext, State, As), CanonicalAs: TSchema = TCanonicalAs(InstantiatedAs), InstantiatedProperty: TSchema = TInstantiateType(VariantContext, State, Property), Result: TProperties = matches<TLiteral<string | number>>(CanonicalAs) ? TMappedVariant__v2(CanonicalAs, InstantiatedProperty) : {}) {
+export function TMappedVariant(Context: TProperties, State: TState, Identifier: TIdentifier, Variant: TSchema, As: TSchema, Property: TSchema, VariantContext: TProperties = t<Memory.TAssign<typeof Context, { [_ in (typeof Identifier)['name']]: typeof Variant; }>>(), InstantiatedAs: TSchema = TInstantiateType(VariantContext, State, As), CanonicalAs: TSchema = TCanonicalAs(InstantiatedAs), InstantiatedProperty: TSchema = TInstantiateType(VariantContext, State, Property), Result: TProperties = matches<TLiteral<string | number>>(CanonicalAs) ? TMappedVariant__v1(CanonicalAs, InstantiatedProperty) : {}): any {
   return Result
 }
 /* compiles to:
- * export type TMappedVariant__v1<Identifier, Variant> = { [_ in Identifier['name']]: Variant }
- * export type TMappedVariant__v2<CanonicalAs, InstantiatedProperty> = {
+ * export type TMappedVariant__v1<CanonicalAs, InstantiatedProperty> = {
  *   [_ in CanonicalAs['const']]: InstantiatedProperty
  * }
  * export type TMappedVariant<
@@ -93,18 +93,18 @@ export function TMappedVariant(Context: TProperties, State: TState, Identifier: 
  *   Variant extends TSchema,
  *   As extends TSchema,
  *   Property extends TSchema,
- *   VariantContext extends TProperties = Memory.TAssign<Context, TMappedVariant__v1<Identifier, Variant>>,
+ *   VariantContext extends TProperties = Memory.TAssign<Context, { [_ in (Identifier)['name']]: Variant; }>,
  *   InstantiatedAs extends TSchema = TInstantiateType<VariantContext, State, As>,
  *   CanonicalAs extends TSchema = TCanonicalAs<InstantiatedAs>,
  *   InstantiatedProperty extends TSchema = TInstantiateType<VariantContext, State, Property>,
- *   Result extends TProperties = CanonicalAs extends TLiteral<string | number> ? TMappedVariant__v2<CanonicalAs, InstantiatedProperty> : {}
+ *   Result extends TProperties = CanonicalAs extends TLiteral<string | number> ? TMappedVariant__v1<CanonicalAs, InstantiatedProperty> : {}
  * > =
  *   Result
  */
 
 // ✓ TMappedProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedProperties(Context: TProperties, State: TState, Identifier: TIdentifier, Variants: TSchema[], As: TSchema, Property: TSchema) {
+export function TMappedProperties(Context: TProperties, State: TState, Identifier: TIdentifier, Variants: TSchema[], As: TSchema, Property: TSchema): any {
   let Result: any[] = []
   let variants = Variants
   while (true) {
@@ -151,7 +151,7 @@ export function TMappedProperties(Context: TProperties, State: TState, Identifie
 
 // ✓ TReduceProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TReduceProperties(Properties: TProperties[]) {
+export function TReduceProperties(Properties: TProperties[]): any {
   let Result: any[] = []
   let properties = Properties
   while (true) {
@@ -177,7 +177,7 @@ export function TReduceProperties(Properties: TProperties[]) {
 
 // ✓ TMappedOperation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedOperation(Context: TProperties, State: TState, Identifier: TIdentifier, Type: TSchema, As: TSchema, Property: TSchema, Variants: TSchema[] = TMappedVariants(Type), MappedProperties: TProperties[] = TMappedProperties(Context, State, Identifier, Variants, As, Property), MappedObjects: TSchema[] = TReduceProperties(MappedProperties), Result: TSchema = TEvaluateIntersect(MappedObjects)) {
+export function TMappedOperation(Context: TProperties, State: TState, Identifier: TIdentifier, Type: TSchema, As: TSchema, Property: TSchema, Variants: TSchema[] = TMappedVariants(Type), MappedProperties: TProperties[] = TMappedProperties(Context, State, Identifier, Variants, As, Property), MappedObjects: TSchema[] = TReduceProperties(MappedProperties), Result: TSchema = TEvaluateIntersect(MappedObjects)): any {
   return Result
 }
 /* compiles to:

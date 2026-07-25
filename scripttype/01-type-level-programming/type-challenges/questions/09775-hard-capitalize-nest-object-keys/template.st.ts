@@ -9,7 +9,7 @@
  */
 // ✓ CapitalizeNestObjectKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CapitalizeNestObjectKeys(T) {
+export function CapitalizeNestObjectKeys(T): any {
   return any
 }
 /* compiles to:

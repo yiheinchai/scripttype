@@ -9,7 +9,7 @@
  */
 // ✓ ContextualTests: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ContextualTests(ctx = unknown) {
+export function ContextualTests(ctx = unknown): any {
   return fnType([fnType([string, fnType([ctx], voidType())], voidType())], voidType())
 }
 /* compiles to:

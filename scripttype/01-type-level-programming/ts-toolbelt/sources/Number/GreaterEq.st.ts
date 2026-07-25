@@ -7,22 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Equals } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Equals.js'
+import type { Or } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Boolean/Or.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { _Greater } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Number/Greater.js'
 declare const Equals: any
 declare const Iteration: any
 declare const IterationOf: any
 declare const Or: any
 declare const _Greater: any
-type Equals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _Greater<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ _GreaterEq: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _GreaterEq(N1: Iteration, N2: Iteration) {
+export function _GreaterEq(N1: Iteration, N2: Iteration): any {
   return Or(Equals(N1, N2), _Greater(N1, N2))
 }
 /* compiles to:
@@ -34,7 +35,7 @@ export function _GreaterEq(N1: Iteration, N2: Iteration) {
 
 // ✓ GreaterEq: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GreaterEq(N1: number, N2: number) {
+export function GreaterEq(N1: number, N2: number): any {
   if (matches<unknown>(N1)) {
     if (matches<unknown>(N2)) {
       return _GreaterEq(IterationOf(N1), IterationOf(N2))

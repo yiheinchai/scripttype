@@ -9,7 +9,7 @@
  */
 // ✓ CartesianProduct: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CartesianProduct(T, U) {
+export function CartesianProduct(T, U): any {
   return any
 }
 /* compiles to:

@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExtendsStrictOptions } from '../../../../01-type-level-programming/type-fest/source/extends-strict.d.js'
 declare const And: any
 declare const ApplyDefaultOptions: any
 declare const DefaultExtendsStrictOptions: any
@@ -22,7 +24,6 @@ declare const OrAll: any
 type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DefaultExtendsStrictOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtendsStrictOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -30,7 +31,7 @@ type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8
 type OrAll<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtendsStrict: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtendsStrict(Left, Right, Options: ExtendsStrictOptions = {}) {
+export function ExtendsStrict(Left, Right, Options: ExtendsStrictOptions = {}): any {
   return _ExtendsStrict(Left, Right, ApplyDefaultOptions(ExtendsStrictOptions, DefaultExtendsStrictOptions, Options))
 }
 /* compiles to:
@@ -43,7 +44,7 @@ export function ExtendsStrict(Left, Right, Options: ExtendsStrictOptions = {}) {
 
 // ✓ _ExtendsStrict: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ExtendsStrict(Left, Right, Options: Required<ExtendsStrictOptions>) {
+export function _ExtendsStrict(Left, Right, Options: Required<ExtendsStrictOptions>): any {
   if (matches<true>(And(IsAny(Left), Options['strictAny']))) {
     return Or(IsAny(Right), IsUnknown(Right))
   }

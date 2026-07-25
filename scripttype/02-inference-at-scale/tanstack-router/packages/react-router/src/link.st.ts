@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ActiveLinkOptionProps, CreateLinkProps, LinkPropsChildren } from '../../../../../../02-inference-at-scale/tanstack-router/packages/react-router/src/link.js'
+import type { LinkOptions } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/link.js'
+import type { AnyRouter, RegisteredRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
 declare namespace React {
   export type ComponentPropsWithoutRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type ComponentRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -20,35 +24,39 @@ declare namespace React {
 }
 declare const ActiveLinkOptionProps: any
 declare const AnyRouter: any
+declare const ComponentPropsWithoutRef: any
+declare const ComponentRef: any
 declare const ComponentType: any
 declare const CreateLinkProps: any
+declare const IntrinsicElements: any
+declare const JSX: any
 declare const LinkOptions: any
 declare const LinkPropsChildren: any
 declare const React: any
+declare const ReactElement: any
+declare const RefAttributes: any
 declare const RegisteredRouter: any
-declare const RoutePaths: any
 declare const ValidateLinkOptions: any
 declare const ValidateLinkOptionsArray: any
-type ActiveLinkOptionProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComponentPropsWithoutRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ComponentRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ComponentType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CreateLinkProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LinkOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LinkPropsChildren<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IntrinsicElements<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type JSX<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type React<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RoutePaths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReactElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RefAttributes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidateLinkOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidateLinkOptionsArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ UseLinkReactProps: the ScriptType does not itself typecheck as TypeScript
-//   UseLinkReactProps.st.ts(3:31) TS2713: Cannot access 'JSX.IntrinsicElements' because 'JSX' is a type, but not a namespace. Did you mean to retrieve the type of t
+//   UseLinkReactProps.st.ts(3:28) TS2713: Cannot access 'JSX.IntrinsicElements' because 'JSX' is a type, but not a namespace. Did you mean to retrieve the type of t
 /* @scripttype preserveParamNames */
-export function UseLinkReactProps(TComp) {
-  if (TComp in React.JSX.IntrinsicElements) {
-    return React.JSX.IntrinsicElements[TComp]
+export function UseLinkReactProps(TComp): any {
+  if (TComp in t<React.JSX.IntrinsicElements>()) {
+    return t<React.JSX.IntrinsicElements>()[TComp]
   }
   if (matches<React.ComponentType<any>>(TComp)) {
-    return React.ComponentPropsWithoutRef(TComp) & React.RefAttributes(React.ComponentRef(TComp))
+    return t<React.ComponentPropsWithoutRef<typeof TComp>>() & t<React.RefAttributes<React.ComponentRef<typeof TComp>>>()
   }
   return never
 }
@@ -62,7 +70,12 @@ export function UseLinkReactProps(TComp) {
 
 // ✓ UseLinkPropsOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseLinkPropsOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: RoutePaths<(typeof TRouter)['routeTree']> | string = string, TTo: string | undefined = '.', TMaskFrom: RoutePaths<(typeof TRouter)['routeTree']> | string = TFrom, TMaskTo: string = '.') {
+/**
+ * @param {AnyRouter} TRouter
+ * @param {RoutePaths<(typeof TRouter)['routeTree']> | string} TFrom
+ * @param {RoutePaths<(typeof TRouter)['routeTree']> | string} TMaskFrom
+ */
+export function UseLinkPropsOptions(TRouter = RegisteredRouter, TFrom = string, TTo: string | undefined = '.', TMaskFrom = TFrom, TMaskTo: string = '.'): any {
   return ActiveLinkOptions('a', TRouter, TFrom, TTo, TMaskFrom, TMaskTo) & UseLinkReactProps('a')
 }
 /* compiles to:
@@ -78,7 +91,7 @@ export function UseLinkPropsOptions(TRouter: AnyRouter = RegisteredRouter, TFrom
 
 // ✓ ActiveLinkOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ActiveLinkOptions(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.') {
+export function ActiveLinkOptions(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.'): any {
   return LinkOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo) & ActiveLinkOptionProps(TComp)
 }
 /* compiles to:
@@ -95,7 +108,7 @@ export function ActiveLinkOptions(TComp = 'a', TRouter: AnyRouter = RegisteredRo
 
 // ✓ ActiveLinkProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ActiveLinkProps(TComp) {
+export function ActiveLinkProps(TComp): any {
   return Partial(merge(LinkComponentReactProps(TComp), indexRecord(`data-${string}`, unknown)))
 }
 /* compiles to:
@@ -106,7 +119,7 @@ export function ActiveLinkProps(TComp) {
 
 // ✓ LinkProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.') {
+export function LinkProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.'): any {
   return ActiveLinkOptions(TComp, TRouter, TFrom, TTo, TMaskFrom, TMaskTo) & LinkPropsChildren
 }
 /* compiles to:
@@ -123,7 +136,7 @@ export function LinkProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TF
 
 // ✓ LinkComponentReactProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkComponentReactProps(TComp) {
+export function LinkComponentReactProps(TComp): any {
   return Omit(UseLinkReactProps(TComp), keyof(CreateLinkProps))
 }
 /* compiles to:
@@ -135,7 +148,7 @@ export function LinkComponentReactProps(TComp) {
 
 // ✓ LinkComponentProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkComponentProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.') {
+export function LinkComponentProps(TComp = 'a', TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = '.', TMaskFrom: string = TFrom, TMaskTo: string = '.'): any {
   return LinkComponentReactProps(TComp) & LinkProps(TComp, TRouter, TFrom, TTo, TMaskFrom, TMaskTo)
 }
 /* compiles to:
@@ -152,8 +165,8 @@ export function LinkComponentProps(TComp = 'a', TRouter: AnyRouter = RegisteredR
 
 // ✓ LinkComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkComponent(TComp, TDefaultFrom: string = string) {
-  return genericFnType(['TRouter extends AnyRouter = RegisteredRouter', 'const TFrom extends string = TDefaultFrom', 'const TTo extends string | undefined = undefined', 'const TMaskFrom extends string = TFrom', 'const TMaskTo extends string = \'\''], [LinkComponentProps(TComp, TRouter, TFrom, TTo, TMaskFrom, TMaskTo)], React.ReactElement)
+export function LinkComponent(TComp, TDefaultFrom: string = string): any {
+  return genericFnType(['TRouter extends AnyRouter = RegisteredRouter', 'const TFrom extends string = TDefaultFrom', 'const TTo extends string | undefined = undefined', 'const TMaskFrom extends string = TFrom', 'const TMaskTo extends string = \'\''], [LinkComponentProps(TComp, TRouter, TFrom, TTo, TMaskFrom, TMaskTo)], t<React.ReactElement>())
 }
 /* compiles to:
  * export type LinkComponent<TComp, TDefaultFrom extends string = string> =
@@ -164,7 +177,7 @@ export function LinkComponent(TComp, TDefaultFrom: string = string) {
 
 // ✓ LinkOptionsFnOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkOptionsFnOptions(TOptions, TComp, TRouter: AnyRouter = RegisteredRouter) {
+export function LinkOptionsFnOptions(TOptions, TComp, TRouter: AnyRouter = RegisteredRouter): any {
   if (matches<ReadonlyArray<any>>(TOptions)) {
     return ValidateLinkOptionsArray(TRouter, TOptions, string, TComp)
   }
@@ -183,7 +196,7 @@ export function LinkOptionsFnOptions(TOptions, TComp, TRouter: AnyRouter = Regis
 
 // ✓ LinkOptionsFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LinkOptionsFn(TComp) {
+export function LinkOptionsFn(TComp): any {
   return genericFnType(['const TOptions', 'TRouter extends AnyRouter = RegisteredRouter'], [LinkOptionsFnOptions(TOptions, TComp, TRouter)], TOptions)
 }
 /* compiles to:

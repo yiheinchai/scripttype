@@ -9,7 +9,7 @@
  */
 // ✓ Optional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Optional(Value) {
+export function Optional(Value): any {
   return anyOf(Exclude(Value, Null), Undefined)
 }
 /* compiles to:

@@ -20,7 +20,7 @@ type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any,
 type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtractExactly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractExactly(Union, Match) {
+export function ExtractExactly(Union, Match): any {
   return IfNotAnyOrNever(Union, { ifNot: _ExtractExactly(Union, Match), ifAny: If(IsAny(Match), Union, never), ifNever: never })
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function ExtractExactly(Union, Match) {
 
 // ✓ _ExtractExactly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ExtractExactly(Union, Match) {
+export function _ExtractExactly(Union, Match): any {
   return IfNotAnyOrNever(Match, { ifNot: matches<unknown>(Union) ? (matches<[ never ]>([matches<unknown>(Match) ? If(IsEqual(Union, Match), true, never) : never]) ? never : Union) : never, ifAny: never, ifNever: never })
 }
 /* compiles to:

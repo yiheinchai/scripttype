@@ -7,38 +7,37 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { StandardSchemaWithJSONProps } from '../../../../../../../../03-schema-and-type-level-parsers/zod/packages/zod/src/v4/core/standard-schema.js'
 declare namespace core {
-  export type $ZodLooseShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-  export type $ZodShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
-declare const $ZodLooseShape: any
-declare const $ZodShape: any
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const StandardSchemaWithJSONProps: any
 declare const core: any
 declare const input: any
 declare const output: any
-type $ZodLooseShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type $ZodShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StandardSchemaWithJSONProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type core<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _LazyMethodsOf: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function _LazyMethodsOf__v1(T, K) {
+export function _LazyMethodsOf__v1(T, K): any {
   const m1 = matches<(...args: Hole<"A">) => Hole<"R">>(T[K])
   if (m1) {
-    return fnType([T, m1.A], m1.R)
+    return fnType([T, ...m1.A], m1.R)
   }
   return never
 }
-export function _LazyMethodsOf(T) {
+export function _LazyMethodsOf(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = _LazyMethodsOf__v1(T, K)
@@ -47,14 +46,14 @@ export function _LazyMethodsOf(T) {
 }
 /* compiles to:
  * export type _LazyMethodsOf__v1<T, K> =
- *   T[K] extends (...args: infer A) => infer R ? (a0: T, a1: A) => R : never
+ *   T[K] extends (...args: infer A) => infer R ? (a0: T, ...a1: A) => R : never
  * export type _LazyMethodsOf<T> = Partial<{ [K in keyof T]: _LazyMethodsOf__v1<T, K> }>
  */
 
 // ✓ ZodStandardSchemaWithJSON: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ZodStandardSchemaWithJSON(T) {
-  return StandardSchemaWithJSONProps(core.input(T), core.output(T))
+export function ZodStandardSchemaWithJSON(T): any {
+  return StandardSchemaWithJSONProps(t<core.input<typeof T>>(), t<core.output<typeof T>>())
 }
 /* compiles to:
  * export type ZodStandardSchemaWithJSON<T> = StandardSchemaWithJSONProps<
@@ -65,10 +64,14 @@ export function ZodStandardSchemaWithJSON(T) {
 
 // ✓ SafeExtendShape: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SafeExtendShape(Base: core.$ZodShape, Ext: core.$ZodLooseShape) {
+/**
+ * @param {core.$ZodShape} Base
+ * @param {core.$ZodLooseShape} Ext
+ */
+export function SafeExtendShape(Base, Ext): any {
   const out = emptyObject
   for (const K in keyof(Ext)) {
-    out[K] = K in Base ? (matches<core.output<(typeof Base)[typeof K]>>(core.output(Ext[K])) ? (matches<core.input<(typeof Base)[typeof K]>>(core.input(Ext[K])) ? Ext[K] : never) : never) : Ext[K]
+    out[K] = K in Base ? (matches<core.output<(typeof Base)[typeof K]>>(t<core.output<(typeof Ext)[typeof K]>>()) ? (matches<core.input<(typeof Base)[typeof K]>>(t<core.input<(typeof Ext)[typeof K]>>()) ? Ext[K] : never) : never) : Ext[K]
   }
   return out
 }

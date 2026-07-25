@@ -7,9 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TNonNullableDeferred } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/non_nullable.js'
+import type { TExcludeAction } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/exclude/instantiate.js'
+import type { TCanInstantiate, TInstantiateType, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TNull } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/null.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUndefined } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/undefined.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
 declare const TCanInstantiate: any
 declare const TExcludeAction: any
 declare const TInstantiateType: any
@@ -20,19 +28,10 @@ declare const TSchema: any
 declare const TState: any
 declare const TUndefined: any
 declare const TUnion: any
-type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExcludeAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNonNullableDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNull<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUndefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TNonNullableOperation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TNonNullableOperation(Type: TSchema, Excluded: TSchema = TUnion([TNull, TUndefined])) {
+export function TNonNullableOperation(Type: TSchema, Excluded: TSchema = TUnion([TNull, TUndefined])): any {
   return TExcludeAction(Type, Excluded)
 }
 /* compiles to:
@@ -45,7 +44,7 @@ export function TNonNullableOperation(Type: TSchema, Excluded: TSchema = TUnion(
 
 // ✓ TNonNullableAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TNonNullableAction(Type: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type])) ? TNonNullableOperation(Type) : TNonNullableDeferred(Type)) {
+export function TNonNullableAction(Type: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type])) ? TNonNullableOperation(Type) : TNonNullableDeferred(Type)): any {
   return Result
 }
 /* compiles to:
@@ -58,7 +57,7 @@ export function TNonNullableAction(Type: TSchema, Result: TSchema = matches<true
 
 // ✓ TNonNullableInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TNonNullableInstantiate(Context: TProperties, State: TState, Type: TSchema, InstantiatedType: TSchema = TInstantiateType(Context, State, Type)) {
+export function TNonNullableInstantiate(Context: TProperties, State: TState, Type: TSchema, InstantiatedType: TSchema = TInstantiateType(Context, State, Type)): any {
   return TNonNullableAction(InstantiatedType)
 }
 /* compiles to:

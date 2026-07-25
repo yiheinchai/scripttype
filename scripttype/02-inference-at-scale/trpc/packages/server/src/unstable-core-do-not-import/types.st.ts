@@ -10,6 +10,11 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type $Inferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AsyncIterable: any
 declare const PropertyKey: any
 declare const _errorSymbol: any
@@ -18,7 +23,7 @@ type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 
 type _errorSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Maybe: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Maybe(TType) {
+export function Maybe(TType): any {
   return anyOf(TType, Null, Undefined)
 }
 /* compiles to:
@@ -27,7 +32,7 @@ export function Maybe(TType) {
 
 // ✓ Simplify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Simplify(TType) {
+export function Simplify(TType): any {
   if (matches<any[] | Date>(TType)) {
     return TType
   }
@@ -44,7 +49,7 @@ export function Simplify(TType) {
 
 // ✓ Dict: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Dict(TType) {
+export function Dict(TType): any {
   return Record(string, anyOf(TType, Undefined))
 }
 /* compiles to:
@@ -53,7 +58,7 @@ export function Dict(TType) {
 
 // ✓ MaybePromise: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MaybePromise(TType) {
+export function MaybePromise(TType): any {
   return t<Promise<typeof TType>>() | TType
 }
 /* compiles to:
@@ -62,7 +67,10 @@ export function MaybePromise(TType) {
 
 // ✓ FilterKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FilterKeys(TObj: object, TFilter) {
+/**
+ * @param {object} TObj
+ */
+export function FilterKeys(TObj, TFilter): any {
   const out = emptyObject
   for (const TKey in keyof(TObj)) {
     out[TKey] = matches<typeof TFilter>(TObj[TKey]) ? TKey : never
@@ -76,7 +84,7 @@ export function FilterKeys(TObj: object, TFilter) {
 
 // ✓ Result: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Result(TType, TErr = unknown) {
+export function Result(TType, TErr = unknown): any {
   return anyOf({ ok: true, value: TType }, { ok: false, error: TErr })
 }
 /* compiles to:
@@ -86,7 +94,7 @@ export function Result(TType, TErr = unknown) {
 
 // ✓ Filter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Filter(TObj: object, TFilter) {
+export function Filter(TObj: object, TFilter): any {
   return Pick(TObj, FilterKeys(TObj, TFilter))
 }
 /* compiles to:
@@ -95,7 +103,7 @@ export function Filter(TObj: object, TFilter) {
 
 // ✓ Unwrap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Unwrap(TType) {
+export function Unwrap(TType): any {
   const m1 = matches<(...args: any[]) => Hole<"R">>(TType)
   if (m1) {
     return Awaited(m1.R)
@@ -108,7 +116,7 @@ export function Unwrap(TType) {
 
 // ✓ DeepPartial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeepPartial(TObject) {
+export function DeepPartial(TObject): any {
   if (matches<object>(TObject)) {
     const out = emptyObject
     for (const P in keyof(TObject)) {
@@ -125,7 +133,7 @@ export function DeepPartial(TObject) {
 
 // ✓ DistributiveOmit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DistributiveOmit(TObj, TKey: keyof any) {
+export function DistributiveOmit(TObj, TKey: keyof any): any {
   if (matches<any>(TObj)) {
     return Omit(TObj, TKey)
   }
@@ -138,7 +146,7 @@ export function DistributiveOmit(TObj, TKey: keyof any) {
 
 // ✓ WithoutIndexSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithoutIndexSignature(TObj) {
+export function WithoutIndexSignature(TObj): any {
   const out = emptyObject
   for (const K in keyof(TObj)) {
     out[matches<typeof K>(string) ? never : (matches<typeof K>(number) ? never : K)] = TObj[K]
@@ -153,7 +161,7 @@ export function WithoutIndexSignature(TObj) {
 
 // ✓ Overwrite: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Overwrite(TType, TWith) {
+export function Overwrite(TType, TWith): any {
   if (matches<any>(TWith)) {
     if (matches<object>(TType)) {
       const out = emptyObject
@@ -186,7 +194,7 @@ export function Overwrite(TType, TWith) {
 
 // ✓ ValidateShape: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateShape(TActualShape, TExpectedShape) {
+export function ValidateShape(TActualShape, TExpectedShape): any {
   if (matches<typeof TExpectedShape>(TActualShape)) {
     if (matches<never>(Exclude(keyof(TActualShape), keyof(TExpectedShape)))) {
       return TActualShape
@@ -206,7 +214,7 @@ export function ValidateShape(TActualShape, TExpectedShape) {
 
 // ✓ PickFirstDefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickFirstDefined(TType, TPick) {
+export function PickFirstDefined(TType, TPick): any {
   if (matches<typeof TType>(Undefined)) {
     if (matches<typeof TPick>(Undefined)) {
       return never
@@ -222,7 +230,10 @@ export function PickFirstDefined(TType, TPick) {
 
 // ✓ KeyFromValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function KeyFromValue(TValue, TType: Record<PropertyKey, PropertyKey>) {
+/**
+ * @param {Record<PropertyKey, PropertyKey>} TType
+ */
+export function KeyFromValue(TValue, TType): any {
   const out = emptyObject
   for (const K in keyof(TType)) {
     out[K] = matches<(typeof TType)[typeof K]>(TValue) ? K : never
@@ -236,7 +247,7 @@ export function KeyFromValue(TValue, TType: Record<PropertyKey, PropertyKey>) {
 
 // ✓ InvertKeyValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InvertKeyValue(TType: Record<PropertyKey, PropertyKey>) {
+export function InvertKeyValue(TType: Record<PropertyKey, PropertyKey>): any {
   const out = emptyObject
   for (const TValue in keySet(TType[keyof(TType)])) {
     out[TValue] = KeyFromValue(TValue, TType)
@@ -251,7 +262,7 @@ export function InvertKeyValue(TType: Record<PropertyKey, PropertyKey>) {
 
 // ✓ IntersectionError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IntersectionError(TKey: string) {
+export function IntersectionError(TKey: string): any {
   return `The property '${TKey}' in your router collides with a built-in method, rename this router or procedure on your backend.`
 }
 /* compiles to:
@@ -260,11 +271,11 @@ export function IntersectionError(TKey: string) {
 
 // ✓ ProtectedIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ProtectedIntersection(TType, TWith) {
+export function ProtectedIntersection(TType, TWith): any {
   if (matches<never>(keyof(TType) & keyof(TWith))) {
     return TType & TWith
   }
-  return IntersectionError(string & keyof(TType) & keyof(TWith))
+  return IntersectionError(merge(string, keyof(TType), keyof(TWith)))
 }
 /* compiles to:
  * export type ProtectedIntersection<TType, TWith> =
@@ -276,7 +287,7 @@ export function ProtectedIntersection(TType, TWith) {
 // ✗ TypeError: does not compile yet
 //   '_errorSymbol' refers to a value, but is being used as a type here. Did you mean 'typeof _errorSymbol'?
 /* @scripttype preserveParamNames */
-export function TypeError(TMessage: string) {
+export function TypeError(TMessage: string): any {
   return merge(TMessage, { _: t<typeof _errorSymbol>() })
 }
 /* compiles to:
@@ -285,7 +296,7 @@ export function TypeError(TMessage: string) {
 
 // ✓ ValueOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValueOf(TObj) {
+export function ValueOf(TObj): any {
   return TObj[keyof(TObj)]
 }
 /* compiles to:
@@ -294,7 +305,7 @@ export function ValueOf(TObj) {
 
 // ✓ coerceAsyncIterableToArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function coerceAsyncIterableToArray(TValue) {
+export function coerceAsyncIterableToArray(TValue): any {
   const m1 = matches<AsyncIterable<Hole<"$Inferred">>>(TValue)
   if (m1) {
     return arrayOf(m1.$Inferred)
@@ -308,7 +319,7 @@ export function coerceAsyncIterableToArray(TValue) {
 
 // ✓ inferAsyncIterableYield: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferAsyncIterableYield(T) {
+export function inferAsyncIterableYield(T): any {
   const m1 = matches<AsyncIterable<Hole<"U">>>(T)
   if (m1) {
     return m1.U

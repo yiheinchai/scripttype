@@ -7,20 +7,35 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AliasedExpression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { ShallowRecord } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type QA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type QO<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type QA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type QO<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AliasedExpression: any
 declare const ShallowRecord: any
-declare const TableExpression: any
 declare const WheneableMergeQueryBuilder: any
-type AliasedExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ShallowRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TableExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type WheneableMergeQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtractWheneableMergeQueryBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractWheneableMergeQueryBuilder(DB, TT: keyof typeof DB, TE: TableExpression<typeof DB, typeof TT>, O) {
+/**
+ * @param {keyof typeof DB} TT
+ * @param {TableExpression<typeof DB, typeof TT>} TE
+ */
+export function ExtractWheneableMergeQueryBuilder(DB, TT, TE, O): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
     if (m1.T in DB) {
@@ -59,11 +74,14 @@ export function ExtractWheneableMergeQueryBuilder(DB, TT: keyof typeof DB, TE: T
 
 // ✓ UsingBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UsingBuilder(DB, TT: keyof typeof DB, A: string, R, O) {
+/**
+ * @param {keyof typeof DB} TT
+ */
+export function UsingBuilder(DB, TT, A: string, R, O): any {
   if (A in DB) {
     return WheneableMergeQueryBuilder(DB, TT, A, O)
   }
-  return WheneableMergeQueryBuilder(DB & ShallowRecord(A, R), TT, A, O)
+  return WheneableMergeQueryBuilder(merge(DB, ShallowRecord(A, R)), TT, A, O)
 }
 /* compiles to:
  * export type UsingBuilder<DB, TT extends keyof DB, A extends string, R, O> =

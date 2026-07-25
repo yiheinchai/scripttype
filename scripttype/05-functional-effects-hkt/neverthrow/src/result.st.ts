@@ -7,9 +7,33 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExtractErrTypes, ExtractOkTypes } from '../../../../05-functional-effects-hkt/neverthrow/src/_internals/utils.js'
+declare namespace m1 {
+  export type Errs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type H<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type L<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Oks<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RR<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type L<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type PL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type PR<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type W<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Err: any
 declare const ExtractErrTypes: any
 declare const ExtractOkTypes: any
@@ -19,8 +43,6 @@ declare const Ok: any
 declare const Prev: any
 declare const RL: any
 type Err<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractErrTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractOkTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type H<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type L<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Ok<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -29,7 +51,7 @@ type RL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8
 type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Result: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Result(T, E) {
+export function Result(T, E): any {
   return Ok(T, E) | Err(T, E)
 }
 /* compiles to:
@@ -38,7 +60,7 @@ export function Result(T, E) {
 
 // ✓ CollectResults: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CollectResults(T, Collected: unknown[] = [], Depth: number = 50) {
+export function CollectResults(T, Collected: unknown[] = [], Depth: number = 50): any {
   if (matches<[ never ]>([Depth])) {
     return []
   }
@@ -64,7 +86,7 @@ export function CollectResults(T, Collected: unknown[] = [], Depth: number = 50)
 
 // ✓ Transpose: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Transpose(A, Transposed: unknown[][] = [], Depth: number = 10) {
+export function Transpose(A, Transposed: unknown[][] = [], Depth: number = 10): any {
   const m1 = matches<[ Hole<"T">, ...Hole<"Rest"> ]>(A)
   if (m1) {
     const m2 = matches<[ Hole<"L">, Hole<"R"> ]>(m1.T)
@@ -102,7 +124,7 @@ export function Transpose(A, Transposed: unknown[][] = [], Depth: number = 10) {
 
 // ✓ Combine: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Combine(T, Depth: number = 5) {
+export function Combine(T, Depth: number = 5): any {
   const m1 = matches<[ Hole<"L">, Hole<"R"> ]>(Transpose(CollectResults(T), [], Depth))
   if (m1) {
     return [UnknownMembersToNever(m1.L), UnknownMembersToNever(m1.R)]
@@ -122,7 +144,7 @@ export function Combine(T, Depth: number = 5) {
 
 // ✓ Dedup: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Dedup(T) {
+export function Dedup(T): any {
   const m1 = matches<Result<Hole<"RL">, Hole<"RR">>>(T)
   if (m1) {
     if (matches<[ typeof m1.RL ]>([unknown])) {
@@ -139,7 +161,7 @@ export function Dedup(T) {
 
 // ✓ MemberListOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MemberListOf(T) {
+export function MemberListOf(T): any {
   const m1 = matches<Hole<"U">>(matches<unknown>(T) ? fnType([T], T) : never)
   const m2 = matches<(v: Hole<"V">) => unknown>(matches<unknown>(m1.U) ? fnType([m1.U], unknown) : never)
   const m3 = matches<(_: unknown) => Hole<"W">>(m1 ? (m2 ? m2.V : never) : never)
@@ -157,7 +179,7 @@ export function MemberListOf(T) {
 
 // ✓ EmptyArrayToNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EmptyArrayToNever(T, NeverArrayToNever: number = 0) {
+export function EmptyArrayToNever(T, NeverArrayToNever: number = 0): any {
   if (matches<[ ]>(T)) {
     return never
   }
@@ -185,7 +207,7 @@ export function EmptyArrayToNever(T, NeverArrayToNever: number = 0) {
 
 // ✓ UnknownMembersToNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnknownMembersToNever(T) {
+export function UnknownMembersToNever(T): any {
   const m1 = matches<[ Hole<"H">, ...Hole<"R"> ]>(T)
   if (m1) {
     return [matches<[ typeof m1.H ]>([unknown]) ? never : m1.H, ...UnknownMembersToNever(m1.R)]
@@ -201,7 +223,7 @@ export function UnknownMembersToNever(T) {
 
 // ✓ MembersToUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MembersToUnion(T) {
+export function MembersToUnion(T): any {
   if (matches<unknown[]>(T)) {
     return T[number]
   }
@@ -213,7 +235,7 @@ export function MembersToUnion(T) {
 
 // ✓ IsLiteralArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsLiteralArray(T) {
+export function IsLiteralArray(T): any {
   const m1 = matches<{ length: Hole<"L">; }>(T)
   if (m1) {
     if (typeof m1.L === 'number') {
@@ -233,7 +255,7 @@ export function IsLiteralArray(T) {
 
 // ✓ Traverse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Traverse(T, Depth: number = 5) {
+export function Traverse(T, Depth: number = 5): any {
   const m1 = matches<[ Hole<"Oks">, Hole<"Errs"> ]>(Combine(T, Depth))
   if (m1) {
     return Result(EmptyArrayToNever(m1.Oks, 1), MembersToUnion(m1.Errs))
@@ -249,7 +271,7 @@ export function Traverse(T, Depth: number = 5) {
 
 // ✓ TraverseWithAllErrors: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TraverseWithAllErrors(T, Depth: number = 5) {
+export function TraverseWithAllErrors(T, Depth: number = 5): any {
   const m1 = matches<Result<Hole<"Oks">, Hole<"Errs">>>(Traverse(T, Depth))
   if (m1) {
     return Result(m1.Oks, arrayOf(m1.Errs))
@@ -263,7 +285,7 @@ export function TraverseWithAllErrors(T, Depth: number = 5) {
 
 // ✓ CombineResults: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CombineResults(T: readonly Result<unknown, unknown>[]) {
+export function CombineResults(T: readonly Result<unknown, unknown>[]): any {
   if (matches<1>(IsLiteralArray(T))) {
     return Traverse(T)
   }
@@ -278,7 +300,7 @@ export function CombineResults(T: readonly Result<unknown, unknown>[]) {
 
 // ✓ CombineResultsWithAllErrorsArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CombineResultsWithAllErrorsArray(T: readonly Result<unknown, unknown>[]) {
+export function CombineResultsWithAllErrorsArray(T: readonly Result<unknown, unknown>[]): any {
   if (matches<1>(IsLiteralArray(T))) {
     return TraverseWithAllErrors(T)
   }

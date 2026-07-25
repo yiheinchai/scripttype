@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { InferInsertModel, InferSelectModel, MapColumnName } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
+import type { Simplify } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
 declare const ColumnType: any
 declare const InferInsertModel: any
 declare const InferSelectModel: any
@@ -17,14 +20,10 @@ declare const MapColumnName: any
 declare const Simplify: any
 declare const Table: any
 type ColumnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferInsertModel<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferSelectModel<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapColumnName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Kyselify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Kyselify(T: Table) {
+export function Kyselify(T: Table): any {
   const out = emptyObject
   for (const Key in keySet(keyof(T['_']['columns']) & string)) {
     out[MapColumnName(Key, T['_']['columns'][Key], true)] = ColumnType(InferSelectModel(T, { dbColumnNames: true })[MapColumnName(Key, T['_']['columns'][Key], true)], MapColumnName(Key, T['_']['columns'][Key], true) in InferInsertModel(T, { dbColumnNames: true }) ? InferInsertModel(T, { dbColumnNames: true })[MapColumnName(Key, T['_']['columns'][Key], true)] : never, MapColumnName(Key, T['_']['columns'][Key], true) in InferInsertModel(T, { dbColumnNames: true }) ? InferInsertModel(T, { dbColumnNames: true })[MapColumnName(Key, T['_']['columns'][Key], true)] : never)

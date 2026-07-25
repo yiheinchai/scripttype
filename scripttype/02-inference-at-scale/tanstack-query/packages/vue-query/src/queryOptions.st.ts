@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DefaultError, InitialDataFunction, NonUndefinedGuard, QueryBooleanOption, QueryKey } from '../../../../../../02-inference-at-scale/tanstack-query/packages/query-core/src/types.js'
+import type { DeepUnwrapRef, MaybeRefOrGetter, ShallowOption } from '../../../../../../02-inference-at-scale/tanstack-query/packages/vue-query/src/types.js'
 declare const DeepUnwrapRef: any
 declare const DefaultError: any
 declare const InitialDataFunction: any
@@ -19,18 +22,10 @@ declare const QueryBooleanOption: any
 declare const QueryKey: any
 declare const QueryObserverOptions: any
 declare const ShallowOption: any
-type DeepUnwrapRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InitialDataFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeRefOrGetter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonUndefinedGuard<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryBooleanOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type QueryObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ShallowOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ QueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function QueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
+export function QueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryData = TQueryFnData, TQueryKey: QueryKey = QueryKey): any {
   const out = emptyObject
   for (const Property in keyof(QueryObserverOptions(TQueryFnData, TError, TData, TQueryData, TQueryKey))) {
     out[Property] = matches<'enabled'>(Property) ? (MaybeRefOrGetter(anyOf(boolean, Undefined)) | fnType([], QueryBooleanOption(TQueryFnData, TError, TQueryData, DeepUnwrapRef(TQueryKey)))) : (matches<'queryKey'>(Property) ? MaybeRefOrGetter(TQueryKey) : QueryObserverOptions(TQueryFnData, TError, TData, TQueryData, DeepUnwrapRef(TQueryKey))[Property])
@@ -57,7 +52,7 @@ export function QueryOptions(TQueryFnData = unknown, TError = DefaultError, TDat
 
 // ✓ UndefinedInitialQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndefinedInitialQueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
+export function UndefinedInitialQueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey): any {
   return merge(QueryOptions(TQueryFnData, TError, TData, TQueryFnData, TQueryKey), { initialData: optional(anyOf(Undefined, InitialDataFunction(NonUndefinedGuard(TQueryFnData)), NonUndefinedGuard(TQueryFnData))) })
 }
 /* compiles to:
@@ -77,7 +72,7 @@ export function UndefinedInitialQueryOptions(TQueryFnData = unknown, TError = De
 
 // ✓ DefinedInitialQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DefinedInitialQueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
+export function DefinedInitialQueryOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey): any {
   return merge(QueryOptions(TQueryFnData, TError, TData, TQueryFnData, TQueryKey), { initialData: NonUndefinedGuard(TQueryFnData) | fnType([], NonUndefinedGuard(TQueryFnData)) })
 }
 /* compiles to:

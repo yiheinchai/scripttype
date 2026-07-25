@@ -16,7 +16,7 @@ type SQLiteTextBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = an
 type SQLiteTextJsonBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLiteTextBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteTextBuilderInitial(TName: string, TEnum: [ string, ...string[] ], TLength: number | undefined) {
+export function SQLiteTextBuilderInitial(TName: string, TEnum: [ string, ...string[] ], TLength: number | undefined): any {
   return SQLiteTextBuilder({ name: TName, dataType: 'string', columnType: 'SQLiteText', data: TEnum[number], driverParam: string, enumValues: TEnum, length: TLength })
 }
 /* compiles to:
@@ -40,7 +40,7 @@ export function SQLiteTextBuilderInitial(TName: string, TEnum: [ string, ...stri
 
 // ✓ SQLiteTextJsonBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteTextJsonBuilderInitial(TName: string) {
+export function SQLiteTextJsonBuilderInitial(TName: string): any {
   return SQLiteTextJsonBuilder({ name: TName, dataType: 'json', columnType: 'SQLiteTextJson', data: unknown, driverParam: string, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
@@ -59,7 +59,7 @@ export function SQLiteTextJsonBuilderInitial(TName: string) {
 
 // ✓ SQLiteTextConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteTextConfig(TMode: 'text' | 'json' = anyOf('text', 'json'), TEnum: readonly string[] | string[] | undefined = anyOf(readonlyArrayOf(string), arrayOf(string), Undefined), TLength: number | undefined = anyOf(number, Undefined)) {
+export function SQLiteTextConfig(TMode: 'text' | 'json' = anyOf('text', 'json'), TEnum: readonly string[] | string[] | undefined = anyOf(readonlyArrayOf(string), arrayOf(string), Undefined), TLength: number | undefined = anyOf(number, Undefined)): any {
   if (matches<'text'>(TMode)) {
     return { mode: optional(TMode), length: optional(TLength), enum: optional(TEnum) }
   }

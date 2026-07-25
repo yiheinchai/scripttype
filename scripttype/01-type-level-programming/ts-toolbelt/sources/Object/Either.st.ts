@@ -7,22 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ComputeRaw } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Compute.js'
+import type { Strict } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Union/Strict.js'
 declare const ComputeRaw: any
 declare const Key: any
 declare const Strict: any
 declare const _Omit: any
 declare const _Pick: any
-type ComputeRaw<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Strict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _Omit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ __Either: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function __Either(O: object, K: Key) {
+export function __Either(O: object, K: Key): any {
   const out = emptyObject
   for (const P in keySet(K)) {
     out[P] = _Pick(O, P)
@@ -36,7 +37,7 @@ export function __Either(O: object, K: Key) {
 
 // ✓ EitherStrict: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EitherStrict(O: object, K: Key) {
+export function EitherStrict(O: object, K: Key): any {
   return Strict(__Either(O, K))
 }
 /* compiles to:
@@ -45,7 +46,7 @@ export function EitherStrict(O: object, K: Key) {
 
 // ✓ EitherLoose: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EitherLoose(O: object, K: Key) {
+export function EitherLoose(O: object, K: Key): any {
   return ComputeRaw(__Either(O, K))
 }
 /* compiles to:
@@ -55,7 +56,7 @@ export function EitherLoose(O: object, K: Key) {
 // ✗ _Either: the ScriptType does not itself typecheck as TypeScript
 //   _Either.st.ts(3:58) TS2538: Type 'Boolean' cannot be used as an index type.
 /* @scripttype preserveParamNames */
-export function _Either(O: object, K: Key, strict: Boolean) {
+export function _Either(O: object, K: Key, strict: Boolean): any {
   return { 1: EitherStrict(O, K), 0: EitherLoose(O, K) }[strict]
 }
 /* compiles to:
@@ -66,7 +67,7 @@ export function _Either(O: object, K: Key, strict: Boolean) {
 // ✗ Either: the ScriptType does not itself typecheck as TypeScript
 //   Either.st.ts(2:43) TS2322: Type 'number' is not assignable to type 'Boolean'.
 /* @scripttype preserveParamNames */
-export function Either(O: object, K: Key, strict: Boolean = 1) {
+export function Either(O: object, K: Key, strict: Boolean = 1): any {
   if (matches<unknown>(O)) {
     return _Either(O, K, strict)
   }

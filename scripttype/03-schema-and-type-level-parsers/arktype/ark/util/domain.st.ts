@@ -7,24 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DescribeOptions, describeDefaults } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/describe.js'
+import type { Domain } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/domain.js'
+import type { stringifyUnion } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/unionToTuple.js'
 declare const DescribeOptions: any
 declare const Domain: any
 declare const TypesByDomain: any
 declare const describeDefaults: any
 declare const domainDescriptions: any
 declare const stringifyUnion: any
-type DescribeOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Domain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TypesByDomain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type describeDefaults<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type domainDescriptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type stringifyUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ inferDomain: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferDomain(kind: Domain) {
+export function inferDomain(kind: Domain): any {
   if (matches<typeof kind>(Domain)) {
     return unknown
   }
@@ -37,7 +37,7 @@ export function inferDomain(kind: Domain) {
 
 // ✓ domainOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function domainOf(data) {
+export function domainOf(data): any {
   if (matches<typeof data>(unknown)) {
     return Domain
   }
@@ -83,7 +83,7 @@ export function domainOf(data) {
 
 // ✓ describeDomainOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function describeDomainOf(t, opts: DescribeOptions = {}) {
+export function describeDomainOf(t, opts: DescribeOptions = {}): any {
   return stringifyUnion(matches<true>(opts['includeArticles']) ? domainDescriptions[domainOf(t)] : domainOf(t), typeof opts['branchDelimiter'] === 'string' ? opts['branchDelimiter'] : describeDefaults['branchDelimiter'])
 }
 /* compiles to:

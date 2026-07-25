@@ -18,7 +18,7 @@ type Pending<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type Rejected<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FulfilledThenable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FulfilledThenable(T) {
+export function FulfilledThenable(T): any {
   return t<Promise<typeof T>>() & Fulfilled(T)
 }
 /* compiles to:
@@ -27,7 +27,7 @@ export function FulfilledThenable(T) {
 
 // ✓ RejectedThenable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RejectedThenable(T) {
+export function RejectedThenable(T): any {
   return t<Promise<typeof T>>() & Rejected
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function RejectedThenable(T) {
 
 // ✓ PendingThenable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PendingThenable(T) {
+export function PendingThenable(T): any {
   return t<Promise<typeof T>>() & Pending(T)
 }
 /* compiles to:
@@ -45,7 +45,7 @@ export function PendingThenable(T) {
 
 // ✓ Thenable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Thenable(T) {
+export function Thenable(T): any {
   return FulfilledThenable(T) | RejectedThenable(T) | PendingThenable(T)
 }
 /* compiles to:

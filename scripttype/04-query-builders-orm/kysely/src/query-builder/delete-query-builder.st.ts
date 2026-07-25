@@ -7,32 +7,45 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AliasedExpression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { DrainOuterGeneric, Nullable, ShallowRecord } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type QA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type QO<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type QA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type QO<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AliasedExpression: any
 declare const DeleteQueryBuilder: any
 declare const DrainOuterGeneric: any
 declare const Nullable: any
 declare const ShallowRecord: any
-declare const TableExpression: any
-type AliasedExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DeleteQueryBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DrainOuterGeneric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Nullable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ShallowRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TableExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type DeleteQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DeleteQueryBuilderWithInnerJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeleteQueryBuilderWithInnerJoin(DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
+/**
+ * @param {keyof typeof DB} TB
+ * @param {TableExpression<typeof DB, typeof TB>} TE
+ */
+export function DeleteQueryBuilderWithInnerJoin(DB, TB, O, TE): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return InnerJoinedBuilder(DB, TB, O, m1.A, DB[m1.T])
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return DeleteQueryBuilder(DB, anyOf(TB, TE), O)
   }
   const m2 = matches<AliasedExpression<Hole<"QO">, Hole<"QA">>>(TE)
@@ -46,45 +59,69 @@ export function DeleteQueryBuilderWithInnerJoin(DB, TB: keyof typeof DB, O, TE: 
   return never
 }
 /* compiles to:
- * export type DeleteQueryBuilderWithInnerJoin<DB, TB extends keyof DB, O, TE extends TableExpression<DB, TB>> = TE extends `${infer T} as ${infer A}` ? T extends keyof DB ? InnerJoinedBuilder<DB, TB, O, A, DB[T]> : never : TE extends keyof DB ? DeleteQueryBuilder<DB, TB | TE, O> : TE extends AliasedExpression<infer QO, infer QA> ? InnerJoinedBuilder<DB, TB, O, QA, QO> : TE extends (qb: any) => AliasedExpression<infer QO, infer QA> ? InnerJoinedBuilder<DB, TB, O, QA, QO> : never
+ * export type DeleteQueryBuilderWithInnerJoin<
+ *   DB,
+ *   TB extends keyof DB,
+ *   O,
+ *   TE extends TableExpression<DB, TB>
+ * > =
+ *   TE extends `${infer T} as ${infer A}`
+ *     ? T extends keyof DB ? InnerJoinedBuilder<DB, TB, O, A, DB[T]> : never
+ *   : TE extends keyof DB ? DeleteQueryBuilder<DB, TB | TE, O>
+ *   : TE extends AliasedExpression<infer QO, infer QA> ? InnerJoinedBuilder<DB, TB, O, QA, QO>
+ *   : TE extends (qb: any) => AliasedExpression<infer QO, infer QA>
+ *     ? InnerJoinedBuilder<DB, TB, O, QA, QO>
+ *   : never
  */
 
 // ✓ InnerJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InnerJoinedBuilder(DB, TB: keyof typeof DB, O, A: string, R) {
-  if (matches<keyof typeof DB>(A)) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function InnerJoinedBuilder(DB, TB, O, A: string, R): any {
+  if (A in DB) {
     return DeleteQueryBuilder(InnerJoinedDB(DB, A, R), anyOf(TB, A), O)
   }
-  return DeleteQueryBuilder(DB & ShallowRecord(A, R), anyOf(TB, A), O)
+  return DeleteQueryBuilder(merge(DB, ShallowRecord(A, R)), anyOf(TB, A), O)
 }
 /* compiles to:
- * export type InnerJoinedBuilder<DB, TB extends keyof DB, O, A extends string, R> = A extends keyof DB ? DeleteQueryBuilder<InnerJoinedDB<DB, A, R>, TB | A, O> : DeleteQueryBuilder<DB & ShallowRecord<A, R>, TB | A, O>
+ * export type InnerJoinedBuilder<DB, TB extends keyof DB, O, A extends string, R> =
+ *   A extends keyof DB
+ *     ? DeleteQueryBuilder<InnerJoinedDB<DB, A, R>, TB | A, O>
+ *     : DeleteQueryBuilder<DB & ShallowRecord<A, R>, TB | A, O>
  */
 
 // ✓ InnerJoinedDB: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InnerJoinedDB(DB, A: string, R) {
+export function InnerJoinedDB(DB, A: string, R): any {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
-    out[C] = matches<typeof A>(C) ? R : (matches<keyof typeof DB>(C) ? DB[C] : never)
+    out[C] = matches<typeof A>(C) ? R : (C in DB ? DB[C] : never)
   }
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type InnerJoinedDB<DB, A extends string, R> = DrainOuterGeneric<{ [C in keyof DB | A]: C extends A ? R : C extends keyof DB ? DB[C] : never }>
+ * export type InnerJoinedDB<DB, A extends string, R> = DrainOuterGeneric<
+ *   { [C in keyof DB | A]: C extends A ? R : C extends keyof DB ? DB[C] : never }
+ * >
  */
 
 // ✓ DeleteQueryBuilderWithLeftJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeleteQueryBuilderWithLeftJoin(DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
+/**
+ * @param {keyof typeof DB} TB
+ * @param {TableExpression<typeof DB, typeof TB>} TE
+ */
+export function DeleteQueryBuilderWithLeftJoin(DB, TB, O, TE): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return LeftJoinedBuilder(DB, TB, O, m1.A, DB[m1.T])
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return LeftJoinedBuilder(DB, TB, O, TE, DB[TE])
   }
   const m2 = matches<AliasedExpression<Hole<"QO">, Hole<"QA">>>(TE)
@@ -98,45 +135,69 @@ export function DeleteQueryBuilderWithLeftJoin(DB, TB: keyof typeof DB, O, TE: T
   return never
 }
 /* compiles to:
- * export type DeleteQueryBuilderWithLeftJoin<DB, TB extends keyof DB, O, TE extends TableExpression<DB, TB>> = TE extends `${infer T} as ${infer A}` ? T extends keyof DB ? LeftJoinedBuilder<DB, TB, O, A, DB[T]> : never : TE extends keyof DB ? LeftJoinedBuilder<DB, TB, O, TE, DB[TE]> : TE extends AliasedExpression<infer QO, infer QA> ? LeftJoinedBuilder<DB, TB, O, QA, QO> : TE extends (qb: any) => AliasedExpression<infer QO, infer QA> ? LeftJoinedBuilder<DB, TB, O, QA, QO> : never
+ * export type DeleteQueryBuilderWithLeftJoin<
+ *   DB,
+ *   TB extends keyof DB,
+ *   O,
+ *   TE extends TableExpression<DB, TB>
+ * > =
+ *   TE extends `${infer T} as ${infer A}`
+ *     ? T extends keyof DB ? LeftJoinedBuilder<DB, TB, O, A, DB[T]> : never
+ *   : TE extends keyof DB ? LeftJoinedBuilder<DB, TB, O, TE, DB[TE]>
+ *   : TE extends AliasedExpression<infer QO, infer QA> ? LeftJoinedBuilder<DB, TB, O, QA, QO>
+ *   : TE extends (qb: any) => AliasedExpression<infer QO, infer QA>
+ *     ? LeftJoinedBuilder<DB, TB, O, QA, QO>
+ *   : never
  */
 
 // ✓ LeftJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LeftJoinedBuilder(DB, TB: keyof typeof DB, O, A: keyof any, R) {
-  if (matches<keyof typeof DB>(A)) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function LeftJoinedBuilder(DB, TB, O, A: keyof any, R): any {
+  if (A in DB) {
     return DeleteQueryBuilder(LeftJoinedDB(DB, A, R), anyOf(TB, A), O)
   }
-  return DeleteQueryBuilder(DB & ShallowRecord(A, Nullable(R)), anyOf(TB, A), O)
+  return DeleteQueryBuilder(merge(DB, ShallowRecord(A, Nullable(R))), anyOf(TB, A), O)
 }
 /* compiles to:
- * export type LeftJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = A extends keyof DB ? DeleteQueryBuilder<LeftJoinedDB<DB, A, R>, TB | A, O> : DeleteQueryBuilder<DB & ShallowRecord<A, Nullable<R>>, TB | A, O>
+ * export type LeftJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> =
+ *   A extends keyof DB
+ *     ? DeleteQueryBuilder<LeftJoinedDB<DB, A, R>, TB | A, O>
+ *     : DeleteQueryBuilder<DB & ShallowRecord<A, Nullable<R>>, TB | A, O>
  */
 
 // ✓ LeftJoinedDB: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LeftJoinedDB(DB, A: keyof any, R) {
+export function LeftJoinedDB(DB, A: keyof any, R): any {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
-    out[C] = matches<typeof A>(C) ? Nullable(R) : (matches<keyof typeof DB>(C) ? DB[C] : never)
+    out[C] = matches<typeof A>(C) ? Nullable(R) : (C in DB ? DB[C] : never)
   }
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type LeftJoinedDB<DB, A extends keyof any, R> = DrainOuterGeneric<{ [C in keyof DB | A]: C extends A ? Nullable<R> : C extends keyof DB ? DB[C] : never }>
+ * export type LeftJoinedDB<DB, A extends keyof any, R> = DrainOuterGeneric<
+ *   { [C in keyof DB | A]: C extends A ? Nullable<R> : C extends keyof DB ? DB[C] : never }
+ * >
  */
 
 // ✓ DeleteQueryBuilderWithRightJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeleteQueryBuilderWithRightJoin(DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
+/**
+ * @param {keyof typeof DB} TB
+ * @param {TableExpression<typeof DB, typeof TB>} TE
+ */
+export function DeleteQueryBuilderWithRightJoin(DB, TB, O, TE): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return RightJoinedBuilder(DB, TB, O, m1.A, DB[m1.T])
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return RightJoinedBuilder(DB, TB, O, TE, DB[TE])
   }
   const m2 = matches<AliasedExpression<Hole<"QO">, Hole<"QA">>>(TE)
@@ -150,42 +211,75 @@ export function DeleteQueryBuilderWithRightJoin(DB, TB: keyof typeof DB, O, TE: 
   return never
 }
 /* compiles to:
- * export type DeleteQueryBuilderWithRightJoin<DB, TB extends keyof DB, O, TE extends TableExpression<DB, TB>> = TE extends `${infer T} as ${infer A}` ? T extends keyof DB ? RightJoinedBuilder<DB, TB, O, A, DB[T]> : never : TE extends keyof DB ? RightJoinedBuilder<DB, TB, O, TE, DB[TE]> : TE extends AliasedExpression<infer QO, infer QA> ? RightJoinedBuilder<DB, TB, O, QA, QO> : TE extends (qb: any) => AliasedExpression<infer QO, infer QA> ? RightJoinedBuilder<DB, TB, O, QA, QO> : never
+ * export type DeleteQueryBuilderWithRightJoin<
+ *   DB,
+ *   TB extends keyof DB,
+ *   O,
+ *   TE extends TableExpression<DB, TB>
+ * > =
+ *   TE extends `${infer T} as ${infer A}`
+ *     ? T extends keyof DB ? RightJoinedBuilder<DB, TB, O, A, DB[T]> : never
+ *   : TE extends keyof DB ? RightJoinedBuilder<DB, TB, O, TE, DB[TE]>
+ *   : TE extends AliasedExpression<infer QO, infer QA> ? RightJoinedBuilder<DB, TB, O, QA, QO>
+ *   : TE extends (qb: any) => AliasedExpression<infer QO, infer QA>
+ *     ? RightJoinedBuilder<DB, TB, O, QA, QO>
+ *   : never
  */
 
 // ✓ RightJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RightJoinedBuilder(DB, TB: keyof typeof DB, O, A: keyof any, R) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function RightJoinedBuilder(DB, TB, O, A: keyof any, R): any {
   return DeleteQueryBuilder(RightJoinedDB(DB, TB, A, R), anyOf(TB, A), O)
 }
 /* compiles to:
- * export type RightJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = DeleteQueryBuilder<RightJoinedDB<DB, TB, A, R>, TB | A, O>
+ * export type RightJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = DeleteQueryBuilder<
+ *   RightJoinedDB<DB, TB, A, R>,
+ *   TB | A,
+ *   O
+ * >
  */
 
 // ✓ RightJoinedDB: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RightJoinedDB(DB, TB: keyof typeof DB, A: keyof any, R) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function RightJoinedDB(DB, TB, A: keyof any, R): any {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
-    out[C] = matches<typeof A>(C) ? R : (matches<typeof TB>(C) ? Nullable(DB[C]) : (matches<keyof typeof DB>(C) ? DB[C] : never))
+    out[C] = matches<typeof A>(C) ? R : (matches<typeof TB>(C) ? Nullable(DB[C]) : (C in DB ? DB[C] : never))
   }
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type RightJoinedDB<DB, TB extends keyof DB, A extends keyof any, R> = DrainOuterGeneric<{ [C in keyof DB | A]: C extends A ? R : C extends TB ? Nullable<DB[C]> : C extends keyof DB ? DB[C] : never }>
+ * export type RightJoinedDB<DB, TB extends keyof DB, A extends keyof any, R> = DrainOuterGeneric<
+ *   {
+ *     [C in keyof DB | A]: C extends A ? R
+ *     : C extends TB ? Nullable<DB[C]>
+ *     : C extends keyof DB ? DB[C]
+ *     : never
+ *   }
+ * >
  */
 
 // ✓ DeleteQueryBuilderWithFullJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeleteQueryBuilderWithFullJoin(DB, TB: keyof typeof DB, O, TE: TableExpression<typeof DB, typeof TB>) {
+/**
+ * @param {keyof typeof DB} TB
+ * @param {TableExpression<typeof DB, typeof TB>} TE
+ */
+export function DeleteQueryBuilderWithFullJoin(DB, TB, O, TE): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"A">}`>(TE)
   if (m1) {
-    if (matches<keyof typeof DB>(m1.T)) {
+    if (m1.T in DB) {
       return OuterJoinedBuilder(DB, TB, O, m1.A, DB[m1.T])
     }
     return never
   }
-  if (matches<keyof typeof DB>(TE)) {
+  if (TE in DB) {
     return OuterJoinedBuilder(DB, TB, O, TE, DB[TE])
   }
   const m2 = matches<AliasedExpression<Hole<"QO">, Hole<"QA">>>(TE)
@@ -199,27 +293,56 @@ export function DeleteQueryBuilderWithFullJoin(DB, TB: keyof typeof DB, O, TE: T
   return never
 }
 /* compiles to:
- * export type DeleteQueryBuilderWithFullJoin<DB, TB extends keyof DB, O, TE extends TableExpression<DB, TB>> = TE extends `${infer T} as ${infer A}` ? T extends keyof DB ? OuterJoinedBuilder<DB, TB, O, A, DB[T]> : never : TE extends keyof DB ? OuterJoinedBuilder<DB, TB, O, TE, DB[TE]> : TE extends AliasedExpression<infer QO, infer QA> ? OuterJoinedBuilder<DB, TB, O, QA, QO> : TE extends (qb: any) => AliasedExpression<infer QO, infer QA> ? OuterJoinedBuilder<DB, TB, O, QA, QO> : never
+ * export type DeleteQueryBuilderWithFullJoin<
+ *   DB,
+ *   TB extends keyof DB,
+ *   O,
+ *   TE extends TableExpression<DB, TB>
+ * > =
+ *   TE extends `${infer T} as ${infer A}`
+ *     ? T extends keyof DB ? OuterJoinedBuilder<DB, TB, O, A, DB[T]> : never
+ *   : TE extends keyof DB ? OuterJoinedBuilder<DB, TB, O, TE, DB[TE]>
+ *   : TE extends AliasedExpression<infer QO, infer QA> ? OuterJoinedBuilder<DB, TB, O, QA, QO>
+ *   : TE extends (qb: any) => AliasedExpression<infer QO, infer QA>
+ *     ? OuterJoinedBuilder<DB, TB, O, QA, QO>
+ *   : never
  */
 
 // ✓ OuterJoinedBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OuterJoinedBuilder(DB, TB: keyof typeof DB, O, A: keyof any, R) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function OuterJoinedBuilder(DB, TB, O, A: keyof any, R): any {
   return DeleteQueryBuilder(OuterJoinedBuilderDB(DB, TB, A, R), anyOf(TB, A), O)
 }
 /* compiles to:
- * export type OuterJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = DeleteQueryBuilder<OuterJoinedBuilderDB<DB, TB, A, R>, TB | A, O>
+ * export type OuterJoinedBuilder<DB, TB extends keyof DB, O, A extends keyof any, R> = DeleteQueryBuilder<
+ *   OuterJoinedBuilderDB<DB, TB, A, R>,
+ *   TB | A,
+ *   O
+ * >
  */
 
 // ✓ OuterJoinedBuilderDB: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OuterJoinedBuilderDB(DB, TB: keyof typeof DB, A: keyof any, R) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function OuterJoinedBuilderDB(DB, TB, A: keyof any, R): any {
   const out = emptyObject
   for (const C in keySet(anyOf(keyof(DB), A))) {
-    out[C] = matches<typeof A>(C) ? Nullable(R) : (matches<typeof TB>(C) ? Nullable(DB[C]) : (matches<keyof typeof DB>(C) ? DB[C] : never))
+    out[C] = matches<typeof A>(C) ? Nullable(R) : (matches<typeof TB>(C) ? Nullable(DB[C]) : (C in DB ? DB[C] : never))
   }
   return DrainOuterGeneric(out)
 }
 /* compiles to:
- * export type OuterJoinedBuilderDB<DB, TB extends keyof DB, A extends keyof any, R> = DrainOuterGeneric<{ [C in keyof DB | A]: C extends A ? Nullable<R> : C extends TB ? Nullable<DB[C]> : C extends keyof DB ? DB[C] : never }>
+ * export type OuterJoinedBuilderDB<DB, TB extends keyof DB, A extends keyof any, R> = DrainOuterGeneric<
+ *   {
+ *     [C in keyof DB | A]: C extends A ? Nullable<R>
+ *     : C extends TB ? Nullable<DB[C]>
+ *     : C extends keyof DB ? DB[C]
+ *     : never
+ *   }
+ * >
  */

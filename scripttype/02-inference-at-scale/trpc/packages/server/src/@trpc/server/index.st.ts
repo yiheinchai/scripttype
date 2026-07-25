@@ -9,7 +9,7 @@
  */
 // ✓ inferAsyncReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferAsyncReturnType(TFunction: (...args: any[]) => any) {
+export function inferAsyncReturnType(TFunction: (...args: any[]) => any): any {
   return Awaited(ReturnType(TFunction))
 }
 /* compiles to:

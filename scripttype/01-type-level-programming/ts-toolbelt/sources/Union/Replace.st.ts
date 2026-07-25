@@ -7,17 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Is } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Is.js'
+import type { Match } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/_Internal.js'
 declare const Is: any
 declare const Match: any
-type Is<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Match<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Replace: does not compile yet
 //   Type 'Is<U, M, match>' cannot be used to index type '{ '1': A; '0': U; }'.
 /* @scripttype preserveParamNames */
-export function Replace(U: any, M: any, A: any, match: Match = 'default') {
+export function Replace(U: any, M: any, A: any, match: Match = 'default'): any {
   if (matches<unknown>(U)) {
     return { 1: A, 0: U }[Is(U, M, match)]
   }

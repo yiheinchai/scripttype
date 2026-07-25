@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { PartialOnUndefinedDeepOptions } from '../../../../01-type-level-programming/type-fest/source/partial-on-undefined-deep.d.js'
+declare namespace m1 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ApplyDefaultOptions: any
 declare const BuiltIns: any
 declare const DefaultPartialOnUndefinedDeepOptions: any
@@ -26,11 +31,10 @@ type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8
 type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type LiteralKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PartialOnUndefinedDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PartialOnUndefinedDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PartialOnUndefinedDeep(T, Options: PartialOnUndefinedDeepOptions = {}) {
+export function PartialOnUndefinedDeep(T, Options: PartialOnUndefinedDeepOptions = {}): any {
   return _PartialOnUndefinedDeep(T, ApplyDefaultOptions(PartialOnUndefinedDeepOptions, DefaultPartialOnUndefinedDeepOptions, Options))
 }
 /* compiles to:
@@ -46,7 +50,7 @@ export function PartialOnUndefinedDeep(T, Options: PartialOnUndefinedDeepOptions
 
 // ✓ _PartialOnUndefinedDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _PartialOnUndefinedDeep(T, Options: Required<PartialOnUndefinedDeepOptions>) {
+export function _PartialOnUndefinedDeep(T, Options: Required<PartialOnUndefinedDeepOptions>): any {
   if (matches<Record<any, any> | undefined>(T)) {
     const out = emptyObject
     for (const KeyType in keyof(T)) {
@@ -86,7 +90,7 @@ export function _PartialOnUndefinedDeep(T, Options: Required<PartialOnUndefinedD
 
 // ✓ PartialOnUndefinedDeepValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PartialOnUndefinedDeepValue(T, Options: Required<PartialOnUndefinedDeepOptions>) {
+export function PartialOnUndefinedDeepValue(T, Options: Required<PartialOnUndefinedDeepOptions>): any {
   if (matches<BuiltIns | ((...arguments_: any[]) => unknown)>(T)) {
     return T
   }

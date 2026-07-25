@@ -9,7 +9,7 @@
  */
 // ✓ IsPalindrome: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsPalindrome(T) {
+export function IsPalindrome(T): any {
   return any
 }
 /* compiles to:

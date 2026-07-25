@@ -7,16 +7,35 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Regex } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/regex/regex.js'
+import type { Out } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/attributes.js'
+import type { InferredAst } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/infer.js'
+import type { StaticState } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/reduce/static.js'
+import type { EnclosingQuote, EnclosingRegexToken, EnclosingStartToken, EnclosingTokens } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/operand/enclosed.js'
+import type { ErrorMessage } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
 declare namespace Scanner {
   export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type shiftUntilEscapable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type r<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type scanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type e<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare namespace regex {
   export type parse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace s {
+  export type error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type setRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const EnclosingQuote: any
 declare const EnclosingRegexToken: any
@@ -28,27 +47,29 @@ declare const Out: any
 declare const Regex: any
 declare const Scanner: any
 declare const StaticState: any
+declare const e: any
 declare const enclosingCharDescriptions: any
+declare const parse: any
+declare const r: any
 declare const regex: any
+declare const setRoot: any
 declare const shift: any
 declare const shiftResult: any
-type EnclosingQuote<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EnclosingRegexToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EnclosingStartToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EnclosingTokens<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferredAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Out<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Regex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+declare const shiftUntilEscapable: any
 type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type e<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type enclosingCharDescriptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type r<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type regex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type setRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftUntilEscapable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnterminatedEnclosedMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StringLiteral(contents: string = string) {
+export function StringLiteral(contents: string = string): any {
   return DoubleQuotedStringLiteral(contents) | SingleQuotedStringLiteral(contents)
 }
 /* compiles to:
@@ -58,7 +79,7 @@ export function StringLiteral(contents: string = string) {
 
 // ✓ DoubleQuotedStringLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DoubleQuotedStringLiteral(contents: string = string) {
+export function DoubleQuotedStringLiteral(contents: string = string): any {
   return `"${contents}"`
 }
 /* compiles to:
@@ -67,7 +88,7 @@ export function DoubleQuotedStringLiteral(contents: string = string) {
 
 // ✓ SingleQuotedStringLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleQuotedStringLiteral(contents: string = string) {
+export function SingleQuotedStringLiteral(contents: string = string): any {
   return `'${contents}'`
 }
 /* compiles to:
@@ -77,8 +98,8 @@ export function SingleQuotedStringLiteral(contents: string = string) {
 // ✗ parseEnclosed: does not compile yet
 //   Type 'scanned' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function parseEnclosed(s: StaticState, enclosingStart: EnclosingStartToken, unscanned: string) {
-  const m1 = matches<Scanner.shiftResult<Hole<"scanned">, Hole<"nextUnscanned">>>(Scanner.shiftUntilEscapable(unscanned, EnclosingTokens[enclosingStart], ''))
+export function parseEnclosed(s: StaticState, enclosingStart: EnclosingStartToken, unscanned: string): any {
+  const m1 = matches<Scanner.shiftResult<Hole<"scanned">, Hole<"nextUnscanned">>>(t<Scanner.shiftUntilEscapable<typeof unscanned, EnclosingTokens[typeof enclosingStart], "">>())
   if (m1) {
     return _parseEnclosed(s, enclosingStart, m1.scanned, m1.nextUnscanned)
   }
@@ -96,38 +117,70 @@ export function parseEnclosed(s: StaticState, enclosingStart: EnclosingStartToke
  */
 
 // ✗ _parseEnclosed: does not compile yet
-//   only direct calls are supported
+//   Type 'nextUnscanned extends Scanner.shift<string, infer unscanned> ? unscanned : ""' does not satisfy the constraint 'string'.   Type 'unknown' is not assignabl
 /* @scripttype preserveParamNames */
-export function _parseEnclosed(s: StaticState, enclosingStart: EnclosingStartToken, scanned: string, nextUnscanned: string, def: string = `${enclosingStart}${scanned}${EnclosingTokens[enclosingStart]}`) {
+export function _parseEnclosed(s: StaticState, enclosingStart: EnclosingStartToken, scanned: string, nextUnscanned: string, def: string = `${enclosingStart}${scanned}${EnclosingTokens[enclosingStart]}`): any {
   if (matches<"">(nextUnscanned)) {
-    return s.error(writeUnterminatedEnclosedMessage(scanned, enclosingStart))
+    return t<s.error<writeUnterminatedEnclosedMessage<typeof scanned, typeof enclosingStart>>>()
   }
   if (matches<EnclosingQuote>(enclosingStart)) {
-    const m1 = matches<Scanner.shift<string, Hole<"unscanned">>>(nextUnscanned)
-    return s.setRoot(s, InferredAst(scanned, def), m1 ? m1.unscanned : '')
+    return t<s.setRoot<typeof s, InferredAst<typeof scanned, typeof def>, typeof nextUnscanned extends Scanner.shift<string, Hole<"unscanned">> ? unscanned : "">>()
   }
   if (matches<EnclosingRegexToken>(enclosingStart)) {
-    const m2 = matches<Hole<"r">>(regex.parse(scanned))
-    if (m2) {
-      if (matches<Regex>(m2.r)) {
-        const m3 = matches<Scanner.shift<string, Hole<"unscanned">>>(nextUnscanned)
-        return s.setRoot(s, InferredAst(matches<"/">(enclosingStart) ? m2.r['infer'] : fnType([m2.r['infer']], Out(m2.r['inferExecArray'])), def), m3 ? m3.unscanned : '')
+    const m1 = matches<Hole<"r">>(t<regex.parse<typeof scanned>>())
+    if (m1) {
+      if (matches<Regex>(m1.r)) {
+        return t<s.setRoot<typeof s, InferredAst<typeof enclosingStart extends "/" ? (typeof m1.r)["infer"] : (In: (typeof m1.r)["infer"]) => Out<(typeof m1.r)["inferExecArray"]>, typeof def>, typeof nextUnscanned extends Scanner.shift<string, Hole<"unscanned">> ? unscanned : "">>()
       }
-      const m4 = matches<ErrorMessage<Hole<"e">>>(m2.r)
-      if (m4) {
-        return s.error(m4.e)
+      const m2 = matches<ErrorMessage<Hole<"e">>>(m1.r)
+      if (m2) {
+        return t<s.error<typeof m2.e>>()
       }
       return never
     }
     return never
   }
-  const m5 = matches<Scanner.shift<string, Hole<"unscanned">>>(nextUnscanned)
-  return s.setRoot(s, InferredAst(t<Date>(), def), m5 ? m5.unscanned : '')
+  return t<s.setRoot<typeof s, InferredAst<Date, typeof def>, typeof nextUnscanned extends Scanner.shift<string, Hole<"unscanned">> ? unscanned : "">>()
 }
+/* compiles to:
+ * export type _parseEnclosed<
+ *   s extends StaticState,
+ *   enclosingStart extends EnclosingStartToken,
+ *   scanned extends string,
+ *   nextUnscanned extends string,
+ *   def extends string = `${enclosingStart}${scanned}${EnclosingTokens[enclosingStart]}`
+ * > =
+ *   nextUnscanned extends '' ? s.error<writeUnterminatedEnclosedMessage<scanned, enclosingStart>>
+ *   : enclosingStart extends EnclosingQuote
+ *     ? s.setRoot<
+ *       s,
+ *       InferredAst<scanned, def>,
+ *       nextUnscanned extends Scanner.shift<string, infer unscanned> ? unscanned : ""
+ *     >
+ *   : enclosingStart extends EnclosingRegexToken
+ *     ? regex.parse<scanned> extends infer r
+ *       ? r extends Regex
+ *         ? s.setRoot<
+ *           s,
+ *           InferredAst<
+ *             enclosingStart extends "/" ? (typeof m1.r)["infer"] : (In: (typeof m1.r)["infer"]) => Out<(typeof m1.r)["inferExecArray"]>,
+ *             def
+ *           >,
+ *           nextUnscanned extends Scanner.shift<string, infer unscanned> ? unscanned : ""
+ *         >
+ *       : r extends ErrorMessage<infer e> ? s.error<e>
+ *       : never
+ *       : never
+ *   : s.setRoot<
+ *     s,
+ *     InferredAst<Date, def>,
+ *     nextUnscanned extends Scanner.shift<string, infer unscanned> ? unscanned : ""
+ *   >
+ */
 
 // ✓ writeUnterminatedEnclosedMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnterminatedEnclosedMessage(fragment: string, enclosingStart: EnclosingStartToken) {
+export function writeUnterminatedEnclosedMessage(fragment: string, enclosingStart: EnclosingStartToken): any {
   return `${enclosingStart}${fragment} requires a closing ${enclosingCharDescriptions[EnclosingTokens[enclosingStart]]}`
 }
 /* compiles to:

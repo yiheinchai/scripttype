@@ -7,43 +7,76 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { StaticState } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/reduce/static.js'
+import type { TerminatingChar } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/tokens.js'
 declare namespace Scanner {
   export type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type shiftUntil<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type skipWhitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type scanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type divisor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace s {
+  export type error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type setRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Scanner: any
 declare const StaticState: any
 declare const TerminatingChar: any
+declare const nextUnscanned: any
+declare const scanned: any
+declare const setRoot: any
 declare const shiftResult: any
+declare const shiftUntil: any
+declare const skipWhitespace: any
 type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TerminatingChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type scanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type setRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftUntil<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type skipWhitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeInvalidDivisorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseDivisor: does not compile yet
-//   only direct calls are supported
+//   Type 'nextUnscanned' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function parseDivisor(s: StaticState, unscanned: string) {
-  const m1 = matches<Scanner.shiftResult<Hole<"scanned">, Hole<"nextUnscanned">>>(Scanner.shiftUntil(Scanner.skipWhitespace(unscanned), TerminatingChar))
+export function parseDivisor(s: StaticState, unscanned: string): any {
+  const m1 = matches<Scanner.shiftResult<Hole<"scanned">, Hole<"nextUnscanned">>>(t<Scanner.shiftUntil<Scanner.skipWhitespace<typeof unscanned>, TerminatingChar>>())
   if (m1) {
     const m2 = matches<`${Hole<"divisor", number>}`>(m1.scanned)
     if (m2) {
       if (matches<0>(m2.divisor)) {
-        return s.error(writeInvalidDivisorMessage(0))
+        return t<s.error<writeInvalidDivisorMessage<0>>>()
       }
-      return s.setRoot(s, [s['root'], '%', m2.divisor], m1.nextUnscanned)
+      return t<s.setRoot<typeof s, [ (typeof s)["root"], "%", typeof m2.divisor ], typeof m1.nextUnscanned>>()
     }
-    return s.error(writeInvalidDivisorMessage(m1.scanned))
+    return t<s.error<writeInvalidDivisorMessage<typeof m1.scanned>>>()
   }
   return never
 }
+/* compiles to:
+ * export type parseDivisor<s extends StaticState, unscanned extends string> =
+ *   Scanner.shiftUntil<Scanner.skipWhitespace<unscanned>, TerminatingChar> extends Scanner.shiftResult<infer scanned, infer nextUnscanned>
+ *     ? scanned extends `${infer divisor extends number}`
+ *       ? divisor extends 0
+ *         ? s.error<writeInvalidDivisorMessage<0>>
+ *         : s.setRoot<s, [s['root'], '%', divisor], nextUnscanned>
+ *       : s.error<writeInvalidDivisorMessage<scanned>>
+ *     : never
+ */
 
 // ✓ writeInvalidDivisorMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeInvalidDivisorMessage(divisor: string | number) {
+export function writeInvalidDivisorMessage(divisor: string | number): any {
   return `% operator must be followed by a non-zero integer literal (was ${divisor})`
 }
 /* compiles to:

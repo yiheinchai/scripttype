@@ -7,9 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GetColumnData } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
+import type { TableLikeHasEmptySelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/pg-core/query-builders/select.types.js'
+import type { AnyPgUpdate } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/pg-core/query-builders/update.js'
+import type { PgQueryResultHKT, PgQueryResultKind } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/pg-core/session.js'
+import type { AppendToNullabilityMap, AppendToResult, GetSelectTableName, GetSelectTableSelection, JoinNullability, JoinType, SelectMode, SelectResult } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { ColumnsSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sql/sql.js'
+import type { Assume, DrizzleTypeError, Simplify } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+declare namespace m1 {
+  export type TJoin<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyPgUpdate: any
 declare const AppendToNullabilityMap: any
 declare const AppendToResult: any
@@ -39,38 +51,21 @@ declare const Simplify: any
 declare const Subquery: any
 declare const Table: any
 declare const TableLikeHasEmptySelection: any
-type AnyPgUpdate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToNullabilityMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrizzleTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetColumnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetSelectTableName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetSelectTableSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Join<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinNullability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgPreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgUpdateBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgViewBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectedFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TableLikeHasEmptySelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgUpdateSetSource: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdateSetSource(TTable: PgTable) {
+export function PgUpdateSetSource(TTable: PgTable): any {
   const out = emptyObject
   for (const Key in keyof(TTable['$inferInsert'])) {
     out[Key] = optional(anyOf(GetColumnData(TTable['_']['columns'][Key]), SQL, PgColumn, Undefined))
@@ -90,7 +85,11 @@ export function PgUpdateSetSource(TTable: PgTable) {
 
 // ✓ PgUpdateWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdateWithout(T: AnyPgUpdate, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnyPgUpdate} T
+ * @param {keyof typeof T & string} K
+ */
+export function PgUpdateWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -122,7 +121,7 @@ export function PgUpdateWithout(T: AnyPgUpdate, TDynamic: boolean, K: keyof type
 
 // ✓ PgUpdateWithJoins: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdateWithJoins(T: AnyPgUpdate, TDynamic: boolean, TFrom: PgTable | Subquery | PgViewBase | SQL) {
+export function PgUpdateWithJoins(T: AnyPgUpdate, TDynamic: boolean, TFrom: PgTable | Subquery | PgViewBase | SQL): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -163,7 +162,7 @@ export function PgUpdateWithJoins(T: AnyPgUpdate, TDynamic: boolean, TFrom: PgTa
 
 // ✓ PgUpdateJoinFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdateJoinFn(T: AnyPgUpdate, TDynamic: boolean, TJoinType: JoinType) {
+export function PgUpdateJoinFn(T: AnyPgUpdate, TDynamic: boolean, TJoinType: JoinType): any {
   return genericFnType(['TJoinedTable extends PgTable | Subquery | PgViewBase | SQL'], [matches<true>(TableLikeHasEmptySelection(TJoinedTable)) ? DrizzleTypeError('Cannot reference a data-modifying statement subquery if it doesn\'t contain a `returning` clause') : TJoinedTable, anyOf(fnType([T['_']['table']['_']['columns'], matches<PgTable>(T['_']['from']) ? T['_']['from']['_']['columns'] : (matches<Subquery | PgViewBase>(T['_']['from']) ? T['_']['from']['_']['selectedFields'] : never)], anyOf(SQL, Undefined)), SQL, Undefined)], PgUpdateJoin(T, TDynamic, TJoinType, TJoinedTable))
 }
 /* compiles to:
@@ -180,7 +179,7 @@ export function PgUpdateJoinFn(T: AnyPgUpdate, TDynamic: boolean, TJoinType: Joi
 
 // ✓ PgUpdateJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdateJoin(T: AnyPgUpdate, TDynamic: boolean, TJoinType: JoinType, TJoinedTable: PgTable | Subquery | PgViewBase | SQL) {
+export function PgUpdateJoin(T: AnyPgUpdate, TDynamic: boolean, TJoinType: JoinType, TJoinedTable: PgTable | Subquery | PgViewBase | SQL): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -217,7 +216,7 @@ export function PgUpdateJoin(T: AnyPgUpdate, TDynamic: boolean, TJoinType: JoinT
 
 // ✓ AccumulateToResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AccumulateToResult(T: AnyPgUpdate, TSelectMode: SelectMode, TJoins: Join[], TSelectedFields: ColumnsSelection) {
+export function AccumulateToResult(T: AnyPgUpdate, TSelectMode: SelectMode, TJoins: Join[], TSelectedFields: ColumnsSelection): any {
   let tSelectMode = TSelectMode
   let tJoins = TJoins
   let tSelectedFields = TSelectedFields
@@ -269,12 +268,12 @@ export function AccumulateToResult(T: AnyPgUpdate, TSelectMode: SelectMode, TJoi
 
 // ✓ PgUpdateReturningAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdateReturningAll(T: AnyPgUpdate, TDynamic: boolean) {
+export function PgUpdateReturningAll(T: AnyPgUpdate, TDynamic: boolean): any {
   const out = emptyObject
   for (const K in keyof(T['_']['joins'])) {
     out[T['_']['joins'][K]['table']['_']['name']] = T['_']['joins'][K]['table']['_']['columns']
   }
-  return PgUpdateWithout(PgUpdateBase(T['_']['table'], T['_']['queryResult'], T['_']['from'], matches<true>(Equal(T['_']['joins'], [])) ? T['_']['table']['_']['columns'] : Simplify(Record(T['_']['table']['_']['name'], T['_']['table']['_']['columns']) & out), SelectResult(AccumulateToResult(T, 'single', T['_']['joins'], GetSelectTableSelection(T['_']['table'])), 'partial', T['_']['nullabilityMap']), T['_']['nullabilityMap'], T['_']['joins'], TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
+  return PgUpdateWithout(PgUpdateBase(T['_']['table'], T['_']['queryResult'], T['_']['from'], matches<true>(Equal(T['_']['joins'], [])) ? T['_']['table']['_']['columns'] : Simplify(merge(Record(T['_']['table']['_']['name'], T['_']['table']['_']['columns']), out)), SelectResult(AccumulateToResult(T, 'single', T['_']['joins'], GetSelectTableSelection(T['_']['table'])), 'partial', T['_']['nullabilityMap']), T['_']['nullabilityMap'], T['_']['joins'], TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
  * export type PgUpdateReturningAll<T extends AnyPgUpdate, TDynamic extends boolean> = PgUpdateWithout<
@@ -307,7 +306,7 @@ export function PgUpdateReturningAll(T: AnyPgUpdate, TDynamic: boolean) {
 
 // ✓ PgUpdateReturning: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdateReturning(T: AnyPgUpdate, TDynamic: boolean, TSelectedFields: SelectedFields) {
+export function PgUpdateReturning(T: AnyPgUpdate, TDynamic: boolean, TSelectedFields: SelectedFields): any {
   return PgUpdateWithout(PgUpdateBase(T['_']['table'], T['_']['queryResult'], T['_']['from'], TSelectedFields, SelectResult(AccumulateToResult(T, 'partial', T['_']['joins'], TSelectedFields), 'partial', T['_']['nullabilityMap']), T['_']['nullabilityMap'], T['_']['joins'], TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
@@ -339,7 +338,7 @@ export function PgUpdateReturning(T: AnyPgUpdate, TDynamic: boolean, TSelectedFi
 
 // ✓ PgUpdatePrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdatePrepare(T: AnyPgUpdate) {
+export function PgUpdatePrepare(T: AnyPgUpdate): any {
   return PgPreparedQuery(merge(PreparedQueryConfig, { execute: typeof T['_']['returning'] === 'undefined' ? PgQueryResultKind(T['_']['queryResult'], never) : arrayOf(T['_']['returning']) }))
 }
 /* compiles to:
@@ -355,7 +354,7 @@ export function PgUpdatePrepare(T: AnyPgUpdate) {
 
 // ✓ PgUpdateDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdateDynamic(T: AnyPgUpdate) {
+export function PgUpdateDynamic(T: AnyPgUpdate): any {
   return PgUpdate(T['_']['table'], T['_']['queryResult'], T['_']['from'], T['_']['returning'], T['_']['nullabilityMap'])
 }
 /* compiles to:
@@ -370,7 +369,7 @@ export function PgUpdateDynamic(T: AnyPgUpdate) {
 
 // ✓ PgUpdate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgUpdate(TTable: PgTable = PgTable, TQueryResult: PgQueryResultHKT = PgQueryResultHKT, TFrom: PgTable | Subquery | PgViewBase | SQL | undefined = Undefined, TSelectedFields: ColumnsSelection | undefined = Undefined, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined), TNullabilityMap: Record<string, JoinNullability> = Record(TTable['_']['name'], 'not-null'), TJoins: Join[] = []) {
+export function PgUpdate(TTable: PgTable = PgTable, TQueryResult: PgQueryResultHKT = PgQueryResultHKT, TFrom: PgTable | Subquery | PgViewBase | SQL | undefined = Undefined, TSelectedFields: ColumnsSelection | undefined = Undefined, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined), TNullabilityMap: Record<string, JoinNullability> = Record(TTable['_']['name'], 'not-null'), TJoins: Join[] = []): any {
   return PgUpdateBase(TTable, TQueryResult, TFrom, TSelectedFields, TReturning, TNullabilityMap, TJoins, true, never)
 }
 /* compiles to:

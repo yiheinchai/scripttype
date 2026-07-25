@@ -9,7 +9,7 @@
  */
 // ✓ ValidSudoku: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidSudoku(M: number[][]) {
+export function ValidSudoku(M: number[][]): any {
   return any
 }
 /* compiles to:

@@ -14,7 +14,7 @@ declare const PgInetBuilder: any
 type PgInetBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgInetBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgInetBuilderInitial(TName: string) {
+export function PgInetBuilderInitial(TName: string): any {
   return PgInetBuilder({ name: TName, dataType: 'string', columnType: 'PgInet', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:

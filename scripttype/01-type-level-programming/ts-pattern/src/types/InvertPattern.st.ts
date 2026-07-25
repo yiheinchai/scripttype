@@ -7,9 +7,62 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DeepExclude } from '../../../../../01-type-level-programming/ts-pattern/src/types/DeepExclude.js'
+import type { AnyMatcher, Matcher, Override, Pattern } from '../../../../../01-type-level-programming/ts-pattern/src/types/Pattern.js'
+import type { All, Call, Compute, Equal, Extends, ExtractPlainObject, Fn, GetKey, IsLiteral, IsPlainObject, IsReadonlyArray, MapKey, MapValue, MaybeAddReadonly, NonLiteralPrimitive, Not, Primitives, ReadonlyArrayValue, RecordKey, RecordValue, SetValue, ValueOf, WithDefault } from '../../../../../01-type-level-programming/ts-pattern/src/types/helpers.js'
+declare namespace m1 {
+  export type excluded<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ii<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type matchableInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type matcherType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type narrowedOrFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type p<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type subpattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type ii<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type p1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pv<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type i1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type iRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pv<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type optKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type p1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pv<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type i1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type iInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ik<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type iv<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m6 {
+  export type iv<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m7 {
+  export type narrowedOrFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m8 {
+  export type arrayInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m9 {
+  export type optKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const All: any
 declare const AnyMatcher: any
 declare const Call: any
@@ -45,37 +98,9 @@ declare const matchableInput: any
 declare const pk: any
 declare const pv: any
 declare const subpattern: any
-type All<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyMatcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Compute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DeepExclude<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractPlainObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InvertPatternForExcludeInternal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InvertPatternInternal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsPlainObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsReadonlyArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Matcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeAddReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonLiteralPrimitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Override<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Primitives<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyArrayValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RecordKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RecordValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SetValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValueOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type WithDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ik<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type iv<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type matchableInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -84,7 +109,7 @@ type pv<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8
 type subpattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OptionalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalKeys__v1(p, k) {
+export function OptionalKeys__v1(p, k): any {
   const m1 = matches<Matcher<any, any, Hole<"matcherType">>>(p[k])
   if (m1) {
     if (matches<'optional'>(m1.matcherType)) {
@@ -94,7 +119,7 @@ export function OptionalKeys__v1(p, k) {
   }
   return never
 }
-export function OptionalKeys(p) {
+export function OptionalKeys(p): any {
   const out = emptyObject
   for (const k in keyof(p)) {
     out[k] = matches<1 & (typeof p)[typeof k]>(0) ? never : (OptionalKeys__v1(p, k))
@@ -113,7 +138,7 @@ export function OptionalKeys(p) {
 
 // ✓ ReduceUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReduceUnion(tuple: readonly any[], i) {
+export function ReduceUnion(tuple: readonly any[], i): any {
   let output = never
   let tuple_ = tuple
   while (true) {
@@ -136,7 +161,7 @@ export function ReduceUnion(tuple: readonly any[], i) {
 
 // ✓ ReduceIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReduceIntersection(tuple: readonly any[], i) {
+export function ReduceIntersection(tuple: readonly any[], i): any {
   let output = unknown
   let tuple_ = tuple
   while (true) {
@@ -163,7 +188,7 @@ export function ReduceIntersection(tuple: readonly any[], i) {
 
 // ✓ InvertArrayPattern: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InvertArrayPattern(p, i, startOutput: any[] = [], endOutput: any[] = []) {
+export function InvertArrayPattern(p, i, startOutput: any[] = [], endOutput: any[] = []): any {
   const m1 = matches<readonly (Hole<"ii">)[]>(i)
   if (m1) {
     if (matches<readonly [ ]>(p)) {
@@ -242,7 +267,7 @@ export function InvertArrayPattern(p, i, startOutput: any[] = [], endOutput: any
 
 // ✓ InvertPattern: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InvertPattern(p, input) {
+export function InvertPattern(p, input): any {
   if (matches<true>(Equal(Pattern(input), p))) {
     return never
   }
@@ -256,7 +281,7 @@ export function InvertPattern(p, input) {
 // ✗ InvertPatternInternal: the ScriptType does not itself typecheck as TypeScript
 //   InvertPatternInternal.st.ts(10:294) TS2693: 'PropertyKey' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
-export function InvertPatternInternal(p, input) {
+export function InvertPatternInternal(p, input): any {
   if (matches<1 & typeof p>(0)) {
     return never
   }
@@ -290,7 +315,7 @@ export function InvertPatternInternal(p, input) {
       for (const k in keySet(Extract(m4.optKeys, keyof(p)))) {
         out3[k] = optional(InvertPatternInternal(p[k], WithDefault(GetKey(ExtractPlainObject(input), k), unknown)))
       }
-      return Compute(out2 & out3)
+      return Compute(merge(out2, out3))
     }
     return never
   }
@@ -299,7 +324,7 @@ export function InvertPatternInternal(p, input) {
 /* compiles to:
  * export type InvertPatternInternal<p, input> =
  *   0 extends 1 & p ? never
- *   : p extends Matcher<unknown, infer subpattern, infer matcherType, any, infer narrowedOrFn>
+ *   : p extends Matcher<any, infer subpattern, infer matcherType, any, infer narrowedOrFn>
  *     ? {
  *       not: DeepExclude<input, InvertPatternInternal<subpattern, input>>
  *       select: InvertPatternInternal<subpattern, input>
@@ -355,7 +380,7 @@ export function InvertPatternInternal(p, input) {
 
 // ✓ ReduceIntersectionForExclude: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReduceIntersectionForExclude(tuple: readonly any[], i) {
+export function ReduceIntersectionForExclude(tuple: readonly any[], i): any {
   let output = unknown
   let tuple_ = tuple
   while (true) {
@@ -386,7 +411,7 @@ export function ReduceIntersectionForExclude(tuple: readonly any[], i) {
 
 // ✓ ReduceUnionForExclude: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReduceUnionForExclude(tuple: readonly any[], i) {
+export function ReduceUnionForExclude(tuple: readonly any[], i): any {
   let output = never
   let tuple_ = tuple
   while (true) {
@@ -417,7 +442,7 @@ export function ReduceUnionForExclude(tuple: readonly any[], i) {
 
 // ✓ ExcludeIfExists: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExcludeIfExists(a, b) {
+export function ExcludeIfExists(a, b): any {
   if (matches<[ never ]>([b])) {
     return never
   }
@@ -439,7 +464,7 @@ export function ExcludeIfExists(a, b) {
 
 // ✓ InvertArrayPatternForExclude: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InvertArrayPatternForExclude(p, i, empty, isReadonly: boolean, startOutput: any[] = [], endOutput: any[] = []) {
+export function InvertArrayPatternForExclude(p, i, empty, isReadonly: boolean, startOutput: any[] = [], endOutput: any[] = []): any {
   const m1 = matches<readonly (Hole<"ii">)[]>(i)
   if (m1) {
     if (matches<readonly [ ]>(p)) {
@@ -538,7 +563,7 @@ export function InvertArrayPatternForExclude(p, i, empty, isReadonly: boolean, s
 
 // ✓ InvertPatternForExclude: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InvertPatternForExclude(p, i) {
+export function InvertPatternForExclude(p, i): any {
   if (matches<true>(Equal(Pattern(i), p))) {
     return never
   }
@@ -552,7 +577,7 @@ export function InvertPatternForExclude(p, i) {
 // ✗ InvertPatternForExcludeInternal: the ScriptType does not itself typecheck as TypeScript
 //   InvertPatternForExcludeInternal.st.ts(23:298) TS2693: 'PropertyKey' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
-export function InvertPatternForExcludeInternal(p, i, empty = never) {
+export function InvertPatternForExcludeInternal(p, i, empty = never): any {
   if (matches<typeof p>(unknown)) {
     return i
   }
@@ -607,7 +632,7 @@ export function InvertPatternForExcludeInternal(p, i, empty = never) {
         for (const k in keySet(Extract(m9.optKeys, keyof(p)))) {
           out3[k] = readonlyProp(optional(k in i ? InvertPatternForExcludeInternal(p[k], i[k], empty) : InvertPatternInternal(p[k], unknown)))
         }
-        return Compute(out2 & out3)
+        return Compute(merge(out2, out3))
       }
       return empty
     }

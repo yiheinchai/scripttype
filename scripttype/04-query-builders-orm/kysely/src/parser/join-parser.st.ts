@@ -7,25 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { From, FromTables } from '../../../../../04-query-builders-orm/kysely/src/parser/table-parser.js'
+import type { AnyColumn, AnyColumnWithTable, DrainOuterGeneric } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
 declare const AnyColumn: any
 declare const AnyColumnWithTable: any
 declare const DrainOuterGeneric: any
 declare const From: any
 declare const FromTables: any
 declare const JoinBuilder: any
-type AnyColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type From<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FromTables<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type JoinBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ JoinReferenceExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JoinReferenceExpression(DB, TB: keyof typeof DB, TE) {
-  return DrainOuterGeneric(AnyJoinColumn(DB, TB, TE) | AnyJoinColumnWithTable(DB, TB, TE))
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function JoinReferenceExpression(DB, TB, TE): any {
+  return DrainOuterGeneric(anyOf(AnyJoinColumn(DB, TB, TE), AnyJoinColumnWithTable(DB, TB, TE)))
 }
 /* compiles to:
  * export type JoinReferenceExpression<DB, TB extends keyof DB, TE> = DrainOuterGeneric<
@@ -35,7 +36,10 @@ export function JoinReferenceExpression(DB, TB: keyof typeof DB, TE) {
 
 // ✓ JoinCallbackExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JoinCallbackExpression(DB, TB: keyof typeof DB, TE) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function JoinCallbackExpression(DB, TB, TE): any {
   return fnType([JoinBuilder(From(DB, TE), FromTables(DB, TB, TE))], JoinBuilder(any, any))
 }
 /* compiles to:
@@ -45,7 +49,10 @@ export function JoinCallbackExpression(DB, TB: keyof typeof DB, TE) {
 
 // ✓ AnyJoinColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyJoinColumn(DB, TB: keyof typeof DB, TE) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function AnyJoinColumn(DB, TB, TE): any {
   return AnyColumn(From(DB, TE), FromTables(DB, TB, TE))
 }
 /* compiles to:
@@ -57,7 +64,10 @@ export function AnyJoinColumn(DB, TB: keyof typeof DB, TE) {
 
 // ✓ AnyJoinColumnWithTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyJoinColumnWithTable(DB, TB: keyof typeof DB, TE) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function AnyJoinColumnWithTable(DB, TB, TE): any {
   return AnyColumnWithTable(From(DB, TE), FromTables(DB, TB, TE))
 }
 /* compiles to:

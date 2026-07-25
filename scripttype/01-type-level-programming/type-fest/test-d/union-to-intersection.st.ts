@@ -14,7 +14,10 @@ declare const UnionToIntersection: any
 type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Assignability: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability(T, U, _K: typeof T | typeof U) {
+/**
+ * @param {typeof T | typeof U} _K
+ */
+export function Assignability(T, U, _K): any {
   return never
 }
 /* compiles to:
@@ -23,8 +26,8 @@ export function Assignability(T, U, _K: typeof T | typeof U) {
 
 // ✓ TestAssignability: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TestAssignability(T, U) {
-  return Assignability(T, U, UnionToIntersection(T | U))
+export function TestAssignability(T, U): any {
+  return Assignability(T, U, UnionToIntersection(anyOf(T, U)))
 }
 /* compiles to:
  * export type TestAssignability<T, U> = Assignability<T, U, UnionToIntersection<T | U>>

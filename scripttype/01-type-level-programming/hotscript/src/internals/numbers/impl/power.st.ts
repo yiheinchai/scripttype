@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { PowerDigits } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/digits/power.js'
+import type { Digit, DigitNumber, FromDigitNumber, MakeDigitNumber, Normalize, Num, Sign, ToDigitNumber, ToNumber, ToString } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/utils.js'
 declare const Digit: any
 declare const DigitNumber: any
 declare const FromDigitNumber: any
@@ -21,20 +24,9 @@ declare const Sign: any
 declare const ToDigitNumber: any
 declare const ToNumber: any
 declare const ToString: any
-type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FromDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MakeDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Normalize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PowerDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Sign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PowerSign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PowerSign(S: "" | "-", U: DigitNumber) {
+export function PowerSign(S: "" | "-", U: DigitNumber): any {
   if (matches<"-">(S)) {
     if (matches<[ ...Digit[], 0 | 2 | 4 | 6 | 8 ]>(Num(U))) {
       return ''
@@ -50,7 +42,7 @@ export function PowerSign(S: "" | "-", U: DigitNumber) {
 
 // ✓ PowerDigitNumbers: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PowerDigitNumbers(T: DigitNumber, U: DigitNumber) {
+export function PowerDigitNumbers(T: DigitNumber, U: DigitNumber): any {
   if (matches<"-">(Sign(U))) {
     return MakeDigitNumber(Sign(T), [0])
   }
@@ -65,7 +57,7 @@ export function PowerDigitNumbers(T: DigitNumber, U: DigitNumber) {
 
 // ✓ Power: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Power(T: number | bigint, U: number | bigint) {
+export function Power(T: number | bigint, U: number | bigint): any {
   return ToNumber(FromDigitNumber(Normalize(PowerDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U))))))
 }
 /* compiles to:

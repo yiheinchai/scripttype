@@ -12,11 +12,11 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const ThunkAction: any
 declare const UnknownAction: any
-type ThunkAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownAction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ThunkAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ThunkWithReturnValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ThunkWithReturnValue(T) {
+export function ThunkWithReturnValue(T): any {
   return ThunkAction(T, any, any, UnknownAction)
 }
 /* compiles to:

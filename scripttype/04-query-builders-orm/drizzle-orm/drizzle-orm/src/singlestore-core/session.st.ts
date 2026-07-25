@@ -7,24 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SingleStorePreparedQueryConfig, SingleStorePreparedQueryHKT, SingleStoreQueryResultHKT } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/singlestore-core/session.js'
+import type { Assume } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
 declare const Assume: any
 declare const Equal: any
 declare const SingleStorePreparedQuery: any
 declare const SingleStorePreparedQueryConfig: any
 declare const SingleStorePreparedQueryHKT: any
 declare const SingleStoreQueryResultHKT: any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SingleStorePreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStorePreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStorePreparedQueryHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SingleStoreQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreQueryResultKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreQueryResultKind(TKind: SingleStoreQueryResultHKT, TRow) {
+export function SingleStoreQueryResultKind(TKind: SingleStoreQueryResultHKT, TRow): any {
   return (merge(TKind, { row: readonlyProp(TRow) }))['type']
 }
 /* compiles to:
@@ -34,7 +33,7 @@ export function SingleStoreQueryResultKind(TKind: SingleStoreQueryResultHKT, TRo
 
 // ✓ PreparedQueryKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PreparedQueryKind(TKind: SingleStorePreparedQueryHKT, TConfig: SingleStorePreparedQueryConfig, TAssume: boolean = false) {
+export function PreparedQueryKind(TKind: SingleStorePreparedQueryHKT, TConfig: SingleStorePreparedQueryConfig, TAssume: boolean = false): any {
   if (matches<true>(Equal(TAssume, true))) {
     return Assume((merge(TKind, { config: readonlyProp(TConfig) }))['type'], SingleStorePreparedQuery(TConfig))
   }

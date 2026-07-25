@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { MakeRouteMatchUnion, MatchRouteOptions } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/Matches.js'
+import type { MakeOptionalPathParams, MakeOptionalSearchParams, MaskOptions, ResolveRoute, ToSubOptionsProps } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/link.js'
+import type { AnyRouter, RegisteredRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { DeepPartial } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
 declare namespace Vue {
   export type VNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -23,21 +28,13 @@ declare const MatchRouteOptions: any
 declare const RegisteredRouter: any
 declare const ResolveRoute: any
 declare const ToSubOptionsProps: any
+declare const VNode: any
 declare const Vue: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DeepPartial<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MakeOptionalPathParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MakeOptionalSearchParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MakeRouteMatchUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaskOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MatchRouteOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolveRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToSubOptionsProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type VNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Vue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseMatchRouteOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = '') {
+export function UseMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = ''): any {
   return ToSubOptionsProps(TRouter, TFrom, TTo) & DeepPartial(MakeOptionalSearchParams(TRouter, TFrom, TTo)) & DeepPartial(MakeOptionalPathParams(TRouter, TFrom, TTo)) & MaskOptions(TRouter, TMaskFrom, TMaskTo) & MatchRouteOptions
 }
 /* compiles to:
@@ -57,8 +54,8 @@ export function UseMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFro
 
 // ✓ MakeMatchRouteOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MakeMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = '') {
-  return merge(UseMatchRouteOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo), { children: optional(fnType([ResolveRoute(TRouter, TFrom, TTo)['types']['allParams']], Vue.VNode) | Vue.VNode) })
+export function MakeMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = ''): any {
+  return merge(UseMatchRouteOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo), { children: optional(fnType([optElem(ResolveRoute(TRouter, TFrom, TTo)['types']['allParams'])], t<Vue.VNode>()) | t<Vue.VNode>()) })
 }
 /* compiles to:
  * export type MakeMatchRouteOptions<
@@ -70,14 +67,14 @@ export function MakeMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFr
  * > =
  *   & UseMatchRouteOptions<TRouter, TFrom, TTo, TMaskFrom, TMaskTo>
  *   & {
- *       children?: | ((a0: ResolveRoute<TRouter, TFrom, TTo>['types']['allParams']) => Vue.VNode)
+ *       children?: | ((a0?: ResolveRoute<TRouter, TFrom, TTo>['types']['allParams']) => Vue.VNode)
  *       | Vue.VNode
  *     }
  */
 
 // ✓ UseMatchesResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseMatchesResult(TRouter: AnyRouter, TSelected) {
+export function UseMatchesResult(TRouter: AnyRouter, TSelected): any {
   if (matches<typeof TSelected>(unknown)) {
     return arrayOf(MakeRouteMatchUnion(TRouter))
   }

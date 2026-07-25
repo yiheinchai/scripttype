@@ -9,7 +9,7 @@
  */
 // ✓ Join: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Join(T, U) {
+export function Join(T, U): any {
   return any
 }
 /* compiles to:

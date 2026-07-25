@@ -7,20 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Digit } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/numbers.js'
+declare namespace m1 {
+  export type b<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type n<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type n<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Digit: any
 declare const NumericLiteralKind: any
 declare const b: any
 declare const numericLiteralDescriptions: any
-type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NumericLiteralKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type b<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type numericLiteralDescriptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NumberLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NumberLiteral(n: number = number) {
+export function NumberLiteral(n: number = number): any {
   return `${n}`
 }
 /* compiles to:
@@ -29,7 +37,7 @@ export function NumberLiteral(n: number = number) {
 
 // ✓ BigintLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BigintLiteral(n: bigint = bigint) {
+export function BigintLiteral(n: bigint = bigint): any {
   return `${n}n`
 }
 /* compiles to:
@@ -38,7 +46,7 @@ export function BigintLiteral(n: bigint = bigint) {
 
 // ✓ IntegerLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IntegerLiteral(n: bigint = bigint) {
+export function IntegerLiteral(n: bigint = bigint): any {
   return `${n}`
 }
 /* compiles to:
@@ -47,7 +55,7 @@ export function IntegerLiteral(n: bigint = bigint) {
 
 // ✓ NonNegativeIntegerLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNegativeIntegerLiteral(n: bigint = bigint) {
+export function NonNegativeIntegerLiteral(n: bigint = bigint): any {
   return anyOf(`${Digit}`, merge(`${Exclude(Digit, 0)}${string}`, `${n}`))
 }
 /* compiles to:
@@ -57,7 +65,7 @@ export function NonNegativeIntegerLiteral(n: bigint = bigint) {
 
 // ✓ writeMalformedNumericLiteralMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeMalformedNumericLiteralMessage(def: string, kind: NumericLiteralKind) {
+export function writeMalformedNumericLiteralMessage(def: string, kind: NumericLiteralKind): any {
   return `'${def}' was parsed as ${numericLiteralDescriptions[kind]} but could not be narrowed to a literal value. Avoid unnecessary leading or trailing zeros and other abnormal notation`
 }
 /* compiles to:
@@ -70,7 +78,7 @@ export function writeMalformedNumericLiteralMessage(def: string, kind: NumericLi
 
 // ✓ tryParseNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function tryParseNumber(token: string, messageOnFail: string) {
+export function tryParseNumber(token: string, messageOnFail: string): any {
   const m1 = matches<`${Hole<"n", number>}`>(token)
   if (m1) {
     if (matches<typeof m1.n>(number)) {
@@ -89,7 +97,7 @@ export function tryParseNumber(token: string, messageOnFail: string) {
 
 // ✓ parseNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function parseNumber(token: string) {
+export function parseNumber(token: string): any {
   const m1 = matches<`${Hole<"n", number>}`>(token)
   if (m1) {
     return m1.n
@@ -103,7 +111,7 @@ export function parseNumber(token: string) {
 
 // ✓ tryParseInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function tryParseInteger(token: string, messageOnFail: string) {
+export function tryParseInteger(token: string, messageOnFail: string): any {
   const m1 = matches<`${Hole<"b", bigint>}`>(token)
   if (m1) {
     if (matches<typeof m1.b>(bigint)) {
@@ -128,7 +136,7 @@ export function tryParseInteger(token: string, messageOnFail: string) {
 
 // ✓ parseInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function parseInteger(token: string) {
+export function parseInteger(token: string): any {
   if (matches<`${bigint}`>(token)) {
     const m1 = matches<`${Hole<"n", number>}`>(token)
     if (m1) {
@@ -145,7 +153,7 @@ export function parseInteger(token: string) {
 
 // ✓ parseNonNegativeInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function parseNonNegativeInteger(token: string) {
+export function parseNonNegativeInteger(token: string): any {
   if (matches<`-${string}`>(token)) {
     return never
   }
@@ -158,7 +166,7 @@ export function parseNonNegativeInteger(token: string) {
 
 // ✓ NumericParseOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NumericParseOptions(errorOnFail: boolean | string) {
+export function NumericParseOptions(errorOnFail: boolean | string): any {
   return { errorOnFail: optional(errorOnFail), strict: optional(boolean) }
 }
 /* compiles to:

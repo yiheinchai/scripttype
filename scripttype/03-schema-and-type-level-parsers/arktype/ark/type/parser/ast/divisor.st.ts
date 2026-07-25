@@ -7,24 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { InferredMorph } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/attributes.js'
+import type { inferAstRoot } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/infer.js'
+import type { writeConstrainedMorphMessage } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/utils.js'
+import type { validateAst } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/validate.js'
+import type { ErrorMessage } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
+declare namespace m1 {
+  export type data<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ErrorMessage: any
 declare const InferredMorph: any
 declare const inferAstRoot: any
 declare const validateAst: any
 declare const writeConstrainedMorphMessage: any
 declare const writeIndivisibleMessage: any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferredMorph<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferAstRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type writeConstrainedMorphMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type writeIndivisibleMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validateDivisor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function validateDivisor(l, $, args) {
+export function validateDivisor(l, $, args): any {
   const m1 = matches<Hole<"data">>(inferAstRoot(l, $, args))
   if (m1) {
     if (matches<[ number ]>([m1.data])) {

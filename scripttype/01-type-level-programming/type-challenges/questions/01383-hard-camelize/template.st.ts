@@ -9,7 +9,7 @@
  */
 // ✓ Camelize: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Camelize(T) {
+export function Camelize(T): any {
   return any
 }
 /* compiles to:

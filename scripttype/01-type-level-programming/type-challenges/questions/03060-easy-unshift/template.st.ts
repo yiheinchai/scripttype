@@ -9,7 +9,7 @@
  */
 // ✓ Unshift: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Unshift(T, U) {
+export function Unshift(T, U): any {
   return any
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ GetOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetOptional(T) {
+export function GetOptional(T): any {
   return any
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ PublicType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PublicType(T: object) {
+export function PublicType(T: object): any {
   return any
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Route: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Route(T) {
+export function Route(T): any {
   return [t<RegExp>(), string, T]
 }
 /* compiles to:

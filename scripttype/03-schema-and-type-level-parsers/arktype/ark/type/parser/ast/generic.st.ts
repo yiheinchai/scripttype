@@ -7,17 +7,35 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { GenericAst, GenericParamAst } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/generic.js'
+import type { inferAstRoot, inferExpression } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/infer.js'
+import type { astToString } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/utils.js'
+import type { validateAst } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/validate.js'
+import type { inferDefinition } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/definition.js'
+import type { UnparsedScope } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/scope.js'
+import type { array } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/arrays.js'
+import type { typeToString } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/describe.js'
+import type { ErrorMessage } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
 declare namespace Hkt {
   export type apply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type arg<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type argsTail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type e<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const ErrorMessage: any
 declare const GenericAst: any
 declare const GenericParamAst: any
 declare const Hkt: any
 declare const UnparsedScope: any
+declare const apply: any
 declare const array: any
 declare const astToString: any
 declare const inferAstRoot: any
@@ -26,22 +44,12 @@ declare const inferExpression: any
 declare const typeToString: any
 declare const validateAst: any
 declare const writeUnsatisfiedParameterConstraintMessage: any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GenericAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GenericParamAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Hkt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnparsedScope<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type astToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferAstRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type typeToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type apply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type writeUnsatisfiedParameterConstraintMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GenericInstantiationAst: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GenericInstantiationAst(generic: GenericAst = GenericAst, argAsts: unknown[] = arrayOf(unknown)) {
+export function GenericInstantiationAst(generic: GenericAst = GenericAst, argAsts: unknown[] = arrayOf(unknown)): any {
   return [generic, '<>', argAsts]
 }
 /* compiles to:
@@ -54,19 +62,18 @@ export function GenericInstantiationAst(generic: GenericAst = GenericAst, argAst
 
 // ✓ inferGenericInstantiation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferGenericInstantiation(g: GenericAst, argAsts: unknown[], $, args) {
+/**
+ * @param {unknown[]} argAsts
+ */
+export function inferGenericInstantiation(g: GenericAst, argAsts, $, args): any {
   if (matches<Hkt>(g['bodyDef'])) {
-    const out = emptyObject
-    for (const i in keyof(argAsts)) {
-      out[i] = inferExpression(argAsts[i], $, args)
-    }
-    return Hkt.apply(g['bodyDef'], out)
+    return t<Hkt.apply<(typeof g)["bodyDef"], { [i in keyof typeof argAsts]: inferExpression<(typeof argAsts)[i], typeof $, typeof args>; }>>()
   }
-  const out2 = emptyObject
+  const out = emptyObject
   for (const i in keySet(merge(keyof(g['names']), `${number}`))) {
-    out2[g['names'][i]] = inferExpression(argAsts[merge(i, keyof(argAsts))], resolveScope(g['arg$'], $), args)
+    out[g['names'][i]] = inferExpression(argAsts[merge(i, keyof(argAsts))], resolveScope(g['arg$'], $), args)
   }
-  return inferDefinition(g['bodyDef'], resolveScope(g['$'], $), out2)
+  return inferDefinition(g['bodyDef'], resolveScope(g['$'], $), out)
 }
 /* compiles to:
  * export type inferGenericInstantiation<
@@ -76,13 +83,13 @@ export function inferGenericInstantiation(g: GenericAst, argAsts: unknown[], $, 
  *   args
  * > =
  *   g['bodyDef'] extends Hkt
- *     ? Hkt.apply<g['bodyDef'], { [I in keyof argAsts]: inferExpression<argAsts[I], $, args> }>
+ *     ? Hkt.apply<g['bodyDef'], { [i in keyof argAsts]: inferExpression<(argAsts)[i], $, args>; }>
  *     : inferDefinition<
  *       g['bodyDef'],
  *       resolveScope<g['$'], $>,
  *       {
- *         [I1 in keyof g['names'] & `${number}` as g['names'][I1]]: inferExpression<
- *           argAsts[I1 & keyof argAsts],
+ *         [I in keyof g['names'] & `${number}` as g['names'][I]]: inferExpression<
+ *           argAsts[I & keyof argAsts],
  *           resolveScope<g['arg$'], $>,
  *           args
  *         >
@@ -92,7 +99,7 @@ export function inferGenericInstantiation(g: GenericAst, argAsts: unknown[], $, 
 
 // ✓ validateGenericInstantiation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function validateGenericInstantiation(g: GenericAst, argAsts: unknown[], $, args) {
+export function validateGenericInstantiation(g: GenericAst, argAsts: unknown[], $, args): any {
   return validateGenericArgs(g['paramsAst'], argAsts, $, args, [])
 }
 /* compiles to:
@@ -107,7 +114,7 @@ export function validateGenericInstantiation(g: GenericAst, argAsts: unknown[], 
 
 // ✓ validateGenericArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function validateGenericArgs(params: array<GenericParamAst>, argAsts: array, $, args, indices: 1[]) {
+export function validateGenericArgs(params: array<GenericParamAst>, argAsts: array, $, args, indices: 1[]): any {
   const m1 = matches<readonly [ Hole<"arg">, ...Hole<"argsTail"> ]>(argAsts)
   if (m1) {
     const m2 = matches<Hole<"e", ErrorMessage>>(validateAst(m1.arg, $, args))
@@ -145,7 +152,7 @@ export function validateGenericArgs(params: array<GenericParamAst>, argAsts: arr
 
 // ✓ resolveScope: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function resolveScope(g$, $) {
+export function resolveScope(g$, $): any {
   if (matches<UnparsedScope>(g$)) {
     return $
   }

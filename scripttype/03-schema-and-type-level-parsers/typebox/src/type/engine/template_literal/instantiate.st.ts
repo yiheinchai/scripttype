@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TCanInstantiate, TInstantiateTypes, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TTemplateLiteralEncode } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/template_literal/encode.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TTemplateLiteralDeferred } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/template_literal.js'
 declare const TCanInstantiate: any
 declare const TInstantiateTypes: any
 declare const TProperties: any
@@ -17,16 +22,10 @@ declare const TSchema: any
 declare const TState: any
 declare const TTemplateLiteralDeferred: any
 declare const TTemplateLiteralEncode: any
-type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTemplateLiteralDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTemplateLiteralEncode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTemplateLiteralAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralAction(Types: TSchema[], Result: TSchema = matches<true>(TCanInstantiate(Types)) ? TTemplateLiteralEncode(Types) : TTemplateLiteralDeferred(Types)) {
+export function TTemplateLiteralAction(Types: TSchema[], Result: TSchema = matches<true>(TCanInstantiate(Types)) ? TTemplateLiteralEncode(Types) : TTemplateLiteralDeferred(Types)): any {
   return Result
 }
 /* compiles to:
@@ -39,7 +38,7 @@ export function TTemplateLiteralAction(Types: TSchema[], Result: TSchema = match
 
 // ✓ TTemplateLiteralInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralInstantiate(Context: TProperties, State: TState, Types: TSchema[], InstantiatedTypes: TSchema[] = TInstantiateTypes(Context, State, Types)) {
+export function TTemplateLiteralInstantiate(Context: TProperties, State: TState, Types: TSchema[], InstantiatedTypes: TSchema[] = TInstantiateTypes(Context, State, Types)): any {
   return TTemplateLiteralAction(InstantiatedTypes)
 }
 /* compiles to:

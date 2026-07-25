@@ -7,16 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TTake } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/take.js'
+declare namespace m1 {
+  export type Integer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type IntegerRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type NRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TInteger: any
 declare const TTake: any
 type TInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeBigInt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeBigInt(Input: string) {
+export function TTakeBigInt(Input: string): any {
   const m1 = matches<[ Hole<"Integer", string>, Hole<"IntegerRest", string> ]>(TInteger(Input))
   if (m1) {
     const m2 = matches<[ Hole<"_N", string>, Hole<"NRest", string> ]>(TTake(['n'], m1.IntegerRest))
@@ -38,7 +46,7 @@ export function TTakeBigInt(Input: string) {
 
 // ✓ TBigInt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBigInt(Input: string) {
+export function TBigInt(Input: string): any {
   return TTakeBigInt(Input)
 }
 /* compiles to:

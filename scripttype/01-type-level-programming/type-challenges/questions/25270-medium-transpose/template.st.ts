@@ -9,7 +9,7 @@
  */
 // ✓ Transpose: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Transpose(M: number[][]) {
+export function Transpose(M: number[][]): any {
   return any
 }
 /* compiles to:

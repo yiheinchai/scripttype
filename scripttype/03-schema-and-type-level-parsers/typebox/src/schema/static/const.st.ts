@@ -9,7 +9,7 @@
  */
 // ✓ XStaticConst: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XStaticConst(Value: unknown) {
+export function XStaticConst(Value: unknown): any {
   return Value
 }
 /* compiles to:

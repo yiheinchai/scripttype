@@ -7,22 +7,43 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TDeferred } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/deferred.js'
+import type { TRef } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/ref.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type ArgumentLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ArgumentRight<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type False<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type True<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type BooleanLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type BooleanRight<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type Ref<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TDeferred: any
 declare const TParameter: any
 declare const TRef: any
 declare const TSchema: any
 declare const TUnion: any
-type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCollectDistributionNames: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCollectDistributionNames(Expression: TSchema, Result: string[] = []) {
+export function TCollectDistributionNames(Expression: TSchema, Result: string[] = []): any {
   const m1 = matches<TDeferred<'Conditional', [ Hole<"Left", TSchema>, Hole<"_Right", TSchema>, Hole<"True", TSchema>, Hole<"False", TSchema> ]>>(Expression)
   if (m1) {
     if (matches<TRef>(m1.Left)) {
@@ -61,7 +82,7 @@ export function TCollectDistributionNames(Expression: TSchema, Result: string[] 
 
 // ✓ TBuildDistributionArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBuildDistributionArray(Parameters: TParameter[], Names: string[], Result: boolean[] = []) {
+export function TBuildDistributionArray(Parameters: TParameter[], Names: string[], Result: boolean[] = []): any {
   const m1 = matches<[ Hole<"Left", TParameter>, ...Hole<"Right", TParameter[]> ]>(Parameters)
   if (m1) {
     if (matches<(typeof Names)[number]>(m1.Left['name'])) {
@@ -86,7 +107,7 @@ export function TBuildDistributionArray(Parameters: TParameter[], Names: string[
 
 // ✓ TZipDistributionArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TZipDistributionArray(Arguments: TSchema[], DistributionArray: boolean[], Result: [ boolean, TSchema ][] = []) {
+export function TZipDistributionArray(Arguments: TSchema[], DistributionArray: boolean[], Result: [ boolean, TSchema ][] = []): any {
   const m1 = matches<[ Hole<"ArgumentLeft", TSchema>, ...Hole<"ArgumentRight", TSchema[]> ]>(Arguments)
   if (m1) {
     const m2 = matches<[ Hole<"BooleanLeft", boolean>, ...Hole<"BooleanRight", boolean[]> ]>(DistributionArray)
@@ -116,7 +137,7 @@ export function TZipDistributionArray(Arguments: TSchema[], DistributionArray: b
 
 // ✓ TExpand: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExpand(Type: TSchema) {
+export function TExpand(Type: TSchema): any {
   const m1 = matches<TUnion<Hole<"Types", TSchema[]>>>(Type)
   if (m1) {
     return [...m1.Types]
@@ -130,7 +151,7 @@ export function TExpand(Type: TSchema) {
 
 // ✓ TAppend: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TAppend(Current: TSchema[][], Type: TSchema) {
+export function TAppend(Current: TSchema[][], Type: TSchema): any {
   let Result: any[] = []
   let current = Current
   while (true) {
@@ -157,7 +178,7 @@ export function TAppend(Current: TSchema[][], Type: TSchema) {
 
 // ✓ TCross: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCross(Current: TSchema[][], Variants: TSchema[]) {
+export function TCross(Current: TSchema[][], Variants: TSchema[]): any {
   let Result: any[] = []
   let variants = Variants
   while (true) {
@@ -188,7 +209,7 @@ export function TCross(Current: TSchema[][], Variants: TSchema[]) {
 
 // ✓ TDistribute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDistribute(ZippedArguments: [ boolean, TSchema ][], Result: TSchema[][] = [[]]) {
+export function TDistribute(ZippedArguments: [ boolean, TSchema ][], Result: TSchema[][] = [[]]): any {
   const m1 = matches<[ Hole<"Left", [ boolean, TSchema ]>, ...Hole<"Right", [ boolean, TSchema ][]> ]>(ZippedArguments)
   if (m1) {
     if (matches<true>(m1.Left[0])) {
@@ -212,7 +233,7 @@ export function TDistribute(ZippedArguments: [ boolean, TSchema ][], Result: TSc
 
 // ✓ TDistributeArguments: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDistributeArguments(Parameters: TParameter[], Arguments: TSchema[], Expression: TSchema, DistributionNames: string[] = TCollectDistributionNames(Expression), DistributionArray: boolean[] = TBuildDistributionArray(Parameters, DistributionNames), ZippedArguments: [ boolean, TSchema ][] = TZipDistributionArray(Arguments, DistributionArray), Result: TSchema[][] = matches<TDeferred<'Conditional', TSchema[]>>(Expression) ? TDistribute(ZippedArguments) : (matches<TDeferred<'Mapped', TSchema[]>>(Expression) ? TDistribute(ZippedArguments) : [Arguments])) {
+export function TDistributeArguments(Parameters: TParameter[], Arguments: TSchema[], Expression: TSchema, DistributionNames: string[] = TCollectDistributionNames(Expression), DistributionArray: boolean[] = TBuildDistributionArray(Parameters, DistributionNames), ZippedArguments: [ boolean, TSchema ][] = TZipDistributionArray(Arguments, DistributionArray), Result: TSchema[][] = matches<TDeferred<'Conditional', TSchema[]>>(Expression) ? TDistribute(ZippedArguments) : (matches<TDeferred<'Mapped', TSchema[]>>(Expression) ? TDistribute(ZippedArguments) : [Arguments])): any {
   return Result
 }
 /* compiles to:

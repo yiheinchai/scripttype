@@ -7,9 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Response } from '../../../../../02-inference-at-scale/hono/src/client/types.js'
+import type { Env, TypedResponse, ValidationTargets } from '../../../../../02-inference-at-scale/hono/src/types.js'
+declare namespace m1 {
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type PR<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type F<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type S<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type F<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type S<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Context: any
 declare const Env: any
 declare const Response: any
@@ -17,14 +36,10 @@ declare const TypedResponse: any
 declare const ValidationTargetKeysWithBody: any
 declare const ValidationTargets: any
 type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Env<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TypedResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidationTargetKeysWithBody<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidationTargets<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidationTargetByMethod: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidationTargetByMethod(M) {
+export function ValidationTargetByMethod(M): any {
   if (matches<'get' | 'head'>(M)) {
     return Exclude(keyof(ValidationTargets), ValidationTargetKeysWithBody)
   }
@@ -39,7 +54,7 @@ export function ValidationTargetByMethod(M) {
 
 // ✓ ValidationFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidationFunction(InputType, OutputType, E: Env = {}, P: string = string) {
+export function ValidationFunction(InputType, OutputType, E: Env = {}, P: string = string): any {
   return fnType([InputType, Context(E, P)], OutputType | TypedResponse | t<Promise<typeof OutputType>>() | t<Promise<TypedResponse>>())
 }
 /* compiles to:
@@ -57,7 +72,7 @@ export function ValidationFunction(InputType, OutputType, E: Env = {}, P: string
 
 // ✓ ExtractValidationResponse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractValidationResponse(VF) {
+export function ExtractValidationResponse(VF): any {
   const m1 = matches<(value: any, c: any) => Hole<"R">>(VF)
   if (m1) {
     const m2 = matches<Promise<Hole<"PR">>>(m1.R)
@@ -105,7 +120,7 @@ export function ExtractValidationResponse(VF) {
 
 // ✓ ExtractValidatorOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractValidatorOutput(VF) {
+export function ExtractValidatorOutput(VF): any {
   const m1 = matches<(value: any, c: any) => Hole<"R">>(VF)
   if (m1) {
     const m2 = matches<Promise<Hole<"PR">>>(m1.R)

@@ -9,7 +9,7 @@
  */
 // ✓ ReplaceKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReplaceKeys(U, T, Y) {
+export function ReplaceKeys(U, T, Y): any {
   return any
 }
 /* compiles to:

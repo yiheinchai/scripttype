@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { WordsOptions, _DefaultWordsOptions } from '../../../../01-type-level-programming/type-fest/source/words.d.js'
+declare namespace m1 {
+  export type FirstCharacter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type LeftSide<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RemainingCharacters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ApplyDefaultOptions: any
 declare const AsciiPunctuation: any
 declare const FirstCharacter: any
@@ -26,11 +33,9 @@ type IsLowercase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 
 type IsNumeric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsUppercase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type WordSeparators<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type WordsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _DefaultWordsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SkipEmptyWord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SkipEmptyWord(Word: string) {
+export function SkipEmptyWord(Word: string): any {
   if (matches<''>(Word)) {
     return []
   }
@@ -42,7 +47,7 @@ export function SkipEmptyWord(Word: string) {
 
 // ✓ RemoveLastCharacter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RemoveLastCharacter(Sentence: string, Character: string) {
+export function RemoveLastCharacter(Sentence: string, Character: string): any {
   const m1 = matches<`${Hole<"LeftSide">}${typeof Character}`>(Sentence)
   if (m1) {
     return SkipEmptyWord(m1.LeftSide)
@@ -56,7 +61,7 @@ export function RemoveLastCharacter(Sentence: string, Character: string) {
 
 // ✓ Words: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Words(Sentence: string, Options: WordsOptions = {}) {
+export function Words(Sentence: string, Options: WordsOptions = {}): any {
   return WordsImplementation(Sentence, ApplyDefaultOptions(WordsOptions, _DefaultWordsOptions, Options))
 }
 /* compiles to:
@@ -69,7 +74,7 @@ export function Words(Sentence: string, Options: WordsOptions = {}) {
 // ✗ WordsImplementation: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function WordsImplementation(Sentence: string, Options: Required<WordsOptions>, LastCharacter: string = '', CurrentWord: string = '') {
+export function WordsImplementation(Sentence: string, Options: Required<WordsOptions>, LastCharacter: string = '', CurrentWord: string = ''): any {
   const m1 = matches<`${Hole<"FirstCharacter">}${Hole<"RemainingCharacters">}`>(Sentence)
   if (m1) {
     if (matches<WordSeparators | ((typeof Options)['splitOnPunctuation'] extends true ? AsciiPunctuation : never)>(m1.FirstCharacter)) {
@@ -111,7 +116,7 @@ export function WordsImplementation(Sentence: string, Options: Required<WordsOpt
  *   CurrentWord extends string = ''
  * > =
  *   Sentence extends `${infer FirstCharacter}${infer RemainingCharacters}`
- *     ? FirstCharacter extends WordSeparators | (typeof Options)['splitOnPunctuation'] extends true ? AsciiPunctuation : never
+ *     ? FirstCharacter extends WordSeparators | (Options)['splitOnPunctuation'] extends true ? AsciiPunctuation : never
  *       ? [...SkipEmptyWord<CurrentWord>, ...WordsImplementation<RemainingCharacters, Options>]
  *     : LastCharacter extends ''
  *       ? WordsImplementation<RemainingCharacters, Options, FirstCharacter, FirstCharacter>

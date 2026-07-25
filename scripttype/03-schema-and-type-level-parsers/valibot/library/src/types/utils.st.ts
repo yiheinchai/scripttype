@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
+// Names this file references but does not define: types from elsewhere in the
+// library, and local functions used in type position. Declared so the generated
+// ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Intersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TLast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace tResult {
+  export type unshift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 // ✓ IsAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsAny(Type) {
+export function IsAny(Type): any {
   if (matches<1 & typeof Type>(0)) {
     return true
   }
@@ -21,7 +32,7 @@ export function IsAny(Type) {
 
 // ✓ IsNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNever(Type) {
+export function IsNever(Type): any {
   if (matches<[ never ]>([Type])) {
     return true
   }
@@ -33,7 +44,7 @@ export function IsNever(Type) {
 
 // ✓ NonNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNullable(TValue) {
+export function NonNullable(TValue): any {
   if (matches<null>(TValue)) {
     return never
   }
@@ -45,7 +56,7 @@ export function NonNullable(TValue) {
 
 // ✓ NonNullish: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNullish(TValue) {
+export function NonNullish(TValue): any {
   if (matches<null | undefined>(TValue)) {
     return never
   }
@@ -57,7 +68,7 @@ export function NonNullish(TValue) {
 
 // ✓ NonOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonOptional(TValue) {
+export function NonOptional(TValue): any {
   if (typeof TValue === 'undefined') {
     return never
   }
@@ -69,7 +80,7 @@ export function NonOptional(TValue) {
 
 // ✓ MaybeReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MaybeReadonly(TValue) {
+export function MaybeReadonly(TValue): any {
   return TValue | Readonly(TValue)
 }
 /* compiles to:
@@ -78,7 +89,7 @@ export function MaybeReadonly(TValue) {
 
 // ✓ DeepReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeepReadonly(TValue) {
+export function DeepReadonly(TValue): any {
   if (matches<Record<string, unknown> | readonly unknown[]>(TValue)) {
     const out = emptyObject
     for (const TKey in keyof(TValue)) {
@@ -97,7 +108,7 @@ export function DeepReadonly(TValue) {
 
 // ✓ MaybeDeepReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MaybeDeepReadonly(TValue) {
+export function MaybeDeepReadonly(TValue): any {
   return TValue | DeepReadonly(TValue)
 }
 /* compiles to:
@@ -106,7 +117,7 @@ export function MaybeDeepReadonly(TValue) {
 
 // ✓ MaybePromise: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MaybePromise(TValue) {
+export function MaybePromise(TValue): any {
   return TValue | t<Promise<typeof TValue>>()
 }
 /* compiles to:
@@ -115,7 +126,7 @@ export function MaybePromise(TValue) {
 
 // ✓ Prettify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Prettify(TObject) {
+export function Prettify(TObject): any {
   const out = emptyObject
   for (const TKey in keyof(TObject)) {
     out[TKey] = TObject[TKey]
@@ -128,7 +139,10 @@ export function Prettify(TObject) {
 
 // ✓ MarkOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MarkOptional(TObject, TKeys: keyof typeof TObject) {
+/**
+ * @param {keyof typeof TObject} TKeys
+ */
+export function MarkOptional(TObject, TKeys): any {
   const out = emptyObject
   for (const TKey in keyof(TObject)) {
     out[TKey] = optional(unknown)
@@ -142,8 +156,8 @@ export function MarkOptional(TObject, TKeys: keyof typeof TObject) {
 
 // ✓ Merge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Merge(TFirstObject, TSecondObject) {
-  return Omit(TFirstObject, keyof(TFirstObject) & keyof(TSecondObject)) & TSecondObject
+export function Merge(TFirstObject, TSecondObject): any {
+  return Omit(TFirstObject, merge(keyof(TFirstObject), keyof(TSecondObject))) & TSecondObject
 }
 /* compiles to:
  * export type Merge<TFirstObject, TSecondObject> =
@@ -152,7 +166,7 @@ export function Merge(TFirstObject, TSecondObject) {
 
 // ✓ FirstTupleItem: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FirstTupleItem(TTuple: readonly [ unknown, ...unknown[] ]) {
+export function FirstTupleItem(TTuple: readonly [ unknown, ...unknown[] ]): any {
   return TTuple[0]
 }
 /* compiles to:
@@ -161,7 +175,7 @@ export function FirstTupleItem(TTuple: readonly [ unknown, ...unknown[] ]) {
 
 // ✓ LastTupleItem: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LastTupleItem(TTuple: readonly [ unknown, ...unknown[] ]) {
+export function LastTupleItem(TTuple: readonly [ unknown, ...unknown[] ]): any {
   const m1 = matches<readonly [ unknown, ...Hole<"TRest"> ]>(TTuple)
   return TTuple[m1 ? m1.TRest['length'] : never]
 }
@@ -171,7 +185,7 @@ export function LastTupleItem(TTuple: readonly [ unknown, ...unknown[] ]) {
 
 // ✓ UnionToIntersect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToIntersect(TUnion) {
+export function UnionToIntersect(TUnion): any {
   const m1 = matches<(arg: Hole<"Intersect">) => void>(matches<any>(TUnion) ? fnType([TUnion], voidType()) : never)
   if (m1) {
     return m1.Intersect
@@ -187,7 +201,7 @@ export function UnionToIntersect(TUnion) {
 
 // ✓ UnionToTupleHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToTupleHelper(TUnion, TResult: unknown[]) {
+export function UnionToTupleHelper(TUnion, TResult: unknown[]): any {
   let tUnion = TUnion
   let tResult = TResult
   while (true) {
@@ -213,7 +227,7 @@ export function UnionToTupleHelper(TUnion, TResult: unknown[]) {
 
 // ✓ UnionToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToTuple(TUnion) {
+export function UnionToTuple(TUnion): any {
   return UnionToTupleHelper(TUnion, [])
 }
 /* compiles to:

@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { CompareDigits } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/compare.js'
+import type { AddDigits } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/digits/addition.js'
+import type { SubDigits } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/digits/substraction.js'
+import type { DigitNumber, FromDigitNumber, InvertSign, MakeDigitNumber, Normalize, Num, Sign, ToDigitNumber, ToNumber, ToString } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/utils.js'
 declare const AddDigits: any
 declare const CompareDigits: any
 declare const DigitNumber: any
@@ -23,22 +28,9 @@ declare const SubDigits: any
 declare const ToDigitNumber: any
 declare const ToNumber: any
 declare const ToString: any
-type AddDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CompareDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FromDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InvertSign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MakeDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Normalize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Sign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SubDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AddDigitNumbers: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AddDigitNumbers(T: DigitNumber, U: DigitNumber) {
+export function AddDigitNumbers(T: DigitNumber, U: DigitNumber): any {
   if (matches<Sign<typeof U>>(Sign(T))) {
     return MakeDigitNumber(Sign(T), AddDigits(Num(T), Num(U)))
   }
@@ -57,7 +49,7 @@ export function AddDigitNumbers(T: DigitNumber, U: DigitNumber) {
 
 // ✓ Add: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Add(T: number | bigint, U: number | bigint) {
+export function Add(T: number | bigint, U: number | bigint): any {
   return ToNumber(FromDigitNumber(Normalize(AddDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U))))))
 }
 /* compiles to:

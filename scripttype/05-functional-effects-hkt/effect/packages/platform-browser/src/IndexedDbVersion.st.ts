@@ -7,22 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TableSchema, WithName } from '../../../../../../05-functional-effects-hkt/effect/packages/platform-browser/src/IndexedDbTable.js'
+import type { Any, IndexedDbVersion } from '../../../../../../05-functional-effects-hkt/effect/packages/platform-browser/src/IndexedDbVersion.js'
 declare namespace IndexedDbTable {
   export type TableSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type WithName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type _Tables<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Any: any
 declare const IndexedDbTable: any
 declare const IndexedDbVersion: any
-type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+declare const TableSchema: any
+declare const WithName: any
 type IndexedDbTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IndexedDbVersion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Tables<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Tables: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Tables(Db: Any) {
+export function Tables(Db: Any): any {
   const m1 = matches<IndexedDbVersion<Hole<"_Tables">>>(Db)
   if (m1) {
     return m1._Tables
@@ -36,8 +43,8 @@ export function Tables(Db: Any) {
 
 // ✓ TableWithName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TableWithName(Db: Any, TableName: string) {
-  return IndexedDbTable.WithName(Tables(Db), TableName)
+export function TableWithName(Db: Any, TableName: string): any {
+  return t<IndexedDbTable.WithName<Tables<typeof Db>, typeof TableName>>()
 }
 /* compiles to:
  * export type TableWithName<Db extends Any, TableName extends string> = IndexedDbTable.WithName<
@@ -48,8 +55,8 @@ export function TableWithName(Db: Any, TableName: string) {
 
 // ✓ SchemaWithName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SchemaWithName(Db: Any, TableName: string) {
-  return IndexedDbTable.TableSchema(IndexedDbTable.WithName(Tables(Db), TableName))
+export function SchemaWithName(Db: Any, TableName: string): any {
+  return t<IndexedDbTable.TableSchema<IndexedDbTable.WithName<Tables<typeof Db>, typeof TableName>>>()
 }
 /* compiles to:
  * export type SchemaWithName<Db extends Any, TableName extends string> = IndexedDbTable.TableSchema<

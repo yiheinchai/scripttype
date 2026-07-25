@@ -7,76 +7,120 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ColumnBuilderRuntimeConfig, ColumnDataType, GeneratedColumnConfig } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column-builder.js'
+import type { ColumnBaseConfig } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
+import type { Update } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+declare namespace m1 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Column: any
 declare const ColumnBaseConfig: any
 declare const ColumnBuilderRuntimeConfig: any
 declare const ColumnDataType: any
 declare const GeneratedColumnConfig: any
 declare const Update: any
-type Column<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ColumnBaseConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ColumnBuilderRuntimeConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ColumnDataType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type GeneratedColumnConfig<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type Update<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ColumnTypeConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ColumnTypeConfig(T: ColumnBaseConfig<ColumnDataType, string>, TTypeConfig: object) {
+export function ColumnTypeConfig(T: ColumnBaseConfig<ColumnDataType, string>, TTypeConfig: object): any {
   const m1 = matches<{ baseColumn: Hole<"U">; }>(T)
   return merge(T, { brand: 'Column', tableName: T['tableName'], name: T['name'], dataType: T['dataType'], columnType: T['columnType'], data: T['data'], driverParam: T['driverParam'], notNull: T['notNull'], hasDefault: T['hasDefault'], isPrimaryKey: T['isPrimaryKey'], isAutoincrement: T['isAutoincrement'], hasRuntimeDefault: T['hasRuntimeDefault'], enumValues: T['enumValues'], baseColumn: m1 ? m1.U : unknown, generated: anyOf(GeneratedColumnConfig(T['data']), Undefined), identity: anyOf(Undefined, 'always', 'byDefault') }, TTypeConfig)
 }
 /* compiles to:
- * export type ColumnTypeConfig<T extends ColumnBaseConfig<ColumnDataType, string>, TTypeConfig extends object> = T & { brand: 'Column'; tableName: T['tableName']; name: T['name']; dataType: T['dataType']; columnType: T['columnType']; data: T['data']; driverParam: T['driverParam']; notNull: T['notNull']; hasDefault: T['hasDefault']; isPrimaryKey: T['isPrimaryKey']; isAutoincrement: T['isAutoincrement']; hasRuntimeDefault: T['hasRuntimeDefault']; enumValues: T['enumValues']; baseColumn: T extends { baseColumn: infer U; } ? U : unknown; generated: GeneratedColumnConfig<T['data']> | undefined; identity: undefined | 'always' | 'byDefault' } & TTypeConfig
+ * export type ColumnTypeConfig<
+ *   T extends ColumnBaseConfig<ColumnDataType, string>,
+ *   TTypeConfig extends object
+ * > =
+ *   & T
+ *   & {
+ *       brand: 'Column'
+ *       tableName: T['tableName']
+ *       name: T['name']
+ *       dataType: T['dataType']
+ *       columnType: T['columnType']
+ *       data: T['data']
+ *       driverParam: T['driverParam']
+ *       notNull: T['notNull']
+ *       hasDefault: T['hasDefault']
+ *       isPrimaryKey: T['isPrimaryKey']
+ *       isAutoincrement: T['isAutoincrement']
+ *       hasRuntimeDefault: T['hasRuntimeDefault']
+ *       enumValues: T['enumValues']
+ *       baseColumn: T extends { baseColumn: infer U; } ? U : unknown
+ *       generated: GeneratedColumnConfig<T['data']> | undefined
+ *       identity: undefined | 'always' | 'byDefault'
+ *     }
+ *   & TTypeConfig
  */
 
 // ✓ ColumnRuntimeConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ColumnRuntimeConfig(TData, TRuntimeConfig: object) {
+export function ColumnRuntimeConfig(TData, TRuntimeConfig: object): any {
   return ColumnBuilderRuntimeConfig(TData, TRuntimeConfig)
 }
 /* compiles to:
- * export type ColumnRuntimeConfig<TData, TRuntimeConfig extends object> = ColumnBuilderRuntimeConfig<TData, TRuntimeConfig>
+ * export type ColumnRuntimeConfig<TData, TRuntimeConfig extends object> = ColumnBuilderRuntimeConfig<
+ *   TData,
+ *   TRuntimeConfig
+ * >
  */
 
 // ✓ UpdateColConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateColConfig(T: ColumnBaseConfig<ColumnDataType, string>, TUpdate: Partial<ColumnBaseConfig<ColumnDataType, string>>) {
+export function UpdateColConfig(T: ColumnBaseConfig<ColumnDataType, string>, TUpdate: Partial<ColumnBaseConfig<ColumnDataType, string>>): any {
   return Update(T, TUpdate)
 }
 /* compiles to:
- * export type UpdateColConfig<T extends ColumnBaseConfig<ColumnDataType, string>, TUpdate extends Partial<ColumnBaseConfig<ColumnDataType, string>>> = Update<T, TUpdate>
+ * export type UpdateColConfig<
+ *   T extends ColumnBaseConfig<ColumnDataType, string>,
+ *   TUpdate extends Partial<ColumnBaseConfig<ColumnDataType, string>>
+ * > =
+ *   Update<T, TUpdate>
  */
 
 // ✓ AnyColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyColumn(TPartial: Partial<ColumnBaseConfig<ColumnDataType, string>> = {}) {
+export function AnyColumn(TPartial: Partial<ColumnBaseConfig<ColumnDataType, string>> = {}): any {
   return Column(Required(Update(ColumnBaseConfig(ColumnDataType, string), TPartial)))
 }
 /* compiles to:
- * export type AnyColumn<TPartial extends Partial<ColumnBaseConfig<ColumnDataType, string>> = {}> = Column<Required<Update<ColumnBaseConfig<ColumnDataType, string>, TPartial>>>
+ * export type AnyColumn<
+ *   TPartial extends Partial<ColumnBaseConfig<ColumnDataType, string>> = {}
+ * > =
+ *   Column<Required<Update<ColumnBaseConfig<ColumnDataType, string>, TPartial>>>
  */
 
 // ✓ GetColumnData: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetColumnData(TColumn: Column, TInferMode: 'query' | 'raw' = 'query') {
+export function GetColumnData(TColumn: Column, TInferMode: 'query' | 'raw' = 'query'): any {
   if (matches<'raw'>(TInferMode)) {
     return TColumn['_']['data']
   }
   if (matches<true>(TColumn['_']['notNull'])) {
     return TColumn['_']['data']
   }
-  return TColumn['_']['data'] | Null
+  return anyOf(TColumn['_']['data'], Null)
 }
 /* compiles to:
- * export type GetColumnData<TColumn extends Column, TInferMode extends 'query' | 'raw' = 'query'> = TInferMode extends 'raw' ? TColumn['_']['data'] : TColumn['_']['notNull'] extends true ? TColumn['_']['data'] : TColumn['_']['data'] | null
+ * export type GetColumnData<
+ *   TColumn extends Column,
+ *   TInferMode extends 'query' | 'raw' = 'query'
+ * > =
+ *   TInferMode extends 'raw' ? TColumn['_']['data']
+ *   : TColumn['_']['notNull'] extends true ? TColumn['_']['data']
+ *   : TColumn['_']['data'] | null
  */
 
 // ✓ InferColumnsDataTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferColumnsDataTypes(TColumns: Record<string, Column>) {
+/**
+ * @param {Record<string, Column>} TColumns
+ */
+export function InferColumnsDataTypes(TColumns): any {
   const out = emptyObject
   for (const Key in keyof(TColumns)) {
     out[Key] = GetColumnData(TColumns[Key], 'query')
@@ -84,5 +128,7 @@ export function InferColumnsDataTypes(TColumns: Record<string, Column>) {
   return out
 }
 /* compiles to:
- * export type InferColumnsDataTypes<TColumns extends Record<string, Column>> = { [Key in keyof TColumns]: GetColumnData<TColumns[Key], 'query'> }
+ * export type InferColumnsDataTypes<TColumns extends Record<string, Column>> = {
+ *   [Key in keyof TColumns]: GetColumnData<TColumns[Key], 'query'>
+ * }
  */

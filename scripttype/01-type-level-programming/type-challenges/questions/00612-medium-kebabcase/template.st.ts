@@ -9,7 +9,7 @@
  */
 // ✓ KebabCase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function KebabCase(S) {
+export function KebabCase(S): any {
   return any
 }
 /* compiles to:

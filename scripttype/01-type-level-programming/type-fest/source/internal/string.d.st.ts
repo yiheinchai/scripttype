@@ -10,6 +10,19 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type FirstA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type HeadA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RestA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type FirstB<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type HeadB<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Remain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RestB<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const FirstB: any
 declare const HeadB: any
 declare const NumericString: any
@@ -30,7 +43,7 @@ type TupleOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type Whitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ToString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToString(T) {
+export function ToString(T): any {
   if (matches<string | number>(T)) {
     return `${T}`
   }
@@ -42,7 +55,7 @@ export function ToString(T) {
 
 // ✓ StartsWith: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StartsWith(S: string, SearchString: string) {
+export function StartsWith(S: string, SearchString: string): any {
   if (matches<typeof S | typeof SearchString>(string)) {
     return never
   }
@@ -59,7 +72,7 @@ export function StartsWith(S: string, SearchString: string) {
 
 // ✓ IsWhitespace: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsWhitespace(T: string) {
+export function IsWhitespace(T: string): any {
   if (matches<Whitespace>(T)) {
     return true
   }
@@ -78,7 +91,7 @@ export function IsWhitespace(T: string) {
 
 // ✓ IsNumeric: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNumeric(T: string) {
+export function IsNumeric(T: string): any {
   if (matches<`${number}`>(T)) {
     if (matches<typeof T>(Trim(T))) {
       return true
@@ -94,7 +107,7 @@ export function IsNumeric(T: string) {
 
 // ✓ SameLengthPositiveNumericStringGt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SameLengthPositiveNumericStringGt(A: string, B: string) {
+export function SameLengthPositiveNumericStringGt(A: string, B: string): any {
   const m1 = matches<`${Hole<"FirstA">}${Hole<"RestA">}`>(A)
   if (m1) {
     const m2 = matches<`${Hole<"FirstB">}${Hole<"RestB">}`>(B)
@@ -121,7 +134,7 @@ export function SameLengthPositiveNumericStringGt(A: string, B: string) {
 
 // ✓ PositiveNumericStringGt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PositiveNumericStringGt(A: string, B: string) {
+export function PositiveNumericStringGt(A: string, B: string): any {
   if (matches<typeof B>(A)) {
     return false
   }
@@ -150,7 +163,7 @@ export function PositiveNumericStringGt(A: string, B: string) {
 
 // ✓ PositiveNumericCharacterGt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PositiveNumericCharacterGt(A: string, B: string) {
+export function PositiveNumericCharacterGt(A: string, B: string): any {
   const m1 = matches<`${Hole<"HeadA">}${typeof A}${Hole<"TailA">}`>(NumericString)
   if (m1) {
     const m2 = matches<`${Hole<"HeadB">}${typeof B}${Hole<"TailB">}`>(NumericString)

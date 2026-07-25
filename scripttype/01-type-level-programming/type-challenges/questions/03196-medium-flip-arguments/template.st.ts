@@ -9,7 +9,7 @@
  */
 // ✓ FlipArguments: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FlipArguments(T) {
+export function FlipArguments(T): any {
   return any
 }
 /* compiles to:

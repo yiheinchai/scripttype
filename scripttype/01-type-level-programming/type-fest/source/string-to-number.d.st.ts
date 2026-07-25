@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type N<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const IfNotAnyOrNever: any
 declare const N: any
 declare const NegativeInfinity: any
@@ -20,7 +23,7 @@ type NegativeInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any
 type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringToNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StringToNumber(S: string) {
+export function StringToNumber(S: string): any {
   return IfNotAnyOrNever(S, { ifNot: _StringToNumber(S), ifAny: number })
 }
 /* compiles to:
@@ -32,7 +35,7 @@ export function StringToNumber(S: string) {
 
 // ✓ _StringToNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _StringToNumber(S: string) {
+export function _StringToNumber(S: string): any {
   const m1 = matches<`${Hole<"N", number>}`>(S)
   if (m1) {
     if (matches<typeof m1.N>(number)) {

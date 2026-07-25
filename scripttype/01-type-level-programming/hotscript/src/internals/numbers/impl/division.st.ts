@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DivDigits, DivModDigits, ModDigits } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/digits/division.js'
+import type { Digit, DigitNumber, FromDigitNumber, MakeDigitNumber, MulSign, Normalize, Num, Sign, ToDigitNumber, ToNumber, ToString } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/utils.js'
 declare const Digit: any
 declare const DigitNumber: any
 declare const DivDigits: any
@@ -24,23 +27,9 @@ declare const Sign: any
 declare const ToDigitNumber: any
 declare const ToNumber: any
 declare const ToString: any
-type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DivDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DivModDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FromDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MakeDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ModDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MulSign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Normalize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Sign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DivDigitNumbers: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DivDigitNumbers(T: DigitNumber, U: DigitNumber) {
+export function DivDigitNumbers(T: DigitNumber, U: DigitNumber): any {
   return MakeDigitNumber(MulSign(Sign(T), Sign(U)), DivDigits(Num(T), Num(U)))
 }
 /* compiles to:
@@ -52,7 +41,7 @@ export function DivDigitNumbers(T: DigitNumber, U: DigitNumber) {
 
 // ✓ Div: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Div(T: number | bigint, U: number | bigint) {
+export function Div(T: number | bigint, U: number | bigint): any {
   return ToNumber(FromDigitNumber(Normalize(DivDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U))))))
 }
 /* compiles to:
@@ -65,7 +54,7 @@ export function Div(T: number | bigint, U: number | bigint) {
 
 // ✓ ModDigitNumbers: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ModDigitNumbers(T: DigitNumber, U: DigitNumber) {
+export function ModDigitNumbers(T: DigitNumber, U: DigitNumber): any {
   return MakeDigitNumber(Sign(T), ModDigits(Num(T), Num(U)))
 }
 /* compiles to:
@@ -77,7 +66,7 @@ export function ModDigitNumbers(T: DigitNumber, U: DigitNumber) {
 
 // ✓ Mod: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Mod(T: number | bigint, U: number | bigint) {
+export function Mod(T: number | bigint, U: number | bigint): any {
   return ToNumber(FromDigitNumber(Normalize(ModDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U))))))
 }
 /* compiles to:
@@ -90,7 +79,7 @@ export function Mod(T: number | bigint, U: number | bigint) {
 
 // ✓ DivModDigitNumbers: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DivModDigitNumbers(T: DigitNumber, U: DigitNumber, DivMod: { Quotient: Digit[]; Remainder: Digit[]; } = DivModDigits(Num(T), Num(U))) {
+export function DivModDigitNumbers(T: DigitNumber, U: DigitNumber, DivMod: { Quotient: Digit[]; Remainder: Digit[]; } = DivModDigits(Num(T), Num(U))): any {
   return { Quotient: MakeDigitNumber(MulSign(Sign(T), Sign(U)), DivMod['Quotient']), Remainder: MakeDigitNumber(Sign(T), DivMod['Remainder']) }
 }
 /* compiles to:
@@ -107,7 +96,7 @@ export function DivModDigitNumbers(T: DigitNumber, U: DigitNumber, DivMod: { Quo
 
 // ✓ DivMod: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DivMod(T: number | bigint, U: number | bigint, DivModNumbers: { Quotient: DigitNumber; Remainder: DigitNumber; } = DivModDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U)))) {
+export function DivMod(T: number | bigint, U: number | bigint, DivModNumbers: { Quotient: DigitNumber; Remainder: DigitNumber; } = DivModDigitNumbers(ToDigitNumber(ToString(T)), ToDigitNumber(ToString(U)))): any {
   return { Quotient: ToNumber(FromDigitNumber(Normalize(DivModNumbers['Quotient']))), Remainder: ToNumber(FromDigitNumber(Normalize(DivModNumbers['Remainder']))) }
 }
 /* compiles to:

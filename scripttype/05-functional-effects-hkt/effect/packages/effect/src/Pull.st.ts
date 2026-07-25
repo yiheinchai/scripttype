@@ -7,21 +7,30 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Effect } from '../../../../../../05-functional-effects-hkt/effect/packages/effect/src/Effect.js'
 declare namespace Cause {
   export type Done<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type _A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type _L<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const Cause: any
 declare const Done: any
 declare const Effect: any
 type Cause<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Done<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Effect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Success: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Success(P) {
+export function Success(P): any {
   const m1 = matches<Effect<Hole<"_A">, Hole<"_E">, Hole<"_R">>>(P)
   if (m1) {
     return m1._A
@@ -29,12 +38,12 @@ export function Success(P) {
   return never
 }
 /* compiles to:
- * export type Success<P> = P extends Effect<infer _A, unknown, unknown> ? _A : never
+ * export type Success<P> = P extends Effect<infer _A, any, any> ? _A : never
  */
 
 // ✓ Error: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Error(P) {
+export function Error(P): any {
   const m1 = matches<Effect<Hole<"_A">, Hole<"_E">, Hole<"_R">>>(P)
   if (m1) {
     const m2 = matches<Cause.Done<Hole<"_L">>>(m1._E)
@@ -47,14 +56,12 @@ export function Error(P) {
 }
 /* compiles to:
  * export type Error<P> =
- *   P extends Effect<unknown, infer _E, unknown>
- *     ? _E extends Cause.Done<unknown> ? never : _E
- *     : never
+ *   P extends Effect<any, infer _E, any> ? _E extends Cause.Done<any> ? never : _E : never
  */
 
 // ✓ Leftover: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Leftover(P) {
+export function Leftover(P): any {
   const m1 = matches<Effect<Hole<"_A">, Hole<"_E">, Hole<"_R">>>(P)
   if (m1) {
     const m2 = matches<Cause.Done<Hole<"_L">>>(m1._E)
@@ -67,14 +74,12 @@ export function Leftover(P) {
 }
 /* compiles to:
  * export type Leftover<P> =
- *   P extends Effect<unknown, infer _E, unknown>
- *     ? _E extends Cause.Done<infer _L> ? _L : never
- *     : never
+ *   P extends Effect<any, infer _E, any> ? _E extends Cause.Done<infer _L> ? _L : never : never
  */
 
 // ✓ Services: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Services(P) {
+export function Services(P): any {
   const m1 = matches<Effect<Hole<"_A">, Hole<"_E">, Hole<"_R">>>(P)
   if (m1) {
     return m1._R
@@ -82,13 +87,13 @@ export function Services(P) {
   return never
 }
 /* compiles to:
- * export type Services<P> = P extends Effect<unknown, unknown, infer _R> ? _R : never
+ * export type Services<P> = P extends Effect<any, any, infer _R> ? _R : never
  */
 
 // ✓ ExcludeDone: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExcludeDone(E) {
-  return Exclude(E, Cause.Done(any))
+export function ExcludeDone(E): any {
+  return Exclude(E, t<Cause.Done<any>>())
 }
 /* compiles to:
  * export type ExcludeDone<E> = Exclude<E, Cause.Done<any>>

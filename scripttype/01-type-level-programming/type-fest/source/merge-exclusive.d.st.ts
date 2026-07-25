@@ -9,7 +9,7 @@
  */
 // ✓ Without: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Without(FirstType, SecondType) {
+export function Without(FirstType, SecondType): any {
   const out = emptyObject
   for (const KeyType in keySet(Exclude(keyof(FirstType), keyof(SecondType)))) {
     out[KeyType] = optional(never)
@@ -24,7 +24,7 @@ export function Without(FirstType, SecondType) {
 
 // ✓ MergeExclusive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeExclusive(FirstType, SecondType) {
+export function MergeExclusive(FirstType, SecondType): any {
   if (matches<object>(FirstType | SecondType)) {
     return anyOf(Without(FirstType, SecondType) & SecondType, Without(SecondType, FirstType) & FirstType)
   }

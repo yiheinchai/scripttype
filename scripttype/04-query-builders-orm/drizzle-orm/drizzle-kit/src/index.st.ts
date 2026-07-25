@@ -9,7 +9,10 @@
  */
 // ✓ Verify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Verify(T, U: typeof T) {
+/**
+ * @param {typeof T} U
+ */
+export function Verify(T, U): any {
   return U
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ writeInvalidPropertyKeyMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeInvalidPropertyKeyMessage(indexSchema: string) {
+export function writeInvalidPropertyKeyMessage(indexSchema: string): any {
   return `Indexed key definition '${indexSchema}' must be a string or symbol`
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ UpdateStateFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateStateFunction(T) {
+export function UpdateStateFunction(T): any {
   return fnType([T | fnType([T], T)], voidType())
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function UpdateStateFunction(T) {
 
 // ✓ RefObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RefObject(T) {
+export function RefObject(T): any {
   return { current: T | Null }
 }
 /* compiles to:

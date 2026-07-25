@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SchemaOptions } from '../../../../01-type-level-programming/type-fest/source/schema.d.js'
 declare const ApplyDefaultOptions: any
 declare const DefaultSchemaOptions: any
 declare const IfNotAnyOrNever: any
@@ -27,12 +29,11 @@ type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any,
 type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OptionalKeysOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SchemaOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Schema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Schema(Type, Value, Options: SchemaOptions = {}) {
+export function Schema(Type, Value, Options: SchemaOptions = {}): any {
   return IfNotAnyOrNever(Type, { ifNot: _Schema(Type, Value, ApplyDefaultOptions(SchemaOptions, DefaultSchemaOptions, Options)), ifAny: Value, ifNever: Value })
 }
 /* compiles to:
@@ -52,7 +53,7 @@ export function Schema(Type, Value, Options: SchemaOptions = {}) {
 
 // ✓ _Schema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Schema(Type, Value, Options: Required<SchemaOptions>) {
+export function _Schema(Type, Value, Options: Required<SchemaOptions>): any {
   if (matches<true>(IsAny(Type))) {
     return Value
   }
@@ -83,7 +84,7 @@ export function _Schema(Type, Value, Options: Required<SchemaOptions>) {
 
 // ✓ SchemaHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SchemaHelper(Type, Value, Options: Required<SchemaOptions>) {
+export function SchemaHelper(Type, Value, Options: Required<SchemaOptions>): any {
   const out = emptyObject
   for (const Key in keyof(Type)) {
     out[Key] = _Schema(matches<OptionalKeysOf<typeof Type & object>>(Key) ? Exclude(Type[Key], Undefined) : Type[Key], Value, Options)

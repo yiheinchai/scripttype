@@ -9,7 +9,7 @@
  */
 // ✓ StringToUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StringToUnion(T: string) {
+export function StringToUnion(T: string): any {
   return any
 }
 /* compiles to:

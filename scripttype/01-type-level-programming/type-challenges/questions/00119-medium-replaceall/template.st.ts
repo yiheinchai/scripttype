@@ -9,7 +9,7 @@
  */
 // ✓ ReplaceAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReplaceAll(S: string, From: string, To: string) {
+export function ReplaceAll(S: string, From: string, To: string): any {
   return any
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Triangular: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Triangular(N: number) {
+export function Triangular(N: number): any {
   return any
 }
 /* compiles to:

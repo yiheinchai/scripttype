@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Any } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/unstable/persistence/Persistable.js'
 declare namespace Duration {
   export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -19,13 +21,15 @@ declare namespace Exit {
 declare const Any: any
 declare const Duration: any
 declare const Exit: any
-type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+declare const Input: any
 type Duration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Exit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Success<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SuccessSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SuccessSchema(A: Any) {
+export function SuccessSchema(A: Any): any {
   return A['~effect/persistence/Persistable']['success']
 }
 /* compiles to:
@@ -34,7 +38,7 @@ export function SuccessSchema(A: Any) {
 
 // ✓ Success: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Success(A: Any) {
+export function Success(A: Any): any {
   return A['~effect/persistence/Persistable']['success']['Type']
 }
 /* compiles to:
@@ -43,7 +47,7 @@ export function Success(A: Any) {
 
 // ✓ ErrorSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ErrorSchema(A: Any) {
+export function ErrorSchema(A: Any): any {
   return A['~effect/persistence/Persistable']['error']
 }
 /* compiles to:
@@ -52,7 +56,7 @@ export function ErrorSchema(A: Any) {
 
 // ✓ Error: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Error(A: Any) {
+export function Error(A: Any): any {
   return A['~effect/persistence/Persistable']['error']['Type']
 }
 /* compiles to:
@@ -62,8 +66,8 @@ export function Error(A: Any) {
 // ✗ DecodingServices: does not compile yet
 //   Type '"DecodingServices__st4"' cannot be used to index type 'A["~effect/persistence/Persistable"]["success"]'.
 /* @scripttype preserveParamNames */
-export function DecodingServices(A: Any) {
-  return A['~effect/persistence/Persistable']['success']['DecodingServices'] | A['~effect/persistence/Persistable']['error']['DecodingServices']
+export function DecodingServices(A: Any): any {
+  return anyOf(A['~effect/persistence/Persistable']['success']['DecodingServices'], A['~effect/persistence/Persistable']['error']['DecodingServices'])
 }
 /* compiles to:
  * export type DecodingServices<A extends Any> =
@@ -74,8 +78,8 @@ export function DecodingServices(A: Any) {
 // ✗ EncodingServices: does not compile yet
 //   Type '"EncodingServices__st5"' cannot be used to index type 'A["~effect/persistence/Persistable"]["success"]'.
 /* @scripttype preserveParamNames */
-export function EncodingServices(A: Any) {
-  return A['~effect/persistence/Persistable']['success']['EncodingServices'] | A['~effect/persistence/Persistable']['error']['EncodingServices']
+export function EncodingServices(A: Any): any {
+  return anyOf(A['~effect/persistence/Persistable']['success']['EncodingServices'], A['~effect/persistence/Persistable']['error']['EncodingServices'])
 }
 /* compiles to:
  * export type EncodingServices<A extends Any> =
@@ -85,8 +89,8 @@ export function EncodingServices(A: Any) {
 
 // ✓ Services: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Services(A: Any) {
-  return A['~effect/persistence/Persistable']['success']['DecodingServices'] | A['~effect/persistence/Persistable']['success']['EncodingServices'] | A['~effect/persistence/Persistable']['error']['DecodingServices'] | A['~effect/persistence/Persistable']['error']['EncodingServices']
+export function Services(A: Any): any {
+  return anyOf(A['~effect/persistence/Persistable']['success']['DecodingServices'], A['~effect/persistence/Persistable']['success']['EncodingServices'], A['~effect/persistence/Persistable']['error']['DecodingServices'], A['~effect/persistence/Persistable']['error']['EncodingServices'])
 }
 /* compiles to:
  * export type Services<A extends Any> =
@@ -97,10 +101,10 @@ export function Services(A: Any) {
  */
 
 // ✗ TimeToLiveFn: the ScriptType does not itself typecheck as TypeScript
-//   TimeToLiveFn.st.ts(3:42) TS2315: Type 'Error' is not generic.
+//   TimeToLiveFn.st.ts(3:49) TS2315: Type 'Error' is not generic.
 /* @scripttype preserveParamNames */
-export function TimeToLiveFn(K: Any) {
-  return fnType([Exit.Exit(Success(K), t<Error<typeof K>>()), K], Duration.Input)
+export function TimeToLiveFn(K: Any): any {
+  return fnType([t<Exit.Exit<Success<typeof K>, Error<typeof K>>>(), K], t<Duration.Input>())
 }
 /* compiles to:
  * export type TimeToLiveFn<K extends Any> = (a0: Exit.Exit<Success<K>, Error<K>>, a1: K) => Duration.Input

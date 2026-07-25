@@ -9,7 +9,7 @@
  */
 // ✓ MatchState: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MatchState(output) {
+export function MatchState(output): any {
   return anyOf({ matched: true, value: output }, { matched: false, value: Undefined })
 }
 /* compiles to:

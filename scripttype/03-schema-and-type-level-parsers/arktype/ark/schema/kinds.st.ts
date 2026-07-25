@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { NodeDeclarationsByKind } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/kinds.js'
+import type { ConstraintKind, NodeKind, OpenNodeKind, RootKind } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/shared/implement.js'
+import type { array, listable } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/arrays.js'
 declare const ConstraintKind: any
 declare const NodeDeclarationsByKind: any
 declare const NodeKind: any
@@ -19,18 +23,11 @@ declare const RootKind: any
 declare const array: any
 declare const listable: any
 declare const makeRootAndArrayPropertiesMutable: any
-type ConstraintKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NodeDeclarationsByKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NodesByKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OpenNodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RootKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type listable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type makeRootAndArrayPropertiesMutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ nodeOfKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function nodeOfKind(kind: NodeKind) {
+export function nodeOfKind(kind: NodeKind): any {
   return NodesByKind[kind]
 }
 /* compiles to:
@@ -39,7 +36,7 @@ export function nodeOfKind(kind: NodeKind) {
 
 // ✓ Declaration: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Declaration(kind: NodeKind) {
+export function Declaration(kind: NodeKind): any {
   return NodeDeclarationsByKind[kind]
 }
 /* compiles to:
@@ -48,7 +45,7 @@ export function Declaration(kind: NodeKind) {
 
 // ✓ NodeSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NodeSchema(kind: NodeKind) {
+export function NodeSchema(kind: NodeKind): any {
   return Declaration(kind)['schema']
 }
 /* compiles to:
@@ -57,7 +54,7 @@ export function NodeSchema(kind: NodeKind) {
 
 // ✓ RootSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RootSchema(kind: RootKind = RootKind) {
+export function RootSchema(kind: RootKind = RootKind): any {
   return NodeSchema(kind)
 }
 /* compiles to:
@@ -66,7 +63,7 @@ export function RootSchema(kind: RootKind = RootKind) {
 
 // ✓ NormalizedSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NormalizedSchema(kind: NodeKind) {
+export function NormalizedSchema(kind: NodeKind): any {
   return Declaration(kind)['normalizedSchema']
 }
 /* compiles to:
@@ -75,7 +72,7 @@ export function NormalizedSchema(kind: NodeKind) {
 
 // ✓ childKindOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function childKindOf(kind: NodeKind) {
+export function childKindOf(kind: NodeKind): any {
   return Declaration(kind)['childKind']
 }
 /* compiles to:
@@ -84,7 +81,7 @@ export function childKindOf(kind: NodeKind) {
 
 // ✓ Prerequisite: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Prerequisite(kind: NodeKind) {
+export function Prerequisite(kind: NodeKind): any {
   return Declaration(kind)['prerequisite']
 }
 /* compiles to:
@@ -93,7 +90,7 @@ export function Prerequisite(kind: NodeKind) {
 
 // ✓ reducibleKindOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function reducibleKindOf(kind: NodeKind) {
+export function reducibleKindOf(kind: NodeKind): any {
   if (matches<NodeKind>(Declaration(kind)['reducibleTo'])) {
     return Declaration(kind)['reducibleTo']
   }
@@ -106,7 +103,7 @@ export function reducibleKindOf(kind: NodeKind) {
 
 // ✓ Inner: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Inner(kind: NodeKind) {
+export function Inner(kind: NodeKind): any {
   return Declaration(kind)['inner']
 }
 /* compiles to:
@@ -115,7 +112,7 @@ export function Inner(kind: NodeKind) {
 
 // ✓ defAttachedAs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function defAttachedAs(kind: ConstraintKind) {
+export function defAttachedAs(kind: ConstraintKind): any {
   if (matches<OpenNodeKind>(kind)) {
     return listable(NodeSchema(kind))
   }
@@ -128,7 +125,7 @@ export function defAttachedAs(kind: ConstraintKind) {
 
 // ✓ innerAttachedAs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function innerAttachedAs(kind: ConstraintKind) {
+export function innerAttachedAs(kind: ConstraintKind): any {
   if (matches<OpenNodeKind>(kind)) {
     return array(nodeOfKind(kind))
   }
@@ -141,7 +138,7 @@ export function innerAttachedAs(kind: ConstraintKind) {
 
 // ✓ mutableInnerOfKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function mutableInnerOfKind(kind: NodeKind) {
+export function mutableInnerOfKind(kind: NodeKind): any {
   return makeRootAndArrayPropertiesMutable(Inner(kind))
 }
 /* compiles to:
@@ -152,7 +149,7 @@ export function mutableInnerOfKind(kind: NodeKind) {
 
 // ✓ mutableNormalizedRootOfKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function mutableNormalizedRootOfKind(kind: NodeKind) {
+export function mutableNormalizedRootOfKind(kind: NodeKind): any {
   return makeRootAndArrayPropertiesMutable(NormalizedSchema(kind))
 }
 /* compiles to:
@@ -163,7 +160,7 @@ export function mutableNormalizedRootOfKind(kind: NodeKind) {
 
 // ✓ errorContext: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function errorContext(kind: NodeKind) {
+export function errorContext(kind: NodeKind): any {
   return Declaration(kind)['errorContext']
 }
 /* compiles to:

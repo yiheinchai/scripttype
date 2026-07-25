@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DefaultError, InitialDataFunction, NonUndefinedGuard, OmitKeyof, QueryFunction, QueryKey } from '../../../../../../02-inference-at-scale/tanstack-query/packages/query-core/src/types.js'
+import type { SkipToken } from '../../../../../../02-inference-at-scale/tanstack-query/packages/query-core/src/utils.js'
 declare const DefaultError: any
 declare const InitialDataFunction: any
 declare const NonUndefinedGuard: any
@@ -18,17 +21,10 @@ declare const QueryFunction: any
 declare const QueryKey: any
 declare const QueryObserverOptions: any
 declare const SkipToken: any
-type DefaultError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InitialDataFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonUndefinedGuard<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OmitKeyof<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type QueryObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SkipToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DefinedInitialDataOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DefinedInitialDataOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
+export function DefinedInitialDataOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey): any {
   return merge(Omit(QueryObserverOptions(TQueryFnData, TError, TData, TQueryFnData, TQueryKey), 'queryFn'), { initialData: NonUndefinedGuard(TQueryFnData) | fnType([], NonUndefinedGuard(TQueryFnData)), queryFn: optional(QueryFunction(TQueryFnData, TQueryKey)) })
 }
 /* compiles to:
@@ -47,7 +43,7 @@ export function DefinedInitialDataOptions(TQueryFnData = unknown, TError = Defau
 
 // ✓ UnusedSkipTokenOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnusedSkipTokenOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
+export function UnusedSkipTokenOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey): any {
   return merge(OmitKeyof(QueryObserverOptions(TQueryFnData, TError, TData, TQueryFnData, TQueryKey), 'queryFn'), { queryFn: optional(Exclude(QueryObserverOptions(TQueryFnData, TError, TData, TQueryFnData, TQueryKey)['queryFn'], anyOf(SkipToken, Undefined))) })
 }
 /* compiles to:
@@ -71,7 +67,7 @@ export function UnusedSkipTokenOptions(TQueryFnData = unknown, TError = DefaultE
 
 // ✓ UndefinedInitialDataOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndefinedInitialDataOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
+export function UndefinedInitialDataOptions(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey): any {
   return merge(QueryObserverOptions(TQueryFnData, TError, TData, TQueryFnData, TQueryKey), { initialData: optional(anyOf(Undefined, InitialDataFunction(NonUndefinedGuard(TQueryFnData)), NonUndefinedGuard(TQueryFnData))) })
 }
 /* compiles to:

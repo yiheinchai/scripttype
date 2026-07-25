@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Response } from '../../../../02-inference-at-scale/hono/src/client/types.js'
+import type { ExecutionContext } from '../../../../02-inference-at-scale/hono/src/context.js'
+import type { Result } from '../../../../02-inference-at-scale/hono/src/router.js'
+import type { Env, H, NotFoundHandler, RouterRoute, TypedResponse } from '../../../../02-inference-at-scale/hono/src/types.js'
+import type { ContentfulStatusCode, StatusCode } from '../../../../02-inference-at-scale/hono/src/utils/http-status.js'
+import type { InvalidJSONValue, JSONParsed, JSONValue } from '../../../../02-inference-at-scale/hono/src/utils/types.js'
 declare const ContentfulStatusCode: any
 declare const Env: any
 declare const ExecutionContext: any
@@ -25,24 +32,11 @@ declare const Result: any
 declare const RouterRoute: any
 declare const StatusCode: any
 declare const TypedResponse: any
-type ContentfulStatusCode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Env<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExecutionContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FetchEventLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type H<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InvalidJSONValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JSONParsed<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JSONValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NotFoundHandler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResponseInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouterRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StatusCode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TypedResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Layout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Layout(T = Record(string, any)) {
+export function Layout(T = Record(string, any)): any {
   return fnType([T], any)
 }
 /* compiles to:
@@ -51,7 +45,7 @@ export function Layout(T = Record(string, any)) {
 
 // ✓ JSONRespondReturn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JSONRespondReturn(T: JSONValue | {} | InvalidJSONValue, U: ContentfulStatusCode) {
+export function JSONRespondReturn(T: JSONValue | {} | InvalidJSONValue, U: ContentfulStatusCode): any {
   return Response & TypedResponse(JSONParsed(T), U, 'json')
 }
 /* compiles to:
@@ -64,7 +58,7 @@ export function JSONRespondReturn(T: JSONValue | {} | InvalidJSONValue, U: Conte
 
 // ✓ ContextOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ContextOptions(E: Env) {
+export function ContextOptions(E: Env): any {
   return { env: E['Bindings'], executionCtx: optional(anyOf(FetchEventLike, ExecutionContext, Undefined)), notFoundHandler: optional(NotFoundHandler(E)), matchResult: optional(Result([H, RouterRoute])), path: optional(string) }
 }
 /* compiles to:
@@ -79,7 +73,7 @@ export function ContextOptions(E: Env) {
 
 // ✓ ResponseOrInit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResponseOrInit(T: StatusCode = StatusCode) {
+export function ResponseOrInit(T: StatusCode = StatusCode): any {
   return ResponseInit(T) | Response
 }
 /* compiles to:

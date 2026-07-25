@@ -7,24 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ParsedLocation } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/location.js'
+import type { AnyRouter, RegisteredRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
 declare const AnyRouter: any
 declare const HeadersInit: any
 declare const NavigateOptions: any
 declare const ParsedLocation: any
 declare const RegisteredRouter: any
 declare const Response: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HeadersInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NavigateOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParsedLocation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Redirect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Redirect(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = '.') {
+export function Redirect(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = '.'): any {
   return merge(Response, { options: merge(NavigateOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo), { _builtLocation: optional(ParsedLocation) }), redirectHandled: optional(boolean) })
 }
 /* compiles to:
@@ -45,7 +45,7 @@ export function Redirect(TRouter: AnyRouter = RegisteredRouter, TFrom: string = 
 
 // ✓ RedirectOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RedirectOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = '.') {
+export function RedirectOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string | undefined = Undefined, TMaskFrom: string = TFrom, TMaskTo: string = '.'): any {
   return merge({ href: optional(string), code: optional(number), statusCode: optional(number), throw: optional(any), headers: optional(HeadersInit), _builtLocation: optional(ParsedLocation) }, NavigateOptions(TRouter, TFrom, TTo, TMaskFrom, TMaskTo))
 }
 /* compiles to:
@@ -69,7 +69,7 @@ export function RedirectOptions(TRouter: AnyRouter = RegisteredRouter, TFrom: st
 
 // ✓ ResolvedRedirect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolvedRedirect(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string = '', TMaskFrom: string = TFrom, TMaskTo: string = '') {
+export function ResolvedRedirect(TRouter: AnyRouter = RegisteredRouter, TFrom: string = string, TTo: string = '', TMaskFrom: string = TFrom, TMaskTo: string = ''): any {
   return Redirect(TRouter, TFrom, TTo, TMaskFrom, TMaskTo)
 }
 /* compiles to:
@@ -85,7 +85,7 @@ export function ResolvedRedirect(TRouter: AnyRouter = RegisteredRouter, TFrom: s
 
 // ✓ RedirectOptionsRoute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RedirectOptionsRoute(TDefaultFrom: string = string, TRouter: AnyRouter = RegisteredRouter, TTo: string | undefined = Undefined, TMaskTo: string = '') {
+export function RedirectOptionsRoute(TDefaultFrom: string = string, TRouter: AnyRouter = RegisteredRouter, TTo: string | undefined = Undefined, TMaskTo: string = ''): any {
   return Omit(RedirectOptions(TRouter, TDefaultFrom, TTo, TDefaultFrom, TMaskTo), 'from')
 }
 /* compiles to:

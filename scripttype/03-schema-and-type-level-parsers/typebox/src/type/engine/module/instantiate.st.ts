@@ -7,34 +7,36 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TAssign } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/system/memory/assign.js'
+import type { TCyclicCandidates } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/cyclic/candidates.js'
+import type { TInstantiateCyclic } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/cyclic/instantiate.js'
+import type { TInstantiateType, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
 declare namespace Memory {
   export type TAssign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const Memory: any
+declare const TAssign: any
 declare const TCyclicCandidates: any
 declare const TInstantiateCyclic: any
 declare const TInstantiateType: any
 declare const TProperties: any
 declare const TState: any
 type Memory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TCyclicCandidates<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TInstantiateCyclics: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInstantiateCyclics__v1(Declarations, CyclicKeys, DeclarationContext) {
+export function TInstantiateCyclics__v1(Declarations, CyclicKeys, DeclarationContext): any {
   const out = emptyObject
   for (const Key in keySet(Extract(keyof(Declarations), CyclicKeys[number]))) {
     out[Key] = TInstantiateCyclic(DeclarationContext, Key, Declarations[Key])
   }
   return out
 }
-export function TInstantiateCyclics(Context: TProperties, Declarations: TProperties, CyclicKeys: string[], DeclarationContext: TProperties = Memory.TAssign(Context, Declarations), Result: TProperties = TInstantiateCyclics__v1(Declarations, CyclicKeys, DeclarationContext)) {
+export function TInstantiateCyclics(Context: TProperties, Declarations: TProperties, CyclicKeys: string[], DeclarationContext: TProperties = t<Memory.TAssign<typeof Context, typeof Declarations>>(), Result: TProperties = TInstantiateCyclics__v1(Declarations, CyclicKeys, DeclarationContext)): any {
   return Result
 }
 /* compiles to:
@@ -57,14 +59,14 @@ export function TInstantiateCyclics(Context: TProperties, Declarations: TPropert
 
 // ✓ TInstantiateNonCyclics: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInstantiateNonCyclics__v1(Declarations, CyclicKeys, DeclarationContext) {
+export function TInstantiateNonCyclics__v1(Declarations, CyclicKeys, DeclarationContext): any {
   const out = emptyObject
   for (const Key in keySet(Exclude(keyof(Declarations), CyclicKeys[number]))) {
     out[Key] = TInstantiateType(DeclarationContext, TState([], []), Declarations[Key])
   }
   return out
 }
-export function TInstantiateNonCyclics(Context: TProperties, Declarations: TProperties, CyclicKeys: string[], DeclarationContext: TProperties = Memory.TAssign(Context, Declarations), Result: TProperties = TInstantiateNonCyclics__v1(Declarations, CyclicKeys, DeclarationContext)) {
+export function TInstantiateNonCyclics(Context: TProperties, Declarations: TProperties, CyclicKeys: string[], DeclarationContext: TProperties = t<Memory.TAssign<typeof Context, typeof Declarations>>(), Result: TProperties = TInstantiateNonCyclics__v1(Declarations, CyclicKeys, DeclarationContext)): any {
   return Result
 }
 /* compiles to:
@@ -87,7 +89,10 @@ export function TInstantiateNonCyclics(Context: TProperties, Declarations: TProp
 
 // ✓ TInstantiateModule: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInstantiateModule(Context: TProperties, Declarations: TProperties, CyclicCandidates: string[] = TCyclicCandidates(Declarations), InstantiatedCyclics: TProperties = TInstantiateCyclics(Context, Declarations, CyclicCandidates), InstantiatedNonCyclics: TProperties = TInstantiateNonCyclics(Context, Declarations, CyclicCandidates), InstantiatedModule: TProperties = merge(InstantiatedCyclics, InstantiatedNonCyclics)) {
+/**
+ * @param {TProperties} InstantiatedModule
+ */
+export function TInstantiateModule(Context: TProperties, Declarations: TProperties, CyclicCandidates: string[] = TCyclicCandidates(Declarations), InstantiatedCyclics: TProperties = TInstantiateCyclics(Context, Declarations, CyclicCandidates), InstantiatedNonCyclics: TProperties = TInstantiateNonCyclics(Context, Declarations, CyclicCandidates), InstantiatedModule = merge(InstantiatedCyclics, InstantiatedNonCyclics)): any {
   const out = emptyObject
   for (const Key in keyof(InstantiatedModule)) {
     out[Key] = InstantiatedModule[Key]
@@ -108,7 +113,7 @@ export function TInstantiateModule(Context: TProperties, Declarations: TProperti
 
 // ✓ TModuleInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TModuleInstantiate(Context: TProperties, _State: TState, Declarations: TProperties, InstantiatedModule: TProperties = TInstantiateModule(Context, Declarations)) {
+export function TModuleInstantiate(Context: TProperties, _State: TState, Declarations: TProperties, InstantiatedModule: TProperties = TInstantiateModule(Context, Declarations)): any {
   return InstantiatedModule
 }
 /* compiles to:

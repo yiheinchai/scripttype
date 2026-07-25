@@ -9,7 +9,7 @@
  */
 // ✓ Listener: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Listener(A) {
+export function Listener(A): any {
   return { f: readonlyProp(fnType([A], voidType())), prev: Listener(A) | Null, next: Listener(A) | Null }
 }
 /* compiles to:

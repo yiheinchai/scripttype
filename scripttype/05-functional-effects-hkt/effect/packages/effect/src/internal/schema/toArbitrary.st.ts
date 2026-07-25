@@ -13,17 +13,19 @@
 declare namespace FastCheck {
   export type Arbitrary<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const Arbitrary: any
 declare const Context: any
 declare const FastCheck: any
 declare const RecursionStack: any
+type Arbitrary<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Context<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FastCheck<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RecursionStack<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Lazy: does not compile yet
 //   Cannot use namespace 'FastCheck' as a type.
 /* @scripttype preserveParamNames */
-export function Lazy(T) {
-  return fnType([t<typeof FastCheck>(), Context, RecursionStack], FastCheck.Arbitrary(T))
+export function Lazy(T): any {
+  return fnType([t<typeof FastCheck>(), Context, RecursionStack], t<FastCheck.Arbitrary<typeof T>>())
 }
 /* compiles to:
  * export type Lazy<T> = (a0: FastCheck, a1: Context, a2: RecursionStack) => FastCheck.Arbitrary<T>
@@ -32,8 +34,8 @@ export function Lazy(T) {
 // ✗ LazyOption: does not compile yet
 //   Cannot use namespace 'FastCheck' as a type.
 /* @scripttype preserveParamNames */
-export function LazyOption(T) {
-  return fnType([t<typeof FastCheck>(), Context, RecursionStack], anyOf(FastCheck.Arbitrary(T), Undefined))
+export function LazyOption(T): any {
+  return fnType([t<typeof FastCheck>(), Context, RecursionStack], anyOf(t<FastCheck.Arbitrary<typeof T>>(), Undefined))
 }
 /* compiles to:
  * export type LazyOption<T> =

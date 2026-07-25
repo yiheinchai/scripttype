@@ -7,24 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyActorSystem } from '../../../../../../../06-state-and-forms/xstate/packages/core/src/system.js'
+import type { ActorLogic, ActorRefFromLogic, NonReducibleUnknown } from '../../../../../../../06-state-and-forms/xstate/packages/core/src/types.js'
 declare const ActorLogic: any
 declare const ActorRefFromLogic: any
 declare const AnyActorSystem: any
 declare const EventObject: any
 declare const NonReducibleUnknown: any
 declare const Snapshot: any
-type ActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ActorRefFromLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyActorSystem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonReducibleUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Snapshot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TransitionSnapshot: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TransitionSnapshot(TContext) {
+export function TransitionSnapshot(TContext): any {
   return merge(Snapshot(Undefined), { context: TContext })
 }
 /* compiles to:
@@ -33,7 +32,7 @@ export function TransitionSnapshot(TContext) {
 
 // ✓ TransitionActorLogic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TransitionActorLogic(TContext, TEvent: EventObject, TInput: NonReducibleUnknown, TEmitted: EventObject = EventObject) {
+export function TransitionActorLogic(TContext, TEvent: EventObject, TInput: NonReducibleUnknown, TEmitted: EventObject = EventObject): any {
   return ActorLogic(TransitionSnapshot(TContext), TEvent, TInput, AnyActorSystem, TEmitted)
 }
 /* compiles to:
@@ -48,7 +47,7 @@ export function TransitionActorLogic(TContext, TEvent: EventObject, TInput: NonR
 
 // ✓ TransitionActorRef: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TransitionActorRef(TContext, TEvent: EventObject) {
+export function TransitionActorRef(TContext, TEvent: EventObject): any {
   return ActorRefFromLogic(TransitionActorLogic(TransitionSnapshot(TContext), TEvent, unknown))
 }
 /* compiles to:

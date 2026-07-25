@@ -7,20 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DecoratedQuery } from '../../../../../../../02-inference-at-scale/trpc/packages/react-query/src/createTRPCReact.js'
+import type { QueryType } from '../../../../../../../02-inference-at-scale/trpc/packages/react-query/src/internals/getQueryKey.js'
+import type { DeepPartial } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/types.js'
+declare namespace m1 {
+  export type $Def<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const DecoratedQuery: any
 declare const DeepPartial: any
 declare const ProcedureOrRouter: any
 declare const QueryType: any
-type DecoratedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DeepPartial<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ProcedureOrRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GetInfiniteQueryInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetInfiniteQueryInput(TProcedureInput, TInputWithoutCursorAndDirection = Omit(TProcedureInput, anyOf('cursor', 'direction'))) {
+export function GetInfiniteQueryInput(TProcedureInput, TInputWithoutCursorAndDirection = Omit(TProcedureInput, anyOf('cursor', 'direction'))): any {
   if (matches<never>(keyof(TInputWithoutCursorAndDirection))) {
     return Undefined
   }
@@ -38,7 +42,7 @@ export function GetInfiniteQueryInput(TProcedureInput, TInputWithoutCursorAndDir
 
 // ✓ GetQueryProcedureInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetQueryProcedureInput(TProcedureInput) {
+export function GetQueryProcedureInput(TProcedureInput): any {
   if (matches<{ cursor?: any; }>(TProcedureInput)) {
     return GetInfiniteQueryInput(TProcedureInput)
   }
@@ -54,7 +58,7 @@ export function GetQueryProcedureInput(TProcedureInput) {
 // ✗ GetParams: does not compile yet
 //   Type '"input"' cannot be used to index type '$Def'.
 /* @scripttype preserveParamNames */
-export function GetParams(TProcedureOrRouter: ProcedureOrRouter) {
+export function GetParams(TProcedureOrRouter: ProcedureOrRouter): any {
   const m1 = matches<DecoratedQuery<Hole<"$Def">>>(TProcedureOrRouter)
   if (m1) {
     return [GetQueryProcedureInput(m1.$Def['input']), QueryType]
@@ -70,7 +74,7 @@ export function GetParams(TProcedureOrRouter: ProcedureOrRouter) {
 
 // ✓ QueryKeyKnown: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function QueryKeyKnown(TInput, TType: Exclude<QueryType, 'any'>) {
+export function QueryKeyKnown(TInput, TType: Exclude<QueryType, 'any'>): any {
   return [arrayOf(string), optElem({ input: optional(GetQueryProcedureInput(TInput)), type: TType })]
 }
 /* compiles to:

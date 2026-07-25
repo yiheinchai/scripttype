@@ -9,7 +9,7 @@
  */
 // ✓ Format: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Format(T: string) {
+export function Format(T: string): any {
   return any
 }
 /* compiles to:

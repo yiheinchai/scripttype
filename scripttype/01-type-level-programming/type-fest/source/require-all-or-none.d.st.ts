@@ -22,7 +22,10 @@ type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type RequireNone<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequireAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequireAll(ObjectType, KeysType: keyof typeof ObjectType) {
+/**
+ * @param {keyof typeof ObjectType} KeysType
+ */
+export function RequireAll(ObjectType, KeysType): any {
   return Required(Pick(ObjectType, KeysType))
 }
 /* compiles to:
@@ -33,7 +36,10 @@ export function RequireAll(ObjectType, KeysType: keyof typeof ObjectType) {
 
 // ✓ RequireAllOrNone: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequireAllOrNone(ObjectType, KeysType: keyof typeof ObjectType = keyof(ObjectType)) {
+/**
+ * @param {keyof typeof ObjectType} KeysType
+ */
+export function RequireAllOrNone(ObjectType, KeysType = keyof(ObjectType)): any {
   return IfNotAnyOrNever(ObjectType, { ifNot: If(IsNever(KeysType), ObjectType, _RequireAllOrNone(ObjectType, If(IsAny(KeysType), keyof(ObjectType), KeysType))) })
 }
 /* compiles to:
@@ -55,7 +61,10 @@ export function RequireAllOrNone(ObjectType, KeysType: keyof typeof ObjectType =
 
 // ✓ _RequireAllOrNone: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _RequireAllOrNone(ObjectType, KeysType: keyof typeof ObjectType) {
+/**
+ * @param {keyof typeof ObjectType} KeysType
+ */
+export function _RequireAllOrNone(ObjectType, KeysType): any {
   return merge(RequireAll(ObjectType, KeysType) | RequireNone(KeysType), Omit(ObjectType, KeysType))
 }
 /* compiles to:

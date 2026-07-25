@@ -9,7 +9,7 @@
  */
 // ✓ CallbackOrValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CallbackOrValue(T) {
+export function CallbackOrValue(T): any {
   return T | fnType([], T | t<Promise<typeof T>>())
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Diff: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Diff(O, O1) {
+export function Diff(O, O1): any {
   return any
 }
 /* compiles to:

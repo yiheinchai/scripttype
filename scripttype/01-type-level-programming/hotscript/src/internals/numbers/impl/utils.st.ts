@@ -7,16 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Digit, DigitNumber } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/utils.js'
+declare namespace Acc {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type N<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Digit: any
 declare const DigitNumber: any
-type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ToNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToNumber(T: string) {
+export function ToNumber(T: string): any {
   const m1 = matches<`${Hole<"N", number | bigint>}`>(T)
   if (m1) {
     return m1.N
@@ -30,7 +37,7 @@ export function ToNumber(T: string) {
 
 // ✓ ToString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToString(T: number | bigint) {
+export function ToString(T: number | bigint): any {
   return `${T}`
 }
 /* compiles to:
@@ -39,7 +46,7 @@ export function ToString(T: number | bigint) {
 
 // ✓ MakeDigitNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MakeDigitNumber(S: "-" | "", N: Digit[]) {
+export function MakeDigitNumber(S: "-" | "", N: Digit[]): any {
   return { sign: S, num: N }
 }
 /* compiles to:
@@ -48,7 +55,7 @@ export function MakeDigitNumber(S: "-" | "", N: Digit[]) {
 
 // ✓ ToDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToDigits(T: string) {
+export function ToDigits(T: string): any {
   let Acc: any[] = []
   let t = T
   while (true) {
@@ -69,7 +76,7 @@ export function ToDigits(T: string) {
 
 // ✓ ToDigitNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToDigitNumber(T: string) {
+export function ToDigitNumber(T: string): any {
   const m1 = matches<`-${Hole<"R">}`>(T)
   if (m1) {
     return { sign: '-', num: ToDigits(m1.R) }
@@ -83,7 +90,7 @@ export function ToDigitNumber(T: string) {
 
 // ✓ FromDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FromDigits(T) {
+export function FromDigits(T): any {
   let Acc = ''
   let t = T
   while (true) {
@@ -104,7 +111,7 @@ export function FromDigits(T) {
 
 // ✓ Sign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Sign(T: DigitNumber) {
+export function Sign(T: DigitNumber): any {
   return T['sign']
 }
 /* compiles to:
@@ -113,7 +120,7 @@ export function Sign(T: DigitNumber) {
 
 // ✓ InvertSign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InvertSign(T: DigitNumber) {
+export function InvertSign(T: DigitNumber): any {
   if (matches<"-">(Sign(T))) {
     return ''
   }
@@ -125,7 +132,7 @@ export function InvertSign(T: DigitNumber) {
 
 // ✓ MulSign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulSign(S1: "-" | "", S2: "-" | "") {
+export function MulSign(S1: "-" | "", S2: "-" | ""): any {
   if (matches<"-">(S1)) {
     if (matches<"-">(S2)) {
       return ''
@@ -144,7 +151,7 @@ export function MulSign(S1: "-" | "", S2: "-" | "") {
 
 // ✓ Num: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Num(T: DigitNumber) {
+export function Num(T: DigitNumber): any {
   return T['num']
 }
 /* compiles to:
@@ -153,7 +160,7 @@ export function Num(T: DigitNumber) {
 
 // ✓ FromDigitNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FromDigitNumber(T: DigitNumber) {
+export function FromDigitNumber(T: DigitNumber): any {
   return `${Sign(T)}${FromDigits(Num(T))}`
 }
 /* compiles to:
@@ -162,7 +169,7 @@ export function FromDigitNumber(T: DigitNumber) {
 
 // ✓ TrimZeros: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TrimZeros(T: Digit[]) {
+export function TrimZeros(T: Digit[]): any {
   if (matches<[ 0 ]>(T)) {
     return [0]
   }
@@ -179,7 +186,7 @@ export function TrimZeros(T: Digit[]) {
 
 // ✓ Normalize: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Normalize(T: DigitNumber, Trim: Digit[] = TrimZeros(Num(T))) {
+export function Normalize(T: DigitNumber, Trim: Digit[] = TrimZeros(Num(T))): any {
   if (matches<[ 0 ]>(Trim)) {
     return MakeDigitNumber('', Trim)
   }

@@ -9,7 +9,7 @@
  */
 // ✓ Narrow: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Narrow(type) {
+export function Narrow(type): any {
   const out = emptyObject
   for (const K in keyof(type)) {
     out[K] = Narrow(type[K])

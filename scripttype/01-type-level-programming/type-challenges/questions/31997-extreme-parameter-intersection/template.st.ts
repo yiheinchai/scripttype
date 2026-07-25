@@ -9,7 +9,7 @@
  */
 // ✓ IntersectParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IntersectParameters(l: readonly unknown[], r: readonly unknown[]) {
+export function IntersectParameters(l: readonly unknown[], r: readonly unknown[]): any {
   return merge(l, r)
 }
 /* compiles to:

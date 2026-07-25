@@ -7,22 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AsyncThunk } from '../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/createAsyncThunk.js'
+import type { AnyAsyncThunk } from '../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/matchers.js'
+import type { ActionFromMatcher } from '../../../../../../06-state-and-forms/redux-toolkit/packages/toolkit/src/tsHelpers.js'
+declare namespace m1 {
+  export type RejectedValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ActionFromMatcher: any
 declare const AnyAsyncThunk: any
 declare const AsyncThunk: any
 declare const Matcher: any
 declare const UnionToIntersection: any
-type ActionFromMatcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyAsyncThunk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AsyncThunk<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Matcher<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ActionMatchingAnyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ActionMatchingAnyOf(Matchers: Matcher<any>[]) {
+export function ActionMatchingAnyOf(Matchers: Matcher<any>[]): any {
   return ActionFromMatcher(Matchers[number])
 }
 /* compiles to:
@@ -33,7 +37,7 @@ export function ActionMatchingAnyOf(Matchers: Matcher<any>[]) {
 
 // ✓ ActionMatchingAllOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ActionMatchingAllOf(Matchers: Matcher<any>[]) {
+export function ActionMatchingAllOf(Matchers: Matcher<any>[]): any {
   return UnionToIntersection(ActionMatchingAnyOf(Matchers))
 }
 /* compiles to:
@@ -44,7 +48,7 @@ export function ActionMatchingAllOf(Matchers: Matcher<any>[]) {
 
 // ✓ PendingActionFromAsyncThunk: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PendingActionFromAsyncThunk(T: AnyAsyncThunk) {
+export function PendingActionFromAsyncThunk(T: AnyAsyncThunk): any {
   return ActionFromMatcher(T['pending'])
 }
 /* compiles to:
@@ -55,7 +59,7 @@ export function PendingActionFromAsyncThunk(T: AnyAsyncThunk) {
 
 // ✓ RejectedActionFromAsyncThunk: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RejectedActionFromAsyncThunk(T: AnyAsyncThunk) {
+export function RejectedActionFromAsyncThunk(T: AnyAsyncThunk): any {
   return ActionFromMatcher(T['rejected'])
 }
 /* compiles to:
@@ -66,7 +70,7 @@ export function RejectedActionFromAsyncThunk(T: AnyAsyncThunk) {
 
 // ✓ RejectedWithValueActionFromAsyncThunk: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RejectedWithValueActionFromAsyncThunk(T: AnyAsyncThunk) {
+export function RejectedWithValueActionFromAsyncThunk(T: AnyAsyncThunk): any {
   const m1 = matches<AsyncThunk<any, any, { rejectValue: Hole<"RejectedValue">; }>>(T)
   return ActionFromMatcher(T['rejected']) & (m1 ? { payload: m1.RejectedValue } : unknown)
 }
@@ -82,7 +86,7 @@ export function RejectedWithValueActionFromAsyncThunk(T: AnyAsyncThunk) {
 
 // ✓ FulfilledActionFromAsyncThunk: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FulfilledActionFromAsyncThunk(T: AnyAsyncThunk) {
+export function FulfilledActionFromAsyncThunk(T: AnyAsyncThunk): any {
   return ActionFromMatcher(T['fulfilled'])
 }
 /* compiles to:
@@ -93,7 +97,7 @@ export function FulfilledActionFromAsyncThunk(T: AnyAsyncThunk) {
 
 // ✓ ActionsFromAsyncThunk: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ActionsFromAsyncThunk(T: AnyAsyncThunk) {
+export function ActionsFromAsyncThunk(T: AnyAsyncThunk): any {
   return ActionFromMatcher(T['pending']) | ActionFromMatcher(T['fulfilled']) | ActionFromMatcher(T['rejected'])
 }
 /* compiles to:

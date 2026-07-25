@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DefinedTRPCInfiniteQueryOptionsIn, DefinedTRPCInfiniteQueryOptionsOut, UndefinedTRPCInfiniteQueryOptionsIn, UndefinedTRPCInfiniteQueryOptionsOut, UnusedSkipTokenTRPCInfiniteQueryOptionsIn, UnusedSkipTokenTRPCInfiniteQueryOptionsOut } from '../../../../../../../02-inference-at-scale/trpc/packages/react-query/src/shared/types.js'
+import type { FeatureFlags } from '../../../../../../../02-inference-at-scale/trpc/packages/tanstack-react-query/src/internals/types.js'
 declare const DefinedTRPCInfiniteQueryOptionsIn: any
 declare const DefinedTRPCInfiniteQueryOptionsOut: any
 declare const FeatureFlags: any
@@ -17,16 +20,9 @@ declare const UndefinedTRPCInfiniteQueryOptionsIn: any
 declare const UndefinedTRPCInfiniteQueryOptionsOut: any
 declare const UnusedSkipTokenTRPCInfiniteQueryOptionsIn: any
 declare const UnusedSkipTokenTRPCInfiniteQueryOptionsOut: any
-type DefinedTRPCInfiniteQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DefinedTRPCInfiniteQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UndefinedTRPCInfiniteQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UndefinedTRPCInfiniteQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnusedSkipTokenTRPCInfiniteQueryOptionsIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnusedSkipTokenTRPCInfiniteQueryOptionsOut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyTRPCInfiniteQueryOptionsIn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyTRPCInfiniteQueryOptionsIn(TFeatureFlags: FeatureFlags) {
+export function AnyTRPCInfiniteQueryOptionsIn(TFeatureFlags: FeatureFlags): any {
   return DefinedTRPCInfiniteQueryOptionsIn(any, any, any, any, TFeatureFlags) | UnusedSkipTokenTRPCInfiniteQueryOptionsIn(any, any, any, any, TFeatureFlags) | UndefinedTRPCInfiniteQueryOptionsIn(any, any, any, any, TFeatureFlags)
 }
 /* compiles to:
@@ -38,7 +34,7 @@ export function AnyTRPCInfiniteQueryOptionsIn(TFeatureFlags: FeatureFlags) {
 
 // ✓ AnyTRPCInfiniteQueryOptionsOut: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyTRPCInfiniteQueryOptionsOut(TFeatureFlags: FeatureFlags) {
+export function AnyTRPCInfiniteQueryOptionsOut(TFeatureFlags: FeatureFlags): any {
   return DefinedTRPCInfiniteQueryOptionsOut(any, any, any, any, TFeatureFlags) | UnusedSkipTokenTRPCInfiniteQueryOptionsOut(any, any, any, any, TFeatureFlags) | UndefinedTRPCInfiniteQueryOptionsOut(any, any, any, any, TFeatureFlags)
 }
 /* compiles to:

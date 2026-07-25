@@ -7,9 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { Pos } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+import type { BuiltIn } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Misc/BuiltIn.js'
+import type { Depth } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BuiltIn: any
 declare const Cast: any
 declare const Depth: any
@@ -21,21 +33,13 @@ declare const List: any
 declare const Merge: any
 declare const Next: any
 declare const Pos: any
-type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Assign: does not compile yet
 //   Type 'Extends<Pos<I>, Length<Os>>' cannot be used to index type '{ '0': __Assign__st0<Merge<Os[Pos<I>], O, depth, ignore, fill>, Os, depth, ignore, fill, Next<I
 /* @scripttype preserveParamNames */
-export function __Assign(O: object, Os: List<object>, depth: Depth, ignore: object, fill: any, I: Iteration = IterationOf(0)) {
+export function __Assign(O: object, Os: List<object>, depth: Depth, ignore: object, fill: any, I: Iteration = IterationOf(0)): any {
   return { 0: __Assign(Merge(Os[Pos(I)], O, depth, ignore, fill), Os, depth, ignore, fill, Next(I)), 1: O }[Extends(Pos(I), Length(Os))]
 }
 /* compiles to:
@@ -55,7 +59,7 @@ export function __Assign(O: object, Os: List<object>, depth: Depth, ignore: obje
 
 // ✓ _Assign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Assign(O: object, Os: List<object>, depth: Depth, ignore: object, fill: any) {
+export function _Assign(O: object, Os: List<object>, depth: Depth, ignore: object, fill: any): any {
   const m1 = matches<Hole<"X">>(__Assign(O, Os, depth, ignore, fill))
   if (m1) {
     return Cast(m1.X, object)
@@ -75,7 +79,7 @@ export function _Assign(O: object, Os: List<object>, depth: Depth, ignore: objec
 
 // ✓ Assign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assign(O: object, Os: List<object>, depth: Depth = 'flat', ignore: object = BuiltIn, fill: any = Undefined) {
+export function Assign(O: object, Os: List<object>, depth: Depth = 'flat', ignore: object = BuiltIn, fill: any = Undefined): any {
   if (matches<unknown>(O)) {
     if (matches<unknown>(Os)) {
       return _Assign(O, Os, depth, ignore, fill)

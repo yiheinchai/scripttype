@@ -7,18 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { QueryFunctionContext, QueryKey } from '../../../../../../02-inference-at-scale/tanstack-query/packages/query-core/src/types.js'
 declare const AsyncIterable: any
 declare const QueryFunctionContext: any
 declare const QueryKey: any
 type AsyncIterable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryFunctionContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BaseStreamedQueryParams: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BaseStreamedQueryParams(TQueryFnData, TQueryKey: QueryKey) {
+export function BaseStreamedQueryParams(TQueryFnData, TQueryKey: QueryKey): any {
   return { streamFn: fnType([QueryFunctionContext(TQueryKey)], t<AsyncIterable<typeof TQueryFnData>>() | t<Promise<AsyncIterable<typeof TQueryFnData>>>()), refetchMode: optional(anyOf('append', 'reset', 'replace')) }
 }
 /* compiles to:
@@ -31,7 +31,7 @@ export function BaseStreamedQueryParams(TQueryFnData, TQueryKey: QueryKey) {
 
 // ✓ SimpleStreamedQueryParams: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SimpleStreamedQueryParams(TQueryFnData, TQueryKey: QueryKey) {
+export function SimpleStreamedQueryParams(TQueryFnData, TQueryKey: QueryKey): any {
   return merge(BaseStreamedQueryParams(TQueryFnData, TQueryKey), { reducer: optional(never), initialValue: optional(never) })
 }
 /* compiles to:
@@ -41,7 +41,7 @@ export function SimpleStreamedQueryParams(TQueryFnData, TQueryKey: QueryKey) {
 
 // ✓ ReducibleStreamedQueryParams: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReducibleStreamedQueryParams(TQueryFnData, TData, TQueryKey: QueryKey) {
+export function ReducibleStreamedQueryParams(TQueryFnData, TData, TQueryKey: QueryKey): any {
   return merge(BaseStreamedQueryParams(TQueryFnData, TQueryKey), { reducer: fnType([TData, TQueryFnData], TData), initialValue: TData })
 }
 /* compiles to:
@@ -52,7 +52,7 @@ export function ReducibleStreamedQueryParams(TQueryFnData, TData, TQueryKey: Que
 
 // ✓ StreamedQueryParams: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StreamedQueryParams(TQueryFnData, TData, TQueryKey: QueryKey) {
+export function StreamedQueryParams(TQueryFnData, TData, TQueryKey: QueryKey): any {
   return SimpleStreamedQueryParams(TQueryFnData, TQueryKey) | ReducibleStreamedQueryParams(TQueryFnData, TData, TQueryKey)
 }
 /* compiles to:

@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { CallbackObject, ComponentsObject, HttpMethods, ParameterObject, ReferenceObject, RequestBodyObject, ResponsesObject } from '../../../../../../02-inference-at-scale/trpc/packages/openapi/src/types.js'
 declare namespace BaseOpenAPIV3_1 {
   export type Document<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type OperationObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -24,16 +26,9 @@ declare const ReferenceObject: any
 declare const RequestBodyObject: any
 declare const ResponsesObject: any
 type BaseOpenAPIV3_1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CallbackObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ComponentsObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type HttpMethods<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParameterObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReferenceObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RequestBodyObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResponsesObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Replace: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Replace(TTarget, TReplaceWith) {
+export function Replace(TTarget, TReplaceWith): any {
   return Omit(TTarget, keyof(TReplaceWith)) & TReplaceWith
 }
 /* compiles to:
@@ -42,8 +37,8 @@ export function Replace(TTarget, TReplaceWith) {
 
 // ✓ OperationObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OperationObject(T: {} = {}) {
-  return merge(Replace(BaseOpenAPIV3_1.OperationObject(T), { parameters: optional(arrayOf(ReferenceObject | ParameterObject)), requestBody: optional(ReferenceObject | RequestBodyObject), responses: optional(ResponsesObject), callbacks: optional(Record(string, ReferenceObject | CallbackObject)) }), T)
+export function OperationObject(T: {} = {}): any {
+  return merge(Replace(t<BaseOpenAPIV3_1.OperationObject<typeof T>>(), { parameters: optional(arrayOf(ReferenceObject | ParameterObject)), requestBody: optional(ReferenceObject | RequestBodyObject), responses: optional(ResponsesObject), callbacks: optional(Record(string, anyOf(ReferenceObject, CallbackObject))) }), T)
 }
 /* compiles to:
  * export type OperationObject<T extends {} = {}> =
@@ -61,12 +56,12 @@ export function OperationObject(T: {} = {}) {
 
 // ✓ PathItemObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PathItemObject(T: {} = {}) {
+export function PathItemObject(T: {} = {}): any {
   const out = emptyObject
   for (const method in keySet(HttpMethods)) {
     out[method] = optional(OperationObject(T))
   }
-  return Replace(BaseOpenAPIV3_1.PathItemObject(T), { parameters: optional(arrayOf(ReferenceObject | ParameterObject)) }) & out
+  return Replace(t<BaseOpenAPIV3_1.PathItemObject<typeof T>>(), { parameters: optional(arrayOf(ReferenceObject | ParameterObject)) }) & out
 }
 /* compiles to:
  * export type PathItemObject<T extends {} = {}> =
@@ -79,7 +74,7 @@ export function PathItemObject(T: {} = {}) {
 
 // ✓ PathsObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PathsObject(T: {} = {}, TPath: {} = {}) {
+export function PathsObject(T: {} = {}, TPath: {} = {}): any {
   return Record(string, anyOf(merge(PathItemObject(T), TPath), Undefined))
 }
 /* compiles to:
@@ -91,8 +86,8 @@ export function PathsObject(T: {} = {}, TPath: {} = {}) {
 
 // ✓ Document: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Document(T: {} = {}) {
-  return Replace(BaseOpenAPIV3_1.Document(T), { paths: optional(PathsObject(T)), components: optional(ComponentsObject) })
+export function Document(T: {} = {}): any {
+  return Replace(t<BaseOpenAPIV3_1.Document<typeof T>>(), { paths: optional(PathsObject(T)), components: optional(ComponentsObject) })
 }
 /* compiles to:
  * export type Document<T extends {} = {}> = Replace<

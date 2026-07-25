@@ -9,7 +9,7 @@
  */
 // ✓ Hanoi: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Hanoi(N: number, From = 'A', To = 'B', Intermediate = 'C') {
+export function Hanoi(N: number, From = 'A', To = 'B', Intermediate = 'C'): any {
   return any
 }
 /* compiles to:

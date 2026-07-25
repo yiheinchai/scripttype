@@ -7,9 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { Pos } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+import type { Prepend } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Prepend.js'
+import type { Naked } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/_Internal.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Cast: any
 declare const Extends: any
 declare const Iteration: any
@@ -20,20 +32,12 @@ declare const Naked: any
 declare const Next: any
 declare const Pos: any
 declare const Prepend: any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Naked<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prepend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Reverse: does not compile yet
 //   Type 'Extends<Pos<I>, Length<L>>' cannot be used to index type '{ '0': __Reverse__st0<L, [L[Pos<I>], ...LO], Next<I>>; '1': LO; }'.
 /* @scripttype preserveParamNames */
-export function __Reverse(L: List, LO: List, I: Iteration = IterationOf(0)) {
+export function __Reverse(L: List, LO: List, I: Iteration = IterationOf(0)): any {
   return { 0: __Reverse(L, Prepend(LO, L[Pos(I)]), Next(I)), 1: LO }[Extends(Pos(I), Length(L))]
 }
 /* compiles to:
@@ -43,7 +47,7 @@ export function __Reverse(L: List, LO: List, I: Iteration = IterationOf(0)) {
 
 // ✓ _Reverse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Reverse(L: List, LO: List = []) {
+export function _Reverse(L: List, LO: List = []): any {
   const m1 = matches<Hole<"X">>(__Reverse(Naked(L), LO))
   if (m1) {
     return Cast(m1.X, List)
@@ -57,7 +61,7 @@ export function _Reverse(L: List, LO: List = []) {
 
 // ✓ Reverse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Reverse(L: List) {
+export function Reverse(L: List): any {
   if (matches<unknown>(L)) {
     return _Reverse(L)
   }

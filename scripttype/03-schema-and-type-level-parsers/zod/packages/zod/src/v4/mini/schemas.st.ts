@@ -7,40 +7,43 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Identity } from '../../../../../../../../03-schema-and-type-level-parsers/zod/packages/zod/src/v4/core/util.js'
 declare namespace core {
-  export type $ZodLooseShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-  export type $ZodShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare namespace util {
   export type Identity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
-declare const $ZodLooseShape: any
-declare const $ZodShape: any
+declare const Identity: any
 declare const PropertyKey: any
 declare const ZodMiniNonOptional: any
 declare const core: any
 declare const input: any
+declare const k: any
 declare const output: any
 declare const util: any
-type $ZodLooseShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type $ZodShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ZodMiniNonOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type core<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type k<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type util<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SafeExtendShape: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SafeExtendShape(Base: core.$ZodShape, Ext: core.$ZodLooseShape) {
+/**
+ * @param {core.$ZodShape} Base
+ * @param {core.$ZodLooseShape} Ext
+ */
+export function SafeExtendShape(Base, Ext): any {
   const out = emptyObject
   for (const K in keyof(Ext)) {
-    out[K] = K in Base ? (matches<core.output<(typeof Base)[typeof K]>>(core.output(Ext[K])) ? (matches<core.input<(typeof Base)[typeof K]>>(core.input(Ext[K])) ? Ext[K] : never) : never) : Ext[K]
+    out[K] = K in Base ? (matches<core.output<(typeof Base)[typeof K]>>(t<core.output<(typeof Ext)[typeof K]>>()) ? (matches<core.input<(typeof Base)[typeof K]>>(t<core.input<(typeof Ext)[typeof K]>>()) ? Ext[K] : never) : never) : Ext[K]
   }
   return out
 }
@@ -56,16 +59,11 @@ export function SafeExtendShape(Base: core.$ZodShape, Ext: core.$ZodLooseShape) 
 
 // ✓ RequiredInterfaceShape: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequiredInterfaceShape(Shape: core.$ZodLooseShape, Keys: PropertyKey = keyof(Shape)) {
-  const out = emptyObject
-  for (const k in keyof(Shape)) {
-    out[matches<typeof Keys>(k) ? k : never] = ZodMiniNonOptional(Shape[k])
-  }
-  const out2 = emptyObject
-  for (const k in keyof(Shape)) {
-    out2[matches<typeof Keys>(k) ? never : k] = Shape[k]
-  }
-  return util.Identity(out & out2)
+/**
+ * @param {core.$ZodLooseShape} Shape
+ */
+export function RequiredInterfaceShape(Shape, Keys: PropertyKey = keyof(Shape)): any {
+  return t<util.Identity<{ [k in keyof typeof Shape as k extends typeof Keys ? k : never]: ZodMiniNonOptional<(typeof Shape)[k]>; } & { [k in keyof typeof Shape as k extends typeof Keys ? never : k]: (typeof Shape)[k]; }>>()
 }
 /* compiles to:
  * export type RequiredInterfaceShape<
@@ -73,7 +71,7 @@ export function RequiredInterfaceShape(Shape: core.$ZodLooseShape, Keys: Propert
  *   Keys extends PropertyKey = keyof Shape
  * > =
  *   util.Identity<
- *     & { [K in keyof Shape as K extends Keys ? K : never]: ZodMiniNonOptional<Shape[K]> }
- *     & { [K1 in keyof Shape as K1 extends Keys ? never : K1]: Shape[K1] }
+ *     & { [k in keyof Shape as k extends Keys ? k : never]: ZodMiniNonOptional<(Shape)[k]>; }
+ *     & { [k in keyof Shape as k extends Keys ? never : k]: (Shape)[k]; }
  *   >
  */

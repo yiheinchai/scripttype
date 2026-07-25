@@ -9,7 +9,7 @@
  */
 // ✓ Trim: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Trim(S: string) {
+export function Trim(S: string): any {
   return any
 }
 /* compiles to:

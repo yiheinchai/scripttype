@@ -9,7 +9,7 @@
  */
 // ✓ CamelCase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CamelCase(S: string) {
+export function CamelCase(S: string): any {
   return any
 }
 /* compiles to:

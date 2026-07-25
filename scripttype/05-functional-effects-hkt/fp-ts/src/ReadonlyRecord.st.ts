@@ -9,7 +9,7 @@
  */
 // ✓ ReadonlyRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyRecord(K: string, T) {
+export function ReadonlyRecord(K: string, T): any {
   return Readonly(Record(K, T))
 }
 /* compiles to:

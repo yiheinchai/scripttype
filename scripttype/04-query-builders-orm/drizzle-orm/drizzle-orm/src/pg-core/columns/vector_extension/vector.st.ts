@@ -14,7 +14,7 @@ declare const PgVectorBuilder: any
 type PgVectorBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgVectorBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgVectorBuilderInitial(TName: string, TDimensions: number) {
+export function PgVectorBuilderInitial(TName: string, TDimensions: number): any {
   return PgVectorBuilder({ name: TName, dataType: 'array', columnType: 'PgVector', data: arrayOf(number), driverParam: string, enumValues: Undefined, dimensions: TDimensions })
 }
 /* compiles to:

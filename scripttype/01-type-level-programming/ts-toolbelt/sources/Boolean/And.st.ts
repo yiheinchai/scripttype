@@ -10,7 +10,7 @@
 // ✗ And: the ScriptType does not itself typecheck as TypeScript
 //   And.st.ts(3:51) TS2538: Type 'Boolean' cannot be used as an index type.
 /* @scripttype preserveParamNames */
-export function And(B1: Boolean, B2: Boolean) {
+export function And(B1: Boolean, B2: Boolean): any {
   return { 0: { 0: 0, 1: 0 }, 1: { 0: 0, 1: 1 } }[B1][B2]
 }
 /* compiles to:

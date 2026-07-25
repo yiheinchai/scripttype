@@ -9,7 +9,7 @@
  */
 // ✓ ArrayValues: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayValues(T: readonly unknown[]) {
+export function ArrayValues(T: readonly unknown[]): any {
   return T[number]
 }
 /* compiles to:

@@ -7,21 +7,41 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AliasedExpression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { AliasedExpressionOrFactory } from '../../../../../04-query-builders-orm/kysely/src/parser/expression-parser.js'
+import type { DrainOuterGeneric } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type QA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type QA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type DA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AliasedDynamicTableBuilder: any
 declare const AliasedExpression: any
 declare const AliasedExpressionOrFactory: any
 declare const DrainOuterGeneric: any
 type AliasedDynamicTableBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AliasedExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AliasedExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ExtractAliasFromTableExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TableExpression(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function TableExpression(DB, TB): any {
   return AnyAliasedTable(DB) | AnyTable(DB) | AliasedExpressionOrFactory(DB, TB) | AliasedDynamicTableBuilder(any, any)
 }
 /* compiles to:
@@ -34,7 +54,10 @@ export function TableExpression(DB, TB: keyof typeof DB) {
 
 // ✓ TableExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TableExpressionOrList(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function TableExpressionOrList(DB, TB): any {
   return TableExpression(DB, TB) | readonlyArrayOf(TableExpression(DB, TB))
 }
 /* compiles to:
@@ -44,7 +67,7 @@ export function TableExpressionOrList(DB, TB: keyof typeof DB) {
 
 // ✓ SimpleTableReference: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SimpleTableReference(DB) {
+export function SimpleTableReference(DB): any {
   return AnyAliasedTable(DB) | AnyTable(DB)
 }
 /* compiles to:
@@ -53,7 +76,7 @@ export function SimpleTableReference(DB) {
 
 // ✓ AnyAliasedTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyAliasedTable(DB) {
+export function AnyAliasedTable(DB): any {
   return `${AnyTable(DB)} as ${string}`
 }
 /* compiles to:
@@ -62,7 +85,7 @@ export function AnyAliasedTable(DB) {
 
 // ✓ AnyTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyTable(DB) {
+export function AnyTable(DB): any {
   return keyof(DB) & string
 }
 /* compiles to:
@@ -71,7 +94,7 @@ export function AnyTable(DB) {
 
 // ✓ From: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function From(DB, TE) {
+export function From(DB, TE): any {
   const out = emptyObject
   for (const C in keySet(keyof(DB) | ExtractAliasFromTableExpression(DB, TE))) {
     out[C] = matches<ExtractAliasFromTableExpression<typeof DB, typeof TE>>(C) ? ExtractRowTypeFromTableExpression(DB, TE, C) : (C in DB ? DB[C] : never)
@@ -91,7 +114,10 @@ export function From(DB, TE) {
 
 // ✓ FromTables: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FromTables(DB, TB: keyof typeof DB, TE) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function FromTables(DB, TB, TE): any {
   return DrainOuterGeneric(anyOf(TB, ExtractAliasFromTableExpression(DB, TE)))
 }
 /* compiles to:
@@ -102,7 +128,7 @@ export function FromTables(DB, TB: keyof typeof DB, TE) {
 
 // ✓ ExtractTableAlias: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTableAlias(DB, TE) {
+export function ExtractTableAlias(DB, TE): any {
   const m1 = matches<`${string} as ${Hole<"TA">}`>(TE)
   if (m1) {
     if (m1.TA in DB) {
@@ -124,7 +150,7 @@ export function ExtractTableAlias(DB, TE) {
 
 // ✓ ExtractAliasFromTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractAliasFromTableExpression(DB, TE) {
+export function ExtractAliasFromTableExpression(DB, TE): any {
   if (typeof TE === 'string') {
     const m1 = matches<`${string} as ${Hole<"TA">}`>(TE)
     if (m1) {
@@ -161,7 +187,7 @@ export function ExtractAliasFromTableExpression(DB, TE) {
 
 // ✓ ExtractRowTypeFromTableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractRowTypeFromTableExpression(DB, TE, A: keyof any) {
+export function ExtractRowTypeFromTableExpression(DB, TE, A: keyof any): any {
   const m1 = matches<`${Hole<"T">} as ${Hole<"TA">}`>(TE)
   if (m1) {
     if (matches<typeof A>(m1.TA)) {

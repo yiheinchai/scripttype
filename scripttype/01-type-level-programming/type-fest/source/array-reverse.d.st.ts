@@ -10,6 +10,15 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const If: any
 declare const IfNotAnyOrNever: any
 declare const IsArrayReadonly: any
@@ -24,7 +33,7 @@ type IsOptionalKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any,
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArrayReverse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayReverse(TArray: UnknownArray) {
+export function ArrayReverse(TArray: UnknownArray): any {
   const m1 = matches<Hole<"Result">>(_ArrayReverse(TArray))
   return IfNotAnyOrNever(TArray, { ifNot: matches<unknown>(TArray) ? (m1 ? If(IsArrayReadonly(TArray), Readonly(m1.Result), m1.Result) : never) : never })
 }
@@ -43,7 +52,7 @@ export function ArrayReverse(TArray: UnknownArray) {
 
 // ✓ _ArrayReverse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ArrayReverse(TArray: UnknownArray, BeforeRestAcc: UnknownArray = [], AfterRestAcc: UnknownArray = [], Result: UnknownArray = never) {
+export function _ArrayReverse(TArray: UnknownArray, BeforeRestAcc: UnknownArray = [], AfterRestAcc: UnknownArray = [], Result: UnknownArray = never): any {
   if (matches<never>(merge(keyof(TArray), `${number}`))) {
     const m1 = matches<readonly [ ...Hole<"Rest">, Hole<"Last"> ]>(TArray)
     if (m1) {

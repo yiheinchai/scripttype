@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Config } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/config.js'
+import type { OutputDataset } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/dataset.js'
+import type { InferIssue, InferOutput } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/infer.js'
+import type { BaseIssue } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/issue.js'
+import type { BaseSchema } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/schema.js'
+import type { MaybeDeepReadonly } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/utils.js'
 declare const BaseIssue: any
 declare const BaseSchema: any
 declare const Config: any
@@ -17,33 +24,29 @@ declare const InferIssue: any
 declare const InferOutput: any
 declare const MaybeDeepReadonly: any
 declare const OutputDataset: any
-type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Config<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Fallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeDeepReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OutputDataset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Fallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Fallback(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>>) {
-  return MaybeDeepReadonly(InferOutput(TSchema)) | fnType([OutputDataset(InferOutput(TSchema), InferIssue(TSchema)), Config(InferIssue(TSchema))], MaybeDeepReadonly(InferOutput(TSchema)))
+export function Fallback(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>>): any {
+  return MaybeDeepReadonly(InferOutput(TSchema)) | fnType([optElem(OutputDataset(InferOutput(TSchema), InferIssue(TSchema))), optElem(Config(InferIssue(TSchema)))], MaybeDeepReadonly(InferOutput(TSchema)))
 }
 /* compiles to:
  * export type Fallback<TSchema extends BaseSchema<unknown, unknown, BaseIssue<unknown>>> =
  *   | MaybeDeepReadonly<InferOutput<TSchema>>
  *   | (
  *       (
- *         a0: OutputDataset<InferOutput<TSchema>, InferIssue<TSchema>>,
- *         a1: Config<InferIssue<TSchema>>
+ *         a0?: OutputDataset<InferOutput<TSchema>, InferIssue<TSchema>>,
+ *         a1?: Config<InferIssue<TSchema>>
  *       ) => MaybeDeepReadonly<InferOutput<TSchema>>
  *     )
  */
 
 // ✓ SchemaWithFallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SchemaWithFallback(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>>, TFallback: Fallback<typeof TSchema>) {
+/**
+ * @param {BaseSchema<unknown, unknown, BaseIssue<unknown>>} TSchema
+ * @param {Fallback<typeof TSchema>} TFallback
+ */
+export function SchemaWithFallback(TSchema, TFallback): any {
   return merge(TSchema, { fallback: readonlyProp(TFallback) })
 }
 /* compiles to:

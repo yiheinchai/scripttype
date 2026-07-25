@@ -10,9 +10,14 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type KeyPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Property<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RestPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RestPaths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const IsAny: any
 declare const NonRecursiveType: any
-declare const Paths: any
 declare const RequiredDeep: any
 declare const SetRequired: any
 declare const SimplifyDeep: any
@@ -21,7 +26,6 @@ declare const UnionToTuple: any
 declare const UnknownArray: any
 type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RequiredDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SetRequired<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SimplifyDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -30,7 +34,10 @@ type UnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetRequiredDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetRequiredDeep(BaseType, KeyPaths: Paths<typeof BaseType>) {
+/**
+ * @param {Paths<typeof BaseType>} KeyPaths
+ */
+export function SetRequiredDeep(BaseType, KeyPaths): any {
   if (matches<true>(IsAny(KeyPaths))) {
     return SimplifyDeep(RequiredDeep(BaseType))
   }
@@ -45,7 +52,7 @@ export function SetRequiredDeep(BaseType, KeyPaths: Paths<typeof BaseType>) {
 
 // ✓ SetRequiredDeepHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetRequiredDeepHelper(BaseType, KeyPathsTuple: UnknownArray) {
+export function SetRequiredDeepHelper(BaseType, KeyPathsTuple: UnknownArray): any {
   let baseType = BaseType
   let keyPathsTuple = KeyPathsTuple
   while (true) {
@@ -71,7 +78,7 @@ export function SetRequiredDeepHelper(BaseType, KeyPathsTuple: UnknownArray) {
 
 // ✓ SetRequiredDeepSinglePath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetRequiredDeepSinglePath(BaseType, KeyPath) {
+export function SetRequiredDeepSinglePath(BaseType, KeyPath): any {
   if (matches<NonRecursiveType>(BaseType)) {
     return BaseType
   }
@@ -83,7 +90,7 @@ export function SetRequiredDeepSinglePath(BaseType, KeyPath) {
     }
     return out
   }
-  return SetRequired(BaseType, merge(KeyPath | StringToNumber(KeyPath & string), keyof(BaseType)))
+  return SetRequired(BaseType, merge(KeyPath | StringToNumber(merge(KeyPath, string)), keyof(BaseType)))
 }
 /* compiles to:
  * export type SetRequiredDeepSinglePath<BaseType, KeyPath> =

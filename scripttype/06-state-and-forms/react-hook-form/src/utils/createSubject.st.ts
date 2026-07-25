@@ -7,16 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Noop } from '../../../../../06-state-and-forms/react-hook-form/src/types/utils.js'
+import type { Subscription } from '../../../../../06-state-and-forms/react-hook-form/src/utils/createSubject.js'
 declare const Noop: any
 declare const Subscription: any
-type Noop<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Subscription<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Observer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Observer(T) {
+export function Observer(T): any {
   return { next: fnType([T], voidType()) }
 }
 /* compiles to:
@@ -25,7 +26,7 @@ export function Observer(T) {
 
 // ✓ Subject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Subject(T) {
+export function Subject(T): any {
   return merge({ observers: readonlyProp(arrayOf(Observer(T))), subscribe: fnType([Observer(T)], Subscription), unsubscribe: Noop }, Observer(T))
 }
 /* compiles to:

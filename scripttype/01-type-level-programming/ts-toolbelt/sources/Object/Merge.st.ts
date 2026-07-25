@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { BuiltIn } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Misc/BuiltIn.js'
+import type { _OptionalKeys } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/OptionalKeys.js'
+import type { Anyfy, Depth } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
 declare const Anyfy: any
 declare const At: any
 declare const BuiltIn: any
@@ -20,20 +24,16 @@ declare const Length: any
 declare const List: any
 declare const RequiredKeys: any
 declare const _OptionalKeys: any
-type Anyfy<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Has<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RequiredKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _OptionalKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Longer: does not compile yet
 //   Type 'Has<RequiredKeys<L>, RequiredKeys<L1>>' cannot be used to index type '{ '0': 0; '1': 1; }'.
 /* @scripttype preserveParamNames */
-export function Longer(L: List, L1: List) {
+export function Longer(L: List, L1: List): any {
   if (matches<unknown>(L)) {
     if (matches<unknown>(L1)) {
       return { 0: 0, 1: 1 }[Has(RequiredKeys(L), RequiredKeys(L1))]
@@ -51,7 +51,7 @@ export function Longer(L: List, L1: List) {
 
 // ✓ MergeProp: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeProp(OK, O1K, fill, OOKeys: Key, K: Key) {
+export function MergeProp(OK, O1K, fill, OOKeys: Key, K: Key): any {
   if (matches<typeof OOKeys>(K)) {
     return Exclude(OK, Undefined) | O1K
   }
@@ -73,7 +73,7 @@ export function MergeProp(OK, O1K, fill, OOKeys: Key, K: Key) {
 
 // ✓ MergeFlatObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeFlatObject(O: object, O1: object, fill, OOKeys: Key = _OptionalKeys(O)) {
+export function MergeFlatObject(O: object, O1: object, fill, OOKeys: Key = _OptionalKeys(O)): any {
   const out = emptyObject
   for (const K in keyof(merge(Anyfy(O), O1))) {
     out[K] = MergeProp(At(O, K), At(O1, K), fill, OOKeys, K)
@@ -92,7 +92,11 @@ export function MergeFlatObject(O: object, O1: object, fill, OOKeys: Key = _Opti
 
 // ✓ MergeFlatList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeFlatList(L: List, L1: List, ignore: object, fill, LOK: Key = _OptionalKeys(L)) {
+/**
+ * @param {List} L
+ * @param {List} L1
+ */
+export function MergeFlatList(L, L1, ignore: object, fill, LOK: Key = _OptionalKeys(L)): any {
   if (matches<Length<typeof L | typeof L1>>(number)) {
     return arrayOf(MergeFlatChoice(L[number], L1[number], ignore, fill))
   }
@@ -124,7 +128,7 @@ export function MergeFlatList(L: List, L1: List, ignore: object, fill, LOK: Key 
 
 // ✓ MergeFlatChoice: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeFlatChoice(O: object, O1: object, ignore: object, fill) {
+export function MergeFlatChoice(O: object, O1: object, ignore: object, fill): any {
   if (matches<typeof ignore>(O)) {
     return O
   }
@@ -150,7 +154,7 @@ export function MergeFlatChoice(O: object, O1: object, ignore: object, fill) {
 
 // ✓ MergeFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeFlat(O: object, O1: object, ignore: object = BuiltIn, fill = Undefined) {
+export function MergeFlat(O: object, O1: object, ignore: object = BuiltIn, fill = Undefined): any {
   if (matches<unknown>(O)) {
     if (matches<unknown>(O1)) {
       return MergeFlatChoice(O, O1, ignore, fill)
@@ -171,7 +175,11 @@ export function MergeFlat(O: object, O1: object, ignore: object = BuiltIn, fill 
 
 // ✓ MergeDeepList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepList(L: List, L1: List, ignore: object, fill) {
+/**
+ * @param {List} L
+ * @param {List} L1
+ */
+export function MergeDeepList(L, L1, ignore: object, fill): any {
   if (matches<Length<typeof L | typeof L1>>(number)) {
     return arrayOf(MergeDeepChoice(L[number], L1[number], ignore, fill, never, any))
   }
@@ -199,7 +207,7 @@ export function MergeDeepList(L: List, L1: List, ignore: object, fill) {
 
 // ✓ MergeDeepObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepObject(O: object, O1: object, ignore: object, fill, OOKeys: Key = _OptionalKeys(O)) {
+export function MergeDeepObject(O: object, O1: object, ignore: object, fill, OOKeys: Key = _OptionalKeys(O)): any {
   const out = emptyObject
   for (const K in keyof(merge(Anyfy(O), O1))) {
     out[K] = MergeDeepChoice(At(O, K), At(O1, K), ignore, fill, OOKeys, K)
@@ -221,7 +229,7 @@ export function MergeDeepObject(O: object, O1: object, ignore: object, fill, OOK
 
 // ✓ MergeDeepChoice: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeepChoice(OK, O1K, ignore: object, fill, OOKeys: Key, K: Key) {
+export function MergeDeepChoice(OK, O1K, ignore: object, fill, OOKeys: Key, K: Key): any {
   if (matches<[ never ]>([OK])) {
     return MergeProp(OK, O1K, fill, OOKeys, K)
   }
@@ -274,7 +282,7 @@ export function MergeDeepChoice(OK, O1K, ignore: object, fill, OOKeys: Key, K: K
 
 // ✓ MergeDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeDeep(O: object, O1: object, ignore: object, fill) {
+export function MergeDeep(O: object, O1: object, ignore: object, fill): any {
   if (matches<unknown>(O)) {
     if (matches<unknown>(O1)) {
       return MergeDeepChoice(O, O1, ignore, fill, 'x', 'y')
@@ -292,7 +300,7 @@ export function MergeDeep(O: object, O1: object, ignore: object, fill) {
 
 // ✓ Merge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Merge(O: object, O1: object, depth: Depth = 'flat', ignore: object = BuiltIn, fill: any = Undefined) {
+export function Merge(O: object, O1: object, depth: Depth = 'flat', ignore: object = BuiltIn, fill: any = Undefined): any {
   return { 'flat': MergeFlat(O, O1, ignore, fill), 'deep': MergeDeep(O, O1, ignore, fill) }[depth]
 }
 /* compiles to:

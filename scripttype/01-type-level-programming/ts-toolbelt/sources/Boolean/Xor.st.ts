@@ -10,7 +10,7 @@
 // ✗ Xor: the ScriptType does not itself typecheck as TypeScript
 //   Xor.st.ts(3:51) TS2538: Type 'Boolean' cannot be used as an index type.
 /* @scripttype preserveParamNames */
-export function Xor(B1: Boolean, B2: Boolean) {
+export function Xor(B1: Boolean, B2: Boolean): any {
   return { 0: { 0: 0, 1: 1 }, 1: { 0: 1, 1: 0 } }[B1][B2]
 }
 /* compiles to:

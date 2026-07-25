@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ParseBodyOptions } from '../../../../../02-inference-at-scale/hono/src/utils/body.js'
 declare const BodyDataValueDot: any
 declare const BodyDataValueDotAll: any
 declare const File: any
@@ -17,10 +19,9 @@ declare const ParseBodyOptions: any
 type BodyDataValueDot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type BodyDataValueDotAll<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type File<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParseBodyOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SimplifyBodyData: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SimplifyBodyData(T) {
+export function SimplifyBodyData(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = matches<(typeof T)[typeof K]>(string | File | arrayOf(string | File) | BodyDataValueDotAll) ? (string | File | arrayOf(string | File) | BodyDataValueDotAll) : (matches<(typeof T)[typeof K]>(string | File | BodyDataValueDot) ? (string | File | BodyDataValueDot) : (matches<(typeof T)[typeof K]>(string | File | arrayOf(string | File)) ? (string | File | arrayOf(string | File)) : (string | File)))
@@ -41,7 +42,7 @@ export function SimplifyBodyData(T) {
 
 // ✓ BodyDataValueComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BodyDataValueComponent(T) {
+export function BodyDataValueComponent(T): any {
   return string | File | (matches<{ all: false; }>(T) ? never : (matches<{ all: true; } | { all: boolean; }>(T) ? arrayOf(string | File) : never))
 }
 /* compiles to:
@@ -57,7 +58,7 @@ export function BodyDataValueComponent(T) {
 
 // ✓ BodyDataValueObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BodyDataValueObject(T) {
+export function BodyDataValueObject(T): any {
   return indexRecord(string, BodyDataValueComponent(T) | BodyDataValueObject(T))
 }
 /* compiles to:
@@ -68,7 +69,7 @@ export function BodyDataValueObject(T) {
 
 // ✓ BodyDataValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BodyDataValue(T) {
+export function BodyDataValue(T): any {
   return BodyDataValueComponent(T) | (matches<{ dot: false; }>(T) ? never : (matches<{ dot: true; } | { dot: boolean; }>(T) ? BodyDataValueObject(T) : never))
 }
 /* compiles to:
@@ -83,7 +84,7 @@ export function BodyDataValue(T) {
 
 // ✓ BodyData: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BodyData(T: Partial<ParseBodyOptions> = {}) {
+export function BodyData(T: Partial<ParseBodyOptions> = {}): any {
   return SimplifyBodyData(Record(string, BodyDataValue(T)))
 }
 /* compiles to:

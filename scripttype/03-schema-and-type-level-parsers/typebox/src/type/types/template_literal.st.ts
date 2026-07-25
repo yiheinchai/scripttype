@@ -7,22 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TParseTemplateIntoTypes } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/patterns/template.js'
+import type { TTemplateLiteralAction } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/template_literal/instantiate.js'
+import type { TTemplateLiteralStatic } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/template_literal/static.js'
+import type { TDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/deferred.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare const TDeferred: any
 declare const TParseTemplateIntoTypes: any
 declare const TSchema: any
 declare const TTemplateLiteralAction: any
 declare const TTemplateLiteralStatic: any
-type TDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TParseTemplateIntoTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTemplateLiteralAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTemplateLiteralStatic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticTemplateLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticTemplateLiteral(Pattern: string) {
+export function StaticTemplateLiteral(Pattern: string): any {
   return TTemplateLiteralStatic(Pattern)
 }
 /* compiles to:
@@ -31,7 +32,7 @@ export function StaticTemplateLiteral(Pattern: string) {
 
 // ✓ TTemplateLiteralDeferred: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralDeferred(Types: TSchema[] = arrayOf(TSchema)) {
+export function TTemplateLiteralDeferred(Types: TSchema[] = arrayOf(TSchema)): any {
   return TDeferred('TemplateLiteral', [Types])
 }
 /* compiles to:
@@ -43,7 +44,7 @@ export function TTemplateLiteralDeferred(Types: TSchema[] = arrayOf(TSchema)) {
 
 // ✓ TTemplateLiteralFromTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralFromTypes(Types: TSchema[], Result: TSchema = TTemplateLiteralAction(Types)) {
+export function TTemplateLiteralFromTypes(Types: TSchema[], Result: TSchema = TTemplateLiteralAction(Types)): any {
   return Result
 }
 /* compiles to:
@@ -56,7 +57,7 @@ export function TTemplateLiteralFromTypes(Types: TSchema[], Result: TSchema = TT
 
 // ✓ TTemplateLiteralFromString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralFromString(Template: string, Types: TSchema[] = TParseTemplateIntoTypes(Template), Result: TSchema = TTemplateLiteralFromTypes(Types)) {
+export function TTemplateLiteralFromString(Template: string, Types: TSchema[] = TParseTemplateIntoTypes(Template), Result: TSchema = TTemplateLiteralFromTypes(Types)): any {
   return Result
 }
 /* compiles to:

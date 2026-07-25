@@ -7,22 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { NodeHTTPCreateContextOption } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/adapters/node-http/types.js'
+import type { HTTPBaseHandlerOptions } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/http/types.js'
+import type { AnyRouter } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
 declare const AnyRouter: any
 declare const FastifyReply: any
 declare const FastifyRequest: any
 declare const HTTPBaseHandlerOptions: any
 declare const NodeHTTPCreateContextOption: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FastifyReply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FastifyRequest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type HTTPBaseHandlerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NodeHTTPCreateContextOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FastifyHandlerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FastifyHandlerOptions(TRouter: AnyRouter, TRequest: FastifyRequest, TResponse: FastifyReply) {
+export function FastifyHandlerOptions(TRouter: AnyRouter, TRequest: FastifyRequest, TResponse: FastifyReply): any {
   return HTTPBaseHandlerOptions(TRouter, TRequest) & NodeHTTPCreateContextOption(TRouter, TRequest, TResponse)
 }
 /* compiles to:
@@ -37,7 +38,7 @@ export function FastifyHandlerOptions(TRouter: AnyRouter, TRequest: FastifyReque
 
 // ✓ FastifyRequestHandlerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FastifyRequestHandlerOptions(TRouter: AnyRouter, TRequest: FastifyRequest, TResponse: FastifyReply) {
+export function FastifyRequestHandlerOptions(TRouter: AnyRouter, TRequest: FastifyRequest, TResponse: FastifyReply): any {
   return merge(FastifyHandlerOptions(TRouter, TRequest, TResponse), { req: TRequest, res: TResponse, path: string })
 }
 /* compiles to:

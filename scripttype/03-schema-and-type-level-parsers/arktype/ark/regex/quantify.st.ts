@@ -7,57 +7,119 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { next } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/regex/parse.js'
+import type { QuantifyingChar } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/regex/quantify.js'
+import type { State } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/regex/state.js'
+import type { parseNonNegativeInteger } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/numbers.js'
 declare namespace ParsedRange {
   export type from<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare namespace Scanner {
   export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type l<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type lazyUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type r<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type range<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type l<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type l<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace repetitions_ {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace s {
+  export type error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pushQuantifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type shiftQuantifiable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ParsedRange: any
 declare const QuantifyingChar: any
 declare const Scanner: any
 declare const State: any
+declare const l: any
+declare const lazyUnscanned: any
+declare const next: any
 declare const parseNonNegativeInteger: any
+declare const pushQuantifier: any
 declare const shift: any
+declare const shiftQuantifiable: any
 type ParsedRange<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QuantifyingChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type State<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type parseNonNegativeInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type l<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type lazyUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type parseQuantifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type pushQuantifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftQuantifiable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type skipPossibleQuestionMark<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnmatchedQuantifierError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnnaturalNumberQuantifierError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseBuiltinQuantifier: does not compile yet
-//   only direct calls are supported
+//   Type 'unscanned extends Scanner.shift<"?", infer lazyUnscanned> ? lazyUnscanned : unscanned' does not satisfy the constraint 'string'.   Type 'unknown' is not a
 /* @scripttype preserveParamNames */
-export function parseBuiltinQuantifier(s: State, quantifier: QuantifyingChar, unscanned: string) {
+export function parseBuiltinQuantifier(s: State, quantifier: QuantifyingChar, unscanned: string): any {
   if (matches<"">(s['root'])) {
-    return s.error(writeUnmatchedQuantifierError(quantifier))
+    return t<s.error<writeUnmatchedQuantifierError<typeof quantifier>>>()
   }
   const m1 = matches<Scanner.shift<"?", Hole<"lazyUnscanned">>>(unscanned)
   return quantifyBuiltin(s, quantifier, m1 ? m1.lazyUnscanned : unscanned)
 }
+/* compiles to:
+ * export type parseBuiltinQuantifier<
+ *   s extends State,
+ *   quantifier extends QuantifyingChar,
+ *   unscanned extends string
+ * > =
+ *   s['root'] extends ''
+ *     ? s.error<writeUnmatchedQuantifierError<quantifier>>
+ *     : quantifyBuiltin<
+ *       s,
+ *       quantifier,
+ *       unscanned extends Scanner.shift<'?', infer lazyUnscanned> ? lazyUnscanned : unscanned
+ *     >
+ */
 
-// ✗ quantifyBuiltin: does not compile yet
-//   only direct calls are supported
+// ✓ quantifyBuiltin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function quantifyBuiltin(s: State, quantifier: QuantifyingChar, unscanned: string) {
+export function quantifyBuiltin(s: State, quantifier: QuantifyingChar, unscanned: string): any {
   if (matches<"?">(quantifier)) {
-    return s.pushQuantifier(s, 0, 1, unscanned)
+    return t<s.pushQuantifier<typeof s, 0, 1, typeof unscanned>>()
   }
   if (matches<"+">(quantifier)) {
-    return s.pushQuantifier(s, 1, Null, unscanned)
+    return t<s.pushQuantifier<typeof s, 1, null, typeof unscanned>>()
   }
   if (matches<"*">(quantifier)) {
-    return s.pushQuantifier(s, 0, Null, unscanned)
+    return t<s.pushQuantifier<typeof s, 0, null, typeof unscanned>>()
   }
   return never
 }
+/* compiles to:
+ * export type quantifyBuiltin<
+ *   s extends State,
+ *   quantifier extends QuantifyingChar,
+ *   unscanned extends string
+ * > =
+ *   quantifier extends '?' ? s.pushQuantifier<s, 0, 1, unscanned>
+ *   : quantifier extends '+' ? s.pushQuantifier<s, 1, null, unscanned>
+ *   : quantifier extends '*' ? s.pushQuantifier<s, 0, null, unscanned>
+ *   : never
+ */
 
 // ✓ from: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function from(r: ParsedRange) {
+export function from(r: ParsedRange): any {
   return r
 }
 /* compiles to:
@@ -66,7 +128,7 @@ export function from(r: ParsedRange) {
 
 // ✓ skipPossibleQuestionMark: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function skipPossibleQuestionMark(unscanned: string) {
+export function skipPossibleQuestionMark(unscanned: string): any {
   const m1 = matches<`?${Hole<"next">}`>(unscanned)
   if (m1) {
     return m1.next
@@ -78,51 +140,44 @@ export function skipPossibleQuestionMark(unscanned: string) {
  *   unscanned extends `?${infer next}` ? next : unscanned
  */
 
-// ✓ parsePossibleRangeString: verified type-identical to the original
+// ✗ parsePossibleRangeString: does not compile yet
+//   Cannot find name 'm1'.
 /* @scripttype preserveParamNames */
-export function parsePossibleRangeString(unscanned: string) {
+export function parsePossibleRangeString(unscanned: string): any {
   const m1 = matches<(`${Hole<"l", `${number}`>},${Hole<"r", `${number}`>}}${Hole<"next">}`)>(unscanned)
   if (m1) {
-    return ParsedRange.from({ min: parseNonNegativeInteger(m1.l), max: parseNonNegativeInteger(m1.r), unscanned: skipPossibleQuestionMark(m1.next) })
+    return t<ParsedRange.from<{ min: parseNonNegativeInteger<typeof m1.l>; max: parseNonNegativeInteger<typeof m1.r>; unscanned: skipPossibleQuestionMark<typeof m1.next>; }>>()
   }
   const m2 = matches<`${Hole<"l", `${number}`>},}${Hole<"next">}`>(unscanned)
   if (m2) {
-    return ParsedRange.from({ min: parseNonNegativeInteger(m2.l), max: Null, unscanned: skipPossibleQuestionMark(m2.next) })
+    return t<ParsedRange.from<{ min: parseNonNegativeInteger<typeof m2.l>; max: null; unscanned: skipPossibleQuestionMark<typeof m2.next>; }>>()
   }
   const m3 = matches<`${Hole<"l", `${number}`>}}${Hole<"next">}`>(unscanned)
   if (m3) {
-    return ParsedRange.from({ min: parseNonNegativeInteger(m3.l), max: parseNonNegativeInteger(m3.l), unscanned: skipPossibleQuestionMark(m3.next) })
+    return t<ParsedRange.from<{ min: parseNonNegativeInteger<typeof m3.l>; max: parseNonNegativeInteger<typeof m3.l>; unscanned: skipPossibleQuestionMark<typeof m3.next>; }>>()
   }
   return Null
 }
 /* compiles to:
  * export type parsePossibleRangeString<unscanned extends string> =
- *   unscanned extends `${infer l extends `${number}`},${infer r extends `${number}`}}${infer next}`
+ *   unscanned extends `${`${number}`},${`${number}`}}${string}`
  *     ? ParsedRange.from<
- *       {
- *         min: parseNonNegativeInteger<l>
- *         max: parseNonNegativeInteger<r>
- *         unscanned: skipPossibleQuestionMark<next>
- *       }
+ *       { min: parseNonNegativeInteger<typeof m1.l>; max: parseNonNegativeInteger<typeof m1.r>; unscanned: skipPossibleQuestionMark<typeof m1.next>; }
  *     >
- *   : unscanned extends `${infer l extends `${number}`},}${infer next}`
+ *   : unscanned extends `${`${number}`},}${string}`
  *     ? ParsedRange.from<
- *       { min: parseNonNegativeInteger<l>; max: null; unscanned: skipPossibleQuestionMark<next> }
+ *       { min: parseNonNegativeInteger<typeof m2.l>; max: null; unscanned: skipPossibleQuestionMark<typeof m2.next>; }
  *     >
- *   : unscanned extends `${infer l extends `${number}`}}${infer next}`
+ *   : unscanned extends `${`${number}`}}${string}`
  *     ? ParsedRange.from<
- *       {
- *         min: parseNonNegativeInteger<l>
- *         max: parseNonNegativeInteger<l>
- *         unscanned: skipPossibleQuestionMark<next>
- *       }
+ *       { min: parseNonNegativeInteger<typeof m3.l>; max: parseNonNegativeInteger<typeof m3.l>; unscanned: skipPossibleQuestionMark<typeof m3.next>; }
  *     >
  *   : null
  */
 
 // ✓ parseQuantifier: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function parseQuantifier(unscanned: string, parsed: ParsedRange) {
+export function parseQuantifier(unscanned: string, parsed: ParsedRange): any {
   const m1 = matches<`${Hole<"range">}${(typeof parsed)["unscanned"]}`>(unscanned)
   if (m1) {
     return `{${m1.range}`
@@ -135,25 +190,43 @@ export function parseQuantifier(unscanned: string, parsed: ParsedRange) {
  */
 
 // ✗ parsePossibleRange: does not compile yet
-//   only direct calls are supported
+//   Type 'parsed["unscanned"] extends Scanner.shift<"?", infer lazyUnscanned> ? lazyUnscanned : parsed["unscanned"]' does not satisfy the constraint 'string'.   Typ
 /* @scripttype preserveParamNames */
-export function parsePossibleRange(s: State, unscanned: string, parsed: ParsedRange | null = parsePossibleRangeString(unscanned)) {
+export function parsePossibleRange(s: State, unscanned: string, parsed: ParsedRange | null = parsePossibleRangeString(unscanned)): any {
   if (matches<ParsedRange>(parsed)) {
     if (matches<"">(s['root'])) {
-      return s.error(writeUnmatchedQuantifierError(parseQuantifier(unscanned, parsed)))
+      return t<s.error<writeUnmatchedQuantifierError<parseQuantifier<typeof unscanned, typeof parsed>>>>()
     }
     if (matches<([ never, unknown ] | [ unknown, never ])>([parsed['min'], parsed['max']])) {
-      return s.error(writeUnnaturalNumberQuantifierError(parseQuantifier(unscanned, parsed)))
+      return t<s.error<writeUnnaturalNumberQuantifierError<parseQuantifier<typeof unscanned, typeof parsed>>>>()
     }
-    const m1 = matches<Scanner.shift<"?", Hole<"lazyUnscanned">>>(parsed['unscanned'])
-    return s.pushQuantifier(s, parsed['min'], parsed['max'], m1 ? m1.lazyUnscanned : parsed['unscanned'])
+    return t<s.pushQuantifier<typeof s, (typeof parsed)["min"], (typeof parsed)["max"], (typeof parsed)["unscanned"] extends Scanner.shift<"?", Hole<"lazyUnscanned">> ? lazyUnscanned : (typeof parsed)["unscanned"]>>()
   }
-  return s.shiftQuantifiable(s, '{', unscanned)
+  return t<s.shiftQuantifiable<typeof s, "{", typeof unscanned>>()
 }
+/* compiles to:
+ * export type parsePossibleRange<
+ *   s extends State,
+ *   unscanned extends string,
+ *   parsed extends ParsedRange | null = parsePossibleRangeString<unscanned>
+ * > =
+ *   parsed extends ParsedRange
+ *     ? s['root'] extends ''
+ *       ? s.error<writeUnmatchedQuantifierError<parseQuantifier<unscanned, parsed>>>
+ *     : [parsed['min'], parsed['max']] extends [never, unknown] | [unknown, never]
+ *       ? s.error<writeUnnaturalNumberQuantifierError<parseQuantifier<unscanned, parsed>>>
+ *     : s.pushQuantifier<
+ *       s,
+ *       parsed['min'],
+ *       parsed['max'],
+ *       (parsed)["unscanned"] extends Scanner.shift<"?", infer lazyUnscanned> ? lazyUnscanned : (parsed)["unscanned"]
+ *     >
+ *     : s.shiftQuantifiable<s, '{', unscanned>
+ */
 
 // ✓ quantify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function quantify(pattern: string, min: number, max: number | null) {
+export function quantify(pattern: string, min: number, max: number | null): any {
   return tryFastPath(pattern, min, max)
 }
 /* compiles to:
@@ -166,7 +239,7 @@ export function quantify(pattern: string, min: number, max: number | null) {
 
 // ✓ tryFastPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function tryFastPath(pattern: string, min: number, max: number | null) {
+export function tryFastPath(pattern: string, min: number, max: number | null): any {
   if (matches<0>(max)) {
     return ''
   }
@@ -208,7 +281,7 @@ export function tryFastPath(pattern: string, min: number, max: number | null) {
 
 // ✓ loopFromZero: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function loopFromZero(base: string, max: number, acc: string, repetitions: 1[]) {
+export function loopFromZero(base: string, max: number, acc: string, repetitions: 1[]): any {
   let acc_ = acc
   let repetitions_ = repetitions
   while (true) {
@@ -241,7 +314,7 @@ export function loopFromZero(base: string, max: number, acc: string, repetitions
 
 // ✓ loopUntilMin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function loopUntilMin(base: string, min: number, max: number | null, acc: string, repetitions: 1[]) {
+export function loopUntilMin(base: string, min: number, max: number | null, acc: string, repetitions: 1[]): any {
   let acc_ = acc
   let repetitions_ = repetitions
   while (true) {
@@ -277,7 +350,7 @@ export function loopUntilMin(base: string, min: number, max: number | null, acc:
 
 // ✓ loopUntilMax: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function loopUntilMax(base: string, min: number, max: number, acc: string, repetitions: 1[]) {
+export function loopUntilMax(base: string, min: number, max: number, acc: string, repetitions: 1[]): any {
   let acc_ = acc
   let repetitions_ = repetitions
   while (true) {
@@ -311,7 +384,7 @@ export function loopUntilMax(base: string, min: number, max: number, acc: string
 
 // ✓ writeUnmatchedQuantifierError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnmatchedQuantifierError(quantifier: string) {
+export function writeUnmatchedQuantifierError(quantifier: string): any {
   return `Quantifier ${quantifier} requires a preceding token`
 }
 /* compiles to:
@@ -320,7 +393,7 @@ export function writeUnmatchedQuantifierError(quantifier: string) {
 
 // ✓ writeUnnaturalNumberQuantifierError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnnaturalNumberQuantifierError(quantifier: string) {
+export function writeUnnaturalNumberQuantifierError(quantifier: string): any {
   return `Quantifier ${quantifier} must use natural numbers`
 }
 /* compiles to:

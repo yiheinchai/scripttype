@@ -9,7 +9,7 @@
  */
 // ✓ Updater: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Updater(T) {
+export function Updater(T): any {
   return T | fnType([T], T)
 }
 /* compiles to:

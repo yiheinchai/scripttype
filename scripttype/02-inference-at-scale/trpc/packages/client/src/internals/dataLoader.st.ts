@@ -9,7 +9,7 @@
  */
 // ✓ BatchItem: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BatchItem(TKey, TValue) {
+export function BatchItem(TKey, TValue): any {
   return { aborted: boolean, key: TKey, resolve: fnType([TValue], voidType()) | Null, reject: fnType([t<Error>()], voidType()) | Null, batch: Batch(TKey, TValue) | Null }
 }
 /* compiles to:
@@ -24,7 +24,7 @@ export function BatchItem(TKey, TValue) {
 
 // ✓ Batch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Batch(TKey, TValue) {
+export function Batch(TKey, TValue): any {
   return { items: arrayOf(BatchItem(TKey, TValue)) }
 }
 /* compiles to:
@@ -33,7 +33,7 @@ export function Batch(TKey, TValue) {
 
 // ✓ BatchLoader: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BatchLoader(TKey, TValue) {
+export function BatchLoader(TKey, TValue): any {
   return { validate: fnType([arrayOf(TKey)], boolean), fetch: fnType([arrayOf(TKey)], t<Promise<(typeof TValue)[] | Promise<typeof TValue>[]>>()) }
 }
 /* compiles to:

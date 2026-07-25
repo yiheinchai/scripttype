@@ -9,7 +9,7 @@
  */
 // ✓ writeUnassignableDefaultValueMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnassignableDefaultValueMessage(baseDef: string, defaultValue: string) {
+export function writeUnassignableDefaultValueMessage(baseDef: string, defaultValue: string): any {
   return `Default value ${defaultValue} must be assignable to ${baseDef}`
 }
 /* compiles to:

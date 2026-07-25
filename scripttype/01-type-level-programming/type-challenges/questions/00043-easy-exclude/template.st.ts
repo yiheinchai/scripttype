@@ -9,7 +9,7 @@
  */
 // ✓ MyExclude: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MyExclude(T, U) {
+export function MyExclude(T, U): any {
   return any
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ MyReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MyReturnType(T) {
+export function MyReturnType(T): any {
   return any
 }
 /* compiles to:

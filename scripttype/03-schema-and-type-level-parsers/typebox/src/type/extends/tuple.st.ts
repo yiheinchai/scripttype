@@ -7,12 +7,41 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TInstantiateElements, TState } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TExtendsLeft } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/extends_left.js'
+import type { TExtendsRight } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/extends_right.js'
+import type { TInferTupleResult, TInferUnionResult, TInferable, TTryInferable, TTryRestInferable } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/inference.js'
+import type { TExtendsFalse, TExtendsTrue, TExtendsTrueLike } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/result.js'
+import type { TArray } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/array.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TTuple } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/tuple.js'
+declare namespace Result {
+  export type TExtendsFalse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExtendsTrue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type unshift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type CheckInferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Inferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TArray: any
+declare const TExtendsFalse: any
 declare const TExtendsLeft: any
 declare const TExtendsRight: any
+declare const TExtendsTrue: any
 declare const TExtendsTrueLike: any
 declare const TInferTupleResult: any
 declare const TInferUnionResult: any
@@ -24,23 +53,10 @@ declare const TState: any
 declare const TTryInferable: any
 declare const TTryRestInferable: any
 declare const TTuple: any
-type TArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsRight<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInferTupleResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInferUnionResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInferable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateElements<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTryInferable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTryRestInferable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TReverse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TReverse(Types: TSchema[]) {
+export function TReverse(Types: TSchema[]): any {
   let Result: any[] = []
   let types = Types
   while (true) {
@@ -63,7 +79,7 @@ export function TReverse(Types: TSchema[]) {
 
 // ✓ TApplyReverse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TApplyReverse(Types: TSchema[], Reversed: boolean) {
+export function TApplyReverse(Types: TSchema[], Reversed: boolean): any {
   if (matches<true>(Reversed)) {
     return TReverse(Types)
   }
@@ -76,14 +92,14 @@ export function TApplyReverse(Types: TSchema[], Reversed: boolean) {
 
 // ✓ TReversed: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TReversed__v1(Types) {
+export function TReversed__v1(Types): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"_", TSchema[]> ]>(Types)
   if (m1) {
     return m1.Left
   }
   return Undefined
 }
-export function TReversed(Types: TSchema[], First: TSchema | undefined = TReversed__v1(Types), Inferable: TSchema | undefined = matches<TSchema>(First) ? TTryRestInferable(First) : Undefined, Result: boolean = matches<TSchema>(Inferable) ? true : false) {
+export function TReversed(Types: TSchema[], First: TSchema | undefined = TReversed__v1(Types), Inferable: TSchema | undefined = matches<TSchema>(First) ? TTryRestInferable(First) : Undefined, Result: boolean = matches<TSchema>(Inferable) ? true : false): any {
   return Result
 }
 /* compiles to:
@@ -100,12 +116,12 @@ export function TReversed(Types: TSchema[], First: TSchema | undefined = TRevers
 
 // ✓ TElementsCompare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementsCompare(Inferred: TProperties, Reversed: boolean, Left: TSchema, LeftRest: TSchema[], Right: TSchema, RightRest: TSchema[]) {
+export function TElementsCompare(Inferred: TProperties, Reversed: boolean, Left: TSchema, LeftRest: TSchema[], Right: TSchema, RightRest: TSchema[]): any {
   const m1 = matches<Result.TExtendsTrueLike<Hole<"CheckInferred", TProperties>>>(TExtendsLeft(Inferred, Left, Right))
   if (m1) {
     return TElements(m1.CheckInferred, Reversed, LeftRest, RightRest)
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TElementsCompare<
@@ -123,7 +139,7 @@ export function TElementsCompare(Inferred: TProperties, Reversed: boolean, Left:
 
 // ✓ TElementsLeft: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementsLeft(Inferred: TProperties, Reversed: boolean, LeftRest: TSchema[], Right: TSchema, RightRest: TSchema[], Inferable: TInferable | undefined = TTryRestInferable(Right)) {
+export function TElementsLeft(Inferred: TProperties, Reversed: boolean, LeftRest: TSchema[], Right: TSchema, RightRest: TSchema[], Inferable: TInferable | undefined = TTryRestInferable(Right)): any {
   if (matches<TInferable>(Inferable)) {
     return TInferTupleResult(Inferred, Inferable['name'], TApplyReverse(LeftRest, Reversed), Inferable['type'])
   }
@@ -131,7 +147,7 @@ export function TElementsLeft(Inferred: TProperties, Reversed: boolean, LeftRest
   if (m1) {
     return TElementsCompare(Inferred, Reversed, m1.Head, m1.Tail, Right, RightRest)
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TElementsLeft<
@@ -156,15 +172,15 @@ export function TElementsLeft(Inferred: TProperties, Reversed: boolean, LeftRest
 
 // ✓ TElementsRight: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementsRight(Inferred: TProperties, Reversed: boolean, LeftRest: TSchema[], RightRest: TSchema[]) {
+export function TElementsRight(Inferred: TProperties, Reversed: boolean, LeftRest: TSchema[], RightRest: TSchema[]): any {
   const m1 = matches<[ Hole<"Head", TSchema>, ...Hole<"Tail", TSchema[]> ]>(RightRest)
   if (m1) {
     return TElementsLeft(Inferred, Reversed, LeftRest, m1.Head, m1.Tail)
   }
   if (matches<0>(LeftRest['length'])) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TElementsRight<
@@ -181,7 +197,7 @@ export function TElementsRight(Inferred: TProperties, Reversed: boolean, LeftRes
 
 // ✓ TElements: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElements(Inferred: TProperties, Reversed: boolean, LeftRest: TSchema[], RightRest: TSchema[]) {
+export function TElements(Inferred: TProperties, Reversed: boolean, LeftRest: TSchema[], RightRest: TSchema[]): any {
   return TElementsRight(Inferred, Reversed, LeftRest, RightRest)
 }
 /* compiles to:
@@ -196,7 +212,7 @@ export function TElements(Inferred: TProperties, Reversed: boolean, LeftRest: TS
 
 // ✓ TExtendsTupleToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsTupleToTuple(Inferred: TProperties, Left: TSchema[], Right: TSchema[], InstantiatedRight: TSchema[] = TInstantiateElements(Inferred, TState([], []), Right), Reversed: boolean = TReversed(InstantiatedRight)) {
+export function TExtendsTupleToTuple(Inferred: TProperties, Left: TSchema[], Right: TSchema[], InstantiatedRight: TSchema[] = TInstantiateElements(Inferred, TState([], []), Right), Reversed: boolean = TReversed(InstantiatedRight)): any {
   return TElements(Inferred, Reversed, TApplyReverse(Left, Reversed), TApplyReverse(InstantiatedRight, Reversed))
 }
 /* compiles to:
@@ -217,7 +233,7 @@ export function TExtendsTupleToTuple(Inferred: TProperties, Left: TSchema[], Rig
 
 // ✓ TExtendsTupleToArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsTupleToArray(Inferred: TProperties, Left: TSchema[], Right: TSchema, Inferrable: TInferable | undefined = TTryInferable(Right)) {
+export function TExtendsTupleToArray(Inferred: TProperties, Left: TSchema[], Right: TSchema, Inferrable: TInferable | undefined = TTryInferable(Right)): any {
   if (matches<TInferable>(Inferrable)) {
     return TInferUnionResult(Inferred, Inferrable['name'], Left, Inferrable['type'])
   }
@@ -227,9 +243,9 @@ export function TExtendsTupleToArray(Inferred: TProperties, Left: TSchema[], Rig
     if (m2) {
       return TExtendsTupleToArray(m2.Inferred, m1.Tail, Right)
     }
-    return Result.TExtendsFalse
+    return t<Result.TExtendsFalse>()
   }
-  return Result.TExtendsTrue(Inferred)
+  return t<Result.TExtendsTrue<typeof Inferred>>()
 }
 /* compiles to:
  * export type TExtendsTupleToArray<
@@ -249,7 +265,7 @@ export function TExtendsTupleToArray(Inferred: TProperties, Left: TSchema[], Rig
 
 // ✓ TExtendsTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsTuple(Inferred: TProperties, Left: TSchema[], Right: TSchema, InstantiatedLeft: TSchema[] = TInstantiateElements(Inferred, TState([], []), Left)) {
+export function TExtendsTuple(Inferred: TProperties, Left: TSchema[], Right: TSchema, InstantiatedLeft: TSchema[] = TInstantiateElements(Inferred, TState([], []), Left)): any {
   const m1 = matches<TTuple<Hole<"Types", TSchema[]>>>(Right)
   if (m1) {
     return TExtendsTupleToTuple(Inferred, InstantiatedLeft, m1.Types)

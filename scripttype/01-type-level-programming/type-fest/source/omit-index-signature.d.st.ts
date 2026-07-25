@@ -9,7 +9,7 @@
  */
 // ✓ OmitIndexSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OmitIndexSignature(ObjectType) {
+export function OmitIndexSignature(ObjectType): any {
   const out = emptyObject
   for (const KeyType in keyof(ObjectType)) {
     out[matches<Record<typeof KeyType, unknown>>({}) ? never : KeyType] = ObjectType[KeyType]

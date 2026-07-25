@@ -10,7 +10,7 @@
 // ✗ Not: the ScriptType does not itself typecheck as TypeScript
 //   Not.st.ts(3:25) TS2538: Type 'Boolean' cannot be used as an index type.
 /* @scripttype preserveParamNames */
-export function Not(B: Boolean) {
+export function Not(B: Boolean): any {
   return { 0: 1, 1: 0 }[B]
 }
 /* compiles to:

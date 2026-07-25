@@ -9,7 +9,7 @@
  */
 // ✓ GenericType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GenericType(T) {
+export function GenericType(T): any {
   return { genericKey: T }
 }
 /* compiles to:

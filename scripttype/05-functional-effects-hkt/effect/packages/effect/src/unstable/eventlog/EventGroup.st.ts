@@ -7,25 +7,32 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { EventGroup } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/unstable/eventlog/EventGroup.js'
 declare namespace Event {
   export type ServicesClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type ServicesServer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type ToService<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type _Events<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Event: any
 declare const EventGroup: any
+declare const _Events: any
 type Event<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EventGroup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Events<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Events<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ToService: does not compile yet
 //   Namespace '"/Users/yihein.chai/Documents/learn/ScriptType/05-functional-effects-hkt/effect/packages/effect/src/unstable/eventlog/Event"' has no exported member 
 /* @scripttype preserveParamNames */
-export function ToService(A) {
+export function ToService(A): any {
   const m1 = matches<EventGroup<Hole<"_Events">>>(A)
   if (m1) {
-    return Event.ToService(m1._Events)
+    return t<Event.ToService<typeof m1._Events>>()
   }
   return never
 }
@@ -36,7 +43,7 @@ export function ToService(A) {
 
 // ✓ Events: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Events(Group) {
+export function Events(Group): any {
   const m1 = matches<EventGroup<Hole<"_Events">>>(Group)
   if (m1) {
     return m1._Events
@@ -50,8 +57,8 @@ export function Events(Group) {
 // ✗ ServicesClient: does not compile yet
 //   '"/Users/yihein.chai/Documents/learn/ScriptType/05-functional-effects-hkt/effect/packages/effect/src/unstable/eventlog/Event"' has no exported member named 'Ser
 /* @scripttype preserveParamNames */
-export function ServicesClient(Group) {
-  return Event.ServicesClient(Events(Group))
+export function ServicesClient(Group): any {
+  return t<Event.ServicesClient<Events<typeof Group>>>()
 }
 /* compiles to:
  * export type ServicesClient<Group> = Event.ServicesClient<Events<Group>>
@@ -60,8 +67,8 @@ export function ServicesClient(Group) {
 // ✗ ServicesServer: does not compile yet
 //   '"/Users/yihein.chai/Documents/learn/ScriptType/05-functional-effects-hkt/effect/packages/effect/src/unstable/eventlog/Event"' has no exported member named 'Ser
 /* @scripttype preserveParamNames */
-export function ServicesServer(Group) {
-  return Event.ServicesServer(Events(Group))
+export function ServicesServer(Group): any {
+  return t<Event.ServicesServer<Events<typeof Group>>>()
 }
 /* compiles to:
  * export type ServicesServer<Group> = Event.ServicesServer<Events<Group>>

@@ -7,20 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Add } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/addition.js'
+import type { Mul } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/multiply.js'
+declare namespace m1 {
+  export type $Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type double<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Add: any
 declare const Iterator: any
 declare const Mul: any
-type Add<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Iterator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Mul<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type String<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ String: the ScriptType does not itself typecheck as TypeScript
 //   String.st.ts(2:28) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
-export function String(It: Iterator) {
+export function String(It: Iterator): any {
   return It[0][0]
 }
 /* compiles to:
@@ -30,7 +39,7 @@ export function String(It: Iterator) {
 // ✗ Value: the ScriptType does not itself typecheck as TypeScript
 //   Value.st.ts(2:27) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
-export function Value(It: Iterator) {
+export function Value(It: Iterator): any {
   return It[0][1]
 }
 /* compiles to:
@@ -40,7 +49,7 @@ export function Value(It: Iterator) {
 // ✗ Size: the ScriptType does not itself typecheck as TypeScript
 //   Size.st.ts(2:26) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
-export function Size(It: Iterator) {
+export function Size(It: Iterator): any {
   return It['length']
 }
 /* compiles to:
@@ -50,7 +59,7 @@ export function Size(It: Iterator) {
 // ✗ Next: the ScriptType does not itself typecheck as TypeScript
 //   Next.st.ts(2:26) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
-export function Next(It: Iterator) {
+export function Next(It: Iterator): any {
   return [[`${t<String<typeof It>>()}${string}`, Add(Value(It), 1)], ...It]
 }
 /* compiles to:
@@ -60,7 +69,7 @@ export function Next(It: Iterator) {
 // ✗ Prev: the ScriptType does not itself typecheck as TypeScript
 //   Prev.st.ts(2:26) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
-export function Prev(It: Iterator) {
+export function Prev(It: Iterator): any {
   const m1 = matches<[ unknown, ...Hole<"Rest", Iterator> ]>(It)
   if (m1) {
     return m1.Rest
@@ -75,7 +84,7 @@ export function Prev(It: Iterator) {
 // ✗ Double: the ScriptType does not itself typecheck as TypeScript
 //   Double.st.ts(2:28) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
-export function Double(It: Iterator) {
+export function Double(It: Iterator): any {
   const m1 = matches<`$${Hole<"pattern">}`>(`${t<String<typeof It>>()}_`)
   if (m1) {
     const m2 = matches<`${Hole<"double">}_`>(`${t<String<typeof It>>()}${m1.pattern}`)
@@ -98,7 +107,7 @@ export function Double(It: Iterator) {
 // ✗ CutAt: the ScriptType does not itself typecheck as TypeScript
 //   CutAt.st.ts(2:38) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
-export function CutAt(T: string, It: Iterator) {
+export function CutAt(T: string, It: Iterator): any {
   const m1 = matches<`${String<typeof It>}${Hole<"$Rest">}`>(`$${T}`)
   if (m1) {
     return m1.$Rest

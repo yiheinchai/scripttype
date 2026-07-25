@@ -7,20 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FormValue, ParsedFormValue, ValidationTargets } from '../../../../../02-inference-at-scale/hono/src/types.js'
+import type { UnionToIntersection } from '../../../../../02-inference-at-scale/hono/src/utils/types.js'
 declare const FormValue: any
 declare const ParsedFormValue: any
 declare const UnionToIntersection: any
 declare const ValidationTargets: any
-type FormValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParsedFormValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidationTargets<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsLiteralUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsLiteralUnion(T, Base) {
+export function IsLiteralUnion(T, Base): any {
   if (matches<[ typeof Base ]>([Exclude(T, Undefined)])) {
     if (matches<[ UnionToIntersection<Exclude<typeof T, undefined>> ]>([Exclude(T, Undefined)])) {
       return false
@@ -40,7 +39,7 @@ export function IsLiteralUnion(T, Base) {
 
 // ✓ IsOptionalUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsOptionalUnion(T) {
+export function IsOptionalUnion(T): any {
   if (matches<[ typeof T ]>([unknown])) {
     return false
   }
@@ -56,7 +55,7 @@ export function IsOptionalUnion(T) {
 
 // ✓ SimplifyDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SimplifyDeep(T) {
+export function SimplifyDeep(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = T[K]
@@ -69,7 +68,7 @@ export function SimplifyDeep(T) {
 
 // ✓ InferInputInner: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferInputInner(Output, Target: keyof ValidationTargets, T: FormValue) {
+export function InferInputInner(Output, Target: keyof ValidationTargets, T: FormValue): any {
   const out = emptyObject
   for (const K in keyof(Output)) {
     out[K] = matches<true>(IsLiteralUnion(Output[K], string)) ? Output[K] : (matches<true>(IsOptionalUnion(Output[K])) ? Output[K] : (matches<'form'>(Target) ? (anyOf(T, arrayOf(T))) : (matches<'query'>(Target) ? (string | arrayOf(string)) : (matches<'param'>(Target) ? string : (matches<'header'>(Target) ? string : (matches<'cookie'>(Target) ? string : unknown))))))
@@ -98,7 +97,7 @@ export function InferInputInner(Output, Target: keyof ValidationTargets, T: Form
 
 // ✓ InferInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferInput(Output, Target: keyof ValidationTargets, T: FormValue = ParsedFormValue) {
+export function InferInput(Output, Target: keyof ValidationTargets, T: FormValue = ParsedFormValue): any {
   if (matches<[ never ]>([Exclude(Output, Undefined)])) {
     return {}
   }

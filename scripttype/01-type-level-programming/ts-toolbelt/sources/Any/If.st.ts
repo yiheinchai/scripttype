@@ -9,7 +9,7 @@
  */
 // ✓ If: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function If(B: Boolean, Then, Else = never) {
+export function If(B: Boolean, Then, Else = never): any {
   if (matches<1>(B)) {
     return Then
   }

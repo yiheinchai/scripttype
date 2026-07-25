@@ -9,7 +9,7 @@
  */
 // ✓ DefinedPartial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DefinedPartial(T) {
+export function DefinedPartial(T): any {
   return any
 }
 /* compiles to:

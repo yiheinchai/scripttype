@@ -9,7 +9,7 @@
  */
 // ✓ GetReadonlyKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetReadonlyKeys(T) {
+export function GetReadonlyKeys(T): any {
   return any
 }
 /* compiles to:

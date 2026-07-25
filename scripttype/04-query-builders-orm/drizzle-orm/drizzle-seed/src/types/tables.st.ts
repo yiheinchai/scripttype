@@ -9,7 +9,7 @@
  */
 // ✓ Prettify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Prettify(T) {
+export function Prettify(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = T[K]

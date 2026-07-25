@@ -10,12 +10,17 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Vue {
+  export type VNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare const VNode: any
 declare const Vue: any
-type Vue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type VNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Vue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SyncRouteComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SyncRouteComponent(TProps) {
-  return fnType([TProps], Vue.VNode)
+export function SyncRouteComponent(TProps): any {
+  return fnType([TProps], t<Vue.VNode>())
 }
 /* compiles to:
  * export type SyncRouteComponent<TProps> = (a0: TProps) => Vue.VNode
@@ -23,16 +28,17 @@ export function SyncRouteComponent(TProps) {
 
 // ✓ AsyncRouteComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AsyncRouteComponent(TProps) {
+export function AsyncRouteComponent(TProps): any {
   return merge(SyncRouteComponent(TProps), { preload: optional(fnType([], t<Promise<void>>())) })
 }
 /* compiles to:
- * export type AsyncRouteComponent<TProps> = SyncRouteComponent<TProps> & { preload?: () => Promise<void> }
+ * export type AsyncRouteComponent<TProps> =
+ *   SyncRouteComponent<TProps> & { preload?: () => Promise<void> }
  */
 
 // ✓ RouteComponent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteComponent(TProps = any) {
+export function RouteComponent(TProps = any): any {
   return AsyncRouteComponent(TProps)
 }
 /* compiles to:

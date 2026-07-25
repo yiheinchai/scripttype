@@ -7,12 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyMySqlColumn } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/mysql-core/columns/common.js'
+import type { AnyMySqlInsert } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/mysql-core/query-builders/insert.js'
+import type { MySqlUpdateSetSource } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/mysql-core/query-builders/update.js'
+import type { AnyMySqlQueryResultHKT, MySqlPreparedQueryConfig, MySqlQueryResultHKT, MySqlQueryResultKind } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/mysql-core/session.js'
+import type { InferModelFromColumns } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
 declare namespace SQL {
   export type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const Aliased: any
 declare const AnyMySqlColumn: any
 declare const AnyMySqlInsert: any
 declare const AnyMySqlQueryResultHKT: any
@@ -28,16 +35,9 @@ declare const PreparedQueryHKTBase: any
 declare const PreparedQueryKind: any
 declare const SQL: any
 declare const TypedQueryBuilder: any
-type AnyMySqlColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyMySqlInsert<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyMySqlQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferModelFromColumns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MySqlInsertBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MySqlPreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MySqlQueryResultHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MySqlQueryResultKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MySqlTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MySqlUpdateSetSource<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Placeholder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -45,10 +45,10 @@ type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T
 type TypedQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlInsertValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlInsertValue(TTable: MySqlTable) {
+export function MySqlInsertValue(TTable: MySqlTable): any {
   const out = emptyObject
   for (const Key in keyof(TTable['$inferInsert'])) {
-    out[Key] = TTable['$inferInsert'][Key] | SQL | Placeholder
+    out[Key] = anyOf(TTable['$inferInsert'][Key], SQL, Placeholder)
   }
   return merge(out, {})
 }
@@ -60,10 +60,10 @@ export function MySqlInsertValue(TTable: MySqlTable) {
 
 // ✓ MySqlInsertSelectQueryBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlInsertSelectQueryBuilder(TTable: MySqlTable) {
+export function MySqlInsertSelectQueryBuilder(TTable: MySqlTable): any {
   const out = emptyObject
   for (const K in keyof(TTable['$inferInsert'])) {
-    out[K] = AnyMySqlColumn | SQL | SQL.Aliased | TTable['$inferInsert'][K]
+    out[K] = anyOf(AnyMySqlColumn, SQL, t<SQL.Aliased>(), TTable['$inferInsert'][K])
   }
   return TypedQueryBuilder(out)
 }
@@ -80,7 +80,11 @@ export function MySqlInsertSelectQueryBuilder(TTable: MySqlTable) {
 
 // ✓ MySqlInsertWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlInsertWithout(T: AnyMySqlInsert, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnyMySqlInsert} T
+ * @param {keyof typeof T & string} K
+ */
+export function MySqlInsertWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -109,7 +113,7 @@ export function MySqlInsertWithout(T: AnyMySqlInsert, TDynamic: boolean, K: keyo
 
 // ✓ MySqlInsertDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlInsertDynamic(T: AnyMySqlInsert) {
+export function MySqlInsertDynamic(T: AnyMySqlInsert): any {
   return MySqlInsert(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], T['_']['returning'])
 }
 /* compiles to:
@@ -123,7 +127,7 @@ export function MySqlInsertDynamic(T: AnyMySqlInsert) {
 
 // ✓ MySqlInsertPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlInsertPrepare(T: AnyMySqlInsert, TReturning: Record<string, unknown> | undefined = Undefined) {
+export function MySqlInsertPrepare(T: AnyMySqlInsert, TReturning: Record<string, unknown> | undefined = Undefined): any {
   return PreparedQueryKind(T['_']['preparedQueryHKT'], merge(MySqlPreparedQueryConfig, { execute: typeof TReturning === 'undefined' ? MySqlQueryResultKind(T['_']['queryResult'], never) : arrayOf(TReturning), iterator: never }), true)
 }
 /* compiles to:
@@ -146,7 +150,7 @@ export function MySqlInsertPrepare(T: AnyMySqlInsert, TReturning: Record<string,
 
 // ✓ MySqlInsertOnDuplicateKeyUpdateConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlInsertOnDuplicateKeyUpdateConfig(T: AnyMySqlInsert) {
+export function MySqlInsertOnDuplicateKeyUpdateConfig(T: AnyMySqlInsert): any {
   return { set: MySqlUpdateSetSource(T['_']['table']) }
 }
 /* compiles to:
@@ -157,7 +161,7 @@ export function MySqlInsertOnDuplicateKeyUpdateConfig(T: AnyMySqlInsert) {
 
 // ✓ MySqlInsert: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlInsert(TTable: MySqlTable = MySqlTable, TQueryResult: MySqlQueryResultHKT = AnyMySqlQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined)) {
+export function MySqlInsert(TTable: MySqlTable = MySqlTable, TQueryResult: MySqlQueryResultHKT = AnyMySqlQueryResultHKT, TPreparedQueryHKT: PreparedQueryHKTBase = PreparedQueryHKTBase, TReturning: Record<string, unknown> | undefined = anyOf(Record(string, unknown), Undefined)): any {
   return MySqlInsertBase(TTable, TQueryResult, TPreparedQueryHKT, TReturning, true, never)
 }
 /* compiles to:
@@ -172,7 +176,7 @@ export function MySqlInsert(TTable: MySqlTable = MySqlTable, TQueryResult: MySql
 
 // ✓ MySqlInsertReturning: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlInsertReturning(T: AnyMySqlInsert, TDynamic: boolean) {
+export function MySqlInsertReturning(T: AnyMySqlInsert, TDynamic: boolean): any {
   return MySqlInsertBase(T['_']['table'], T['_']['queryResult'], T['_']['preparedQueryHKT'], InferModelFromColumns(GetPrimarySerialOrDefaultKeys(T['_']['table']['_']['columns'])), TDynamic, anyOf(T['_']['excludedMethods'], '$returning'))
 }
 /* compiles to:
@@ -189,7 +193,10 @@ export function MySqlInsertReturning(T: AnyMySqlInsert, TDynamic: boolean) {
 // ✗ PrimaryKeyKeys: does not compile yet
 //   Type '"_"' cannot be used to index type 'T[K]'.
 /* @scripttype preserveParamNames */
-export function PrimaryKeyKeys(T: Record<string, AnyMySqlColumn>) {
+/**
+ * @param {Record<string, AnyMySqlColumn>} T
+ */
+export function PrimaryKeyKeys(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = matches<true>(T[K]['_']['isPrimaryKey']) ? (matches<true>(T[K]['_']['isAutoincrement']) ? K : (matches<true>(T[K]['_']['hasRuntimeDefault']) ? (matches<true>(T[K]['_']['isPrimaryKey']) ? K : never) : never)) : (matches<true>(T[K]['_']['hasRuntimeDefault']) ? (matches<true>(T[K]['_']['isPrimaryKey']) ? K : never) : never)
@@ -212,7 +219,10 @@ export function PrimaryKeyKeys(T: Record<string, AnyMySqlColumn>) {
 
 // ✓ GetPrimarySerialOrDefaultKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetPrimarySerialOrDefaultKeys(T: Record<string, AnyMySqlColumn>) {
+/**
+ * @param {Record<string, AnyMySqlColumn>} T
+ */
+export function GetPrimarySerialOrDefaultKeys(T): any {
   const out = emptyObject
   for (const K in keySet(PrimaryKeyKeys(T))) {
     out[K] = T[K]

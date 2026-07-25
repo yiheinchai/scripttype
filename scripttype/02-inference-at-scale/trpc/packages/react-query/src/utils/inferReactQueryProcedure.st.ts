@@ -7,9 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TRPCClientErrorLike } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/TRPCClientError.js'
+import type { UseTRPCMutationOptions, UseTRPCMutationResult, UseTRPCQueryOptions, UseTRPCQueryResult } from '../../../../../../../02-inference-at-scale/trpc/packages/react-query/src/shared/hooks/types.js'
+import type { inferTransformedProcedureOutput } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inference.js'
+import type { AnyProcedure, inferProcedureInput } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/procedure.js'
+import type { AnyRootTypes } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/rootConfig.js'
+import type { AnyRouter, RouterRecord } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
+declare namespace m1 {
+  export type $Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyMutationProcedure: any
 declare const AnyProcedure: any
 declare const AnyQueryProcedure: any
@@ -24,21 +34,10 @@ declare const UseTRPCQueryResult: any
 declare const inferProcedureInput: any
 declare const inferTransformedProcedureOutput: any
 type AnyMutationProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AnyQueryProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRootTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouterRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCClientErrorLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseTRPCMutationOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseTRPCMutationResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseTRPCQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseTRPCQueryResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferProcedureInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferTransformedProcedureOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferQueryOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferQueryOptions(TRoot: AnyRootTypes, TProcedure: AnyProcedure, TData = inferTransformedProcedureOutput(TRoot, TProcedure)) {
+export function InferQueryOptions(TRoot: AnyRootTypes, TProcedure: AnyProcedure, TData = inferTransformedProcedureOutput(TRoot, TProcedure)): any {
   return Omit(UseTRPCQueryOptions(inferTransformedProcedureOutput(TRoot, TProcedure), inferTransformedProcedureOutput(TRoot, TProcedure), TRPCClientErrorLike(TRoot), TData), anyOf('select', 'queryFn'))
 }
 /* compiles to:
@@ -60,7 +59,7 @@ export function InferQueryOptions(TRoot: AnyRootTypes, TProcedure: AnyProcedure,
 
 // ✓ InferMutationOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferMutationOptions(TRoot: AnyRootTypes, TProcedure: AnyProcedure, TMeta = unknown) {
+export function InferMutationOptions(TRoot: AnyRootTypes, TProcedure: AnyProcedure, TMeta = unknown): any {
   return UseTRPCMutationOptions(inferProcedureInput(TProcedure), TRPCClientErrorLike(TRoot), inferTransformedProcedureOutput(TRoot, TProcedure), TMeta)
 }
 /* compiles to:
@@ -79,7 +78,7 @@ export function InferMutationOptions(TRoot: AnyRootTypes, TProcedure: AnyProcedu
 
 // ✓ InferQueryResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferQueryResult(TRoot: AnyRootTypes, TProcedure: AnyProcedure) {
+export function InferQueryResult(TRoot: AnyRootTypes, TProcedure: AnyProcedure): any {
   return UseTRPCQueryResult(inferTransformedProcedureOutput(TRoot, TProcedure), TRPCClientErrorLike(TRoot))
 }
 /* compiles to:
@@ -91,7 +90,7 @@ export function InferQueryResult(TRoot: AnyRootTypes, TProcedure: AnyProcedure) 
 
 // ✓ InferMutationResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferMutationResult(TRoot: AnyRootTypes, TProcedure: AnyProcedure, TContext = unknown) {
+export function InferMutationResult(TRoot: AnyRootTypes, TProcedure: AnyProcedure, TContext = unknown): any {
   return UseTRPCMutationResult(inferTransformedProcedureOutput(TRoot, TProcedure), TRPCClientErrorLike(TRoot), inferProcedureInput(TProcedure), TContext)
 }
 /* compiles to:
@@ -110,7 +109,7 @@ export function InferMutationResult(TRoot: AnyRootTypes, TProcedure: AnyProcedur
 
 // ✓ inferReactQueryProcedureOptionsInner: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferReactQueryProcedureOptionsInner__v1(TRoot, TRecord, TKey) {
+export function inferReactQueryProcedureOptionsInner__v1(TRoot, TRecord, TKey): any {
   const m1 = matches<Hole<"$Value">>(TRecord[TKey])
   if (m1) {
     if (matches<AnyQueryProcedure>(m1.$Value)) {
@@ -126,7 +125,10 @@ export function inferReactQueryProcedureOptionsInner__v1(TRoot, TRecord, TKey) {
   }
   return never
 }
-export function inferReactQueryProcedureOptionsInner(TRoot: AnyRootTypes, TRecord: RouterRecord) {
+/**
+ * @param {RouterRecord} TRecord
+ */
+export function inferReactQueryProcedureOptionsInner(TRoot: AnyRootTypes, TRecord): any {
   const out = emptyObject
   for (const TKey in keyof(TRecord)) {
     out[TKey] = inferReactQueryProcedureOptionsInner__v1(TRoot, TRecord, TKey)
@@ -150,7 +152,7 @@ export function inferReactQueryProcedureOptionsInner(TRoot: AnyRootTypes, TRecor
 
 // ✓ inferReactQueryProcedureOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferReactQueryProcedureOptions(TRouter: AnyRouter) {
+export function inferReactQueryProcedureOptions(TRouter: AnyRouter): any {
   return inferReactQueryProcedureOptionsInner(TRouter['_def']['_config']['$types'], TRouter['_def']['record'])
 }
 /* compiles to:

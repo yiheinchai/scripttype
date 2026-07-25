@@ -71,10 +71,19 @@ This file is the session's stopping condition: work continues while unticked box
       modules that are valid ScriptType which lowers without error. Round-trip identity
       of the output is what `verify` measures, separately.*
 
-- [ ] **Round-trip coverage ≥ 90%** across the corpus, measured in one complete run
-      (currently ~82%, and the last full measurement is stale).
+- [ ] **Round-trip coverage ≥ 90%** across the corpus, measured in one complete run.
+      The percentage is there — **91.5%** — and all 30 shards land, which they did not
+      before. The run is still not *complete*: 143 of 7518 aliases (1.9%) go unmeasured.
+      Raising the per-shard cap does not reach them. At 150s the run measured 6967, at
+      1200s it measured 7375, and at 2400s it measured 7375 again — the same aliases, so
+      they are not slow, they are stuck, and something in the checker does not terminate
+      on them. Finding out what is the remaining work; a bigger cap is not it.
       *Evidence: a complete `pnpm corpus && pnpm coverage`, all shards landing.*
 
-- [ ] **No `raw()` for call and method signatures in object types** — the top two language
-      gaps, ~100 occurrences between them.
-      *Evidence: the gap table in COVERAGE.md, with those rows gone.*
+- [x] **No `raw()` anywhere**, not just for the call and method signatures in object types
+      that were the top two gaps at ~90 occurrences between them. Clearing those exposed
+      the gaps the same aliases hit next — type predicates, a template literal with
+      nothing to substitute, an index signature beside named members, and accessors — so
+      all of them went too.
+      *Evidence: COVERAGE.md, where the "Language gaps (raw() fallbacks)" table is now
+      empty and the `raw` column reads 0 for every repository.*

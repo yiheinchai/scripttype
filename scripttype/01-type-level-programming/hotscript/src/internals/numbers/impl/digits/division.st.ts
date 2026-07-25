@@ -7,24 +7,36 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { CompareDigits } from '../../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/compare.js'
+import type { AddDigits } from '../../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/digits/addition.js'
+import type { SubDigits } from '../../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/digits/substraction.js'
+import type { Digit, Digits, TrimZeros } from '../../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/utils.js'
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type B<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type D<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type DR<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type A1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type AR<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AddDigits: any
 declare const CompareDigits: any
 declare const Digit: any
 declare const Digits: any
 declare const SubDigits: any
 declare const TrimZeros: any
-type AddDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CompareDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Digits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SubDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TrimZeros<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Rest: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Rest(T: Digit[]) {
+export function Rest(T: Digit[]): any {
   const m1 = matches<[ Digit, ...Hole<"R", Digit[]> ]>(T)
   if (m1) {
     return m1.R
@@ -37,7 +49,7 @@ export function Rest(T: Digit[]) {
 
 // ✓ TruncateWith: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TruncateWith(T: Digit[], U: Digit[], Acc: Digit[] = []) {
+export function TruncateWith(T: Digit[], U: Digit[], Acc: Digit[] = []): any {
   if (matches<[ ]>(U)) {
     return [T, Acc]
   }
@@ -57,7 +69,7 @@ export function TruncateWith(T: Digit[], U: Digit[], Acc: Digit[] = []) {
 
 // ✓ DivModByDigit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DivModByDigit(D: Digit[], M: Digit[], Mul: Digit[] = [0], IterTable: Digit[] = Digits, NextMul: Digit[] = AddDigits(M, Mul), Comp = CompareDigits(D, NextMul)) {
+export function DivModByDigit(D: Digit[], M: Digit[], Mul: Digit[] = [0], IterTable: Digit[] = Digits, NextMul: Digit[] = AddDigits(M, Mul), Comp = CompareDigits(D, NextMul)): any {
   const m1 = matches<[ Hole<"Iteration", Digit>, ...Hole<"Next", Digit[]> ]>(IterTable)
   if (m1) {
     if (matches<0>(Comp)) {
@@ -88,7 +100,7 @@ export function DivModByDigit(D: Digit[], M: Digit[], Mul: Digit[] = [0], IterTa
 
 // ✓ _DivModDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _DivModDigits(A: Digit[], D: Digit[], M: Digit[], Q: Digit[] = []) {
+export function _DivModDigits(A: Digit[], D: Digit[], M: Digit[], Q: Digit[] = []): any {
   const m1 = matches<{ Quotient: Hole<"B", Digit>; Remainder: Hole<"R", Digit[]>; }>(DivModByDigit(D, M))
   if (m1) {
     const m2 = matches<[ Hole<"A1", Digit>, ...Hole<"AR", Digit[]> ]>(A)
@@ -115,7 +127,7 @@ export function _DivModDigits(A: Digit[], D: Digit[], M: Digit[], Q: Digit[] = [
 
 // ✓ DivDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DivDigits(N: Digit[], M: Digit[]) {
+export function DivDigits(N: Digit[], M: Digit[]): any {
   const m1 = matches<[ Hole<"A", Digit[]>, Hole<"D", Digit[]> ]>(TruncateWith(N, M))
   if (m1) {
     return _DivModDigits(m1.A, m1.D, M)['Quotient']
@@ -131,7 +143,7 @@ export function DivDigits(N: Digit[], M: Digit[]) {
 
 // ✓ ModDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ModDigits(N: Digit[], M: Digit[]) {
+export function ModDigits(N: Digit[], M: Digit[]): any {
   const m1 = matches<[ Hole<"A", Digit[]>, Hole<"D", Digit[]> ]>(TruncateWith(N, M))
   if (m1) {
     return _DivModDigits(m1.A, m1.D, M)['Remainder']
@@ -147,7 +159,7 @@ export function ModDigits(N: Digit[], M: Digit[]) {
 
 // ✓ DivModDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DivModDigits(N: Digit[], M: Digit[]) {
+export function DivModDigits(N: Digit[], M: Digit[]): any {
   const m1 = matches<[ Hole<"A", Digit[]>, Hole<"D", Digit[]> ]>(TruncateWith(N, M))
   if (m1) {
     return _DivModDigits(m1.A, m1.D, M)

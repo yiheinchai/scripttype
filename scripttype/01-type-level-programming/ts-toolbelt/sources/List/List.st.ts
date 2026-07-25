@@ -9,7 +9,7 @@
  */
 // ✓ List: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function List(A = any) {
+export function List(A = any): any {
   return readonlyArrayOf(A)
 }
 /* compiles to:

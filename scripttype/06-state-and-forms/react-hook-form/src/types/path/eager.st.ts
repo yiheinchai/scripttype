@@ -7,9 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FieldValues } from '../../../../../../06-state-and-forms/react-hook-form/src/types/fields.js'
+import type { ArrayKey, IsTuple, Prev, TupleKeys } from '../../../../../../06-state-and-forms/react-hook-form/src/types/path/common.js'
+import type { BrowserNativeObject, IsAny, IsEqual, Primitive } from '../../../../../../06-state-and-forms/react-hook-form/src/types/utils.js'
+declare namespace m1 {
+  export type K<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ArrayKey: any
 declare const BrowserNativeObject: any
 declare const FieldValues: any
@@ -20,22 +36,9 @@ declare const Prev: any
 declare const Primitive: any
 declare const TupleKeys: any
 type AnyIsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ArrayKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ArrayPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BrowserNativeObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FieldArrayPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FieldPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Path<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnyIsEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnyIsEqual(T1, T2) {
+export function AnyIsEqual(T1, T2): any {
   if (matches<typeof T2>(T1)) {
     if (matches<true>(IsEqual(T1, T2))) {
       return true
@@ -51,14 +54,14 @@ export function AnyIsEqual(T1, T2) {
 
 // ✓ PathImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PathImpl(K: string | number, V, TraversedTypes, D: number = 9) {
+export function PathImpl(K: string | number, V, TraversedTypes, D: number = 9): any {
   if (matches<Primitive | BrowserNativeObject>(V)) {
     return `${K}`
   }
   if (matches<AnyIsEqual<typeof TraversedTypes, typeof V>>(true)) {
     return `${K}`
   }
-  return anyOf(`${K}`, `${K}.${PathInternal(V, TraversedTypes | V, Prev[D])}`)
+  return anyOf(`${K}`, `${K}.${PathInternal(V, anyOf(TraversedTypes, V), Prev[D])}`)
 }
 /* compiles to:
  * export type PathImpl<K extends string | number, V, TraversedTypes, D extends number = 9> =
@@ -69,7 +72,7 @@ export function PathImpl(K: string | number, V, TraversedTypes, D: number = 9) {
 
 // ✓ PathInternal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PathInternal(T, TraversedTypes = T, D: number = 9) {
+export function PathInternal(T, TraversedTypes = T, D: number = 9): any {
   if (matches<[ never ]>([D])) {
     return never
   }
@@ -102,7 +105,7 @@ export function PathInternal(T, TraversedTypes = T, D: number = 9) {
 
 // ✓ Path: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Path(T) {
+export function Path(T): any {
   if (matches<any>(T)) {
     return PathInternal(T)
   }
@@ -114,7 +117,7 @@ export function Path(T) {
 
 // ✓ FieldPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldPath(TFieldValues: FieldValues) {
+export function FieldPath(TFieldValues: FieldValues): any {
   return Path(TFieldValues)
 }
 /* compiles to:
@@ -123,7 +126,7 @@ export function FieldPath(TFieldValues: FieldValues) {
 
 // ✓ ArrayPathImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayPathImpl(K: string | number, V, TraversedTypes, D: number = 9) {
+export function ArrayPathImpl(K: string | number, V, TraversedTypes, D: number = 9): any {
   if (matches<Primitive | BrowserNativeObject>(V)) {
     if (matches<true>(IsAny(V))) {
       return string
@@ -141,12 +144,12 @@ export function ArrayPathImpl(K: string | number, V, TraversedTypes, D: number =
     if (matches<AnyIsEqual<typeof TraversedTypes, typeof V>>(true)) {
       return never
     }
-    return anyOf(`${K}`, `${K}.${ArrayPathInternal(V, TraversedTypes | V, Prev[D])}`)
+    return anyOf(`${K}`, `${K}.${ArrayPathInternal(V, anyOf(TraversedTypes, V), Prev[D])}`)
   }
   if (matches<AnyIsEqual<typeof TraversedTypes, typeof V>>(true)) {
     return never
   }
-  return `${K}.${ArrayPathInternal(V, TraversedTypes | V, Prev[D])}`
+  return `${K}.${ArrayPathInternal(V, anyOf(TraversedTypes, V), Prev[D])}`
 }
 /* compiles to:
  * export type ArrayPathImpl<K extends string | number, V, TraversedTypes, D extends number = 9> =
@@ -161,7 +164,7 @@ export function ArrayPathImpl(K: string | number, V, TraversedTypes, D: number =
 
 // ✓ ArrayPathInternal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayPathInternal(T, TraversedTypes = T, D: number = 9) {
+export function ArrayPathInternal(T, TraversedTypes = T, D: number = 9): any {
   if (matches<[ never ]>([D])) {
     return never
   }
@@ -194,7 +197,7 @@ export function ArrayPathInternal(T, TraversedTypes = T, D: number = 9) {
 
 // ✓ ArrayPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayPath(T) {
+export function ArrayPath(T): any {
   if (matches<any>(T)) {
     return ArrayPathInternal(T)
   }
@@ -206,7 +209,7 @@ export function ArrayPath(T) {
 
 // ✓ FieldArrayPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldArrayPath(TFieldValues: FieldValues) {
+export function FieldArrayPath(TFieldValues: FieldValues): any {
   return ArrayPath(TFieldValues)
 }
 /* compiles to:
@@ -215,7 +218,10 @@ export function FieldArrayPath(TFieldValues: FieldValues) {
 
 // ✓ PathValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PathValue(T, P: Path<typeof T> | ArrayPath<typeof T>) {
+/**
+ * @param {Path<typeof T> | ArrayPath<typeof T>} P
+ */
+export function PathValue(T, P): any {
   return PathValueImpl(T, P)
 }
 /* compiles to:
@@ -224,7 +230,7 @@ export function PathValue(T, P: Path<typeof T> | ArrayPath<typeof T>) {
 
 // ✓ PathValueImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PathValueImpl(T, P: string) {
+export function PathValueImpl(T, P: string): any {
   if (matches<any>(T)) {
     const m1 = matches<`${Hole<"K">}.${Hole<"R">}`>(P)
     if (m1) {
@@ -277,7 +283,11 @@ export function PathValueImpl(T, P: string) {
 
 // ✓ FieldPathValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldPathValue(TFieldValues: FieldValues, TFieldPath: FieldPath<typeof TFieldValues>) {
+/**
+ * @param {FieldValues} TFieldValues
+ * @param {FieldPath<typeof TFieldValues>} TFieldPath
+ */
+export function FieldPathValue(TFieldValues, TFieldPath): any {
   return PathValue(TFieldValues, TFieldPath)
 }
 /* compiles to:
@@ -290,7 +300,11 @@ export function FieldPathValue(TFieldValues: FieldValues, TFieldPath: FieldPath<
 
 // ✓ FieldArrayPathValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldArrayPathValue(TFieldValues: FieldValues, TFieldArrayPath: FieldArrayPath<typeof TFieldValues>) {
+/**
+ * @param {FieldValues} TFieldValues
+ * @param {FieldArrayPath<typeof TFieldValues>} TFieldArrayPath
+ */
+export function FieldArrayPathValue(TFieldValues, TFieldArrayPath): any {
   return PathValue(TFieldValues, TFieldArrayPath)
 }
 /* compiles to:
@@ -303,10 +317,14 @@ export function FieldArrayPathValue(TFieldValues: FieldValues, TFieldArrayPath: 
 
 // ✓ FieldPathValues: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldPathValues(TFieldValues: FieldValues, TPath: FieldPath<typeof TFieldValues>[] | readonly FieldPath<typeof TFieldValues>[]) {
+/**
+ * @param {FieldValues} TFieldValues
+ * @param {FieldPath<typeof TFieldValues>[] | readonly FieldPath<typeof TFieldValues>[]} TPath
+ */
+export function FieldPathValues(TFieldValues, TPath): any {
   const out = emptyObject
   for (const K in keyof(TPath)) {
-    out[K] = FieldPathValue(TFieldValues, TPath[K] & FieldPath(TFieldValues))
+    out[K] = FieldPathValue(TFieldValues, merge(TPath[K], FieldPath(TFieldValues)))
   }
   return merge({}, out)
 }
@@ -320,7 +338,7 @@ export function FieldPathValues(TFieldValues: FieldValues, TPath: FieldPath<type
 
 // ✓ FieldPathByValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldPathByValue(TFieldValues: FieldValues, TValue) {
+export function FieldPathByValue(TFieldValues: FieldValues, TValue): any {
   const out = emptyObject
   for (const Key in keySet(FieldPath(TFieldValues))) {
     out[Key] = matches<typeof TValue>(FieldPathValue(TFieldValues, Key)) ? Key : never
@@ -338,7 +356,7 @@ export function FieldPathByValue(TFieldValues: FieldValues, TValue) {
 
 // ✓ FieldArrayPathByValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FieldArrayPathByValue(TFieldValues: FieldValues, TValue) {
+export function FieldArrayPathByValue(TFieldValues: FieldValues, TValue): any {
   const out = emptyObject
   for (const Key in keySet(FieldArrayPath(TFieldValues))) {
     out[Key] = matches<typeof TValue>(FieldArrayPathValue(TFieldValues, Key)) ? Key : never

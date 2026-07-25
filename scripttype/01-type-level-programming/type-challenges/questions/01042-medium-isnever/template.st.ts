@@ -9,7 +9,7 @@
  */
 // ✓ IsNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNever(T) {
+export function IsNever(T): any {
   return any
 }
 /* compiles to:

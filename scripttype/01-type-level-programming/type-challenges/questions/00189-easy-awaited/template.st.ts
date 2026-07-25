@@ -9,7 +9,7 @@
  */
 // ✓ MyAwaited: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MyAwaited(T) {
+export function MyAwaited(T): any {
   return any
 }
 /* compiles to:

@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Keys } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Keys.js'
+import type { BuiltIn } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Misc/BuiltIn.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BuiltIn: any
 declare const Cast: any
 declare const Key: any
@@ -18,17 +25,14 @@ declare const Length: any
 declare const List: any
 declare const NonNullableFlat: any
 declare const Primitive: any
-type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonNullableFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnionOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionOf(A) {
+export function UnionOf(A): any {
   if (matches<List>(A)) {
     return A[number]
   }
@@ -40,7 +44,7 @@ export function UnionOf(A) {
 
 // ✓ _Paths: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Paths(O, P: List = []) {
+export function _Paths(O, P: List = []): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = matches<BuiltIn | Primitive>(O[K]) ? NonNullableFlat([...P, optElem(K)]) : (matches<[ never ]>([Keys(O[K])]) ? NonNullableFlat([...P, optElem(K)]) : (matches<Length<typeof P>>(12) ? NonNullableFlat([...P, optElem(K)]) : _Paths(O[K], [...P, optElem(K)])))
@@ -60,7 +64,7 @@ export function _Paths(O, P: List = []) {
 
 // ✓ Paths: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Paths(O, P: List = []) {
+export function Paths(O, P: List = []): any {
   const m1 = matches<Hole<"X">>(_Paths(O, P))
   if (m1) {
     return Cast(m1.X, List(Key))

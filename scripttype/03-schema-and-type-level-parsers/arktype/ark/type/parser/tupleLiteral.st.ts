@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { inferDefinition, validateInnerDefinition } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/definition.js'
+import type { DefaultablePropertyTuple, OptionalPropertyDefinition, isDefaultable } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/property.js'
+import type { array } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/arrays.js'
+import type { ErrorMessage } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
+import type { conform } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
 declare namespace PreparsedElement {
   export type defaultables<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type from<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -21,6 +27,17 @@ declare namespace SequencePhase {
   export type optionals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type postfix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type prefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type s<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type spreadOperand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const DefaultablePropertyTuple: any
 declare const ErrorMessage: any
@@ -39,35 +56,29 @@ declare const optionalOrDefaultableAfterVariadicMessage: any
 declare const optionals: any
 declare const postfix: any
 declare const postfixAfterOptionalOrDefaultableMessage: any
+declare const prefix: any
 declare const spreadDefaultableMessage: any
 declare const spreadOperand: any
 declare const spreadOptionalMessage: any
 declare const validateInnerDefinition: any
-type DefaultablePropertyTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalPropertyDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparsedElement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SequenceParseState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SequencePhase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type conform<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type defaultablePostOptionalMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type defaultables<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type isDefaultable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type multipleVariadicMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type nextInferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type optionalOrDefaultableAfterVariadicMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type optionals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type postfix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type postfixAfterOptionalOrDefaultableMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type prefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type spreadDefaultableMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type spreadOperand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type spreadOptionalMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateInnerDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validateTupleLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function validateTupleLiteral(def: array, $, args) {
+export function validateTupleLiteral(def: array, $, args): any {
   const m1 = matches<Hole<"s", SequenceParseState>>(parseSequence(def, $, args))
   if (m1) {
     return Readonly(m1.s['validated'])
@@ -83,7 +94,7 @@ export function validateTupleLiteral(def: array, $, args) {
 
 // ✓ inferTupleLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferTupleLiteral(def: array, $, args) {
+export function inferTupleLiteral(def: array, $, args): any {
   const m1 = matches<Hole<"s", SequenceParseState>>(parseSequence(def, $, args))
   if (m1) {
     return m1.s['inferred']
@@ -99,8 +110,8 @@ export function inferTupleLiteral(def: array, $, args) {
 
 // ✓ parseSequence: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function parseSequence(def: array, $, args) {
-  return parseNextElement({ unscanned: def, inferred: [], validated: [], phase: SequencePhase.prefix }, $, args)
+export function parseSequence(def: array, $, args): any {
+  return parseNextElement({ unscanned: def, inferred: [], validated: [], phase: t<SequencePhase.prefix>() }, $, args)
 }
 /* compiles to:
  * export type parseSequence<def extends array, $, args> = parseNextElement<
@@ -112,7 +123,7 @@ export function parseSequence(def: array, $, args) {
 
 // ✓ from: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function from(result: PreparsedElement) {
+export function from(result: PreparsedElement): any {
   return result
 }
 /* compiles to:
@@ -121,7 +132,7 @@ export function from(result: PreparsedElement) {
 
 // ✓ preparseNextState: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function preparseNextState(s: SequenceParseState, $, args) {
+export function preparseNextState(s: SequenceParseState, $, args): any {
   const m1 = matches<readonly [ "...", Hole<"head">, ...Hole<"tail"> ]>(s['unscanned'])
   if (m1) {
     return preparseNextElement(m1.head, m1.tail, true, $, args)
@@ -143,35 +154,25 @@ export function preparseNextState(s: SequenceParseState, $, args) {
 
 // ✓ preparseNextElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function preparseNextElement(head, tail: array, spread: boolean, $, args) {
-  return PreparsedElement.from({ head: head, tail: tail, inferred: inferDefinition(head, $, args), validated: validateInnerDefinition(head, $, args), kind: matches<OptionalPropertyDefinition>(head) ? PreparsedElement.optionals : (matches<DefaultablePropertyTuple>(head) ? PreparsedElement.defaultables : (matches<true>(isDefaultable(head, $, args)) ? PreparsedElement.defaultables : PreparsedElement.required)), spread: spread })
+export function preparseNextElement(head, tail: array, spread: boolean, $, args): any {
+  return t<PreparsedElement.from<{ head: typeof head; tail: typeof tail; inferred: inferDefinition<typeof head, typeof $, typeof args>; validated: validateInnerDefinition<typeof head, typeof $, typeof args>; kind: typeof head extends OptionalPropertyDefinition ? PreparsedElement.optionals : typeof head extends DefaultablePropertyTuple ? PreparsedElement.defaultables : isDefaultable<typeof head, typeof $, typeof args> extends true ? PreparsedElement.defaultables : PreparsedElement.required; spread: typeof spread; }>>()
 }
 /* compiles to:
  * export type preparseNextElement<head, tail extends array, spread extends boolean, $, args> = PreparsedElement.from<
- *   {
- *     head: head
- *     tail: tail
- *     inferred: inferDefinition<head, $, args>
- *     validated: validateInnerDefinition<head, $, args>
- *     kind: head extends OptionalPropertyDefinition ? PreparsedElement.optionals
- *     : head extends DefaultablePropertyTuple ? PreparsedElement.defaultables
- *     : isDefaultable<head, $, args> extends true ? PreparsedElement.defaultables
- *     : PreparsedElement.required
- *     spread: spread
- *   }
+ *   { head: head; tail: tail; inferred: inferDefinition<head, $, args>; validated: validateInnerDefinition<head, $, args>; kind: head extends OptionalPropertyDefinition ? PreparsedElement.optionals : head extends DefaultablePropertyTuple ? PreparsedElement.defaultables : isDefaultable<head, $, args> extends true ? PreparsedElement.defaultables : PreparsedElement.required; spread: spread; }
  * >
  */
 
 // ✓ parseNextElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function parseNextElement(s: SequenceParseState, $, args) {
+export function parseNextElement(s: SequenceParseState, $, args): any {
   let s_ = s
   while (true) {
     const m1 = matches<Hole<"next", PreparsedElement>>(preparseNextState(s_, $, args))
     if (!m1) {
       break
     }
-    s_ = { unscanned: m1.next['tail'], inferred: nextInferred(s_, m1.next), validated: nextValidated(s_, m1.next), phase: matches<(SequencePhase.optionals | SequencePhase.defaultables)>(m1.next['kind']) ? m1.next['kind'] : (matches<nextInferred<typeof s, typeof m1.next>["length"]>(number) ? s_['phase'] : SequencePhase.prefix) }
+    s_ = { unscanned: m1.next['tail'], inferred: nextInferred(s_, m1.next), validated: nextValidated(s_, m1.next), phase: matches<(SequencePhase.optionals | SequencePhase.defaultables)>(m1.next['kind']) ? m1.next['kind'] : (matches<nextInferred<typeof s, typeof m1.next>["length"]>(number) ? s_['phase'] : t<SequencePhase.prefix>()) }
   }
   return s_
 }
@@ -207,7 +208,7 @@ export function parseNextElement(s: SequenceParseState, $, args) {
 
 // ✓ nextInferred: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function nextInferred(s: SequenceParseState, next: PreparsedElement) {
+export function nextInferred(s: SequenceParseState, next: PreparsedElement): any {
   if (matches<true>(next['spread'])) {
     return [...s['inferred'], ...conform(next['inferred'], array)]
   }
@@ -225,7 +226,7 @@ export function nextInferred(s: SequenceParseState, next: PreparsedElement) {
 
 // ✓ nextValidated: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function nextValidated(s: SequenceParseState, next: PreparsedElement) {
+export function nextValidated(s: SequenceParseState, next: PreparsedElement): any {
   return [...s['validated'], ...nextValidatedSpreadOperatorIfPresent(s, next), nextValidatedElement(s, next)]
 }
 /* compiles to:
@@ -238,7 +239,7 @@ export function nextValidated(s: SequenceParseState, next: PreparsedElement) {
 
 // ✓ nextValidatedSpreadOperatorIfPresent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function nextValidatedSpreadOperatorIfPresent(s: SequenceParseState, next: PreparsedElement) {
+export function nextValidatedSpreadOperatorIfPresent(s: SequenceParseState, next: PreparsedElement): any {
   if (matches<true>(next['spread'])) {
     const m1 = matches<Hole<"spreadOperand", array>>(next['inferred'])
     return [m1 ? (matches<([ (typeof s)["inferred"]["length"], (typeof m1.spreadOperand)["length"] ])>([number, number]) ? ErrorMessage(multipleVariadicMessage) : '...') : ErrorMessage(writeNonArraySpreadMessage(next['head']))]
@@ -263,7 +264,7 @@ export function nextValidatedSpreadOperatorIfPresent(s: SequenceParseState, next
 
 // ✓ nextValidatedElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function nextValidatedElement(s: SequenceParseState, next: PreparsedElement) {
+export function nextValidatedElement(s: SequenceParseState, next: PreparsedElement): any {
   if (matches<SequencePhase.optionals>(next['kind'])) {
     if (matches<true>(next['spread'])) {
       return ErrorMessage(spreadOptionalMessage)
@@ -310,7 +311,7 @@ export function nextValidatedElement(s: SequenceParseState, next: PreparsedEleme
 
 // ✓ writeNonArraySpreadMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeNonArraySpreadMessage(operand) {
+export function writeNonArraySpreadMessage(operand): any {
   return `Spread element must be an array${typeof operand === 'string' ? ` (was ${operand})` : ''}`
 }
 /* compiles to:

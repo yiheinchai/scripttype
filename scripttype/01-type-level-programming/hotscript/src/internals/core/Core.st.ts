@@ -7,24 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Fn, _, arg } from '../../../../../../01-type-level-programming/hotscript/src/internals/core/Core.js'
+import type { ExcludePlaceholders } from '../../../../../../01-type-level-programming/hotscript/src/internals/core/impl/MergeArgs.js'
+import type { Head } from '../../../../../../01-type-level-programming/hotscript/src/internals/helpers.js'
+declare namespace m1 {
+  export type first<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ExcludePlaceholders: any
 declare const Fn: any
 declare const Head: any
 declare const _: any
 declare const arg: any
 declare const rawArgs: any
-type ExcludePlaceholders<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type arg<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type rawArgs<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ arg0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function arg0(Constraint = unknown) {
+export function arg0(Constraint = unknown): any {
   return arg(0, Constraint)
 }
 /* compiles to:
@@ -33,7 +37,7 @@ export function arg0(Constraint = unknown) {
 
 // ✓ arg1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function arg1(Constraint = unknown) {
+export function arg1(Constraint = unknown): any {
   return arg(1, Constraint)
 }
 /* compiles to:
@@ -42,7 +46,7 @@ export function arg1(Constraint = unknown) {
 
 // ✓ arg2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function arg2(Constraint = unknown) {
+export function arg2(Constraint = unknown): any {
   return arg(2, Constraint)
 }
 /* compiles to:
@@ -51,7 +55,7 @@ export function arg2(Constraint = unknown) {
 
 // ✓ arg3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function arg3(Constraint = unknown) {
+export function arg3(Constraint = unknown): any {
   return arg(3, Constraint)
 }
 /* compiles to:
@@ -60,7 +64,7 @@ export function arg3(Constraint = unknown) {
 
 // ✓ Apply: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Apply(fn: Fn, args: unknown[]) {
+export function Apply(fn: Fn, args: unknown[]): any {
   return (merge(fn, { [rawArgs]: args }))['return']
 }
 /* compiles to:
@@ -69,7 +73,7 @@ export function Apply(fn: Fn, args: unknown[]) {
 
 // ✓ Call: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Call(fn: Fn, arg0 = _, arg1 = _, arg2 = _, arg3 = _) {
+export function Call(fn: Fn, arg0 = _, arg1 = _, arg2 = _, arg3 = _): any {
   return (merge(fn, { [rawArgs]: ExcludePlaceholders([arg0, arg1, arg2, arg3]) }))['return']
 }
 /* compiles to:
@@ -79,7 +83,7 @@ export function Call(fn: Fn, arg0 = _, arg1 = _, arg2 = _, arg3 = _) {
 
 // ✓ Pipe: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Pipe(acc, xs: Fn[]) {
+export function Pipe(acc, xs: Fn[]): any {
   let acc_ = acc
   let xs_ = xs
   while (true) {
@@ -102,7 +106,7 @@ export function Pipe(acc, xs: Fn[]) {
 
 // ✓ PipeRight: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PipeRight(xs: Fn[], acc) {
+export function PipeRight(xs: Fn[], acc): any {
   let xs_ = xs
   let acc_ = acc
   while (true) {
@@ -125,7 +129,7 @@ export function PipeRight(xs: Fn[], acc) {
 
 // ✓ ComposeImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ComposeImpl(fns: Fn[], args: any[]) {
+export function ComposeImpl(fns: Fn[], args: any[]): any {
   let fns_ = fns
   let args_ = args
   while (true) {
@@ -148,7 +152,7 @@ export function ComposeImpl(fns: Fn[], args: any[]) {
 
 // ✓ ComposeLeftImpl: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ComposeLeftImpl(fns: Fn[], args: any[]) {
+export function ComposeLeftImpl(fns: Fn[], args: any[]): any {
   let fns_ = fns
   let args_ = args
   while (true) {

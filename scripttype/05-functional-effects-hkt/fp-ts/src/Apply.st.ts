@@ -9,7 +9,7 @@
  */
 // ✓ EnforceNonEmptyRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EnforceNonEmptyRecord(R) {
+export function EnforceNonEmptyRecord(R): any {
   if (matches<never>(keyof(R))) {
     return never
   }

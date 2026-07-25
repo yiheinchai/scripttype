@@ -20,7 +20,10 @@ type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any,
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequireExactlyOne: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequireExactlyOne(ObjectType, KeysType: keyof typeof ObjectType = keyof(ObjectType)) {
+/**
+ * @param {keyof typeof ObjectType} KeysType
+ */
+export function RequireExactlyOne(ObjectType, KeysType = keyof(ObjectType)): any {
   return IfNotAnyOrNever(ObjectType, { ifNot: If(IsNever(KeysType), never, _RequireExactlyOne(ObjectType, If(IsAny(KeysType), keyof(ObjectType), KeysType))) })
 }
 /* compiles to:
@@ -42,7 +45,10 @@ export function RequireExactlyOne(ObjectType, KeysType: keyof typeof ObjectType 
 
 // ✓ _RequireExactlyOne: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _RequireExactlyOne(ObjectType, KeysType: keyof typeof ObjectType) {
+/**
+ * @param {keyof typeof ObjectType} KeysType
+ */
+export function _RequireExactlyOne(ObjectType, KeysType): any {
   const out = emptyObject
   for (const Key in keySet(KeysType)) {
     out[Key] = Required(Pick(ObjectType, Key)) & Partial(Record(Exclude(KeysType, Key), never))

@@ -9,7 +9,7 @@
  */
 // ✓ ConcatTenTimes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConcatTenTimes(T: string) {
+export function ConcatTenTimes(T: string): any {
   return `${T}.${T}.${T}.${T}.${T}.${T}.${T}.${T}.${T}.${T}`
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function ConcatTenTimes(T: string) {
 
 // ✓ HundredPathString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HundredPathString(T: string) {
+export function HundredPathString(T: string): any {
   return ConcatTenTimes(ConcatTenTimes(T))
 }
 /* compiles to:

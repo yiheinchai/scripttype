@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyRouter, RegisteredRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { InferFrom, InferMaskFrom, InferMaskTo, InferSelected, InferShouldThrow, InferStrict, InferTo } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/typePrimitives.js'
+import type { Constrain } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
+declare namespace m1 {
+  export type TStructuralSharing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyRouter: any
 declare const Constrain: any
 declare const InferFrom: any
@@ -23,22 +30,12 @@ declare const LinkComponentProps: any
 declare const RegisteredRouter: any
 declare const UseParamsOptions: any
 declare const UseSearchOptions: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Constrain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferMaskFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferMaskTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferSelected<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferShouldThrow<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferStrict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type LinkComponentProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UseParamsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UseSearchOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidateLinkOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateLinkOptions(TRouter: AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom: string = string, TComp = 'a') {
+export function ValidateLinkOptions(TRouter: AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom: string = string, TComp = 'a'): any {
   return Constrain(TOptions, LinkComponentProps(TComp, TRouter, InferFrom(TOptions, TDefaultFrom), InferTo(TOptions), InferMaskFrom(TOptions), InferMaskTo(TOptions)))
 }
 /* compiles to:
@@ -63,7 +60,7 @@ export function ValidateLinkOptions(TRouter: AnyRouter = RegisteredRouter, TOpti
 
 // ✓ InferStructuralSharing: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferStructuralSharing(TOptions) {
+export function InferStructuralSharing(TOptions): any {
   const m1 = matches<{ structuralSharing: Hole<"TStructuralSharing">; }>(TOptions)
   if (m1) {
     return m1.TStructuralSharing
@@ -79,7 +76,7 @@ export function InferStructuralSharing(TOptions) {
 
 // ✓ ValidateUseSearchOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateUseSearchOptions(TOptions, TRouter: AnyRouter = RegisteredRouter) {
+export function ValidateUseSearchOptions(TOptions, TRouter: AnyRouter = RegisteredRouter): any {
   return Constrain(TOptions, UseSearchOptions(TRouter, InferFrom(TOptions), InferStrict(TOptions), InferShouldThrow(TOptions), InferSelected(TOptions), InferStructuralSharing(TOptions)))
 }
 /* compiles to:
@@ -98,7 +95,7 @@ export function ValidateUseSearchOptions(TOptions, TRouter: AnyRouter = Register
 
 // ✓ ValidateUseParamsOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateUseParamsOptions(TOptions, TRouter: AnyRouter = RegisteredRouter) {
+export function ValidateUseParamsOptions(TOptions, TRouter: AnyRouter = RegisteredRouter): any {
   return Constrain(TOptions, UseParamsOptions(TRouter, InferFrom(TOptions), InferStrict(TOptions), InferShouldThrow(TOptions), InferSelected(TOptions), InferSelected(TOptions)))
 }
 /* compiles to:
@@ -117,7 +114,10 @@ export function ValidateUseParamsOptions(TOptions, TRouter: AnyRouter = Register
 
 // ✓ ValidateLinkOptionsArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateLinkOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions: ReadonlyArray<any> = readonlyArrayOf(unknown), TDefaultFrom: string = string, TComp = 'a') {
+/**
+ * @param {ReadonlyArray<any>} TOptions
+ */
+export function ValidateLinkOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions = readonlyArrayOf(unknown), TDefaultFrom: string = string, TComp = 'a'): any {
   const out = emptyObject
   for (const K in keyof(TOptions)) {
     out[K] = ValidateLinkOptions(TRouter, TOptions[K], TDefaultFrom, TComp)

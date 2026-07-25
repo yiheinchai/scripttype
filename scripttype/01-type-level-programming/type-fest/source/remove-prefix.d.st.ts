@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { RemovePrefixOptions } from '../../../../01-type-level-programming/type-fest/source/remove-prefix.d.js'
+declare namespace m1 {
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ApplyDefaultOptions: any
 declare const DefaultRemovePrefixOptions: any
 declare const If: any
@@ -27,10 +32,9 @@ type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type IsStringLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RemovePrefixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RemovePrefix: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RemovePrefix(S: string, Prefix: string, Options: RemovePrefixOptions = {}) {
+export function RemovePrefix(S: string, Prefix: string, Options: RemovePrefixOptions = {}): any {
   return IfNotAnyOrNever(S, { ifNot: If(IsNever(Prefix), S, _RemovePrefix(S, Prefix, ApplyDefaultOptions(RemovePrefixOptions, DefaultRemovePrefixOptions, Options))) })
 }
 /* compiles to:
@@ -57,7 +61,7 @@ export function RemovePrefix(S: string, Prefix: string, Options: RemovePrefixOpt
 
 // ✓ _RemovePrefix: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _RemovePrefix(S: string, Prefix: string, Options: Required<RemovePrefixOptions>) {
+export function _RemovePrefix(S: string, Prefix: string, Options: Required<RemovePrefixOptions>): any {
   if (typeof Prefix === 'string') {
     if (matches<true>(Or(IsStringLiteral(Prefix), Not(Options['strict'])))) {
       const m1 = matches<`${typeof Prefix}${Hole<"Rest">}`>(S)

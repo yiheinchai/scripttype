@@ -7,62 +7,98 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { StaticState } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/reduce/static.js'
+import type { ComparatorStartChar } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/operator/bounds.js'
+import type { FinalizingLookahead } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/tokens.js'
+import type { WhitespaceChar } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/strings.js'
 declare namespace Scanner {
   export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type lookahead<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type unscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace s {
+  export type error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type finalize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type finalizeGroup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type reduceBranch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type scanTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type setRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const ComparatorStartChar: any
 declare const FinalizingLookahead: any
 declare const Scanner: any
 declare const StaticState: any
 declare const WhitespaceChar: any
+declare const finalize: any
+declare const finalizeGroup: any
 declare const incompleteArrayTokenMessage: any
+declare const lookahead: any
 declare const lookaheadIsFinalizing: any
+declare const nextUnscanned: any
 declare const parseBound: any
 declare const parseBrand: any
 declare const parseDivisor: any
+declare const reduceBranch: any
+declare const scanTo: any
+declare const setRoot: any
 declare const shift: any
-type ComparatorStartChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FinalizingLookahead<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+declare const unscanned: any
 type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type WhitespaceChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type finalize<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type finalizeGroup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type incompleteArrayTokenMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type lookahead<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type lookaheadIsFinalizing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseBound<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseBrand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseDivisor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type reduceBranch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type scanTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type setRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type unscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type writeUnexpectedCharacterMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseOperator: does not compile yet
-//   only direct calls are supported
+//   Type 'nextUnscanned' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function parseOperator(s: StaticState, $, args) {
+export function parseOperator(s: StaticState, $, args): any {
   const m1 = matches<Scanner.shift<Hole<"lookahead">, Hole<"unscanned">>>(s['unscanned'])
   if (m1) {
     if (matches<"[">(m1.lookahead)) {
       const m2 = matches<Scanner.shift<"]", Hole<"nextUnscanned">>>(m1.unscanned)
       if (m2) {
-        return s.setRoot(s, [s['root'], '[]'], m2.nextUnscanned)
+        return t<s.setRoot<typeof s, [ (typeof s)["root"], "[]" ], typeof m2.nextUnscanned>>()
       }
-      return s.error(incompleteArrayTokenMessage)
+      return t<s.error<incompleteArrayTokenMessage>>()
     }
     if (matches<"|">(m1.lookahead)) {
       const m3 = matches<Scanner.shift<">", Hole<"nextUnscanned">>>(m1.unscanned)
       if (m3) {
-        return s.reduceBranch(s, '|>', m3.nextUnscanned)
+        return t<s.reduceBranch<typeof s, "|>", typeof m3.nextUnscanned>>()
       }
-      return s.reduceBranch(s, m1.lookahead, m1.unscanned)
+      return t<s.reduceBranch<typeof s, typeof m1.lookahead, typeof m1.unscanned>>()
     }
     if (matches<"&">(m1.lookahead)) {
-      return s.reduceBranch(s, m1.lookahead, m1.unscanned)
+      return t<s.reduceBranch<typeof s, typeof m1.lookahead, typeof m1.unscanned>>()
     }
     if (matches<")">(m1.lookahead)) {
-      return s.finalizeGroup(s, m1.unscanned)
+      return t<s.finalizeGroup<typeof s, typeof m1.unscanned>>()
     }
     if (matches<true>(lookaheadIsFinalizing(m1.lookahead, m1.unscanned))) {
-      return s.finalize(s.scanTo(s, m1.unscanned), m1.lookahead & FinalizingLookahead)
+      return t<s.finalize<s.scanTo<typeof s, typeof m1.unscanned>, typeof m1.lookahead & FinalizingLookahead>>()
     }
     if (matches<ComparatorStartChar>(m1.lookahead)) {
       return parseBound(s, m1.lookahead, m1.unscanned, $, args)
@@ -74,16 +110,38 @@ export function parseOperator(s: StaticState, $, args) {
       return parseBrand(s, m1.unscanned)
     }
     if (matches<WhitespaceChar>(m1.lookahead)) {
-      return parseOperator(s.scanTo(s, m1.unscanned), $, args)
+      return parseOperator(t<s.scanTo<typeof s, typeof m1.unscanned>>(), $, args)
     }
-    return s.error(writeUnexpectedCharacterMessage(m1.lookahead))
+    return t<s.error<writeUnexpectedCharacterMessage<typeof m1.lookahead>>>()
   }
-  return s.finalize(s, '')
+  return t<s.finalize<typeof s, "">>()
 }
+/* compiles to:
+ * export type parseOperator<s extends StaticState, $, args> =
+ *   s['unscanned'] extends Scanner.shift<infer lookahead, infer unscanned>
+ *     ? lookahead extends '['
+ *       ? unscanned extends Scanner.shift<']', infer nextUnscanned>
+ *         ? s.setRoot<s, [s['root'], '[]'], nextUnscanned>
+ *         : s.error<incompleteArrayTokenMessage>
+ *     : lookahead extends '|'
+ *       ? unscanned extends Scanner.shift<'>', infer nextUnscanned>
+ *         ? s.reduceBranch<s, '|>', nextUnscanned>
+ *         : s.reduceBranch<s, lookahead, unscanned>
+ *     : lookahead extends '&' ? s.reduceBranch<s, lookahead, unscanned>
+ *     : lookahead extends ')' ? s.finalizeGroup<s, unscanned>
+ *     : lookaheadIsFinalizing<lookahead, unscanned> extends true
+ *       ? s.finalize<s.scanTo<s, unscanned>, lookahead & FinalizingLookahead>
+ *     : lookahead extends ComparatorStartChar ? parseBound<s, lookahead, unscanned, $, args>
+ *     : lookahead extends '%' ? parseDivisor<s, unscanned>
+ *     : lookahead extends '#' ? parseBrand<s, unscanned>
+ *     : lookahead extends WhitespaceChar ? parseOperator<s.scanTo<s, unscanned>, $, args>
+ *     : s.error<writeUnexpectedCharacterMessage<lookahead>>
+ *     : s.finalize<s, ''>
+ */
 
 // ✓ writeUnexpectedCharacterMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnexpectedCharacterMessage(char: string, shouldBe: string = '') {
+export function writeUnexpectedCharacterMessage(char: string, shouldBe: string = ''): any {
   return `'${char}' is not allowed here${matches<"">(shouldBe) ? '' : ` (should be ${shouldBe})`}`
 }
 /* compiles to:

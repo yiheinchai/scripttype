@@ -7,9 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TImmutable } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/_immutable.js'
+import type { TArray } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/array.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { StaticDirection, StaticType } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/static.js'
+declare namespace m1 {
+  export type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RestType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type ArrayType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const StaticDirection: any
 declare const StaticType: any
 declare const TArray: any
@@ -19,18 +33,13 @@ declare const TProperties: any
 declare const TReadonly: any
 declare const TRest: any
 declare const TSchema: any
-type StaticDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TImmutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StaticLast: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticLast(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Type: TSchema, Result: unknown[]) {
+export function StaticLast(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Type: TSchema, Result: unknown[]): any {
   const m1 = matches<TRest<Hole<"RestType", TSchema>>>(Type)
   if (m1) {
     const m2 = matches<TArray<Hole<"ArrayType", TSchema>>>(m1.RestType)
@@ -60,7 +69,7 @@ export function StaticLast(Stack: string[], Direction: StaticDirection, Context:
 // ✗ TStaticElement: does not compile yet
 //   Type '[IsReadonly, IsOptional] extends [true, true] ? [(Readonly<Inferred> | undefined)?] : [IsReadonly, IsOptional] extends [false, true] ? [(Inferred | undefi
 /* @scripttype preserveParamNames */
-export function TStaticElement(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Type: TSchema, IsReadonly: boolean = matches<TReadonly>(Type) ? true : false, IsOptional: boolean = matches<TOptional>(Type) ? true : false, Inferred: unknown = StaticType(Stack, Direction, Context, This, Type), Result: [ unknown? ] = matches<[ true, true ]>([IsReadonly, IsOptional]) ? [optElem(Readonly(Inferred))] : (matches<[ false, true ]>([IsReadonly, IsOptional]) ? [optElem(Inferred)] : (matches<[ true, false ]>([IsReadonly, IsOptional]) ? [Readonly(Inferred)] : [Inferred]))) {
+export function TStaticElement(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Type: TSchema, IsReadonly: boolean = matches<TReadonly>(Type) ? true : false, IsOptional: boolean = matches<TOptional>(Type) ? true : false, Inferred: unknown = StaticType(Stack, Direction, Context, This, Type), Result: [ unknown? ] = matches<[ true, true ]>([IsReadonly, IsOptional]) ? [optElem(Readonly(Inferred))] : (matches<[ false, true ]>([IsReadonly, IsOptional]) ? [optElem(Inferred)] : (matches<[ true, false ]>([IsReadonly, IsOptional]) ? [Readonly(Inferred)] : [Inferred]))): any {
   return Result
 }
 /* compiles to:
@@ -80,7 +89,7 @@ export function TStaticElement(Stack: string[], Direction: StaticDirection, Cont
 
 // ✓ TStaticElements: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TStaticElements(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Types: TSchema[], Result: unknown[] = []) {
+export function TStaticElements(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Types: TSchema[], Result: unknown[] = []): any {
   const m1 = matches<[ Hole<"Last", TSchema> ]>(Types)
   if (m1) {
     return StaticLast(Stack, Direction, Context, This, m1.Last, Result)
@@ -116,7 +125,7 @@ export function TStaticElements(Stack: string[], Direction: StaticDirection, Con
 
 // ✓ StaticTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticTuple(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Tuple: TSchema, Items: TSchema[], Elements: unknown[] = TStaticElements(Stack, Direction, Context, This, Items), Result: readonly unknown[] = matches<TImmutable>(Tuple) ? asReadonly([...Elements]) : Elements) {
+export function StaticTuple(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Tuple: TSchema, Items: TSchema[], Elements: unknown[] = TStaticElements(Stack, Direction, Context, This, Items), Result: readonly unknown[] = matches<TImmutable>(Tuple) ? asReadonly([...Elements]) : Elements): any {
   return Result
 }
 /* compiles to:

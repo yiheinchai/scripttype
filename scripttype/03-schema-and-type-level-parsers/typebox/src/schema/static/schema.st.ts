@@ -7,9 +7,53 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { XStaticAdditionalProperties } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/additionalProperties.js'
+import type { XStaticAllOf } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/allOf.js'
+import type { XStaticAnyOf } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/anyOf.js'
+import type { XStaticConst } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/const.js'
+import type { XStaticEnum } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/enum.js'
+import type { XStaticIf } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/if.js'
+import type { XStaticItems } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/items.js'
+import type { XStaticOneOf } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/oneOf.js'
+import type { XStaticPatternProperties } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/patternProperties.js'
+import type { XStaticPrefixItems } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/prefixItems.js'
+import type { XStaticProperties } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/properties.js'
+import type { XStaticRef } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/ref.js'
+import type { XStaticRequired } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/required.js'
+import type { XStaticType } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/type.js'
+import type { XStaticUnevaluatedProperties } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/unevaluatedProperties.js'
+import type { XAdditionalProperties } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/additionalProperties.js'
+import type { XAllOf } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/allOf.js'
+import type { XAnyOf } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/anyOf.js'
+import type { XConst } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/const.js'
+import type { XEnum } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/enum.js'
+import type { XIf } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/if.js'
+import type { XItems } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/items.js'
+import type { XOneOf } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/oneOf.js'
+import type { XPatternProperties } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/patternProperties.js'
+import type { XPrefixItems } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/prefixItems.js'
+import type { XProperties } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/properties.js'
+import type { XRef } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/ref.js'
+import type { XRequired } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/required.js'
+import type { XSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/schema.js'
+import type { XType } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/type.js'
+import type { XUnevaluatedProperties } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/unevaluatedProperties.js'
+declare namespace m1 {
+  export type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Properties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Ref<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TypeName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Values<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const PropertyKey: any
 declare const XAdditionalProperties: any
 declare const XAllOf: any
@@ -43,40 +87,9 @@ declare const XStaticUnevaluatedProperties: any
 declare const XType: any
 declare const XUnevaluatedProperties: any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XAdditionalProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XAllOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XAnyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XConst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XIf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XOneOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XPatternProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XPrefixItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XRequired<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticAdditionalProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticAllOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticAnyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticConst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticIf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticOneOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticPatternProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticPrefixItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticRef<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticRequired<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticUnevaluatedProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XUnevaluatedProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XFromKeywords: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XFromKeywords__v1(Stack, Root, Schema) {
+export function XFromKeywords__v1(Stack, Root, Schema): any {
   const m1 = matches<XAdditionalProperties<Hole<"Type", XSchema>>>(Schema)
   if (m1) {
     return XStaticAdditionalProperties(Stack, Root, m1.Type)
@@ -84,7 +97,7 @@ export function XFromKeywords__v1(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v2(Stack, Root, Schema) {
+export function XFromKeywords__v2(Stack, Root, Schema): any {
   const m1 = matches<XAllOf<Hole<"Types", XSchema[]>>>(Schema)
   if (m1) {
     return XStaticAllOf(Stack, Root, m1.Types)
@@ -92,7 +105,7 @@ export function XFromKeywords__v2(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v3(Stack, Root, Schema) {
+export function XFromKeywords__v3(Stack, Root, Schema): any {
   const m1 = matches<XAnyOf<Hole<"Types", XSchema[]>>>(Schema)
   if (m1) {
     return XStaticAnyOf(Stack, Root, m1.Types)
@@ -100,7 +113,7 @@ export function XFromKeywords__v3(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v4(Schema) {
+export function XFromKeywords__v4(Schema): any {
   const m1 = matches<XConst<Hole<"Value", unknown>>>(Schema)
   if (m1) {
     return XStaticConst(m1.Value)
@@ -108,7 +121,7 @@ export function XFromKeywords__v4(Schema) {
   return unknown
 }
 
-export function XFromKeywords__v5(Stack, Root, Schema) {
+export function XFromKeywords__v5(Stack, Root, Schema): any {
   const m1 = matches<XIf<Hole<"Type", XSchema>>>(Schema)
   if (m1) {
     return XStaticIf(Stack, Root, Schema, m1.Type)
@@ -116,7 +129,7 @@ export function XFromKeywords__v5(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v6(Schema) {
+export function XFromKeywords__v6(Schema): any {
   const m1 = matches<XEnum<Hole<"Values", unknown[]>>>(Schema)
   if (m1) {
     return XStaticEnum(m1.Values)
@@ -124,7 +137,7 @@ export function XFromKeywords__v6(Schema) {
   return unknown
 }
 
-export function XFromKeywords__v7(Stack, Root, Schema) {
+export function XFromKeywords__v7(Stack, Root, Schema): any {
   const m1 = matches<XItems<Hole<"Types", XSchema[] | XSchema>>>(Schema)
   if (m1) {
     return XStaticItems(Stack, Root, Schema, m1.Types)
@@ -132,7 +145,7 @@ export function XFromKeywords__v7(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v8(Stack, Root, Schema) {
+export function XFromKeywords__v8(Stack, Root, Schema): any {
   const m1 = matches<XOneOf<Hole<"Types", XSchema[]>>>(Schema)
   if (m1) {
     return XStaticOneOf(Stack, Root, m1.Types)
@@ -140,7 +153,7 @@ export function XFromKeywords__v8(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v9(Stack, Root, Schema) {
+export function XFromKeywords__v9(Stack, Root, Schema): any {
   const m1 = matches<XPatternProperties<Hole<"Properties", Record<PropertyKey, XSchema>>>>(Schema)
   if (m1) {
     return XStaticPatternProperties(Stack, Root, m1.Properties)
@@ -148,7 +161,7 @@ export function XFromKeywords__v9(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v10(Stack, Root, Schema) {
+export function XFromKeywords__v10(Stack, Root, Schema): any {
   const m1 = matches<XPrefixItems<Hole<"Types", XSchema[]>>>(Schema)
   if (m1) {
     return XStaticPrefixItems(Stack, Root, Schema, m1.Types)
@@ -156,7 +169,7 @@ export function XFromKeywords__v10(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v11(Stack, Root, Schema) {
+export function XFromKeywords__v11(Stack, Root, Schema): any {
   const m1 = matches<XProperties<Hole<"Properties", Record<PropertyKey, XSchema>>>>(Schema)
   if (m1) {
     return XStaticProperties(Stack, Root, Schema, m1.Properties)
@@ -164,7 +177,7 @@ export function XFromKeywords__v11(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v12(Stack, Root, Schema) {
+export function XFromKeywords__v12(Stack, Root, Schema): any {
   const m1 = matches<XRef<Hole<"Ref", string>>>(Schema)
   if (m1) {
     return XStaticRef(Stack, Root, m1.Ref)
@@ -172,7 +185,7 @@ export function XFromKeywords__v12(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v13(Stack, Root, Schema) {
+export function XFromKeywords__v13(Stack, Root, Schema): any {
   const m1 = matches<XRequired<Hole<"Keys", string[]>>>(Schema)
   if (m1) {
     return XStaticRequired(Stack, Root, Schema, m1.Keys)
@@ -180,7 +193,7 @@ export function XFromKeywords__v13(Stack, Root, Schema) {
   return unknown
 }
 
-export function XFromKeywords__v14(Schema) {
+export function XFromKeywords__v14(Schema): any {
   const m1 = matches<XType<Hole<"TypeName", string[] | string>>>(Schema)
   if (m1) {
     return XStaticType(m1.TypeName)
@@ -188,14 +201,14 @@ export function XFromKeywords__v14(Schema) {
   return unknown
 }
 
-export function XFromKeywords__v15(Stack, Root, Schema) {
+export function XFromKeywords__v15(Stack, Root, Schema): any {
   const m1 = matches<XUnevaluatedProperties<Hole<"Type", XSchema>>>(Schema)
   if (m1) {
     return XStaticUnevaluatedProperties(Stack, Root, m1.Type)
   }
   return unknown
 }
-export function XFromKeywords(Stack: string[], Root: XSchema, Schema: XSchema, Result: unknown[] = [XFromKeywords__v1(Stack, Root, Schema), XFromKeywords__v2(Stack, Root, Schema), XFromKeywords__v3(Stack, Root, Schema), XFromKeywords__v4(Schema), XFromKeywords__v5(Stack, Root, Schema), XFromKeywords__v6(Schema), XFromKeywords__v7(Stack, Root, Schema), XFromKeywords__v8(Stack, Root, Schema), XFromKeywords__v9(Stack, Root, Schema), XFromKeywords__v10(Stack, Root, Schema), XFromKeywords__v11(Stack, Root, Schema), XFromKeywords__v12(Stack, Root, Schema), XFromKeywords__v13(Stack, Root, Schema), XFromKeywords__v14(Schema), XFromKeywords__v15(Stack, Root, Schema)]) {
+export function XFromKeywords(Stack: string[], Root: XSchema, Schema: XSchema, Result: unknown[] = [XFromKeywords__v1(Stack, Root, Schema), XFromKeywords__v2(Stack, Root, Schema), XFromKeywords__v3(Stack, Root, Schema), XFromKeywords__v4(Schema), XFromKeywords__v5(Stack, Root, Schema), XFromKeywords__v6(Schema), XFromKeywords__v7(Stack, Root, Schema), XFromKeywords__v8(Stack, Root, Schema), XFromKeywords__v9(Stack, Root, Schema), XFromKeywords__v10(Stack, Root, Schema), XFromKeywords__v11(Stack, Root, Schema), XFromKeywords__v12(Stack, Root, Schema), XFromKeywords__v13(Stack, Root, Schema), XFromKeywords__v14(Schema), XFromKeywords__v15(Stack, Root, Schema)]): any {
   return Result
 }
 /* compiles to:
@@ -264,7 +277,7 @@ export function XFromKeywords(Stack: string[], Root: XSchema, Schema: XSchema, R
 
 // ✓ XKeywordsIntersected: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XKeywordsIntersected(Schemas: unknown[]) {
+export function XKeywordsIntersected(Schemas: unknown[]): any {
   let Result = unknown
   let schemas = Schemas
   while (true) {
@@ -290,14 +303,14 @@ export function XKeywordsIntersected(Schemas: unknown[]) {
 
 // ✓ XKeywordsEvaluated: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XKeywordsEvaluated__v1(Schema) {
+export function XKeywordsEvaluated__v1(Schema): any {
   const out = emptyObject
   for (const Key in keyof(Schema)) {
     out[Key] = Schema[Key]
   }
   return out
 }
-export function XKeywordsEvaluated(Schema: unknown, Result: unknown = matches<object>(Schema) ? XKeywordsEvaluated__v1(Schema) : Schema) {
+export function XKeywordsEvaluated(Schema: unknown, Result: unknown = matches<object>(Schema) ? XKeywordsEvaluated__v1(Schema) : Schema): any {
   return Result
 }
 /* compiles to:
@@ -311,7 +324,7 @@ export function XKeywordsEvaluated(Schema: unknown, Result: unknown = matches<ob
 
 // ✓ XStaticObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XStaticObject(Stack: string[], Root: XSchema, Schema: XSchema, Keywords: unknown[] = XFromKeywords(Stack, Root, Schema), Intersected: unknown = XKeywordsIntersected(Keywords), Evaluated: unknown = XKeywordsEvaluated(Intersected)) {
+export function XStaticObject(Stack: string[], Root: XSchema, Schema: XSchema, Keywords: unknown[] = XFromKeywords(Stack, Root, Schema), Intersected: unknown = XKeywordsIntersected(Keywords), Evaluated: unknown = XKeywordsEvaluated(Intersected)): any {
   return Evaluated
 }
 /* compiles to:
@@ -328,7 +341,7 @@ export function XStaticObject(Stack: string[], Root: XSchema, Schema: XSchema, K
 
 // ✓ XStaticBoolean: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XStaticBoolean(Schema: boolean, Result: unknown = matches<false>(Schema) ? never : unknown) {
+export function XStaticBoolean(Schema: boolean, Result: unknown = matches<false>(Schema) ? never : unknown): any {
   return Result
 }
 /* compiles to:
@@ -341,7 +354,7 @@ export function XStaticBoolean(Schema: boolean, Result: unknown = matches<false>
 
 // ✓ XStaticSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XStaticSchema(Stack: string[], Root: XSchema, Schema: XSchema, Result: unknown = typeof Schema === 'boolean' ? XStaticBoolean(Schema) : XStaticObject(Stack, Root, Schema)) {
+export function XStaticSchema(Stack: string[], Root: XSchema, Schema: XSchema, Result: unknown = typeof Schema === 'boolean' ? XStaticBoolean(Schema) : XStaticObject(Stack, Root, Schema)): any {
   return Result
 }
 /* compiles to:

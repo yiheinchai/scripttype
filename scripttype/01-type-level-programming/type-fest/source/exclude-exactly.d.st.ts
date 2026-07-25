@@ -22,7 +22,7 @@ type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExcludeExactly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExcludeExactly(Union, Delete) {
+export function ExcludeExactly(Union, Delete): any {
   return IfNotAnyOrNever(Union, { ifNot: _ExcludeExactly(Union, Delete), ifAny: If(IsAny(Delete), never, Union), ifNever: If(IsNever(Delete), never, Union) })
 }
 /* compiles to:
@@ -38,7 +38,7 @@ export function ExcludeExactly(Union, Delete) {
 
 // ✓ _ExcludeExactly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ExcludeExactly(Union, Delete) {
+export function _ExcludeExactly(Union, Delete): any {
   return IfNotAnyOrNever(Delete, { ifNot: matches<unknown>(Union) ? (matches<[ never ]>([matches<unknown>(Delete) ? If(IsEqual(Union, Delete), true, never) : never]) ? Union : never) : never, ifAny: Union, ifNever: Union })
 }
 /* compiles to:

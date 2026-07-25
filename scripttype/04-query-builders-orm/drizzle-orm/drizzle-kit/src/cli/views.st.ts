@@ -9,7 +9,7 @@
  */
 // ✓ ValueOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValueOf(T) {
+export function ValueOf(T): any {
   return T[keyof(T)]
 }
 /* compiles to:

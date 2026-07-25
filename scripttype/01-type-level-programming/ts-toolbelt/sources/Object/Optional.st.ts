@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Equals } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Equals.js'
+import type { PatchFlat } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/Patch.js'
+import type { Depth } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
 declare const Depth: any
 declare const Equals: any
 declare const Key: any
 declare const PatchFlat: any
-type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Equals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PatchFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OptionalFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalFlat(O) {
+export function OptionalFlat(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = optional(O[K])
@@ -33,7 +34,7 @@ export function OptionalFlat(O) {
 
 // ✓ OptionalDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalDeep(O) {
+export function OptionalDeep(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = optional(OptionalDeep(O[K]))
@@ -46,7 +47,7 @@ export function OptionalDeep(O) {
 
 // ✓ OptionalPart: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalPart(O: object, depth: Depth) {
+export function OptionalPart(O: object, depth: Depth): any {
   return { 'flat': OptionalFlat(O), 'deep': OptionalDeep(O) }[depth]
 }
 /* compiles to:
@@ -57,7 +58,7 @@ export function OptionalPart(O: object, depth: Depth) {
 // ✗ Optional: does not compile yet
 //   Type 'Equals<Key, K>' cannot be used to index type '{ '1': OptionalPart<O, depth>; '0': PatchFlat<OptionalPart<Pick<O, K>, depth>, O>; }'.
 /* @scripttype preserveParamNames */
-export function Optional(O: object, K: Key = Key, depth: Depth = 'flat') {
+export function Optional(O: object, K: Key = Key, depth: Depth = 'flat'): any {
   return { 1: OptionalPart(O, depth), 0: PatchFlat(OptionalPart(Pick(O, K), depth), O) }[Equals(Key, K)]
 }
 /* compiles to:

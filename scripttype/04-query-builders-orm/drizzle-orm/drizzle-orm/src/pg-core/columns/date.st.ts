@@ -16,7 +16,7 @@ type PgDateBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T
 type PgDateStringBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgDateBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgDateBuilderInitial(TName: string) {
+export function PgDateBuilderInitial(TName: string): any {
   return PgDateBuilder({ name: TName, dataType: 'date', columnType: 'PgDate', data: t<Date>(), driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function PgDateBuilderInitial(TName: string) {
 
 // ✓ PgDateStringBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgDateStringBuilderInitial(TName: string) {
+export function PgDateStringBuilderInitial(TName: string): any {
   return PgDateStringBuilder({ name: TName, dataType: 'string', columnType: 'PgDateString', data: string, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:

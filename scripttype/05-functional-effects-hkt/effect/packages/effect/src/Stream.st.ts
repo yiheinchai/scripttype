@@ -7,14 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Stream } from '../../../../../../05-functional-effects-hkt/effect/packages/effect/src/Stream.js'
+declare namespace m1 {
+  export type _A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Stream: any
-type Stream<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Success: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Success(T: Stream<any, any, any>) {
+export function Success(T: Stream<any, any, any>): any {
   const m1 = matches<[ Stream<Hole<"_A">, Hole<"_E">, Hole<"_R">> ]>([T])
   if (m1) {
     return m1._A
@@ -23,12 +29,12 @@ export function Success(T: Stream<any, any, any>) {
 }
 /* compiles to:
  * export type Success<T extends Stream<any, any, any>> =
- *   [T] extends [Stream<infer _A, unknown, unknown>] ? _A : never
+ *   [T] extends [Stream<infer _A, any, any>] ? _A : never
  */
 
 // ✓ Error: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Error(T: Stream<any, any, any>) {
+export function Error(T: Stream<any, any, any>): any {
   const m1 = matches<[ Stream<Hole<"_A">, Hole<"_E">, Hole<"_R">> ]>([T])
   if (m1) {
     return m1._E
@@ -37,12 +43,12 @@ export function Error(T: Stream<any, any, any>) {
 }
 /* compiles to:
  * export type Error<T extends Stream<any, any, any>> =
- *   [T] extends [Stream<unknown, infer _E, unknown>] ? _E : never
+ *   [T] extends [Stream<any, infer _E, any>] ? _E : never
  */
 
 // ✓ Services: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Services(T: Stream<any, any, any>) {
+export function Services(T: Stream<any, any, any>): any {
   const m1 = matches<[ Stream<Hole<"_A">, Hole<"_E">, Hole<"_R">> ]>([T])
   if (m1) {
     return m1._R
@@ -51,5 +57,5 @@ export function Services(T: Stream<any, any, any>) {
 }
 /* compiles to:
  * export type Services<T extends Stream<any, any, any>> =
- *   [T] extends [Stream<unknown, unknown, infer _R>] ? _R : never
+ *   [T] extends [Stream<any, any, infer _R>] ? _R : never
  */

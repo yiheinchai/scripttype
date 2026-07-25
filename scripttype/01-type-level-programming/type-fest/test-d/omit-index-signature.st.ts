@@ -9,7 +9,7 @@
  */
 // ✓ MappedType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MappedType(ObjectType) {
+export function MappedType(ObjectType): any {
   const out = emptyObject
   for (const Key in keyof(ObjectType)) {
     out[Key] = { key: Key, value: Exclude(ObjectType[Key], Undefined) }

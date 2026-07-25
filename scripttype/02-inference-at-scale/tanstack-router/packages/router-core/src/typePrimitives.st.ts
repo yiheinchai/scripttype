@@ -7,9 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FromPathOption, PathParamOptions, SearchParamOptions, ToPathOption } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/link.js'
+import type { RedirectOptions } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/redirect.js'
+import type { RouteIds } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/routeInfo.js'
+import type { AnyRouter, RegisteredRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { UseParamsResult } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/useParams.js'
+import type { UseSearchResult } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/useSearch.js'
+import type { Constrain, ConstrainLiteral } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
+declare namespace m1 {
+  export type TFrom<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TSelected<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TShouldThrow<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TStrict<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TTo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyRouter: any
 declare const Constrain: any
 declare const ConstrainLiteral: any
@@ -23,22 +38,10 @@ declare const SearchParamOptions: any
 declare const ToPathOption: any
 declare const UseParamsResult: any
 declare const UseSearchResult: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Constrain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ConstrainLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FromPathOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NavigateOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PathParamOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RedirectOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteIds<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SearchParamOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToPathOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseParamsResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseSearchResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidateFromPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateFromPath(TRouter: AnyRouter = RegisteredRouter, TFrom = string) {
+export function ValidateFromPath(TRouter: AnyRouter = RegisteredRouter, TFrom = string): any {
   return FromPathOption(TRouter, TFrom)
 }
 /* compiles to:
@@ -50,7 +53,7 @@ export function ValidateFromPath(TRouter: AnyRouter = RegisteredRouter, TFrom = 
 
 // ✓ ValidateToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateToPath(TRouter: AnyRouter = RegisteredRouter, TTo: string | undefined = Undefined, TFrom: string = string) {
+export function ValidateToPath(TRouter: AnyRouter = RegisteredRouter, TTo: string | undefined = Undefined, TFrom: string = string): any {
   return ToPathOption(TRouter, TFrom, TTo)
 }
 /* compiles to:
@@ -64,7 +67,7 @@ export function ValidateToPath(TRouter: AnyRouter = RegisteredRouter, TTo: strin
 
 // ✓ ValidateSearch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSearch(TRouter: AnyRouter = RegisteredRouter, TTo: string | undefined = Undefined, TFrom: string = string) {
+export function ValidateSearch(TRouter: AnyRouter = RegisteredRouter, TTo: string | undefined = Undefined, TFrom: string = string): any {
   return SearchParamOptions(TRouter, TFrom, TTo)
 }
 /* compiles to:
@@ -78,7 +81,7 @@ export function ValidateSearch(TRouter: AnyRouter = RegisteredRouter, TTo: strin
 
 // ✓ ValidateParams: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateParams(TRouter: AnyRouter = RegisteredRouter, TTo: string | undefined = Undefined, TFrom: string = string) {
+export function ValidateParams(TRouter: AnyRouter = RegisteredRouter, TTo: string | undefined = Undefined, TFrom: string = string): any {
   return PathParamOptions(TRouter, TFrom, TTo)
 }
 /* compiles to:
@@ -92,7 +95,7 @@ export function ValidateParams(TRouter: AnyRouter = RegisteredRouter, TTo: strin
 
 // ✓ InferFrom: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferFrom(TOptions, TDefaultFrom: string = string) {
+export function InferFrom(TOptions, TDefaultFrom: string = string): any {
   const m1 = matches<{ from: Hole<"TFrom", string>; }>(TOptions)
   if (m1) {
     return m1.TFrom
@@ -106,7 +109,7 @@ export function InferFrom(TOptions, TDefaultFrom: string = string) {
 
 // ✓ InferTo: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferTo(TOptions) {
+export function InferTo(TOptions): any {
   const m1 = matches<{ to: Hole<"TTo", string>; }>(TOptions)
   if (m1) {
     return m1.TTo
@@ -120,7 +123,7 @@ export function InferTo(TOptions) {
 
 // ✓ InferMaskTo: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferMaskTo(TOptions) {
+export function InferMaskTo(TOptions): any {
   const m1 = matches<{ mask: { to: Hole<"TTo", string>; }; }>(TOptions)
   if (m1) {
     return m1.TTo
@@ -134,7 +137,7 @@ export function InferMaskTo(TOptions) {
 
 // ✓ InferMaskFrom: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferMaskFrom(TOptions) {
+export function InferMaskFrom(TOptions): any {
   const m1 = matches<{ mask: { from: Hole<"TFrom", string>; }; }>(TOptions)
   if (m1) {
     return m1.TFrom
@@ -148,7 +151,7 @@ export function InferMaskFrom(TOptions) {
 
 // ✓ ValidateNavigateOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateNavigateOptions(TRouter: AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom: string = string) {
+export function ValidateNavigateOptions(TRouter: AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom: string = string): any {
   return Constrain(TOptions, NavigateOptions(TRouter, InferFrom(TOptions, TDefaultFrom), InferTo(TOptions), InferMaskFrom(TOptions), InferMaskTo(TOptions)))
 }
 /* compiles to:
@@ -171,7 +174,10 @@ export function ValidateNavigateOptions(TRouter: AnyRouter = RegisteredRouter, T
 
 // ✓ ValidateNavigateOptionsArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateNavigateOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions: ReadonlyArray<any> = readonlyArrayOf(unknown), TDefaultFrom: string = string) {
+/**
+ * @param {ReadonlyArray<any>} TOptions
+ */
+export function ValidateNavigateOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions = readonlyArrayOf(unknown), TDefaultFrom: string = string): any {
   const out = emptyObject
   for (const K in keyof(TOptions)) {
     out[K] = ValidateNavigateOptions(TRouter, TOptions[K], TDefaultFrom)
@@ -189,7 +195,7 @@ export function ValidateNavigateOptionsArray(TRouter: AnyRouter = RegisteredRout
 
 // ✓ ValidateRedirectOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateRedirectOptions(TRouter: AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom: string = string) {
+export function ValidateRedirectOptions(TRouter: AnyRouter = RegisteredRouter, TOptions = unknown, TDefaultFrom: string = string): any {
   return Constrain(TOptions, RedirectOptions(TRouter, InferFrom(TOptions, TDefaultFrom), InferTo(TOptions), InferMaskFrom(TOptions), InferMaskTo(TOptions)))
 }
 /* compiles to:
@@ -212,7 +218,10 @@ export function ValidateRedirectOptions(TRouter: AnyRouter = RegisteredRouter, T
 
 // ✓ ValidateRedirectOptionsArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateRedirectOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions: ReadonlyArray<any> = readonlyArrayOf(unknown), TDefaultFrom: string = string) {
+/**
+ * @param {ReadonlyArray<any>} TOptions
+ */
+export function ValidateRedirectOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions = readonlyArrayOf(unknown), TDefaultFrom: string = string): any {
   const out = emptyObject
   for (const K in keyof(TOptions)) {
     out[K] = ValidateRedirectOptions(TRouter, TOptions[K], TDefaultFrom)
@@ -230,7 +239,7 @@ export function ValidateRedirectOptionsArray(TRouter: AnyRouter = RegisteredRout
 
 // ✓ ValidateId: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateId(TRouter: AnyRouter = RegisteredRouter, TId: string = string) {
+export function ValidateId(TRouter: AnyRouter = RegisteredRouter, TId: string = string): any {
   return ConstrainLiteral(TId, RouteIds(TRouter['routeTree']))
 }
 /* compiles to:
@@ -243,7 +252,7 @@ export function ValidateId(TRouter: AnyRouter = RegisteredRouter, TId: string = 
 
 // ✓ InferStrict: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferStrict(TOptions) {
+export function InferStrict(TOptions): any {
   const m1 = matches<{ strict: Hole<"TStrict", boolean>; }>(TOptions)
   if (m1) {
     return m1.TStrict
@@ -257,7 +266,7 @@ export function InferStrict(TOptions) {
 
 // ✓ InferShouldThrow: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferShouldThrow(TOptions) {
+export function InferShouldThrow(TOptions): any {
   const m1 = matches<{ shouldThrow: Hole<"TShouldThrow", boolean>; }>(TOptions)
   if (m1) {
     return m1.TShouldThrow
@@ -271,7 +280,7 @@ export function InferShouldThrow(TOptions) {
 
 // ✓ InferSelected: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferSelected(TOptions) {
+export function InferSelected(TOptions): any {
   const m1 = matches<{ select: (...args: Array<any>) => Hole<"TSelected">; }>(TOptions)
   if (m1) {
     return m1.TSelected
@@ -285,7 +294,7 @@ export function InferSelected(TOptions) {
 
 // ✓ ValidateUseSearchResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateUseSearchResult(TOptions, TRouter: AnyRouter = RegisteredRouter) {
+export function ValidateUseSearchResult(TOptions, TRouter: AnyRouter = RegisteredRouter): any {
   return UseSearchResult(TRouter, InferFrom(TOptions), InferStrict(TOptions), InferSelected(TOptions))
 }
 /* compiles to:
@@ -299,7 +308,7 @@ export function ValidateUseSearchResult(TOptions, TRouter: AnyRouter = Registere
 
 // ✓ ValidateUseParamsResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateUseParamsResult(TOptions, TRouter: AnyRouter = RegisteredRouter) {
+export function ValidateUseParamsResult(TOptions, TRouter: AnyRouter = RegisteredRouter): any {
   return Constrain(TOptions, UseParamsResult(TRouter, InferFrom(TOptions), InferStrict(TOptions), InferSelected(TOptions)))
 }
 /* compiles to:

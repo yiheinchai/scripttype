@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TBaseMapping, TDependentMapping, TElementBaseMapping, TElementListMapping, TElementMapping, TElementNamedMapping, TElementOptionalMapping, TElementReadonlyMapping, TElementReadonlyOptionalMapping, TExportKeywordMapping, TExprMapping, TExprPipeMapping, TExprReadonlyMapping, TExprTailMapping, TExprTermMapping, TExprTermTailMapping, TExtendsMapping, TFactorMapping, TGenericCallArgumentListMapping, TGenericCallArgumentsMapping, TGenericCallMapping, TGenericParameterEqualsMapping, TGenericParameterExtendsEqualsMapping, TGenericParameterExtendsMapping, TGenericParameterIdentifierMapping, TGenericParameterListMapping, TGenericParameterMapping, TGenericParametersMapping, TGenericTypeMapping, TIndexArrayMapping, TInferTypeMapping, TInterfaceDeclarationGenericMapping, TInterfaceDeclarationHeritageListMapping, TInterfaceDeclarationHeritageMapping, TInterfaceDeclarationMapping, TKeyOfMapping, TKeywordAnyMapping, TKeywordBigIntMapping, TKeywordBooleanMapping, TKeywordIntegerMapping, TKeywordNeverMapping, TKeywordNullMapping, TKeywordNumberMapping, TKeywordObjectMapping, TKeywordStringMapping, TKeywordSymbolMapping, TKeywordThisMapping, TKeywordUndefinedMapping, TKeywordUnknownMapping, TKeywordVoidMapping, TLiteralBigIntMapping, TLiteralBooleanMapping, TLiteralNumberMapping, TLiteralStringMapping, TMappedAsMapping, TMappedOptionalMapping, TMappedReadonlyMapping, TModuleDeclarationDelimiterMapping, TModuleDeclarationListMapping, TModuleDeclarationMapping, TModuleMapping, TOptionalMapping, TOptionalSemiColonMapping, TParameterBaseMapping, TParameterListMapping, TParameterMapping, TParameterOptionalMapping, TParameterReadonlyMapping, TParameterReadonlyOptionalMapping, TParameterTypeMapping, TPatternBaseMapping, TPatternBigIntMapping, TPatternBodyMapping, TPatternGroupMapping, TPatternIntegerMapping, TPatternMapping, TPatternNeverMapping, TPatternNumberMapping, TPatternStringMapping, TPatternTermMapping, TPatternTextMapping, TPatternUnionMapping, TPropertiesMapping, TPropertyDelimiterMapping, TPropertyKeyIdentMapping, TPropertyKeyIndexMapping, TPropertyKeyMapping, TPropertyKeyNumberMapping, TPropertyKeyQuotedMapping, TPropertyListMapping, TPropertyMapping, TReadonlyMapping, TReferenceMapping, TScriptMapping, TTemplateBodyMapping, TTemplateInterpolateMapping, TTemplateLiteralMapping, TTemplateLiteralTypesMapping, TTemplateSpanMapping, TTypeAliasDeclarationGenericMapping, TTypeAliasDeclarationMapping, TTypeMapping, TWithArrayMapping, TWithBigIntMapping, TWithBooleanMapping, TWithElementListMapping, TWithMapping, TWithNullMapping, TWithNumberMapping, TWithObjectMapping, TWithPropertyListMapping, TWithPropertyMapping, TWithStringMapping, TWithUndefinedMapping, TWithValueMapping, T_Constructor_Mapping, T_Function_Mapping, T_Mapped_Mapping, T_Object_Mapping, T_Tuple_Mapping } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/mapping.js'
+import type { TIdent } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/ident.js'
+import type { TUntil } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/until.js'
+import type { TUntil_1 } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/until_1.js'
 declare namespace S {
   export type TBaseMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TDependentMapping<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -141,21 +146,314 @@ declare namespace Token {
   export type TUntil<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TUntil_1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m10 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _9<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m11 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _10<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m12 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _11<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m13 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _12<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m14 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m15 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m16 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m17 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m18 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m19 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m20 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m21 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m22 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m23 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m24 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m25 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m26 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m27 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m28 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m29 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m30 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m31 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m32 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _4<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m6 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _5<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m7 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _6<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m8 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _3<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _7<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m9 {
+  export type Input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _4<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _8<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const S: any
+declare const TBaseMapping: any
+declare const TBigInt: any
+declare const TConst: any
+declare const TDependentMapping: any
+declare const TElementBaseMapping: any
+declare const TElementListMapping: any
+declare const TElementMapping: any
+declare const TElementNamedMapping: any
+declare const TElementOptionalMapping: any
+declare const TElementReadonlyMapping: any
+declare const TElementReadonlyOptionalMapping: any
+declare const TExportKeywordMapping: any
+declare const TExprMapping: any
+declare const TExprPipeMapping: any
+declare const TExprReadonlyMapping: any
+declare const TExprTailMapping: any
+declare const TExprTermMapping: any
+declare const TExprTermTailMapping: any
+declare const TExtendsMapping: any
+declare const TFactorMapping: any
+declare const TGenericCallArgumentListMapping: any
+declare const TGenericCallArgumentsMapping: any
+declare const TGenericCallMapping: any
+declare const TGenericParameterEqualsMapping: any
+declare const TGenericParameterExtendsEqualsMapping: any
+declare const TGenericParameterExtendsMapping: any
+declare const TGenericParameterIdentifierMapping: any
+declare const TGenericParameterListMapping: any
+declare const TGenericParameterMapping: any
+declare const TGenericParametersMapping: any
+declare const TGenericTypeMapping: any
+declare const TIdent: any
+declare const TIndexArrayMapping: any
+declare const TInferTypeMapping: any
+declare const TInterfaceDeclarationGenericMapping: any
+declare const TInterfaceDeclarationHeritageListMapping: any
+declare const TInterfaceDeclarationHeritageMapping: any
+declare const TInterfaceDeclarationMapping: any
+declare const TKeyOfMapping: any
+declare const TKeywordAnyMapping: any
+declare const TKeywordBigIntMapping: any
+declare const TKeywordBooleanMapping: any
+declare const TKeywordIntegerMapping: any
+declare const TKeywordNeverMapping: any
+declare const TKeywordNullMapping: any
+declare const TKeywordNumberMapping: any
+declare const TKeywordObjectMapping: any
+declare const TKeywordStringMapping: any
+declare const TKeywordSymbolMapping: any
+declare const TKeywordThisMapping: any
+declare const TKeywordUndefinedMapping: any
+declare const TKeywordUnknownMapping: any
+declare const TKeywordVoidMapping: any
+declare const TLiteralBigIntMapping: any
+declare const TLiteralBooleanMapping: any
+declare const TLiteralNumberMapping: any
+declare const TLiteralStringMapping: any
+declare const TMappedAsMapping: any
+declare const TMappedOptionalMapping: any
+declare const TMappedReadonlyMapping: any
+declare const TModuleDeclarationDelimiterMapping: any
+declare const TModuleDeclarationListMapping: any
+declare const TModuleDeclarationMapping: any
+declare const TModuleMapping: any
+declare const TNumber: any
+declare const TOptionalMapping: any
+declare const TOptionalSemiColonMapping: any
+declare const TParameterBaseMapping: any
+declare const TParameterListMapping: any
+declare const TParameterMapping: any
+declare const TParameterOptionalMapping: any
+declare const TParameterReadonlyMapping: any
+declare const TParameterReadonlyOptionalMapping: any
+declare const TParameterTypeMapping: any
+declare const TPatternBaseMapping: any
+declare const TPatternBigIntMapping: any
+declare const TPatternBodyMapping: any
+declare const TPatternGroupMapping: any
+declare const TPatternIntegerMapping: any
+declare const TPatternMapping: any
+declare const TPatternNeverMapping: any
+declare const TPatternNumberMapping: any
+declare const TPatternStringMapping: any
+declare const TPatternTermMapping: any
+declare const TPatternTextMapping: any
+declare const TPatternUnionMapping: any
+declare const TPropertiesMapping: any
+declare const TPropertyDelimiterMapping: any
+declare const TPropertyKeyIdentMapping: any
+declare const TPropertyKeyIndexMapping: any
+declare const TPropertyKeyMapping: any
+declare const TPropertyKeyNumberMapping: any
+declare const TPropertyKeyQuotedMapping: any
+declare const TPropertyListMapping: any
+declare const TPropertyMapping: any
+declare const TReadonlyMapping: any
+declare const TReferenceMapping: any
+declare const TScriptMapping: any
+declare const TString: any
+declare const TTemplateBodyMapping: any
+declare const TTemplateInterpolateMapping: any
+declare const TTemplateLiteralMapping: any
+declare const TTemplateLiteralTypesMapping: any
+declare const TTemplateSpanMapping: any
+declare const TTypeAliasDeclarationGenericMapping: any
+declare const TTypeAliasDeclarationMapping: any
+declare const TTypeMapping: any
+declare const TUntil: any
+declare const TUntil_1: any
+declare const TWithArrayMapping: any
+declare const TWithBigIntMapping: any
+declare const TWithBooleanMapping: any
+declare const TWithElementListMapping: any
+declare const TWithMapping: any
+declare const TWithNullMapping: any
+declare const TWithNumberMapping: any
+declare const TWithObjectMapping: any
+declare const TWithPropertyListMapping: any
+declare const TWithPropertyMapping: any
+declare const TWithStringMapping: any
+declare const TWithUndefinedMapping: any
+declare const TWithValueMapping: any
+declare const T_Constructor_Mapping: any
+declare const T_Function_Mapping: any
+declare const T_Mapped_Mapping: any
+declare const T_Object_Mapping: any
+declare const T_Tuple_Mapping: any
 declare const Token: any
+declare const _0: any
 type S<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TBigInt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TConst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Token<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _0<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TGenericParameterExtendsEquals: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterExtendsEquals(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('extends', m1.Input))
+export function TGenericParameterExtendsEquals(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'extends', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TType(m2.Input))
-  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(Token.TConst('=', m3.Input))
+  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(t<Token.TConst<'=', typeof m3.Input>>())
   const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(TType(m4.Input))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? [[m1._0, m2._1, m3._2, m4._3, m5._4], m5.Input] : []) : []) : []) : []) : [])
   if (m6) {
-    return [S.TGenericParameterExtendsEqualsMapping(m6._0), m6.Input]
+    return [t<S.TGenericParameterExtendsEqualsMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -168,13 +466,13 @@ export function TGenericParameterExtendsEquals(Input: string) {
 
 // ✓ TGenericParameterExtends: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterExtends(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('extends', m1.Input))
+export function TGenericParameterExtends(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'extends', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TType(m2.Input))
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TGenericParameterExtendsMapping(m4._0), m4.Input]
+    return [t<S.TGenericParameterExtendsMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -187,13 +485,13 @@ export function TGenericParameterExtends(Input: string) {
 
 // ✓ TGenericParameterEquals: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterEquals(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('=', m1.Input))
+export function TGenericParameterEquals(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'=', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TType(m2.Input))
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TGenericParameterEqualsMapping(m4._0), m4.Input]
+    return [t<S.TGenericParameterEqualsMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -206,10 +504,10 @@ export function TGenericParameterEquals(Input: string) {
 
 // ✓ TGenericParameterIdentifier: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterIdentifier(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TIdent(Input))
+export function TGenericParameterIdentifier(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
   if (m1) {
-    return [S.TGenericParameterIdentifierMapping(m1._0), m1.Input]
+    return [t<S.TGenericParameterIdentifierMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -222,14 +520,14 @@ export function TGenericParameterIdentifier(Input: string) {
 
 // ✓ TGenericParameter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameter(Input: string) {
+export function TGenericParameter(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericParameterExtendsEquals(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericParameterExtends(Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericParameterEquals(Input))
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericParameterIdentifier(Input))
   const m5 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))))
   if (m5) {
-    return [S.TGenericParameterMapping(m5._0), m5.Input]
+    return [t<S.TGenericParameterMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -242,9 +540,9 @@ export function TGenericParameter(Input: string) {
 
 // ✓ TGenericParameterList_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterList_0(Input: string, Result: unknown[] = []) {
+export function TGenericParameterList_0(Input: string, Result: unknown[] = []): any {
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericParameter(Input))
-  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(',', m4.Input))
+  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<',', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
   if (m6) {
     return TGenericParameterList_0(m6.Input, [...Result, m6._0])
@@ -260,7 +558,7 @@ export function TGenericParameterList_0(Input: string, Result: unknown[] = []) {
 
 // ✓ TGenericParameterList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterList(Input: string) {
+export function TGenericParameterList(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericParameterList_0(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericParameter(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m2 ? [[m2._0], m2.Input] : [])
@@ -268,7 +566,7 @@ export function TGenericParameterList(Input: string) {
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m5 ? [[m1._0, m5._1], m5.Input] : []) : [])
   if (m6) {
-    return [S.TGenericParameterListMapping(m6._0), m6.Input]
+    return [t<S.TGenericParameterListMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -281,13 +579,13 @@ export function TGenericParameterList(Input: string) {
 
 // ✓ TGenericParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameters(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('<', Input))
+export function TGenericParameters(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'<', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TGenericParameterList(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('>', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'>', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TGenericParametersMapping(m4._0), m4.Input]
+    return [t<S.TGenericParametersMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -300,9 +598,9 @@ export function TGenericParameters(Input: string) {
 
 // ✓ TGenericCallArgumentList_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericCallArgumentList_0(Input: string, Result: unknown[] = []) {
+export function TGenericCallArgumentList_0(Input: string, Result: unknown[] = []): any {
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TType(Input))
-  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(',', m4.Input))
+  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<',', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
   if (m6) {
     return TGenericCallArgumentList_0(m6.Input, [...Result, m6._0])
@@ -318,7 +616,7 @@ export function TGenericCallArgumentList_0(Input: string, Result: unknown[] = []
 
 // ✓ TGenericCallArgumentList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericCallArgumentList(Input: string) {
+export function TGenericCallArgumentList(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericCallArgumentList_0(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TType(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m2 ? [[m2._0], m2.Input] : [])
@@ -326,7 +624,7 @@ export function TGenericCallArgumentList(Input: string) {
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m5 ? [[m1._0, m5._1], m5.Input] : []) : [])
   if (m6) {
-    return [S.TGenericCallArgumentListMapping(m6._0), m6.Input]
+    return [t<S.TGenericCallArgumentListMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -339,13 +637,13 @@ export function TGenericCallArgumentList(Input: string) {
 
 // ✓ TGenericCallArguments: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericCallArguments(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('<', Input))
+export function TGenericCallArguments(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'<', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TGenericCallArgumentList(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('>', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'>', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TGenericCallArgumentsMapping(m4._0), m4.Input]
+    return [t<S.TGenericCallArgumentsMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -358,12 +656,12 @@ export function TGenericCallArguments(Input: string) {
 
 // ✓ TGenericCall: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericCall(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
+export function TGenericCall(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TGenericCallArguments(m1.Input))
   const m3 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   if (m3) {
-    return [S.TGenericCallMapping(m3._0), m3.Input]
+    return [t<S.TGenericCallMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -376,13 +674,13 @@ export function TGenericCall(Input: string) {
 
 // ✓ TOptionalSemiColon: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TOptionalSemiColon(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst(';', Input))
+export function TOptionalSemiColon(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<';', typeof Input>>())
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? [[m1._0], m1.Input] : [])
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m4 = matches<[ Hole<"_0", [ unknown ] | [ ]>, Hole<"Input", string> ]>(m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : []))
   if (m4) {
-    return [S.TOptionalSemiColonMapping(m4._0), m4.Input]
+    return [t<S.TOptionalSemiColonMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -395,10 +693,10 @@ export function TOptionalSemiColon(Input: string) {
 
 // ✓ TKeywordString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordString(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'string'>, Hole<"Input", string> ]>(Token.TConst('string', Input))
+export function TKeywordString(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'string'>, Hole<"Input", string> ]>(t<Token.TConst<'string', typeof Input>>())
   if (m1) {
-    return [S.TKeywordStringMapping(m1._0), m1.Input]
+    return [t<S.TKeywordStringMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -411,10 +709,10 @@ export function TKeywordString(Input: string) {
 
 // ✓ TKeywordNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordNumber(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'number'>, Hole<"Input", string> ]>(Token.TConst('number', Input))
+export function TKeywordNumber(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'number'>, Hole<"Input", string> ]>(t<Token.TConst<'number', typeof Input>>())
   if (m1) {
-    return [S.TKeywordNumberMapping(m1._0), m1.Input]
+    return [t<S.TKeywordNumberMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -427,10 +725,10 @@ export function TKeywordNumber(Input: string) {
 
 // ✓ TKeywordBoolean: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordBoolean(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'boolean'>, Hole<"Input", string> ]>(Token.TConst('boolean', Input))
+export function TKeywordBoolean(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'boolean'>, Hole<"Input", string> ]>(t<Token.TConst<'boolean', typeof Input>>())
   if (m1) {
-    return [S.TKeywordBooleanMapping(m1._0), m1.Input]
+    return [t<S.TKeywordBooleanMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -443,10 +741,10 @@ export function TKeywordBoolean(Input: string) {
 
 // ✓ TKeywordUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordUndefined(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'undefined'>, Hole<"Input", string> ]>(Token.TConst('undefined', Input))
+export function TKeywordUndefined(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'undefined'>, Hole<"Input", string> ]>(t<Token.TConst<'undefined', typeof Input>>())
   if (m1) {
-    return [S.TKeywordUndefinedMapping(m1._0), m1.Input]
+    return [t<S.TKeywordUndefinedMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -459,10 +757,10 @@ export function TKeywordUndefined(Input: string) {
 
 // ✓ TKeywordNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordNull(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'null'>, Hole<"Input", string> ]>(Token.TConst('null', Input))
+export function TKeywordNull(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'null'>, Hole<"Input", string> ]>(t<Token.TConst<'null', typeof Input>>())
   if (m1) {
-    return [S.TKeywordNullMapping(m1._0), m1.Input]
+    return [t<S.TKeywordNullMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -475,10 +773,10 @@ export function TKeywordNull(Input: string) {
 
 // ✓ TKeywordInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordInteger(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'integer'>, Hole<"Input", string> ]>(Token.TConst('integer', Input))
+export function TKeywordInteger(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'integer'>, Hole<"Input", string> ]>(t<Token.TConst<'integer', typeof Input>>())
   if (m1) {
-    return [S.TKeywordIntegerMapping(m1._0), m1.Input]
+    return [t<S.TKeywordIntegerMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -491,10 +789,10 @@ export function TKeywordInteger(Input: string) {
 
 // ✓ TKeywordBigInt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordBigInt(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'bigint'>, Hole<"Input", string> ]>(Token.TConst('bigint', Input))
+export function TKeywordBigInt(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'bigint'>, Hole<"Input", string> ]>(t<Token.TConst<'bigint', typeof Input>>())
   if (m1) {
-    return [S.TKeywordBigIntMapping(m1._0), m1.Input]
+    return [t<S.TKeywordBigIntMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -507,10 +805,10 @@ export function TKeywordBigInt(Input: string) {
 
 // ✓ TKeywordUnknown: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordUnknown(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'unknown'>, Hole<"Input", string> ]>(Token.TConst('unknown', Input))
+export function TKeywordUnknown(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'unknown'>, Hole<"Input", string> ]>(t<Token.TConst<'unknown', typeof Input>>())
   if (m1) {
-    return [S.TKeywordUnknownMapping(m1._0), m1.Input]
+    return [t<S.TKeywordUnknownMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -523,10 +821,10 @@ export function TKeywordUnknown(Input: string) {
 
 // ✓ TKeywordAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordAny(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'any'>, Hole<"Input", string> ]>(Token.TConst('any', Input))
+export function TKeywordAny(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'any'>, Hole<"Input", string> ]>(t<Token.TConst<'any', typeof Input>>())
   if (m1) {
-    return [S.TKeywordAnyMapping(m1._0), m1.Input]
+    return [t<S.TKeywordAnyMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -539,10 +837,10 @@ export function TKeywordAny(Input: string) {
 
 // ✓ TKeywordObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordObject(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'object'>, Hole<"Input", string> ]>(Token.TConst('object', Input))
+export function TKeywordObject(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'object'>, Hole<"Input", string> ]>(t<Token.TConst<'object', typeof Input>>())
   if (m1) {
-    return [S.TKeywordObjectMapping(m1._0), m1.Input]
+    return [t<S.TKeywordObjectMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -555,10 +853,10 @@ export function TKeywordObject(Input: string) {
 
 // ✓ TKeywordNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordNever(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'never'>, Hole<"Input", string> ]>(Token.TConst('never', Input))
+export function TKeywordNever(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'never'>, Hole<"Input", string> ]>(t<Token.TConst<'never', typeof Input>>())
   if (m1) {
-    return [S.TKeywordNeverMapping(m1._0), m1.Input]
+    return [t<S.TKeywordNeverMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -571,10 +869,10 @@ export function TKeywordNever(Input: string) {
 
 // ✓ TKeywordSymbol: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordSymbol(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'symbol'>, Hole<"Input", string> ]>(Token.TConst('symbol', Input))
+export function TKeywordSymbol(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'symbol'>, Hole<"Input", string> ]>(t<Token.TConst<'symbol', typeof Input>>())
   if (m1) {
-    return [S.TKeywordSymbolMapping(m1._0), m1.Input]
+    return [t<S.TKeywordSymbolMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -587,10 +885,10 @@ export function TKeywordSymbol(Input: string) {
 
 // ✓ TKeywordVoid: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordVoid(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'void'>, Hole<"Input", string> ]>(Token.TConst('void', Input))
+export function TKeywordVoid(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'void'>, Hole<"Input", string> ]>(t<Token.TConst<'void', typeof Input>>())
   if (m1) {
-    return [S.TKeywordVoidMapping(m1._0), m1.Input]
+    return [t<S.TKeywordVoidMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -603,10 +901,10 @@ export function TKeywordVoid(Input: string) {
 
 // ✓ TKeywordThis: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordThis(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'this'>, Hole<"Input", string> ]>(Token.TConst('this', Input))
+export function TKeywordThis(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'this'>, Hole<"Input", string> ]>(t<Token.TConst<'this', typeof Input>>())
   if (m1) {
-    return [S.TKeywordThisMapping(m1._0), m1.Input]
+    return [t<S.TKeywordThisMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -619,13 +917,13 @@ export function TKeywordThis(Input: string) {
 
 // ✓ TTemplateInterpolate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateInterpolate(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('${', Input))
+export function TTemplateInterpolate(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'${', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TType(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('}', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'}', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TTemplateInterpolateMapping(m4._0), m4.Input]
+    return [t<S.TTemplateInterpolateMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -638,10 +936,10 @@ export function TTemplateInterpolate(Input: string) {
 
 // ✓ TTemplateSpan: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateSpan(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TUntil(['${', '`'], Input))
+export function TTemplateSpan(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TUntil<[ '${', '`' ], typeof Input>>())
   if (m1) {
-    return [S.TTemplateSpanMapping(m1._0), m1.Input]
+    return [t<S.TTemplateSpanMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -654,7 +952,7 @@ export function TTemplateSpan(Input: string) {
 
 // ✓ TTemplateBody: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateBody(Input: string) {
+export function TTemplateBody(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TTemplateSpan(Input))
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TTemplateInterpolate(m1.Input))
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TTemplateBody(m2.Input))
@@ -665,7 +963,7 @@ export function TTemplateBody(Input: string) {
   const m8 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m7 ? [[m7._0], m7.Input] : [])
   const m9 = matches<[ Hole<"_0", [ unknown, unknown, unknown ] | [ unknown ]>, Hole<"Input", string> ]>(m4 ? [m4._0, m4.Input] : (m6 ? [m6._0, m6.Input] : (m8 ? [m8._0, m8.Input] : [])))
   if (m9) {
-    return [S.TTemplateBodyMapping(m9._0), m9.Input]
+    return [t<S.TTemplateBodyMapping<typeof m9._0>>(), m9.Input]
   }
   return []
 }
@@ -678,13 +976,13 @@ export function TTemplateBody(Input: string) {
 
 // ✓ TTemplateLiteralTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralTypes(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('`', Input))
+export function TTemplateLiteralTypes(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'`', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TTemplateBody(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('`', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'`', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TTemplateLiteralTypesMapping(m4._0), m4.Input]
+    return [t<S.TTemplateLiteralTypesMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -697,10 +995,10 @@ export function TTemplateLiteralTypes(Input: string) {
 
 // ✓ TTemplateLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteral(Input: string) {
+export function TTemplateLiteral(Input: string): any {
   const m1 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(TTemplateLiteralTypes(Input))
   if (m1) {
-    return [S.TTemplateLiteralMapping(m1._0), m1.Input]
+    return [t<S.TTemplateLiteralMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -713,22 +1011,22 @@ export function TTemplateLiteral(Input: string) {
 
 // ✓ TDependent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDependent(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('if', Input))
+export function TDependent(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'if', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TType(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('then', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'then', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TType(m3.Input))
-  const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(Token.TConst('else', m4.Input))
+  const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(t<Token.TConst<'else', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_5">, Hole<"Input", string> ]>(TType(m5.Input))
   const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? (m6 ? [[m1._0, m2._1, m3._2, m4._3, m5._4, m6._5], m6.Input] : []) : []) : []) : []) : []) : [])
-  const m8 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('if', Input))
+  const m8 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'if', typeof Input>>())
   const m9 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TType(m8.Input))
-  const m10 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('then', m9.Input))
+  const m10 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'then', typeof m9.Input>>())
   const m11 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TType(m10.Input))
   const m12 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m8 ? (m9 ? (m10 ? (m11 ? [[m8._0, m9._1, m10._2, m11._3], m11.Input] : []) : []) : []) : [])
   const m13 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown, unknown ] | [ unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m7 ? [m7._0, m7.Input] : (m12 ? [m12._0, m12.Input] : []))
   if (m13) {
-    return [S.TDependentMapping(m13._0), m13.Input]
+    return [t<S.TDependentMapping<typeof m13._0>>(), m13.Input]
   }
   return []
 }
@@ -741,10 +1039,10 @@ export function TDependent(Input: string) {
 
 // ✓ TLiteralBigInt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLiteralBigInt(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TBigInt(Input))
+export function TLiteralBigInt(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TBigInt<typeof Input>>())
   if (m1) {
-    return [S.TLiteralBigIntMapping(m1._0), m1.Input]
+    return [t<S.TLiteralBigIntMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -757,12 +1055,12 @@ export function TLiteralBigInt(Input: string) {
 
 // ✓ TLiteralBoolean: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLiteralBoolean(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('true', Input))
-  const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('false', Input))
+export function TLiteralBoolean(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'true', typeof Input>>())
+  const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'false', typeof Input>>())
   const m3 = matches<[ Hole<"_0", 'true' | 'false'>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : []))
   if (m3) {
-    return [S.TLiteralBooleanMapping(m3._0), m3.Input]
+    return [t<S.TLiteralBooleanMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -775,10 +1073,10 @@ export function TLiteralBoolean(Input: string) {
 
 // ✓ TLiteralNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLiteralNumber(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TNumber(Input))
+export function TLiteralNumber(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TNumber<typeof Input>>())
   if (m1) {
-    return [S.TLiteralNumberMapping(m1._0), m1.Input]
+    return [t<S.TLiteralNumberMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -791,10 +1089,10 @@ export function TLiteralNumber(Input: string) {
 
 // ✓ TLiteralString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLiteralString(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TString(['\'', '"'], Input))
+export function TLiteralString(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TString<[ '\'', '\"' ], typeof Input>>())
   if (m1) {
-    return [S.TLiteralStringMapping(m1._0), m1.Input]
+    return [t<S.TLiteralStringMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -807,13 +1105,13 @@ export function TLiteralString(Input: string) {
 
 // ✓ TKeyOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeyOf(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('keyof', Input))
+export function TKeyOf(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'keyof', typeof Input>>())
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? [[m1._0], m1.Input] : [])
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m4 = matches<[ Hole<"_0", [ unknown ] | [ ]>, Hole<"Input", string> ]>(m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : []))
   if (m4) {
-    return [S.TKeyOfMapping(m4._0), m4.Input]
+    return [t<S.TKeyOfMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -826,13 +1124,13 @@ export function TKeyOf(Input: string) {
 
 // ✓ TIndexArray_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndexArray_0(Input: string, Result: unknown[] = []) {
-  const m9 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('[', Input))
+export function TIndexArray_0(Input: string, Result: unknown[] = []): any {
+  const m9 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'[', typeof Input>>())
   const m10 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TType(m9.Input))
-  const m11 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(']', m10.Input))
+  const m11 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<']', typeof m10.Input>>())
   const m12 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m9 ? (m10 ? (m11 ? [[m9._0, m10._1, m11._2], m11.Input] : []) : []) : [])
-  const m13 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('[', Input))
-  const m14 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(']', m13.Input))
+  const m13 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'[', typeof Input>>())
+  const m14 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<']', typeof m13.Input>>())
   const m15 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m13 ? (m14 ? [[m13._0, m14._1], m14.Input] : []) : [])
   const m16 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m12 ? [m12._0, m12.Input] : (m15 ? [m15._0, m15.Input] : []))
   if (m16) {
@@ -849,10 +1147,10 @@ export function TIndexArray_0(Input: string, Result: unknown[] = []) {
 
 // ✓ TIndexArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndexArray(Input: string) {
+export function TIndexArray(Input: string): any {
   const m1 = matches<[ Hole<"_0", ([ unknown, unknown, unknown ] | [ unknown, unknown ])[]>, Hole<"Input", string> ]>(TIndexArray_0(Input))
   if (m1) {
-    return [S.TIndexArrayMapping(m1._0), m1.Input]
+    return [t<S.TIndexArrayMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -865,18 +1163,18 @@ export function TIndexArray(Input: string) {
 
 // ✓ TExtends: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtends(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('extends', Input))
+export function TExtends(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'extends', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TType(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('?', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TType(m3.Input))
-  const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(Token.TConst(':', m4.Input))
+  const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_5">, Hole<"Input", string> ]>(TType(m5.Input))
   const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? (m6 ? [[m1._0, m2._1, m3._2, m4._3, m5._4, m6._5], m6.Input] : []) : []) : []) : []) : []) : [])
   const m8 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m9 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown, unknown ] | [ ]>, Hole<"Input", string> ]>(m7 ? [m7._0, m7.Input] : (m8 ? [m8._0, m8.Input] : []))
   if (m9) {
-    return [S.TExtendsMapping(m9._0), m9.Input]
+    return [t<S.TExtendsMapping<typeof m9._0>>(), m9.Input]
   }
   return []
 }
@@ -889,10 +1187,10 @@ export function TExtends(Input: string) {
 
 // ✓ TBase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBase(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('(', Input))
+export function TBase(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'(', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TType(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(')', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<')', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TKeywordString(Input))
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TKeywordNumber(Input))
@@ -923,7 +1221,7 @@ export function TBase(Input: string) {
   const m31 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TReference(Input))
   const m32 = matches<[ Hole<"_0", [ unknown, unknown, unknown ] | unknown>, Hole<"Input", string> ]>(m4 ? [m4._0, m4.Input] : (m5 ? [m5._0, m5.Input] : (m6 ? [m6._0, m6.Input] : (m7 ? [m7._0, m7.Input] : (m8 ? [m8._0, m8.Input] : (m9 ? [m9._0, m9.Input] : (m10 ? [m10._0, m10.Input] : (m11 ? [m11._0, m11.Input] : (m12 ? [m12._0, m12.Input] : (m13 ? [m13._0, m13.Input] : (m14 ? [m14._0, m14.Input] : (m15 ? [m15._0, m15.Input] : (m16 ? [m16._0, m16.Input] : (m17 ? [m17._0, m17.Input] : (m18 ? [m18._0, m18.Input] : (m19 ? [m19._0, m19.Input] : (m20 ? [m20._0, m20.Input] : (m21 ? [m21._0, m21.Input] : (m22 ? [m22._0, m22.Input] : (m23 ? [m23._0, m23.Input] : (m24 ? [m24._0, m24.Input] : (m25 ? [m25._0, m25.Input] : (m26 ? [m26._0, m26.Input] : (m27 ? [m27._0, m27.Input] : (m28 ? [m28._0, m28.Input] : (m29 ? [m29._0, m29.Input] : (m30 ? [m30._0, m30.Input] : (m31 ? [m31._0, m31.Input] : []))))))))))))))))))))))))))))
   if (m32) {
-    return [S.TBaseMapping(m32._0), m32.Input]
+    return [t<S.TBaseMapping<typeof m32._0>>(), m32.Input]
   }
   return []
 }
@@ -936,14 +1234,14 @@ export function TBase(Input: string) {
 
 // ✓ TWith: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWith(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('with', Input))
+export function TWith(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'with', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TWithObject(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m5 = matches<[ Hole<"_0", [ unknown, unknown ] | [ ]>, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   if (m5) {
-    return [S.TWithMapping(m5._0), m5.Input]
+    return [t<S.TWithMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -956,7 +1254,7 @@ export function TWith(Input: string) {
 
 // ✓ TFactor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFactor(Input: string) {
+export function TFactor(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TKeyOf(Input))
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TBase(m1.Input))
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TIndexArray(m2.Input))
@@ -964,7 +1262,7 @@ export function TFactor(Input: string) {
   const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(TWith(m4.Input))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? [[m1._0, m2._1, m3._2, m4._3, m5._4], m5.Input] : []) : []) : []) : []) : [])
   if (m6) {
-    return [S.TFactorMapping(m6._0), m6.Input]
+    return [t<S.TFactorMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -977,15 +1275,15 @@ export function TFactor(Input: string) {
 
 // ✓ TExprTermTail: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprTermTail(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('&', Input))
+export function TExprTermTail(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'&', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TFactor(m1.Input))
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TExprTermTail(m2.Input))
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m6 = matches<[ Hole<"_0", [ unknown, unknown, unknown ] | [ ]>, Hole<"Input", string> ]>(m4 ? [m4._0, m4.Input] : (m5 ? [m5._0, m5.Input] : []))
   if (m6) {
-    return [S.TExprTermTailMapping(m6._0), m6.Input]
+    return [t<S.TExprTermTailMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -998,12 +1296,12 @@ export function TExprTermTail(Input: string) {
 
 // ✓ TExprTerm: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprTerm(Input: string) {
+export function TExprTerm(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TFactor(Input))
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TExprTermTail(m1.Input))
   const m3 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   if (m3) {
-    return [S.TExprTermMapping(m3._0), m3.Input]
+    return [t<S.TExprTermMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -1016,15 +1314,15 @@ export function TExprTerm(Input: string) {
 
 // ✓ TExprTail: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprTail(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('|', Input))
+export function TExprTail(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'|', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TExprTerm(m1.Input))
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TExprTail(m2.Input))
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m6 = matches<[ Hole<"_0", [ unknown, unknown, unknown ] | [ ]>, Hole<"Input", string> ]>(m4 ? [m4._0, m4.Input] : (m5 ? [m5._0, m5.Input] : []))
   if (m6) {
-    return [S.TExprTailMapping(m6._0), m6.Input]
+    return [t<S.TExprTailMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1037,12 +1335,12 @@ export function TExprTail(Input: string) {
 
 // ✓ TExpr: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExpr(Input: string) {
+export function TExpr(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TExprTerm(Input))
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TExprTail(m1.Input))
   const m3 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   if (m3) {
-    return [S.TExprMapping(m3._0), m3.Input]
+    return [t<S.TExprMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -1055,12 +1353,12 @@ export function TExpr(Input: string) {
 
 // ✓ TExprReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprReadonly(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('readonly', Input))
+export function TExprReadonly(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TExpr(m1.Input))
   const m3 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   if (m3) {
-    return [S.TExprReadonlyMapping(m3._0), m3.Input]
+    return [t<S.TExprReadonlyMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -1073,12 +1371,12 @@ export function TExprReadonly(Input: string) {
 
 // ✓ TExprPipe: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprPipe(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('|', Input))
+export function TExprPipe(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'|', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TExpr(m1.Input))
   const m3 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   if (m3) {
-    return [S.TExprPipeMapping(m3._0), m3.Input]
+    return [t<S.TExprPipeMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -1091,13 +1389,13 @@ export function TExprPipe(Input: string) {
 
 // ✓ TGenericType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericType(Input: string) {
+export function TGenericType(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericParameters(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('=', m1.Input))
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'=', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TType(m2.Input))
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TGenericTypeMapping(m4._0), m4.Input]
+    return [t<S.TGenericTypeMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -1110,18 +1408,18 @@ export function TGenericType(Input: string) {
 
 // ✓ TInferType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInferType(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('infer', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TIdent(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('extends', m2.Input))
+export function TInferType(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'infer', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TIdent<typeof m1.Input>>())
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'extends', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TExpr(m3.Input))
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? [[m1._0, m2._1, m3._2, m4._3], m4.Input] : []) : []) : []) : [])
-  const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('infer', Input))
-  const m7 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TIdent(m6.Input))
+  const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'infer', typeof Input>>())
+  const m7 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TIdent<typeof m6.Input>>())
   const m8 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m6 ? (m7 ? [[m6._0, m7._1], m7.Input] : []) : [])
   const m9 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown ] | [ unknown, unknown ]>, Hole<"Input", string> ]>(m5 ? [m5._0, m5.Input] : (m8 ? [m8._0, m8.Input] : []))
   if (m9) {
-    return [S.TInferTypeMapping(m9._0), m9.Input]
+    return [t<S.TInferTypeMapping<typeof m9._0>>(), m9.Input]
   }
   return []
 }
@@ -1134,14 +1432,14 @@ export function TInferType(Input: string) {
 
 // ✓ TType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TType(Input: string) {
+export function TType(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TInferType(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TExprPipe(Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TExprReadonly(Input))
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TExpr(Input))
   const m5 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))))
   if (m5) {
-    return [S.TTypeMapping(m5._0), m5.Input]
+    return [t<S.TTypeMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -1154,10 +1452,10 @@ export function TType(Input: string) {
 
 // ✓ TPropertyKeyNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeyNumber(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TNumber(Input))
+export function TPropertyKeyNumber(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TNumber<typeof Input>>())
   if (m1) {
-    return [S.TPropertyKeyNumberMapping(m1._0), m1.Input]
+    return [t<S.TPropertyKeyNumberMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -1170,10 +1468,10 @@ export function TPropertyKeyNumber(Input: string) {
 
 // ✓ TPropertyKeyIdent: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeyIdent(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TIdent(Input))
+export function TPropertyKeyIdent(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
   if (m1) {
-    return [S.TPropertyKeyIdentMapping(m1._0), m1.Input]
+    return [t<S.TPropertyKeyIdentMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -1186,10 +1484,10 @@ export function TPropertyKeyIdent(Input: string) {
 
 // ✓ TPropertyKeyQuoted: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeyQuoted(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TString(['\'', '"'], Input))
+export function TPropertyKeyQuoted(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TString<[ '\'', '\"' ], typeof Input>>())
   if (m1) {
-    return [S.TPropertyKeyQuotedMapping(m1._0), m1.Input]
+    return [t<S.TPropertyKeyQuotedMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -1202,19 +1500,19 @@ export function TPropertyKeyQuoted(Input: string) {
 
 // ✓ TPropertyKeyIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeyIndex(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('[', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TIdent(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(':', m2.Input))
+export function TPropertyKeyIndex(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'[', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TIdent<typeof m1.Input>>())
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TKeywordInteger(m3.Input))
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TKeywordNumber(m3.Input))
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TKeywordString(m3.Input))
   const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TKeywordSymbol(m3.Input))
   const m8 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(m4 ? [m4._0, m4.Input] : (m5 ? [m5._0, m5.Input] : (m6 ? [m6._0, m6.Input] : (m7 ? [m7._0, m7.Input] : []))))
-  const m9 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(Token.TConst(']', m8.Input))
+  const m9 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(t<Token.TConst<']', typeof m8.Input>>())
   const m10 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m8 ? (m9 ? [[m1._0, m2._1, m3._2, m8._3, m9._4], m9.Input] : []) : []) : []) : []) : [])
   if (m10) {
-    return [S.TPropertyKeyIndexMapping(m10._0), m10.Input]
+    return [t<S.TPropertyKeyIndexMapping<typeof m10._0>>(), m10.Input]
   }
   return []
 }
@@ -1227,14 +1525,14 @@ export function TPropertyKeyIndex(Input: string) {
 
 // ✓ TPropertyKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKey(Input: string) {
+export function TPropertyKey(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPropertyKeyNumber(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPropertyKeyIdent(Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPropertyKeyQuoted(Input))
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPropertyKeyIndex(Input))
   const m5 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))))
   if (m5) {
-    return [S.TPropertyKeyMapping(m5._0), m5.Input]
+    return [t<S.TPropertyKeyMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -1247,13 +1545,13 @@ export function TPropertyKey(Input: string) {
 
 // ✓ TReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TReadonly(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('readonly', Input))
+export function TReadonly(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof Input>>())
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? [[m1._0], m1.Input] : [])
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m4 = matches<[ Hole<"_0", [ unknown ] | [ ]>, Hole<"Input", string> ]>(m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : []))
   if (m4) {
-    return [S.TReadonlyMapping(m4._0), m4.Input]
+    return [t<S.TReadonlyMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -1266,13 +1564,13 @@ export function TReadonly(Input: string) {
 
 // ✓ TOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TOptional(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('?', Input))
+export function TOptional(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof Input>>())
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? [[m1._0], m1.Input] : [])
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m4 = matches<[ Hole<"_0", [ unknown ] | [ ]>, Hole<"Input", string> ]>(m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : []))
   if (m4) {
-    return [S.TOptionalMapping(m4._0), m4.Input]
+    return [t<S.TOptionalMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -1285,15 +1583,15 @@ export function TOptional(Input: string) {
 
 // ✓ TProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TProperty(Input: string) {
+export function TProperty(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TReadonly(Input))
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TPropertyKey(m1.Input))
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TOptional(m2.Input))
-  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(Token.TConst(':', m3.Input))
+  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m3.Input>>())
   const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(TType(m4.Input))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? [[m1._0, m2._1, m3._2, m4._3, m5._4], m5.Input] : []) : []) : []) : []) : [])
   if (m6) {
-    return [S.TPropertyMapping(m6._0), m6.Input]
+    return [t<S.TPropertyMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1305,34 +1603,40 @@ export function TProperty(Input: string) {
  */
 
 // ✗ TPropertyDelimiter: does not compile yet
-//   Unterminated string literal.
+//   Generic type 'TConst' requires 2 type argument(s).
 /* @scripttype preserveParamNames */
-export function TPropertyDelimiter(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst(',', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('
-', m1.Input))
+export function TPropertyDelimiter(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<',', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'\n', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
-  const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst(';', Input))
-  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('
-', m4.Input))
+  const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<';', typeof Input>>())
+  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'\n', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
-  const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst(',', Input))
+  const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<',', typeof Input>>())
   const m8 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m7 ? [[m7._0], m7.Input] : [])
-  const m9 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst(';', Input))
+  const m9 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<';', typeof Input>>())
   const m10 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m9 ? [[m9._0], m9.Input] : [])
-  const m11 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('
-', Input))
+  const m11 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'\n', typeof Input>>())
   const m12 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m11 ? [[m11._0], m11.Input] : [])
   const m13 = matches<[ Hole<"_0", [ unknown, unknown ] | [ unknown ]>, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m6 ? [m6._0, m6.Input] : (m8 ? [m8._0, m8.Input] : (m10 ? [m10._0, m10.Input] : (m12 ? [m12._0, m12.Input] : [])))))
   if (m13) {
-    return [S.TPropertyDelimiterMapping(m13._0), m13.Input]
+    return [t<S.TPropertyDelimiterMapping<typeof m13._0>>(), m13.Input]
   }
   return []
 }
+/* compiles to:
+ * export type TPropertyDelimiter<Input extends string> =
+ *   ((Token.TConst<',', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'
+ * ', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<';', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'
+ * ', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<',', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<';', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'
+ * ', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown], infer Input extends string]
+ *     ? [S.TPropertyDelimiterMapping<_0>, Input]
+ *     : []
+ */
 
 // ✓ TPropertyList_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyList_0(Input: string, Result: unknown[] = []) {
+export function TPropertyList_0(Input: string, Result: unknown[] = []): any {
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TProperty(Input))
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TPropertyDelimiter(m4.Input))
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
@@ -1350,7 +1654,7 @@ export function TPropertyList_0(Input: string, Result: unknown[] = []) {
 
 // ✓ TPropertyList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyList(Input: string) {
+export function TPropertyList(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPropertyList_0(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TProperty(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m2 ? [[m2._0], m2.Input] : [])
@@ -1358,7 +1662,7 @@ export function TPropertyList(Input: string) {
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m5 ? [[m1._0, m5._1], m5.Input] : []) : [])
   if (m6) {
-    return [S.TPropertyListMapping(m6._0), m6.Input]
+    return [t<S.TPropertyListMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1371,13 +1675,13 @@ export function TPropertyList(Input: string) {
 
 // ✓ TProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TProperties(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('{', Input))
+export function TProperties(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'{', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TPropertyList(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('}', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'}', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TPropertiesMapping(m4._0), m4.Input]
+    return [t<S.TPropertiesMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -1390,10 +1694,10 @@ export function TProperties(Input: string) {
 
 // ✓ T_Object_: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Object_(Input: string) {
+export function T_Object_(Input: string): any {
   const m1 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(TProperties(Input))
   if (m1) {
-    return [S.T_Object_Mapping(m1._0), m1.Input]
+    return [t<S.T_Object_Mapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -1406,30 +1710,30 @@ export function T_Object_(Input: string) {
 
 // ✓ TElementNamed: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementNamed(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('?', m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(':', m2.Input))
-  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(Token.TConst('readonly', m3.Input))
+export function TElementNamed(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof m1.Input>>())
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m2.Input>>())
+  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof m3.Input>>())
   const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(TType(m4.Input))
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? [[m1._0, m2._1, m3._2, m4._3, m5._4], m5.Input] : []) : []) : []) : []) : [])
-  const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m8 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(':', m7.Input))
-  const m9 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('readonly', m8.Input))
+  const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m8 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m7.Input>>())
+  const m9 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof m8.Input>>())
   const m10 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TType(m9.Input))
   const m11 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m7 ? (m8 ? (m9 ? (m10 ? [[m7._0, m8._1, m9._2, m10._3], m10.Input] : []) : []) : []) : [])
-  const m12 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m13 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('?', m12.Input))
-  const m14 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(':', m13.Input))
+  const m12 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m13 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof m12.Input>>())
+  const m14 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m13.Input>>())
   const m15 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TType(m14.Input))
   const m16 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m12 ? (m13 ? (m14 ? (m15 ? [[m12._0, m13._1, m14._2, m15._3], m15.Input] : []) : []) : []) : [])
-  const m17 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m18 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(':', m17.Input))
+  const m17 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m18 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m17.Input>>())
   const m19 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TType(m18.Input))
   const m20 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m17 ? (m18 ? (m19 ? [[m17._0, m18._1, m19._2], m19.Input] : []) : []) : [])
   const m21 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown ] | [ unknown, unknown, unknown, unknown ] | [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m6 ? [m6._0, m6.Input] : (m11 ? [m11._0, m11.Input] : (m16 ? [m16._0, m16.Input] : (m20 ? [m20._0, m20.Input] : []))))
   if (m21) {
-    return [S.TElementNamedMapping(m21._0), m21.Input]
+    return [t<S.TElementNamedMapping<typeof m21._0>>(), m21.Input]
   }
   return []
 }
@@ -1442,13 +1746,13 @@ export function TElementNamed(Input: string) {
 
 // ✓ TElementReadonlyOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementReadonlyOptional(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('readonly', Input))
+export function TElementReadonlyOptional(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TType(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('?', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TElementReadonlyOptionalMapping(m4._0), m4.Input]
+    return [t<S.TElementReadonlyOptionalMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -1461,12 +1765,12 @@ export function TElementReadonlyOptional(Input: string) {
 
 // ✓ TElementReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementReadonly(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('readonly', Input))
+export function TElementReadonly(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TType(m1.Input))
   const m3 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   if (m3) {
-    return [S.TElementReadonlyMapping(m3._0), m3.Input]
+    return [t<S.TElementReadonlyMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -1479,12 +1783,12 @@ export function TElementReadonly(Input: string) {
 
 // ✓ TElementOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementOptional(Input: string) {
+export function TElementOptional(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TType(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('?', m1.Input))
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   if (m3) {
-    return [S.TElementOptionalMapping(m3._0), m3.Input]
+    return [t<S.TElementOptionalMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -1497,7 +1801,7 @@ export function TElementOptional(Input: string) {
 
 // ✓ TElementBase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementBase(Input: string) {
+export function TElementBase(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TElementNamed(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TElementReadonlyOptional(Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TElementReadonly(Input))
@@ -1505,7 +1809,7 @@ export function TElementBase(Input: string) {
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TType(Input))
   const m6 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : (m5 ? [m5._0, m5.Input] : [])))))
   if (m6) {
-    return [S.TElementBaseMapping(m6._0), m6.Input]
+    return [t<S.TElementBaseMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1518,15 +1822,15 @@ export function TElementBase(Input: string) {
 
 // ✓ TElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElement(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('...', Input))
+export function TElement(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'...', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TElementBase(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TElementBase(Input))
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? [[m4._0], m4.Input] : [])
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ] | [ unknown ]>, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m5 ? [m5._0, m5.Input] : []))
   if (m6) {
-    return [S.TElementMapping(m6._0), m6.Input]
+    return [t<S.TElementMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1539,9 +1843,9 @@ export function TElement(Input: string) {
 
 // ✓ TElementList_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementList_0(Input: string, Result: unknown[] = []) {
+export function TElementList_0(Input: string, Result: unknown[] = []): any {
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TElement(Input))
-  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(',', m4.Input))
+  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<',', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
   if (m6) {
     return TElementList_0(m6.Input, [...Result, m6._0])
@@ -1557,7 +1861,7 @@ export function TElementList_0(Input: string, Result: unknown[] = []) {
 
 // ✓ TElementList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementList(Input: string) {
+export function TElementList(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TElementList_0(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TElement(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m2 ? [[m2._0], m2.Input] : [])
@@ -1565,7 +1869,7 @@ export function TElementList(Input: string) {
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m5 ? [[m1._0, m5._1], m5.Input] : []) : [])
   if (m6) {
-    return [S.TElementListMapping(m6._0), m6.Input]
+    return [t<S.TElementListMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1578,13 +1882,13 @@ export function TElementList(Input: string) {
 
 // ✓ T_Tuple_: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Tuple_(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('[', Input))
+export function T_Tuple_(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'[', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TElementList(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(']', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<']', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.T_Tuple_Mapping(m4._0), m4.Input]
+    return [t<S.T_Tuple_Mapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -1597,15 +1901,15 @@ export function T_Tuple_(Input: string) {
 
 // ✓ TParameterReadonlyOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterReadonlyOptional(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('?', m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(':', m2.Input))
-  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(Token.TConst('readonly', m3.Input))
+export function TParameterReadonlyOptional(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof m1.Input>>())
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m2.Input>>())
+  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof m3.Input>>())
   const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(TType(m4.Input))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? [[m1._0, m2._1, m3._2, m4._3, m5._4], m5.Input] : []) : []) : []) : []) : [])
   if (m6) {
-    return [S.TParameterReadonlyOptionalMapping(m6._0), m6.Input]
+    return [t<S.TParameterReadonlyOptionalMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1618,14 +1922,14 @@ export function TParameterReadonlyOptional(Input: string) {
 
 // ✓ TParameterReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterReadonly(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(':', m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('readonly', m2.Input))
+export function TParameterReadonly(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m1.Input>>())
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TType(m3.Input))
   const m5 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? [[m1._0, m2._1, m3._2, m4._3], m4.Input] : []) : []) : []) : [])
   if (m5) {
-    return [S.TParameterReadonlyMapping(m5._0), m5.Input]
+    return [t<S.TParameterReadonlyMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -1638,14 +1942,14 @@ export function TParameterReadonly(Input: string) {
 
 // ✓ TParameterOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterOptional(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('?', m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(':', m2.Input))
+export function TParameterOptional(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof m1.Input>>())
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TType(m3.Input))
   const m5 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? [[m1._0, m2._1, m3._2, m4._3], m4.Input] : []) : []) : []) : [])
   if (m5) {
-    return [S.TParameterOptionalMapping(m5._0), m5.Input]
+    return [t<S.TParameterOptionalMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -1658,13 +1962,13 @@ export function TParameterOptional(Input: string) {
 
 // ✓ TParameterType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterType(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TIdent(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(':', m1.Input))
+export function TParameterType(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TType(m2.Input))
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TParameterTypeMapping(m4._0), m4.Input]
+    return [t<S.TParameterTypeMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -1677,14 +1981,14 @@ export function TParameterType(Input: string) {
 
 // ✓ TParameterBase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterBase(Input: string) {
+export function TParameterBase(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TParameterReadonlyOptional(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TParameterReadonly(Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TParameterOptional(Input))
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TParameterType(Input))
   const m5 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))))
   if (m5) {
-    return [S.TParameterBaseMapping(m5._0), m5.Input]
+    return [t<S.TParameterBaseMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -1697,15 +2001,15 @@ export function TParameterBase(Input: string) {
 
 // ✓ TParameter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameter(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('...', Input))
+export function TParameter(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'...', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TParameterBase(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TParameterBase(Input))
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? [[m4._0], m4.Input] : [])
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ] | [ unknown ]>, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m5 ? [m5._0, m5.Input] : []))
   if (m6) {
-    return [S.TParameterMapping(m6._0), m6.Input]
+    return [t<S.TParameterMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1718,9 +2022,9 @@ export function TParameter(Input: string) {
 
 // ✓ TParameterList_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterList_0(Input: string, Result: unknown[] = []) {
+export function TParameterList_0(Input: string, Result: unknown[] = []): any {
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TParameter(Input))
-  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(',', m4.Input))
+  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<',', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
   if (m6) {
     return TParameterList_0(m6.Input, [...Result, m6._0])
@@ -1736,7 +2040,7 @@ export function TParameterList_0(Input: string, Result: unknown[] = []) {
 
 // ✓ TParameterList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterList(Input: string) {
+export function TParameterList(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TParameterList_0(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TParameter(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m2 ? [[m2._0], m2.Input] : [])
@@ -1744,7 +2048,7 @@ export function TParameterList(Input: string) {
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m5 ? [[m1._0, m5._1], m5.Input] : []) : [])
   if (m6) {
-    return [S.TParameterListMapping(m6._0), m6.Input]
+    return [t<S.TParameterListMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1757,15 +2061,15 @@ export function TParameterList(Input: string) {
 
 // ✓ T_Function_: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Function_(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('(', Input))
+export function T_Function_(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'(', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TParameterList(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(')', m2.Input))
-  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(Token.TConst('=>', m3.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<')', typeof m2.Input>>())
+  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(t<Token.TConst<'=>', typeof m3.Input>>())
   const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(TType(m4.Input))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? [[m1._0, m2._1, m3._2, m4._3, m5._4], m5.Input] : []) : []) : []) : []) : [])
   if (m6) {
-    return [S.T_Function_Mapping(m6._0), m6.Input]
+    return [t<S.T_Function_Mapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -1778,16 +2082,16 @@ export function T_Function_(Input: string) {
 
 // ✓ T_Constructor_: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Constructor_(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('new', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('(', m1.Input))
+export function T_Constructor_(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'new', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'(', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TParameterList(m2.Input))
-  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(Token.TConst(')', m3.Input))
-  const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(Token.TConst('=>', m4.Input))
+  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(t<Token.TConst<')', typeof m3.Input>>())
+  const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(t<Token.TConst<'=>', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_5">, Hole<"Input", string> ]>(TType(m5.Input))
   const m7 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? (m6 ? [[m1._0, m2._1, m3._2, m4._3, m5._4, m6._5], m6.Input] : []) : []) : []) : []) : []) : [])
   if (m7) {
-    return [S.T_Constructor_Mapping(m7._0), m7.Input]
+    return [t<S.T_Constructor_Mapping<typeof m7._0>>(), m7.Input]
   }
   return []
 }
@@ -1800,19 +2104,19 @@ export function T_Constructor_(Input: string) {
 
 // ✓ TMappedReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedReadonly(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('+', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('readonly', m1.Input))
+export function TMappedReadonly(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'+', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
-  const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('-', Input))
-  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('readonly', m4.Input))
+  const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'-', typeof Input>>())
+  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
-  const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('readonly', Input))
+  const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'readonly', typeof Input>>())
   const m8 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m7 ? [[m7._0], m7.Input] : [])
   const m9 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m10 = matches<[ Hole<"_0", [ unknown, unknown ] | [ unknown ] | [ ]>, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m6 ? [m6._0, m6.Input] : (m8 ? [m8._0, m8.Input] : (m9 ? [m9._0, m9.Input] : []))))
   if (m10) {
-    return [S.TMappedReadonlyMapping(m10._0), m10.Input]
+    return [t<S.TMappedReadonlyMapping<typeof m10._0>>(), m10.Input]
   }
   return []
 }
@@ -1825,19 +2129,19 @@ export function TMappedReadonly(Input: string) {
 
 // ✓ TMappedOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedOptional(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('+', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('?', m1.Input))
+export function TMappedOptional(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'+', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
-  const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('-', Input))
-  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('?', m4.Input))
+  const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'-', typeof Input>>())
+  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
-  const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('?', Input))
+  const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'?', typeof Input>>())
   const m8 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m7 ? [[m7._0], m7.Input] : [])
   const m9 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m10 = matches<[ Hole<"_0", [ unknown, unknown ] | [ unknown ] | [ ]>, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m6 ? [m6._0, m6.Input] : (m8 ? [m8._0, m8.Input] : (m9 ? [m9._0, m9.Input] : []))))
   if (m10) {
-    return [S.TMappedOptionalMapping(m10._0), m10.Input]
+    return [t<S.TMappedOptionalMapping<typeof m10._0>>(), m10.Input]
   }
   return []
 }
@@ -1850,14 +2154,14 @@ export function TMappedOptional(Input: string) {
 
 // ✓ TMappedAs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedAs(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('as', Input))
+export function TMappedAs(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'as', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TType(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m5 = matches<[ Hole<"_0", [ unknown, unknown ] | [ ]>, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   if (m5) {
-    return [S.TMappedAsMapping(m5._0), m5.Input]
+    return [t<S.TMappedAsMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -1870,23 +2174,23 @@ export function TMappedAs(Input: string) {
 
 // ✓ T_Mapped_: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Mapped_(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('{', Input))
+export function T_Mapped_(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'{', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TMappedReadonly(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('[', m2.Input))
-  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(Token.TIdent(m3.Input))
-  const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(Token.TConst('in', m4.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'[', typeof m2.Input>>())
+  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(t<Token.TIdent<typeof m3.Input>>())
+  const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(t<Token.TConst<'in', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_5">, Hole<"Input", string> ]>(TType(m5.Input))
   const m7 = matches<[ Hole<"_6">, Hole<"Input", string> ]>(TMappedAs(m6.Input))
-  const m8 = matches<[ Hole<"_7">, Hole<"Input", string> ]>(Token.TConst(']', m7.Input))
+  const m8 = matches<[ Hole<"_7">, Hole<"Input", string> ]>(t<Token.TConst<']', typeof m7.Input>>())
   const m9 = matches<[ Hole<"_8">, Hole<"Input", string> ]>(TMappedOptional(m8.Input))
-  const m10 = matches<[ Hole<"_9">, Hole<"Input", string> ]>(Token.TConst(':', m9.Input))
+  const m10 = matches<[ Hole<"_9">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m9.Input>>())
   const m11 = matches<[ Hole<"_10">, Hole<"Input", string> ]>(TType(m10.Input))
   const m12 = matches<[ Hole<"_11">, Hole<"Input", string> ]>(TOptionalSemiColon(m11.Input))
-  const m13 = matches<[ Hole<"_12">, Hole<"Input", string> ]>(Token.TConst('}', m12.Input))
+  const m13 = matches<[ Hole<"_12">, Hole<"Input", string> ]>(t<Token.TConst<'}', typeof m12.Input>>())
   const m14 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? (m6 ? (m7 ? (m8 ? (m9 ? (m10 ? (m11 ? (m12 ? (m13 ? [[m1._0, m2._1, m3._2, m4._3, m5._4, m6._5, m7._6, m8._7, m9._8, m10._9, m11._10, m12._11, m13._12], m13.Input] : []) : []) : []) : []) : []) : []) : []) : []) : []) : []) : []) : []) : [])
   if (m14) {
-    return [S.T_Mapped_Mapping(m14._0), m14.Input]
+    return [t<S.T_Mapped_Mapping<typeof m14._0>>(), m14.Input]
   }
   return []
 }
@@ -1899,10 +2203,10 @@ export function T_Mapped_(Input: string) {
 
 // ✓ TReference: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TReference(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TIdent(Input))
+export function TReference(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TIdent<typeof Input>>())
   if (m1) {
-    return [S.TReferenceMapping(m1._0), m1.Input]
+    return [t<S.TReferenceMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -1915,10 +2219,10 @@ export function TReference(Input: string) {
 
 // ✓ TWithBigInt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithBigInt(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TBigInt(Input))
+export function TWithBigInt(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TBigInt<typeof Input>>())
   if (m1) {
-    return [S.TWithBigIntMapping(m1._0), m1.Input]
+    return [t<S.TWithBigIntMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -1931,10 +2235,10 @@ export function TWithBigInt(Input: string) {
 
 // ✓ TWithNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithNumber(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TNumber(Input))
+export function TWithNumber(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TNumber<typeof Input>>())
   if (m1) {
-    return [S.TWithNumberMapping(m1._0), m1.Input]
+    return [t<S.TWithNumberMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -1947,12 +2251,12 @@ export function TWithNumber(Input: string) {
 
 // ✓ TWithBoolean: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithBoolean(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('true', Input))
-  const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('false', Input))
+export function TWithBoolean(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'true', typeof Input>>())
+  const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'false', typeof Input>>())
   const m3 = matches<[ Hole<"_0", 'true' | 'false'>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : []))
   if (m3) {
-    return [S.TWithBooleanMapping(m3._0), m3.Input]
+    return [t<S.TWithBooleanMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -1965,10 +2269,10 @@ export function TWithBoolean(Input: string) {
 
 // ✓ TWithString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithString(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TString(['"', '\''], Input))
+export function TWithString(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TString<[ '\"', '\'' ], typeof Input>>())
   if (m1) {
-    return [S.TWithStringMapping(m1._0), m1.Input]
+    return [t<S.TWithStringMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -1981,10 +2285,10 @@ export function TWithString(Input: string) {
 
 // ✓ TWithNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithNull(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'null'>, Hole<"Input", string> ]>(Token.TConst('null', Input))
+export function TWithNull(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'null'>, Hole<"Input", string> ]>(t<Token.TConst<'null', typeof Input>>())
   if (m1) {
-    return [S.TWithNullMapping(m1._0), m1.Input]
+    return [t<S.TWithNullMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -1997,10 +2301,10 @@ export function TWithNull(Input: string) {
 
 // ✓ TWithUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithUndefined(Input: string) {
-  const m1 = matches<[ Hole<"_0", 'undefined'>, Hole<"Input", string> ]>(Token.TConst('undefined', Input))
+export function TWithUndefined(Input: string): any {
+  const m1 = matches<[ Hole<"_0", 'undefined'>, Hole<"Input", string> ]>(t<Token.TConst<'undefined', typeof Input>>())
   if (m1) {
-    return [S.TWithUndefinedMapping(m1._0), m1.Input]
+    return [t<S.TWithUndefinedMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -2013,13 +2317,13 @@ export function TWithUndefined(Input: string) {
 
 // ✓ TWithProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithProperty(Input: string) {
+export function TWithProperty(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPropertyKey(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(':', m1.Input))
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<':', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TWithValue(m2.Input))
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TWithPropertyMapping(m4._0), m4.Input]
+    return [t<S.TWithPropertyMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -2032,7 +2336,7 @@ export function TWithProperty(Input: string) {
 
 // ✓ TWithPropertyList_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithPropertyList_0(Input: string, Result: unknown[] = []) {
+export function TWithPropertyList_0(Input: string, Result: unknown[] = []): any {
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithProperty(Input))
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TPropertyDelimiter(m4.Input))
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
@@ -2050,7 +2354,7 @@ export function TWithPropertyList_0(Input: string, Result: unknown[] = []) {
 
 // ✓ TWithPropertyList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithPropertyList(Input: string) {
+export function TWithPropertyList(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithPropertyList_0(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithProperty(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m2 ? [[m2._0], m2.Input] : [])
@@ -2058,7 +2362,7 @@ export function TWithPropertyList(Input: string) {
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m5 ? [[m1._0, m5._1], m5.Input] : []) : [])
   if (m6) {
-    return [S.TWithPropertyListMapping(m6._0), m6.Input]
+    return [t<S.TWithPropertyListMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -2071,13 +2375,13 @@ export function TWithPropertyList(Input: string) {
 
 // ✓ TWithObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithObject(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('{', Input))
+export function TWithObject(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'{', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TWithPropertyList(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('}', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'}', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TWithObjectMapping(m4._0), m4.Input]
+    return [t<S.TWithObjectMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -2090,9 +2394,9 @@ export function TWithObject(Input: string) {
 
 // ✓ TWithElementList_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithElementList_0(Input: string, Result: unknown[] = []) {
+export function TWithElementList_0(Input: string, Result: unknown[] = []): any {
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithValue(Input))
-  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(',', m4.Input))
+  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<',', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
   if (m6) {
     return TWithElementList_0(m6.Input, [...Result, m6._0])
@@ -2108,7 +2412,7 @@ export function TWithElementList_0(Input: string, Result: unknown[] = []) {
 
 // ✓ TWithElementList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithElementList(Input: string) {
+export function TWithElementList(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithElementList_0(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithValue(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m2 ? [[m2._0], m2.Input] : [])
@@ -2116,7 +2420,7 @@ export function TWithElementList(Input: string) {
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m5 ? [[m1._0, m5._1], m5.Input] : []) : [])
   if (m6) {
-    return [S.TWithElementListMapping(m6._0), m6.Input]
+    return [t<S.TWithElementListMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -2129,13 +2433,13 @@ export function TWithElementList(Input: string) {
 
 // ✓ TWithArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithArray(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('[', Input))
+export function TWithArray(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'[', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TWithElementList(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(']', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<']', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TWithArrayMapping(m4._0), m4.Input]
+    return [t<S.TWithArrayMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -2148,7 +2452,7 @@ export function TWithArray(Input: string) {
 
 // ✓ TWithValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithValue(Input: string) {
+export function TWithValue(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithBigInt(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithNumber(Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithBoolean(Input))
@@ -2159,7 +2463,7 @@ export function TWithValue(Input: string) {
   const m8 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TWithArray(Input))
   const m9 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : (m5 ? [m5._0, m5.Input] : (m6 ? [m6._0, m6.Input] : (m7 ? [m7._0, m7.Input] : (m8 ? [m8._0, m8.Input] : []))))))))
   if (m9) {
-    return [S.TWithValueMapping(m9._0), m9.Input]
+    return [t<S.TWithValueMapping<typeof m9._0>>(), m9.Input]
   }
   return []
 }
@@ -2172,10 +2476,10 @@ export function TWithValue(Input: string) {
 
 // ✓ TPatternBigInt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternBigInt(Input: string) {
-  const m1 = matches<[ Hole<"_0", '-?(?:0|[1-9][0-9]*)n'>, Hole<"Input", string> ]>(Token.TConst('-?(?:0|[1-9][0-9]*)n', Input))
+export function TPatternBigInt(Input: string): any {
+  const m1 = matches<[ Hole<"_0", '-?(?:0|[1-9][0-9]*)n'>, Hole<"Input", string> ]>(t<Token.TConst<'-?(?:0|[1-9][0-9]*)n', typeof Input>>())
   if (m1) {
-    return [S.TPatternBigIntMapping(m1._0), m1.Input]
+    return [t<S.TPatternBigIntMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -2188,10 +2492,10 @@ export function TPatternBigInt(Input: string) {
 
 // ✓ TPatternString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternString(Input: string) {
-  const m1 = matches<[ Hole<"_0", '.*'>, Hole<"Input", string> ]>(Token.TConst('.*', Input))
+export function TPatternString(Input: string): any {
+  const m1 = matches<[ Hole<"_0", '.*'>, Hole<"Input", string> ]>(t<Token.TConst<'.*', typeof Input>>())
   if (m1) {
-    return [S.TPatternStringMapping(m1._0), m1.Input]
+    return [t<S.TPatternStringMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -2204,10 +2508,10 @@ export function TPatternString(Input: string) {
 
 // ✓ TPatternNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternNumber(Input: string) {
-  const m1 = matches<[ Hole<"_0", '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?'>, Hole<"Input", string> ]>(Token.TConst('-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', Input))
+export function TPatternNumber(Input: string): any {
+  const m1 = matches<[ Hole<"_0", '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?'>, Hole<"Input", string> ]>(t<Token.TConst<'-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', typeof Input>>())
   if (m1) {
-    return [S.TPatternNumberMapping(m1._0), m1.Input]
+    return [t<S.TPatternNumberMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -2220,10 +2524,10 @@ export function TPatternNumber(Input: string) {
 
 // ✓ TPatternInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternInteger(Input: string) {
-  const m1 = matches<[ Hole<"_0", '-?(?:0|[1-9][0-9]*)'>, Hole<"Input", string> ]>(Token.TConst('-?(?:0|[1-9][0-9]*)', Input))
+export function TPatternInteger(Input: string): any {
+  const m1 = matches<[ Hole<"_0", '-?(?:0|[1-9][0-9]*)'>, Hole<"Input", string> ]>(t<Token.TConst<'-?(?:0|[1-9][0-9]*)', typeof Input>>())
   if (m1) {
-    return [S.TPatternIntegerMapping(m1._0), m1.Input]
+    return [t<S.TPatternIntegerMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -2236,10 +2540,10 @@ export function TPatternInteger(Input: string) {
 
 // ✓ TPatternNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternNever(Input: string) {
-  const m1 = matches<[ Hole<"_0", '(?!)'>, Hole<"Input", string> ]>(Token.TConst('(?!)', Input))
+export function TPatternNever(Input: string): any {
+  const m1 = matches<[ Hole<"_0", '(?!)'>, Hole<"Input", string> ]>(t<Token.TConst<'(?!)', typeof Input>>())
   if (m1) {
-    return [S.TPatternNeverMapping(m1._0), m1.Input]
+    return [t<S.TPatternNeverMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -2252,10 +2556,10 @@ export function TPatternNever(Input: string) {
 
 // ✓ TPatternText: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternText(Input: string) {
-  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(Token.TUntil_1(['-?(?:0|[1-9][0-9]*)n', '.*', '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', '-?(?:0|[1-9][0-9]*)', '(?!)', '(', ')', '$', '|'], Input))
+export function TPatternText(Input: string): any {
+  const m1 = matches<[ Hole<"_0", string>, Hole<"Input", string> ]>(t<Token.TUntil_1<[ '-?(?:0|[1-9][0-9]*)n', '.*', '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?', '-?(?:0|[1-9][0-9]*)', '(?!)', '(', ')', '$', '|' ], typeof Input>>())
   if (m1) {
-    return [S.TPatternTextMapping(m1._0), m1.Input]
+    return [t<S.TPatternTextMapping<typeof m1._0>>(), m1.Input]
   }
   return []
 }
@@ -2268,7 +2572,7 @@ export function TPatternText(Input: string) {
 
 // ✓ TPatternBase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternBase(Input: string) {
+export function TPatternBase(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPatternBigInt(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPatternString(Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPatternNumber(Input))
@@ -2278,7 +2582,7 @@ export function TPatternBase(Input: string) {
   const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPatternText(Input))
   const m8 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : (m5 ? [m5._0, m5.Input] : (m6 ? [m6._0, m6.Input] : (m7 ? [m7._0, m7.Input] : [])))))))
   if (m8) {
-    return [S.TPatternBaseMapping(m8._0), m8.Input]
+    return [t<S.TPatternBaseMapping<typeof m8._0>>(), m8.Input]
   }
   return []
 }
@@ -2291,13 +2595,13 @@ export function TPatternBase(Input: string) {
 
 // ✓ TPatternGroup: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternGroup(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('(', Input))
+export function TPatternGroup(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'(', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TPatternBody(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst(')', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<')', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TPatternGroupMapping(m4._0), m4.Input]
+    return [t<S.TPatternGroupMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -2310,9 +2614,9 @@ export function TPatternGroup(Input: string) {
 
 // ✓ TPatternUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternUnion(Input: string) {
+export function TPatternUnion(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPatternTerm(Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('|', m1.Input))
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'|', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TPatternUnion(m2.Input))
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPatternTerm(Input))
@@ -2320,7 +2624,7 @@ export function TPatternUnion(Input: string) {
   const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m8 = matches<[ Hole<"_0", [ unknown, unknown, unknown ] | [ unknown ] | [ ]>, Hole<"Input", string> ]>(m4 ? [m4._0, m4.Input] : (m6 ? [m6._0, m6.Input] : (m7 ? [m7._0, m7.Input] : [])))
   if (m8) {
-    return [S.TPatternUnionMapping(m8._0), m8.Input]
+    return [t<S.TPatternUnionMapping<typeof m8._0>>(), m8.Input]
   }
   return []
 }
@@ -2333,12 +2637,12 @@ export function TPatternUnion(Input: string) {
 
 // ✓ TPatternTerm: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternTerm(Input: string) {
+export function TPatternTerm(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPatternBase(Input))
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TPatternBody(m1.Input))
   const m3 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   if (m3) {
-    return [S.TPatternTermMapping(m3._0), m3.Input]
+    return [t<S.TPatternTermMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -2351,12 +2655,12 @@ export function TPatternTerm(Input: string) {
 
 // ✓ TPatternBody: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternBody(Input: string) {
+export function TPatternBody(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPatternUnion(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TPatternTerm(Input))
   const m3 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : []))
   if (m3) {
-    return [S.TPatternBodyMapping(m3._0), m3.Input]
+    return [t<S.TPatternBodyMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -2369,13 +2673,13 @@ export function TPatternBody(Input: string) {
 
 // ✓ TPattern: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPattern(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('^', Input))
+export function TPattern(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'^', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TPatternBody(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('$', m2.Input))
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'$', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? [[m1._0, m2._1, m3._2], m3.Input] : []) : []) : [])
   if (m4) {
-    return [S.TPatternMapping(m4._0), m4.Input]
+    return [t<S.TPatternMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -2388,9 +2692,9 @@ export function TPattern(Input: string) {
 
 // ✓ TInterfaceDeclarationHeritageList_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInterfaceDeclarationHeritageList_0(Input: string, Result: unknown[] = []) {
+export function TInterfaceDeclarationHeritageList_0(Input: string, Result: unknown[] = []): any {
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TType(Input))
-  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst(',', m4.Input))
+  const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<',', typeof m4.Input>>())
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
   if (m6) {
     return TInterfaceDeclarationHeritageList_0(m6.Input, [...Result, m6._0])
@@ -2409,7 +2713,7 @@ export function TInterfaceDeclarationHeritageList_0(Input: string, Result: unkno
 
 // ✓ TInterfaceDeclarationHeritageList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInterfaceDeclarationHeritageList(Input: string) {
+export function TInterfaceDeclarationHeritageList(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TInterfaceDeclarationHeritageList_0(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TType(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m2 ? [[m2._0], m2.Input] : [])
@@ -2417,7 +2721,7 @@ export function TInterfaceDeclarationHeritageList(Input: string) {
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m5 ? [[m1._0, m5._1], m5.Input] : []) : [])
   if (m6) {
-    return [S.TInterfaceDeclarationHeritageListMapping(m6._0), m6.Input]
+    return [t<S.TInterfaceDeclarationHeritageListMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -2430,14 +2734,14 @@ export function TInterfaceDeclarationHeritageList(Input: string) {
 
 // ✓ TInterfaceDeclarationHeritage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInterfaceDeclarationHeritage(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('extends', Input))
+export function TInterfaceDeclarationHeritage(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'extends', typeof Input>>())
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TInterfaceDeclarationHeritageList(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m5 = matches<[ Hole<"_0", [ unknown, unknown ] | [ ]>, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   if (m5) {
-    return [S.TInterfaceDeclarationHeritageMapping(m5._0), m5.Input]
+    return [t<S.TInterfaceDeclarationHeritageMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -2450,15 +2754,15 @@ export function TInterfaceDeclarationHeritage(Input: string) {
 
 // ✓ TInterfaceDeclarationGeneric: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInterfaceDeclarationGeneric(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('interface', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TIdent(m1.Input))
+export function TInterfaceDeclarationGeneric(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'interface', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TIdent<typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TGenericParameters(m2.Input))
   const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TInterfaceDeclarationHeritage(m3.Input))
   const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(TProperties(m4.Input))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? [[m1._0, m2._1, m3._2, m4._3, m5._4], m5.Input] : []) : []) : []) : []) : [])
   if (m6) {
-    return [S.TInterfaceDeclarationGenericMapping(m6._0), m6.Input]
+    return [t<S.TInterfaceDeclarationGenericMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -2471,14 +2775,14 @@ export function TInterfaceDeclarationGeneric(Input: string) {
 
 // ✓ TInterfaceDeclaration: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInterfaceDeclaration(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('interface', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TIdent(m1.Input))
+export function TInterfaceDeclaration(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'interface', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TIdent<typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TInterfaceDeclarationHeritage(m2.Input))
   const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TProperties(m3.Input))
   const m5 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? [[m1._0, m2._1, m3._2, m4._3], m4.Input] : []) : []) : []) : [])
   if (m5) {
-    return [S.TInterfaceDeclarationMapping(m5._0), m5.Input]
+    return [t<S.TInterfaceDeclarationMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -2491,15 +2795,15 @@ export function TInterfaceDeclaration(Input: string) {
 
 // ✓ TTypeAliasDeclarationGeneric: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTypeAliasDeclarationGeneric(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('type', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TIdent(m1.Input))
+export function TTypeAliasDeclarationGeneric(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'type', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TIdent<typeof m1.Input>>())
   const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TGenericParameters(m2.Input))
-  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(Token.TConst('=', m3.Input))
+  const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(t<Token.TConst<'=', typeof m3.Input>>())
   const m5 = matches<[ Hole<"_4">, Hole<"Input", string> ]>(TType(m4.Input))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? (m5 ? [[m1._0, m2._1, m3._2, m4._3, m5._4], m5.Input] : []) : []) : []) : []) : [])
   if (m6) {
-    return [S.TTypeAliasDeclarationGenericMapping(m6._0), m6.Input]
+    return [t<S.TTypeAliasDeclarationGenericMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -2512,14 +2816,14 @@ export function TTypeAliasDeclarationGeneric(Input: string) {
 
 // ✓ TTypeAliasDeclaration: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTypeAliasDeclaration(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('type', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TIdent(m1.Input))
-  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(Token.TConst('=', m2.Input))
+export function TTypeAliasDeclaration(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'type', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TIdent<typeof m1.Input>>())
+  const m3 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(t<Token.TConst<'=', typeof m2.Input>>())
   const m4 = matches<[ Hole<"_3">, Hole<"Input", string> ]>(TType(m3.Input))
   const m5 = matches<[ Hole<"_0", [ unknown, unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? (m3 ? (m4 ? [[m1._0, m2._1, m3._2, m4._3], m4.Input] : []) : []) : []) : [])
   if (m5) {
-    return [S.TTypeAliasDeclarationMapping(m5._0), m5.Input]
+    return [t<S.TTypeAliasDeclarationMapping<typeof m5._0>>(), m5.Input]
   }
   return []
 }
@@ -2532,13 +2836,13 @@ export function TTypeAliasDeclaration(Input: string) {
 
 // ✓ TExportKeyword: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExportKeyword(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('export', Input))
+export function TExportKeyword(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'export', typeof Input>>())
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? [[m1._0], m1.Input] : [])
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>([[], Input])
   const m4 = matches<[ Hole<"_0", [ unknown ] | [ ]>, Hole<"Input", string> ]>(m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : []))
   if (m4) {
-    return [S.TExportKeywordMapping(m4._0), m4.Input]
+    return [t<S.TExportKeywordMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }
@@ -2550,28 +2854,34 @@ export function TExportKeyword(Input: string) {
  */
 
 // ✗ TModuleDeclarationDelimiter: does not compile yet
-//   Unterminated string literal.
+//   Generic type 'TConst' requires 2 type argument(s).
 /* @scripttype preserveParamNames */
-export function TModuleDeclarationDelimiter(Input: string) {
-  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst(';', Input))
-  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(Token.TConst('
-', m1.Input))
+export function TModuleDeclarationDelimiter(Input: string): any {
+  const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<';', typeof Input>>())
+  const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(t<Token.TConst<'\n', typeof m1.Input>>())
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
-  const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst(';', Input))
+  const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<';', typeof Input>>())
   const m5 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? [[m4._0], m4.Input] : [])
-  const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(Token.TConst('
-', Input))
+  const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(t<Token.TConst<'\n', typeof Input>>())
   const m7 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m6 ? [[m6._0], m6.Input] : [])
   const m8 = matches<[ Hole<"_0", [ unknown, unknown ] | [ unknown ]>, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m5 ? [m5._0, m5.Input] : (m7 ? [m7._0, m7.Input] : [])))
   if (m8) {
-    return [S.TModuleDeclarationDelimiterMapping(m8._0), m8.Input]
+    return [t<S.TModuleDeclarationDelimiterMapping<typeof m8._0>>(), m8.Input]
   }
   return []
 }
+/* compiles to:
+ * export type TModuleDeclarationDelimiter<Input extends string> =
+ *   ((Token.TConst<';', Input> extends [infer _0, infer Input extends string] ? Token.TConst<'
+ * ', Input> extends [infer _1, infer Input extends string] ? [[_0, _1], Input] : [] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<';', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : (Token.TConst<'
+ * ', Input> extends [infer _0, infer Input extends string] ? [[_0], Input] : []) extends [infer _0, infer Input extends string] ? [_0, Input] : []) extends [infer _0 extends [unknown, unknown] | [unknown], infer Input extends string]
+ *     ? [S.TModuleDeclarationDelimiterMapping<_0>, Input]
+ *     : []
+ */
 
 // ✓ TModuleDeclarationList_0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TModuleDeclarationList_0(Input: string, Result: unknown[] = []) {
+export function TModuleDeclarationList_0(Input: string, Result: unknown[] = []): any {
   const m4 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TModuleDeclaration(Input))
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TModuleDeclarationDelimiter(m4.Input))
   const m6 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m4 ? (m5 ? [[m4._0, m5._1], m5.Input] : []) : [])
@@ -2589,7 +2899,7 @@ export function TModuleDeclarationList_0(Input: string, Result: unknown[] = []) 
 
 // ✓ TModuleDeclarationList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TModuleDeclarationList(Input: string) {
+export function TModuleDeclarationList(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TModuleDeclarationList_0(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TModuleDeclaration(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(m2 ? [[m2._0], m2.Input] : [])
@@ -2597,7 +2907,7 @@ export function TModuleDeclarationList(Input: string) {
   const m5 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(m3 ? [m3._0, m3.Input] : (m4 ? [m4._0, m4.Input] : []))
   const m6 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m5 ? [[m1._0, m5._1], m5.Input] : []) : [])
   if (m6) {
-    return [S.TModuleDeclarationListMapping(m6._0), m6.Input]
+    return [t<S.TModuleDeclarationListMapping<typeof m6._0>>(), m6.Input]
   }
   return []
 }
@@ -2610,7 +2920,7 @@ export function TModuleDeclarationList(Input: string) {
 
 // ✓ TModuleDeclaration: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TModuleDeclaration(Input: string) {
+export function TModuleDeclaration(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TExportKeyword(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TInterfaceDeclarationGeneric(m1.Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TInterfaceDeclaration(m1.Input))
@@ -2620,7 +2930,7 @@ export function TModuleDeclaration(Input: string) {
   const m7 = matches<[ Hole<"_2">, Hole<"Input", string> ]>(TOptionalSemiColon(m6.Input))
   const m8 = matches<[ Hole<"_0", [ unknown, unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m6 ? (m7 ? [[m1._0, m6._1, m7._2], m7.Input] : []) : []) : [])
   if (m8) {
-    return [S.TModuleDeclarationMapping(m8._0), m8.Input]
+    return [t<S.TModuleDeclarationMapping<typeof m8._0>>(), m8.Input]
   }
   return []
 }
@@ -2633,12 +2943,12 @@ export function TModuleDeclaration(Input: string) {
 
 // ✓ TModule: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TModule(Input: string) {
+export function TModule(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TModuleDeclaration(Input))
   const m2 = matches<[ Hole<"_1">, Hole<"Input", string> ]>(TModuleDeclarationList(m1.Input))
   const m3 = matches<[ Hole<"_0", [ unknown, unknown ]>, Hole<"Input", string> ]>(m1 ? (m2 ? [[m1._0, m2._1], m2.Input] : []) : [])
   if (m3) {
-    return [S.TModuleMapping(m3._0), m3.Input]
+    return [t<S.TModuleMapping<typeof m3._0>>(), m3.Input]
   }
   return []
 }
@@ -2651,13 +2961,13 @@ export function TModule(Input: string) {
 
 // ✓ TScript: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TScript(Input: string) {
+export function TScript(Input: string): any {
   const m1 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TModule(Input))
   const m2 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TGenericType(Input))
   const m3 = matches<[ Hole<"_0">, Hole<"Input", string> ]>(TType(Input))
   const m4 = matches<[ Hole<"_0", unknown>, Hole<"Input", string> ]>(m1 ? [m1._0, m1.Input] : (m2 ? [m2._0, m2.Input] : (m3 ? [m3._0, m3.Input] : [])))
   if (m4) {
-    return [S.TScriptMapping(m4._0), m4.Input]
+    return [t<S.TScriptMapping<typeof m4._0>>(), m4.Input]
   }
   return []
 }

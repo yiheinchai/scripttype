@@ -7,9 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Equals } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Equals.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Or } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Boolean/Or.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { _UnNest } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/UnNest.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Cast: any
 declare const Equals: any
 declare const Extends: any
@@ -19,19 +31,11 @@ declare const List: any
 declare const Next: any
 declare const Or: any
 declare const _UnNest: any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Equals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _UnNest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ __Flatten: does not compile yet
 //   Type 'Or<Equals<L, LO>, Extends<limit, I>>' cannot be used to index type '{ '0': __Flatten__st0<_UnNest<L, strict>, L, strict, limit, Next<I>>; '1': L; }'.
 /* @scripttype preserveParamNames */
-export function __Flatten(L: List, LO: List, strict: Boolean, limit: Iteration, I: Iteration = IterationOf(0)) {
+export function __Flatten(L: List, LO: List, strict: Boolean, limit: Iteration, I: Iteration = IterationOf(0)): any {
   return { 0: __Flatten(_UnNest(L, strict), L, strict, limit, Next(I)), 1: L }[Or(Equals(L, LO), Extends(limit, I))]
 }
 /* compiles to:
@@ -47,7 +51,7 @@ export function __Flatten(L: List, LO: List, strict: Boolean, limit: Iteration, 
 
 // ✓ _Flatten: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Flatten(L: List, strict: Boolean, limit: number = number) {
+export function _Flatten(L: List, strict: Boolean, limit: number = number): any {
   const m1 = matches<Hole<"X">>(__Flatten(L, [], strict, IterationOf(limit)))
   if (m1) {
     return Cast(m1.X, List)
@@ -62,7 +66,7 @@ export function _Flatten(L: List, strict: Boolean, limit: number = number) {
 // ✗ Flatten: the ScriptType does not itself typecheck as TypeScript
 //   Flatten.st.ts(2:34) TS2322: Type 'number' is not assignable to type 'Boolean'.
 /* @scripttype preserveParamNames */
-export function Flatten(L: List, strict: Boolean = 1, limit: number = number) {
+export function Flatten(L: List, strict: Boolean = 1, limit: number = number): any {
   if (matches<unknown>(L)) {
     return _Flatten(L, strict, limit)
   }

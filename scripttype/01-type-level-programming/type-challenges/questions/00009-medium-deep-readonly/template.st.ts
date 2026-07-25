@@ -9,7 +9,7 @@
  */
 // ✓ DeepReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeepReadonly(T) {
+export function DeepReadonly(T): any {
   return any
 }
 /* compiles to:

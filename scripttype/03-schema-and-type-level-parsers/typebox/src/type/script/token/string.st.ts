@@ -7,18 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TTake } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/take.js'
+import type { TTrim } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/trim.js'
+import type { TSpan } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/span.js'
+declare namespace m1 {
+  export type Initial<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type InitialRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TSpan: any
 declare const TTake: any
 declare const TTrim: any
-type TSpan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeInitial(Quotes: string[], Input: string) {
+export function TTakeInitial(Quotes: string[], Input: string): any {
   return TTake(Quotes, Input)
 }
 /* compiles to:
@@ -27,7 +32,7 @@ export function TTakeInitial(Quotes: string[], Input: string) {
 
 // ✓ TTakeSpan: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeSpan(Quote: string, Input: string) {
+export function TTakeSpan(Quote: string, Input: string): any {
   return TSpan(Quote, Quote, false, Input)
 }
 /* compiles to:
@@ -41,7 +46,7 @@ export function TTakeSpan(Quote: string, Input: string) {
 
 // ✓ TTakeString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeString(Quotes: string[], Input: string) {
+export function TTakeString(Quotes: string[], Input: string): any {
   const m1 = matches<[ Hole<"Initial", string>, Hole<"InitialRest", string> ]>(TTakeInitial(Quotes, Input))
   if (m1) {
     return TTakeSpan(m1.Initial, `${m1.Initial}${m1.InitialRest}`)
@@ -57,7 +62,7 @@ export function TTakeString(Quotes: string[], Input: string) {
 
 // ✓ TString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TString(Quotes: string[], Input: string) {
+export function TString(Quotes: string[], Input: string): any {
   return TTakeString(Quotes, TTrim(Input))
 }
 /* compiles to:

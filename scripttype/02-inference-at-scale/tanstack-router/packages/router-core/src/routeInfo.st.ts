@@ -7,9 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { InferFileRouteTypes } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/fileRoute.js'
+import type { AddTrailingSlash, RemoveTrailingSlashes } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/link.js'
+import type { AnyRoute } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/route.js'
+import type { AnyRouter, TrailingSlashOption } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { PartialMergeAll } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
+declare namespace m1 {
+  export type TChildren<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRoutes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AddTrailingSlash: any
 declare const AnyRoute: any
 declare const AnyRouter: any
@@ -18,27 +30,20 @@ declare const PartialMergeAll: any
 declare const RemoveTrailingSlashes: any
 declare const TChildren: any
 declare const TrailingSlashOption: any
-type AddTrailingSlash<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferFileRouteTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PartialMergeAll<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RemoveTrailingSlashes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TChildren<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TrailingSlashOption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TrailingSlashOptionByRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ParseRoute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ParseRoute(TRouteTree, TAcc = TRouteTree) {
+export function ParseRoute(TRouteTree, TAcc = TRouteTree): any {
   const m1 = matches<{ types: { children: Hole<"TChildren">; }; }>(TRouteTree)
   if (m1) {
     if (matches<typeof m1.TChildren>(unknown)) {
       return TAcc
     }
     if (matches<ReadonlyArray<any>>(m1.TChildren)) {
-      return ParseRoute(m1.TChildren[number], TAcc | m1.TChildren[number])
+      return ParseRoute(m1.TChildren[number], anyOf(TAcc, m1.TChildren[number]))
     }
-    return ParseRoute(m1.TChildren[keyof(m1.TChildren)], TAcc | m1.TChildren[keyof(m1.TChildren)])
+    return ParseRoute(m1.TChildren[keyof(m1.TChildren)], anyOf(TAcc, m1.TChildren[keyof(m1.TChildren)]))
   }
   return TAcc
 }
@@ -54,7 +59,7 @@ export function ParseRoute(TRouteTree, TAcc = TRouteTree) {
 
 // ✓ ParseRouteWithoutBranches: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ParseRouteWithoutBranches(TRouteTree) {
+export function ParseRouteWithoutBranches(TRouteTree): any {
   const m1 = matches<Hole<"TRoute", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     if (matches<any>(m1.TRoute)) {
@@ -92,7 +97,7 @@ export function ParseRouteWithoutBranches(TRouteTree) {
 
 // ✓ CodeRoutesById: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CodeRoutesById(TRouteTree: AnyRoute) {
+export function CodeRoutesById(TRouteTree: AnyRoute): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     const out = emptyObject
@@ -112,7 +117,7 @@ export function CodeRoutesById(TRouteTree: AnyRoute) {
 
 // ✓ RoutesById: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RoutesById(TRouteTree: AnyRoute) {
+export function RoutesById(TRouteTree: AnyRoute): any {
   if (matches<never>(InferFileRouteTypes(TRouteTree))) {
     return CodeRoutesById(TRouteTree)
   }
@@ -127,7 +132,7 @@ export function RoutesById(TRouteTree: AnyRoute) {
 
 // ✓ RouteById: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteById(TRouteTree: AnyRoute, TId) {
+export function RouteById(TRouteTree: AnyRoute, TId): any {
   return Extract(RoutesById(TRouteTree)[TId & keyof(RoutesById(TRouteTree))], AnyRoute)
 }
 /* compiles to:
@@ -139,7 +144,7 @@ export function RouteById(TRouteTree: AnyRoute, TId) {
 
 // ✓ CodeRouteIds: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CodeRouteIds(TRouteTree: AnyRoute) {
+export function CodeRouteIds(TRouteTree: AnyRoute): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     return m1.TRoutes['id']
@@ -153,7 +158,7 @@ export function CodeRouteIds(TRouteTree: AnyRoute) {
 
 // ✓ RouteIds: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteIds(TRouteTree: AnyRoute) {
+export function RouteIds(TRouteTree: AnyRoute): any {
   if (matches<never>(InferFileRouteTypes(TRouteTree))) {
     return CodeRouteIds(TRouteTree)
   }
@@ -168,7 +173,7 @@ export function RouteIds(TRouteTree: AnyRoute) {
 
 // ✓ ParentPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ParentPath(TRouter: AnyRouter) {
+export function ParentPath(TRouter: AnyRouter): any {
   if (matches<'always'>(TrailingSlashOptionByRouter(TRouter))) {
     return '../'
   }
@@ -186,7 +191,7 @@ export function ParentPath(TRouter: AnyRouter) {
 
 // ✓ CurrentPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CurrentPath(TRouter: AnyRouter) {
+export function CurrentPath(TRouter: AnyRouter): any {
   if (matches<'always'>(TrailingSlashOptionByRouter(TRouter))) {
     return './'
   }
@@ -204,7 +209,7 @@ export function CurrentPath(TRouter: AnyRouter) {
 
 // ✓ ToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ToPath(TRouter: AnyRouter, TTo: string) {
+export function ToPath(TRouter: AnyRouter, TTo: string): any {
   if (matches<'always'>(TrailingSlashOptionByRouter(TRouter))) {
     return AddTrailingSlash(TTo)
   }
@@ -222,7 +227,7 @@ export function ToPath(TRouter: AnyRouter, TTo: string) {
 
 // ✓ CatchAllPaths: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CatchAllPaths(TRouter: AnyRouter) {
+export function CatchAllPaths(TRouter: AnyRouter): any {
   return CurrentPath(TRouter) | ParentPath(TRouter)
 }
 /* compiles to:
@@ -232,7 +237,7 @@ export function CatchAllPaths(TRouter: AnyRouter) {
 
 // ✓ CodeRoutesByPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CodeRoutesByPath(TRouteTree: AnyRoute) {
+export function CodeRoutesByPath(TRouteTree: AnyRoute): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     const out = emptyObject
@@ -252,7 +257,7 @@ export function CodeRoutesByPath(TRouteTree: AnyRoute) {
 
 // ✓ RoutesByPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RoutesByPath(TRouteTree: AnyRoute) {
+export function RoutesByPath(TRouteTree: AnyRoute): any {
   if (matches<never>(InferFileRouteTypes(TRouteTree))) {
     return CodeRoutesByPath(TRouteTree)
   }
@@ -267,7 +272,7 @@ export function RoutesByPath(TRouteTree: AnyRoute) {
 
 // ✓ RouteByPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteByPath(TRouteTree: AnyRoute, TPath) {
+export function RouteByPath(TRouteTree: AnyRoute, TPath): any {
   return Extract(RoutesByPath(TRouteTree)[TPath & keyof(RoutesByPath(TRouteTree))], AnyRoute)
 }
 /* compiles to:
@@ -279,7 +284,7 @@ export function RouteByPath(TRouteTree: AnyRoute, TPath) {
 
 // ✓ CodeRoutePaths: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CodeRoutePaths(TRouteTree: AnyRoute) {
+export function CodeRoutePaths(TRouteTree: AnyRoute): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     return m1.TRoutes['fullPath']
@@ -293,7 +298,7 @@ export function CodeRoutePaths(TRouteTree: AnyRoute) {
 
 // ✓ RoutePaths: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RoutePaths(TRouteTree: AnyRoute) {
+export function RoutePaths(TRouteTree: AnyRoute): any {
   if (matches<typeof TRouteTree>(unknown)) {
     return string
   }
@@ -313,7 +318,7 @@ export function RoutePaths(TRouteTree: AnyRoute) {
 
 // ✓ RouteToPathAlwaysTrailingSlash: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteToPathAlwaysTrailingSlash(TRoute: AnyRoute) {
+export function RouteToPathAlwaysTrailingSlash(TRoute: AnyRoute): any {
   if (matches<'/'>(TRoute['path'])) {
     return TRoute['fullPath']
   }
@@ -331,7 +336,7 @@ export function RouteToPathAlwaysTrailingSlash(TRoute: AnyRoute) {
 
 // ✓ RouteToPathNeverTrailingSlash: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteToPathNeverTrailingSlash(TRoute: AnyRoute) {
+export function RouteToPathNeverTrailingSlash(TRoute: AnyRoute): any {
   if (matches<'/'>(TRoute['path'])) {
     if (matches<'/'>(TRoute['fullPath'])) {
       return TRoute['fullPath']
@@ -351,7 +356,7 @@ export function RouteToPathNeverTrailingSlash(TRoute: AnyRoute) {
 
 // ✓ RouteToPathPreserveTrailingSlash: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteToPathPreserveTrailingSlash(TRoute: AnyRoute) {
+export function RouteToPathPreserveTrailingSlash(TRoute: AnyRoute): any {
   return RouteToPathNeverTrailingSlash(TRoute) | RouteToPathAlwaysTrailingSlash(TRoute)
 }
 /* compiles to:
@@ -361,7 +366,7 @@ export function RouteToPathPreserveTrailingSlash(TRoute: AnyRoute) {
 
 // ✓ RouteToPathByTrailingSlashOption: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteToPathByTrailingSlashOption(TRoute: AnyRoute) {
+export function RouteToPathByTrailingSlashOption(TRoute: AnyRoute): any {
   return { always: RouteToPathAlwaysTrailingSlash(TRoute), preserve: RouteToPathPreserveTrailingSlash(TRoute), never: RouteToPathNeverTrailingSlash(TRoute) }
 }
 /* compiles to:
@@ -374,7 +379,7 @@ export function RouteToPathByTrailingSlashOption(TRoute: AnyRoute) {
 
 // ✓ TrailingSlashOptionByRouter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TrailingSlashOptionByRouter(TRouter: AnyRouter) {
+export function TrailingSlashOptionByRouter(TRouter: AnyRouter): any {
   if (matches<(typeof TRouter)['options']['trailingSlash']>(TrailingSlashOption)) {
     return 'never'
   }
@@ -389,7 +394,7 @@ export function TrailingSlashOptionByRouter(TRouter: AnyRouter) {
 
 // ✓ RouteToByRouter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteToByRouter(TRouter: AnyRouter, TRoute: AnyRoute) {
+export function RouteToByRouter(TRouter: AnyRouter, TRoute: AnyRoute): any {
   return RouteToPathByTrailingSlashOption(TRoute)[TrailingSlashOptionByRouter(TRouter)]
 }
 /* compiles to:
@@ -399,7 +404,7 @@ export function RouteToByRouter(TRouter: AnyRouter, TRoute: AnyRoute) {
 
 // ✓ CodeRouteToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CodeRouteToPath(TRouter: AnyRouter) {
+export function CodeRouteToPath(TRouter: AnyRouter): any {
   const m1 = matches<Hole<"TRoute", AnyRoute>>(ParseRouteWithoutBranches(TRouter['routeTree']))
   if (m1) {
     if (matches<any>(m1.TRoute)) {
@@ -418,7 +423,7 @@ export function CodeRouteToPath(TRouter: AnyRouter) {
 
 // ✓ FileRouteToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FileRouteToPath(TRouter: AnyRouter, TTo = InferFileRouteTypes(TRouter['routeTree'])['to'], TTrailingSlashOption = TrailingSlashOptionByRouter(TRouter)) {
+export function FileRouteToPath(TRouter: AnyRouter, TTo = InferFileRouteTypes(TRouter['routeTree'])['to'], TTrailingSlashOption = TrailingSlashOptionByRouter(TRouter)): any {
   if (matches<typeof TTrailingSlashOption>('never')) {
     return TTo
   }
@@ -440,7 +445,7 @@ export function FileRouteToPath(TRouter: AnyRouter, TTo = InferFileRouteTypes(TR
 
 // ✓ RouteToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteToPath(TRouter: AnyRouter) {
+export function RouteToPath(TRouter: AnyRouter): any {
   if (matches<typeof TRouter>(unknown)) {
     return string
   }
@@ -458,7 +463,7 @@ export function RouteToPath(TRouter: AnyRouter) {
 
 // ✓ CodeRoutesByToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CodeRoutesByToPath(TRouter: AnyRouter) {
+export function CodeRoutesByToPath(TRouter: AnyRouter): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRouteWithoutBranches(TRouter['routeTree']))
   if (m1) {
     const out = emptyObject
@@ -478,7 +483,7 @@ export function CodeRoutesByToPath(TRouter: AnyRouter) {
 
 // ✓ RoutesByToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RoutesByToPath(TRouter: AnyRouter) {
+export function RoutesByToPath(TRouter: AnyRouter): any {
   if (matches<never>(InferFileRouteTypes(TRouter['routeTree']))) {
     return CodeRoutesByToPath(TRouter)
   }
@@ -493,7 +498,7 @@ export function RoutesByToPath(TRouter: AnyRouter) {
 
 // ✓ CodeRouteByToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CodeRouteByToPath(TRouter: AnyRouter, TTo) {
+export function CodeRouteByToPath(TRouter: AnyRouter, TTo): any {
   return Extract(RoutesByToPath(TRouter)[TTo & keyof(RoutesByToPath(TRouter))], AnyRoute)
 }
 /* compiles to:
@@ -505,7 +510,7 @@ export function CodeRouteByToPath(TRouter: AnyRouter, TTo) {
 
 // ✓ FileRouteByToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FileRouteByToPath(TRouter: AnyRouter, TTo) {
+export function FileRouteByToPath(TRouter: AnyRouter, TTo): any {
   if (matches<TrailingSlashOptionByRouter<typeof TRouter>>('never')) {
     return CodeRouteByToPath(TRouter, TTo)
   }
@@ -533,7 +538,7 @@ export function FileRouteByToPath(TRouter: AnyRouter, TTo) {
 
 // ✓ RouteByToPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RouteByToPath(TRouter: AnyRouter, TTo) {
+export function RouteByToPath(TRouter: AnyRouter, TTo): any {
   if (matches<never>(InferFileRouteTypes(TRouter['routeTree']))) {
     return CodeRouteByToPath(TRouter, TTo)
   }
@@ -548,7 +553,7 @@ export function RouteByToPath(TRouter: AnyRouter, TTo) {
 
 // ✓ FullSearchSchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FullSearchSchema(TRouteTree: AnyRoute) {
+export function FullSearchSchema(TRouteTree: AnyRoute): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     return PartialMergeAll(m1.TRoutes['types']['fullSearchSchema'])
@@ -564,7 +569,7 @@ export function FullSearchSchema(TRouteTree: AnyRoute) {
 
 // ✓ FullSearchSchemaInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FullSearchSchemaInput(TRouteTree: AnyRoute) {
+export function FullSearchSchemaInput(TRouteTree: AnyRoute): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     return PartialMergeAll(m1.TRoutes['types']['fullSearchSchemaInput'])
@@ -580,7 +585,7 @@ export function FullSearchSchemaInput(TRouteTree: AnyRoute) {
 
 // ✓ AllParams: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AllParams(TRouteTree: AnyRoute) {
+export function AllParams(TRouteTree: AnyRoute): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     return PartialMergeAll(m1.TRoutes['types']['allParams'])
@@ -596,7 +601,7 @@ export function AllParams(TRouteTree: AnyRoute) {
 
 // ✓ AllContext: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AllContext(TRouteTree: AnyRoute) {
+export function AllContext(TRouteTree: AnyRoute): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     return PartialMergeAll(m1.TRoutes['types']['allContext'])
@@ -612,7 +617,7 @@ export function AllContext(TRouteTree: AnyRoute) {
 
 // ✓ AllLoaderData: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AllLoaderData(TRouteTree: AnyRoute) {
+export function AllLoaderData(TRouteTree: AnyRoute): any {
   const m1 = matches<Hole<"TRoutes", AnyRoute>>(ParseRoute(TRouteTree))
   if (m1) {
     return PartialMergeAll(m1.TRoutes['types']['loaderData'])

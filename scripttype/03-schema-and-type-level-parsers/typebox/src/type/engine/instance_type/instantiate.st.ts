@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TInstanceTypeDeferred } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/instance_type.js'
+import type { TCanInstantiate, TInstantiateType, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TConstructor } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/constructor.js'
+import type { TNever } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/never.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare const TCanInstantiate: any
 declare const TConstructor: any
 declare const TInstanceTypeDeferred: any
@@ -18,17 +24,10 @@ declare const TNever: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TCanInstantiate<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TConstructor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstanceTypeDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TInstanceTypeOperation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInstanceTypeOperation(Type: TSchema) {
+export function TInstanceTypeOperation(Type: TSchema): any {
   if (matches<TConstructor>(Type)) {
     return Type['instanceType']
   }
@@ -41,7 +40,7 @@ export function TInstanceTypeOperation(Type: TSchema) {
 
 // ✓ TInstanceTypeAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInstanceTypeAction(Type: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type])) ? TInstanceTypeOperation(Type) : TInstanceTypeDeferred(Type)) {
+export function TInstanceTypeAction(Type: TSchema, Result: TSchema = matches<true>(TCanInstantiate([Type])) ? TInstanceTypeOperation(Type) : TInstanceTypeDeferred(Type)): any {
   return Result
 }
 /* compiles to:
@@ -54,7 +53,7 @@ export function TInstanceTypeAction(Type: TSchema, Result: TSchema = matches<tru
 
 // ✓ TInstanceTypeInstantiate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInstanceTypeInstantiate(Context: TProperties, State: TState, Type: TSchema, InstantiatedType: TSchema = TInstantiateType(Context, State, Type)) {
+export function TInstanceTypeInstantiate(Context: TProperties, State: TState, Type: TSchema, InstantiatedType: TSchema = TInstantiateType(Context, State, Type)): any {
   return TInstanceTypeAction(InstantiatedType)
 }
 /* compiles to:

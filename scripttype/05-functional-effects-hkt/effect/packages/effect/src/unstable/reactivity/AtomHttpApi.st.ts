@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { HttpClientResponse } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/unstable/http/HttpClientResponse.js'
+import type { ClientResponseMode } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/unstable/httpapi/HttpApiEndpoint.js'
+import type { ClientError } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/unstable/httpapi/HttpApiMiddleware.js'
 declare namespace HttpApiEndpoint {
   export type ClientResponseMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -20,21 +24,20 @@ declare namespace HttpApiMiddleware {
 declare namespace Schema {
   export type Constraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const ClientError: any
 declare const ClientResponseMode: any
 declare const Constraint: any
 declare const HttpApiEndpoint: any
 declare const HttpApiMiddleware: any
 declare const HttpClientResponse: any
 declare const Schema: any
-type ClientResponseMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Constraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HttpApiEndpoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HttpApiMiddleware<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type HttpClientResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ResponseByMode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResponseByMode(Success, ResponseMode: HttpApiEndpoint.ClientResponseMode) {
+export function ResponseByMode(Success, ResponseMode: HttpApiEndpoint.ClientResponseMode): any {
   if (matches<[ "decoded-and-response" ]>([ResponseMode])) {
     return [Success, HttpClientResponse]
   }
@@ -52,8 +55,8 @@ export function ResponseByMode(Success, ResponseMode: HttpApiEndpoint.ClientResp
 
 // ✓ ErrorByMode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ErrorByMode(Error: Schema.Constraint, Middleware, ResponseMode: HttpApiEndpoint.ClientResponseMode) {
-  return HttpApiMiddleware.Error(Middleware) | HttpApiMiddleware.ClientError(Middleware) | (matches<[ "response-only" ]>([ResponseMode]) ? never : t<typeof Error>()['Type'])
+export function ErrorByMode(Error: Schema.Constraint, Middleware, ResponseMode: HttpApiEndpoint.ClientResponseMode): any {
+  return t<HttpApiMiddleware.Error<typeof Middleware>>() | t<HttpApiMiddleware.ClientError<typeof Middleware>>() | (matches<[ "response-only" ]>([ResponseMode]) ? never : t<typeof Error>()['Type'])
 }
 /* compiles to:
  * export type ErrorByMode<

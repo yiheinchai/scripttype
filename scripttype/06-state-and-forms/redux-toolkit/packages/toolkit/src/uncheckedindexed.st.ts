@@ -14,7 +14,7 @@ declare const testAccess: any
 type testAccess<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IfMaybeUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IfMaybeUndefined(T, True, False) {
+export function IfMaybeUndefined(T, True, False): any {
   if (matches<[ typeof T ]>([Undefined])) {
     return True
   }
@@ -27,7 +27,7 @@ export function IfMaybeUndefined(T, True, False) {
 // ✗ IfUncheckedIndexedAccess: does not compile yet
 //   'testAccess' refers to a value, but is being used as a type here. Did you mean 'typeof testAccess'?
 /* @scripttype preserveParamNames */
-export function IfUncheckedIndexedAccess(True, False) {
+export function IfUncheckedIndexedAccess(True, False): any {
   return IfMaybeUndefined(t<typeof testAccess>(), True, False)
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function IfUncheckedIndexedAccess(True, False) {
 
 // ✓ UncheckedIndexedAccess: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UncheckedIndexedAccess(T) {
+export function UncheckedIndexedAccess(T): any {
   return IfUncheckedIndexedAccess(anyOf(T, Undefined), T)
 }
 /* compiles to:

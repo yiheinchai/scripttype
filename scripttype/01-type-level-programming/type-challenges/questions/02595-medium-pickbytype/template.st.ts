@@ -9,7 +9,7 @@
  */
 // ✓ PickByType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickByType(T, U) {
+export function PickByType(T, U): any {
   return any
 }
 /* compiles to:

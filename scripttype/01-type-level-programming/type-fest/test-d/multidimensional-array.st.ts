@@ -9,7 +9,7 @@
  */
 // ✓ RecursiveArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RecursiveArray(T) {
+export function RecursiveArray(T): any {
   return arrayOf(RecursiveArray(T))
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ Getter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Getter(T) {
+export function Getter(T): any {
   return fnType([], T)
 }
 /* compiles to:

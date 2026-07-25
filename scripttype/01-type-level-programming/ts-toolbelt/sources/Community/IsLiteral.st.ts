@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { And } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Boolean/And.js'
+import type { Or } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Boolean/Or.js'
+import type { Kind } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Community/IsLiteral.js'
 declare const And: any
 declare const Extends: any
 declare const Kind: any
 declare const Or: any
-type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Kind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Or<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsStringLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsStringLiteral(A: any) {
+export function IsStringLiteral(A: any): any {
   if (typeof A === 'string') {
     if (matches<typeof A>(string)) {
       return 0
@@ -35,7 +36,7 @@ export function IsStringLiteral(A: any) {
 
 // ✓ IsNumberLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNumberLiteral(A: any) {
+export function IsNumberLiteral(A: any): any {
   if (typeof A === 'number') {
     if (matches<typeof A>(number)) {
       return 0
@@ -50,7 +51,7 @@ export function IsNumberLiteral(A: any) {
 
 // ✓ IsLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsLiteral(A: any, kind: Kind = Kind) {
+export function IsLiteral(A: any, kind: Kind = Kind): any {
   return And(Or(IsStringLiteral(A), IsNumberLiteral(A)), Extends(A, kind))
 }
 /* compiles to:

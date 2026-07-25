@@ -9,7 +9,7 @@
  */
 // ✓ TraversalMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TraversalMap(K, V, A) {
+export function TraversalMap(K, V, A): any {
   return fnType([K, V], A)
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function TraversalMap(K, V, A) {
 
 // ✓ TraversalFilter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TraversalFilter(K, V) {
+export function TraversalFilter(K, V): any {
   return fnType([K, V], boolean)
 }
 /* compiles to:

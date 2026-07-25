@@ -16,7 +16,7 @@ type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 
 type Token<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Pure: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Pure(T) {
+export function Pure(T): any {
   const out = emptyObject
   for (const P in keyof(T)) {
     out[P] = matches<object>(T[P]) ? Pure(T[P]) : T[P]
@@ -29,7 +29,7 @@ export function Pure(T) {
 
 // ✓ SetProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetProperty(T, K: PropertyKey, V) {
+export function SetProperty(T, K: PropertyKey, V): any {
   const out = emptyObject
   for (const P in keySet(anyOf(keyof(T), K))) {
     out[P] = matches<typeof K>(P) ? V : (P in T ? T[P] : never)
@@ -44,7 +44,7 @@ export function SetProperty(T, K: PropertyKey, V) {
 
 // ✓ ParseResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ParseResult(T, K: Token[]) {
+export function ParseResult(T, K: Token[]): any {
   return [T, K]
 }
 /* compiles to:
@@ -53,7 +53,7 @@ export function ParseResult(T, K: Token[]) {
 
 // ✓ Tokenize: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Tokenize(T: string, S: Token[] = []) {
+export function Tokenize(T: string, S: Token[] = []): any {
   return arrayOf(Token)
 }
 /* compiles to:
@@ -62,7 +62,7 @@ export function Tokenize(T: string, S: Token[] = []) {
 
 // ✓ ParseLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ParseLiteral(T: Token[]) {
+export function ParseLiteral(T: Token[]): any {
   return ParseResult(any, T)
 }
 /* compiles to:
@@ -71,7 +71,7 @@ export function ParseLiteral(T: Token[]) {
 
 // ✓ Parse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Parse(T: string) {
+export function Parse(T: string): any {
   return Pure(ParseLiteral(Tokenize(T))[0])
 }
 /* compiles to:

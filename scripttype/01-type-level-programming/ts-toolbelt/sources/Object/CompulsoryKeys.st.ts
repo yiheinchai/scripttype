@@ -9,7 +9,10 @@
  */
 // ✓ _CompulsoryKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _CompulsoryKeys(O: object) {
+/**
+ * @param {object} O
+ */
+export function _CompulsoryKeys(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = required(matches<[ never ]>([merge(O[K], anyOf(Undefined, Null))]) ? K : never)
@@ -23,7 +26,7 @@ export function _CompulsoryKeys(O: object) {
 
 // ✓ CompulsoryKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CompulsoryKeys(O: object) {
+export function CompulsoryKeys(O: object): any {
   if (matches<unknown>(O)) {
     return _CompulsoryKeys(O)
   }

@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AllSelection, CallbackSelection, Selection } from '../../../../../04-query-builders-orm/kysely/src/parser/select-parser.js'
 declare const AllSelection: any
 declare const CallbackSelection: any
 declare const DeleteResult: any
@@ -17,16 +19,16 @@ declare const InsertResult: any
 declare const MergeResult: any
 declare const Selection: any
 declare const UpdateResult: any
-type AllSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CallbackSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DeleteResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InsertResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MergeResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Selection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UpdateResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReturningRow: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReturningRow(DB, TB: keyof typeof DB, O, SE) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ReturningRow(DB, TB, O, SE): any {
   if (matches<InsertResult | DeleteResult | UpdateResult | MergeResult>(O)) {
     return Selection(DB, TB, SE)
   }
@@ -41,7 +43,10 @@ export function ReturningRow(DB, TB: keyof typeof DB, O, SE) {
 
 // ✓ ReturningCallbackRow: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReturningCallbackRow(DB, TB: keyof typeof DB, O, CB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ReturningCallbackRow(DB, TB, O, CB): any {
   if (matches<InsertResult | DeleteResult | UpdateResult | MergeResult>(O)) {
     return CallbackSelection(DB, TB, CB)
   }
@@ -56,7 +61,10 @@ export function ReturningCallbackRow(DB, TB: keyof typeof DB, O, CB) {
 
 // ✓ ReturningAllRow: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReturningAllRow(DB, TB: keyof typeof DB, O) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ReturningAllRow(DB, TB, O): any {
   if (matches<InsertResult | DeleteResult | UpdateResult | MergeResult>(O)) {
     return AllSelection(DB, TB)
   }

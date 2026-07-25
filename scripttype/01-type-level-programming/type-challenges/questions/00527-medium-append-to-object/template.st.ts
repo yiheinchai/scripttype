@@ -9,7 +9,7 @@
  */
 // ✓ AppendToObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AppendToObject(T, U, V) {
+export function AppendToObject(T, U, V): any {
   return any
 }
 /* compiles to:

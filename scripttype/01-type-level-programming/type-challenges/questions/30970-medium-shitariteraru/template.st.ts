@@ -9,7 +9,7 @@
  */
 // ✓ IsFixedStringLiteralType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsFixedStringLiteralType(S: string) {
+export function IsFixedStringLiteralType(S: string): any {
   return any
 }
 /* compiles to:

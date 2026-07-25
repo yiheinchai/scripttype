@@ -9,7 +9,7 @@
  */
 // ✓ GelWithReplicas: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelWithReplicas(Q) {
+export function GelWithReplicas(Q): any {
   return merge(Q, { $primary: Q, $replicas: arrayOf(Q) })
 }
 /* compiles to:

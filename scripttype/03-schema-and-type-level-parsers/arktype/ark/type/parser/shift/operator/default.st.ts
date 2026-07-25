@@ -7,12 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { EnclosingLiteralStartToken, EnclosingLiteralTokens } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/operand/enclosed.js'
+import type { UnenclosedUnitLiteral } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/operator/default.js'
+import type { ErrorMessage } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
 declare namespace Scanner {
   export type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type shiftUntilEscapable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type defaultExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type start<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const EnclosingLiteralStartToken: any
 declare const EnclosingLiteralTokens: any
@@ -20,15 +34,13 @@ declare const ErrorMessage: any
 declare const Scanner: any
 declare const UnenclosedUnitLiteral: any
 declare const shiftResult: any
-type EnclosingLiteralStartToken<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type EnclosingLiteralTokens<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+declare const shiftUntilEscapable: any
 type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnenclosedUnitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftUntilEscapable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ parseDefault: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function parseDefault(root, unscanned: string) {
+export function parseDefault(root, unscanned: string): any {
   const m1 = matches<Hole<"defaultExpression", string>>(trim(unscanned))
   if (m1) {
     if (matches<UnenclosedUnitLiteral>(m1.defaultExpression)) {
@@ -65,8 +77,8 @@ export function parseDefault(root, unscanned: string) {
 
 // ✓ isValidEnclosedLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function isValidEnclosedLiteral(start: EnclosingLiteralStartToken, unscanned: string) {
-  const m1 = matches<Scanner.shiftResult<string, Hole<"nextUnscanned">>>(Scanner.shiftUntilEscapable(unscanned, EnclosingLiteralTokens[start], ''))
+export function isValidEnclosedLiteral(start: EnclosingLiteralStartToken, unscanned: string): any {
+  const m1 = matches<Scanner.shiftResult<string, Hole<"nextUnscanned">>>(t<Scanner.shiftUntilEscapable<typeof unscanned, EnclosingLiteralTokens[typeof start], "">>())
   if (m1) {
     if (matches<EnclosingLiteralTokens[typeof start]>(m1.nextUnscanned)) {
       return true
@@ -87,7 +99,7 @@ export function isValidEnclosedLiteral(start: EnclosingLiteralStartToken, unscan
 
 // ✓ writeNonLiteralDefaultMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeNonLiteralDefaultMessage(defaultDef: string) {
+export function writeNonLiteralDefaultMessage(defaultDef: string): any {
   return `Default value '${defaultDef}' must be a literal value`
 }
 /* compiles to:

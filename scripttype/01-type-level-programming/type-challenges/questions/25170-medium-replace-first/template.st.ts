@@ -9,7 +9,7 @@
  */
 // ✓ ReplaceFirst: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReplaceFirst(T: readonly unknown[], S, R) {
+export function ReplaceFirst(T: readonly unknown[], S, R): any {
   return any
 }
 /* compiles to:

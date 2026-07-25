@@ -9,7 +9,7 @@
  */
 // ✓ DynamicRoute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DynamicRoute(T: string) {
+export function DynamicRoute(T: string): any {
   return any
 }
 /* compiles to:

@@ -10,11 +10,18 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Accumulator {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AllExtend: any
 type AllExtend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsUppercase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsUppercase(S: string) {
+export function IsUppercase(S: string): any {
   return AllExtend(_IsUppercase(S), true)
 }
 /* compiles to:
@@ -23,7 +30,7 @@ export function IsUppercase(S: string) {
 
 // ✓ _IsUppercase: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _IsUppercase(S: string) {
+export function _IsUppercase(S: string): any {
   let Accumulator: any[] = []
   let s = S
   while (true) {
@@ -46,7 +53,7 @@ export function _IsUppercase(S: string) {
 
 // ✓ IsUppercaseHelper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsUppercaseHelper(S: string) {
+export function IsUppercaseHelper(S: string): any {
   if (matches<Uppercase<string>>(S)) {
     return true
   }

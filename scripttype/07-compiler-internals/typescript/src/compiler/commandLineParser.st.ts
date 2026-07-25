@@ -10,7 +10,7 @@
 // ✗ PropOfRaw: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function PropOfRaw(T) {
+export function PropOfRaw(T): any {
   return anyOf(readonlyArrayOf(T), 'not-array', 'no-prop')
 }
 /* compiles to:

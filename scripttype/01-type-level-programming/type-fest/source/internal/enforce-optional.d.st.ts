@@ -14,7 +14,10 @@ declare const Simplify: any
 type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequiredFilter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequiredFilter(Type, Key: keyof typeof Type) {
+/**
+ * @param {keyof typeof Type} Key
+ */
+export function RequiredFilter(Type, Key): any {
   if (matches<(typeof Type)[typeof Key]>(Undefined)) {
     if (typeof Type[Key] === 'undefined') {
       return Key
@@ -30,7 +33,10 @@ export function RequiredFilter(Type, Key: keyof typeof Type) {
 
 // ✓ OptionalFilter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalFilter(Type, Key: keyof typeof Type) {
+/**
+ * @param {keyof typeof Type} Key
+ */
+export function OptionalFilter(Type, Key): any {
   if (matches<(typeof Type)[typeof Key]>(Undefined)) {
     if (typeof Type[Key] === 'undefined') {
       return never
@@ -46,7 +52,7 @@ export function OptionalFilter(Type, Key: keyof typeof Type) {
 
 // ✓ EnforceOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EnforceOptional(ObjectType) {
+export function EnforceOptional(ObjectType): any {
   const out = emptyObject
   for (const Key in keyof(ObjectType)) {
     out[RequiredFilter(ObjectType, Key)] = ObjectType[Key]
@@ -55,7 +61,7 @@ export function EnforceOptional(ObjectType) {
   for (const Key in keyof(ObjectType)) {
     out2[OptionalFilter(ObjectType, Key)] = optional(Exclude(ObjectType[Key], Undefined))
   }
-  return Simplify(out & out2)
+  return Simplify(merge(out, out2))
 }
 /* compiles to:
  * export type EnforceOptional<ObjectType> = Simplify<

@@ -7,14 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExtractTypeFromReferenceExpression } from '../../../../../04-query-builders-orm/kysely/src/parser/reference-parser.js'
 declare const ExtractTypeFromReferenceExpression: any
-type ExtractTypeFromReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExtractTypeFromCoalesce1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromCoalesce1(DB, TB: keyof typeof DB, R1) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractTypeFromCoalesce1(DB, TB, R1): any {
   return ExtractTypeFromReferenceExpression(DB, TB, R1)
 }
 /* compiles to:
@@ -27,7 +31,10 @@ export function ExtractTypeFromCoalesce1(DB, TB: keyof typeof DB, R1) {
 
 // ✓ ExtractTypeFromCoalesce2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromCoalesce2(DB, TB: keyof typeof DB, R1, R2) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractTypeFromCoalesce2(DB, TB, R1, R2): any {
   return ExtractTypeFromCoalesceValues2(ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2))
 }
 /* compiles to:
@@ -39,12 +46,12 @@ export function ExtractTypeFromCoalesce2(DB, TB: keyof typeof DB, R1, R2) {
 
 // ✓ ExtractTypeFromCoalesceValues2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromCoalesceValues2(V1, V2) {
+export function ExtractTypeFromCoalesceValues2(V1, V2): any {
   if (matches<typeof V1>(Null)) {
     if (matches<typeof V2>(Null)) {
       return V1 | V2
     }
-    return NotNull(V1 | V2)
+    return NotNull(anyOf(V1, V2))
   }
   return NotNull(V1)
 }
@@ -55,7 +62,10 @@ export function ExtractTypeFromCoalesceValues2(V1, V2) {
 
 // ✓ ExtractTypeFromCoalesce3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromCoalesce3(DB, TB: keyof typeof DB, R1, R2, R3) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractTypeFromCoalesce3(DB, TB, R1, R2, R3): any {
   return ExtractTypeFromCoalesceValues3(ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3))
 }
 /* compiles to:
@@ -68,15 +78,15 @@ export function ExtractTypeFromCoalesce3(DB, TB: keyof typeof DB, R1, R2, R3) {
 
 // ✓ ExtractTypeFromCoalesceValues3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromCoalesceValues3(V1, V2, V3) {
+export function ExtractTypeFromCoalesceValues3(V1, V2, V3): any {
   if (matches<typeof V1>(Null)) {
     if (matches<typeof V2>(Null)) {
       if (matches<typeof V3>(Null)) {
         return V1 | V2 | V3
       }
-      return NotNull(V1 | V2 | V3)
+      return NotNull(anyOf(V1, V2, V3))
     }
-    return NotNull(V1 | V2)
+    return NotNull(anyOf(V1, V2))
   }
   return NotNull(V1)
 }
@@ -91,7 +101,10 @@ export function ExtractTypeFromCoalesceValues3(V1, V2, V3) {
 
 // ✓ ExtractTypeFromCoalesce4: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromCoalesce4(DB, TB: keyof typeof DB, R1, R2, R3, R4) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractTypeFromCoalesce4(DB, TB, R1, R2, R3, R4): any {
   return ExtractTypeFromCoalesceValues4(ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3), ExtractTypeFromReferenceExpression(DB, TB, R4))
 }
 /* compiles to:
@@ -105,18 +118,18 @@ export function ExtractTypeFromCoalesce4(DB, TB: keyof typeof DB, R1, R2, R3, R4
 
 // ✓ ExtractTypeFromCoalesceValues4: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromCoalesceValues4(V1, V2, V3, V4) {
+export function ExtractTypeFromCoalesceValues4(V1, V2, V3, V4): any {
   if (matches<typeof V1>(Null)) {
     if (matches<typeof V2>(Null)) {
       if (matches<typeof V3>(Null)) {
         if (matches<typeof V4>(Null)) {
           return V1 | V2 | V3 | V4
         }
-        return NotNull(V1 | V2 | V3 | V4)
+        return NotNull(anyOf(V1, V2, V3, V4))
       }
-      return NotNull(V1 | V2 | V3)
+      return NotNull(anyOf(V1, V2, V3))
     }
-    return NotNull(V1 | V2)
+    return NotNull(anyOf(V1, V2))
   }
   return NotNull(V1)
 }
@@ -133,7 +146,10 @@ export function ExtractTypeFromCoalesceValues4(V1, V2, V3, V4) {
 
 // ✓ ExtractTypeFromCoalesce5: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromCoalesce5(DB, TB: keyof typeof DB, R1, R2, R3, R4, R5) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractTypeFromCoalesce5(DB, TB, R1, R2, R3, R4, R5): any {
   return ExtractTypeFromCoalesceValues5(ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3), ExtractTypeFromReferenceExpression(DB, TB, R4), ExtractTypeFromReferenceExpression(DB, TB, R5))
 }
 /* compiles to:
@@ -148,7 +164,7 @@ export function ExtractTypeFromCoalesce5(DB, TB: keyof typeof DB, R1, R2, R3, R4
 
 // ✓ ExtractTypeFromCoalesceValues5: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromCoalesceValues5(V1, V2, V3, V4, V5) {
+export function ExtractTypeFromCoalesceValues5(V1, V2, V3, V4, V5): any {
   if (matches<typeof V1>(Null)) {
     if (matches<typeof V2>(Null)) {
       if (matches<typeof V3>(Null)) {
@@ -156,13 +172,13 @@ export function ExtractTypeFromCoalesceValues5(V1, V2, V3, V4, V5) {
           if (matches<typeof V5>(Null)) {
             return V1 | V2 | V3 | V4 | V5
           }
-          return NotNull(V1 | V2 | V3 | V4 | V5)
+          return NotNull(anyOf(V1, V2, V3, V4, V5))
         }
-        return NotNull(V1 | V2 | V3 | V4)
+        return NotNull(anyOf(V1, V2, V3, V4))
       }
-      return NotNull(V1 | V2 | V3)
+      return NotNull(anyOf(V1, V2, V3))
     }
-    return NotNull(V1 | V2)
+    return NotNull(anyOf(V1, V2))
   }
   return NotNull(V1)
 }
@@ -181,7 +197,7 @@ export function ExtractTypeFromCoalesceValues5(V1, V2, V3, V4, V5) {
 
 // ✓ NotNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NotNull(T) {
+export function NotNull(T): any {
   return Exclude(T, Null)
 }
 /* compiles to:

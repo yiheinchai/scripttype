@@ -10,11 +10,14 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const IsEqual: any
 type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Includes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Includes(Value: readonly any[], Item) {
+export function Includes(Value: readonly any[], Item): any {
   const m1 = matches<readonly [ (typeof Value)[0], ...Hole<"rest"> ]>(Value)
   if (m1) {
     if (matches<true>(IsEqual(Value[0], Item))) {

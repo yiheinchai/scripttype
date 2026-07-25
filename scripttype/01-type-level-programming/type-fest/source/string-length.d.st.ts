@@ -14,7 +14,7 @@ declare const StringToArray: any
 type StringToArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StringLength(S: string) {
+export function StringLength(S: string): any {
   return StringToArray(S)['length']
 }
 /* compiles to:

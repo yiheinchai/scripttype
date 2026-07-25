@@ -9,7 +9,7 @@
  */
 // ✓ IsNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNull(T) {
+export function IsNull(T): any {
   if (matches<[ null ]>([T])) {
     return true
   }

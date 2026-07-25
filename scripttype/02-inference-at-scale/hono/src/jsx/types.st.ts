@@ -7,16 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Child } from '../../../../../02-inference-at-scale/hono/src/jsx/base.js'
 declare const Child: any
 declare const JSXNode: any
-type Child<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type JSXNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PropsWithChildren: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PropsWithChildren(P = unknown) {
+export function PropsWithChildren(P = unknown): any {
   return merge(P, { children: optional(anyOf(Child, Undefined)) })
 }
 /* compiles to:
@@ -25,7 +26,7 @@ export function PropsWithChildren(P = unknown) {
 
 // ✓ ReactElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReactElement(P = any, T = string | t<Function>()) {
+export function ReactElement(P = any, T = string | t<Function>()): any {
   return merge(JSXNode, { type: T, props: P, key: string | Null })
 }
 /* compiles to:
@@ -35,7 +36,7 @@ export function ReactElement(P = any, T = string | t<Function>()) {
 
 // ✓ ComponentClass: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ComponentClass(_P = {}, _S = {}) {
+export function ComponentClass(_P = {}, _S = {}): any {
   return unknown
 }
 /* compiles to:

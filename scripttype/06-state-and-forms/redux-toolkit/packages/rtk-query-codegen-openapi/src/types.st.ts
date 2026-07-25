@@ -9,7 +9,10 @@
  */
 // ✓ Require: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Require(T, K: keyof typeof T) {
+/**
+ * @param {keyof typeof T} K
+ */
+export function Require(T, K): any {
   const out = emptyObject
   for (const k in keySet(K)) {
     out[k] = required(NonNullable(T[k]))
@@ -22,7 +25,10 @@ export function Require(T, K: keyof typeof T) {
 
 // ✓ Optional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Optional(T, K: keyof typeof T) {
+/**
+ * @param {keyof typeof T} K
+ */
+export function Optional(T, K): any {
   const out = emptyObject
   for (const k in keySet(K)) {
     out[k] = optional(NonNullable(T[k]))
@@ -35,7 +41,7 @@ export function Optional(T, K: keyof typeof T) {
 
 // ✓ Id: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Id(T) {
+export function Id(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = T[K]
@@ -48,7 +54,7 @@ export function Id(T) {
 
 // ✓ AtLeastOneKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AtLeastOneKey(T) {
+export function AtLeastOneKey(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = required(Pick(T, K) & Partial(T))

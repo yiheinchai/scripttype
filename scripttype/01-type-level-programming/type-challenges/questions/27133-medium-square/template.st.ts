@@ -9,7 +9,7 @@
  */
 // ✓ Square: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Square(N: number) {
+export function Square(N: number): any {
   return number
 }
 /* compiles to:

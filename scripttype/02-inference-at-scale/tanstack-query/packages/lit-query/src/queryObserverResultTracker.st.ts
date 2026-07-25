@@ -9,7 +9,7 @@
  */
 // ✓ TrackableQueryObserver: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TrackableQueryObserver(TResult: object) {
+export function TrackableQueryObserver(TResult: object): any {
   return { options: { notifyOnChangeProps: optional(unknown) }, trackResult: fnType([TResult], unknown) }
 }
 /* compiles to:

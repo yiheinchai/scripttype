@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SomeType } from '../../../../../../../../03-schema-and-type-level-parsers/zod/packages/zod/src/v4/core/schemas.js'
 declare namespace schemas {
   export type SomeType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const SomeType: any
 declare const schemas: any
-type SomeType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type schemas<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ $brand: the ScriptType does not itself typecheck as TypeScript
 //   $brand.st.ts(7:12) TS2464: A computed property name must be of type 'string', 'number', 'symbol', or 'any'.
 /* @scripttype preserveParamNames */
-export function $brand(T: string | number | symbol = string | number | symbol) {
+export function $brand(T: string | number | symbol = string | number | symbol): any {
   const out = emptyObject
   for (const k in keySet(T)) {
     out[k] = true
@@ -35,7 +36,7 @@ export function $brand(T: string | number | symbol = string | number | symbol) {
 
 // ✓ $ZodBranded: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function $ZodBranded(T: schemas.SomeType, Brand: string | number | symbol, Dir: "in" | "out" | "inout" = 'out') {
+export function $ZodBranded(T: schemas.SomeType, Brand: string | number | symbol, Dir: "in" | "out" | "inout" = 'out'): any {
   return merge(T, matches<"inout">(Dir) ? { _zod: { input: input(T) & $brand(Brand), output: output(T) & $brand(Brand) } } : (matches<"in">(Dir) ? { _zod: { input: input(T) & $brand(Brand) } } : { _zod: { output: output(T) & $brand(Brand) } }))
 }
 /* compiles to:
@@ -55,7 +56,7 @@ export function $ZodBranded(T: schemas.SomeType, Brand: string | number | symbol
 
 // ✓ $ZodNarrow: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function $ZodNarrow(T: schemas.SomeType, Out) {
+export function $ZodNarrow(T: schemas.SomeType, Out): any {
   return merge(T, { _zod: { output: Out } })
 }
 /* compiles to:
@@ -64,7 +65,7 @@ export function $ZodNarrow(T: schemas.SomeType, Out) {
 
 // ✓ input: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function input(T) {
+export function input(T): any {
   if (matches<{ _zod: { input: any; }; }>(T)) {
     return T['_zod']['input']
   }
@@ -76,7 +77,7 @@ export function input(T) {
 
 // ✓ output: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function output(T) {
+export function output(T): any {
   if (matches<{ _zod: { output: any; }; }>(T)) {
     return T['_zod']['output']
   }

@@ -21,7 +21,7 @@ type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, 
 // ✗ ColumnIsGeneratedAlwaysAs: does not compile yet
 //   Type '"_"' cannot be used to index type 'TColumn'.
 /* @scripttype preserveParamNames */
-export function ColumnIsGeneratedAlwaysAs(TColumn) {
+export function ColumnIsGeneratedAlwaysAs(TColumn): any {
   if (matches<Column>(TColumn)) {
     if (matches<'always'>(TColumn['_']['identity'])) {
       return true
@@ -44,7 +44,7 @@ export function ColumnIsGeneratedAlwaysAs(TColumn) {
 
 // ✓ GetSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetSelection(T: SelectedFieldsFlat<Column> | Table | View) {
+export function GetSelection(T: SelectedFieldsFlat<Column> | Table | View): any {
   if (matches<Table>(T)) {
     return T['_']['columns']
   }

@@ -9,7 +9,7 @@
  */
 // ✓ CheckRepeatedChars: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CheckRepeatedChars(T: string) {
+export function CheckRepeatedChars(T: string): any {
   return any
 }
 /* compiles to:

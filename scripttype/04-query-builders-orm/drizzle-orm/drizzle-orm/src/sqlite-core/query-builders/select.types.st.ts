@@ -7,9 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AppendToNullabilityMap, AppendToResult, BuildSubquerySelection, GetSelectTableName, JoinNullability, JoinType, MapColumnsToTableAlias, SelectMode, SelectResult } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { ColumnsSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sql/sql.js'
+import type { AnySQLiteSelect, AnySQLiteSelectQueryBuilder, AnySQLiteSetOperatorInterface, SQLiteSelectHKTBase, SQLiteSelectQueryBuilderHKT, SQLiteSetOperatorExcludedMethods, SQLiteSetOperatorInterface, SelectedFields } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sqlite-core/query-builders/select.types.js'
+import type { SQLiteTableWithColumns } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sqlite-core/table.js'
+import type { SQLiteViewWithSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sqlite-core/view.js'
+import type { UpdateTableConfig } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
+import type { Assume, ValidateShape } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TValueResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TValueResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnySQLiteSelect: any
 declare const AnySQLiteSelectQueryBuilder: any
 declare const AnySQLiteSetOperatorInterface: any
@@ -32,7 +48,6 @@ declare const SQLiteSetOperatorExcludedMethods: any
 declare const SQLiteSetOperatorInterface: any
 declare const SQLiteTable: any
 declare const SQLiteTableWithColumns: any
-declare const SQLiteViewBase: any
 declare const SQLiteViewWithSelection: any
 declare const SelectMode: any
 declare const SelectResult: any
@@ -43,43 +58,18 @@ declare const TypedQueryBuilder: any
 declare const UpdateTableConfig: any
 declare const ValidateShape: any
 declare const View: any
-type AnySQLiteSelect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySQLiteSelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySQLiteSetOperatorInterface<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToNullabilityMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BuildSubquerySelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetSelectTableName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinNullability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapColumnsToTableAlias<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLitePreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteSelectBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SQLiteSelectHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteSelectQueryBuilderBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SQLiteSelectQueryBuilderHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SQLiteSetOperatorExcludedMethods<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SQLiteSetOperatorInterface<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SQLiteSetOperatorWithResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SQLiteTableWithColumns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SQLiteViewBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SQLiteViewWithSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectedFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TypedQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UpdateTableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidateShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildAliasTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildAliasTable(TTable: SQLiteTable | View, TAlias: string) {
+export function BuildAliasTable(TTable: SQLiteTable | View, TAlias: string): any {
   if (matches<Table>(TTable)) {
     return SQLiteTableWithColumns(UpdateTableConfig(TTable['_']['config'], { name: TAlias, columns: MapColumnsToTableAlias(TTable['_']['columns'], TAlias, 'sqlite') }))
   }
@@ -111,7 +101,11 @@ export function BuildAliasTable(TTable: SQLiteTable | View, TAlias: string) {
 
 // ✓ SQLiteSelectJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelectJoin(T: AnySQLiteSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TJoinedTable: SQLiteTable | Subquery | SQLiteViewBase | SQL, TJoinedName: GetSelectTableName<typeof TJoinedTable> = GetSelectTableName(TJoinedTable)) {
+/**
+ * @param {SQLiteTable | Subquery | SQLiteViewBase | SQL} TJoinedTable
+ * @param {GetSelectTableName<typeof TJoinedTable>} TJoinedName
+ */
+export function SQLiteSelectJoin(T: AnySQLiteSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TJoinedTable, TJoinedName = GetSelectTableName(TJoinedTable)): any {
   if (matches<any>(T)) {
     return SQLiteSelectWithout(SQLiteSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['resultType'], T['_']['runResult'], AppendToResult(T['_']['tableName'], T['_']['selection'], TJoinedName, matches<SQLiteTable>(TJoinedTable) ? TJoinedTable['_']['columns'] : (matches<Subquery | View>(TJoinedTable) ? Assume(TJoinedTable['_']['selectedFields'], SelectedFields) : never), T['_']['selectMode']), matches<'partial'>(T['_']['selectMode']) ? T['_']['selectMode'] : 'multiple', AppendToNullabilityMap(T['_']['nullabilityMap'], TJoinedName, TJoinType), T['_']['dynamic'], T['_']['excludedMethods']), TDynamic, T['_']['excludedMethods'])
   }
@@ -155,7 +149,7 @@ export function SQLiteSelectJoin(T: AnySQLiteSelectQueryBuilder, TDynamic: boole
 
 // ✓ SQLiteSelectJoinFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelectJoinFn(T: AnySQLiteSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType) {
+export function SQLiteSelectJoinFn(T: AnySQLiteSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType): any {
   return genericFnType(['TJoinedTable extends SQLiteTable | Subquery | SQLiteViewBase | SQL', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [TJoinedTable, anyOf(fnType([T['_']['selection']], anyOf(SQL, Undefined)), SQL, Undefined)], SQLiteSelectJoin(T, TDynamic, TJoinType, TJoinedTable, TJoinedName))
 }
 /* compiles to:
@@ -172,7 +166,7 @@ export function SQLiteSelectJoinFn(T: AnySQLiteSelectQueryBuilder, TDynamic: boo
 
 // ✓ SQLiteSelectCrossJoinFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelectCrossJoinFn(T: AnySQLiteSelectQueryBuilder, TDynamic: boolean) {
+export function SQLiteSelectCrossJoinFn(T: AnySQLiteSelectQueryBuilder, TDynamic: boolean): any {
   return genericFnType(['TJoinedTable extends SQLiteTable | Subquery | SQLiteViewBase | SQL', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [TJoinedTable], SQLiteSelectJoin(T, TDynamic, 'cross', TJoinedTable, TJoinedName))
 }
 /* compiles to:
@@ -187,7 +181,7 @@ export function SQLiteSelectCrossJoinFn(T: AnySQLiteSelectQueryBuilder, TDynamic
 
 // ✓ SQLiteSelectKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelectKind(T: SQLiteSelectHKTBase, TTableName: string | undefined, TResultType: 'sync' | 'async', TRunResult, TSelection: ColumnsSelection, TSelectMode: SelectMode, TNullabilityMap: Record<string, JoinNullability>, TDynamic: boolean, TExcludedMethods: string, TResult = arrayOf(SelectResult(TSelection, TSelectMode, TNullabilityMap)), TSelectedFields = BuildSubquerySelection(TSelection, TNullabilityMap)) {
+export function SQLiteSelectKind(T: SQLiteSelectHKTBase, TTableName: string | undefined, TResultType: 'sync' | 'async', TRunResult, TSelection: ColumnsSelection, TSelectMode: SelectMode, TNullabilityMap: Record<string, JoinNullability>, TDynamic: boolean, TExcludedMethods: string, TResult = arrayOf(SelectResult(TSelection, TSelectMode, TNullabilityMap)), TSelectedFields = BuildSubquerySelection(TSelection, TNullabilityMap)): any {
   return (merge(T, { tableName: TTableName, resultType: TResultType, runResult: TRunResult, selection: TSelection, selectMode: TSelectMode, nullabilityMap: TNullabilityMap, dynamic: TDynamic, excludedMethods: TExcludedMethods, result: TResult, selectedFields: TSelectedFields }))['_type']
 }
 /* compiles to:
@@ -223,7 +217,7 @@ export function SQLiteSelectKind(T: SQLiteSelectHKTBase, TTableName: string | un
 
 // ✓ CreateSQLiteSelectFromBuilderMode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateSQLiteSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTableName: string | undefined, TResultType: 'sync' | 'async', TRunResult, TSelection: ColumnsSelection, TSelectMode: SelectMode) {
+export function CreateSQLiteSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTableName: string | undefined, TResultType: 'sync' | 'async', TRunResult, TSelection: ColumnsSelection, TSelectMode: SelectMode): any {
   if (matches<'db'>(TBuilderMode)) {
     return SQLiteSelectBase(TTableName, TResultType, TRunResult, TSelection, TSelectMode)
   }
@@ -252,11 +246,15 @@ export function CreateSQLiteSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTa
 
 // ✓ SQLiteSelectWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelectWithout(T: AnySQLiteSelectQueryBuilder, TDynamic: boolean, K: keyof typeof T & string, TResetExcluded: boolean = false) {
+/**
+ * @param {AnySQLiteSelectQueryBuilder} T
+ * @param {keyof typeof T & string} K
+ */
+export function SQLiteSelectWithout(T, TDynamic: boolean, K, TResetExcluded: boolean = false): any {
   if (matches<true>(TDynamic)) {
     return T
   }
-  return Omit(SQLiteSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['resultType'], T['_']['runResult'], T['_']['selection'], T['_']['selectMode'], T['_']['nullabilityMap'], TDynamic, matches<true>(TResetExcluded) ? K : (anyOf(T['_']['excludedMethods'], K)), T['_']['result'], T['_']['selectedFields']), matches<true>(TResetExcluded) ? K : (anyOf(T['_']['excludedMethods'], K)))
+  return Omit(SQLiteSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['resultType'], T['_']['runResult'], T['_']['selection'], T['_']['selectMode'], T['_']['nullabilityMap'], TDynamic, matches<true>(TResetExcluded) ? K : (T['_']['excludedMethods'] | K), T['_']['result'], T['_']['selectedFields']), matches<true>(TResetExcluded) ? K : (T['_']['excludedMethods'] | K))
 }
 /* compiles to:
  * export type SQLiteSelectWithout<
@@ -287,7 +285,7 @@ export function SQLiteSelectWithout(T: AnySQLiteSelectQueryBuilder, TDynamic: bo
 
 // ✓ SQLiteSelectExecute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelectExecute(T: AnySQLiteSelect) {
+export function SQLiteSelectExecute(T: AnySQLiteSelect): any {
   return T['_']['result']
 }
 /* compiles to:
@@ -296,7 +294,7 @@ export function SQLiteSelectExecute(T: AnySQLiteSelect) {
 
 // ✓ SQLiteSelectPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelectPrepare(T: AnySQLiteSelect) {
+export function SQLiteSelectPrepare(T: AnySQLiteSelect): any {
   return SQLitePreparedQuery({ type: T['_']['resultType'], run: T['_']['runResult'], all: T['_']['result'], get: anyOf(T['_']['result'][number], Undefined), values: arrayOf(arrayOf(any)), execute: SQLiteSelectExecute(T) })
 }
 /* compiles to:
@@ -314,7 +312,7 @@ export function SQLiteSelectPrepare(T: AnySQLiteSelect) {
 
 // ✓ SQLiteSelectDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelectDynamic(T: AnySQLiteSelectQueryBuilder) {
+export function SQLiteSelectDynamic(T: AnySQLiteSelectQueryBuilder): any {
   return SQLiteSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['resultType'], T['_']['runResult'], T['_']['selection'], T['_']['selectMode'], T['_']['nullabilityMap'], true, never, T['_']['result'], T['_']['selectedFields'])
 }
 /* compiles to:
@@ -335,7 +333,7 @@ export function SQLiteSelectDynamic(T: AnySQLiteSelectQueryBuilder) {
 
 // ✓ SQLiteSelectQueryBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelectQueryBuilder(THKT: SQLiteSelectHKTBase = SQLiteSelectQueryBuilderHKT, TTableName: string | undefined = anyOf(string, Undefined), TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TSelection: ColumnsSelection = ColumnsSelection, TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability), TResult: any[] = arrayOf(unknown), TSelectedFields: ColumnsSelection = ColumnsSelection) {
+export function SQLiteSelectQueryBuilder(THKT: SQLiteSelectHKTBase = SQLiteSelectQueryBuilderHKT, TTableName: string | undefined = anyOf(string, Undefined), TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TSelection: ColumnsSelection = ColumnsSelection, TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability), TResult: any[] = arrayOf(unknown), TSelectedFields: ColumnsSelection = ColumnsSelection): any {
   return SQLiteSelectQueryBuilderBase(THKT, TTableName, TResultType, TRunResult, TSelection, TSelectMode, TNullabilityMap, true, never, TResult, TSelectedFields)
 }
 /* compiles to:
@@ -367,7 +365,7 @@ export function SQLiteSelectQueryBuilder(THKT: SQLiteSelectHKTBase = SQLiteSelec
 
 // ✓ SQLiteSetOperatorWithResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSetOperatorWithResult(TResult: any[]) {
+export function SQLiteSetOperatorWithResult(TResult: any[]): any {
   return SQLiteSetOperatorInterface(any, any, any, any, any, any, any, any, TResult, any)
 }
 /* compiles to:
@@ -387,7 +385,7 @@ export function SQLiteSetOperatorWithResult(TResult: any[]) {
 
 // ✓ SQLiteSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSelect(TTableName: string | undefined = anyOf(string, Undefined), TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)) {
+export function SQLiteSelect(TTableName: string | undefined = anyOf(string, Undefined), TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)): any {
   return SQLiteSelectBase(TTableName, TResultType, TRunResult, TSelection, TSelectMode, TNullabilityMap, true, never)
 }
 /* compiles to:
@@ -413,7 +411,7 @@ export function SQLiteSelect(TTableName: string | undefined = anyOf(string, Unde
 
 // ✓ SQLiteSetOperator: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteSetOperator(TTableName: string | undefined = anyOf(string, Undefined), TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)) {
+export function SQLiteSetOperator(TTableName: string | undefined = anyOf(string, Undefined), TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)): any {
   return SQLiteSelectBase(TTableName, TResultType, TRunResult, TSelection, TSelectMode, TNullabilityMap, true, SQLiteSetOperatorExcludedMethods)
 }
 /* compiles to:
@@ -439,7 +437,11 @@ export function SQLiteSetOperator(TTableName: string | undefined = anyOf(string,
 
 // ✓ SetOperatorRightSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetOperatorRightSelect(TValue: SQLiteSetOperatorWithResult<typeof TResult>, TResult: any[]) {
+/**
+ * @param {SQLiteSetOperatorWithResult<typeof TResult>} TValue
+ * @param {any[]} TResult
+ */
+export function SetOperatorRightSelect(TValue, TResult): any {
   const m1 = matches<SQLiteSetOperatorInterface<any, any, any, any, any, any, any, any, Hole<"TValueResult">, any>>(TValue)
   if (m1) {
     return ValidateShape(m1.TValueResult[number], TResult[number], TypedQueryBuilder(any, m1.TValueResult))
@@ -458,7 +460,11 @@ export function SetOperatorRightSelect(TValue: SQLiteSetOperatorWithResult<typeo
 
 // ✓ SetOperatorRestSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetOperatorRestSelect(TValue: readonly SQLiteSetOperatorWithResult<typeof TResult>[], TResult: any[]) {
+/**
+ * @param {readonly SQLiteSetOperatorWithResult<typeof TResult>[]} TValue
+ * @param {any[]} TResult
+ */
+export function SetOperatorRestSelect(TValue, TResult): any {
   const m1 = matches<[ Hole<"First">, ...Hole<"Rest"> ]>(TValue)
   if (m1) {
     const m2 = matches<SQLiteSetOperatorInterface<any, any, any, any, any, any, any, any, Hole<"TValueResult">, any>>(m1.First)

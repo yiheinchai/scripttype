@@ -9,7 +9,7 @@
  */
 // ✓ PartialByKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PartialByKeys(T, K) {
+export function PartialByKeys(T, K): any {
   return any
 }
 /* compiles to:

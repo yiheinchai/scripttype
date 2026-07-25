@@ -9,7 +9,7 @@
  */
 // ✓ Zip: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Zip(T, U) {
+export function Zip(T, U): any {
   return any
 }
 /* compiles to:

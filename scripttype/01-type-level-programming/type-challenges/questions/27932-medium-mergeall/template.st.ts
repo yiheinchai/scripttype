@@ -9,7 +9,7 @@
  */
 // ✓ MergeAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeAll(XS) {
+export function MergeAll(XS): any {
   return any
 }
 /* compiles to:

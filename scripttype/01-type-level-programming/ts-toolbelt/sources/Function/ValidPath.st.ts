@@ -7,9 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { Pos } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AKey: any
 declare const At: any
 declare const Cast: any
@@ -24,19 +34,13 @@ declare const Pos: any
 declare const Update: any
 type AKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type At<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Update<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidatePath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidatePath(O, Path: List<AKey>, I: Iteration) {
+export function ValidatePath(O, Path: List<AKey>, I: Iteration): any {
   return Update(Path, Key(I), matches<[ never ]>([At(merge(O, {}), Path[Pos(I)])]) ? keyof(O) : Path[Pos(I)])
 }
 /* compiles to:
@@ -50,7 +54,7 @@ export function ValidatePath(O, Path: List<AKey>, I: Iteration) {
 // ✗ __ValidPath: does not compile yet
 //   Type 'Extends<Pos<I>, Length<Path>>' cannot be used to index type '{ '0': __ValidPath__st1<NonNullable<At<O & {}, Path[Pos<I>]>>, Cast<{ [P in keyof Path]: P ex
 /* @scripttype preserveParamNames */
-export function __ValidPath(O, Path: List<AKey>, I: Iteration = IterationOf(0)) {
+export function __ValidPath(O, Path: List<AKey>, I: Iteration = IterationOf(0)): any {
   return { 0: __ValidPath(NonNullable(At(merge(O, {}), Path[Pos(I)])), ValidatePath(O, Path, I), Next(I)), 1: Path }[Extends(Pos(I), Length(Path))]
 }
 /* compiles to:
@@ -63,7 +67,7 @@ export function __ValidPath(O, Path: List<AKey>, I: Iteration = IterationOf(0)) 
 
 // ✓ _ValidPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ValidPath(O: object, Path: List<AKey>) {
+export function _ValidPath(O: object, Path: List<AKey>): any {
   const m1 = matches<Hole<"X">>(__ValidPath(O, Path))
   if (m1) {
     return Cast(m1.X, List(AKey))
@@ -77,7 +81,7 @@ export function _ValidPath(O: object, Path: List<AKey>) {
 
 // ✓ ValidPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidPath(O: object, Path: List<AKey>) {
+export function ValidPath(O: object, Path: List<AKey>): any {
   if (matches<unknown>(O)) {
     if (matches<unknown>(Path)) {
       return _ValidPath(O, Path)

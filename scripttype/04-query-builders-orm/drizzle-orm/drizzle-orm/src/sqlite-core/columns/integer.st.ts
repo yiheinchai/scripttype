@@ -18,7 +18,7 @@ type SQLiteIntegerBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 =
 type SQLiteTimestampBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLiteIntegerBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteIntegerBuilderInitial(TName: string) {
+export function SQLiteIntegerBuilderInitial(TName: string): any {
   return SQLiteIntegerBuilder({ name: TName, dataType: 'number', columnType: 'SQLiteInteger', data: number, driverParam: number, enumValues: Undefined })
 }
 /* compiles to:
@@ -36,7 +36,7 @@ export function SQLiteIntegerBuilderInitial(TName: string) {
 
 // ✓ SQLiteTimestampBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteTimestampBuilderInitial(TName: string) {
+export function SQLiteTimestampBuilderInitial(TName: string): any {
   return SQLiteTimestampBuilder({ name: TName, dataType: 'date', columnType: 'SQLiteTimestamp', data: t<Date>(), driverParam: number, enumValues: Undefined })
 }
 /* compiles to:
@@ -54,7 +54,7 @@ export function SQLiteTimestampBuilderInitial(TName: string) {
 
 // ✓ SQLiteBooleanBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteBooleanBuilderInitial(TName: string) {
+export function SQLiteBooleanBuilderInitial(TName: string): any {
   return SQLiteBooleanBuilder({ name: TName, dataType: 'boolean', columnType: 'SQLiteBoolean', data: boolean, driverParam: number, enumValues: Undefined })
 }
 /* compiles to:

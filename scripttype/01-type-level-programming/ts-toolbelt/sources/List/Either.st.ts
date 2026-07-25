@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ObjectOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/ObjectOf.js'
+import type { _ListOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/ListOf.js'
+declare namespace m1 {
+  export type OE<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Key: any
 declare const List: any
 declare const OEither: any
@@ -18,12 +24,10 @@ declare const _ListOf: any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OEither<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _ListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Either: the ScriptType does not itself typecheck as TypeScript
 //   Either.st.ts(2:41) TS2322: Type 'number' is not assignable to type 'Boolean'.
 /* @scripttype preserveParamNames */
-export function Either(L: List, K: Key, strict: Boolean = 1) {
+export function Either(L: List, K: Key, strict: Boolean = 1): any {
   const m1 = matches<Hole<"OE">>(OEither(ObjectOf(L), anyOf(`${merge(K, number)}`, K), strict))
   if (m1) {
     if (matches<unknown>(m1.OE)) {

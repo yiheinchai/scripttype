@@ -9,7 +9,7 @@
  */
 // ✓ Fill: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Fill(T: unknown[], N, Start: number = 0, End: number = T['length']) {
+export function Fill(T: unknown[], N, Start: number = 0, End: number = T['length']): any {
   return any
 }
 /* compiles to:

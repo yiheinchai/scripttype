@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { RequiredStructuralSharing } from '../../../../../../02-inference-at-scale/tanstack-router/packages/react-router/src/structuralSharing.js'
+import type { AnyRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { OptionalStructuralSharing } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/structuralSharing.js'
+import type { ValidateJSON } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
 declare const AnyRouter: any
 declare const OptionalStructuralSharing: any
 declare const RequiredStructuralSharing: any
 declare const ValidateJSON: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalStructuralSharing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RequiredStructuralSharing<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidateJSON<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ DefaultStructuralSharingEnabled: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DefaultStructuralSharingEnabled(TRouter: AnyRouter) {
+export function DefaultStructuralSharingEnabled(TRouter: AnyRouter): any {
   if (matches<(typeof TRouter)['options']['defaultStructuralSharing']>(boolean)) {
     return false
   }
@@ -35,7 +36,7 @@ export function DefaultStructuralSharingEnabled(TRouter: AnyRouter) {
 
 // ✓ StructuralSharingOption: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StructuralSharingOption(TRouter: AnyRouter, TSelected, TStructuralSharing) {
+export function StructuralSharingOption(TRouter: AnyRouter, TSelected, TStructuralSharing): any {
   if (matches<typeof TSelected>(unknown)) {
     return OptionalStructuralSharing(TStructuralSharing, boolean)
   }
@@ -64,7 +65,7 @@ export function StructuralSharingOption(TRouter: AnyRouter, TSelected, TStructur
 
 // ✓ StructuralSharingEnabled: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StructuralSharingEnabled(TRouter: AnyRouter, TStructuralSharing) {
+export function StructuralSharingEnabled(TRouter: AnyRouter, TStructuralSharing): any {
   if (matches<typeof TStructuralSharing>(boolean)) {
     return DefaultStructuralSharingEnabled(TRouter)
   }
@@ -79,7 +80,7 @@ export function StructuralSharingEnabled(TRouter: AnyRouter, TStructuralSharing)
 
 // ✓ ValidateSelected: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSelected(TRouter: AnyRouter, TSelected, TStructuralSharing) {
+export function ValidateSelected(TRouter: AnyRouter, TSelected, TStructuralSharing): any {
   if (matches<true>(StructuralSharingEnabled(TRouter, TStructuralSharing))) {
     return ValidateJSON(TSelected)
   }

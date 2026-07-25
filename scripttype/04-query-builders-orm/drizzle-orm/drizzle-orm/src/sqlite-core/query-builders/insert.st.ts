@@ -7,12 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SelectResultFields } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { AnySQLiteColumn } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sqlite-core/columns/common.js'
+import type { AnySQLiteInsert } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sqlite-core/query-builders/insert.js'
+import type { SQLiteUpdateSetSource } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sqlite-core/query-builders/update.js'
+import type { DrizzleTypeError, Simplify } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
 declare namespace SQL {
   export type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare const Aliased: any
 declare const AnySQLiteColumn: any
 declare const AnySQLiteInsert: any
 declare const DrizzleTypeError: any
@@ -27,26 +34,21 @@ declare const SelectResultFields: any
 declare const SelectedFieldsFlat: any
 declare const Simplify: any
 declare const TypedQueryBuilder: any
-type AnySQLiteColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySQLiteInsert<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrizzleTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IndexColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Placeholder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteInsertBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLitePreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SQLiteUpdateSetSource<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResultFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectedFieldsFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TypedQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SQLiteInsertValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsertValue(TTable: SQLiteTable) {
+export function SQLiteInsertValue(TTable: SQLiteTable): any {
   const out = emptyObject
   for (const Key in keyof(TTable['$inferInsert'])) {
-    out[Key] = TTable['$inferInsert'][Key] | SQL | Placeholder
+    out[Key] = anyOf(TTable['$inferInsert'][Key], SQL, Placeholder)
   }
   return Simplify(out)
 }
@@ -58,10 +60,10 @@ export function SQLiteInsertValue(TTable: SQLiteTable) {
 
 // ✓ SQLiteInsertSelectQueryBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsertSelectQueryBuilder(TTable: SQLiteTable) {
+export function SQLiteInsertSelectQueryBuilder(TTable: SQLiteTable): any {
   const out = emptyObject
   for (const K in keyof(TTable['$inferInsert'])) {
-    out[K] = AnySQLiteColumn | SQL | SQL.Aliased | TTable['$inferInsert'][K]
+    out[K] = anyOf(AnySQLiteColumn, SQL, t<SQL.Aliased>(), TTable['$inferInsert'][K])
   }
   return TypedQueryBuilder(out)
 }
@@ -78,7 +80,11 @@ export function SQLiteInsertSelectQueryBuilder(TTable: SQLiteTable) {
 
 // ✓ SQLiteInsertWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsertWithout(T: AnySQLiteInsert, TDynamic: boolean, K: keyof typeof T & string) {
+/**
+ * @param {AnySQLiteInsert} T
+ * @param {keyof typeof T & string} K
+ */
+export function SQLiteInsertWithout(T, TDynamic: boolean, K): any {
   if (matches<true>(TDynamic)) {
     return T
   }
@@ -107,7 +113,7 @@ export function SQLiteInsertWithout(T: AnySQLiteInsert, TDynamic: boolean, K: ke
 
 // ✓ SQLiteInsertReturning: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsertReturning(T: AnySQLiteInsert, TDynamic: boolean, TSelectedFields: SelectedFieldsFlat) {
+export function SQLiteInsertReturning(T: AnySQLiteInsert, TDynamic: boolean, TSelectedFields: SelectedFieldsFlat): any {
   return SQLiteInsertWithout(SQLiteInsertBase(T['_']['table'], T['_']['resultType'], T['_']['runResult'], SelectResultFields(TSelectedFields), TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
@@ -132,7 +138,7 @@ export function SQLiteInsertReturning(T: AnySQLiteInsert, TDynamic: boolean, TSe
 
 // ✓ SQLiteInsertReturningAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsertReturningAll(T: AnySQLiteInsert, TDynamic: boolean) {
+export function SQLiteInsertReturningAll(T: AnySQLiteInsert, TDynamic: boolean): any {
   return SQLiteInsertWithout(SQLiteInsertBase(T['_']['table'], T['_']['resultType'], T['_']['runResult'], T['_']['table']['$inferSelect'], TDynamic, T['_']['excludedMethods']), TDynamic, 'returning')
 }
 /* compiles to:
@@ -152,7 +158,7 @@ export function SQLiteInsertReturningAll(T: AnySQLiteInsert, TDynamic: boolean) 
 
 // ✓ SQLiteInsertOnConflictDoUpdateConfig: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsertOnConflictDoUpdateConfig(T: AnySQLiteInsert) {
+export function SQLiteInsertOnConflictDoUpdateConfig(T: AnySQLiteInsert): any {
   return { target: IndexColumn | arrayOf(IndexColumn), where: optional(SQL), targetWhere: optional(SQL), setWhere: optional(SQL), set: SQLiteUpdateSetSource(T['_']['table']) }
 }
 /* compiles to:
@@ -167,7 +173,7 @@ export function SQLiteInsertOnConflictDoUpdateConfig(T: AnySQLiteInsert) {
 
 // ✓ SQLiteInsertDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsertDynamic(T: AnySQLiteInsert) {
+export function SQLiteInsertDynamic(T: AnySQLiteInsert): any {
   return SQLiteInsert(T['_']['table'], T['_']['resultType'], T['_']['runResult'], T['_']['returning'])
 }
 /* compiles to:
@@ -181,7 +187,7 @@ export function SQLiteInsertDynamic(T: AnySQLiteInsert) {
 
 // ✓ SQLiteInsertExecute: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsertExecute(T: AnySQLiteInsert) {
+export function SQLiteInsertExecute(T: AnySQLiteInsert): any {
   if (typeof T['_']['returning'] === 'undefined') {
     return T['_']['runResult']
   }
@@ -194,7 +200,7 @@ export function SQLiteInsertExecute(T: AnySQLiteInsert) {
 
 // ✓ SQLiteInsertPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsertPrepare(T: AnySQLiteInsert) {
+export function SQLiteInsertPrepare(T: AnySQLiteInsert): any {
   return SQLitePreparedQuery({ type: T['_']['resultType'], run: T['_']['runResult'], all: typeof T['_']['returning'] === 'undefined' ? DrizzleTypeError('.all() cannot be used without .returning()') : arrayOf(T['_']['returning']), get: typeof T['_']['returning'] === 'undefined' ? DrizzleTypeError('.get() cannot be used without .returning()') : T['_']['returning'], values: typeof T['_']['returning'] === 'undefined' ? DrizzleTypeError('.values() cannot be used without .returning()') : arrayOf(arrayOf(any)), execute: SQLiteInsertExecute(T) })
 }
 /* compiles to:
@@ -218,7 +224,7 @@ export function SQLiteInsertPrepare(T: AnySQLiteInsert) {
 
 // ✓ SQLiteInsert: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteInsert(TTable: SQLiteTable = SQLiteTable, TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TReturning = any) {
+export function SQLiteInsert(TTable: SQLiteTable = SQLiteTable, TResultType: 'sync' | 'async' = anyOf('sync', 'async'), TRunResult = unknown, TReturning = any): any {
   return SQLiteInsertBase(TTable, TResultType, TRunResult, TReturning, true, never)
 }
 /* compiles to:

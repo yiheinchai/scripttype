@@ -7,34 +7,37 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { listable } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/arrays.js'
+import type { GroupableEntry, GroupedEntry, ListableEntry } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/flatMorph.js'
+import type { conform, show } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
+import type { Entry } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/records.js'
+import type { intersectUnion } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/unionToTuple.js'
+declare namespace m1 {
+  export type n<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type remaining<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Entry: any
 declare const GroupableEntry: any
 declare const GroupedEntry: any
 declare const ListableEntry: any
 declare const PropertyKey: any
-declare const array: any
 declare const conform: any
 declare const intersectUnion: any
 declare const listable: any
 declare const remaining: any
 declare const show: any
-type Entry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GroupableEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GroupedEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ListableEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type conform<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type intersectUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type listable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type remaining<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type show<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ objectFromListableEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function objectFromListableEntries(transformed: readonly GroupableEntry[]) {
+export function objectFromListableEntries(transformed: readonly GroupableEntry[]): any {
   return show(intersectUnion(fromGroupableEntries(transformed)))
 }
 /* compiles to:
@@ -46,7 +49,7 @@ export function objectFromListableEntries(transformed: readonly GroupableEntry[]
 // ✗ fromGroupableEntries: the ScriptType does not itself typecheck as TypeScript
 //   fromGroupableEntries.st.ts(5:78) TS2693: 'PropertyKey' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
-export function fromGroupableEntries(entries: readonly GroupableEntry[]) {
+export function fromGroupableEntries(entries: readonly GroupableEntry[]): any {
   const out = emptyObject
   for (const entry in keySet(entries[number])) {
     out[matches<GroupedEntry>(entry) ? entry[0]['group'] : conform(entry[0], PropertyKey)] = matches<GroupedEntry>(entry) ? arrayOf(entry[1]) : entry[1]
@@ -63,7 +66,7 @@ export function fromGroupableEntries(entries: readonly GroupableEntry[]) {
 
 // ✓ arrayFromListableEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function arrayFromListableEntries(transformed: Entry) {
+export function arrayFromListableEntries(transformed: Entry): any {
   if (matches<typeof transformed>(Entry(number, never))) {
     return arrayOf(transformed[1])
   }
@@ -78,7 +81,7 @@ export function arrayFromListableEntries(transformed: Entry) {
 
 // ✓ _arrayFromListableEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _arrayFromListableEntries(transformed: Entry, result: unknown[]) {
+export function _arrayFromListableEntries(transformed: Entry, result: unknown[]): any {
   if (matches<[ never ]>([transformed])) {
     return result
   }
@@ -109,7 +112,7 @@ export function _arrayFromListableEntries(transformed: Entry, result: unknown[])
 
 // ✓ extractEntrySets: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function extractEntrySets(e: listable<GroupableEntry>) {
+export function extractEntrySets(e: listable<GroupableEntry>): any {
   if (matches<readonly GroupableEntry[]>(e)) {
     return e
   }
@@ -122,7 +125,7 @@ export function extractEntrySets(e: listable<GroupableEntry>) {
 
 // ✓ extractEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function extractEntries(e: listable<Entry>) {
+export function extractEntries(e: listable<Entry>): any {
   if (matches<readonly Entry[]>(e)) {
     return e[number]
   }
@@ -135,7 +138,7 @@ export function extractEntries(e: listable<Entry>) {
 
 // ✓ entryArgsWithIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function entryArgsWithIndex(o) {
+export function entryArgsWithIndex(o): any {
   const out = emptyObject
   for (const k in keyof(o)) {
     out[k] = required([k, Exclude(o[k], Undefined), number])
@@ -148,14 +151,17 @@ export function entryArgsWithIndex(o) {
 
 // ✓ numericArrayEntry: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function numericArrayEntry__v1(a, i) {
+export function numericArrayEntry__v1(a, i): any {
   const m1 = matches<`${Hole<"n", number>}`>(i)
   if (m1) {
     return [m1.n, a[i]]
   }
   return never
 }
-export function numericArrayEntry(a: array) {
+/**
+ * @param {array} a
+ */
+export function numericArrayEntry(a): any {
   if (matches<(typeof a)["length"]>(number)) {
     return [number, a[number]]
   }
@@ -176,7 +182,7 @@ export function numericArrayEntry(a: array) {
 
 // ✓ fromMappedEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function fromMappedEntries(transformed: ListableEntry) {
+export function fromMappedEntries(transformed: ListableEntry): any {
   if (matches<[ listable<Entry<number>> ]>([transformed])) {
     return arrayFromListableEntries(extractEntries(transformed))
   }

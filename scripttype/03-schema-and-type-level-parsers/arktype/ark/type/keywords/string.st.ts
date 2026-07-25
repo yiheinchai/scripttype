@@ -18,7 +18,7 @@ type DayPart<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type DayPatterns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ fragment: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function fragment(part: DayPart, delimiter: DayDelimiter) {
+export function fragment(part: DayPart, delimiter: DayDelimiter): any {
   return anyOf(`${delimiter}${part}`, '')
 }
 /* compiles to:
@@ -28,14 +28,14 @@ export function fragment(part: DayPart, delimiter: DayDelimiter) {
 
 // ✓ DayPattern: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DayPattern__v1(delimiter, k1) {
+export function DayPattern__v1(delimiter, k1): any {
   const out = emptyObject
   for (const k2 in keySet(Exclude(keyof(DayPatterns), k1))) {
     out[k2] = `${DayPatterns[k1]}${fragment(DayPatterns[k2], delimiter)}${fragment(DayPatterns[Exclude(keyof(DayPatterns), anyOf(k1, k2))], delimiter)}`
   }
   return out
 }
-export function DayPattern(delimiter: DayDelimiter = DayDelimiter) {
+export function DayPattern(delimiter: DayDelimiter = DayDelimiter): any {
   if (matches<unknown>(delimiter)) {
     const out = emptyObject
     for (const k1 in keyof(DayPatterns)) {

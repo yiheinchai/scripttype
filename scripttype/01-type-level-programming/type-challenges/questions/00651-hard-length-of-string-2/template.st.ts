@@ -9,7 +9,7 @@
  */
 // ✓ LengthOfString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LengthOfString(S: string) {
+export function LengthOfString(S: string): any {
   return number
 }
 /* compiles to:

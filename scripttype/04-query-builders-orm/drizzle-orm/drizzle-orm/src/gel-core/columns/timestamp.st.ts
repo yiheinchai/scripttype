@@ -12,13 +12,22 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const GelTimestampBuilder: any
 declare const LocalDateTime: any
-type GelTimestampBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type LocalDateTime<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type GelTimestampBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LocalDateTime<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GelTimestampBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelTimestampBuilderInitial(TName: string) {
+export function GelTimestampBuilderInitial(TName: string): any {
   return GelTimestampBuilder({ name: TName, dataType: 'localDateTime', columnType: 'GelTimestamp', data: LocalDateTime, driverParam: LocalDateTime, enumValues: Undefined })
 }
 /* compiles to:
- * export type GelTimestampBuilderInitial<TName extends string> = GelTimestampBuilder<{ name: TName; dataType: 'localDateTime'; columnType: 'GelTimestamp'; data: LocalDateTime; driverParam: LocalDateTime; enumValues: undefined }>
+ * export type GelTimestampBuilderInitial<TName extends string> = GelTimestampBuilder<
+ *   {
+ *     name: TName
+ *     dataType: 'localDateTime'
+ *     columnType: 'GelTimestamp'
+ *     data: LocalDateTime
+ *     driverParam: LocalDateTime
+ *     enumValues: undefined
+ *   }
+ * >
  */

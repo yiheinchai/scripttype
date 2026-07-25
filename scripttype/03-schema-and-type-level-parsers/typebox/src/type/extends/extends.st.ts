@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TCyclicExtends } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/cyclic/extends.js'
+import type { TExtendsLeft } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/extends_left.js'
+import type { TCyclic } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/cyclic.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnknown } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/unknown.js'
+import type { TUnsafe } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/unsafe.js'
 declare const TCyclic: any
 declare const TCyclicExtends: any
 declare const TExtendsLeft: any
@@ -17,16 +24,10 @@ declare const TProperties: any
 declare const TSchema: any
 declare const TUnknown: any
 declare const TUnsafe: any
-type TCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TCyclicExtends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnsafe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCanonical: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCanonical(Type: TSchema) {
+export function TCanonical(Type: TSchema): any {
   if (matches<TCyclic>(Type)) {
     return TCyclicExtends(Type)
   }
@@ -42,7 +43,7 @@ export function TCanonical(Type: TSchema) {
 
 // ✓ TExtends: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtends(Inferred: TProperties, Left: TSchema, Right: TSchema, CanonicalLeft: TSchema = TCanonical(Left), CanonicalRight: TSchema = TCanonical(Right)) {
+export function TExtends(Inferred: TProperties, Left: TSchema, Right: TSchema, CanonicalLeft: TSchema = TCanonical(Left), CanonicalRight: TSchema = TCanonical(Right)): any {
   return TExtendsLeft(Inferred, CanonicalLeft, CanonicalRight)
 }
 /* compiles to:

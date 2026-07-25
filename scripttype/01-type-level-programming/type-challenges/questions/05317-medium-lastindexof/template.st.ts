@@ -9,7 +9,7 @@
  */
 // ✓ LastIndexOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LastIndexOf(T, U) {
+export function LastIndexOf(T, U): any {
   return any
 }
 /* compiles to:

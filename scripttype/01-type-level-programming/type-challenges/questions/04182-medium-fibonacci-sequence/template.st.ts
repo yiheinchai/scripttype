@@ -9,7 +9,7 @@
  */
 // ✓ Fibonacci: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Fibonacci(T: number) {
+export function Fibonacci(T: number): any {
   return any
 }
 /* compiles to:

@@ -16,7 +16,7 @@ type PgPointObjectBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 =
 type PgPointTupleBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgPointTupleBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgPointTupleBuilderInitial(TName: string) {
+export function PgPointTupleBuilderInitial(TName: string): any {
   return PgPointTupleBuilder({ name: TName, dataType: 'array', columnType: 'PgPointTuple', data: [number, number], driverParam: number | string, enumValues: Undefined })
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function PgPointTupleBuilderInitial(TName: string) {
 
 // ✓ PgPointObjectBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgPointObjectBuilderInitial(TName: string) {
+export function PgPointObjectBuilderInitial(TName: string): any {
   return PgPointObjectBuilder({ name: TName, dataType: 'json', columnType: 'PgPointObject', data: { x: number, y: number }, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:

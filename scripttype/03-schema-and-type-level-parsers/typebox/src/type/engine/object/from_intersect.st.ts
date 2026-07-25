@@ -7,25 +7,32 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TAssign } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/system/memory/assign.js'
+import type { TEvaluateIntersect } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare namespace Memory {
   export type TAssign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Memory: any
+declare const TAssign: any
 declare const TEvaluateIntersect: any
 declare const TFromType: any
 declare const TProperties: any
 declare const TSchema: any
 type Memory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TFromType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCollapseIntersectProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCollapseIntersectProperties__v1(Left, LeftKeys) {
+export function TCollapseIntersectProperties__v1(Left, LeftKeys): any {
   const out = emptyObject
   for (const Key in keySet(LeftKeys)) {
     out[Key] = Left[Key]
@@ -33,7 +40,7 @@ export function TCollapseIntersectProperties__v1(Left, LeftKeys) {
   return out
 }
 
-export function TCollapseIntersectProperties__v2(Right, RightKeys) {
+export function TCollapseIntersectProperties__v2(Right, RightKeys): any {
   const out = emptyObject
   for (const Key in keySet(RightKeys)) {
     out[Key] = Right[Key]
@@ -41,14 +48,21 @@ export function TCollapseIntersectProperties__v2(Right, RightKeys) {
   return out
 }
 
-export function TCollapseIntersectProperties__v3(Left, Right, SharedKeys) {
+export function TCollapseIntersectProperties__v3(Left, Right, SharedKeys): any {
   const out = emptyObject
   for (const Key in keySet(SharedKeys)) {
     out[Key] = TEvaluateIntersect([Left[Key], Right[Key]])
   }
   return out
 }
-export function TCollapseIntersectProperties(Left: TProperties, Right: TProperties, LeftKeys: keyof typeof Left = Exclude(keyof(Left), keyof(Right)), RightKeys: keyof typeof Right = Exclude(keyof(Right), keyof(Left)), SharedKeys: keyof typeof Left & keyof typeof Right = Extract(keyof(Left), keyof(Right)), LeftProperties: TProperties = TCollapseIntersectProperties__v1(Left, LeftKeys), RightProperties: TProperties = TCollapseIntersectProperties__v2(Right, RightKeys), SharedProperties: TProperties = TCollapseIntersectProperties__v3(Left, Right, SharedKeys), Unique: TProperties = Memory.TAssign(LeftProperties, RightProperties), Shared: TProperties = Memory.TAssign(Unique, SharedProperties)) {
+/**
+ * @param {TProperties} Left
+ * @param {TProperties} Right
+ * @param {keyof typeof Left} LeftKeys
+ * @param {keyof typeof Right} RightKeys
+ * @param {keyof typeof Left & keyof typeof Right} SharedKeys
+ */
+export function TCollapseIntersectProperties(Left, Right, LeftKeys = Exclude(keyof(Left), keyof(Right)), RightKeys = Exclude(keyof(Right), keyof(Left)), SharedKeys = Extract(keyof(Left), keyof(Right)), LeftProperties: TProperties = TCollapseIntersectProperties__v1(Left, LeftKeys), RightProperties: TProperties = TCollapseIntersectProperties__v2(Right, RightKeys), SharedProperties: TProperties = TCollapseIntersectProperties__v3(Left, Right, SharedKeys), Unique: TProperties = t<Memory.TAssign<typeof LeftProperties, typeof RightProperties>>(), Shared: TProperties = t<Memory.TAssign<typeof Unique, typeof SharedProperties>>()): any {
   return Shared
 }
 /* compiles to:
@@ -76,7 +90,7 @@ export function TCollapseIntersectProperties(Left: TProperties, Right: TProperti
 
 // ✓ TFromIntersect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromIntersect(Types: TSchema[]) {
+export function TFromIntersect(Types: TSchema[]): any {
   let Result = {}
   let types = Types
   while (true) {

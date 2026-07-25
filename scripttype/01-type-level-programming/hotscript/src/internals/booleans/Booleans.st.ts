@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Compose, PartialApply, unset } from '../../../../../../01-type-level-programming/hotscript/src/internals/core/Core.js'
 declare const AndFn: any
 declare const Compose: any
 declare const EqualsFn: any
@@ -20,18 +22,15 @@ declare const PartialApply: any
 declare const XOrFn: any
 declare const unset: any
 type AndFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Compose<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EqualsFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ExtendsFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NotFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OrFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type XOrFn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ExtendsImpl: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function ExtendsImpl(a, b) {
+export function ExtendsImpl(a, b): any {
   if (matches<[ typeof b ]>([a])) {
     return true
   }
@@ -42,9 +41,9 @@ export function ExtendsImpl(a, b) {
  */
 
 // ✗ Extends: does not compile yet
-//   Cannot find name 'ExtendsFn'.
+//   Cannot find name 'ExtendsFn'. Did you mean 'Extends'?
 /* @scripttype preserveParamNames */
-export function Extends(a = unset, b = unset) {
+export function Extends(a = unset, b = unset): any {
   return PartialApply(ExtendsFn, matches<unset>(b) ? [unset, a] : [a, b])
 }
 /* compiles to:
@@ -57,7 +56,7 @@ export function Extends(a = unset, b = unset) {
 // ✗ NotImpl: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function NotImpl(a) {
+export function NotImpl(a): any {
   if (matches<true>(a)) {
     return false
   }
@@ -68,9 +67,9 @@ export function NotImpl(a) {
  */
 
 // ✗ Not: does not compile yet
-//   Cannot find name 'NotFn'.
+//   Cannot find name 'NotFn'. Did you mean 'Not'?
 /* @scripttype preserveParamNames */
-export function Not(a = unset) {
+export function Not(a = unset): any {
   return PartialApply(NotFn, [a])
 }
 /* compiles to:
@@ -78,9 +77,9 @@ export function Not(a = unset) {
  */
 
 // ✗ Equals: does not compile yet
-//   Cannot find name 'EqualsFn'.
+//   Cannot find name 'EqualsFn'. Did you mean 'Equals'?
 /* @scripttype preserveParamNames */
-export function Equals(a = unset, b = unset) {
+export function Equals(a = unset, b = unset): any {
   return PartialApply(EqualsFn, [a, b])
 }
 /* compiles to:
@@ -88,9 +87,9 @@ export function Equals(a = unset, b = unset) {
  */
 
 // ✗ NotEqual: does not compile yet
-//   Cannot find name 'Not'.
+//   Cannot find name 'EqualsFn'. Did you mean 'Equals'?
 /* @scripttype preserveParamNames */
-export function NotEqual(a = unset, b = unset) {
+export function NotEqual(a = unset, b = unset): any {
   return Compose([Not, PartialApply(EqualsFn, [a, b])])
 }
 /* compiles to:
@@ -98,9 +97,9 @@ export function NotEqual(a = unset, b = unset) {
  */
 
 // ✗ DoesNotExtend: does not compile yet
-//   Cannot find name 'Not'.
+//   Cannot find name 'ExtendsFn'. Did you mean 'Extends'?
 /* @scripttype preserveParamNames */
-export function DoesNotExtend(a = unset, b = unset) {
+export function DoesNotExtend(a = unset, b = unset): any {
   return Compose([Not, PartialApply(ExtendsFn, [a, b])])
 }
 /* compiles to:
@@ -110,9 +109,9 @@ export function DoesNotExtend(a = unset, b = unset) {
  */
 
 // ✗ And: does not compile yet
-//   Cannot find name 'AndFn'.
+//   Cannot find name 'AndFn'. Did you mean 'And'?
 /* @scripttype preserveParamNames */
-export function And(a = unset, b = unset) {
+export function And(a = unset, b = unset): any {
   return PartialApply(AndFn, [a, b])
 }
 /* compiles to:
@@ -122,7 +121,7 @@ export function And(a = unset, b = unset) {
 // ✗ Or: does not compile yet
 //   Cannot find name 'OrFn'.
 /* @scripttype preserveParamNames */
-export function Or(a = unset, b = unset) {
+export function Or(a = unset, b = unset): any {
   return PartialApply(OrFn, [a, b])
 }
 /* compiles to:
@@ -130,9 +129,9 @@ export function Or(a = unset, b = unset) {
  */
 
 // ✗ XOr: does not compile yet
-//   Cannot find name 'XOrFn'.
+//   Cannot find name 'XOrFn'. Did you mean 'XOr'?
 /* @scripttype preserveParamNames */
-export function XOr(a = unset, b = unset) {
+export function XOr(a = unset, b = unset): any {
   return PartialApply(XOrFn, [a, b])
 }
 /* compiles to:

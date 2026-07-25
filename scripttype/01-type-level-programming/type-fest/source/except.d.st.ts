@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExceptOptions } from '../../../../01-type-level-programming/type-fest/source/except.d.js'
 declare const ApplyDefaultOptions: any
 declare const DefaultExceptOptions: any
 declare const ExceptOptions: any
 declare const IsEqual: any
 type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DefaultExceptOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExceptOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Filter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Filter(KeyType, ExcludeType) {
+export function Filter(KeyType, ExcludeType): any {
   if (matches<true>(IsEqual(KeyType, ExcludeType))) {
     return never
   }
@@ -38,7 +39,10 @@ export function Filter(KeyType, ExcludeType) {
 
 // ✓ Except: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Except(ObjectType, KeysType: keyof typeof ObjectType, Options: ExceptOptions = {}) {
+/**
+ * @param {keyof typeof ObjectType} KeysType
+ */
+export function Except(ObjectType, KeysType, Options: ExceptOptions = {}): any {
   return _Except(ObjectType, KeysType, ApplyDefaultOptions(ExceptOptions, DefaultExceptOptions, Options))
 }
 /* compiles to:
@@ -56,7 +60,10 @@ export function Except(ObjectType, KeysType: keyof typeof ObjectType, Options: E
 
 // ✓ _Except: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Except(ObjectType, KeysType: keyof typeof ObjectType, Options: Required<ExceptOptions>) {
+/**
+ * @param {keyof typeof ObjectType} KeysType
+ */
+export function _Except(ObjectType, KeysType, Options: Required<ExceptOptions>): any {
   const out = emptyObject
   for (const KeyType in keyof(ObjectType)) {
     out[Filter(KeyType, KeysType)] = ObjectType[KeyType]

@@ -7,29 +7,33 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TToIndexable } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/indexable/to_indexable.js'
+import type { TToIndexableKeys } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/indexable/to_indexable_keys.js'
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace m1 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TObject: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TToIndexable: any
 declare const TToIndexableKeys: any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TToIndexable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TToIndexableKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TNormalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TNormalKeys__v1(UnionKeys) {
+export function TNormalKeys__v1(UnionKeys): any {
   const m1 = matches<`${Hole<"Value", number>}`>(UnionKeys)
   if (m1) {
     return UnionKeys | m1.Value
   }
   return UnionKeys
 }
-export function TNormalKeys(Keys: string[], UnionKeys: string = Keys[number], Result: string | number = TNormalKeys__v1(UnionKeys)) {
+export function TNormalKeys(Keys: string[], UnionKeys: string = Keys[number], Result: string | number = TNormalKeys__v1(UnionKeys)): any {
   return Result
 }
 /* compiles to:
@@ -45,14 +49,14 @@ export function TNormalKeys(Keys: string[], UnionKeys: string = Keys[number], Re
 
 // ✓ TFromKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromKeys__v1(Omitted) {
+export function TFromKeys__v1(Omitted): any {
   const out = emptyObject
   for (const Key in keyof(Omitted)) {
     out[Key] = Omitted[Key]
   }
   return out
 }
-export function TFromKeys(Properties: TProperties, Keys: string[], Omitted: TProperties = Omit(Properties, TNormalKeys(Keys)), Result: TProperties = TFromKeys__v1(Omitted)) {
+export function TFromKeys(Properties: TProperties, Keys: string[], Omitted: TProperties = Omit(Properties, TNormalKeys(Keys)), Result: TProperties = TFromKeys__v1(Omitted)): any {
   return Result
 }
 /* compiles to:
@@ -68,7 +72,7 @@ export function TFromKeys(Properties: TProperties, Keys: string[], Omitted: TPro
 
 // ✓ TFromType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromType(Type: TSchema, Indexer: TSchema, Indexable: TProperties = TToIndexable(Type), IndexableKeys: string[] = TToIndexableKeys(Indexer), Omitted: TProperties = TFromKeys(Indexable, IndexableKeys), Result: TSchema = TObject(Omitted)) {
+export function TFromType(Type: TSchema, Indexer: TSchema, Indexable: TProperties = TToIndexable(Type), IndexableKeys: string[] = TToIndexableKeys(Indexer), Omitted: TProperties = TFromKeys(Indexable, IndexableKeys), Result: TSchema = TObject(Omitted)): any {
   return Result
 }
 /* compiles to:

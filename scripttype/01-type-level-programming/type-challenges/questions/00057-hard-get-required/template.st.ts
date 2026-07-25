@@ -9,7 +9,7 @@
  */
 // ✓ GetRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetRequired(T) {
+export function GetRequired(T): any {
   return any
 }
 /* compiles to:

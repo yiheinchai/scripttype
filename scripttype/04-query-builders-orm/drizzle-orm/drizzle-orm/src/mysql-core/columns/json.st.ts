@@ -14,7 +14,7 @@ declare const MySqlJsonBuilder: any
 type MySqlJsonBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlJsonBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlJsonBuilderInitial(TName: string) {
+export function MySqlJsonBuilderInitial(TName: string): any {
   return MySqlJsonBuilder({ name: TName, dataType: 'json', columnType: 'MySqlJson', data: unknown, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:

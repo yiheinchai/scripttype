@@ -7,20 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TCyclicCheck } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/cyclic/check.js'
+import type { TPropertyKeys } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/properties.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TCyclicCheck: any
-declare const TProperties: any
 declare const TPropertyKeys: any
-type TCyclicCheck<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TPropertyKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ TResolveCandidateKeys: the ScriptType does not itself typecheck as TypeScript
-//   TResolveCandidateKeys.st.ts(3:43) TS2749: 'Context' refers to a value, but is being used as a type here. Did you mean 'typeof Context'?
+//   TResolveCandidateKeys.st.ts(11:56) TS2322: Type 'any' is not assignable to type 'never'.
 /* @scripttype preserveParamNames */
-export function TResolveCandidateKeys(Context: TProperties, Keys: (keyof typeof Context)[], Result: (keyof typeof Context)[] = []) {
-  const m1 = matches<[ Hole<"Left", keyof Context>, ...Hole<"Right", (keyof Context)[]> ]>(Keys)
+/**
+ * @param {TProperties} Context
+ * @param {(keyof typeof Context)[]} Keys
+ * @param {(keyof typeof Context)[]} Result
+ */
+export function TResolveCandidateKeys(Context, Keys, Result = []): any {
+  const m1 = matches<[ Hole<"Left", keyof typeof Context>, ...Hole<"Right", (keyof typeof Context)[]> ]>(Keys)
   if (m1) {
     if (matches<true>(TCyclicCheck([m1.Left], Context, Context[m1.Left]))) {
       return TResolveCandidateKeys(Context, m1.Right, [...Result, m1.Left])
@@ -44,7 +52,12 @@ export function TResolveCandidateKeys(Context: TProperties, Keys: (keyof typeof 
 
 // ✓ TCyclicCandidates: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCyclicCandidates(Context: TProperties, Keys: (keyof typeof Context)[] = TPropertyKeys(Context), Result: (keyof typeof Context)[] = TResolveCandidateKeys(Context, Keys)) {
+/**
+ * @param {TProperties} Context
+ * @param {(keyof typeof Context)[]} Keys
+ * @param {(keyof typeof Context)[]} Result
+ */
+export function TCyclicCandidates(Context, Keys = TPropertyKeys(Context), Result = TResolveCandidateKeys(Context, Keys)): any {
   return Result
 }
 /* compiles to:

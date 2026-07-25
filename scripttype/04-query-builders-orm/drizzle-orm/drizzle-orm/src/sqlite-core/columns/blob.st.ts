@@ -21,7 +21,7 @@ type SQLiteBlobJsonBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 
 // ✗ SQLiteBigIntBuilderInitial: does not compile yet
 //   Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
 /* @scripttype preserveParamNames */
-export function SQLiteBigIntBuilderInitial(TName: string) {
+export function SQLiteBigIntBuilderInitial(TName: string): any {
   return SQLiteBigIntBuilder({ name: TName, dataType: 'bigint', columnType: 'SQLiteBigInt', data: bigint, driverParam: Buffer, enumValues: Undefined })
 }
 /* compiles to:
@@ -40,7 +40,7 @@ export function SQLiteBigIntBuilderInitial(TName: string) {
 // ✗ SQLiteBlobJsonBuilderInitial: does not compile yet
 //   Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
 /* @scripttype preserveParamNames */
-export function SQLiteBlobJsonBuilderInitial(TName: string) {
+export function SQLiteBlobJsonBuilderInitial(TName: string): any {
   return SQLiteBlobJsonBuilder({ name: TName, dataType: 'json', columnType: 'SQLiteBlobJson', data: unknown, driverParam: Buffer, enumValues: Undefined })
 }
 /* compiles to:
@@ -59,7 +59,7 @@ export function SQLiteBlobJsonBuilderInitial(TName: string) {
 // ✗ SQLiteBlobBufferBuilderInitial: does not compile yet
 //   Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
 /* @scripttype preserveParamNames */
-export function SQLiteBlobBufferBuilderInitial(TName: string) {
+export function SQLiteBlobBufferBuilderInitial(TName: string): any {
   return SQLiteBlobBufferBuilder({ name: TName, dataType: 'buffer', columnType: 'SQLiteBlobBuffer', data: Buffer, driverParam: Buffer, enumValues: Undefined })
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ MySQLWithReplicas: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySQLWithReplicas(Q) {
+export function MySQLWithReplicas(Q): any {
   return merge(Q, { $primary: Q, $replicas: arrayOf(Q) })
 }
 /* compiles to:

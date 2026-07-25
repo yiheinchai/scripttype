@@ -7,9 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TUnreachable } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/system/unreachable/unreachable.js'
+import type { TEvaluateUnionFast } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TUnionToTuple } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/helpers/union.js'
+import type { TLiteral, TLiteralValue } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const PropertyKey: any
 declare const TEvaluateUnionFast: any
 declare const TLiteral: any
@@ -19,16 +29,10 @@ declare const TSchema: any
 declare const TUnionToTuple: any
 declare const TUnreachable: any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateUnionFast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnreachable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromPropertyKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromPropertyKeys(Keys: PropertyKey[], Result: TSchema[] = []) {
+export function TFromPropertyKeys(Keys: PropertyKey[], Result: TSchema[] = []): any {
   const m1 = matches<[ Hole<"Left", PropertyKey>, ...Hole<"Right", PropertyKey[]> ]>(Keys)
   if (m1) {
     if (matches<TLiteralValue>(m1.Left)) {
@@ -49,7 +53,7 @@ export function TFromPropertyKeys(Keys: PropertyKey[], Result: TSchema[] = []) {
 
 // ✓ TFromObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromObject(Properties: TProperties, PropertyKeys: PropertyKey[] = TUnionToTuple(keyof(Properties)), Variants: TSchema[] = TFromPropertyKeys(PropertyKeys), Result: TSchema = TEvaluateUnionFast(Variants)) {
+export function TFromObject(Properties: TProperties, PropertyKeys: PropertyKey[] = TUnionToTuple(keyof(Properties)), Variants: TSchema[] = TFromPropertyKeys(PropertyKeys), Result: TSchema = TEvaluateUnionFast(Variants)): any {
   return Result
 }
 /* compiles to:

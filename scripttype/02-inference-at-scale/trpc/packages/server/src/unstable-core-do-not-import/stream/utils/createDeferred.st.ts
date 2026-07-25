@@ -15,7 +15,7 @@ type createDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, 
 // ✗ Deferred: the ScriptType does not itself typecheck as TypeScript
 //   Deferred.st.ts(3:45) TS2635: Type 'any' has no signatures for which the type argument list is applicable.
 /* @scripttype preserveParamNames */
-export function Deferred(TValue) {
+export function Deferred(TValue): any {
   return ReturnType(t<typeof createDeferred<TValue>>())
 }
 /* compiles to:

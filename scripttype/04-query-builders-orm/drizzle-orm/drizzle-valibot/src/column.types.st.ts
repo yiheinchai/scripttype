@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Assume } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+import type { GenericSchema } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-typebox/src/column.types.js'
+import type { RemoveNeverElements } from '../../../../../04-query-builders-orm/drizzle-orm/drizzle-valibot/src/utils.js'
+declare namespace m1 {
+  export type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare namespace v {
   export type AnySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type ArraySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -34,30 +41,69 @@ declare namespace v {
   export type UuidAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const AnySchema: any
-declare const ArrayLike: any
+declare const ArraySchema: any
 declare const Assume: any
+declare const BigintSchema: any
+declare const BooleanSchema: any
 declare const Buffer: any
 declare const Column: any
+declare const DateSchema: any
+declare const EnumSchema: any
 declare const GenericSchema: any
+declare const IntegerAction: any
 declare const IsEnumDefined: any
 declare const IsNever: any
 declare const Json: any
+declare const LengthAction: any
+declare const MaxLengthAction: any
+declare const MaxValueAction: any
+declare const MinValueAction: any
+declare const NullableSchema: any
+declare const NumberSchema: any
+declare const ObjectSchema: any
+declare const OptionalSchema: any
+declare const RegexAction: any
 declare const RemoveNeverElements: any
+declare const SchemaWithPipe: any
+declare const StringSchema: any
+declare const TupleSchema: any
+declare const UuidAction: any
 declare const v: any
 type AnySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ArrayLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ArraySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BigintSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type BooleanSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Buffer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GenericSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type DateSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type EnumSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ExtractAdditionalProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetArraySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetLengthAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetValibotPrimitiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type GetValibotType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type HasBaseColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IntegerAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsEnumDefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Json<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RemoveNeverElements<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type LengthAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaxLengthAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MaxValueAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MinValueAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NullableSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type NumberSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type RegexAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SchemaWithPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StringSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TupleSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UuidAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type v<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ HasBaseColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HasBaseColumn(TColumn) {
+export function HasBaseColumn(TColumn): any {
   if (matches<{ _: { baseColumn: Column | undefined; }; }>(TColumn)) {
     if (matches<false>(IsNever(TColumn['_']['baseColumn']))) {
       return true
@@ -75,7 +121,7 @@ export function HasBaseColumn(TColumn) {
 
 // ✓ EnumValuesToEnum: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EnumValuesToEnum(TEnumValues: [ string, ...string[] ]) {
+export function EnumValuesToEnum(TEnumValues: [ string, ...string[] ]): any {
   const out = emptyObject
   for (const K in keySet(TEnumValues[number])) {
     out[K] = readonlyProp(K)
@@ -90,7 +136,7 @@ export function EnumValuesToEnum(TEnumValues: [ string, ...string[] ]) {
 
 // ✓ ExtractAdditionalProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractAdditionalProperties(TColumn: Column) {
+export function ExtractAdditionalProperties(TColumn: Column): any {
   return { max: matches<'PgVarchar' | 'SQLiteText' | 'PgChar' | 'MySqlChar' | 'SingleStoreChar'>(TColumn['_']['columnType']) ? Assume(TColumn['_'], { length: anyOf(number, Undefined) })['length'] : (matches<'MySqlText' | 'MySqlVarChar' | 'SingleStoreText' | 'SingleStoreVarChar'>(TColumn['_']['columnType']) ? number : (matches<'PgBinaryVector' | 'PgHalfVector' | 'PgVector'>(TColumn['_']['columnType']) ? Assume(TColumn['_'], { dimensions: number })['dimensions'] : (matches<'PgArray'>(TColumn['_']['columnType']) ? Assume(TColumn['_'], { size: anyOf(number, Undefined) })['size'] : Undefined))), fixedLength: matches<'PgChar' | 'PgHalfVector' | 'PgVector' | 'PgArray' | 'MySqlChar' | 'SingleStoreChar'>(TColumn['_']['columnType']) ? true : false }
 }
 /* compiles to:
@@ -112,11 +158,11 @@ export function ExtractAdditionalProperties(TColumn: Column) {
 
 // ✓ GetLengthAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetLengthAction(T: Record<string, any>, TType: string | ArrayLike<unknown>) {
+export function GetLengthAction(T: Record<string, any>, TType: string | ArrayLike<unknown>): any {
   if (matches<true>(T['fixedLength'])) {
-    return v.LengthAction(TType, number, Undefined)
+    return t<v.LengthAction<typeof TType, number, undefined>>()
   }
-  return v.MaxLengthAction(TType, number, Undefined)
+  return t<v.MaxLengthAction<typeof TType, number, undefined>>()
 }
 /* compiles to:
  * export type GetLengthAction<
@@ -130,8 +176,8 @@ export function GetLengthAction(T: Record<string, any>, TType: string | ArrayLik
 
 // ✓ GetArraySchema: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetArraySchema(T: Column) {
-  return v.ArraySchema(GetValibotType(T['_']['data'], T['_']['dataType'], T['_']['columnType'], T['_']['enumValues'], matches<true>(HasBaseColumn(T)) ? Assume(T['_']['baseColumn'], Column) : Undefined, ExtractAdditionalProperties(T)), Undefined)
+export function GetArraySchema(T: Column): any {
+  return t<v.ArraySchema<GetValibotType<(typeof T)['_']['data'], (typeof T)['_']['dataType'], (typeof T)['_']['columnType'], (typeof T)['_']['enumValues'], HasBaseColumn<typeof T> extends true ? Assume<(typeof T)['_']['baseColumn'], Column> : undefined, ExtractAdditionalProperties<typeof T>>, undefined>>()
 }
 /* compiles to:
  * export type GetArraySchema<T extends Column> = v.ArraySchema<
@@ -140,7 +186,7 @@ export function GetArraySchema(T: Column) {
  *     T['_']['dataType'],
  *     T['_']['columnType'],
  *     T['_']['enumValues'],
- *     HasBaseColumn<T> extends true ? Assume<T['_']['baseColumn'], Column> : undefined,
+ *     HasBaseColumn<T> extends true ? Assume<(T)['_']['baseColumn'], Column> : undefined,
  *     ExtractAdditionalProperties<T>
  *   >,
  *   undefined
@@ -150,59 +196,51 @@ export function GetArraySchema(T: Column) {
 // ✗ GetValibotType: does not compile yet
 //   Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
 /* @scripttype preserveParamNames */
-export function GetValibotType(TData, TDataType: string, TColumnType: string, TEnumValues: string[] | undefined, TBaseColumn: Column | undefined, TAdditionalProperties: Record<string, any>) {
+export function GetValibotType(TData, TDataType: string, TColumnType: string, TEnumValues: string[] | undefined, TBaseColumn: Column | undefined, TAdditionalProperties: Record<string, any>): any {
   if (matches<'PgHalfVector' | 'PgVector'>(TColumnType)) {
     if (typeof TAdditionalProperties['max'] === 'number') {
-      return v.SchemaWithPipe([v.ArraySchema(v.NumberSchema(Undefined), Undefined), GetLengthAction(TAdditionalProperties, arrayOf(number))])
+      return t<v.SchemaWithPipe<[ v.ArraySchema<v.NumberSchema<undefined>, undefined>, GetLengthAction<typeof TAdditionalProperties, number[]> ]>>()
     }
-    return v.ArraySchema(v.NumberSchema(Undefined), Undefined)
+    return t<v.ArraySchema<v.NumberSchema<undefined>, undefined>>()
   }
   if (matches<'PgUUID'>(TColumnType)) {
-    return v.SchemaWithPipe([v.StringSchema(Undefined), v.UuidAction(string, Undefined)])
+    return t<v.SchemaWithPipe<[ v.StringSchema<undefined>, v.UuidAction<string, undefined> ]>>()
   }
   if (matches<'PgBinaryVector'>(TColumnType)) {
-    return v.SchemaWithPipe(RemoveNeverElements([v.StringSchema(Undefined), v.RegexAction(string, Undefined), typeof TAdditionalProperties['max'] === 'number' ? GetLengthAction(TAdditionalProperties, string) : never]))
+    return t<v.SchemaWithPipe<RemoveNeverElements<[ v.StringSchema<undefined>, v.RegexAction<string, undefined>, (typeof TAdditionalProperties)['max'] extends number ? GetLengthAction<typeof TAdditionalProperties, string> : never ]>>>()
   }
   if (matches<Column>(TBaseColumn)) {
     if (typeof TAdditionalProperties['max'] === 'number') {
-      return v.SchemaWithPipe([GetArraySchema(Assume(TBaseColumn, Column)), GetLengthAction(TAdditionalProperties, arrayOf(Assume(TBaseColumn, Column)['_']['data']))])
+      return t<v.SchemaWithPipe<[ GetArraySchema<Assume<typeof TBaseColumn, Column>>, GetLengthAction<typeof TAdditionalProperties, Assume<typeof TBaseColumn, Column>['_']['data'][]> ]>>()
     }
     return GetArraySchema(Assume(TBaseColumn, Column))
   }
   if (matches<true>(IsEnumDefined(TEnumValues))) {
-    const out = emptyObject
-    for (const K in keySet(Assume(TEnumValues, [string, ...arrayOf(string)])[number])) {
-      out[K] = readonlyProp(K)
-    }
-    return v.EnumSchema(out, Undefined)
+    return t<v.EnumSchema<{ readonly [K in Assume<typeof TEnumValues, [ string, ...string[] ]>[number]]: K; }, undefined>>()
   }
   if (matches<'PgGeometry' | 'PgPointTuple'>(TColumnType)) {
-    return v.TupleSchema([v.NumberSchema(Undefined), v.NumberSchema(Undefined)], Undefined)
+    return t<v.TupleSchema<[ v.NumberSchema<undefined>, v.NumberSchema<undefined> ], undefined>>()
   }
   if (matches<'PgLine'>(TColumnType)) {
-    return v.TupleSchema([v.NumberSchema(Undefined), v.NumberSchema(Undefined), v.NumberSchema(Undefined)], Undefined)
+    return t<v.TupleSchema<[ v.NumberSchema<undefined>, v.NumberSchema<undefined>, v.NumberSchema<undefined> ], undefined>>()
   }
   if (matches<Date>(TData)) {
-    return v.DateSchema(Undefined)
+    return t<v.DateSchema<undefined>>()
   }
   if (matches<Buffer>(TData)) {
-    return v.GenericSchema(Buffer)
+    return t<v.GenericSchema<Buffer>>()
   }
   if (matches<'array'>(TDataType)) {
-    return v.ArraySchema(GetValibotPrimitiveType(Assume(TData, arrayOf(any))[number], '', { noPipe: true }), Undefined)
+    return t<v.ArraySchema<GetValibotPrimitiveType<Assume<typeof TData, any[]>[number], '', { noPipe: true; }>, undefined>>()
   }
   if (matches<Record<string, any>>(TData)) {
     if (matches<'PgJson' | 'PgJsonb' | 'MySqlJson' | 'SingleStoreJson' | 'SQLiteTextJson' | 'SQLiteBlobJson'>(TColumnType)) {
-      return v.GenericSchema(TData)
+      return t<v.GenericSchema<typeof TData>>()
     }
-    const out2 = emptyObject
-    for (const K in keyof(TData)) {
-      out2[K] = readonlyProp(GetValibotPrimitiveType(TData[K], '', { noPipe: true }))
-    }
-    return v.ObjectSchema(out2, Undefined)
+    return t<v.ObjectSchema<{ readonly [K in keyof typeof TData]: GetValibotPrimitiveType<(typeof TData)[K], '', { noPipe: true; }>; }, undefined>>()
   }
   if (matches<'json'>(TDataType)) {
-    return v.GenericSchema(Json)
+    return t<v.GenericSchema<Json>>()
   }
   return GetValibotPrimitiveType(TData, TColumnType, TAdditionalProperties)
 }
@@ -232,9 +270,7 @@ export function GetValibotType(TData, TDataType: string, TColumnType: string, TE
  *         [
  *           v.StringSchema<undefined>,
  *           v.RegexAction<string, undefined>,
- *           TAdditionalProperties['max'] extends number
- *             ? GetLengthAction<TAdditionalProperties, string>
- *             : never
+ *           (TAdditionalProperties)['max'] extends number ? GetLengthAction<TAdditionalProperties, string> : never
  *         ]
  *       >
  *     >
@@ -249,7 +285,7 @@ export function GetValibotType(TData, TDataType: string, TColumnType: string, TE
  *       : GetArraySchema<Assume<TBaseColumn, Column>>
  *   : IsEnumDefined<TEnumValues> extends true
  *     ? v.EnumSchema<
- *       { readonly [K in Assume<TEnumValues, [string, ...string[]]>[number]]: K },
+ *       { readonly [K in Assume<TEnumValues, [ string, ...string[] ]>[number]]: K; },
  *       undefined
  *     >
  *   : TColumnType extends 'PgGeometry' | 'PgPointTuple'
@@ -263,16 +299,14 @@ export function GetValibotType(TData, TDataType: string, TColumnType: string, TE
  *   : TData extends Buffer ? v.GenericSchema<Buffer>
  *   : TDataType extends 'array'
  *     ? v.ArraySchema<
- *       GetValibotPrimitiveType<Assume<TData, any[]>[number], '', { noPipe: true }>,
+ *       GetValibotPrimitiveType<Assume<TData, any[]>[number], '', { noPipe: true; }>,
  *       undefined
  *     >
  *   : TData extends Record<string, any>
  *     ? TColumnType extends 'PgJson' | 'PgJsonb' | 'MySqlJson' | 'SingleStoreJson' | 'SQLiteTextJson' | 'SQLiteBlobJson'
  *       ? v.GenericSchema<TData>
  *       : v.ObjectSchema<
- *         {
- *           readonly [K1 in keyof TData]: GetValibotPrimitiveType<TData[K1], '', { noPipe: true }>
- *         },
+ *         { readonly [K in keyof TData]: GetValibotPrimitiveType<(TData)[K], '', { noPipe: true; }>; },
  *         undefined
  *       >
  *   : TDataType extends 'json' ? v.GenericSchema<Json>
@@ -281,29 +315,29 @@ export function GetValibotType(TData, TDataType: string, TColumnType: string, TE
 
 // ✓ GetValibotPrimitiveType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetValibotPrimitiveType(TData, TColumnType, TAdditionalProperties: Record<string, any>) {
+export function GetValibotPrimitiveType(TData, TColumnType, TAdditionalProperties: Record<string, any>): any {
   if (typeof TData === 'number') {
     if (matches<true>(TAdditionalProperties['noPipe'])) {
-      return v.NumberSchema(Undefined)
+      return t<v.NumberSchema<undefined>>()
     }
-    return v.SchemaWithPipe(RemoveNeverElements([v.NumberSchema(Undefined), v.MinValueAction(number, number, Undefined), v.MaxValueAction(number, number, Undefined), matches<'MySqlTinyInt' | 'SingleStoreTinyInt' | 'PgSmallInt' | 'PgSmallSerial' | 'MySqlSmallInt' | 'MySqlMediumInt' | 'SingleStoreSmallInt' | 'SingleStoreMediumInt' | 'PgInteger' | 'PgSerial' | 'MySqlInt' | 'SingleStoreInt' | 'PgBigInt53' | 'PgBigSerial53' | 'MySqlBigInt53' | 'MySqlSerial' | 'SingleStoreBigInt53' | 'SingleStoreSerial' | 'SQLiteInteger' | 'MySqlYear' | 'SingleStoreYear'>(TColumnType) ? v.IntegerAction(number, Undefined) : never]))
+    return t<v.SchemaWithPipe<RemoveNeverElements<[ v.NumberSchema<undefined>, v.MinValueAction<number, number, undefined>, v.MaxValueAction<number, number, undefined>, typeof TColumnType extends 'MySqlTinyInt' | 'SingleStoreTinyInt' | 'PgSmallInt' | 'PgSmallSerial' | 'MySqlSmallInt' | 'MySqlMediumInt' | 'SingleStoreSmallInt' | 'SingleStoreMediumInt' | 'PgInteger' | 'PgSerial' | 'MySqlInt' | 'SingleStoreInt' | 'PgBigInt53' | 'PgBigSerial53' | 'MySqlBigInt53' | 'MySqlSerial' | 'SingleStoreBigInt53' | 'SingleStoreSerial' | 'SQLiteInteger' | 'MySqlYear' | 'SingleStoreYear' ? v.IntegerAction<number, undefined> : never ]>>>()
   }
   if (typeof TData === 'bigint') {
     if (matches<true>(TAdditionalProperties['noPipe'])) {
-      return v.BigintSchema(Undefined)
+      return t<v.BigintSchema<undefined>>()
     }
-    return v.SchemaWithPipe([v.BigintSchema(Undefined), v.MinValueAction(bigint, bigint, Undefined), v.MaxValueAction(bigint, bigint, Undefined)])
+    return t<v.SchemaWithPipe<[ v.BigintSchema<undefined>, v.MinValueAction<bigint, bigint, undefined>, v.MaxValueAction<bigint, bigint, undefined> ]>>()
   }
   if (typeof TData === 'boolean') {
-    return v.BooleanSchema(Undefined)
+    return t<v.BooleanSchema<undefined>>()
   }
   if (typeof TData === 'string') {
     if (typeof TAdditionalProperties['max'] === 'number') {
-      return v.SchemaWithPipe([v.StringSchema(Undefined), GetLengthAction(TAdditionalProperties, string)])
+      return t<v.SchemaWithPipe<[ v.StringSchema<undefined>, GetLengthAction<typeof TAdditionalProperties, string> ]>>()
     }
-    return v.StringSchema(Undefined)
+    return t<v.StringSchema<undefined>>()
   }
-  return v.AnySchema
+  return t<v.AnySchema>()
 }
 /* compiles to:
  * export type GetValibotPrimitiveType<
@@ -320,9 +354,7 @@ export function GetValibotPrimitiveType(TData, TColumnType, TAdditionalPropertie
  *             v.NumberSchema<undefined>,
  *             v.MinValueAction<number, number, undefined>,
  *             v.MaxValueAction<number, number, undefined>,
- *             TColumnType extends 'MySqlTinyInt' | 'SingleStoreTinyInt' | 'PgSmallInt' | 'PgSmallSerial' | 'MySqlSmallInt' | 'MySqlMediumInt' | 'SingleStoreSmallInt' | 'SingleStoreMediumInt' | 'PgInteger' | 'PgSerial' | 'MySqlInt' | 'SingleStoreInt' | 'PgBigInt53' | 'PgBigSerial53' | 'MySqlBigInt53' | 'MySqlSerial' | 'SingleStoreBigInt53' | 'SingleStoreSerial' | 'SQLiteInteger' | 'MySqlYear' | 'SingleStoreYear'
- *               ? v.IntegerAction<number, undefined>
- *               : never
+ *             TColumnType extends 'MySqlTinyInt' | 'SingleStoreTinyInt' | 'PgSmallInt' | 'PgSmallSerial' | 'MySqlSmallInt' | 'MySqlMediumInt' | 'SingleStoreSmallInt' | 'SingleStoreMediumInt' | 'PgInteger' | 'PgSerial' | 'MySqlInt' | 'SingleStoreInt' | 'PgBigInt53' | 'PgBigSerial53' | 'MySqlBigInt53' | 'MySqlSerial' | 'SingleStoreBigInt53' | 'SingleStoreSerial' | 'SQLiteInteger' | 'MySqlYear' | 'SingleStoreYear' ? v.IntegerAction<number, undefined> : never
  *           ]
  *         >
  *       >
@@ -348,11 +380,11 @@ export function GetValibotPrimitiveType(TData, TColumnType, TAdditionalPropertie
 
 // ✓ HandleSelectColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleSelectColumn(TSchema: v.GenericSchema, TColumn: Column) {
+export function HandleSelectColumn(TSchema: v.GenericSchema, TColumn: Column): any {
   if (matches<true>(TColumn['_']['notNull'])) {
     return TSchema
   }
-  return v.NullableSchema(TSchema, Undefined)
+  return t<v.NullableSchema<typeof TSchema, undefined>>()
 }
 /* compiles to:
  * export type HandleSelectColumn<TSchema extends v.GenericSchema, TColumn extends Column> =
@@ -361,14 +393,14 @@ export function HandleSelectColumn(TSchema: v.GenericSchema, TColumn: Column) {
 
 // ✓ HandleInsertColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleInsertColumn(TSchema: v.GenericSchema, TColumn: Column) {
+export function HandleInsertColumn(TSchema: v.GenericSchema, TColumn: Column): any {
   if (matches<true>(TColumn['_']['notNull'])) {
     if (matches<true>(TColumn['_']['hasDefault'])) {
-      return v.OptionalSchema(TSchema, Undefined)
+      return t<v.OptionalSchema<typeof TSchema, undefined>>()
     }
     return TSchema
   }
-  return v.OptionalSchema(v.NullableSchema(TSchema, Undefined), Undefined)
+  return t<v.OptionalSchema<v.NullableSchema<typeof TSchema, undefined>, undefined>>()
 }
 /* compiles to:
  * export type HandleInsertColumn<TSchema extends v.GenericSchema, TColumn extends Column> =
@@ -379,11 +411,11 @@ export function HandleInsertColumn(TSchema: v.GenericSchema, TColumn: Column) {
 
 // ✓ HandleUpdateColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleUpdateColumn(TSchema: v.GenericSchema, TColumn: Column) {
+export function HandleUpdateColumn(TSchema: v.GenericSchema, TColumn: Column): any {
   if (matches<true>(TColumn['_']['notNull'])) {
-    return v.OptionalSchema(TSchema, Undefined)
+    return t<v.OptionalSchema<typeof TSchema, undefined>>()
   }
-  return v.OptionalSchema(v.NullableSchema(TSchema, Undefined), Undefined)
+  return t<v.OptionalSchema<v.NullableSchema<typeof TSchema, undefined>, undefined>>()
 }
 /* compiles to:
  * export type HandleUpdateColumn<TSchema extends v.GenericSchema, TColumn extends Column> =
@@ -394,11 +426,11 @@ export function HandleUpdateColumn(TSchema: v.GenericSchema, TColumn: Column) {
 
 // ✓ HandleColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandleColumn(TType: 'select' | 'insert' | 'update', TColumn: Column) {
+export function HandleColumn(TType: 'select' | 'insert' | 'update', TColumn: Column): any {
   const m1 = matches<Hole<"TSchema", v.GenericSchema>>(GetValibotType(TColumn['_']['data'], TColumn['_']['dataType'], TColumn['_']['columnType'], TColumn['_']['enumValues'], matches<true>(HasBaseColumn(TColumn)) ? Assume(TColumn['_']['baseColumn'], Column) : Undefined, ExtractAdditionalProperties(TColumn)))
   if (m1) {
     if (matches<v.AnySchema>(m1.TSchema)) {
-      return v.AnySchema
+      return t<v.AnySchema>()
     }
     if (matches<'select'>(TType)) {
       return HandleSelectColumn(m1.TSchema, TColumn)
@@ -411,7 +443,7 @@ export function HandleColumn(TType: 'select' | 'insert' | 'update', TColumn: Col
     }
     return m1.TSchema
   }
-  return v.AnySchema
+  return t<v.AnySchema>()
 }
 /* compiles to:
  * export type HandleColumn<

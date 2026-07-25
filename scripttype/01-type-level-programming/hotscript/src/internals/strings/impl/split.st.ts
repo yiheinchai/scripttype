@@ -7,18 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { UnionToTuple } from '../../../../../../../01-type-level-programming/hotscript/src/internals/helpers.js'
 declare namespace H {
   export type Split<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type UnionToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type FirstSep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RestSep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare const FirstSep: any
 declare const H: any
+declare const UnionToTuple: any
+type FirstSep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type H<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ConcatSplits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConcatSplits(Parts: string[], Seps: string[]) {
+export function ConcatSplits(Parts: string[], Seps: string[]): any {
   let Acc: any[] = []
   let parts = Parts
   while (true) {
@@ -45,10 +56,10 @@ export function ConcatSplits(Parts: string[], Seps: string[]) {
 
 // ✓ SplitManySep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SplitManySep(Str: string, Sep: string[], Acc: string[] = []) {
+export function SplitManySep(Str: string, Sep: string[], Acc: string[] = []): any {
   const m1 = matches<[ Hole<"FirstSep", string>, ...Hole<"RestSep", string[]> ]>(Sep)
   if (m1) {
-    return ConcatSplits(H.Split(Str, m1.FirstSep), m1.RestSep)
+    return ConcatSplits(t<H.Split<typeof Str, typeof m1.FirstSep>>(), m1.RestSep)
   }
   return [Str, ...Acc]
 }
@@ -61,7 +72,7 @@ export function SplitManySep(Str: string, Sep: string[], Acc: string[] = []) {
 
 // ✓ Split: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Split(Str, Sep: string, Seps = H.UnionToTuple(Sep)) {
+export function Split(Str, Sep: string, Seps = t<H.UnionToTuple<typeof Sep>>()): any {
   if (matches<string[]>(Seps)) {
     if (typeof Str === 'string') {
       return SplitManySep(Str, Seps)
@@ -77,7 +88,7 @@ export function Split(Str, Sep: string, Seps = H.UnionToTuple(Sep)) {
 
 // ✓ StringToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StringToTuple(Str, Acc: string[] = []) {
+export function StringToTuple(Str, Acc: string[] = []): any {
   if (typeof Str === 'string') {
     const m1 = matches<`${Hole<"First">}${Hole<"Rest">}`>(Str)
     if (m1) {

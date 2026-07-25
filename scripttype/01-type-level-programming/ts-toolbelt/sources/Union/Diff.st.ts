@@ -9,7 +9,7 @@
  */
 // ✓ Diff: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Diff(U1: any, U2: any) {
+export function Diff(U1: any, U2: any): any {
   return Exclude(U1, U2) | Exclude(U2, U1)
 }
 /* compiles to:

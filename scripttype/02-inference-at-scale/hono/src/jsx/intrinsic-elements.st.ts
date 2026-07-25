@@ -10,7 +10,7 @@
 // ✗ OptionalPrefixToken: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function OptionalPrefixToken(T: string) {
+export function OptionalPrefixToken(T: string): any {
   return anyOf(`${T} `, '')
 }
 /* compiles to:
@@ -20,7 +20,7 @@ export function OptionalPrefixToken(T: string) {
 // ✗ OptionalPostfixToken: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function OptionalPostfixToken(T: string) {
+export function OptionalPostfixToken(T: string): any {
   return anyOf(` ${T}`, '')
 }
 /* compiles to:

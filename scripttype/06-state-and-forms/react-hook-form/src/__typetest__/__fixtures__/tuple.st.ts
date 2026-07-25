@@ -9,16 +9,27 @@
  */
 // ✓ ConcatTupleTenTimes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConcatTupleTenTimes(T: unknown[]) {
+export function ConcatTupleTenTimes(T: unknown[]): any {
   return [...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T]
 }
 /* compiles to:
- * export type ConcatTupleTenTimes<T extends unknown[]> = [...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T]
+ * export type ConcatTupleTenTimes<T extends unknown[]> = [
+ *   ...T,
+ *   ...T,
+ *   ...T,
+ *   ...T,
+ *   ...T,
+ *   ...T,
+ *   ...T,
+ *   ...T,
+ *   ...T,
+ *   ...T
+ * ]
  */
 
 // ✓ HundredTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HundredTuple(T) {
+export function HundredTuple(T): any {
   return ConcatTupleTenTimes(ConcatTupleTenTimes([T]))
 }
 /* compiles to:

@@ -14,7 +14,7 @@ declare const G: any
 type G<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsEqual(A, B) {
+export function IsEqual(A, B): any {
   if (matches<[ typeof B ]>([A])) {
     if (matches<[ typeof A ]>([B])) {
       return _IsEqual(A, B)
@@ -29,7 +29,7 @@ export function IsEqual(A, B) {
 
 // ✓ _IsEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _IsEqual(A, B) {
+export function _IsEqual(A, B): any {
   if (matches<(<G>() => G extends (typeof B & G) | G ? 1 : 2)>(genericFnType(['G'], [], matches<(typeof A & G) | G>(G) ? 1 : 2))) {
     return true
   }
@@ -37,7 +37,7 @@ export function _IsEqual(A, B) {
 }
 /* compiles to:
  * export type _IsEqual<A, B> =
- *   (<G>() => G extends A & G | G ? 1 : 2) extends <G>() => G extends (typeof B & G) | G ? 1 : 2
+ *   (<G>() => G extends A & G | G ? 1 : 2) extends <G>() => G extends (B & G) | G ? 1 : 2
  *     ? true
  *     : false
  */

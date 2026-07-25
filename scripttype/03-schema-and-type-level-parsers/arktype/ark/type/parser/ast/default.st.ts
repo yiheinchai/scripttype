@@ -7,34 +7,40 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { writeUnassignableDefaultValueMessage } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/structure/optional.js'
+import type { inferAstIn } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/infer.js'
+import type { astToString } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/utils.js'
+import type { validateAst } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/ast/validate.js'
+import type { UnitLiteral } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/operator/default.js'
+import type { ErrorMessage } from '../../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
+declare namespace m1 {
+  export type e<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare namespace type {
   export type infer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const ErrorMessage: any
 declare const UnitLiteral: any
 declare const astToString: any
+declare const infer: any
 declare const inferAstIn: any
 declare const type: any
 declare const validateAst: any
 declare const writeUnassignableDefaultValueMessage: any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnitLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type astToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferAstIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type infer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateAst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type writeUnassignableDefaultValueMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validateDefault: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function validateDefault(baseAst, unitLiteral: UnitLiteral, $, args) {
+export function validateDefault(baseAst, unitLiteral: UnitLiteral, $, args): any {
   const m1 = matches<Hole<"e", ErrorMessage>>(validateAst(baseAst, $, args))
   if (m1) {
     return m1.e
   }
-  if (matches<inferAstIn<typeof baseAst, typeof $, typeof args>>(type.infer(unitLiteral))) {
+  if (matches<inferAstIn<typeof baseAst, typeof $, typeof args>>(t<type.infer<typeof unitLiteral>>())) {
     return Undefined
   }
   return ErrorMessage(writeUnassignableDefaultValueMessage(astToString(baseAst), unitLiteral))

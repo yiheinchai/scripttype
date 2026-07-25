@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SpawnActionOptions } from '../../../../../../../06-state-and-forms/xstate/packages/core/src/actions/spawnChild.js'
+import type { AnyActorLogic, ConditionalRequired, IsLiteralString, IsNotNever, MachineContext, ProvidedActor, RequiredActorOptions, UnifiedArg } from '../../../../../../../06-state-and-forms/xstate/packages/core/src/types.js'
 declare const AnyActorLogic: any
 declare const ConditionalRequired: any
 declare const EventObject: any
@@ -20,19 +23,10 @@ declare const ProvidedActor: any
 declare const RequiredActorOptions: any
 declare const SpawnActionOptions: any
 declare const UnifiedArg: any
-type AnyActorLogic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ConditionalRequired<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EventObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsLiteralString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNotNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MachineContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ProvidedActor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RequiredActorOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SpawnActionOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnifiedArg<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ResolvableActorId: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolvableActorId(TContext: MachineContext, TExpressionEvent: EventObject, TEvent: EventObject, TId: string | undefined) {
+export function ResolvableActorId(TContext: MachineContext, TExpressionEvent: EventObject, TEvent: EventObject, TId: string | undefined): any {
   return anyOf(TId, fnType([UnifiedArg(TContext, TExpressionEvent, TEvent)], TId))
 }
 /* compiles to:
@@ -48,7 +42,7 @@ export function ResolvableActorId(TContext: MachineContext, TExpressionEvent: Ev
 // ✗ DistributeActors: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function DistributeActors(TContext: MachineContext, TExpressionEvent: EventObject, TEvent: EventObject, TActor: ProvidedActor) {
+export function DistributeActors(TContext: MachineContext, TExpressionEvent: EventObject, TEvent: EventObject, TActor: ProvidedActor): any {
   const out = emptyObject
   for (const K in keySet(RequiredActorOptions(TActor))) {
     out[K] = unknown
@@ -83,7 +77,7 @@ export function DistributeActors(TContext: MachineContext, TExpressionEvent: Eve
 // ✗ SpawnArguments: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function SpawnArguments(TContext: MachineContext, TExpressionEvent: EventObject, TEvent: EventObject, TActor: ProvidedActor) {
+export function SpawnArguments(TContext: MachineContext, TExpressionEvent: EventObject, TEvent: EventObject, TActor: ProvidedActor): any {
   if (matches<true>(IsLiteralString(TActor['src']))) {
     return DistributeActors(TContext, TExpressionEvent, TEvent, TActor)
   }

@@ -7,29 +7,33 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TUnreachable } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/system/unreachable/unreachable.js'
+import type { TCollapseToObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/object/collapse.js'
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace m1 {
+  export type Properties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TCollapseToObject: any
 declare const TObject: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TUnreachable: any
-type TCollapseToObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnreachable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TToIndexable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TToIndexable__v1(Collapsed) {
+export function TToIndexable__v1(Collapsed): any {
   const m1 = matches<TObject<Hole<"Properties", TProperties>>>(Collapsed)
   if (m1) {
     return m1.Properties
   }
   return TUnreachable
 }
-export function TToIndexable(Type: TSchema, Collapsed: TSchema = TCollapseToObject(Type), Result: TProperties = TToIndexable__v1(Collapsed)) {
+export function TToIndexable(Type: TSchema, Collapsed: TSchema = TCollapseToObject(Type), Result: TProperties = TToIndexable__v1(Collapsed)): any {
   return Result
 }
 /* compiles to:

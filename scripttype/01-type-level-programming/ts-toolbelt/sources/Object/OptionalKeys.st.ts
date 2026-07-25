@@ -10,7 +10,7 @@
 // ✗ _OptionalKeys: the ScriptType does not itself typecheck as TypeScript
 //   _OptionalKeys.st.ts(5:46) TS2344: Type 'string' does not satisfy the constraint 'never'.
 /* @scripttype preserveParamNames */
-export function _OptionalKeys(O: object) {
+export function _OptionalKeys(O: object): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = required(matches<Pick<typeof O, typeof K>>({}) ? K : never)
@@ -24,7 +24,7 @@ export function _OptionalKeys(O: object) {
 
 // ✓ OptionalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalKeys(O: object) {
+export function OptionalKeys(O: object): any {
   if (matches<unknown>(O)) {
     return _OptionalKeys(O)
   }

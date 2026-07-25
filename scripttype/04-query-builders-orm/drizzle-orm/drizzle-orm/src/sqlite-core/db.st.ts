@@ -9,7 +9,7 @@
  */
 // ✓ SQLiteWithReplicas: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SQLiteWithReplicas(Q) {
+export function SQLiteWithReplicas(Q): any {
   return merge(Q, { $primary: Q, $replicas: arrayOf(Q) })
 }
 /* compiles to:

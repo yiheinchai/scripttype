@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DefaultErrorShape } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/error/formatter.js'
+import type { ProcedureType } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/procedure.js'
+import type { TRPCErrorShape } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/rpc/envelopes.js'
 declare const DefaultErrorShape: any
 declare const ProcedureType: any
 declare const TRPCError: any
 declare const TRPCErrorShape: any
-type DefaultErrorShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ProcedureType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TRPCError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCErrorShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ErrorFormatter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ErrorFormatter(TContext, TShape: TRPCErrorShape) {
+export function ErrorFormatter(TContext, TShape: TRPCErrorShape): any {
   return fnType([{ error: TRPCError, type: anyOf(ProcedureType, 'unknown'), path: anyOf(string, Undefined), input: unknown, ctx: anyOf(TContext, Undefined), shape: DefaultErrorShape }], TShape)
 }
 /* compiles to:

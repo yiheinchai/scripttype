@@ -7,24 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { BuiltIn } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Misc/BuiltIn.js'
+import type { PatchFlat } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/Patch.js'
+import type { Depth } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
 declare const BuiltIn: any
 declare const Depth: any
 declare const Key: any
 declare const PatchFlat: any
 declare const UNonNullable: any
 declare const _Pick: any
-type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PatchFlat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UNonNullable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _Pick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NonNullableFlat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNullableFlat(O) {
+export function NonNullableFlat(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = UNonNullable(O[K])
@@ -37,7 +38,7 @@ export function NonNullableFlat(O) {
 
 // ✓ NonNullableDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNullableDeep(O) {
+export function NonNullableDeep(O): any {
   const out = emptyObject
   for (const K in keyof(O)) {
     out[K] = matches<BuiltIn>(O[K]) ? O[K] : NonNullableDeep(UNonNullable(O[K]))
@@ -52,7 +53,7 @@ export function NonNullableDeep(O) {
 
 // ✓ NonNullablePart: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNullablePart(O: object, depth: Depth) {
+export function NonNullablePart(O: object, depth: Depth): any {
   return { 'flat': NonNullableFlat(O), 'deep': NonNullableDeep(O) }[depth]
 }
 /* compiles to:
@@ -62,7 +63,7 @@ export function NonNullablePart(O: object, depth: Depth) {
 
 // ✓ _NonNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _NonNullable(O: object, K: Key, depth: Depth) {
+export function _NonNullable(O: object, K: Key, depth: Depth): any {
   return PatchFlat(NonNullablePart(_Pick(O, K), depth), O)
 }
 /* compiles to:
@@ -74,7 +75,7 @@ export function _NonNullable(O: object, K: Key, depth: Depth) {
 
 // ✓ NonNullable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNullable(O: object, K: Key = Key, depth: Depth = 'flat') {
+export function NonNullable(O: object, K: Key = Key, depth: Depth = 'flat'): any {
   if (matches<unknown>(O)) {
     return _NonNullable(O, K, depth)
   }

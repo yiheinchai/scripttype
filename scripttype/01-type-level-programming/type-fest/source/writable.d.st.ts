@@ -10,6 +10,20 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type KeyType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ValueType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type ItemType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Except: any
 declare const ItemType: any
 declare const Simplify: any
@@ -20,7 +34,7 @@ type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = a
 type ValueType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WritableArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WritableArray(ArrayType: readonly unknown[]) {
+export function WritableArray(ArrayType: readonly unknown[]): any {
   if (matches<readonly [ ]>(ArrayType)) {
     return []
   }
@@ -49,7 +63,10 @@ export function WritableArray(ArrayType: readonly unknown[]) {
 
 // ✓ Writable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Writable(BaseType, Keys: keyof typeof BaseType = keyof(BaseType)) {
+/**
+ * @param {keyof typeof BaseType} Keys
+ */
+export function Writable(BaseType, Keys = keyof(BaseType)): any {
   const m1 = matches<ReadonlyMap<Hole<"KeyType">, Hole<"ValueType">>>(BaseType)
   if (m1) {
     return t<Map<typeof m1.KeyType, typeof m1.ValueType>>()
@@ -65,7 +82,7 @@ export function Writable(BaseType, Keys: keyof typeof BaseType = keyof(BaseType)
   for (const KeyType in keyof(BaseType)) {
     out[matches<typeof Keys>(KeyType) ? KeyType : never] = mutable(BaseType[KeyType])
   }
-  return Simplify(Except(BaseType, Keys) & out)
+  return Simplify(merge(Except(BaseType, Keys), out))
 }
 /* compiles to:
  * export type Writable<BaseType, Keys extends keyof BaseType = keyof BaseType> =

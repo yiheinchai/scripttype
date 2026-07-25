@@ -9,7 +9,7 @@
  */
 // ✓ DistributeUnions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DistributeUnions(T) {
+export function DistributeUnions(T): any {
   return any
 }
 /* compiles to:

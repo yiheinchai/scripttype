@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { array } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/arrays.js'
+import type { anyOrNever } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
 declare const ArrayType: any
 declare const BaseType: any
 declare const DateType: any
@@ -24,12 +27,10 @@ type DateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = a
 type NumberType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ObjectType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StringType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ instantiateType: does not compile yet
 //   Type 't' does not satisfy the constraint 'readonly unknown[]'.
 /* @scripttype preserveParamNames */
-export function instantiateType(t, $) {
+export function instantiateType(t, $): any {
   if (matches<[ anyOrNever ]>([t])) {
     return BaseType(t, $)
   }

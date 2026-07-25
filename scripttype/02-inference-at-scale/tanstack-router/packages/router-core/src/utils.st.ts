@@ -7,18 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { RouteIds } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/routeInfo.js'
+import type { AnyRouter } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { MergeAllPrimitive } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
+declare namespace m1 {
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TObj<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TReturn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TReturn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyRouter: any
 declare const MergeAllPrimitive: any
 declare const RouteIds: any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MergeAllPrimitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouteIds<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Awaitable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Awaitable(T) {
+export function Awaitable(T): any {
   return T | t<Promise<typeof T>>()
 }
 /* compiles to:
@@ -27,7 +37,7 @@ export function Awaitable(T) {
 
 // ✓ NoInfer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NoInfer(T) {
+export function NoInfer(T): any {
   return [T][matches<any>(T) ? 0 : never]
 }
 /* compiles to:
@@ -36,7 +46,7 @@ export function NoInfer(T) {
 
 // ✓ IsAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsAny(TValue, TYesResult, TNoResult = TValue) {
+export function IsAny(TValue, TYesResult, TNoResult = TValue): any {
   if (matches<0 & typeof TValue>(1)) {
     return TYesResult
   }
@@ -49,7 +59,10 @@ export function IsAny(TValue, TYesResult, TNoResult = TValue) {
 
 // ✓ PickAsRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickAsRequired(TValue, TKey: keyof typeof TValue) {
+/**
+ * @param {keyof typeof TValue} TKey
+ */
+export function PickAsRequired(TValue, TKey): any {
   return Omit(TValue, TKey) & Required(Pick(TValue, TKey))
 }
 /* compiles to:
@@ -59,7 +72,7 @@ export function PickAsRequired(TValue, TKey: keyof typeof TValue) {
 
 // ✓ PickRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickRequired(T) {
+export function PickRequired(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[matches<(typeof T)[typeof K]>(Undefined) ? never : K] = T[K]
@@ -72,7 +85,7 @@ export function PickRequired(T) {
 
 // ✓ PickOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickOptional(T) {
+export function PickOptional(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[matches<(typeof T)[typeof K]>(Undefined) ? K : never] = T[K]
@@ -85,7 +98,7 @@ export function PickOptional(T) {
 
 // ✓ WithoutEmpty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithoutEmpty(T) {
+export function WithoutEmpty(T): any {
   if (matches<any>(T)) {
     if (matches<typeof T>({})) {
       return never
@@ -100,7 +113,7 @@ export function WithoutEmpty(T) {
 
 // ✓ Expand: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Expand(T) {
+export function Expand(T): any {
   if (matches<object>(T)) {
     const m1 = matches<Hole<"O">>(T)
     if (m1) {
@@ -126,7 +139,7 @@ export function Expand(T) {
 
 // ✓ DeepPartial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeepPartial(T) {
+export function DeepPartial(T): any {
   if (matches<object>(T)) {
     const out = emptyObject
     for (const P in keyof(T)) {
@@ -142,7 +155,7 @@ export function DeepPartial(T) {
 
 // ✓ MakeDifferenceOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MakeDifferenceOptional(TLeft, TRight) {
+export function MakeDifferenceOptional(TLeft, TRight): any {
   if (matches<never>(keyof(TLeft) & keyof(TRight))) {
     return TRight
   }
@@ -150,7 +163,7 @@ export function MakeDifferenceOptional(TLeft, TRight) {
   for (const K in keySet(keyof(TLeft) & keyof(TRight))) {
     out[K] = optional(TRight[K])
   }
-  return Omit(TRight, keyof(TLeft) & keyof(TRight)) & out
+  return Omit(TRight, merge(keyof(TLeft), keyof(TRight))) & out
 }
 /* compiles to:
  * export type MakeDifferenceOptional<TLeft, TRight> =
@@ -162,7 +175,10 @@ export function MakeDifferenceOptional(TLeft, TRight) {
 
 // ✓ IsUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsUnion(T, U: typeof T = T) {
+/**
+ * @param {typeof T} U
+ */
+export function IsUnion(T, U = T): any {
   if (matches<false>(matches<any>(T) ? (matches<typeof T>(U) ? false : true) : never)) {
     return false
   }
@@ -175,7 +191,7 @@ export function IsUnion(T, U: typeof T = T) {
 
 // ✓ IsNonEmptyObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsNonEmptyObject(T) {
+export function IsNonEmptyObject(T): any {
   if (matches<object>(T)) {
     if (matches<never>(keyof(T))) {
       return false
@@ -191,7 +207,7 @@ export function IsNonEmptyObject(T) {
 
 // ✓ Assign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assign(TLeft, TRight) {
+export function Assign(TLeft, TRight): any {
   if (matches<any>(TLeft)) {
     if (matches<any>(TRight)) {
       if (matches<false>(IsNonEmptyObject(TLeft))) {
@@ -223,7 +239,7 @@ export function Assign(TLeft, TRight) {
 
 // ✓ IntersectAssign: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IntersectAssign(TLeft, TRight) {
+export function IntersectAssign(TLeft, TRight): any {
   if (matches<any>(TLeft)) {
     if (matches<any>(TRight)) {
       if (matches<false>(IsNonEmptyObject(TLeft))) {
@@ -251,16 +267,16 @@ export function IntersectAssign(TLeft, TRight) {
 
 // ✓ Updater: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Updater(TPrevious, TResult = TPrevious) {
-  return TResult | fnType([TPrevious], TResult)
+export function Updater(TPrevious, TResult = TPrevious): any {
+  return TResult | fnType([optElem(TPrevious)], TResult)
 }
 /* compiles to:
- * export type Updater<TPrevious, TResult = TPrevious> = TResult | ((a0: TPrevious) => TResult)
+ * export type Updater<TPrevious, TResult = TPrevious> = TResult | ((a0?: TPrevious) => TResult)
  */
 
 // ✓ NonNullableUpdater: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonNullableUpdater(TPrevious, TResult = TPrevious) {
+export function NonNullableUpdater(TPrevious, TResult = TPrevious): any {
   return TResult | fnType([TPrevious], TResult)
 }
 /* compiles to:
@@ -270,7 +286,7 @@ export function NonNullableUpdater(TPrevious, TResult = TPrevious) {
 
 // ✓ ExtractObjects: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractObjects(TUnion) {
+export function ExtractObjects(TUnion): any {
   if (matches<MergeAllPrimitive>(TUnion)) {
     return never
   }
@@ -282,7 +298,7 @@ export function ExtractObjects(TUnion) {
 
 // ✓ PartialMergeAllObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PartialMergeAllObject(TUnion) {
+export function PartialMergeAllObject(TUnion): any {
   const m1 = matches<Hole<"TObj">>(ExtractObjects(TUnion))
   if (m1) {
     if (matches<[ never ]>([m1.TObj])) {
@@ -311,7 +327,7 @@ export function PartialMergeAllObject(TUnion) {
 
 // ✓ ExtractPrimitives: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractPrimitives(TUnion) {
+export function ExtractPrimitives(TUnion): any {
   if (matches<MergeAllPrimitive>(TUnion)) {
     return TUnion
   }
@@ -327,7 +343,7 @@ export function ExtractPrimitives(TUnion) {
 
 // ✓ PartialMergeAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PartialMergeAll(TUnion) {
+export function PartialMergeAll(TUnion): any {
   return ExtractPrimitives(TUnion) | PartialMergeAllObject(TUnion)
 }
 /* compiles to:
@@ -336,7 +352,7 @@ export function PartialMergeAll(TUnion) {
 
 // ✓ Constrain: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Constrain(T, TConstraint, TDefault = TConstraint) {
+export function Constrain(T, TConstraint, TDefault = TConstraint): any {
   return (matches<typeof TConstraint>(T) ? T : never) | TDefault
 }
 /* compiles to:
@@ -346,7 +362,7 @@ export function Constrain(T, TConstraint, TDefault = TConstraint) {
 
 // ✓ ConstrainLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConstrainLiteral(T, TConstraint, TDefault = TConstraint) {
+export function ConstrainLiteral(T, TConstraint, TDefault = TConstraint): any {
   return anyOf(T & TConstraint, TDefault)
 }
 /* compiles to:
@@ -356,7 +372,7 @@ export function ConstrainLiteral(T, TConstraint, TDefault = TConstraint) {
 
 // ✓ UnionToIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToIntersection(T) {
+export function UnionToIntersection(T): any {
   const m1 = matches<(arg: Hole<"T">) => any>(matches<any>(T) ? fnType([T], any) : never)
   if (m1) {
     return m1.T
@@ -370,7 +386,7 @@ export function UnionToIntersection(T) {
 
 // ✓ MergeAllObjects: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeAllObjects(TUnion, TIntersected = UnionToIntersection(ExtractObjects(TUnion))) {
+export function MergeAllObjects(TUnion, TIntersected = UnionToIntersection(ExtractObjects(TUnion))): any {
   if (matches<[ never ]>([keyof(TIntersected)])) {
     return never
   }
@@ -392,7 +408,7 @@ export function MergeAllObjects(TUnion, TIntersected = UnionToIntersection(Extra
 
 // ✓ MergeAll: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergeAll(TUnion) {
+export function MergeAll(TUnion): any {
   return MergeAllObjects(TUnion) | ExtractPrimitives(TUnion)
 }
 /* compiles to:
@@ -401,8 +417,8 @@ export function MergeAll(TUnion) {
 
 // ✓ ValidateJSON: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateJSON(T) {
-  if (matches<typeof T>(fnType([arrayOf(any)], any))) {
+export function ValidateJSON(T): any {
+  if (matches<typeof T>(fnType([...arrayOf(any)], any))) {
     if (matches<typeof T>(unknown)) {
       return never
     }
@@ -416,14 +432,14 @@ export function ValidateJSON(T) {
 }
 /* compiles to:
  * export type ValidateJSON<T> =
- *   ((a0: any[]) => any) extends T
+ *   ((...a0: any[]) => any) extends T
  *     ? unknown extends T ? never : 'Function is not serializable'
  *     : { [K in keyof T]: ValidateJSON<T[K]> }
  */
 
 // ✓ LooseReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LooseReturnType(T) {
+export function LooseReturnType(T): any {
   const m1 = matches<(...args: Array<any>) => Hole<"TReturn">>(T)
   if (m1) {
     return m1.TReturn
@@ -437,7 +453,7 @@ export function LooseReturnType(T) {
 
 // ✓ LooseAsyncReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LooseAsyncReturnType(T) {
+export function LooseAsyncReturnType(T): any {
   const m1 = matches<(...args: Array<any>) => Hole<"TReturn">>(T)
   if (m1) {
     const m2 = matches<Promise<Hole<"TReturn">>>(m1.TReturn)
@@ -457,7 +473,7 @@ export function LooseAsyncReturnType(T) {
 
 // ✓ StringLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StringLiteral(T) {
+export function StringLiteral(T): any {
   if (typeof T === 'string') {
     if (matches<typeof T>(string)) {
       return string
@@ -472,7 +488,7 @@ export function StringLiteral(T) {
 
 // ✓ ThrowOrOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ThrowOrOptional(T, TThrow: boolean) {
+export function ThrowOrOptional(T, TThrow: boolean): any {
   if (matches<true>(TThrow)) {
     return T
   }
@@ -484,7 +500,7 @@ export function ThrowOrOptional(T, TThrow: boolean) {
 
 // ✓ StrictOrFrom: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StrictOrFrom(TRouter: AnyRouter, TFrom, TStrict: boolean = true) {
+export function StrictOrFrom(TRouter: AnyRouter, TFrom, TStrict: boolean = true): any {
   if (matches<false>(TStrict)) {
     return { from: optional(never), strict: TStrict }
   }
@@ -499,7 +515,7 @@ export function StrictOrFrom(TRouter: AnyRouter, TFrom, TStrict: boolean = true)
 
 // ✓ ThrowConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ThrowConstraint(TStrict: boolean, TThrow: boolean) {
+export function ThrowConstraint(TStrict: boolean, TThrow: boolean): any {
   if (matches<false>(TStrict)) {
     if (matches<true>(TThrow)) {
       return never
@@ -515,7 +531,7 @@ export function ThrowConstraint(TStrict: boolean, TThrow: boolean) {
 
 // ✓ ControlledPromise: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ControlledPromise(T) {
+export function ControlledPromise(T): any {
   return merge(t<Promise<typeof T>>(), { resolve: fnType([T], voidType()), reject: fnType([any], voidType()), status: anyOf('pending', 'resolved', 'rejected'), value: optional(T) })
 }
 /* compiles to:

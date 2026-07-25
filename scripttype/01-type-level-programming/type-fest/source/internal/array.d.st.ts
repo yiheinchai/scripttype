@@ -7,9 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { UnknownArrayOrTuple } from '../../../../../01-type-level-programming/type-fest/source/internal/array.d.js'
+declare namespace m1 {
+  export type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type THead<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const If: any
 declare const IfNotAnyOrNever: any
 declare const IsExactOptionalPropertyTypesEnabled: any
@@ -17,17 +30,16 @@ declare const IsNever: any
 declare const OptionalKeysOf: any
 declare const UnknownArray: any
 declare const UnknownArrayOrTuple: any
-type If<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IfNotAnyOrNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsExactOptionalPropertyTypesEnabled<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OptionalKeysOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type StaticPartOfArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type UnknownArrayOrTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsExactOptionalPropertyTypesEnabled<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type OptionalKeysOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type StaticPartOfArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FirstArrayElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FirstArrayElement(TArray: UnknownArrayOrTuple) {
+export function FirstArrayElement(TArray: UnknownArrayOrTuple): any {
   const m1 = matches<readonly [ Hole<"THead">, ...unknown[] ]>(TArray)
   if (m1) {
     return m1.THead
@@ -35,12 +47,13 @@ export function FirstArrayElement(TArray: UnknownArrayOrTuple) {
   return never
 }
 /* compiles to:
- * export type FirstArrayElement<TArray extends UnknownArrayOrTuple> = TArray extends readonly [infer THead, ...unknown[]] ? THead : never
+ * export type FirstArrayElement<TArray extends UnknownArrayOrTuple> =
+ *   TArray extends readonly [infer THead, ...unknown[]] ? THead : never
  */
 
 // ✓ StaticPartOfArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticPartOfArray(T: UnknownArray, Result: UnknownArray = []) {
+export function StaticPartOfArray(T: UnknownArray, Result: UnknownArray = []): any {
   if (matches<unknown>(T)) {
     if (matches<(typeof T)['length']>(number)) {
       const m1 = matches<readonly [ Hole<"U">, ...Hole<"V"> ]>(T)
@@ -54,12 +67,17 @@ export function StaticPartOfArray(T: UnknownArray, Result: UnknownArray = []) {
   return never
 }
 /* compiles to:
- * export type StaticPartOfArray<T extends UnknownArray, Result extends UnknownArray = []> = T extends unknown ? number extends T['length'] ? T extends readonly [infer U, ...infer V] ? StaticPartOfArray<V, [...Result, U]> : Result : T : never
+ * export type StaticPartOfArray<T extends UnknownArray, Result extends UnknownArray = []> =
+ *   T extends unknown
+ *     ? number extends T['length']
+ *       ? T extends readonly [infer U, ...infer V] ? StaticPartOfArray<V, [...Result, U]> : Result
+ *       : T
+ *     : never
  */
 
 // ✓ VariablePartOfArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function VariablePartOfArray(T: UnknownArray) {
+export function VariablePartOfArray(T: UnknownArray): any {
   if (matches<unknown>(T)) {
     const m1 = matches<readonly [ ...StaticPartOfArray<typeof T>, ...Hole<"U"> ]>(T)
     if (m1) {
@@ -70,12 +88,13 @@ export function VariablePartOfArray(T: UnknownArray) {
   return never
 }
 /* compiles to:
- * export type VariablePartOfArray<T extends UnknownArray> = T extends unknown ? T extends readonly [...StaticPartOfArray<T>, ...infer U] ? U : [] : never
+ * export type VariablePartOfArray<T extends UnknownArray> =
+ *   T extends unknown ? T extends readonly [...StaticPartOfArray<T>, ...infer U] ? U : [] : never
  */
 
 // ✓ SetArrayAccess: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetArrayAccess(T: UnknownArray, IsReadonly: boolean) {
+export function SetArrayAccess(T: UnknownArray, IsReadonly: boolean): any {
   const m1 = matches<readonly [ ...Hole<"U"> ]>(T)
   if (m1) {
     if (matches<true>(IsReadonly)) {
@@ -86,30 +105,38 @@ export function SetArrayAccess(T: UnknownArray, IsReadonly: boolean) {
   return T
 }
 /* compiles to:
- * export type SetArrayAccess<T extends UnknownArray, IsReadonly extends boolean> = T extends readonly [...infer U] ? IsReadonly extends true ? readonly [...U] : [...U] : T
+ * export type SetArrayAccess<T extends UnknownArray, IsReadonly extends boolean> =
+ *   T extends readonly [...infer U] ? IsReadonly extends true ? readonly [...U] : [...U] : T
  */
 
 // ✓ IsArrayReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsArrayReadonly(T: UnknownArray) {
+export function IsArrayReadonly(T: UnknownArray): any {
   return If(IsNever(T), false, matches<unknown[]>(T) ? false : true)
 }
 /* compiles to:
- * export type IsArrayReadonly<T extends UnknownArray> = If<IsNever<T>, false, T extends unknown[] ? false : true>
+ * export type IsArrayReadonly<T extends UnknownArray> = If<
+ *   IsNever<T>,
+ *   false,
+ *   T extends unknown[] ? false : true
+ * >
  */
 
 // ✓ CollapseRestElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CollapseRestElement(TArray: UnknownArray) {
+export function CollapseRestElement(TArray: UnknownArray): any {
   return IfNotAnyOrNever(TArray, { ifNot: _CollapseRestElement(TArray) })
 }
 /* compiles to:
- * export type CollapseRestElement<TArray extends UnknownArray> = IfNotAnyOrNever<TArray, { ifNot: _CollapseRestElement<TArray> }>
+ * export type CollapseRestElement<TArray extends UnknownArray> = IfNotAnyOrNever<
+ *   TArray,
+ *   { ifNot: _CollapseRestElement<TArray> }
+ * >
  */
 
 // ✓ _CollapseRestElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _CollapseRestElement(TArray: UnknownArray, ForwardAccumulator: UnknownArray = [], BackwardAccumulator: UnknownArray = []) {
+export function _CollapseRestElement(TArray: UnknownArray, ForwardAccumulator: UnknownArray = [], BackwardAccumulator: UnknownArray = []): any {
   if (matches<UnknownArray>(TArray)) {
     if (matches<never>(merge(keyof(TArray), `${number}`))) {
       const m1 = matches<readonly [ ...Hole<"Rest">, Hole<"Last"> ]>(TArray)
@@ -130,5 +157,28 @@ export function _CollapseRestElement(TArray: UnknownArray, ForwardAccumulator: U
   return never
 }
 /* compiles to:
- * export type _CollapseRestElement<TArray extends UnknownArray, ForwardAccumulator extends UnknownArray = [], BackwardAccumulator extends UnknownArray = []> = TArray extends UnknownArray ? keyof TArray & `${number}` extends never ? TArray extends readonly [...infer Rest, infer Last] ? _CollapseRestElement<Rest, ForwardAccumulator, [Last, ...BackwardAccumulator]> : TArray extends readonly [] ? [...ForwardAccumulator, ...BackwardAccumulator] : [...ForwardAccumulator, TArray[number], ...BackwardAccumulator] : TArray extends readonly [infer First, ...infer Rest] ? _CollapseRestElement<Rest, [...ForwardAccumulator, '0' extends OptionalKeysOf<TArray> ? If<IsExactOptionalPropertyTypesEnabled, First, First | undefined> : First], BackwardAccumulator> : never : never
+ * export type _CollapseRestElement<
+ *   TArray extends UnknownArray,
+ *   ForwardAccumulator extends UnknownArray = [],
+ *   BackwardAccumulator extends UnknownArray = []
+ * > =
+ *   TArray extends UnknownArray
+ *     ? keyof TArray & `${number}` extends never
+ *       ? TArray extends readonly [...infer Rest, infer Last]
+ *         ? _CollapseRestElement<Rest, ForwardAccumulator, [Last, ...BackwardAccumulator]>
+ *       : TArray extends readonly [] ? [...ForwardAccumulator, ...BackwardAccumulator]
+ *       : [...ForwardAccumulator, TArray[number], ...BackwardAccumulator]
+ *     : TArray extends readonly [infer First, ...infer Rest]
+ *       ? _CollapseRestElement<
+ *         Rest,
+ *         [
+ *           ...ForwardAccumulator,
+ *           '0' extends OptionalKeysOf<TArray>
+ *             ? If<IsExactOptionalPropertyTypesEnabled, First, First | undefined>
+ *             : First
+ *         ],
+ *         BackwardAccumulator
+ *       >
+ *     : never
+ *     : never
  */

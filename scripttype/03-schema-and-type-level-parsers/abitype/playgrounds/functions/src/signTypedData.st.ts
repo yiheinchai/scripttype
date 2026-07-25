@@ -7,19 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TypedData, TypedDataDomain } from '../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/abi.js'
+import type { TypedDataToPrimitiveTypes } from '../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/utils.js'
 declare const TypedData: any
 declare const TypedDataDomain: any
 declare const TypedDataToPrimitiveTypes: any
-type TypedData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TypedDataDomain<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TypedDataToPrimitiveTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SignTypedDataParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SignTypedDataParameters(typedData: TypedData | Record<string, unknown>, primaryType: keyof typeof typedData, schema: Record<string, unknown> = matches<TypedData>(typedData) ? TypedDataToPrimitiveTypes(typedData) : indexRecord(string, any), message: (typeof schema)[keyof typeof schema] = schema[primaryType in schema ? primaryType : keyof(schema)]) {
-  return { domain: TypedDataDomain, primaryType: anyOf(primaryType, keyof(typedData)), types: typedData, message: matches<typeof message>(indexRecord(string, any)) ? Record(string, unknown) : message }
+/**
+ * @param {TypedData | Record<string, unknown>} typedData
+ * @param {keyof typeof typedData} primaryType
+ * @param {Record<string, unknown>} schema
+ * @param {(typeof schema)[keyof typeof schema]} message
+ */
+export function SignTypedDataParameters(typedData, primaryType, schema = matches<TypedData>(typedData) ? TypedDataToPrimitiveTypes(typedData) : indexRecord(string, any), message = schema[primaryType in schema ? primaryType : keyof(schema)]): any {
+  return { domain: TypedDataDomain, primaryType: primaryType | keyof(typedData), types: typedData, message: matches<typeof message>(indexRecord(string, any)) ? Record(string, unknown) : message }
 }
 /* compiles to:
  * export type SignTypedDataParameters<

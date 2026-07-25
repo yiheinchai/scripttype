@@ -7,9 +7,19 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TFlatten } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/flatten.js'
+import type { TLiteral } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TRecord } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/record.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const StringKey: any
 declare const TFlatten: any
 declare const TInteger: any
@@ -21,18 +31,13 @@ declare const TRecord: any
 declare const TSchema: any
 declare const TString: any
 type StringKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TFlatten<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TStringOrNumberCheck: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TStringOrNumberCheck(Types: TSchema[]) {
+export function TStringOrNumberCheck(Types: TSchema[]): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(Types)
   if (m1) {
     if (matches<TString | TNumber | TInteger>(m1.Left)) {
@@ -52,7 +57,7 @@ export function TStringOrNumberCheck(Types: TSchema[]) {
 // ✗ TTryBuildRecord: does not compile yet
 //   'StringKey' refers to a value, but is being used as a type here. Did you mean 'typeof StringKey'?
 /* @scripttype preserveParamNames */
-export function TTryBuildRecord(Types: TSchema[], Value: TSchema, Result: TSchema | undefined = matches<true>(TStringOrNumberCheck(Types)) ? TRecord(t<typeof StringKey>(), Value) : Undefined) {
+export function TTryBuildRecord(Types: TSchema[], Value: TSchema, Result: TSchema | undefined = matches<true>(TStringOrNumberCheck(Types)) ? TRecord(t<typeof StringKey>(), Value) : Undefined): any {
   return Result
 }
 /* compiles to:
@@ -66,7 +71,10 @@ export function TTryBuildRecord(Types: TSchema[], Value: TSchema, Result: TSchem
 
 // ✓ TCreateProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCreateProperties(Variants: TSchema[], Value: TSchema, Result: TProperties = {}) {
+/**
+ * @param {TProperties} Result
+ */
+export function TCreateProperties(Variants: TSchema[], Value: TSchema, Result = {}): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(Variants)
   if (m1) {
     if (matches<TLiteral<string | number>>(m1.Left)) {
@@ -99,7 +107,7 @@ export function TCreateProperties(Variants: TSchema[], Value: TSchema, Result: T
 
 // ✓ TCreateObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCreateObject(Variants: TSchema[], Value: TSchema, Properties: TProperties = TCreateProperties(Variants, Value), Result: TSchema = TObject(Properties)) {
+export function TCreateObject(Variants: TSchema[], Value: TSchema, Properties: TProperties = TCreateProperties(Variants, Value), Result: TSchema = TObject(Properties)): any {
   return Result
 }
 /* compiles to:
@@ -114,7 +122,7 @@ export function TCreateObject(Variants: TSchema[], Value: TSchema, Properties: T
 
 // ✓ TFromUnionKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromUnionKey(Types: TSchema[], Value: TSchema, Flattened: TSchema[] = TFlatten(Types), Record: TSchema | undefined = TTryBuildRecord(Flattened, Value), Result: TSchema = matches<TSchema>(Record) ? Record : TCreateObject(Flattened, Value)) {
+export function TFromUnionKey(Types: TSchema[], Value: TSchema, Flattened: TSchema[] = TFlatten(Types), Record: TSchema | undefined = TTryBuildRecord(Flattened, Value), Result: TSchema = matches<TSchema>(Record) ? Record : TCreateObject(Flattened, Value)): any {
   return Result
 }
 /* compiles to:

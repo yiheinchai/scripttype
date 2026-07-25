@@ -9,7 +9,7 @@
  */
 // ✓ DropString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DropString(S, R) {
+export function DropString(S, R): any {
   return any
 }
 /* compiles to:

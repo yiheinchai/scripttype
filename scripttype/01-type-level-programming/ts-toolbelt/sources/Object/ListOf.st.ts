@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { Pos } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+import type { Append } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Append.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Append: any
 declare const Cast: any
 declare const Extends: any
@@ -20,19 +31,12 @@ declare const List: any
 declare const Next: any
 declare const Pos: any
 declare const Select: any
-type Append<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Select<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AppendExists: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AppendExists(O: object, LN: List, I: Iteration) {
+export function AppendExists(O: object, LN: List, I: Iteration): any {
   if (Key(I) in O) {
     return Append(LN, O[Key(I)])
   }
@@ -51,7 +55,7 @@ export function AppendExists(O: object, LN: List, I: Iteration) {
 // ✗ ___ListOf: does not compile yet
 //   Type '[K] extends [never] ? 1 : 0' cannot be used to index type '{ '0': ___ListOf__st1<O, Exclude<K, `${I[0]}`>, AppendExists<O, LN, I>, Next<I>>; '1': LN; }'.
 /* @scripttype preserveParamNames */
-export function ___ListOf(O: object, K, LN: List = [], I: Iteration = IterationOf(0)) {
+export function ___ListOf(O: object, K, LN: List = [], I: Iteration = IterationOf(0)): any {
   return { 0: ___ListOf(O, Exclude(K, Key(I)), AppendExists(O, LN, I), Next(I)), 1: LN }[Extends([K], [never])]
 }
 /* compiles to:
@@ -66,7 +70,7 @@ export function ___ListOf(O: object, K, LN: List = [], I: Iteration = IterationO
 
 // ✓ __ListOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function __ListOf(O: object) {
+export function __ListOf(O: object): any {
   if (number in O) {
     return arrayOf(O[number])
   }
@@ -88,7 +92,7 @@ export function __ListOf(O: object) {
 
 // ✓ _ListOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ListOf(O: object) {
+export function _ListOf(O: object): any {
   const m1 = matches<Hole<"X">>(__ListOf(O))
   if (m1) {
     return Cast(m1.X, List)
@@ -101,7 +105,7 @@ export function _ListOf(O: object) {
 
 // ✓ ListOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ListOf(O: object) {
+export function ListOf(O: object): any {
   if (matches<unknown>(O)) {
     return _ListOf(O)
   }

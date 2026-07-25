@@ -7,18 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Expression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { ExpressionOrFactory } from '../../../../../04-query-builders-orm/kysely/src/parser/expression-parser.js'
+import type { SelectQueryBuilderExpression } from '../../../../../04-query-builders-orm/kysely/src/query-builder/select-query-builder-expression.js'
+declare namespace m1 {
+  export type AV<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type SV<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Expression: any
 declare const ExpressionOrFactory: any
 declare const SelectQueryBuilderExpression: any
-type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectQueryBuilderExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValueExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValueExpression(DB, TB: keyof typeof DB, V) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ValueExpression(DB, TB, V): any {
   return V | ExpressionOrFactory(DB, TB, V)
 }
 /* compiles to:
@@ -27,7 +38,10 @@ export function ValueExpression(DB, TB: keyof typeof DB, V) {
 
 // ✓ ValueExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValueExpressionOrList(DB, TB: keyof typeof DB, V) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ValueExpressionOrList(DB, TB, V): any {
   return ValueExpression(DB, TB, V) | readonlyArrayOf(ValueExpression(DB, TB, V))
 }
 /* compiles to:
@@ -37,7 +51,7 @@ export function ValueExpressionOrList(DB, TB: keyof typeof DB, V) {
 
 // ✓ ExtractTypeFromValueExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromValueExpressionOrList(VE) {
+export function ExtractTypeFromValueExpressionOrList(VE): any {
   const m1 = matches<ReadonlyArray<Hole<"AV">>>(VE)
   if (m1) {
     return ExtractTypeFromValueExpression(m1.AV)
@@ -53,7 +67,7 @@ export function ExtractTypeFromValueExpressionOrList(VE) {
 
 // ✓ ExtractTypeFromValueExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromValueExpression(VE) {
+export function ExtractTypeFromValueExpression(VE): any {
   const m1 = matches<SelectQueryBuilderExpression<Record<string, Hole<"SV">>>>(VE)
   if (m1) {
     return m1.SV

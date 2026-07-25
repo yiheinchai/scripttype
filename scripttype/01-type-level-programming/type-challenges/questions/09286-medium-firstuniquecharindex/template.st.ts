@@ -9,7 +9,7 @@
  */
 // ✓ FirstUniqueCharIndex: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FirstUniqueCharIndex(T: string) {
+export function FirstUniqueCharIndex(T: string): any {
   return any
 }
 /* compiles to:

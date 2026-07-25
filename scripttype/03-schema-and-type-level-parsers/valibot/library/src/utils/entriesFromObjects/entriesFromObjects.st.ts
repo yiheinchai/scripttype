@@ -7,18 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Merge, Prettify } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/utils.js'
+declare namespace m1 {
+  export type TFirstSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TFirstSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRestSchemas<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Merge: any
 declare const Prettify: any
 declare const Schema: any
-type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RecursiveMerge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RecursiveMerge(TSchemas: readonly [ Schema, ...Schema[] ]) {
+export function RecursiveMerge(TSchemas: readonly [ Schema, ...Schema[] ]): any {
   const m1 = matches<readonly [ Hole<"TFirstSchema", Schema> ]>(TSchemas)
   if (m1) {
     return m1.TFirstSchema['entries']
@@ -39,7 +46,7 @@ export function RecursiveMerge(TSchemas: readonly [ Schema, ...Schema[] ]) {
 
 // ✓ MergedEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MergedEntries(TSchemas: readonly [ Schema, ...Schema[] ]) {
+export function MergedEntries(TSchemas: readonly [ Schema, ...Schema[] ]): any {
   return Prettify(RecursiveMerge(TSchemas))
 }
 /* compiles to:

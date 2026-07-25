@@ -7,18 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExtractTypeFromReferenceExpression } from '../../../../../04-query-builders-orm/kysely/src/parser/reference-parser.js'
+import type { ExtractTypeFromValueExpression } from '../../../../../04-query-builders-orm/kysely/src/parser/value-parser.js'
+import type { DrainOuterGeneric } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
 declare const DrainOuterGeneric: any
 declare const ExtractTypeFromReferenceExpression: any
 declare const ExtractTypeFromValueExpression: any
-type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractTypeFromReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractTypeFromValueExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RefTuple2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RefTuple2(DB, TB: keyof typeof DB, R1, R2) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function RefTuple2(DB, TB, R1, R2): any {
   return DrainOuterGeneric([ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2)])
 }
 /* compiles to:
@@ -32,7 +36,10 @@ export function RefTuple2(DB, TB: keyof typeof DB, R1, R2) {
 
 // ✓ RefTuple3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RefTuple3(DB, TB: keyof typeof DB, R1, R2, R3) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function RefTuple3(DB, TB, R1, R2, R3): any {
   return DrainOuterGeneric([ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3)])
 }
 /* compiles to:
@@ -47,7 +54,10 @@ export function RefTuple3(DB, TB: keyof typeof DB, R1, R2, R3) {
 
 // ✓ RefTuple4: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RefTuple4(DB, TB: keyof typeof DB, R1, R2, R3, R4) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function RefTuple4(DB, TB, R1, R2, R3, R4): any {
   return DrainOuterGeneric([ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3), ExtractTypeFromReferenceExpression(DB, TB, R4)])
 }
 /* compiles to:
@@ -63,7 +73,10 @@ export function RefTuple4(DB, TB: keyof typeof DB, R1, R2, R3, R4) {
 
 // ✓ RefTuple5: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RefTuple5(DB, TB: keyof typeof DB, R1, R2, R3, R4, R5) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function RefTuple5(DB, TB, R1, R2, R3, R4, R5): any {
   return DrainOuterGeneric([ExtractTypeFromReferenceExpression(DB, TB, R1), ExtractTypeFromReferenceExpression(DB, TB, R2), ExtractTypeFromReferenceExpression(DB, TB, R3), ExtractTypeFromReferenceExpression(DB, TB, R4), ExtractTypeFromReferenceExpression(DB, TB, R5)])
 }
 /* compiles to:
@@ -80,7 +93,7 @@ export function RefTuple5(DB, TB: keyof typeof DB, R1, R2, R3, R4, R5) {
 
 // ✓ ValTuple2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValTuple2(V1, V2) {
+export function ValTuple2(V1, V2): any {
   return DrainOuterGeneric([ExtractTypeFromValueExpression(V1), ExtractTypeFromValueExpression(V2)])
 }
 /* compiles to:
@@ -91,7 +104,7 @@ export function ValTuple2(V1, V2) {
 
 // ✓ ValTuple3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValTuple3(V1, V2, V3) {
+export function ValTuple3(V1, V2, V3): any {
   return DrainOuterGeneric([ExtractTypeFromValueExpression(V1), ExtractTypeFromValueExpression(V2), ExtractTypeFromValueExpression(V3)])
 }
 /* compiles to:
@@ -106,7 +119,7 @@ export function ValTuple3(V1, V2, V3) {
 
 // ✓ ValTuple4: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValTuple4(V1, V2, V3, V4) {
+export function ValTuple4(V1, V2, V3, V4): any {
   return DrainOuterGeneric([ExtractTypeFromValueExpression(V1), ExtractTypeFromValueExpression(V2), ExtractTypeFromValueExpression(V3), ExtractTypeFromValueExpression(V4)])
 }
 /* compiles to:
@@ -122,7 +135,7 @@ export function ValTuple4(V1, V2, V3, V4) {
 
 // ✓ ValTuple5: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValTuple5(V1, V2, V3, V4, V5) {
+export function ValTuple5(V1, V2, V3, V4, V5): any {
   return DrainOuterGeneric([ExtractTypeFromValueExpression(V1), ExtractTypeFromValueExpression(V2), ExtractTypeFromValueExpression(V3), ExtractTypeFromValueExpression(V4), ExtractTypeFromValueExpression(V5)])
 }
 /* compiles to:

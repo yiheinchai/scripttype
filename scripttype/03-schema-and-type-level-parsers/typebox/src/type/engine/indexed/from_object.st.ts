@@ -7,9 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TEvaluateUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TToIndexableKeys } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/indexable/to_indexable_keys.js'
+import type { TExpandThis } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/this/expand_this.js'
+import type { TNever } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/never.js'
+import type { TPropertyKeys } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/properties.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TEvaluateUnion: any
 declare const TExpandThis: any
 declare const TNever: any
@@ -18,17 +32,11 @@ declare const TProperties: any
 declare const TPropertyKeys: any
 declare const TSchema: any
 declare const TToIndexableKeys: any
-type TEvaluateUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExpandThis<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TPropertyKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TToIndexableKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIndexProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndexProperty(Properties: TProperties, Key: string, CanonicalKey: string = matches<string | number>(keyof(Properties)) ? `${keyof(Properties)}` : never, SelectedType: TSchema = matches<typeof CanonicalKey>(Key) ? Properties[Key] : TNever, Result: TSchema = TExpandThis(Properties, SelectedType)) {
+export function TIndexProperty(Properties: TProperties, Key: string, CanonicalKey: string = matches<string | number>(keyof(Properties)) ? `${keyof(Properties)}` : never, SelectedType: TSchema = matches<typeof CanonicalKey>(Key) ? Properties[Key] : TNever, Result: TSchema = TExpandThis(Properties, SelectedType)): any {
   return Result
 }
 /* compiles to:
@@ -44,7 +52,7 @@ export function TIndexProperty(Properties: TProperties, Key: string, CanonicalKe
 
 // ✓ TIndexProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndexProperties(Properties: TProperties, Keys: string[]) {
+export function TIndexProperties(Properties: TProperties, Keys: string[]): any {
   let Result: any[] = []
   let keys = Keys
   while (true) {
@@ -75,7 +83,7 @@ export function TIndexProperties(Properties: TProperties, Keys: string[]) {
 
 // ✓ TFromIndexer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromIndexer(Properties: TProperties, Indexer: TSchema, Keys: string[] = TToIndexableKeys(Indexer), Variants: TSchema[] = TIndexProperties(Properties, Keys), Result: TSchema = TEvaluateUnion(Variants)) {
+export function TFromIndexer(Properties: TProperties, Indexer: TSchema, Keys: string[] = TToIndexableKeys(Indexer), Variants: TSchema[] = TIndexProperties(Properties, Keys), Result: TSchema = TEvaluateUnion(Variants)): any {
   return Result
 }
 /* compiles to:
@@ -91,7 +99,7 @@ export function TFromIndexer(Properties: TProperties, Indexer: TSchema, Keys: st
 
 // ✓ TNumericKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TNumericKeys(Keys: string[], Result: string[] = []) {
+export function TNumericKeys(Keys: string[], Result: string[] = []): any {
   const m1 = matches<[ Hole<"Left", string>, ...Hole<"Right", string[]> ]>(Keys)
   if (m1) {
     const m2 = matches<`${Hole<"_", number>}`>(m1.Left)
@@ -113,7 +121,7 @@ export function TNumericKeys(Keys: string[], Result: string[] = []) {
 
 // ✓ TFromIndexerNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromIndexerNumber(Properties: TProperties, Keys: string[] = TPropertyKeys(Properties), NumericKeys: string[] = TNumericKeys(Keys), Variants: TSchema[] = TIndexProperties(Properties, NumericKeys), Result: TSchema = TEvaluateUnion(Variants)) {
+export function TFromIndexerNumber(Properties: TProperties, Keys: string[] = TPropertyKeys(Properties), NumericKeys: string[] = TNumericKeys(Keys), Variants: TSchema[] = TIndexProperties(Properties, NumericKeys), Result: TSchema = TEvaluateUnion(Variants)): any {
   return Result
 }
 /* compiles to:
@@ -129,7 +137,7 @@ export function TFromIndexerNumber(Properties: TProperties, Keys: string[] = TPr
 
 // ✓ TFromObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromObject(Properties: TProperties, Indexer: TSchema, Result: TSchema = matches<TNumber>(Indexer) ? TFromIndexerNumber(Properties) : TFromIndexer(Properties, Indexer)) {
+export function TFromObject(Properties: TProperties, Indexer: TSchema, Result: TSchema = matches<TNumber>(Indexer) ? TFromIndexerNumber(Properties) : TFromIndexer(Properties, Indexer)): any {
   return Result
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ TupleToObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TupleToObject(T: readonly any[]) {
+export function TupleToObject(T: readonly any[]): any {
   return any
 }
 /* compiles to:

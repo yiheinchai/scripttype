@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ConditionalPickDeepOptions } from '../../../../01-type-level-programming/type-fest/source/conditional-pick-deep.d.js'
 declare const ApplyDefaultOptions: any
 declare const ConditionalExcept: any
 declare const ConditionalPickDeepOptions: any
@@ -22,7 +24,6 @@ declare const UnknownRecord: any
 declare const conditionalPickDeepSymbol: any
 type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ConditionalExcept<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ConditionalPickDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ConditionalSimplifyDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DefaultConditionalPickDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EmptyObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -32,7 +33,7 @@ type UnknownRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T
 type conditionalPickDeepSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AssertCondition: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AssertCondition(Type, Condition, Options: ConditionalPickDeepOptions) {
+export function AssertCondition(Type, Condition, Options: ConditionalPickDeepOptions): any {
   if (matches<'equality'>(Options['condition'])) {
     return IsEqual(Type, Condition)
   }
@@ -50,7 +51,7 @@ export function AssertCondition(Type, Condition, Options: ConditionalPickDeepOpt
 
 // ✓ ConditionalPickDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConditionalPickDeep(Type, Condition, Options: ConditionalPickDeepOptions = {}) {
+export function ConditionalPickDeep(Type, Condition, Options: ConditionalPickDeepOptions = {}): any {
   return _NeverIfEmpty(_ConditionalPickDeep(Type, Condition, ApplyDefaultOptions(ConditionalPickDeepOptions, DefaultConditionalPickDeepOptions, Options)))
 }
 /* compiles to:
@@ -74,7 +75,7 @@ export function ConditionalPickDeep(Type, Condition, Options: ConditionalPickDee
 
 // ✓ _NeverIfEmpty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _NeverIfEmpty(Type) {
+export function _NeverIfEmpty(Type): any {
   if (matches<EmptyObject>(Type)) {
     return never
   }
@@ -86,7 +87,7 @@ export function _NeverIfEmpty(Type) {
 
 // ✓ _ConditionalPickDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ConditionalPickDeep(Type, Condition, Options: Required<ConditionalPickDeepOptions>) {
+export function _ConditionalPickDeep(Type, Condition, Options: Required<ConditionalPickDeepOptions>): any {
   const out = emptyObject
   for (const Key in keyof(Type)) {
     out[Key] = matches<true>(AssertCondition(Type[Key], Condition, Options)) ? Type[Key] : (matches<true>(IsPlainObject(Type[Key])) ? _ConditionalPickDeep(Type[Key], Condition, Options) : t<typeof conditionalPickDeepSymbol>())

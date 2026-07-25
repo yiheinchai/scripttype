@@ -7,9 +7,143 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SchemaWithPipe } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/methods/pipe/pipe.js'
+import type { SchemaWithPipeAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/methods/pipe/pipeAsync.js'
+import type { ArraySchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/array/array.js'
+import type { ArraySchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/array/arrayAsync.js'
+import type { ArrayIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/array/types.js'
+import type { ExactOptionalSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/exactOptional/exactOptional.js'
+import type { ExactOptionalSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/exactOptional/exactOptionalAsync.js'
+import type { IntersectSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/intersect/intersect.js'
+import type { IntersectSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/intersect/intersectAsync.js'
+import type { IntersectIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/intersect/types.js'
+import type { LazySchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/lazy/lazy.js'
+import type { LazySchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/lazy/lazyAsync.js'
+import type { LooseObjectSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/looseObject/looseObject.js'
+import type { LooseObjectSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/looseObject/looseObjectAsync.js'
+import type { LooseObjectIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/looseObject/types.js'
+import type { LooseTupleSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/looseTuple/looseTuple.js'
+import type { LooseTupleSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/looseTuple/looseTupleAsync.js'
+import type { LooseTupleIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/looseTuple/types.js'
+import type { MapSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/map/map.js'
+import type { MapSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/map/mapAsync.js'
+import type { MapIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/map/types.js'
+import type { NonNullableSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nonNullable/nonNullable.js'
+import type { NonNullableSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nonNullable/nonNullableAsync.js'
+import type { NonNullableIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nonNullable/types.js'
+import type { NonNullishSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nonNullish/nonNullish.js'
+import type { NonNullishSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nonNullish/nonNullishAsync.js'
+import type { NonNullishIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nonNullish/types.js'
+import type { NonOptionalSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nonOptional/nonOptional.js'
+import type { NonOptionalSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nonOptional/nonOptionalAsync.js'
+import type { NonOptionalIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nonOptional/types.js'
+import type { NullableSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nullable/nullable.js'
+import type { NullableSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nullable/nullableAsync.js'
+import type { NullishSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nullish/nullish.js'
+import type { NullishSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/nullish/nullishAsync.js'
+import type { ObjectSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/object/object.js'
+import type { ObjectSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/object/objectAsync.js'
+import type { ObjectIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/object/types.js'
+import type { ObjectWithRestSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/objectWithRest/objectWithRest.js'
+import type { ObjectWithRestSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/objectWithRest/objectWithRestAsync.js'
+import type { ObjectWithRestIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/objectWithRest/types.js'
+import type { OptionalSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/optional/optional.js'
+import type { OptionalSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/optional/optionalAsync.js'
+import type { RecordSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/record/record.js'
+import type { RecordSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/record/recordAsync.js'
+import type { RecordIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/record/types.js'
+import type { SetSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/set/set.js'
+import type { SetSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/set/setAsync.js'
+import type { SetIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/set/types.js'
+import type { StrictObjectSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/strictObject/strictObject.js'
+import type { StrictObjectSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/strictObject/strictObjectAsync.js'
+import type { StrictObjectIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/strictObject/types.js'
+import type { StrictTupleSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/strictTuple/strictTuple.js'
+import type { StrictTupleSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/strictTuple/strictTupleAsync.js'
+import type { StrictTupleIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/strictTuple/types.js'
+import type { TupleSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/tuple/tuple.js'
+import type { TupleSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/tuple/tupleAsync.js'
+import type { TupleIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/tuple/types.js'
+import type { TupleWithRestSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/tupleWithRest/tupleWithRest.js'
+import type { TupleWithRestSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/tupleWithRest/tupleWithRestAsync.js'
+import type { TupleWithRestIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/tupleWithRest/types.js'
+import type { UndefinedableSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/undefinedable/undefinedable.js'
+import type { UndefinedableSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/undefinedable/undefinedableAsync.js'
+import type { UnionIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/union/types.js'
+import type { UnionSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/union/union.js'
+import type { UnionSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/union/unionAsync.js'
+import type { VariantIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/variant/types.js'
+import type { VariantSchema } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/variant/variant.js'
+import type { VariantSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/schemas/variant/variantAsync.js'
+import type { InferInput } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/infer.js'
+import type { BaseIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/issue.js'
+import type { ObjectEntries, ObjectEntriesAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/object.js'
+import type { Default, DefaultAsync, ErrorMessage } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/other.js'
+import type { BaseSchema, BaseSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/schema.js'
+import type { TupleItems, TupleItemsAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/tuple.js'
+import type { FirstTupleItem } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/utils.js'
+declare namespace m1 {
+  export type TPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m10 {
+  export type TEntries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m11 {
+  export type TValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m12 {
+  export type TValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m13 {
+  export type TItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m14 {
+  export type TItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m15 {
+  export type TItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m16 {
+  export type TItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m17 {
+  export type TWrapped<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m18 {
+  export type TWrapped<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type TItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type TItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type TOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m6 {
+  export type TOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m7 {
+  export type TKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m8 {
+  export type TKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m9 {
+  export type TEntries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ArrayIssue: any
 declare const ArraySchema: any
 declare const ArraySchemaAsync: any
@@ -90,89 +224,9 @@ declare const UnionSchemaAsync: any
 declare const VariantIssue: any
 declare const VariantSchema: any
 declare const VariantSchemaAsync: any
-type ArrayIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ArraySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ArraySchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Default<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DefaultAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExactOptionalSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExactOptionalSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FirstTupleItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IntersectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IntersectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IntersectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LazySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LazySchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseTupleIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseTupleSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseTupleSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonNullableIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonNullableSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonNullableSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonNullishIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonNullishSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonNullishSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonOptionalIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonOptionalSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonOptionalSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NullableSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NullableSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NullishSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NullishSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectEntries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectEntriesAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectWithRestIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectWithRestSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ObjectWithRestSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OptionalSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RecordIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RecordSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RecordSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SchemaWithPipe<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SchemaWithPipeAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SetIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SetSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SetSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictObjectIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictObjectSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictObjectSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictTupleIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictTupleSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StrictTupleSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleItemsAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleWithRestIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleWithRestSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleWithRestSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UndefinedableSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UndefinedableSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnionIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnionSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnionSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type VariantIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type VariantSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type VariantSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GenericIssue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GenericIssue(TInput = unknown) {
+export function GenericIssue(TInput = unknown): any {
   return BaseIssue(TInput)
 }
 /* compiles to:
@@ -182,7 +236,7 @@ export function GenericIssue(TInput = unknown) {
 // ✗ DotPath: the ScriptType does not itself typecheck as TypeScript
 //   DotPath.st.ts(4:21) TS2731: Implicit conversion of a 'symbol' to a 'string' will fail at runtime. Consider wrapping this expression in 'String(...)'.
 /* @scripttype preserveParamNames */
-export function DotPath(TKey: string | number | symbol, TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>) {
+export function DotPath(TKey: string | number | symbol, TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>): any {
   if (matches<string | number>(TKey)) {
     return anyOf(`${TKey}`, `${TKey}.${IssueDotPath(TSchema)}`)
   }
@@ -198,7 +252,10 @@ export function DotPath(TKey: string | number | symbol, TSchema: BaseSchema<unkn
 
 // ✓ ObjectPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ObjectPath(TEntries: ObjectEntries | ObjectEntriesAsync) {
+/**
+ * @param {ObjectEntries | ObjectEntriesAsync} TEntries
+ */
+export function ObjectPath(TEntries): any {
   const out = emptyObject
   for (const TKey in keyof(TEntries)) {
     out[TKey] = DotPath(TKey, TEntries[TKey])
@@ -212,7 +269,7 @@ export function ObjectPath(TEntries: ObjectEntries | ObjectEntriesAsync) {
 
 // ✓ TupleKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TupleKeys(TItems: TupleItems | TupleItemsAsync) {
+export function TupleKeys(TItems: TupleItems | TupleItemsAsync): any {
   return Exclude(keyof(TItems), keyof([]))
 }
 /* compiles to:
@@ -224,7 +281,10 @@ export function TupleKeys(TItems: TupleItems | TupleItemsAsync) {
 
 // ✓ TuplePath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TuplePath(TItems: TupleItems | TupleItemsAsync) {
+/**
+ * @param {TupleItems | TupleItemsAsync} TItems
+ */
+export function TuplePath(TItems): any {
   const out = emptyObject
   for (const TKey in keySet(TupleKeys(TItems))) {
     out[TKey] = matches<BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>>(TItems[TKey]) ? DotPath(TKey, TItems[TKey]) : never
@@ -242,7 +302,7 @@ export function TuplePath(TItems: TupleItems | TupleItemsAsync) {
 
 // ✓ IssueDotPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IssueDotPath(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>) {
+export function IssueDotPath(TSchema: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>): any {
   let tSchema = TSchema
   while (true) {
     const m1 = matches<SchemaWithPipe<Hole<"TPipe">>>(tSchema)

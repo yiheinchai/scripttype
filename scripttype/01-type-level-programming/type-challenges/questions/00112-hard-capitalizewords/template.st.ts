@@ -9,7 +9,7 @@
  */
 // ✓ CapitalizeWords: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CapitalizeWords(S: string) {
+export function CapitalizeWords(S: string): any {
   return any
 }
 /* compiles to:

@@ -9,7 +9,7 @@
  */
 // ✓ BitwiseXOR: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BitwiseXOR(S1: string, S2: string) {
+export function BitwiseXOR(S1: string, S2: string): any {
   return any
 }
 /* compiles to:

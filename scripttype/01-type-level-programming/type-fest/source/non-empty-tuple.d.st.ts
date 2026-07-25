@@ -9,7 +9,7 @@
  */
 // ✓ NonEmptyTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NonEmptyTuple(T = unknown) {
+export function NonEmptyTuple(T = unknown): any {
   return asReadonly([T, ...arrayOf(T)])
 }
 /* compiles to:

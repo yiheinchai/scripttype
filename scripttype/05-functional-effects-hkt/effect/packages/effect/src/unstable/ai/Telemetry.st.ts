@@ -10,11 +10,18 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const First: any
 type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AttributesWithPrefix: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AttributesWithPrefix(Attributes: Record<string, any>, Prefix: string) {
+/**
+ * @param {Record<string, any>} Attributes
+ */
+export function AttributesWithPrefix(Attributes, Prefix: string): any {
   const out = emptyObject
   for (const Name in keyof(Attributes)) {
     out[`${Prefix}.${FormatAttributeName(Name)}`] = Attributes[Name]
@@ -31,7 +38,7 @@ export function AttributesWithPrefix(Attributes: Record<string, any>, Prefix: st
 
 // ✓ FormatAttributeName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FormatAttributeName(T: string | number | symbol) {
+export function FormatAttributeName(T: string | number | symbol): any {
   if (typeof T === 'string') {
     const m1 = matches<`${Hole<"First">}${Hole<"Rest">}`>(T)
     if (m1) {

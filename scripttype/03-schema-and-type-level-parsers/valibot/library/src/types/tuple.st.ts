@@ -7,22 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { InferInput, InferIssue, InferOutput } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/infer.js'
+import type { TupleItems, TupleItemsAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/tuple.js'
 declare const InferInput: any
 declare const InferIssue: any
 declare const InferOutput: any
 declare const TupleItems: any
 declare const TupleItemsAsync: any
-type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TupleItemsAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ InferTupleInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferTupleInput(TItems: TupleItems | TupleItemsAsync) {
+/**
+ * @param {TupleItems | TupleItemsAsync} TItems
+ */
+export function InferTupleInput(TItems): any {
   const out = emptyObject
   for (const TKey in keyof(TItems)) {
     out[TKey] = mutable(InferInput(TItems[TKey]))
@@ -37,7 +38,10 @@ export function InferTupleInput(TItems: TupleItems | TupleItemsAsync) {
 
 // ✓ InferTupleOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferTupleOutput(TItems: TupleItems | TupleItemsAsync) {
+/**
+ * @param {TupleItems | TupleItemsAsync} TItems
+ */
+export function InferTupleOutput(TItems): any {
   const out = emptyObject
   for (const TKey in keyof(TItems)) {
     out[TKey] = mutable(InferOutput(TItems[TKey]))
@@ -52,7 +56,7 @@ export function InferTupleOutput(TItems: TupleItems | TupleItemsAsync) {
 
 // ✓ InferTupleIssue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function InferTupleIssue(TItems: TupleItems | TupleItemsAsync) {
+export function InferTupleIssue(TItems: TupleItems | TupleItemsAsync): any {
   return InferIssue(TItems[number])
 }
 /* compiles to:

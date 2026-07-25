@@ -7,9 +7,13 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Codec } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/Schema.js'
+import type { Void } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/SchemaRepresentation.js'
+import type { Struct } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/unstable/schema/VariantSchema.js'
 declare namespace HttpApiEndpoint {
   export type HttpApiEndpoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -24,15 +28,28 @@ declare namespace Schema {
   export type Union<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type Void<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type _Error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _Payload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _Success<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _Tag<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AlreadyProcessingMessage: any
 declare const Any: any
+declare const Codec: any
 declare const EntityId: any
 declare const HttpApiEndpoint: any
 declare const MailboxFull: any
 declare const PersistenceError: any
 declare const Rpc: any
 declare const Schema: any
+declare const Struct: any
+declare const Union: any
 declare const Void: any
+declare const _Error: any
+declare const _Payload: any
+declare const _Success: any
+declare const _Tag: any
 type AlreadyProcessingMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EntityId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -41,23 +58,27 @@ type MailboxFull<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 
 type PersistenceError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Rpc<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Void<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Union<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Payload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Success<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Tag<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ConvertRpcs: does not compile yet
-//   Type 'unknown' does not satisfy the constraint 'AnyService'.
+//   Cannot find name 'm1'.
 /* @scripttype preserveParamNames */
-export function ConvertRpcs(Rpcs: Rpc.Any, Prefix: string) {
+export function ConvertRpcs(Rpcs: Rpc.Any, Prefix: string): any {
   const m1 = matches<Rpc.Rpc<Hole<"_Tag">, Hole<"_Payload">, Hole<"_Success">, Hole<"_Error">, Hole<"_Middleware">, Hole<"_Requires">>>(Rpcs)
   if (m1) {
-    return Rpc.Rpc(`${Prefix}.${m1._Tag}`, Schema.Struct({ entityId: t<typeof Schema.String>(), payload: m1._Payload }), m1._Success, Schema.Codec(m1._Error['Type'] | MailboxFull | AlreadyProcessingMessage | PersistenceError, m1._Error['Encoded'] | t<typeof MailboxFull>()['Encoded'] | t<typeof AlreadyProcessingMessage>()['Encoded'] | t<typeof PersistenceError>()['Encoded'], m1._Error['DecodingServices'], m1._Error['EncodingServices'])) | Rpc.Rpc(`${Prefix}.${m1._Tag}Discard`, Schema.Struct({ entityId: t<typeof Schema.String>(), payload: m1._Payload }), t<typeof Schema.Void>(), Schema.Union([t<typeof MailboxFull>(), t<typeof AlreadyProcessingMessage>(), t<typeof PersistenceError>()]))
+    return t<Rpc.Rpc<`${typeof Prefix}.${typeof m1._Tag}`, Schema.Struct<{ entityId: typeof Schema.String; payload: typeof m1._Payload; }>, typeof m1._Success, Schema.Codec<(typeof m1._Error)["Type"] | MailboxFull | AlreadyProcessingMessage | PersistenceError, (typeof m1._Error)["Encoded"] | typeof MailboxFull["Encoded"] | typeof AlreadyProcessingMessage["Encoded"] | typeof PersistenceError["Encoded"], (typeof m1._Error)["DecodingServices"], (typeof m1._Error)["EncodingServices"]>>>() | t<Rpc.Rpc<`${typeof Prefix}.${typeof m1._Tag}Discard`, Schema.Struct<{ entityId: typeof Schema.String; payload: typeof m1._Payload; }>, typeof Schema.Void, Schema.Union<[ typeof MailboxFull, typeof AlreadyProcessingMessage, typeof PersistenceError ]>>>()
   }
   return never
 }
 /* compiles to:
  * export type ConvertRpcs<Rpcs extends Rpc.Any, Prefix extends string> =
- *   Rpcs extends Rpc.Rpc<infer _Tag, infer _Payload, infer _Success, infer _Error, unknown, unknown>
+ *   Rpcs extends Rpc.Rpc<infer _Tag, any, infer _Success, infer _Error, any, any>
  *     ? | Rpc.Rpc<
  *         `${Prefix}.${_Tag}`,
- *         Schema.Struct<{ entityId: Schema.String; payload: _Payload }>,
+ *         Schema.Struct<{ entityId: typeof Schema.String; payload: typeof m1._Payload; }>,
  *         _Success,
  *         Schema.Codec<
  *           _Error['Type'] | MailboxFull | AlreadyProcessingMessage | PersistenceError,
@@ -71,7 +92,7 @@ export function ConvertRpcs(Rpcs: Rpc.Any, Prefix: string) {
  *       >
  *     | Rpc.Rpc<
  *         `${Prefix}.${_Tag}Discard`,
- *         Schema.Struct<{ entityId: Schema.String; payload: _Payload }>,
+ *         Schema.Struct<{ entityId: typeof Schema.String; payload: typeof m1._Payload; }>,
  *         Schema.Void,
  *         Schema.Union<[MailboxFull, AlreadyProcessingMessage, PersistenceError]>
  *       >
@@ -79,23 +100,23 @@ export function ConvertRpcs(Rpcs: Rpc.Any, Prefix: string) {
  */
 
 // ✗ ConvertHttpApi: does not compile yet
-//   Type 'unknown' does not satisfy the constraint 'AnyService'.
+//   Type 'MailboxFull | AlreadyProcessingMessage | PersistenceError | _Error' does not satisfy the constraint 'Top'.   Type 'MailboxFull' is missing the following p
 /* @scripttype preserveParamNames */
-export function ConvertHttpApi(Rpcs: Rpc.Any) {
+export function ConvertHttpApi(Rpcs: Rpc.Any): any {
   const m1 = matches<Rpc.Rpc<Hole<"_Tag">, Hole<"_Payload">, Hole<"_Success">, Hole<"_Error">, Hole<"_Middleware">, Hole<"_Requires">>>(Rpcs)
   if (m1) {
-    return HttpApiEndpoint.HttpApiEndpoint(m1._Tag, 'POST', `/${Lowercase(m1._Tag)}/:entityId`, Schema.Struct({ entityId: t<typeof EntityId>() }), never, m1._Payload, never, m1._Success, anyOf(m1._Error, t<typeof MailboxFull>(), t<typeof AlreadyProcessingMessage>(), t<typeof PersistenceError>())) | HttpApiEndpoint.HttpApiEndpoint(`${m1._Tag}Discard`, 'POST', `/${Lowercase(m1._Tag)}/:entityId/discard`, Schema.Struct({ entityId: t<typeof EntityId>() }), never, m1._Payload, never, Schema.Void, anyOf(t<typeof MailboxFull>(), t<typeof AlreadyProcessingMessage>(), t<typeof PersistenceError>()))
+    return t<HttpApiEndpoint.HttpApiEndpoint<typeof m1._Tag, "POST", `/${Lowercase<typeof m1._Tag>}/:entityId`, Schema.Struct<{ entityId: typeof EntityId; }>, never, typeof m1._Payload, never, typeof m1._Success, typeof m1._Error | typeof MailboxFull | typeof AlreadyProcessingMessage | typeof PersistenceError>>() | t<HttpApiEndpoint.HttpApiEndpoint<`${typeof m1._Tag}Discard`, "POST", `/${Lowercase<typeof m1._Tag>}/:entityId/discard`, Schema.Struct<{ entityId: typeof EntityId; }>, never, typeof m1._Payload, never, Schema.Void, typeof MailboxFull | typeof AlreadyProcessingMessage | typeof PersistenceError>>()
   }
   return never
 }
 /* compiles to:
  * export type ConvertHttpApi<Rpcs extends Rpc.Any> =
- *   Rpcs extends Rpc.Rpc<infer _Tag, infer _Payload, infer _Success, infer _Error, unknown, unknown>
+ *   Rpcs extends Rpc.Rpc<infer _Tag, infer _Payload, infer _Success, infer _Error, any, any>
  *     ? | HttpApiEndpoint.HttpApiEndpoint<
  *         _Tag,
  *         'POST',
  *         `/${Lowercase<_Tag>}/:entityId`,
- *         Schema.Struct<{ entityId: EntityId }>,
+ *         Schema.Struct<{ entityId: typeof EntityId; }>,
  *         never,
  *         _Payload,
  *         never,
@@ -106,7 +127,7 @@ export function ConvertHttpApi(Rpcs: Rpc.Any) {
  *         `${_Tag}Discard`,
  *         'POST',
  *         `/${Lowercase<_Tag>}/:entityId/discard`,
- *         Schema.Struct<{ entityId: EntityId }>,
+ *         Schema.Struct<{ entityId: typeof EntityId; }>,
  *         never,
  *         _Payload,
  *         never,

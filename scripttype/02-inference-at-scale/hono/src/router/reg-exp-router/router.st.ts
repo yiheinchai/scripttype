@@ -9,7 +9,7 @@
  */
 // ✓ HandlerWithMetadata: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandlerWithMetadata(T) {
+export function HandlerWithMetadata(T): any {
   return [T, number]
 }
 /* compiles to:

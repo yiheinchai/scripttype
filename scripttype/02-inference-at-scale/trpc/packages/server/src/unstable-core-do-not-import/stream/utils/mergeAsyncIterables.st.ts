@@ -14,7 +14,7 @@ declare const createManagedIterator: any
 type createManagedIterator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ManagedIteratorResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ManagedIteratorResult(TYield, TReturn) {
+export function ManagedIteratorResult(TYield, TReturn): any {
   return anyOf({ status: 'yield', value: TYield }, { status: 'return', value: TReturn }, { status: 'error', error: unknown })
 }
 /* compiles to:
@@ -27,7 +27,7 @@ export function ManagedIteratorResult(TYield, TReturn) {
 // ✗ ManagedIterator: the ScriptType does not itself typecheck as TypeScript
 //   ManagedIterator.st.ts(3:52) TS2749: 'TYield' refers to a value, but is being used as a type here. Did you mean 'typeof TYield'?
 /* @scripttype preserveParamNames */
-export function ManagedIterator(TYield, TReturn) {
+export function ManagedIterator(TYield, TReturn): any {
   return ReturnType(t<typeof createManagedIterator<TYield, TReturn>>())
 }
 /* compiles to:

@@ -10,13 +10,16 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type ObjectType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const MapsSetsOrArrays: any
 declare const NonRecursiveType: any
 type MapsSetsOrArrays<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnwrapRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnwrapRequired(RequiredObjectType) {
+export function UnwrapRequired(RequiredObjectType): any {
   if (matches<NonRecursiveType | MapsSetsOrArrays>(RequiredObjectType)) {
     return RequiredObjectType
   }
@@ -31,7 +34,7 @@ export function UnwrapRequired(RequiredObjectType) {
 
 // ✓ _UnwrapRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _UnwrapRequired(RequiredObjectType) {
+export function _UnwrapRequired(RequiredObjectType): any {
   const m1 = matches<Required<Hole<"ObjectType">>>(RequiredObjectType)
   if (m1) {
     return m1.ObjectType

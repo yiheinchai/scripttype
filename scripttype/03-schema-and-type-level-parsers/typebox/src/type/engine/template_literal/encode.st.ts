@@ -7,9 +7,41 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TEvaluateEnum } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TTemplateLiteralAction } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/template_literal/instantiate.js'
+import type { TBoolean } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/boolean.js'
+import type { TEnum, TEnumValue } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/enum.js'
+import type { TLiteral, TLiteralValue } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TTemplateLiteralDeferred } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/template_literal.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Values<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type TemplatePattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BigIntPattern: any
 declare const IntegerPattern: any
 declare const NeverPattern: any
@@ -36,23 +68,13 @@ type NeverPattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type NumberPattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StringPattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TBigInt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TBoolean<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEnumValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateEnum<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTemplateLiteralAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTemplateLiteralDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TJoinString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TJoinString(Input: string[], Result: string = '') {
+export function TJoinString(Input: string[], Result: string = ''): any {
   const m1 = matches<[ Hole<"Left", string>, ...Hole<"Right", string[]> ]>(Input)
   if (m1) {
     if (matches<''>(Result)) {
@@ -71,7 +93,7 @@ export function TJoinString(Input: string[], Result: string = '') {
 
 // ✓ TUnwrapTemplateLiteralPattern: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TUnwrapTemplateLiteralPattern(Pattern: string) {
+export function TUnwrapTemplateLiteralPattern(Pattern: string): any {
   const m1 = matches<`^${Hole<"Pattern", string>}$`>(Pattern)
   if (m1) {
     return m1.Pattern
@@ -85,7 +107,7 @@ export function TUnwrapTemplateLiteralPattern(Pattern: string) {
 
 // ✓ TEncodeLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEncodeLiteral(Value: TLiteralValue, Right: TSchema[], Pattern: string) {
+export function TEncodeLiteral(Value: TLiteralValue, Right: TSchema[], Pattern: string): any {
   return TEncodeTypes(Right, `${Pattern}${Value}`)
 }
 /* compiles to:
@@ -100,7 +122,7 @@ export function TEncodeLiteral(Value: TLiteralValue, Right: TSchema[], Pattern: 
 // ✗ TEncodeBigInt: does not compile yet
 //   'BigIntPattern' refers to a value, but is being used as a type here. Did you mean 'typeof BigIntPattern'?
 /* @scripttype preserveParamNames */
-export function TEncodeBigInt(Right: TSchema[], Pattern: string) {
+export function TEncodeBigInt(Right: TSchema[], Pattern: string): any {
   return TEncodeTypes(Right, `${Pattern}${t<typeof BigIntPattern>()}`)
 }
 /* compiles to:
@@ -113,7 +135,7 @@ export function TEncodeBigInt(Right: TSchema[], Pattern: string) {
 // ✗ TEncodeInteger: does not compile yet
 //   'IntegerPattern' refers to a value, but is being used as a type here. Did you mean 'typeof IntegerPattern'?
 /* @scripttype preserveParamNames */
-export function TEncodeInteger(Right: TSchema[], Pattern: string) {
+export function TEncodeInteger(Right: TSchema[], Pattern: string): any {
   return TEncodeTypes(Right, `${Pattern}${t<typeof IntegerPattern>()}`)
 }
 /* compiles to:
@@ -126,7 +148,7 @@ export function TEncodeInteger(Right: TSchema[], Pattern: string) {
 // ✗ TEncodeNumber: does not compile yet
 //   'NumberPattern' refers to a value, but is being used as a type here. Did you mean 'typeof NumberPattern'?
 /* @scripttype preserveParamNames */
-export function TEncodeNumber(Right: TSchema[], Pattern: string) {
+export function TEncodeNumber(Right: TSchema[], Pattern: string): any {
   return TEncodeTypes(Right, `${Pattern}${t<typeof NumberPattern>()}`)
 }
 /* compiles to:
@@ -138,7 +160,7 @@ export function TEncodeNumber(Right: TSchema[], Pattern: string) {
 
 // ✓ TEncodeBoolean: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEncodeBoolean(Right: TSchema[], Pattern: string) {
+export function TEncodeBoolean(Right: TSchema[], Pattern: string): any {
   return TEncodeType(TUnion([TLiteral('false'), TLiteral('true')]), Right, Pattern)
 }
 /* compiles to:
@@ -152,7 +174,7 @@ export function TEncodeBoolean(Right: TSchema[], Pattern: string) {
 // ✗ TEncodeString: does not compile yet
 //   'StringPattern' refers to a value, but is being used as a type here. Did you mean 'typeof StringPattern'?
 /* @scripttype preserveParamNames */
-export function TEncodeString(Right: TSchema[], Pattern: string) {
+export function TEncodeString(Right: TSchema[], Pattern: string): any {
   return TEncodeTypes(Right, `${Pattern}${t<typeof StringPattern>()}`)
 }
 /* compiles to:
@@ -164,7 +186,7 @@ export function TEncodeString(Right: TSchema[], Pattern: string) {
 
 // ✓ TEncodeTemplateLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEncodeTemplateLiteral(TemplatePattern: string, Right: TSchema[], Pattern: string) {
+export function TEncodeTemplateLiteral(TemplatePattern: string, Right: TSchema[], Pattern: string): any {
   return TEncodeTypes(Right, `${Pattern}${TUnwrapTemplateLiteralPattern(TemplatePattern)}`)
 }
 /* compiles to:
@@ -178,7 +200,7 @@ export function TEncodeTemplateLiteral(TemplatePattern: string, Right: TSchema[]
 
 // ✓ TEncodeTemplateLiteralDeferred: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEncodeTemplateLiteralDeferred(Types: TSchema[], Right: TSchema[], Pattern: string, TemplateLiteral: TSchema = TTemplateLiteralAction(Types), Result: TSchema = TEncodeType(TemplateLiteral, Right, Pattern)) {
+export function TEncodeTemplateLiteralDeferred(Types: TSchema[], Right: TSchema[], Pattern: string, TemplateLiteral: TSchema = TTemplateLiteralAction(Types), Result: TSchema = TEncodeType(TemplateLiteral, Right, Pattern)): any {
   return Result
 }
 /* compiles to:
@@ -194,7 +216,7 @@ export function TEncodeTemplateLiteralDeferred(Types: TSchema[], Right: TSchema[
 
 // ✓ TEncodeEnum: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEncodeEnum(Values: TEnumValue[], Right: TSchema[], Pattern: string, Evaluated: TSchema = TEvaluateEnum(Values)) {
+export function TEncodeEnum(Values: TEnumValue[], Right: TSchema[], Pattern: string, Evaluated: TSchema = TEvaluateEnum(Values)): any {
   return TEncodeType(Evaluated, Right, Pattern)
 }
 /* compiles to:
@@ -209,7 +231,7 @@ export function TEncodeEnum(Values: TEnumValue[], Right: TSchema[], Pattern: str
 
 // ✓ TEncodeUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEncodeUnion(Types: TSchema[], Right: TSchema[], Pattern: string) {
+export function TEncodeUnion(Types: TSchema[], Right: TSchema[], Pattern: string): any {
   let Result: any[] = []
   let types = Types
   while (true) {
@@ -238,7 +260,7 @@ export function TEncodeUnion(Types: TSchema[], Right: TSchema[], Pattern: string
 // ✗ TEncodeType: does not compile yet
 //   'NeverPattern' refers to a value, but is being used as a type here. Did you mean 'typeof NeverPattern'?
 /* @scripttype preserveParamNames */
-export function TEncodeType(Type: TSchema, Right: TSchema[], Pattern: string) {
+export function TEncodeType(Type: TSchema, Right: TSchema[], Pattern: string): any {
   const m1 = matches<TEnum<Hole<"Values", TEnumValue[]>>>(Type)
   if (m1) {
     return TEncodeEnum(m1.Values, Right, Pattern)
@@ -300,7 +322,7 @@ export function TEncodeType(Type: TSchema, Right: TSchema[], Pattern: string) {
 
 // ✓ TEncodeTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEncodeTypes(Types: TSchema[], Pattern: string) {
+export function TEncodeTypes(Types: TSchema[], Pattern: string): any {
   const m1 = matches<[ Hole<"Left", TSchema>, ...Hole<"Right", TSchema[]> ]>(Types)
   if (m1) {
     return TEncodeType(m1.Left, m1.Right, Pattern)
@@ -316,7 +338,7 @@ export function TEncodeTypes(Types: TSchema[], Pattern: string) {
 
 // ✓ TEncodePattern: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEncodePattern(Types: TSchema[], Encoded: string = TEncodeTypes(Types, ''), Result: string = `^${Encoded}$`) {
+export function TEncodePattern(Types: TSchema[], Encoded: string = TEncodeTypes(Types, ''), Result: string = `^${Encoded}$`): any {
   return Result
 }
 /* compiles to:
@@ -330,7 +352,7 @@ export function TEncodePattern(Types: TSchema[], Encoded: string = TEncodeTypes(
 
 // ✓ TTemplateLiteralEncode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralEncode(Types: TSchema[], Pattern: string = TEncodePattern(Types), Result: TSchema = TTemplateLiteral(Pattern)) {
+export function TTemplateLiteralEncode(Types: TSchema[], Pattern: string = TEncodePattern(Types), Result: TSchema = TTemplateLiteral(Pattern)): any {
   return Result
 }
 /* compiles to:

@@ -7,20 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FieldValues } from '../../../../06-state-and-forms/react-hook-form/src/types/fields.js'
+import type { UseFormStateProps, UseFormStateReturn } from '../../../../06-state-and-forms/react-hook-form/src/types/form.js'
 declare const FieldValues: any
 declare const ReactNode: any
 declare const UseFormStateProps: any
 declare const UseFormStateReturn: any
-type FieldValues<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ReactNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseFormStateProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UseFormStateReturn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ FormStateProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FormStateProps(TFieldValues: FieldValues, TTransformedValues = TFieldValues) {
+export function FormStateProps(TFieldValues: FieldValues, TTransformedValues = TFieldValues): any {
   return merge(UseFormStateProps(TFieldValues, TTransformedValues), { render: fnType([UseFormStateReturn(TFieldValues)], ReactNode) })
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function FormStateProps(TFieldValues: FieldValues, TTransformedValues = T
 
 // ✓ FormStateSubscribeProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FormStateSubscribeProps(TFieldValues: FieldValues, TTransformedValues = TFieldValues) {
+export function FormStateSubscribeProps(TFieldValues: FieldValues, TTransformedValues = TFieldValues): any {
   return FormStateProps(TFieldValues, TTransformedValues)
 }
 /* compiles to:

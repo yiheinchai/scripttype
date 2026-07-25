@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TransformerOptions } from '../../../../../../../../02-inference-at-scale/trpc/packages/client/src/internals/transformer.js'
+import type { FetchEsque } from '../../../../../../../../02-inference-at-scale/trpc/packages/client/src/internals/types.js'
+import type { AnyClientTypes } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inferrable.js'
 declare const AnyClientTypes: any
 declare const FetchEsque: any
 declare const TransformerOptions: any
 declare const URL: any
-type AnyClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FetchEsque<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TransformerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type URL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ HTTPLinkBaseOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HTTPLinkBaseOptions(TRoot: Pick<AnyClientTypes, 'transformer'>) {
+export function HTTPLinkBaseOptions(TRoot: Pick<AnyClientTypes, 'transformer'>): any {
   return merge({ url: string | URL, fetch: optional(FetchEsque), methodOverride: optional('POST') }, TransformerOptions(TRoot))
 }
 /* compiles to:

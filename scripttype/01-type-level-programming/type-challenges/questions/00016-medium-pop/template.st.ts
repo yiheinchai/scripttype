@@ -9,7 +9,7 @@
  */
 // ✓ Pop: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Pop(T: any[]) {
+export function Pop(T: any[]): any {
   return any
 }
 /* compiles to:

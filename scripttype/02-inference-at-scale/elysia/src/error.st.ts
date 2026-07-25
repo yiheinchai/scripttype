@@ -11,14 +11,14 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Code: any
-declare const InvertedStatusMap: any
+declare const ElysiaCustomStatusResponse: any
 declare const StatusMap: any
 type Code<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InvertedStatusMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ElysiaCustomStatusResponse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StatusMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CheckExcessProps: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CheckExcessProps(T, U) {
+export function CheckExcessProps(T, U): any {
   if (matches<1 & typeof T>(0)) {
     return T
   }
@@ -51,13 +51,13 @@ export function CheckExcessProps(T, U) {
 // ✗ SelectiveStatus: does not compile yet
 //   Unterminated string literal.
 /* @scripttype preserveParamNames */
-export function SelectiveStatus(Res) {
-  return genericFnType(['const Code extends
-		| keyof Res
-		| InvertedStatusMap[Extract<keyof InvertedStatusMap, keyof Res>]', 'T extends Code extends keyof Res
-		? Res[Code]
-		: Code extends keyof StatusMap
-			? // @ts-ignore StatusMap[Code] always valid because Code generic check
-				Res[StatusMap[Code]]
-			: never'], [Code, CheckExcessProps(T, Code in Res ? Res[Code] : (Code in StatusMap ? Res[StatusMap[Code]] : never))], ElysiaCustomStatusResponse(Code, T))
+export function SelectiveStatus(Res): any {
+  return genericFnType(['const Code extends | keyof Res | InvertedStatusMap[Extract<keyof InvertedStatusMap, keyof Res>]', 'T extends Code extends keyof Res ? Res[Code] : Code extends keyof StatusMap ? // @ts-ignore StatusMap[Code] always valid because Code generic check Res[StatusMap[Code]] : never'], [Code, CheckExcessProps(T, Code in Res ? Res[Code] : (Code in StatusMap ? Res[StatusMap[Code]] : never))], ElysiaCustomStatusResponse(Code, T))
 }
+/* compiles to:
+ * export type SelectiveStatus<Res> =
+ *   <const Code extends | keyof Res | InvertedStatusMap[Extract<keyof InvertedStatusMap, keyof Res>], T extends Code extends keyof Res ? Res[Code] : Code extends keyof StatusMap ? // @ts-ignore StatusMap[Code] always valid because Code generic check Res[StatusMap[Code]] : never>(
+ *     a0: Code,
+ *     a1: CheckExcessProps<T, Code extends keyof Res ? Res[Code] : Code extends keyof StatusMap ? Res[StatusMap[Code]] : never>
+ *   ) => ElysiaCustomStatusResponse<Code, T>
+ */

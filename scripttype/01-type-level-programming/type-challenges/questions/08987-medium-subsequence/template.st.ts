@@ -9,7 +9,7 @@
  */
 // ✓ Subsequence: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Subsequence(T: any[]) {
+export function Subsequence(T: any[]): any {
   return any
 }
 /* compiles to:

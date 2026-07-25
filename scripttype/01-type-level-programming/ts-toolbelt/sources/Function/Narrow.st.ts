@@ -7,16 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Try } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Try.js'
+import type { Narrowable } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Function/_Internal.js'
 declare const Narrowable: any
 declare const Try: any
-type Narrowable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Try<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NarrowRaw: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NarrowRaw(A) {
+export function NarrowRaw(A): any {
   const out = emptyObject
   for (const K in keyof(A)) {
     out[K] = matches<Function>(A[K]) ? A[K] : NarrowRaw(A[K])
@@ -32,7 +33,7 @@ export function NarrowRaw(A) {
 
 // ✓ Narrow: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Narrow(A: any) {
+export function Narrow(A: any): any {
   return Try(A, [], NarrowRaw(A))
 }
 /* compiles to:

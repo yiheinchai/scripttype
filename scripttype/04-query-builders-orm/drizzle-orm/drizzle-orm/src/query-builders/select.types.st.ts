@@ -7,11 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ChangeColumnTableName, ColumnDataType } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column-builder.js'
+import type { AnyColumn, ColumnBaseConfig, GetColumnData, UpdateColConfig } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
+import type { JoinNullability, JoinType, SelectMode, TableLike } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { ColumnsSelection } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sql/sql.js'
+import type { Assume, DrizzleTypeError, FromSingleKeyObject, IsAny, IsUnion, Not, Simplify } from '../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
 declare namespace SQL {
   export type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type TField<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type TTableName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const Aliased: any
 declare const AnyColumn: any
@@ -41,35 +56,17 @@ declare const TableLike: any
 declare const UpdateColConfig: any
 declare const View: any
 type Aliased<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ChangeColumnTableName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Column<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnBaseConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnDataType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Dialect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrizzleTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FromSingleKeyObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetColumnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinNullability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectedFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TableLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UpdateColConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ApplyNullability: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ApplyNullability(T, TNullability: JoinNullability) {
+export function ApplyNullability(T, TNullability: JoinNullability): any {
   if (matches<'nullable'>(TNullability)) {
     return T | Null
   }
@@ -85,7 +82,7 @@ export function ApplyNullability(T, TNullability: JoinNullability) {
 
 // ✓ ApplyNullabilityToColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ApplyNullabilityToColumn(TColumn: Column, TNullability: JoinNullability) {
+export function ApplyNullabilityToColumn(TColumn: Column, TNullability: JoinNullability): any {
   if (matches<'not-null'>(TNullability)) {
     return TColumn
   }
@@ -111,7 +108,10 @@ export function ApplyNullabilityToColumn(TColumn: Column, TNullability: JoinNull
 
 // ✓ ApplyNotNullMapToJoins: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ApplyNotNullMapToJoins(TResult, TNullabilityMap: Record<string, JoinNullability>) {
+/**
+ * @param {Record<string, JoinNullability>} TNullabilityMap
+ */
+export function ApplyNotNullMapToJoins(TResult, TNullabilityMap): any {
   const out = emptyObject
   for (const TTableName in keySet(keyof(TResult) & keyof(TNullabilityMap) & string)) {
     out[TTableName] = ApplyNullability(TResult[TTableName], TNullabilityMap[TTableName])
@@ -134,7 +134,7 @@ export function ApplyNotNullMapToJoins(TResult, TNullabilityMap: Record<string, 
 
 // ✓ SelectResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectResult(TResult, TSelectMode: SelectMode, TNullabilityMap: Record<string, JoinNullability>) {
+export function SelectResult(TResult, TSelectMode: SelectMode, TNullabilityMap: Record<string, JoinNullability>): any {
   if (matches<'partial'>(TSelectMode)) {
     return SelectPartialResult(TResult, TNullabilityMap)
   }
@@ -156,7 +156,7 @@ export function SelectResult(TResult, TSelectMode: SelectMode, TNullabilityMap: 
 
 // ✓ SelectPartialResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectPartialResult__v1(TFields, TNullability, Key) {
+export function SelectPartialResult__v1(TFields, TNullability, Key): any {
   const m1 = matches<Hole<"TField">>(TFields[Key])
   if (m1) {
     if (matches<Table>(m1.TField)) {
@@ -192,7 +192,7 @@ export function SelectPartialResult__v1(TFields, TNullability, Key) {
   }
   return never
 }
-export function SelectPartialResult(TFields, TNullability: Record<string, JoinNullability>) {
+export function SelectPartialResult(TFields, TNullability: Record<string, JoinNullability>): any {
   if (matches<typeof TNullability>(TNullability)) {
     const out = emptyObject
     for (const Key in keyof(TFields)) {
@@ -244,7 +244,10 @@ export function SelectPartialResult(TFields, TNullability: Record<string, JoinNu
 
 // ✓ MapColumnsToTableAlias: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapColumnsToTableAlias(TColumns: ColumnsSelection, TAlias: string, TDialect: Dialect) {
+/**
+ * @param {ColumnsSelection} TColumns
+ */
+export function MapColumnsToTableAlias(TColumns, TAlias: string, TDialect: Dialect): any {
   const out = emptyObject
   for (const Key in keyof(TColumns)) {
     out[Key] = matches<Column>(TColumns[Key]) ? ChangeColumnTableName(Assume(TColumns[Key], Column), TAlias, TDialect) : TColumns[Key]
@@ -267,7 +270,10 @@ export function MapColumnsToTableAlias(TColumns: ColumnsSelection, TAlias: strin
 
 // ✓ AddAliasToSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AddAliasToSelection(TSelection: ColumnsSelection, TAlias: string, TDialect: Dialect) {
+/**
+ * @param {ColumnsSelection} TSelection
+ */
+export function AddAliasToSelection(TSelection, TAlias: string, TDialect: Dialect): any {
   const out = emptyObject
   for (const Key in keyof(TSelection)) {
     out[Key] = matches<Column>(TSelection[Key]) ? ChangeColumnTableName(TSelection[Key], TAlias, TDialect) : (matches<Table>(TSelection[Key]) ? AddAliasToSelection(TSelection[Key]['_']['columns'], TAlias, TDialect) : (matches<SQL | SQL.Aliased>(TSelection[Key]) ? TSelection[Key] : (matches<ColumnsSelection>(TSelection[Key]) ? MapColumnsToTableAlias(TSelection[Key], TAlias, TDialect) : never)))
@@ -298,7 +304,7 @@ export function AddAliasToSelection(TSelection: ColumnsSelection, TAlias: string
 
 // ✓ AppendToResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AppendToResult(TTableName: string | undefined, TResult, TJoinedName: string | undefined, TSelectedFields: SelectedFields<Column, Table>, TOldSelectMode: SelectMode) {
+export function AppendToResult(TTableName: string | undefined, TResult, TJoinedName: string | undefined, TSelectedFields: SelectedFields<Column, Table>, TOldSelectMode: SelectMode): any {
   if (matches<'partial'>(TOldSelectMode)) {
     return TResult
   }
@@ -325,7 +331,11 @@ export function AppendToResult(TTableName: string | undefined, TResult, TJoinedN
 
 // ✓ BuildSubquerySelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildSubquerySelection(TSelection: ColumnsSelection, TNullability: Record<string, JoinNullability>) {
+/**
+ * @param {ColumnsSelection} TSelection
+ * @param {Record<string, JoinNullability>} TNullability
+ */
+export function BuildSubquerySelection(TSelection, TNullability): any {
   if (matches<never>(TSelection)) {
     return any
   }
@@ -364,7 +374,7 @@ export function BuildSubquerySelection(TSelection: ColumnsSelection, TNullabilit
 
 // ✓ SetJoinsNullability: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetJoinsNullability(TNullabilityMap: Record<string, JoinNullability>, TValue: JoinNullability) {
+export function SetJoinsNullability(TNullabilityMap: Record<string, JoinNullability>, TValue: JoinNullability): any {
   const out = emptyObject
   for (const Key in keyof(TNullabilityMap)) {
     out[Key] = TValue
@@ -381,7 +391,7 @@ export function SetJoinsNullability(TNullabilityMap: Record<string, JoinNullabil
 
 // ✓ AppendToNullabilityMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AppendToNullabilityMap(TJoinsNotNull: Record<string, JoinNullability>, TJoinedName: string | undefined, TJoinType: JoinType) {
+export function AppendToNullabilityMap(TJoinsNotNull: Record<string, JoinNullability>, TJoinedName: string | undefined, TJoinType: JoinType): any {
   if (typeof TJoinedName === 'string') {
     if (matches<typeof TJoinType>('left')) {
       const out = emptyObject
@@ -442,7 +452,7 @@ export function AppendToNullabilityMap(TJoinsNotNull: Record<string, JoinNullabi
 
 // ✓ GetSelectTableName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetSelectTableName(TTable: TableLike) {
+export function GetSelectTableName(TTable: TableLike): any {
   if (matches<Table>(TTable)) {
     return TTable['_']['name']
   }
@@ -468,7 +478,7 @@ export function GetSelectTableName(TTable: TableLike) {
 
 // ✓ GetSelectTableSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetSelectTableSelection(TTable: TableLike) {
+export function GetSelectTableSelection(TTable: TableLike): any {
   if (matches<Table>(TTable)) {
     return TTable['_']['columns']
   }
@@ -491,7 +501,7 @@ export function GetSelectTableSelection(TTable: TableLike) {
 // ✗ SelectResultField: does not compile yet
 //   Type '"_"' cannot be used to index type 'T'.
 /* @scripttype preserveParamNames */
-export function SelectResultField(T, TDeep: boolean = true) {
+export function SelectResultField(T, TDeep: boolean = true): any {
   if (matches<DrizzleTypeError<any>>(T)) {
     return T
   }
@@ -525,7 +535,7 @@ export function SelectResultField(T, TDeep: boolean = true) {
 
 // ✓ SelectResultFields: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectResultFields(TSelectedFields, TDeep: boolean = true) {
+export function SelectResultFields(TSelectedFields, TDeep: boolean = true): any {
   const out = emptyObject
   for (const Key in keyof(TSelectedFields)) {
     out[Key] = SelectResultField(TSelectedFields[Key], TDeep)

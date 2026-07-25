@@ -7,24 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Add } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/addition.js'
+import type { AddDigits } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/digits/addition.js'
+import type { Sub } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/substraction.js'
+import type { Num, ToDigitNumber, ToString } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/utils.js'
+declare namespace Acc {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Add: any
 declare const AddDigits: any
 declare const Num: any
 declare const Sub: any
 declare const ToDigitNumber: any
 declare const ToString: any
-type Add<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AddDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Sub<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SequenceOfDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SequenceOfDigits(T: number | bigint) {
+export function SequenceOfDigits(T: number | bigint): any {
   let Min = 0
   let MinDigits = Num(ToDigitNumber(ToString(Min)))
   let Acc = [MinDigits]
@@ -57,7 +59,7 @@ export function SequenceOfDigits(T: number | bigint) {
 
 // ✓ RangeOfDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RangeOfDigits(Min: number | bigint, Max: number | bigint) {
+export function RangeOfDigits(Min: number | bigint, Max: number | bigint): any {
   return SequenceOfDigits(Sub(Add(Max, 1), Min), Min)
 }
 /* compiles to:

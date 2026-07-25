@@ -9,7 +9,7 @@
  */
 // ✓ Reverse: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Reverse(T) {
+export function Reverse(T): any {
   return any
 }
 /* compiles to:

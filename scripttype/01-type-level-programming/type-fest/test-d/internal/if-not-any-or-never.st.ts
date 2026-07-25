@@ -10,11 +10,14 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace Acc {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const IfNotAnyOrNever: any
 type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CrashIfAnyWrapper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CrashIfAnyWrapper(T) {
+export function CrashIfAnyWrapper(T): any {
   return IfNotAnyOrNever(T, { ifNot: CrashIfAny(T) })
 }
 /* compiles to:
@@ -23,7 +26,7 @@ export function CrashIfAnyWrapper(T) {
 
 // ✓ CrashIfAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CrashIfAny(T, Acc: unknown[] = []) {
+export function CrashIfAny(T, Acc: unknown[] = []): any {
   if (matches<1 & typeof T>(0)) {
     return CrashIfAny(T, [...Acc, unknown])
   }
@@ -36,7 +39,7 @@ export function CrashIfAny(T, Acc: unknown[] = []) {
 
 // ✓ CrashIfNeverWrapper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CrashIfNeverWrapper(T) {
+export function CrashIfNeverWrapper(T): any {
   return IfNotAnyOrNever(T, { ifNot: CrashIfNever(T) })
 }
 /* compiles to:
@@ -45,7 +48,7 @@ export function CrashIfNeverWrapper(T) {
 
 // ✓ CrashIfNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CrashIfNever(T, Acc: unknown[] = []) {
+export function CrashIfNever(T, Acc: unknown[] = []): any {
   if (matches<[ never ]>([T])) {
     return CrashIfNever(T, [...Acc, unknown])
   }
@@ -58,7 +61,7 @@ export function CrashIfNever(T, Acc: unknown[] = []) {
 
 // ✓ CrashIfNotAnyWrapper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CrashIfNotAnyWrapper(T) {
+export function CrashIfNotAnyWrapper(T): any {
   return IfNotAnyOrNever(T, { ifNot: never, ifAny: CrashIfNotAny(T) })
 }
 /* compiles to:
@@ -70,7 +73,7 @@ export function CrashIfNotAnyWrapper(T) {
 
 // ✓ CrashIfNotAny: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CrashIfNotAny(T) {
+export function CrashIfNotAny(T): any {
   let Acc: any[] = []
   while (true) {
     if (matches<1 & typeof T>(0)) {
@@ -88,7 +91,7 @@ export function CrashIfNotAny(T) {
 
 // ✓ CrashIfNotNeverWrapper: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CrashIfNotNeverWrapper(T) {
+export function CrashIfNotNeverWrapper(T): any {
   return IfNotAnyOrNever(T, { ifNot: never, ifNever: CrashIfNotNever(T) })
 }
 /* compiles to:
@@ -100,7 +103,7 @@ export function CrashIfNotNeverWrapper(T) {
 
 // ✓ CrashIfNotNever: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CrashIfNotNever(T) {
+export function CrashIfNotNever(T): any {
   let Acc: any[] = []
   while (true) {
     if (matches<[ never ]>([T])) {

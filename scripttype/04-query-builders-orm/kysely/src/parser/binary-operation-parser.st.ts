@@ -7,9 +7,15 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExtractTypeFromReferenceExpression, ExtractTypeFromStringReference, StringReference } from '../../../../../04-query-builders-orm/kysely/src/parser/reference-parser.js'
+import type { ValueExpression, ValueExpressionOrList } from '../../../../../04-query-builders-orm/kysely/src/parser/value-parser.js'
+import type { SelectType } from '../../../../../04-query-builders-orm/kysely/src/util/column-type.js'
+import type { KyselyTypeError } from '../../../../../04-query-builders-orm/kysely/src/util/type-error.js'
+import type { IsNever } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
 declare const ExtractTypeFromReferenceExpression: any
 declare const ExtractTypeFromStringReference: any
 declare const IsNever: any
@@ -18,17 +24,12 @@ declare const SelectType: any
 declare const StringReference: any
 declare const ValueExpression: any
 declare const ValueExpressionOrList: any
-type ExtractTypeFromReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractTypeFromStringReference<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type KyselyTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StringReference<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValueExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValueExpressionOrList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OperandValueExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OperandValueExpression(DB, TB: keyof typeof DB, RE) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function OperandValueExpression(DB, TB, RE): any {
   return ValueExpression(DB, TB, ExtractTypeFromReferenceExpression(DB, TB, RE))
 }
 /* compiles to:
@@ -41,8 +42,11 @@ export function OperandValueExpression(DB, TB: keyof typeof DB, RE) {
 
 // ✓ OperandValueExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OperandValueExpressionOrList(DB, TB: keyof typeof DB, RE) {
-  return ValueExpressionOrList(DB, TB, ExtractTypeFromReferenceExpression(DB, TB, RE) | Null)
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function OperandValueExpressionOrList(DB, TB, RE): any {
+  return ValueExpressionOrList(DB, TB, anyOf(ExtractTypeFromReferenceExpression(DB, TB, RE), Null))
 }
 /* compiles to:
  * export type OperandValueExpressionOrList<DB, TB extends keyof DB, RE> = ValueExpressionOrList<
@@ -54,7 +58,10 @@ export function OperandValueExpressionOrList(DB, TB: keyof typeof DB, RE) {
 
 // ✓ FilterObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FilterObject(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function FilterObject(DB, TB): any {
   if (matches<true>(IsNever(TB))) {
     return KyselyTypeError('there are no tables in query context, so a filter object cannot be defined. try passing an array instead.')
   }

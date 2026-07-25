@@ -9,7 +9,7 @@
  */
 // ✓ DropChar: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DropChar(S, C) {
+export function DropChar(S, C): any {
   return any
 }
 /* compiles to:

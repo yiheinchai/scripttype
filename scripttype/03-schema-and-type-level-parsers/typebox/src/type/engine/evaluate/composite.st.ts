@@ -7,9 +7,27 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TUnreachable } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/system/unreachable/unreachable.js'
+import type { TAddOptional } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/_add_optional.js'
+import type { TAddReadonly } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/_add_readonly.js'
+import type { TRemoveOptional } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/_remove_optional.js'
+import type { TRemoveReadonly } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/_remove_readonly.js'
+import type { TEvaluateIntersect } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TTupleElementsToProperties } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/tuple/to_object.js'
+import type { TNever } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/never.js'
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TTuple } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/tuple.js'
+declare namespace m1 {
+  export type Properties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const PropertyKey: any
 declare const TAddOptional: any
 declare const TAddReadonly: any
@@ -26,23 +44,12 @@ declare const TTuple: any
 declare const TTupleElementsToProperties: any
 declare const TUnreachable: any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TAddOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TAddReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRemoveOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRemoveReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTupleElementsToProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnreachable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIsReadonlyProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIsReadonlyProperty(Left: TSchema, Right: TSchema) {
+export function TIsReadonlyProperty(Left: TSchema, Right: TSchema): any {
   if (matches<TReadonly<typeof Left>>(Left)) {
     if (matches<TReadonly<typeof Right>>(Right)) {
       return true
@@ -58,7 +65,7 @@ export function TIsReadonlyProperty(Left: TSchema, Right: TSchema) {
 
 // ✓ TIsOptionalProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIsOptionalProperty(Left: TSchema, Right: TSchema) {
+export function TIsOptionalProperty(Left: TSchema, Right: TSchema): any {
   if (matches<TOptional<typeof Left>>(Left)) {
     if (matches<TOptional<typeof Right>>(Right)) {
       return true
@@ -74,7 +81,7 @@ export function TIsOptionalProperty(Left: TSchema, Right: TSchema) {
 
 // ✓ TCompositeProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCompositeProperty(Left: TSchema, Right: TSchema, IsReadonly: boolean = TIsReadonlyProperty(Left, Right), IsOptional: boolean = TIsOptionalProperty(Left, Right), Evaluated: TSchema = TEvaluateIntersect([Left, Right]), Property: TSchema = TRemoveReadonly(TRemoveOptional(Evaluated))) {
+export function TCompositeProperty(Left: TSchema, Right: TSchema, IsReadonly: boolean = TIsReadonlyProperty(Left, Right), IsOptional: boolean = TIsOptionalProperty(Left, Right), Evaluated: TSchema = TEvaluateIntersect([Left, Right]), Property: TSchema = TRemoveReadonly(TRemoveOptional(Evaluated))): any {
   if (matches<[ true, true ]>([IsReadonly, IsOptional])) {
     return TAddReadonly(TAddOptional(Property))
   }
@@ -103,7 +110,7 @@ export function TCompositeProperty(Left: TSchema, Right: TSchema, IsReadonly: bo
 
 // ✓ TCompositePropertyKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCompositePropertyKey(Left: TProperties, Right: TProperties, Key: PropertyKey, Result: TSchema = Key in Left ? (Key in Right ? TCompositeProperty(Left[Key], Right[Key]) : Left[Key]) : (Key in Right ? Right[Key] : TNever)) {
+export function TCompositePropertyKey(Left: TProperties, Right: TProperties, Key: PropertyKey, Result: TSchema = Key in Left ? (Key in Right ? TCompositeProperty(Left[Key], Right[Key]) : Left[Key]) : (Key in Right ? Right[Key] : TNever)): any {
   return Result
 }
 /* compiles to:
@@ -118,14 +125,14 @@ export function TCompositePropertyKey(Left: TProperties, Right: TProperties, Key
 
 // ✓ TCompositeProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCompositeProperties__v1(Left, Right) {
+export function TCompositeProperties__v1(Left, Right): any {
   const out = emptyObject
   for (const Key in keyof(Right & Left)) {
     out[Key] = TCompositePropertyKey(Left, Right, Key)
   }
   return out
 }
-export function TCompositeProperties(Left: TProperties, Right: TProperties, Result: TProperties = TCompositeProperties__v1(Left, Right)) {
+export function TCompositeProperties(Left: TProperties, Right: TProperties, Result: TProperties = TCompositeProperties__v1(Left, Right)): any {
   return Result
 }
 /* compiles to:
@@ -142,7 +149,7 @@ export function TCompositeProperties(Left: TProperties, Right: TProperties, Resu
 
 // ✓ TGetProperties: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGetProperties__v1(Type) {
+export function TGetProperties__v1(Type): any {
   const m1 = matches<TObject<Hole<"Properties", TProperties>>>(Type)
   if (m1) {
     return m1.Properties
@@ -153,7 +160,7 @@ export function TGetProperties__v1(Type) {
   }
   return TUnreachable
 }
-export function TGetProperties(Type: TSchema, Result: TProperties = TGetProperties__v1(Type)) {
+export function TGetProperties(Type: TSchema, Result: TProperties = TGetProperties__v1(Type)): any {
   return Result
 }
 /* compiles to:
@@ -170,7 +177,7 @@ export function TGetProperties(Type: TSchema, Result: TProperties = TGetProperti
 
 // ✓ TComposite: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TComposite(Left: TSchema, Right: TSchema, LeftProperties: TProperties = TGetProperties(Left), RightProperties: TProperties = TGetProperties(Right), Properties: TProperties = TCompositeProperties(LeftProperties, RightProperties), Result: TSchema = TObject(Properties)) {
+export function TComposite(Left: TSchema, Right: TSchema, LeftProperties: TProperties = TGetProperties(Left), RightProperties: TProperties = TGetProperties(Right), Properties: TProperties = TCompositeProperties(LeftProperties, RightProperties), Result: TSchema = TObject(Properties)): any {
   return Result
 }
 /* compiles to:

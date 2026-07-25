@@ -7,9 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { SearchSchemaInput } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/route.js'
+import type { AnySchema, AnyStandardSchemaValidator, AnyValidatorAdapter, AnyValidatorObj, StandardSchemaValidator, ValidatorAdapter, ValidatorObj } from '../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/validators.js'
+declare namespace m1 {
+  export type TInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TSchemaInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnySchema: any
 declare const AnyStandardSchemaValidator: any
 declare const AnyValidatorAdapter: any
@@ -18,17 +26,9 @@ declare const SearchSchemaInput: any
 declare const StandardSchemaValidator: any
 declare const ValidatorAdapter: any
 declare const ValidatorObj: any
-type AnySchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyStandardSchemaValidator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyValidatorAdapter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyValidatorObj<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SearchSchemaInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StandardSchemaValidator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidatorAdapter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidatorObj<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValidatorFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidatorFn(TInput, TOutput) {
+export function ValidatorFn(TInput, TOutput): any {
   return fnType([TInput], TOutput)
 }
 /* compiles to:
@@ -37,7 +37,7 @@ export function ValidatorFn(TInput, TOutput) {
 
 // ✓ Validator: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Validator(TInput, TOutput) {
+export function Validator(TInput, TOutput): any {
   return anyOf(ValidatorObj(TInput, TOutput), ValidatorFn(TInput, TOutput), ValidatorAdapter(TInput, TOutput), StandardSchemaValidator(TInput, TOutput), Undefined)
 }
 /* compiles to:
@@ -51,7 +51,7 @@ export function Validator(TInput, TOutput) {
 
 // ✓ ResolveSearchValidatorInputFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolveSearchValidatorInputFn(TValidator) {
+export function ResolveSearchValidatorInputFn(TValidator): any {
   const m1 = matches<(input: Hole<"TSchemaInput">) => any>(TValidator)
   if (m1) {
     if (matches<SearchSchemaInput>(m1.TSchemaInput)) {
@@ -72,7 +72,7 @@ export function ResolveSearchValidatorInputFn(TValidator) {
 
 // ✓ ResolveSearchValidatorInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolveSearchValidatorInput(TValidator) {
+export function ResolveSearchValidatorInput(TValidator): any {
   if (matches<AnyStandardSchemaValidator>(TValidator)) {
     return NonNullable(TValidator['~standard']['types'])['input']
   }
@@ -95,7 +95,7 @@ export function ResolveSearchValidatorInput(TValidator) {
 
 // ✓ ResolveValidatorInputFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolveValidatorInputFn(TValidator) {
+export function ResolveValidatorInputFn(TValidator): any {
   const m1 = matches<(input: Hole<"TInput">) => any>(TValidator)
   if (m1) {
     return m1.TInput
@@ -109,7 +109,7 @@ export function ResolveValidatorInputFn(TValidator) {
 
 // ✓ ResolveValidatorInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolveValidatorInput(TValidator) {
+export function ResolveValidatorInput(TValidator): any {
   if (matches<AnyStandardSchemaValidator>(TValidator)) {
     return NonNullable(TValidator['~standard']['types'])['input']
   }
@@ -132,7 +132,7 @@ export function ResolveValidatorInput(TValidator) {
 
 // ✓ ResolveValidatorOutputFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolveValidatorOutputFn(TValidator) {
+export function ResolveValidatorOutputFn(TValidator): any {
   const m1 = matches<(...args: any) => Hole<"TSchema">>(TValidator)
   if (m1) {
     return m1.TSchema
@@ -146,7 +146,7 @@ export function ResolveValidatorOutputFn(TValidator) {
 
 // ✓ ResolveValidatorOutput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ResolveValidatorOutput(TValidator) {
+export function ResolveValidatorOutput(TValidator): any {
   if (matches<typeof TValidator>(unknown)) {
     return TValidator
   }

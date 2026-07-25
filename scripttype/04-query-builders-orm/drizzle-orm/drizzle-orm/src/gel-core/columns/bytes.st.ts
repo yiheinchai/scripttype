@@ -19,7 +19,7 @@ type Uint8Array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 =
 // ✗ GelBytesBuilderInitial: does not compile yet
 //   Cannot find name 'Buffer'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
 /* @scripttype preserveParamNames */
-export function GelBytesBuilderInitial(TName: string) {
+export function GelBytesBuilderInitial(TName: string): any {
   return GelBytesBuilder({ name: TName, dataType: 'buffer', columnType: 'GelBytes', data: t<Uint8Array>(), driverParam: t<Uint8Array>() | Buffer, enumValues: Undefined })
 }
 /* compiles to:

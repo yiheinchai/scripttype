@@ -9,7 +9,7 @@
  */
 // ✓ AwaitOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AwaitOptions(T) {
+export function AwaitOptions(T): any {
   return { promise: t<Promise<typeof T>>() }
 }
 /* compiles to:

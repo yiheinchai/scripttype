@@ -7,9 +7,33 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TDot, TUnderScore } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/char.js'
+import type { TMany } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/many.js'
+import type { TTake } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/take.js'
+import type { TTrim } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/trim.js'
+import type { TUnsignedInteger } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/unsigned_integer.js'
+declare namespace m1 {
+  export type Digits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type DigitsRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Dot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type DotRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Integer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type IntegerRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Dot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type DotRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Fractional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type FractionalRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type Fractional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type FractionalRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TAllowedDigits: any
 declare const TDot: any
 declare const TMany: any
@@ -18,15 +42,9 @@ declare const TTrim: any
 declare const TUnderScore: any
 declare const TUnsignedInteger: any
 type TAllowedDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TDot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TMany<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnderScore<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnsignedInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIsLeadingDot: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIsLeadingDot(Input: string) {
+export function TIsLeadingDot(Input: string): any {
   if (matches<[ string, string ]>(TTake([TDot], Input))) {
     return true
   }
@@ -39,7 +57,7 @@ export function TIsLeadingDot(Input: string) {
 
 // ✓ TTakeFractional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeFractional(Input: string) {
+export function TTakeFractional(Input: string): any {
   const m1 = matches<[ Hole<"Digits", string>, Hole<"DigitsRest", string> ]>(TMany(TAllowedDigits, [TUnderScore], Input))
   if (m1) {
     if (matches<''>(m1.Digits)) {
@@ -58,7 +76,7 @@ export function TTakeFractional(Input: string) {
 
 // ✓ TLeadingDot: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLeadingDot(Input: string) {
+export function TLeadingDot(Input: string): any {
   const m1 = matches<[ Hole<"Dot", string>, Hole<"DotRest", string> ]>(TTake([TDot], Input))
   if (m1) {
     const m2 = matches<[ Hole<"Fractional", string>, Hole<"FractionalRest", string> ]>(TTakeFractional(m1.DotRest))
@@ -80,7 +98,7 @@ export function TLeadingDot(Input: string) {
 
 // ✓ TLeadingInteger: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLeadingInteger(Input: string) {
+export function TLeadingInteger(Input: string): any {
   const m1 = matches<[ Hole<"Integer", string>, Hole<"IntegerRest", string> ]>(TUnsignedInteger(Input))
   if (m1) {
     const m2 = matches<[ Hole<"Dot", string>, Hole<"DotRest", string> ]>(TTake([TDot], m1.IntegerRest))
@@ -108,7 +126,7 @@ export function TLeadingInteger(Input: string) {
 
 // ✓ TTakeUnsignedNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeUnsignedNumber(Input: string) {
+export function TTakeUnsignedNumber(Input: string): any {
   if (matches<true>(TIsLeadingDot(Input))) {
     return TLeadingDot(Input)
   }
@@ -121,7 +139,7 @@ export function TTakeUnsignedNumber(Input: string) {
 
 // ✓ TUnsignedNumber: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TUnsignedNumber(Input: string) {
+export function TUnsignedNumber(Input: string): any {
   return TTakeUnsignedNumber(TTrim(Input))
 }
 /* compiles to:

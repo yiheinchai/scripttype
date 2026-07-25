@@ -7,24 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Tail } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/List/Tail.js'
+import type { BuiltIn } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/Misc/BuiltIn.js'
+import type { Depth } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
 declare const BuiltIn: any
 declare const Depth: any
 declare const Key: any
 declare const List: any
 declare const OReadonly: any
 declare const Tail: any
-type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ReadonlyAt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyAt(O, Path: List<Key>, depth: Depth) {
+export function ReadonlyAt(O, Path: List<Key>, depth: Depth): any {
   if (matches<BuiltIn>(O)) {
     return O
   }
@@ -55,7 +56,7 @@ export function ReadonlyAt(O, Path: List<Key>, depth: Depth) {
 
 // ✓ Readonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Readonly(O: object, Path: List<Key>, depth: Depth = 'flat') {
+export function Readonly(O: object, Path: List<Key>, depth: Depth = 'flat'): any {
   if (matches<unknown>(Path)) {
     return ReadonlyAt(O, Path, depth)
   }

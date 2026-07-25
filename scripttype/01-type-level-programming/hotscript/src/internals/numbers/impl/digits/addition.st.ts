@@ -7,18 +7,31 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Digit } from '../../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/utils.js'
+declare namespace m1 {
+  export type N<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type M<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type S<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type M<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type S<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AddDigitCarryTable: any
 declare const AddDigitTable: any
 declare const Digit: any
 type AddDigitCarryTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AddDigitTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AddDigit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AddDigit(T: Digit, U: Digit, Carry: 0 | 1 = 0) {
+export function AddDigit(T: Digit, U: Digit, Carry: 0 | 1 = 0): any {
   return AddDigitTable[Carry][T][U]
 }
 /* compiles to:
@@ -27,7 +40,7 @@ export function AddDigit(T: Digit, U: Digit, Carry: 0 | 1 = 0) {
 
 // ✓ AddCarryDigit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AddCarryDigit(T: Digit, U: Digit, Carry: 0 | 1 = 0) {
+export function AddCarryDigit(T: Digit, U: Digit, Carry: 0 | 1 = 0): any {
   return AddDigitCarryTable[Carry][T][U]
 }
 /* compiles to:
@@ -36,7 +49,7 @@ export function AddCarryDigit(T: Digit, U: Digit, Carry: 0 | 1 = 0) {
 
 // ✓ AddDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AddDigits(T: Digit[], U: Digit[], Carry: 0 | 1 = 0, Acc: Digit[] = []) {
+export function AddDigits(T: Digit[], U: Digit[], Carry: 0 | 1 = 0, Acc: Digit[] = []): any {
   const m1 = matches<[ ...Hole<"R", Digit[]>, Hole<"N", Digit> ]>(T)
   if (m1) {
     const m2 = matches<[ ...Hole<"S", Digit[]>, Hole<"M", Digit> ]>(U)

@@ -7,9 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Abi, AbiFunction, AbiParameter, AbiStateMutability, Address } from '../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/abi.js'
+import type { ResolvedRegister } from '../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/register.js'
+import type { AbiParametersToPrimitiveTypes, ExtractAbiFunction, ExtractAbiFunctionNames } from '../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/utils.js'
+declare namespace m1 {
+  export type I<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type L<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Val<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type abiFunction_<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type primitiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type abiFunctions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Abi: any
 declare const AbiFunction: any
 declare const AbiParameter: any
@@ -20,19 +34,10 @@ declare const ExtractAbiFunction: any
 declare const ExtractAbiFunctionNames: any
 declare const ResolvedRegister: any
 declare const abiFunctions: any
-type Abi<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AbiFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AbiParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AbiParametersToPrimitiveTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AbiStateMutability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Address<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractAbiFunction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractAbiFunctionNames<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolvedRegister<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type abiFunctions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ContractParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ContractParameters(abi: Abi | readonly unknown[] = Abi, functionName: string = string, abiStateMutability: AbiStateMutability = AbiStateMutability, args: readonly unknown[] | undefined = asReadonly([]), functionNames: string = matches<Abi>(abi) ? ExtractAbiFunctionNames(abi, abiStateMutability) : string) {
+export function ContractParameters(abi: Abi | readonly unknown[] = Abi, functionName: string = string, abiStateMutability: AbiStateMutability = AbiStateMutability, args: readonly unknown[] | undefined = asReadonly([]), functionNames: string = matches<Abi>(abi) ? ExtractAbiFunctionNames(abi, abiStateMutability) : string): any {
   return merge({ functionName: anyOf(functionNames, matches<typeof functionNames>(functionName) ? functionName : never, matches<typeof abi>(Abi) ? string : never) }, GetArgs(abi, functionName, args))
 }
 /* compiles to:
@@ -53,7 +58,7 @@ export function ContractParameters(abi: Abi | readonly unknown[] = Abi, function
 
 // ✓ GetArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetArgs(abi: Abi | readonly unknown[] = Abi, functionName: string = string, args: readonly unknown[] | undefined = asReadonly([]), abiFunction: AbiFunction = matches<Abi>(abi) ? ExtractAbiFunction(abi, functionName) : AbiFunction, primitiveTypes = AbiParametersToPrimitiveTypes(abiFunction['inputs'], 'inputs', true), args_ = primitiveTypes | (matches<Abi>(abi) ? (matches<typeof primitiveTypes>(args) ? (matches<typeof args>(primitiveTypes) ? ReadonlyWiden(args) : never) : never) : never) | (matches<typeof abi>(Abi) ? readonlyArrayOf(unknown) : never)) {
+export function GetArgs(abi: Abi | readonly unknown[] = Abi, functionName: string = string, args: readonly unknown[] | undefined = asReadonly([]), abiFunction: AbiFunction = matches<Abi>(abi) ? ExtractAbiFunction(abi, functionName) : AbiFunction, primitiveTypes = AbiParametersToPrimitiveTypes(abiFunction['inputs'], 'inputs', true), args_ = primitiveTypes | (matches<Abi>(abi) ? (matches<typeof primitiveTypes>(args) ? (matches<typeof args>(primitiveTypes) ? ReadonlyWiden(args) : never) : never) : never) | (matches<typeof abi>(Abi) ? readonlyArrayOf(unknown) : never)): any {
   return MaybePartialBy({ args: args_ }, matches<typeof primitiveTypes>(asReadonly([])) ? 'args' : (matches<typeof abi>(Abi) ? 'args' : string))
 }
 /* compiles to:
@@ -73,7 +78,7 @@ export function GetArgs(abi: Abi | readonly unknown[] = Abi, functionName: strin
 
 // ✓ ContractReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ContractReturnType__v1(abi, functionName, args) {
+export function ContractReturnType__v1(abi, functionName, args): any {
   const m1 = matches<Hole<"abiFunction_", AbiFunction>>(matches<Abi>(abi) ? ExtractAbiFunction(abi, functionName) : AbiFunction)
   if (m1) {
     if (matches<true>(IsUnion(m1.abiFunction_))) {
@@ -91,7 +96,7 @@ export function ContractReturnType__v1(abi, functionName, args) {
   }
   return never
 }
-export function ContractReturnType(abi: Abi | readonly unknown[] = Abi, functionName: string = string, args: readonly unknown[] | undefined = anyOf(readonlyArrayOf(unknown), Undefined), abiFunction: AbiFunction = ContractReturnType__v1(abi, functionName, args), outputs: readonly AbiParameter[] = abiFunction['outputs'], primitiveTypes: readonly unknown[] = AbiParametersToPrimitiveTypes(outputs, 'outputs', true)) {
+export function ContractReturnType(abi: Abi | readonly unknown[] = Abi, functionName: string = string, args: readonly unknown[] | undefined = anyOf(readonlyArrayOf(unknown), Undefined), abiFunction: AbiFunction = ContractReturnType__v1(abi, functionName, args), outputs: readonly AbiParameter[] = abiFunction['outputs'], primitiveTypes: readonly unknown[] = AbiParametersToPrimitiveTypes(outputs, 'outputs', true)): any {
   if (matches<[ never ]>([abiFunction])) {
     return unknown
   }
@@ -137,7 +142,7 @@ export function ContractReturnType(abi: Abi | readonly unknown[] = Abi, function
 
 // ✓ IsUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsUnion(T, C = T) {
+export function IsUnion(T, C = T): any {
   if (matches<typeof C>(T)) {
     if (matches<[ typeof T ]>([C])) {
       return false
@@ -152,7 +157,7 @@ export function IsUnion(T, C = T) {
 
 // ✓ UnionToTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToTuple(U, Last = LastInUnion(U)) {
+export function UnionToTuple(U, Last = LastInUnion(U)): any {
   if (matches<[ never ]>([U])) {
     return []
   }
@@ -165,7 +170,7 @@ export function UnionToTuple(U, Last = LastInUnion(U)) {
 
 // ✓ LastInUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LastInUnion(U) {
+export function LastInUnion(U): any {
   const m1 = matches<(x: Hole<"L">) => 0>(UnionToIntersection(matches<unknown>(U) ? fnType([U], 0) : never))
   if (m1) {
     return m1.L
@@ -181,7 +186,7 @@ export function LastInUnion(U) {
 
 // ✓ UnionToIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionToIntersection(U) {
+export function UnionToIntersection(U): any {
   const m1 = matches<(arg: Hole<"I">) => 0>(matches<unknown>(U) ? fnType([U], 0) : never)
   if (m1) {
     return m1.I
@@ -195,7 +200,10 @@ export function UnionToIntersection(U) {
 
 // ✓ PartialBy: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PartialBy(TType, TKeys: keyof typeof TType) {
+/**
+ * @param {keyof typeof TType} TKeys
+ */
+export function PartialBy(TType, TKeys): any {
   return ExactPartial(Pick(TType, TKeys)) & Omit(TType, TKeys)
 }
 /* compiles to:
@@ -205,7 +213,7 @@ export function PartialBy(TType, TKeys: keyof typeof TType) {
 
 // ✓ ExactPartial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExactPartial(T) {
+export function ExactPartial(T): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = optional(anyOf(T[K], Undefined))
@@ -218,7 +226,7 @@ export function ExactPartial(T) {
 
 // ✓ MaybePartialBy: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MaybePartialBy(TType, TKeys: string) {
+export function MaybePartialBy(TType, TKeys: string): any {
   if (TKeys in TType) {
     return PartialBy(TType, TKeys)
   }
@@ -231,7 +239,7 @@ export function MaybePartialBy(TType, TKeys: string) {
 
 // ✓ ReadonlyWiden: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReadonlyWiden(TType) {
+export function ReadonlyWiden(TType): any {
   const out = emptyObject
   for (const K in keyof(TType)) {
     out[K] = ReadonlyWiden(TType[K])
@@ -273,7 +281,7 @@ export function ReadonlyWiden(TType) {
 
 // ✓ DeepPartial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeepPartial(T, MaxDepth: number, Depth: readonly number[] = []) {
+export function DeepPartial(T, MaxDepth: number, Depth: readonly number[] = []): any {
   if (matches<typeof MaxDepth>(Depth['length'])) {
     return T
   }

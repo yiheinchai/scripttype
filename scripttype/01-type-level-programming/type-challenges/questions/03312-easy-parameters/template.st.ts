@@ -9,7 +9,7 @@
  */
 // ✓ MyParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MyParameters(T: (...args: any[]) => any) {
+export function MyParameters(T: (...args: any[]) => any): any {
   return any
 }
 /* compiles to:

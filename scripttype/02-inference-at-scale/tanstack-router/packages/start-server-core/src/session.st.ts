@@ -17,7 +17,7 @@ type SessionDataT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type _Algorithm<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SealOptionsSub: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SealOptionsSub(TAlgorithm: _Algorithm = _Algorithm) {
+export function SealOptionsSub(TAlgorithm: _Algorithm = _Algorithm): any {
   return Readonly({ saltBits: number, algorithm: TAlgorithm, iterations: number, minPasswordlength: number })
 }
 /* compiles to:
@@ -28,7 +28,7 @@ export function SealOptionsSub(TAlgorithm: _Algorithm = _Algorithm) {
 
 // ✓ SessionData: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SessionData(T: SessionDataT = SessionDataT) {
+export function SessionData(T: SessionDataT = SessionDataT): any {
   return Partial(T)
 }
 /* compiles to:
@@ -37,7 +37,7 @@ export function SessionData(T: SessionDataT = SessionDataT) {
 
 // ✓ SessionUpdate: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SessionUpdate(T: SessionData = SessionData) {
+export function SessionUpdate(T: SessionData = SessionData): any {
   return Partial(SessionData(T)) | fnType([SessionData(T)], anyOf(Partial(SessionData(T)), Undefined))
 }
 /* compiles to:

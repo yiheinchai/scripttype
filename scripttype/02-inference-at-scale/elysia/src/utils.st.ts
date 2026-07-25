@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Prettify, Replace, SSEPayload } from '../../../../02-inference-at-scale/elysia/src/types.js'
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Blob: any
 declare const ELYSIA_FORM_DATA: any
 declare const ElysiaFile: any
@@ -23,12 +28,9 @@ type ELYSIA_FORM_DATA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any
 type ElysiaFile<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type File<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FormData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Replace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SSEPayload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsTuple(T) {
+export function IsTuple(T): any {
   if (matches<readonly any[]>(T)) {
     if (matches<(typeof T)['length']>(number)) {
       return false
@@ -45,8 +47,8 @@ export function IsTuple(T) {
 // ✗ ElysiaFormData: does not compile yet
 //   Type 'number' cannot be used to index type 'A[Key]'.
 /* @scripttype preserveParamNames */
-export function ElysiaFormData(T: Record<keyof any, unknown>) {
-  const m1 = matches<Hole<"A">>(Replace(T, Blob | ElysiaFile, File))
+export function ElysiaFormData(T: Record<keyof any, unknown>): any {
+  const m1 = matches<Hole<"A">>(Replace(T, anyOf(Blob, ElysiaFile), File))
   const out = emptyObject
   for (const key in keyof(m1.A)) {
     out[key] = matches<true>(IsTuple(m1.A[key])) ? (matches<Blob | ElysiaFile>(m1.A[key][number]) ? arrayOf(File) : m1.A[key]) : m1.A[key]
@@ -69,7 +71,7 @@ export function ElysiaFormData(T: Record<keyof any, unknown>) {
 
 // ✓ FormatSSEPayload: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FormatSSEPayload(T = unknown) {
+export function FormatSSEPayload(T = unknown): any {
   if (typeof T === 'string') {
     return { data: readonlyProp(T) }
   }

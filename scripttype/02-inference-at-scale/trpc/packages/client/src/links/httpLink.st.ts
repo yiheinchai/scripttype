@@ -7,20 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { HTTPLinkBaseOptions } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/links/internals/httpUtils.js'
+import type { HTTPHeaders, Operation } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/links/types.js'
+import type { AnyClientTypes } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inferrable.js'
 declare const AnyClientTypes: any
 declare const HTTPHeaders: any
 declare const HTTPLinkBaseOptions: any
 declare const Operation: any
-type AnyClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type HTTPHeaders<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type HTTPLinkBaseOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Operation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ HTTPLinkOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HTTPLinkOptions(TRoot: AnyClientTypes) {
+export function HTTPLinkOptions(TRoot: AnyClientTypes): any {
   return merge(HTTPLinkBaseOptions(TRoot), { headers: optional(HTTPHeaders | fnType([{ op: Operation }], HTTPHeaders | t<Promise<HTTPHeaders>>())) })
 }
 /* compiles to:

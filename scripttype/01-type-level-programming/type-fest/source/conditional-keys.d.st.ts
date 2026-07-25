@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type _Base<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ExtendsStrict: any
 declare const IfNotAnyOrNever: any
 declare const TupleToObject: any
@@ -20,7 +23,7 @@ type TupleToObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ConditionalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConditionalKeys(Base, Condition) {
+export function ConditionalKeys(Base, Condition): any {
   const m1 = matches<Hole<"_Base">>(matches<UnknownArray>(Base) ? TupleToObject(Base) : Base)
   if (m1) {
     return IfNotAnyOrNever(m1._Base, { ifNot: _ConditionalKeys(m1._Base, Condition), ifAny: keyof(m1._Base) })
@@ -36,7 +39,7 @@ export function ConditionalKeys(Base, Condition) {
 
 // ✓ _ConditionalKeys: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ConditionalKeys(Base, Condition) {
+export function _ConditionalKeys(Base, Condition): any {
   const out = emptyObject
   for (const Key in keySet(merge(keyof(Base), {}))) {
     out[matches<true>(ExtendsStrict(Base[Key], Condition)) ? Key : never] = never

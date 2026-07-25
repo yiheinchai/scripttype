@@ -9,8 +9,8 @@
  */
 // ✓ KeyAsString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function KeyAsString(BaseType) {
-  return `${Extract(keyof(BaseType), string | number)}`
+export function KeyAsString(BaseType): any {
+  return `${Extract(keyof(BaseType), anyOf(string, number))}`
 }
 /* compiles to:
  * export type KeyAsString<BaseType> = `${Extract<keyof BaseType, string | number>}`

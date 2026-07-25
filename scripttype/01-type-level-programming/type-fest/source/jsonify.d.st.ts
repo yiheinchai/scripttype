@@ -10,6 +10,11 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type F<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type J<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const EmptyObject: any
 declare const IsAny: any
 declare const IsNever: any
@@ -38,7 +43,7 @@ type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type toJSON<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NeverToNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NeverToNull(T) {
+export function NeverToNull(T): any {
   if (matches<true>(IsNever(T))) {
     return Null
   }
@@ -50,7 +55,7 @@ export function NeverToNull(T) {
 
 // ✓ UndefinedToNull: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UndefinedToNull(T) {
+export function UndefinedToNull(T): any {
   if (typeof T === 'undefined') {
     return Null
   }
@@ -62,7 +67,7 @@ export function UndefinedToNull(T) {
 
 // ✓ JsonifyList: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JsonifyList(T: UnknownArray) {
+export function JsonifyList(T: UnknownArray): any {
   if (matches<readonly [ ]>(T)) {
     return []
   }
@@ -91,7 +96,10 @@ export function JsonifyList(T: UnknownArray) {
 
 // ✓ JsonifyObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JsonifyObject(T: object) {
+/**
+ * @param {object} T
+ */
+export function JsonifyObject(T): any {
   const out = emptyObject
   for (const Key in keyof(T)) {
     out[matches<NotJsonable>(T[Key]) ? never : Key] = Jsonify(T[Key])
@@ -106,7 +114,7 @@ export function JsonifyObject(T: object) {
 
 // ✓ Jsonify: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Jsonify(T) {
+export function Jsonify(T): any {
   if (matches<true>(IsAny(T))) {
     return any
   }

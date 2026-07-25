@@ -14,7 +14,11 @@ declare const Key: any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ __Pick: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function __Pick(O: object, K: keyof typeof O) {
+/**
+ * @param {object} O
+ * @param {keyof typeof O} K
+ */
+export function __Pick(O, K): any {
   const out = emptyObject
   for (const P in keySet(K)) {
     out[P] = O[P]
@@ -27,7 +31,7 @@ export function __Pick(O: object, K: keyof typeof O) {
 
 // ✓ _Pick: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _Pick(O: object, K: Key) {
+export function _Pick(O: object, K: Key): any {
   return __Pick(O, merge(keyof(O), K))
 }
 /* compiles to:
@@ -36,7 +40,7 @@ export function _Pick(O: object, K: Key) {
 
 // ✓ Pick: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Pick(O: object, K: Key) {
+export function Pick(O: object, K: Key): any {
   if (matches<unknown>(O)) {
     return _Pick(O, K)
   }

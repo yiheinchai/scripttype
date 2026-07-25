@@ -9,7 +9,7 @@
  */
 // ✓ FilterOut: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FilterOut(T: any[], F) {
+export function FilterOut(T: any[], F): any {
   return any
 }
 /* compiles to:

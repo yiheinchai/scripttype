@@ -7,21 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Response } from '../../../../../../02-inference-at-scale/hono/src/client/types.js'
 declare const Request: any
 declare const RequestInit: any
 declare const Response: any
 declare const fetch: any
 type Request<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RequestInit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Response<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type fetch<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Params: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Params(P: string = any) {
-  return Record(P, string | arrayOf(string))
+export function Params(P: string = any): any {
+  return Record(P, anyOf(string, arrayOf(string)))
 }
 /* compiles to:
  * export type Params<P extends string = any> = Record<P, string | string[]>
@@ -30,8 +31,8 @@ export function Params(P: string = any) {
 // ✗ EventContext: does not compile yet
 //   'fetch' refers to a value, but is being used as a type here. Did you mean 'typeof fetch'?
 /* @scripttype preserveParamNames */
-export function EventContext(Env = {}, P: string = any, Data = Record(string, unknown)) {
-  return { request: Request, functionPath: string, waitUntil: fnType([t<Promise<unknown>>()], voidType()), passThroughOnException: fnType([], voidType()), props: any, next: fnType([Request | string, RequestInit], t<Promise<Response>>()), env: merge(Env, { ASSETS: { fetch: t<typeof fetch>() } }), params: Params(P), data: Data }
+export function EventContext(Env = {}, P: string = any, Data = Record(string, unknown)): any {
+  return { request: Request, functionPath: string, waitUntil: fnType([t<Promise<unknown>>()], voidType()), passThroughOnException: fnType([], voidType()), props: any, next: fnType([optElem(Request | string), optElem(RequestInit)], t<Promise<Response>>()), env: merge(Env, { ASSETS: { fetch: t<typeof fetch>() } }), params: Params(P), data: Data }
 }
 /* compiles to:
  * export type EventContext<Env = {}, P extends string = any, Data = Record<string, unknown>> = {
@@ -40,7 +41,7 @@ export function EventContext(Env = {}, P: string = any, Data = Record(string, un
  *   waitUntil: (a0: Promise<unknown>) => void
  *   passThroughOnException: () => void
  *   props: any
- *   next: (a0: Request | string, a1: RequestInit) => Promise<Response>
+ *   next: (a0?: Request | string, a1?: RequestInit) => Promise<Response>
  *   env: Env & { ASSETS: { fetch: fetch } }
  *   params: Params<P>
  *   data: Data
@@ -49,7 +50,7 @@ export function EventContext(Env = {}, P: string = any, Data = Record(string, un
 
 // ✓ PagesFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PagesFunction(Env = unknown, Params: string = any, Data: Record<string, unknown> = Record(string, unknown)) {
+export function PagesFunction(Env = unknown, Params: string = any, Data: Record<string, unknown> = Record(string, unknown)): any {
   return fnType([EventContext(Env, Params, Data)], Response | t<Promise<Response>>())
 }
 /* compiles to:

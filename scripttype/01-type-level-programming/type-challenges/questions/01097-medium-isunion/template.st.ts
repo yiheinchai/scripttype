@@ -9,7 +9,7 @@
  */
 // ✓ IsUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsUnion(T) {
+export function IsUnion(T): any {
   return any
 }
 /* compiles to:

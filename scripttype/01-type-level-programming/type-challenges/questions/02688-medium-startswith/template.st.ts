@@ -9,7 +9,7 @@
  */
 // ✓ StartsWith: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StartsWith(T: string, U: string) {
+export function StartsWith(T: string, U: string): any {
   return any
 }
 /* compiles to:

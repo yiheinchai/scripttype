@@ -7,9 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyGelSelect, AnyGelSelectQueryBuilder, AnyGelSetOperatorInterface, GelSelectHKTBase, GelSelectQueryBuilderHKT, GelSetOperatorExcludedMethods, GelSetOperatorInterface, SelectedFields } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/gel-core/query-builders/select.types.js'
+import type { GelTableWithColumns } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/gel-core/table.js'
+import type { GelViewWithSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/gel-core/view.js'
+import type { AppendToNullabilityMap, AppendToResult, BuildSubquerySelection, GetSelectTableName, JoinNullability, JoinType, MapColumnsToTableAlias, SelectMode, SelectResult } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { ColumnsSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sql/sql.js'
+import type { UpdateTableConfig } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
+import type { Assume, ValidateShape } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TValueResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TValueResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyGelSelect: any
 declare const AnyGelSelectQueryBuilder: any
 declare const AnyGelSetOperatorInterface: any
@@ -27,7 +43,6 @@ declare const GelSetOperatorExcludedMethods: any
 declare const GelSetOperatorInterface: any
 declare const GelTable: any
 declare const GelTableWithColumns: any
-declare const GelViewBase: any
 declare const GelViewWithSelection: any
 declare const GetSelectTableName: any
 declare const JoinNullability: any
@@ -44,44 +59,19 @@ declare const TypedQueryBuilder: any
 declare const UpdateTableConfig: any
 declare const ValidateShape: any
 declare const View: any
-type AnyGelSelect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyGelSelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyGelSetOperatorInterface<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToNullabilityMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BuildSubquerySelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelPreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelSelectBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GelSelectHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelSelectQueryBuilderBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GelSelectQueryBuilderHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GelSetOperatorExcludedMethods<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GelSetOperatorInterface<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GelSetOperatorWithResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type GelTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GelTableWithColumns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GelViewBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GelViewWithSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetSelectTableName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinNullability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapColumnsToTableAlias<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectedFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TypedQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UpdateTableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidateShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildAliasTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildAliasTable(TTable: GelTable | View, TAlias: string) {
+export function BuildAliasTable(TTable: GelTable | View, TAlias: string): any {
   if (matches<Table>(TTable)) {
     return GelTableWithColumns(UpdateTableConfig(TTable['_']['config'], { name: TAlias, columns: MapColumnsToTableAlias(TTable['_']['columns'], TAlias, 'gel') }))
   }
@@ -110,7 +100,11 @@ export function BuildAliasTable(TTable: GelTable | View, TAlias: string) {
 
 // ✓ GelSelectJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSelectJoin(T: AnyGelSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TJoinedTable: GelTable | Subquery | GelViewBase | SQL, TJoinedName: GetSelectTableName<typeof TJoinedTable> = GetSelectTableName(TJoinedTable)) {
+/**
+ * @param {GelTable | Subquery | GelViewBase | SQL} TJoinedTable
+ * @param {GetSelectTableName<typeof TJoinedTable>} TJoinedName
+ */
+export function GelSelectJoin(T: AnyGelSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TJoinedTable, TJoinedName = GetSelectTableName(TJoinedTable)): any {
   if (matches<any>(T)) {
     return GelSelectWithout(GelSelectKind(T['_']['hkt'], T['_']['tableName'], AppendToResult(T['_']['tableName'], T['_']['selection'], TJoinedName, matches<Table>(TJoinedTable) ? TJoinedTable['_']['columns'] : (matches<Subquery>(TJoinedTable) ? Assume(TJoinedTable['_']['selectedFields'], SelectedFields) : never), T['_']['selectMode']), matches<'partial'>(T['_']['selectMode']) ? T['_']['selectMode'] : 'multiple', AppendToNullabilityMap(T['_']['nullabilityMap'], TJoinedName, TJoinType), T['_']['dynamic'], T['_']['excludedMethods']), TDynamic, T['_']['excludedMethods'])
   }
@@ -152,7 +146,7 @@ export function GelSelectJoin(T: AnyGelSelectQueryBuilder, TDynamic: boolean, TJ
 
 // ✓ GelSelectJoinFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSelectJoinFn(T: AnyGelSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TIsLateral: boolean) {
+export function GelSelectJoinFn(T: AnyGelSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TIsLateral: boolean): any {
   return genericFnType(['TJoinedTable extends (TIsLateral extends true ? Subquery | SQL : GelTable | Subquery | GelViewBase | SQL)', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [TJoinedTable, anyOf(fnType([T['_']['selection']], anyOf(SQL, Undefined)), SQL, Undefined)], GelSelectJoin(T, TDynamic, TJoinType, TJoinedTable, TJoinedName))
 }
 /* compiles to:
@@ -170,7 +164,7 @@ export function GelSelectJoinFn(T: AnyGelSelectQueryBuilder, TDynamic: boolean, 
 
 // ✓ GelSelectCrossJoinFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSelectCrossJoinFn(T: AnyGelSelectQueryBuilder, TDynamic: boolean, TIsLateral: boolean) {
+export function GelSelectCrossJoinFn(T: AnyGelSelectQueryBuilder, TDynamic: boolean, TIsLateral: boolean): any {
   return genericFnType(['TJoinedTable extends (TIsLateral extends true ? Subquery | SQL : GelTable | Subquery | GelViewBase | SQL)', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [TJoinedTable], GelSelectJoin(T, TDynamic, 'cross', TJoinedTable, TJoinedName))
 }
 /* compiles to:
@@ -186,7 +180,7 @@ export function GelSelectCrossJoinFn(T: AnyGelSelectQueryBuilder, TDynamic: bool
 
 // ✓ GelSelectKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSelectKind(T: GelSelectHKTBase, TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode, TNullabilityMap: Record<string, JoinNullability>, TDynamic: boolean, TExcludedMethods: string, TResult = arrayOf(SelectResult(TSelection, TSelectMode, TNullabilityMap)), TSelectedFields = BuildSubquerySelection(TSelection, TNullabilityMap)) {
+export function GelSelectKind(T: GelSelectHKTBase, TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode, TNullabilityMap: Record<string, JoinNullability>, TDynamic: boolean, TExcludedMethods: string, TResult = arrayOf(SelectResult(TSelection, TSelectMode, TNullabilityMap)), TSelectedFields = BuildSubquerySelection(TSelection, TNullabilityMap)): any {
   return (merge(T, { tableName: TTableName, selection: TSelection, selectMode: TSelectMode, nullabilityMap: TNullabilityMap, dynamic: TDynamic, excludedMethods: TExcludedMethods, result: TResult, selectedFields: TSelectedFields }))['_type']
 }
 /* compiles to:
@@ -218,7 +212,7 @@ export function GelSelectKind(T: GelSelectHKTBase, TTableName: string | undefine
 
 // ✓ CreateGelSelectFromBuilderMode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateGelSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode) {
+export function CreateGelSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode): any {
   if (matches<'db'>(TBuilderMode)) {
     return GelSelectBase(TTableName, TSelection, TSelectMode)
   }
@@ -238,11 +232,15 @@ export function CreateGelSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTable
 
 // ✓ GelSelectWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSelectWithout(T: AnyGelSelectQueryBuilder, TDynamic: boolean, K: keyof typeof T & string, TResetExcluded: boolean = false) {
+/**
+ * @param {AnyGelSelectQueryBuilder} T
+ * @param {keyof typeof T & string} K
+ */
+export function GelSelectWithout(T, TDynamic: boolean, K, TResetExcluded: boolean = false): any {
   if (matches<true>(TDynamic)) {
     return T
   }
-  return Omit(GelSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['selection'], T['_']['selectMode'], T['_']['nullabilityMap'], TDynamic, matches<true>(TResetExcluded) ? K : (anyOf(T['_']['excludedMethods'], K)), T['_']['result'], T['_']['selectedFields']), matches<true>(TResetExcluded) ? K : (anyOf(T['_']['excludedMethods'], K)))
+  return Omit(GelSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['selection'], T['_']['selectMode'], T['_']['nullabilityMap'], TDynamic, matches<true>(TResetExcluded) ? K : (T['_']['excludedMethods'] | K), T['_']['result'], T['_']['selectedFields']), matches<true>(TResetExcluded) ? K : (T['_']['excludedMethods'] | K))
 }
 /* compiles to:
  * export type GelSelectWithout<
@@ -271,7 +269,7 @@ export function GelSelectWithout(T: AnyGelSelectQueryBuilder, TDynamic: boolean,
 
 // ✓ GelSelectPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSelectPrepare(T: AnyGelSelect) {
+export function GelSelectPrepare(T: AnyGelSelect): any {
   return GelPreparedQuery(merge(PreparedQueryConfig, { execute: T['_']['result'] }))
 }
 /* compiles to:
@@ -282,7 +280,7 @@ export function GelSelectPrepare(T: AnyGelSelect) {
 
 // ✓ GelSelectDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSelectDynamic(T: AnyGelSelectQueryBuilder) {
+export function GelSelectDynamic(T: AnyGelSelectQueryBuilder): any {
   return GelSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['selection'], T['_']['selectMode'], T['_']['nullabilityMap'], true, never, T['_']['result'], T['_']['selectedFields'])
 }
 /* compiles to:
@@ -301,7 +299,7 @@ export function GelSelectDynamic(T: AnyGelSelectQueryBuilder) {
 
 // ✓ GelSelectQueryBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSelectQueryBuilder(THKT: GelSelectHKTBase = GelSelectQueryBuilderHKT, TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = ColumnsSelection, TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability), TResult: any[] = arrayOf(unknown), TSelectedFields: ColumnsSelection = ColumnsSelection) {
+export function GelSelectQueryBuilder(THKT: GelSelectHKTBase = GelSelectQueryBuilderHKT, TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = ColumnsSelection, TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability), TResult: any[] = arrayOf(unknown), TSelectedFields: ColumnsSelection = ColumnsSelection): any {
   return GelSelectQueryBuilderBase(THKT, TTableName, TSelection, TSelectMode, TNullabilityMap, true, never, TResult, TSelectedFields)
 }
 /* compiles to:
@@ -329,7 +327,7 @@ export function GelSelectQueryBuilder(THKT: GelSelectHKTBase = GelSelectQueryBui
 
 // ✓ GelSetOperatorWithResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSetOperatorWithResult(TResult: any[]) {
+export function GelSetOperatorWithResult(TResult: any[]): any {
   return GelSetOperatorInterface(any, any, any, any, any, any, TResult, any)
 }
 /* compiles to:
@@ -347,7 +345,7 @@ export function GelSetOperatorWithResult(TResult: any[]) {
 
 // ✓ GelSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSelect(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)) {
+export function GelSelect(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)): any {
   return GelSelectBase(TTableName, TSelection, TSelectMode, TNullabilityMap, true, never)
 }
 /* compiles to:
@@ -362,7 +360,7 @@ export function GelSelect(TTableName: string | undefined = anyOf(string, Undefin
 
 // ✓ GelSetOperator: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GelSetOperator(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)) {
+export function GelSetOperator(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)): any {
   return GelSelectBase(TTableName, TSelection, TSelectMode, TNullabilityMap, true, GelSetOperatorExcludedMethods)
 }
 /* compiles to:
@@ -384,7 +382,11 @@ export function GelSetOperator(TTableName: string | undefined = anyOf(string, Un
 
 // ✓ SetOperatorRightSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetOperatorRightSelect(TValue: GelSetOperatorWithResult<typeof TResult>, TResult: any[]) {
+/**
+ * @param {GelSetOperatorWithResult<typeof TResult>} TValue
+ * @param {any[]} TResult
+ */
+export function SetOperatorRightSelect(TValue, TResult): any {
   const m1 = matches<GelSetOperatorInterface<any, any, any, any, any, any, Hole<"TValueResult">, any>>(TValue)
   if (m1) {
     return ValidateShape(m1.TValueResult[number], TResult[number], TypedQueryBuilder(any, m1.TValueResult))
@@ -403,7 +405,11 @@ export function SetOperatorRightSelect(TValue: GelSetOperatorWithResult<typeof T
 
 // ✓ SetOperatorRestSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetOperatorRestSelect(TValue: readonly GelSetOperatorWithResult<typeof TResult>[], TResult: any[]) {
+/**
+ * @param {readonly GelSetOperatorWithResult<typeof TResult>[]} TValue
+ * @param {any[]} TResult
+ */
+export function SetOperatorRestSelect(TValue, TResult): any {
   const m1 = matches<[ Hole<"First">, ...Hole<"Rest"> ]>(TValue)
   if (m1) {
     const m2 = matches<GelSetOperatorInterface<any, any, any, any, any, any, Hole<"TValueResult">, any>>(m1.First)

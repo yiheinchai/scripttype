@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Iteration } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { Pos } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+import type { LastKey } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/List/LastKey.js'
+import type { Modx } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/Object/_Internal.js'
 declare const Iteration: any
 declare const IterationOf: any
 declare const LastKey: any
@@ -17,17 +24,11 @@ declare const List: any
 declare const Modx: any
 declare const Next: any
 declare const Pos: any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LastKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Modx<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ Record_RR: the ScriptType does not itself typecheck as TypeScript
 //   Record_RR.st.ts(2:38) TS2304: Cannot find name 'Key'.
 /* @scripttype preserveParamNames */
-export function Record_RR(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
+export function Record_RR(Path: List<Key>, A, I: Iteration = IterationOf(0)): any {
   const out = emptyObject
   for (const Key in keySet(Path[Pos(I)])) {
     out[Key] = readonlyProp(matches<LastKey<typeof Path>>(Pos(I)) ? A : Record_RR(Path, A, Next(I)))
@@ -47,7 +48,7 @@ export function Record_RR(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
 // ✗ Record_RW: the ScriptType does not itself typecheck as TypeScript
 //   Record_RW.st.ts(2:38) TS2304: Cannot find name 'Key'.
 /* @scripttype preserveParamNames */
-export function Record_RW(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
+export function Record_RW(Path: List<Key>, A, I: Iteration = IterationOf(0)): any {
   const out = emptyObject
   for (const Key in keySet(Path[Pos(I)])) {
     out[Key] = matches<LastKey<typeof Path>>(Pos(I)) ? A : Record_RW(Path, A, Next(I))
@@ -62,7 +63,7 @@ export function Record_RW(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
 // ✗ Record_OR: the ScriptType does not itself typecheck as TypeScript
 //   Record_OR.st.ts(2:38) TS2304: Cannot find name 'Key'.
 /* @scripttype preserveParamNames */
-export function Record_OR(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
+export function Record_OR(Path: List<Key>, A, I: Iteration = IterationOf(0)): any {
   const out = emptyObject
   for (const Key in keySet(Path[Pos(I)])) {
     out[Key] = readonlyProp(optional(matches<LastKey<typeof Path>>(Pos(I)) ? A : Record_OR(Path, A, Next(I))))
@@ -82,7 +83,7 @@ export function Record_OR(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
 // ✗ Record_OW: the ScriptType does not itself typecheck as TypeScript
 //   Record_OW.st.ts(2:38) TS2304: Cannot find name 'Key'.
 /* @scripttype preserveParamNames */
-export function Record_OW(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
+export function Record_OW(Path: List<Key>, A, I: Iteration = IterationOf(0)): any {
   const out = emptyObject
   for (const Key in keySet(Path[Pos(I)])) {
     out[Key] = optional(matches<LastKey<typeof Path>>(Pos(I)) ? A : Record_OW(Path, A, Next(I)))
@@ -97,7 +98,7 @@ export function Record_OW(Path: List<Key>, A, I: Iteration = IterationOf(0)) {
 
 // ✓ Record: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Record(Path: List<Key>, A, modx: Modx = ['!', 'W']) {
+export function Record(Path: List<Key>, A, modx: Modx = ['!', 'W']): any {
   return { '!': { 'R': Record_RR(Path, A), 'W': Record_RW(Path, A) }, '?': { 'R': Record_OR(Path, A), 'W': Record_OW(Path, A) } }[modx[0]][modx[1]]
 }
 /* compiles to:

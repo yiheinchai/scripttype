@@ -7,9 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TransformerOptions } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/internals/transformer.js'
+import type { CreateTRPCReactQueryClientConfig } from '../../../../../../../02-inference-at-scale/trpc/packages/react-query/src/shared/queryClient.js'
+import type { inferClientTypes } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/clientish/inferrable.js'
+import type { AnyRootTypes } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/rootConfig.js'
+import type { AnyRouter, RouterRecord, inferRouterContext } from '../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
+declare namespace m1 {
+  export type $Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyQueryProcedure: any
 declare const AnyRootTypes: any
 declare const AnyRouter: any
@@ -22,19 +31,12 @@ declare const TransformerOptions: any
 declare const inferClientTypes: any
 declare const inferRouterContext: any
 type AnyQueryProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRootTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type CreateSSGHelpersExternal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CreateTRPCReactQueryClientConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DecorateQueryProcedure<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RouterRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SSGFns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TransformerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferClientTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferRouterContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateSSGHelpersInternal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateSSGHelpersInternal(TRouter: AnyRouter) {
+export function CreateSSGHelpersInternal(TRouter: AnyRouter): any {
   return merge({ router: TRouter, ctx: inferRouterContext(TRouter) }, TransformerOptions(inferClientTypes(TRouter)))
 }
 /* compiles to:
@@ -45,7 +47,7 @@ export function CreateSSGHelpersInternal(TRouter: AnyRouter) {
 
 // ✓ CreateServerSideHelpersOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateServerSideHelpersOptions(TRouter: AnyRouter) {
+export function CreateServerSideHelpersOptions(TRouter: AnyRouter): any {
   return merge(CreateTRPCReactQueryClientConfig, CreateSSGHelpersExternal(TRouter) | CreateSSGHelpersInternal(TRouter))
 }
 /* compiles to:
@@ -56,7 +58,7 @@ export function CreateServerSideHelpersOptions(TRouter: AnyRouter) {
 
 // ✓ DecoratedProcedureSSGRecord: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DecoratedProcedureSSGRecord__v1(TRoot, TRecord, TKey) {
+export function DecoratedProcedureSSGRecord__v1(TRoot, TRecord, TKey): any {
   const m1 = matches<Hole<"$Value">>(TRecord[TKey])
   if (m1) {
     if (matches<AnyQueryProcedure>(m1.$Value)) {
@@ -69,7 +71,10 @@ export function DecoratedProcedureSSGRecord__v1(TRoot, TRecord, TKey) {
   }
   return never
 }
-export function DecoratedProcedureSSGRecord(TRoot: AnyRootTypes, TRecord: RouterRecord) {
+/**
+ * @param {RouterRecord} TRecord
+ */
+export function DecoratedProcedureSSGRecord(TRoot: AnyRootTypes, TRecord): any {
   const out = emptyObject
   for (const TKey in keyof(TRecord)) {
     out[TKey] = DecoratedProcedureSSGRecord__v1(TRoot, TRecord, TKey)

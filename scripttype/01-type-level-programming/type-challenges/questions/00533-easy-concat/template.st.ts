@@ -9,7 +9,7 @@
  */
 // ✓ Concat: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Concat(T, U) {
+export function Concat(T, U): any {
   return any
 }
 /* compiles to:

@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type F<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const GreaterThan: any
 declare const LessThan: any
 declare const NegativeInfinity: any
@@ -22,7 +26,7 @@ type PositiveInfinity<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TupleLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TupleLength(T: UnknownArray) {
+export function TupleLength(T: UnknownArray): any {
   if (matches<unknown>(T)) {
     if (matches<(typeof T)['length']>(number)) {
       return never
@@ -38,7 +42,7 @@ export function TupleLength(T: UnknownArray) {
 
 // ✓ TupleMax: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TupleMax(A: number[], Result: number = NegativeInfinity) {
+export function TupleMax(A: number[], Result: number = NegativeInfinity): any {
   if (matches<(typeof A)[number]>(number)) {
     return never
   }
@@ -61,7 +65,7 @@ export function TupleMax(A: number[], Result: number = NegativeInfinity) {
 
 // ✓ TupleMin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TupleMin(A: number[], Result: number = PositiveInfinity) {
+export function TupleMin(A: number[], Result: number = PositiveInfinity): any {
   if (matches<(typeof A)[number]>(number)) {
     return never
   }

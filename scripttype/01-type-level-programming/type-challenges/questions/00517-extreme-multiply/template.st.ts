@@ -9,7 +9,7 @@
  */
 // ✓ Multiply: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Multiply(A: string | number | bigint, B: string | number | bigint) {
+export function Multiply(A: string | number | bigint, B: string | number | bigint): any {
   return string
 }
 /* compiles to:

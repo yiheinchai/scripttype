@@ -18,7 +18,7 @@ type ConnectionIdleState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = 
 type ConnectionPendingState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCConnectionState: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCConnectionState(TError) {
+export function TRPCConnectionState(TError): any {
   return ConnectionIdleState | ConnectionConnectingState(TError) | ConnectionPendingState
 }
 /* compiles to:

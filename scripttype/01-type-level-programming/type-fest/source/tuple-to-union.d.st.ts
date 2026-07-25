@@ -9,7 +9,7 @@
  */
 // ✓ TupleToUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TupleToUnion(ArrayType) {
+export function TupleToUnion(ArrayType): any {
   if (matches<readonly unknown[]>(ArrayType)) {
     return ArrayType[number]
   }

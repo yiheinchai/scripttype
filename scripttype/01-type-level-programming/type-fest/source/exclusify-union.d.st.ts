@@ -10,6 +10,9 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type SkippedMembers<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const If: any
 declare const IfNotAnyOrNever: any
 declare const IsUnknown: any
@@ -26,8 +29,8 @@ type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any
 type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExclusifyUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExclusifyUnion(Union) {
-  const m1 = matches<Hole<"SkippedMembers">>(Extract(Union, NonRecursiveType | MapsSetsOrArrays))
+export function ExclusifyUnion(Union): any {
+  const m1 = matches<Hole<"SkippedMembers">>(Extract(Union, anyOf(NonRecursiveType, MapsSetsOrArrays)))
   return IfNotAnyOrNever(Union, { ifNot: If(IsUnknown(Union), Union, m1 ? (m1.SkippedMembers | _ExclusifyUnion(Exclude(Union, m1.SkippedMembers))) : never) })
 }
 /* compiles to:
@@ -47,9 +50,9 @@ export function ExclusifyUnion(Union) {
 
 // ✓ _ExclusifyUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ExclusifyUnion(Union, UnionCopy = Union) {
+export function _ExclusifyUnion(Union, UnionCopy = Union): any {
   if (matches<unknown>(Union)) {
-    return Simplify(Union & Partial(Record(Exclude(KeysOfUnion(UnionCopy), keyof(Union)), never)))
+    return Simplify(merge(Union, Partial(Record(Exclude(KeysOfUnion(UnionCopy), keyof(Union)), never))))
   }
   return never
 }

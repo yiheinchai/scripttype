@@ -10,6 +10,11 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ResultantArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Except: any
 declare const HomomorphicPick: any
 declare const If: any
@@ -26,14 +31,17 @@ type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = a
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SetRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetRequired(BaseType, Keys: keyof typeof BaseType) {
-  return (matches<(...arguments_: never) => any>(BaseType) ? fnType([Parameters(BaseType)], ReturnType(BaseType)) : unknown) & _SetRequired(BaseType, Keys)
+/**
+ * @param {keyof typeof BaseType} Keys
+ */
+export function SetRequired(BaseType, Keys): any {
+  return (matches<(...arguments_: never) => any>(BaseType) ? fnType([...Parameters(BaseType)], ReturnType(BaseType)) : unknown) & _SetRequired(BaseType, Keys)
 }
 /* compiles to:
  * export type SetRequired<BaseType, Keys extends keyof BaseType> =
  *   & (
  *       BaseType extends (...arguments_: never) => any
- *         ? (a0: Parameters<BaseType>) => ReturnType<BaseType>
+ *         ? (...a0: Parameters<BaseType>) => ReturnType<BaseType>
  *         : unknown
  *     )
  *   & _SetRequired<BaseType, Keys>
@@ -41,7 +49,10 @@ export function SetRequired(BaseType, Keys: keyof typeof BaseType) {
 
 // ✓ _SetRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SetRequired(BaseType, Keys: keyof typeof BaseType) {
+/**
+ * @param {keyof typeof BaseType} Keys
+ */
+export function _SetRequired(BaseType, Keys): any {
   if (matches<UnknownArray>(BaseType)) {
     const m1 = matches<Hole<"ResultantArray">>(SetArrayRequired(BaseType, Keys))
     if (m1) {
@@ -49,7 +60,7 @@ export function _SetRequired(BaseType, Keys: keyof typeof BaseType) {
     }
     return never
   }
-  return Simplify(Except(BaseType, Keys) & Required(HomomorphicPick(BaseType, Keys)))
+  return Simplify(merge(Except(BaseType, Keys), Required(HomomorphicPick(BaseType, Keys))))
 }
 /* compiles to:
  * export type _SetRequired<BaseType, Keys extends keyof BaseType> =
@@ -62,7 +73,7 @@ export function _SetRequired(BaseType, Keys: keyof typeof BaseType) {
 
 // ✓ SetArrayRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetArrayRequired(TArray: UnknownArray, Keys, Counter: any[] = [], Accumulator: UnknownArray = []) {
+export function SetArrayRequired(TArray: UnknownArray, Keys, Counter: any[] = [], Accumulator: UnknownArray = []): any {
   if (matches<unknown>(TArray)) {
     if (matches<never>(merge(keyof(TArray), `${number}`))) {
       return [...Accumulator, ...TArray]

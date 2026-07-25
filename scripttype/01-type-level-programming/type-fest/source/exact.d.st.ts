@@ -24,7 +24,7 @@ type ObjectValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 
 type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ExactObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExactObject(ParameterType, InputType) {
+export function ExactObject(ParameterType, InputType): any {
   const out = emptyObject
   for (const Key in keyof(ParameterType)) {
     out[Key] = Exact(ParameterType[Key], ObjectValue(InputType, Key))
@@ -39,7 +39,7 @@ export function ExactObject(ParameterType, InputType) {
 
 // ✓ Exact: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Exact(ParameterType, InputType) {
+export function Exact(ParameterType, InputType): any {
   if (matches<true>(IsEqual(ParameterType, InputType))) {
     return ParameterType
   }

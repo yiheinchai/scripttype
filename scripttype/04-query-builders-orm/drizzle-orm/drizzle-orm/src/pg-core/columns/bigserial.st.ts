@@ -7,20 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { HasDefault, NotNull } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column-builder.js'
 declare const HasDefault: any
 declare const NotNull: any
 declare const PgBigSerial53Builder: any
 declare const PgBigSerial64Builder: any
-type HasDefault<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NotNull<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgBigSerial53Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgBigSerial64Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgBigSerial53BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgBigSerial53BuilderInitial(TName: string) {
+export function PgBigSerial53BuilderInitial(TName: string): any {
   return NotNull(HasDefault(PgBigSerial53Builder({ name: TName, dataType: 'number', columnType: 'PgBigSerial53', data: number, driverParam: number, enumValues: Undefined })))
 }
 /* compiles to:
@@ -42,7 +42,7 @@ export function PgBigSerial53BuilderInitial(TName: string) {
 
 // ✓ PgBigSerial64BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgBigSerial64BuilderInitial(TName: string) {
+export function PgBigSerial64BuilderInitial(TName: string): any {
   return NotNull(HasDefault(PgBigSerial64Builder({ name: TName, dataType: 'bigint', columnType: 'PgBigSerial64', data: bigint, driverParam: string, enumValues: Undefined })))
 }
 /* compiles to:

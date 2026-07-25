@@ -14,7 +14,7 @@ declare const NonEmptyString: any
 type NonEmptyString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Assignability1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability1(_S: string) {
+export function Assignability1(_S: string): any {
   return unknown
 }
 /* compiles to:
@@ -23,7 +23,7 @@ export function Assignability1(_S: string) {
 
 // ✓ Test1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Test1(S: string) {
+export function Test1(S: string): any {
   return Assignability1(NonEmptyString(S))
 }
 /* compiles to:
@@ -32,7 +32,11 @@ export function Test1(S: string) {
 
 // ✓ Assignability2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Assignability2(_S: string, _SS: NonEmptyString<typeof _S>) {
+/**
+ * @param {string} _S
+ * @param {NonEmptyString<typeof _S>} _SS
+ */
+export function Assignability2(_S, _SS): any {
   return unknown
 }
 /* compiles to:
@@ -42,7 +46,7 @@ export function Assignability2(_S: string, _SS: NonEmptyString<typeof _S>) {
 // ✗ Test2: does not compile yet
 //   Type 'S' does not satisfy the constraint 'NonEmptyString<S>'.   Type 'string' is not assignable to type 'NonEmptyString<S>'.
 /* @scripttype preserveParamNames */
-export function Test2(S: string) {
+export function Test2(S: string): any {
   return Assignability2(S, S)
 }
 /* compiles to:

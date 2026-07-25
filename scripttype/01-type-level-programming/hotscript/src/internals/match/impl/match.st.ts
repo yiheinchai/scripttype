@@ -7,9 +7,30 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Call, Fn, PartialApply, arg, unset } from '../../../../../../../01-type-level-programming/hotscript/src/internals/core/Core.js'
+import type { Primitive, UnionToIntersection } from '../../../../../../../01-type-level-programming/hotscript/src/internals/helpers.js'
+declare namespace m1 {
+  export type Constraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type N<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type handler<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type pattern<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type restPatterns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type patternFirst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type patternRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type valueFirst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type valueRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type patternFirst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type valueFirst<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Call: any
 declare const Fn: any
 declare const PartialApply: any
@@ -17,18 +38,11 @@ declare const Primitive: any
 declare const UnionToIntersection: any
 declare const arg: any
 declare const unset: any
-type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Fn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PartialApply<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ReplaceArgsWithConstraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type With<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type arg<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type unset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GetWithDefault: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetWithDefault(Obj, K, Def) {
+export function GetWithDefault(Obj, K, Def): any {
   if (K in Obj) {
     return Obj[K]
   }
@@ -40,7 +54,7 @@ export function GetWithDefault(Obj, K, Def) {
 
 // ✓ ReplaceArgsWithConstraint: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ReplaceArgsWithConstraint(pattern) {
+export function ReplaceArgsWithConstraint(pattern): any {
   const m1 = matches<arg<any, Hole<"Constraint">>>(pattern)
   if (m1) {
     return m1.Constraint
@@ -82,7 +96,7 @@ export function ReplaceArgsWithConstraint(pattern) {
 
 // ✓ DoesMatch: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DoesMatch(value, pattern) {
+export function DoesMatch(value, pattern): any {
   if (matches<ReplaceArgsWithConstraint<typeof pattern>>(value)) {
     return true
   }
@@ -95,7 +109,7 @@ export function DoesMatch(value, pattern) {
 
 // ✓ ExtractArgObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractArgObject(value, pattern) {
+export function ExtractArgObject(value, pattern): any {
   const m1 = matches<arg<Hole<"N">, any>>(pattern)
   if (m1) {
     const out = emptyObject
@@ -141,7 +155,7 @@ export function ExtractArgObject(value, pattern) {
 
 // ✓ WithDefaultArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithDefaultArgs(Args: any[], Def) {
+export function WithDefaultArgs(Args: any[], Def): any {
   if (matches<[ unset ]>([Args[number]])) {
     return Def
   }
@@ -154,7 +168,7 @@ export function WithDefaultArgs(Args: any[], Def) {
 
 // ✓ ArgObjectToArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArgObjectToArgs(T) {
+export function ArgObjectToArgs(T): any {
   return [GetWithDefault(T, 0, unset), GetWithDefault(T, 1, unset), GetWithDefault(T, 2, unset), GetWithDefault(T, 3, unset)]
 }
 /* compiles to:
@@ -168,7 +182,7 @@ export function ArgObjectToArgs(T) {
 
 // ✓ ExtractArgs: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractArgs(value, pattern) {
+export function ExtractArgs(value, pattern): any {
   return WithDefaultArgs(ArgObjectToArgs(ExtractArgObject(value, pattern)), [value])
 }
 /* compiles to:
@@ -180,7 +194,7 @@ export function ExtractArgs(value, pattern) {
 
 // ✓ Match: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Match(value, patterns: With<any, any>[]) {
+export function Match(value, patterns: With<any, any>[]): any {
   const m1 = matches<[ With<Hole<"pattern">, Hole<"handler">>, ...Hole<"restPatterns", With<any, any>[]> ]>(patterns)
   if (m1) {
     if (matches<true>(DoesMatch(value, m1.pattern))) {
@@ -206,7 +220,7 @@ export function Match(value, patterns: With<any, any>[]) {
 
 // ✓ With: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function With(pattern, handler) {
+export function With(pattern, handler): any {
   return { pattern: pattern, handler: handler }
 }
 /* compiles to:

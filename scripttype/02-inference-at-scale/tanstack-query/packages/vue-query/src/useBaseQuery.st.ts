@@ -7,22 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { QueryKey, QueryObserverResult } from '../../../../../../02-inference-at-scale/tanstack-query/packages/query-core/src/types.js'
 declare const QueryKey: any
 declare const QueryObserverResult: any
 declare const Ref: any
 declare const UseInfiniteQueryOptions: any
 declare const UseQueryOptions: any
-type QueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type QueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Ref<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UseInfiniteQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UseQueryOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UseBaseQueryReturnType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseBaseQueryReturnType(TData, TError, TResult = QueryObserverResult(TData, TError)) {
+export function UseBaseQueryReturnType(TData, TError, TResult = QueryObserverResult(TData, TError)): any {
   const out = emptyObject
   for (const K in keyof(TResult)) {
     out[K] = matches<'fetchNextPage' | 'fetchPreviousPage' | 'refetch'>(K) ? TResult[K] : Ref(Readonly(TResult)[K])
@@ -45,7 +45,7 @@ export function UseBaseQueryReturnType(TData, TError, TResult = QueryObserverRes
 
 // ✓ UseQueryOptionsGeneric: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UseQueryOptionsGeneric(TQueryFnData, TError, TData, TQueryData, TQueryKey: QueryKey = QueryKey, TPageParam = unknown) {
+export function UseQueryOptionsGeneric(TQueryFnData, TError, TData, TQueryData, TQueryKey: QueryKey = QueryKey, TPageParam = unknown): any {
   return UseQueryOptions(TQueryFnData, TError, TData, TQueryData, TQueryKey) | UseInfiniteQueryOptions(TQueryFnData, TError, TData, TQueryKey, TPageParam)
 }
 /* compiles to:

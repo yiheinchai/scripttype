@@ -7,24 +7,33 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TExtendsLeft } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/extends_left.js'
+import type { TExtendsRight } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/extends_right.js'
+import type { TExtendsFalse } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/result.js'
+import type { TImmutable } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/_immutable.js'
+import type { TArray } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/array.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace Result {
+  export type TExtendsFalse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TArray: any
+declare const TExtendsFalse: any
 declare const TExtendsLeft: any
 declare const TExtendsRight: any
 declare const TImmutable: any
 declare const TProperties: any
 declare const TSchema: any
-type TArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsRight<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TImmutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TExtendsImmutable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsImmutable(Left: TSchema, Right: TSchema, IsImmutableLeft: boolean = matches<TImmutable>(Left) ? true : false, IsImmutableRight: boolean = matches<TImmutable>(Right) ? true : false, Result: boolean = matches<[ true, true ]>([IsImmutableLeft, IsImmutableRight]) ? true : (matches<[ false, true ]>([IsImmutableLeft, IsImmutableRight]) ? true : (matches<[ true, false ]>([IsImmutableLeft, IsImmutableRight]) ? false : true))) {
+export function TExtendsImmutable(Left: TSchema, Right: TSchema, IsImmutableLeft: boolean = matches<TImmutable>(Left) ? true : false, IsImmutableRight: boolean = matches<TImmutable>(Right) ? true : false, Result: boolean = matches<[ true, true ]>([IsImmutableLeft, IsImmutableRight]) ? true : (matches<[ false, true ]>([IsImmutableLeft, IsImmutableRight]) ? true : (matches<[ true, false ]>([IsImmutableLeft, IsImmutableRight]) ? false : true))): any {
   return Result
 }
 /* compiles to:
@@ -40,13 +49,13 @@ export function TExtendsImmutable(Left: TSchema, Right: TSchema, IsImmutableLeft
 
 // ✓ TExtendsArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsArray(Inferred: TProperties, ArrayLeft: TSchema, Left: TSchema, Right: TSchema) {
+export function TExtendsArray(Inferred: TProperties, ArrayLeft: TSchema, Left: TSchema, Right: TSchema): any {
   const m1 = matches<TArray<Hole<"Type", TSchema>>>(Right)
   if (m1) {
     if (matches<true>(TExtendsImmutable(ArrayLeft, Right))) {
       return TExtendsLeft(Inferred, Left, m1.Type)
     }
-    return Result.TExtendsFalse
+    return t<Result.TExtendsFalse>()
   }
   return TExtendsRight(Inferred, ArrayLeft, Right)
 }

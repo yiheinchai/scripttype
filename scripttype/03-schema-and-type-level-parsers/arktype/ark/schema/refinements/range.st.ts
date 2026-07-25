@@ -7,9 +7,12 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { RangeKind } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/refinements/kinds.js'
+import type { LimitKind, LowerBoundKind, UpperBoundKind } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/refinements/range.js'
 declare const BoundKindPairsByLower: any
 declare const BoundKindPairsByUpper: any
 declare const LimitKind: any
@@ -18,13 +21,9 @@ declare const RangeKind: any
 declare const UpperBoundKind: any
 type BoundKindPairsByLower<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type BoundKindPairsByUpper<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LimitKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LowerBoundKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RangeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UpperBoundKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ LimitInnerValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LimitInnerValue(kind: RangeKind = RangeKind) {
+export function LimitInnerValue(kind: RangeKind = RangeKind): any {
   if (matches<"before" | "after">(kind)) {
     return t<Date>()
   }
@@ -37,7 +36,7 @@ export function LimitInnerValue(kind: RangeKind = RangeKind) {
 
 // ✓ RelativeComparator: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RelativeComparator(kind: LimitKind = LimitKind) {
+export function RelativeComparator(kind: LimitKind = LimitKind): any {
   return { lower: anyOf('>', '>='), upper: anyOf('<', '<=') }[kind]
 }
 /* compiles to:
@@ -48,7 +47,7 @@ export function RelativeComparator(kind: LimitKind = LimitKind) {
 // ✗ pairedRangeKind: does not compile yet
 //   Type 'any' cannot be used as an index type.
 /* @scripttype preserveParamNames */
-export function pairedRangeKind(kind: RangeKind) {
+export function pairedRangeKind(kind: RangeKind): any {
   if (matches<LowerBoundKind>(kind)) {
     return BoundKindPairsByLower[kind]
   }
@@ -63,7 +62,7 @@ export function pairedRangeKind(kind: RangeKind) {
 
 // ✓ writeUnboundableMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnboundableMessage(root: string) {
+export function writeUnboundableMessage(root: string): any {
   return `Bounded expression ${root} must be exactly one of number, string, Array, or Date`
 }
 /* compiles to:

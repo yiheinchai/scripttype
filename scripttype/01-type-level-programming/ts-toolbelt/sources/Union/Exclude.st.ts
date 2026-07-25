@@ -9,7 +9,7 @@
  */
 // ✓ Exclude: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Exclude(U: any, M: any) {
+export function Exclude(U: any, M: any): any {
   if (matches<typeof M>(U)) {
     return never
   }

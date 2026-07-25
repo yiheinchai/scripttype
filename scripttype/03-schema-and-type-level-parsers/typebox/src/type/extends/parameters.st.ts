@@ -7,39 +7,47 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TExtendsLeft } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/extends_left.js'
+import type { TExtendsFalse, TExtendsTrue, TExtendsTrueLike } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/extends/result.js'
+import type { TInfer } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/infer.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare namespace Result {
   export type TExtendsFalse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TExtendsTrue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Inferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Result: any
+declare const TExtendsFalse: any
 declare const TExtendsLeft: any
+declare const TExtendsTrue: any
 declare const TExtendsTrueLike: any
 declare const TInfer: any
 declare const TOptional: any
 declare const TProperties: any
 declare const TSchema: any
 type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsLeft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TExtendsTrueLike<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInfer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TParameterCompare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterCompare(Inferred: TProperties, Left: TSchema, LeftRest: TSchema[], Right: TSchema, RightRest: TSchema[], CheckLeft: TSchema = matches<TInfer>(Right) ? Left : Right, CheckRight: TSchema = matches<TInfer>(Right) ? Right : Left, IsLeftOptional: boolean = matches<TOptional>(Left) ? true : false, IsRightOptional: boolean = matches<TOptional>(Right) ? true : false) {
+export function TParameterCompare(Inferred: TProperties, Left: TSchema, LeftRest: TSchema[], Right: TSchema, RightRest: TSchema[], CheckLeft: TSchema = matches<TInfer>(Right) ? Left : Right, CheckRight: TSchema = matches<TInfer>(Right) ? Right : Left, IsLeftOptional: boolean = matches<TOptional>(Left) ? true : false, IsRightOptional: boolean = matches<TOptional>(Right) ? true : false): any {
   if (matches<[ false, true ]>([IsLeftOptional, IsRightOptional])) {
-    return Result.TExtendsFalse
+    return t<Result.TExtendsFalse>()
   }
   const m1 = matches<Result.TExtendsTrueLike<Hole<"Inferred", TProperties>>>(TExtendsLeft(Inferred, CheckLeft, CheckRight))
   if (m1) {
     return TExtendsParameters(m1.Inferred, LeftRest, RightRest)
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TParameterCompare<
@@ -61,15 +69,15 @@ export function TParameterCompare(Inferred: TProperties, Left: TSchema, LeftRest
 
 // ✓ TParameterRight: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterRight(Inferred: TProperties, Left: TSchema, LeftRest: TSchema[], RightRest: TSchema[]) {
+export function TParameterRight(Inferred: TProperties, Left: TSchema, LeftRest: TSchema[], RightRest: TSchema[]): any {
   const m1 = matches<[ Hole<"Head", TSchema>, ...Hole<"Tail", TSchema[]> ]>(RightRest)
   if (m1) {
     return TParameterCompare(Inferred, Left, LeftRest, m1.Head, m1.Tail)
   }
   if (matches<TOptional>(Left)) {
-    return Result.TExtendsTrue(Inferred)
+    return t<Result.TExtendsTrue<typeof Inferred>>()
   }
-  return Result.TExtendsFalse
+  return t<Result.TExtendsFalse>()
 }
 /* compiles to:
  * export type TParameterRight<
@@ -86,12 +94,12 @@ export function TParameterRight(Inferred: TProperties, Left: TSchema, LeftRest: 
 
 // ✓ TParameterLeft: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterLeft(Inferred: TProperties, LeftRest: TSchema[], RightRest: TSchema[]) {
+export function TParameterLeft(Inferred: TProperties, LeftRest: TSchema[], RightRest: TSchema[]): any {
   const m1 = matches<[ Hole<"Head", TSchema>, ...Hole<"Tail", TSchema[]> ]>(LeftRest)
   if (m1) {
     return TParameterRight(Inferred, m1.Head, m1.Tail, RightRest)
   }
-  return Result.TExtendsTrue(Inferred)
+  return t<Result.TExtendsTrue<typeof Inferred>>()
 }
 /* compiles to:
  * export type TParameterLeft<
@@ -106,7 +114,7 @@ export function TParameterLeft(Inferred: TProperties, LeftRest: TSchema[], Right
 
 // ✓ TExtendsParameters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsParameters(Inferred: TProperties, Left: TSchema[], Right: TSchema[]) {
+export function TExtendsParameters(Inferred: TProperties, Left: TSchema[], Right: TSchema[]): any {
   return TParameterLeft(Inferred, Left, Right)
 }
 /* compiles to:

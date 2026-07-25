@@ -10,6 +10,10 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const If: any
 declare const IfNotAnyOrNever: any
 declare const IsArrayReadonly: any
@@ -20,7 +24,7 @@ type IsArrayReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any,
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArrayTail: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayTail(TArray: UnknownArray) {
+export function ArrayTail(TArray: UnknownArray): any {
   const m1 = matches<Hole<"Result">>(_ArrayTail(TArray))
   return IfNotAnyOrNever(TArray, { ifNot: matches<UnknownArray>(TArray) ? (m1 ? If(IsArrayReadonly(TArray), Readonly(m1.Result), m1.Result) : never) : never })
 }
@@ -40,7 +44,7 @@ export function ArrayTail(TArray: UnknownArray) {
 // ✗ _ArrayTail: compiles but is not type-identical yet
 //   eq=false
 /* @scripttype preserveParamNames */
-export function _ArrayTail(TArray: UnknownArray) {
+export function _ArrayTail(TArray: UnknownArray): any {
   const m1 = matches<readonly [ unknown?, ...Hole<"Tail"> ]>(TArray)
   if (m1) {
     if (matches<never>(merge(keyof(TArray), `${number}`))) {

@@ -7,20 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ColumnDataType } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column-builder.js'
+import type { ColumnBaseConfig } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/column.js'
+import type { Update } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
 declare const ColumnBaseConfig: any
 declare const ColumnDataType: any
 declare const SQLiteColumn: any
 declare const Update: any
-type ColumnBaseConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnDataType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQLiteColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Update<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ AnySQLiteColumn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AnySQLiteColumn(TPartial: Partial<ColumnBaseConfig<ColumnDataType, string>> = {}) {
+export function AnySQLiteColumn(TPartial: Partial<ColumnBaseConfig<ColumnDataType, string>> = {}): any {
   return SQLiteColumn(Required(Update(ColumnBaseConfig(ColumnDataType, string), TPartial)))
 }
 /* compiles to:

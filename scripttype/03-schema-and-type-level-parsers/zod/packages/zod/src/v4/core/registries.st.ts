@@ -14,22 +14,33 @@ declare namespace core {
   export type input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type M<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type P<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const $ZodType: any
 declare const $input: any
 declare const $output: any
 declare const core: any
+declare const input: any
+declare const output: any
 type $ZodType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type $input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type $output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type core<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type input<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type output<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ $replace: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function $replace(Meta, S: $ZodType) {
+export function $replace(Meta, S: $ZodType): any {
   if (matches<$output>(Meta)) {
-    return core.output(S)
+    return t<core.output<typeof S>>()
   }
   if (matches<$input>(Meta)) {
-    return core.input(S)
+    return t<core.input<typeof S>>()
   }
   const m1 = matches<(Hole<"M">)[]>(Meta)
   if (m1) {
@@ -41,7 +52,7 @@ export function $replace(Meta, S: $ZodType) {
     for (const K in keyof(m2.P)) {
       out[K] = $replace(m2.P[K], S)
     }
-    return fnType([out], $replace(m2.R, S))
+    return fnType([...out], $replace(m2.R, S))
   }
   if (matches<object>(Meta)) {
     const out2 = emptyObject
@@ -58,7 +69,7 @@ export function $replace(Meta, S: $ZodType) {
  *   : Meta extends $input ? core.input<S>
  *   : Meta extends (infer M)[] ? $replace<M, S>[]
  *   : Meta extends (...args: infer P) => infer R
- *     ? (a0: { [K in keyof P]: $replace<P[K], S> }) => $replace<R, S>
+ *     ? (...a0: { [K in keyof P]: $replace<P[K], S> }) => $replace<R, S>
  *   : Meta extends object ? { [K1 in keyof Meta]: $replace<Meta[K1], S> }
  *   : Meta
  */

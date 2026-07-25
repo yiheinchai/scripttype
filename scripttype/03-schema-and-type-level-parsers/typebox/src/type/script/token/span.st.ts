@@ -7,20 +7,32 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TNewLine } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/char.js'
+import type { TTake } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/take.js'
+import type { TTrim } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/internal/trim.js'
+import type { TUntil } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/script/token/until.js'
+declare namespace m1 {
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Until<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type UntilRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type EndRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TNewLine: any
 declare const TTake: any
 declare const TTrim: any
 declare const TUntil: any
-type TNewLine<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTake<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TTrim<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUntil<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TMultiLine: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMultiLine(Start: string, End: string, Input: string) {
+export function TMultiLine(Start: string, End: string, Input: string): any {
   const m1 = matches<[ Hole<"_">, Hole<"Rest", string> ]>(TTake([Start], Input))
   if (m1) {
     const m2 = matches<[ Hole<"Until", string>, Hole<"UntilRest", string> ]>(TUntil([End], m1.Rest))
@@ -37,7 +49,7 @@ export function TMultiLine(Start: string, End: string, Input: string) {
 }
 /* compiles to:
  * export type TMultiLine<Start extends string, End extends string, Input extends string> =
- *   TTake<[Start], Input> extends [unknown, infer Rest extends string]
+ *   TTake<[Start], Input> extends [any, infer Rest extends string]
  *     ? TUntil<[End], Rest> extends [infer Until extends string, infer UntilRest extends string]
  *       ? TTake<[End], UntilRest> extends [string, infer Rest extends string]
  *         ? [`${Until}`, Rest]
@@ -48,7 +60,7 @@ export function TMultiLine(Start: string, End: string, Input: string) {
 
 // ✓ TSingleLine: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TSingleLine(Start: string, End: string, Input: string) {
+export function TSingleLine(Start: string, End: string, Input: string): any {
   const m1 = matches<[ Hole<"_", string>, Hole<"Rest", string> ]>(TTake([Start], Input))
   if (m1) {
     const m2 = matches<[ Hole<"Until", string>, Hole<"UntilRest", string> ]>(TUntil([TNewLine, End], m1.Rest))
@@ -76,7 +88,7 @@ export function TSingleLine(Start: string, End: string, Input: string) {
 
 // ✓ TSpan: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TSpan(Start: string, End: string, MultiLine: boolean, Input: string) {
+export function TSpan(Start: string, End: string, MultiLine: boolean, Input: string): any {
   if (matches<true>(MultiLine)) {
     return TMultiLine(Start, End, TTrim(Input))
   }

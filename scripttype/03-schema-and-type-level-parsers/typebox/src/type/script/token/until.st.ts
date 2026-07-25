@@ -10,11 +10,17 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type One<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Left: any
 type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TTakeOne: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTakeOne(Input: string) {
+export function TTakeOne(Input: string): any {
   const m1 = matches<`${Hole<"Left", string>}${Hole<"Right", string>}`>(Input)
   if (m1) {
     return [m1.Left, m1.Right]
@@ -28,7 +34,7 @@ export function TTakeOne(Input: string) {
 
 // ✓ TIsInputMatchSentinal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIsInputMatchSentinal(End: string[], Input: string) {
+export function TIsInputMatchSentinal(End: string[], Input: string): any {
   const m1 = matches<[ Hole<"Left", string>, ...Hole<"Right", string[]> ]>(End)
   if (m1) {
     if (matches<`${typeof m1.Left}${string}`>(Input)) {
@@ -47,7 +53,7 @@ export function TIsInputMatchSentinal(End: string[], Input: string) {
 
 // ✓ TUntil: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TUntil(End: string[], Input: string, Result: string = '') {
+export function TUntil(End: string[], Input: string, Result: string = ''): any {
   const m1 = matches<[ Hole<"One", string>, Hole<"Rest", string> ]>(TTakeOne(Input))
   if (m1) {
     if (matches<true>(TIsInputMatchSentinal(End, Input))) {

@@ -9,7 +9,7 @@
  */
 // ✓ LiteralToPrimitive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LiteralToPrimitive(T) {
+export function LiteralToPrimitive(T): any {
   if (typeof T === 'number') {
     return number
   }

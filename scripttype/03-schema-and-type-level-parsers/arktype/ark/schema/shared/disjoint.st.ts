@@ -9,7 +9,7 @@
  */
 // ✓ writeUnsatisfiableExpressionError: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeUnsatisfiableExpressionError(expression: string) {
+export function writeUnsatisfiableExpressionError(expression: string): any {
   return `${expression} results in an unsatisfiable type`
 }
 /* compiles to:

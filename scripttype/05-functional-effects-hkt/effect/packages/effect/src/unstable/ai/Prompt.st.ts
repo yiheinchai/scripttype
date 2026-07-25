@@ -7,21 +7,22 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Part } from '../../../../../../../../05-functional-effects-hkt/effect/packages/effect/src/unstable/ai/Prompt.js'
 declare const Message: any
 declare const MessageTypeId: any
 declare const Part: any
 declare const PartTypeId: any
 type Message<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type MessageTypeId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Part<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PartTypeId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ PartConstructorParams: does not compile yet
 //   'PartTypeId' refers to a value, but is being used as a type here. Did you mean 'typeof PartTypeId'?
 /* @scripttype preserveParamNames */
-export function PartConstructorParams(P: Part) {
+export function PartConstructorParams(P: Part): any {
   return merge(Omit(P, anyOf(t<typeof PartTypeId>(), 'type', 'options')), { options: readonlyProp(optional(anyOf(Part['options'], Undefined))) })
 }
 /* compiles to:
@@ -32,7 +33,7 @@ export function PartConstructorParams(P: Part) {
 // ✗ MessageConstructorParams: does not compile yet
 //   'MessageTypeId' refers to a value, but is being used as a type here. Did you mean 'typeof MessageTypeId'?
 /* @scripttype preserveParamNames */
-export function MessageConstructorParams(M: Message) {
+export function MessageConstructorParams(M: Message): any {
   return merge(Omit(M, anyOf(t<typeof MessageTypeId>(), 'role', 'options')), { options: readonlyProp(optional(anyOf(Part['options'], Undefined))) })
 }
 /* compiles to:

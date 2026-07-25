@@ -7,16 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { array } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/arrays.js'
+import type { Primitive } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/domain.js'
+declare namespace m1 {
+  export type serialized<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type item<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Primitive: any
 declare const array: any
-type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ snapshot: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function snapshot(t, depth: 1[] = []) {
+export function snapshot(t, depth: 1[] = []): any {
   if (matches<typeof t>(unknown)) {
     return unknown
   }
@@ -60,7 +67,7 @@ export function snapshot(t, depth: 1[] = []) {
 
 // ✓ snapshotPrimitive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function snapshotPrimitive(t) {
+export function snapshotPrimitive(t): any {
   if (typeof t === 'symbol') {
     return `Symbol(${string})`
   }

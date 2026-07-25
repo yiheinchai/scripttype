@@ -7,9 +7,11 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { FeatureFlags, TRPCMutationKeyWithPrefix, TRPCMutationKeyWithoutPrefix, TRPCQueryKeyWithPrefix, TRPCQueryKeyWithoutPrefix } from '../../../../../../../02-inference-at-scale/trpc/packages/tanstack-react-query/src/internals/types.js'
 declare const CursorInput: any
 declare const FeatureFlags: any
 declare const InfiniteData: any
@@ -18,15 +20,13 @@ declare const TRPCMutationKeyWithoutPrefix: any
 declare const TRPCQueryKeyWithPrefix: any
 declare const TRPCQueryKeyWithoutPrefix: any
 type CursorInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InfiniteData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCMutationKeyWithPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCMutationKeyWithoutPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCQueryKeyWithPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCQueryKeyWithoutPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ WithRequired: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function WithRequired(TObj, TKey: keyof typeof TObj) {
+/**
+ * @param {keyof typeof TObj} TKey
+ */
+export function WithRequired(TObj, TKey): any {
   const out = emptyObject
   for (const P in keySet(TKey)) {
     out[P] = required(TObj[P])
@@ -39,7 +39,7 @@ export function WithRequired(TObj, TKey: keyof typeof TObj) {
 
 // ✓ ExtractCursorType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractCursorType(TInput) {
+export function ExtractCursorType(TInput): any {
   if (matches<CursorInput>(TInput)) {
     return TInput['cursor']
   }
@@ -51,8 +51,8 @@ export function ExtractCursorType(TInput) {
 
 // ✓ TRPCInfiniteData: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCInfiniteData(TInput, TOutput) {
-  return InfiniteData(TOutput, NonNullable(ExtractCursorType(TInput)) | Null)
+export function TRPCInfiniteData(TInput, TOutput): any {
+  return InfiniteData(TOutput, anyOf(NonNullable(ExtractCursorType(TInput)), Null))
 }
 /* compiles to:
  * export type TRPCInfiniteData<TInput, TOutput> = InfiniteData<
@@ -63,7 +63,7 @@ export function TRPCInfiniteData(TInput, TOutput) {
 
 // ✓ TRPCQueryKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCQueryKey(TPrefixEnabled: boolean = false) {
+export function TRPCQueryKey(TPrefixEnabled: boolean = false): any {
   if (matches<true>(TPrefixEnabled)) {
     return TRPCQueryKeyWithPrefix
   }
@@ -76,7 +76,7 @@ export function TRPCQueryKey(TPrefixEnabled: boolean = false) {
 
 // ✓ TRPCMutationKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCMutationKey(TPrefixEnabled: boolean = false) {
+export function TRPCMutationKey(TPrefixEnabled: boolean = false): any {
   if (matches<true>(TPrefixEnabled)) {
     return TRPCMutationKeyWithPrefix
   }
@@ -89,7 +89,7 @@ export function TRPCMutationKey(TPrefixEnabled: boolean = false) {
 
 // ✓ ofFeatureFlags: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ofFeatureFlags(T: FeatureFlags) {
+export function ofFeatureFlags(T: FeatureFlags): any {
   return T
 }
 /* compiles to:
@@ -98,7 +98,7 @@ export function ofFeatureFlags(T: FeatureFlags) {
 
 // ✓ KeyPrefixOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function KeyPrefixOptions(TFeatureFlags: FeatureFlags) {
+export function KeyPrefixOptions(TFeatureFlags: FeatureFlags): any {
   if (matches<true>(TFeatureFlags['keyPrefix'])) {
     return { keyPrefix: string }
   }

@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ReceiveSignature, SolidityKeywords } from '../../../../../../../../03-schema-and-type-level-parsers/abitype/packages/abitype/src/human-readable/types/signatures.js'
+declare namespace m1 {
+  export type condition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type invalidName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type name<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type parameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const InvalidFunctionParameters: any
 declare const ReceiveSignature: any
 declare const SolidityKeywords: any
@@ -22,15 +33,13 @@ type EventSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, 
 type FallbackSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FunctionSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type InvalidFunctionParameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReceiveSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SolidityKeywords<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StructSignature<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidCharacters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidConstructorSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidFunctionSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ErrorSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ErrorSignature(name: string = string, parameters: string = string) {
+export function ErrorSignature(name: string = string, parameters: string = string): any {
   return `error ${name}(${parameters})`
 }
 /* compiles to:
@@ -39,7 +48,7 @@ export function ErrorSignature(name: string = string, parameters: string = strin
 
 // ✓ IsErrorSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsErrorSignature(signature: string) {
+export function IsErrorSignature(signature: string): any {
   const m1 = matches<ErrorSignature<Hole<"name">>>(signature)
   if (m1) {
     return IsName(m1.name)
@@ -53,7 +62,7 @@ export function IsErrorSignature(signature: string) {
 
 // ✓ EventSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function EventSignature(name: string = string, parameters: string = string) {
+export function EventSignature(name: string = string, parameters: string = string): any {
   return `event ${name}(${parameters})`
 }
 /* compiles to:
@@ -62,7 +71,7 @@ export function EventSignature(name: string = string, parameters: string = strin
 
 // ✓ IsEventSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsEventSignature(signature: string) {
+export function IsEventSignature(signature: string): any {
   const m1 = matches<EventSignature<Hole<"name">>>(signature)
   if (m1) {
     return IsName(m1.name)
@@ -76,7 +85,7 @@ export function IsEventSignature(signature: string) {
 
 // ✓ FunctionSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FunctionSignature(name: string = string, tail: string = string) {
+export function FunctionSignature(name: string = string, tail: string = string): any {
   return `function ${name}(${tail}`
 }
 /* compiles to:
@@ -85,7 +94,7 @@ export function FunctionSignature(name: string = string, tail: string = string) 
 
 // ✓ IsFunctionSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsFunctionSignature(signature) {
+export function IsFunctionSignature(signature): any {
   const m1 = matches<FunctionSignature<Hole<"name">>>(signature)
   if (m1) {
     if (matches<true>(IsName(m1.name))) {
@@ -119,7 +128,7 @@ export function IsFunctionSignature(signature) {
 
 // ✓ StructSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StructSignature(name: string = string, properties: string = string) {
+export function StructSignature(name: string = string, properties: string = string): any {
   return `struct ${name} {${properties}}`
 }
 /* compiles to:
@@ -128,7 +137,7 @@ export function StructSignature(name: string = string, properties: string = stri
 
 // ✓ IsStructSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsStructSignature(signature: string) {
+export function IsStructSignature(signature: string): any {
   const m1 = matches<StructSignature<Hole<"name">>>(signature)
   if (m1) {
     return IsName(m1.name)
@@ -142,7 +151,7 @@ export function IsStructSignature(signature: string) {
 
 // ✓ ConstructorSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConstructorSignature(tail: string = string) {
+export function ConstructorSignature(tail: string = string): any {
   return `constructor(${tail}`
 }
 /* compiles to:
@@ -151,7 +160,7 @@ export function ConstructorSignature(tail: string = string) {
 
 // ✓ IsConstructorSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsConstructorSignature(signature) {
+export function IsConstructorSignature(signature): any {
   if (matches<ConstructorSignature>(signature)) {
     if (matches<ValidConstructorSignatures>(signature)) {
       return true
@@ -169,7 +178,7 @@ export function IsConstructorSignature(signature) {
 
 // ✓ FallbackSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FallbackSignature(abiStateMutability: '' | ' payable' = anyOf('', ' payable')) {
+export function FallbackSignature(abiStateMutability: '' | ' payable' = anyOf('', ' payable')): any {
   return `fallback() external${abiStateMutability}`
 }
 /* compiles to:
@@ -178,7 +187,7 @@ export function FallbackSignature(abiStateMutability: '' | ' payable' = anyOf(''
 
 // ✓ IsFallbackSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsFallbackSignature(signature: string) {
+export function IsFallbackSignature(signature: string): any {
   if (matches<FallbackSignature<''> | FallbackSignature<' payable'>>(signature)) {
     return true
   }
@@ -191,7 +200,7 @@ export function IsFallbackSignature(signature: string) {
 
 // ✓ IsSignature: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsSignature(type: string) {
+export function IsSignature(type: string): any {
   const m1 = matches<Hole<"condition">>((matches<true>(IsErrorSignature(type)) ? true : never) | (matches<true>(IsEventSignature(type)) ? true : never) | (matches<true>(IsFunctionSignature(type)) ? true : never) | (matches<true>(IsStructSignature(type)) ? true : never) | (matches<true>(IsConstructorSignature(type)) ? true : never) | (matches<true>(IsFallbackSignature(type)) ? true : never) | (matches<ReceiveSignature>(type) ? true : never))
   if (m1) {
     if (matches<[ never ]>([m1.condition])) {
@@ -211,7 +220,7 @@ export function IsSignature(type: string) {
 // ✗ Signature: the ScriptType does not itself typecheck as TypeScript
 //   Signature.st.ts(9:12) TS2315: Type 'Error' is not generic.
 /* @scripttype preserveParamNames */
-export function Signature(string1: string, string2: string | unknown = unknown) {
+export function Signature(string1: string, string2: string | unknown = unknown): any {
   if (matches<true>(IsSignature(string1))) {
     return string1
   }
@@ -225,13 +234,16 @@ export function Signature(string1: string, string2: string | unknown = unknown) 
  *   IsSignature<string1> extends true ? string1
  *   : string extends string1 ? string1
  *   : Error<
- *     `Signature "${string1}" is invalid${typeof string2 extends string ? ` at position ${typeof string2}` : ''}.`
+ *     `Signature "${string1}" is invalid${string2 extends string ? ` at position ${string2}` : ''}.`
  *   >
  */
 
 // ✓ Signatures: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Signatures(signatures: readonly string[]) {
+/**
+ * @param {readonly string[]} signatures
+ */
+export function Signatures(signatures): any {
   const out = emptyObject
   for (const key in keyof(signatures)) {
     out[key] = Signature(signatures[key], key)
@@ -246,7 +258,7 @@ export function Signatures(signatures: readonly string[]) {
 
 // ✓ IsName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsName(name: string) {
+export function IsName(name: string): any {
   if (matches<''>(name)) {
     return false
   }
@@ -262,7 +274,7 @@ export function IsName(name: string) {
 
 // ✓ AssertName: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AssertName(name: string) {
+export function AssertName(name: string): any {
   const m1 = matches<Hole<"invalidName", string[]>>(ValidateName(name))
   if (m1) {
     return `[${m1.invalidName[number]}]`
@@ -279,7 +291,7 @@ export function AssertName(name: string) {
 // ✗ ValidateName: the ScriptType does not itself typecheck as TypeScript
 //   ValidateName.st.ts(4:14) TS2315: Type 'Error' is not generic.
 /* @scripttype preserveParamNames */
-export function ValidateName(name: string, checkCharacters: boolean = false) {
+export function ValidateName(name: string, checkCharacters: boolean = false): any {
   if (matches<`${string}${' '}${string}`>(name)) {
     return t<Error<`Identifier "${typeof name}" cannot contain whitespace.`>>()
   }
@@ -316,7 +328,7 @@ export function ValidateName(name: string, checkCharacters: boolean = false) {
 
 // ✓ IsSolidityKeyword: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsSolidityKeyword(type: string) {
+export function IsSolidityKeyword(type: string): any {
   if (matches<SolidityKeywords>(type)) {
     return true
   }
@@ -329,7 +341,7 @@ export function IsSolidityKeyword(type: string) {
 
 // ✓ IsValidCharacter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsValidCharacter(character: string) {
+export function IsValidCharacter(character: string): any {
   const m1 = matches<`${ValidCharacters}${Hole<"tail">}`>(character)
   if (m1) {
     if (matches<''>(m1.tail)) {

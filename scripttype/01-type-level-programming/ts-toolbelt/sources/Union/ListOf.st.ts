@@ -7,23 +7,27 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { Prepend } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Prepend.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Cast: any
 declare const Extends: any
 declare const Last: any
 declare const List: any
 declare const Prepend: any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prepend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _ListOf: does not compile yet
 //   Type '[U] extends [never] ? 1 : 0' cannot be used to index type '{ '0': _ListOf__st0<Exclude<U, LastU>, [LastU, ...LN], Last<Exclude<U, LastU>>>; '1': LN; }'.
 /* @scripttype preserveParamNames */
-export function _ListOf(U, LN: List = [], LastU = Last(U)) {
+export function _ListOf(U, LN: List = [], LastU = Last(U)): any {
   return { 0: _ListOf(Exclude(U, LastU), Prepend(LN, LastU)), 1: LN }[Extends([U], [never])]
 }
 /* compiles to:
@@ -33,7 +37,7 @@ export function _ListOf(U, LN: List = [], LastU = Last(U)) {
 
 // ✓ ListOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ListOf(U: any) {
+export function ListOf(U: any): any {
   const m1 = matches<Hole<"X">>(_ListOf(U))
   if (m1) {
     return Cast(m1.X, List)

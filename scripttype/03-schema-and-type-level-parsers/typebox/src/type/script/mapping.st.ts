@@ -7,9 +7,65 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TAssign } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/system/memory/assign.js'
+import type { TAddImmutableDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/_add_immutable.js'
+import type { TAddOptionalDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/_add_optional.js'
+import type { TAddReadonlyDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/_add_readonly.js'
+import type { TRemoveOptionalDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/_remove_optional.js'
+import type { TRemoveReadonlyDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/_remove_readonly.js'
+import type { TCapitalizeDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/capitalize.js'
+import type { TConditionalDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/conditional.js'
+import type { TConstructorParametersDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/constructor_parameters.js'
+import type { TEvaluateDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/evaluate.js'
+import type { TExcludeDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/exclude.js'
+import type { TExtractDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/extract.js'
+import type { TIndexDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/indexed.js'
+import type { TInstanceTypeDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/instance_type.js'
+import type { TInterfaceDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/interface.js'
+import type { TKeyOfDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/keyof.js'
+import type { TLowercaseDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/lowercase.js'
+import type { TMappedDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/mapped.js'
+import type { TModuleDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/module.js'
+import type { TNonNullableDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/non_nullable.js'
+import type { TOmitDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/omit.js'
+import type { TParametersDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/parameters.js'
+import type { TPartialDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/partial.js'
+import type { TPickDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/pick.js'
+import type { TReadonlyObjectDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/readonly_object.js'
+import type { TRequiredDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/required.js'
+import type { TReturnTypeDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/return_type.js'
+import type { TUncapitalizeDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/uncapitalize.js'
+import type { TUppercaseDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/uppercase.js'
+import type { TWithDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/with.js'
+import type { TAny } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/any.js'
+import type { TArray } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/array.js'
+import type { TBoolean } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/boolean.js'
+import type { TCallConstruct } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/call.js'
+import type { TConstructor } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/constructor.js'
+import type { TFunction } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/function.js'
+import type { TGeneric } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/generic.js'
+import type { TIdentifier } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/identifier.js'
+import type { TInfer } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/infer.js'
+import type { TIntersect } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/intersect.js'
+import type { TLiteral, TLiteralValue } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TNever } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/never.js'
+import type { TNull } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/null.js'
+import type { TObject } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TIntegerKey, TNumberKey, TRecordDeferred, TStringKey } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/record.js'
+import type { TRef } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/ref.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TSymbol } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/symbol.js'
+import type { TTemplateLiteralDeferred } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/template_literal.js'
+import type { TThis } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/this.js'
+import type { TTuple } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/tuple.js'
+import type { TUndefined } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/undefined.js'
+import type { TUnion } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+import type { TUnknown } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/unknown.js'
+import type { TVoid } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/void.js'
 declare namespace Memory {
   export type TAssign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
@@ -83,134 +139,347 @@ declare namespace T {
   export type TUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type TVoid<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type Arguments<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type As<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Body<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Elements<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Else<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Equals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Extend<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type False<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Heritage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type IndexArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type InstanceType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type IsOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type IsReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type KeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ModuleDeclaration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ModuleDeclarationList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Name<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Operator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Optional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ParameterList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Parameters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Properties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Property<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type PropertyList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Readonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Ref<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Term<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Text<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Then<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type True<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Union<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type WithClause<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type WithObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m10 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m11 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m12 {
+  export type Indexer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m13 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m14 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m15 {
+  export type Indexer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m16 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m17 {
+  export type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m18 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m19 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type As<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Indexer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Item<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Name<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Term<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Text<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Then<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m20 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m21 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m6 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m7 {
+  export type Indexer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m8 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m9 {
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare const Arguments: any
+declare const As: any
+declare const Body: any
+declare const Else: any
+declare const Equals: any
+declare const False: any
+declare const Heritage: any
+declare const If: any
+declare const Indexer: any
 declare const Memory: any
+declare const ModuleDeclaration: any
+declare const ModuleDeclarationList: any
+declare const Name: any
+declare const ParameterList: any
+declare const Properties: any
+declare const Property: any
 declare const PropertyKey: any
+declare const Right: any
 declare const S: any
+declare const Schema: any
 declare const T: any
+declare const TAddImmutableDeferred: any
+declare const TAddOptionalDeferred: any
+declare const TAddReadonlyDeferred: any
+declare const TAny: any
+declare const TArray: any
+declare const TAssign: any
+declare const TBigInt: any
+declare const TBoolean: any
+declare const TCallConstruct: any
+declare const TCapitalizeDeferred: any
+declare const TConditionalDeferred: any
+declare const TConstructor: any
+declare const TConstructorParametersDeferred: any
+declare const TDependent: any
+declare const TEvaluateDeferred: any
+declare const TExcludeDeferred: any
+declare const TExtractDeferred: any
+declare const TFunction: any
+declare const TGeneric: any
+declare const TIdentifier: any
+declare const TIndexDeferred: any
+declare const TInfer: any
+declare const TInstanceTypeDeferred: any
 declare const TInteger: any
 declare const TIntegerKey: any
+declare const TInterfaceDeferred: any
 declare const TIntersect: any
+declare const TKeyOfDeferred: any
+declare const TLiteral: any
 declare const TLiteralValue: any
+declare const TLowercaseDeferred: any
+declare const TMappedDeferred: any
 declare const TModifierOperation: any
+declare const TModuleDeferred: any
+declare const TNever: any
+declare const TNonNullableDeferred: any
+declare const TNull: any
 declare const TNumber: any
 declare const TNumberKey: any
+declare const TObject: any
+declare const TOmitDeferred: any
 declare const TParameter: any
+declare const TParametersDeferred: any
+declare const TPartialDeferred: any
+declare const TPickDeferred: any
 declare const TProperties: any
+declare const TReadonlyObjectDeferred: any
+declare const TRecordDeferred: any
+declare const TRef: any
+declare const TRemoveOptionalDeferred: any
+declare const TRemoveReadonlyDeferred: any
+declare const TRequiredDeferred: any
+declare const TRest: any
+declare const TReturnTypeDeferred: any
 declare const TSchema: any
 declare const TString: any
 declare const TStringKey: any
 declare const TSymbol: any
+declare const TTemplateLiteralDeferred: any
+declare const TThis: any
+declare const TTuple: any
+declare const TUncapitalizeDeferred: any
+declare const TUndefined: any
 declare const TUnion: any
-declare const patternProperties: any
-declare const properties: any
+declare const TUnknown: any
+declare const TUppercaseDeferred: any
+declare const TVoid: any
+declare const TWithDeferred: any
+declare const Then: any
+declare const True: any
+declare const Types: any
+declare const Value: any
+type Arguments<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type As<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Body<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Else<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Equals<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type False<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Heritage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Indexer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Memory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ModuleDeclaration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ModuleDeclarationList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Name<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ParameterList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Properties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Property<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type S<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TApplyOptional<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TApplyReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TBigInt<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TDependent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TFactorIndexArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TInteger<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TIntegerKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TModifierOperation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TNumberKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TParameter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TStringKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSymbol<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type patternProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type properties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Then<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type True<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TIntrinsicOrCall: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIntrinsicOrCall(Target: string, Parameters: T.TSchema[]) {
+export function TIntrinsicOrCall(Target: string, Parameters: T.TSchema[]): any {
   const m1 = matches<[ 'Array', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m1) {
-    return T.TArray(m1.Type)
+    return t<T.TArray<typeof m1.Type>>()
   }
   const m2 = matches<[ 'Capitalize', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m2) {
-    return S.TCapitalizeDeferred(m2.Type)
+    return t<S.TCapitalizeDeferred<typeof m2.Type>>()
   }
   const m3 = matches<[ 'ConstructorParameters', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m3) {
-    return S.TConstructorParametersDeferred(m3.Type)
+    return t<S.TConstructorParametersDeferred<typeof m3.Type>>()
   }
   const m4 = matches<[ 'Evaluate', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m4) {
-    return S.TEvaluateDeferred(m4.Type)
+    return t<S.TEvaluateDeferred<typeof m4.Type>>()
   }
   const m5 = matches<[ 'Exclude', [ Hole<"Left", T.TSchema>, Hole<"Right", T.TSchema> ] ]>([Target, Parameters])
   if (m5) {
-    return S.TExcludeDeferred(m5.Left, m5.Right)
+    return t<S.TExcludeDeferred<typeof m5.Left, typeof m5.Right>>()
   }
   const m6 = matches<[ 'Extract', [ Hole<"Left", T.TSchema>, Hole<"Right", T.TSchema> ] ]>([Target, Parameters])
   if (m6) {
-    return S.TExtractDeferred(m6.Left, m6.Right)
+    return t<S.TExtractDeferred<typeof m6.Left, typeof m6.Right>>()
   }
   const m7 = matches<[ 'Index', [ Hole<"Type", T.TSchema>, Hole<"Indexer", T.TSchema> ] ]>([Target, Parameters])
   if (m7) {
-    return S.TIndexDeferred(m7.Type, m7.Indexer)
+    return t<S.TIndexDeferred<typeof m7.Type, typeof m7.Indexer>>()
   }
   const m8 = matches<[ 'InstanceType', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m8) {
-    return S.TInstanceTypeDeferred(m8.Type)
+    return t<S.TInstanceTypeDeferred<typeof m8.Type>>()
   }
   const m9 = matches<[ 'KeyOf', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m9) {
-    return S.TKeyOfDeferred(m9.Type)
+    return t<S.TKeyOfDeferred<typeof m9.Type>>()
   }
   const m10 = matches<[ 'Lowercase', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m10) {
-    return S.TLowercaseDeferred(m10.Type)
+    return t<S.TLowercaseDeferred<typeof m10.Type>>()
   }
   const m11 = matches<[ 'NonNullable', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m11) {
-    return S.TNonNullableDeferred(m11.Type)
+    return t<S.TNonNullableDeferred<typeof m11.Type>>()
   }
   const m12 = matches<[ 'Omit', [ Hole<"Type", T.TSchema>, Hole<"Indexer", T.TSchema> ] ]>([Target, Parameters])
   if (m12) {
-    return S.TOmitDeferred(m12.Type, m12.Indexer)
+    return t<S.TOmitDeferred<typeof m12.Type, typeof m12.Indexer>>()
   }
   const m13 = matches<[ 'Parameters', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m13) {
-    return S.TParametersDeferred(m13.Type)
+    return t<S.TParametersDeferred<typeof m13.Type>>()
   }
   const m14 = matches<[ 'Partial', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m14) {
-    return S.TPartialDeferred(m14.Type)
+    return t<S.TPartialDeferred<typeof m14.Type>>()
   }
   const m15 = matches<[ 'Pick', [ Hole<"Type", T.TSchema>, Hole<"Indexer", T.TSchema> ] ]>([Target, Parameters])
   if (m15) {
-    return S.TPickDeferred(m15.Type, m15.Indexer)
+    return t<S.TPickDeferred<typeof m15.Type, typeof m15.Indexer>>()
   }
   const m16 = matches<[ 'Readonly', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m16) {
-    return S.TReadonlyObjectDeferred(m16.Type)
+    return t<S.TReadonlyObjectDeferred<typeof m16.Type>>()
   }
   const m17 = matches<[ 'Record', [ Hole<"Key", T.TSchema>, Hole<"Value", T.TSchema> ] ]>([Target, Parameters])
   if (m17) {
-    return T.TRecordDeferred(m17.Key, m17.Value)
+    return t<T.TRecordDeferred<typeof m17.Key, typeof m17.Value>>()
   }
   const m18 = matches<[ 'Required', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m18) {
-    return S.TRequiredDeferred(m18.Type)
+    return t<S.TRequiredDeferred<typeof m18.Type>>()
   }
   const m19 = matches<[ 'ReturnType', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m19) {
-    return S.TReturnTypeDeferred(m19.Type)
+    return t<S.TReturnTypeDeferred<typeof m19.Type>>()
   }
   const m20 = matches<[ 'Uncapitalize', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m20) {
-    return S.TUncapitalizeDeferred(m20.Type)
+    return t<S.TUncapitalizeDeferred<typeof m20.Type>>()
   }
   const m21 = matches<[ 'Uppercase', [ Hole<"Type", T.TSchema> ] ]>([Target, Parameters])
   if (m21) {
-    return S.TUppercaseDeferred(m21.Type)
+    return t<S.TUppercaseDeferred<typeof m21.Type>>()
   }
-  return T.TCallConstruct(T.TRef(Target), Parameters)
+  return t<T.TCallConstruct<T.TRef<typeof Target>, typeof Parameters>>()
 }
 /* compiles to:
  * export type TIntrinsicOrCall<Target extends string, Parameters extends T.TSchema[]> =
@@ -260,7 +529,7 @@ export function TIntrinsicOrCall(Target: string, Parameters: T.TSchema[]) {
 
 // ✓ TDelimitedDecode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDelimitedDecode(Input: ([ unknown, unknown ] | unknown)[], Result: unknown[] = []) {
+export function TDelimitedDecode(Input: ([ unknown, unknown ] | unknown)[], Result: unknown[] = []): any {
   const m1 = matches<[ Hole<"Left">, ...Hole<"Right"> ]>(Input)
   if (m1) {
     const m2 = matches<[ Hole<"Item">, Hole<"_"> ]>(m1.Left)
@@ -277,7 +546,7 @@ export function TDelimitedDecode(Input: ([ unknown, unknown ] | unknown)[], Resu
  *   Result extends unknown[] = []
  * > =
  *   Input extends [infer Left, ...infer Right]
- *     ? Left extends [infer Item, unknown]
+ *     ? Left extends [infer Item, any]
  *       ? TDelimitedDecode<Right, [...Result, Item]>
  *       : TDelimitedDecode<Right, [...Result, Left]>
  *     : Result
@@ -285,7 +554,7 @@ export function TDelimitedDecode(Input: ([ unknown, unknown ] | unknown)[], Resu
 
 // ✓ TDelimited: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDelimited(Input: [ unknown, unknown ]) {
+export function TDelimited(Input: [ unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Left", unknown[]>, Hole<"Right", unknown[]> ]>(Input)
   if (m1) {
     return TDelimitedDecode([...m1.Left, ...m1.Right])
@@ -301,10 +570,10 @@ export function TDelimited(Input: [ unknown, unknown ]) {
 
 // ✓ TGenericParameterExtendsEqualsMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterExtendsEqualsMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]) {
+export function TGenericParameterExtendsEqualsMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Name", string>, 'extends', Hole<"Extends", T.TSchema>, '=', Hole<"Equals", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TParameter(m1.Name, m1.Extends, m1.Equals)
+    return t<T.TParameter<typeof m1.Name, typeof m1.Extends, typeof m1.Equals>>()
   }
   return never
 }
@@ -319,10 +588,10 @@ export function TGenericParameterExtendsEqualsMapping(Input: [ unknown, unknown,
 
 // ✓ TGenericParameterExtendsMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterExtendsMapping(Input: [ unknown, unknown, unknown ]) {
+export function TGenericParameterExtendsMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Name", string>, 'extends', Hole<"Extends", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TParameter(m1.Name, m1.Extends, m1.Extends)
+    return t<T.TParameter<typeof m1.Name, typeof m1.Extends, typeof m1.Extends>>()
   }
   return never
 }
@@ -335,10 +604,10 @@ export function TGenericParameterExtendsMapping(Input: [ unknown, unknown, unkno
 
 // ✓ TGenericParameterEqualsMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterEqualsMapping(Input: [ unknown, unknown, unknown ]) {
+export function TGenericParameterEqualsMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Name", string>, '=', Hole<"Equals", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TParameter(m1.Name, T.TUnknown, m1.Equals)
+    return t<T.TParameter<typeof m1.Name, T.TUnknown, typeof m1.Equals>>()
   }
   return never
 }
@@ -351,7 +620,7 @@ export function TGenericParameterEqualsMapping(Input: [ unknown, unknown, unknow
 
 // ✓ TGenericParameterIdentifierMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterIdentifierMapping(Input: string, Result: T.TSchema = T.TParameter(Input, T.TUnknown, T.TUnknown)) {
+export function TGenericParameterIdentifierMapping(Input: string, Result: T.TSchema = t<T.TParameter<typeof Input, T.TUnknown, T.TUnknown>>()): any {
   return Result
 }
 /* compiles to:
@@ -364,7 +633,7 @@ export function TGenericParameterIdentifierMapping(Input: string, Result: T.TSch
 
 // ✓ TGenericParameterMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterMapping(Input: unknown) {
+export function TGenericParameterMapping(Input: unknown): any {
   return Input
 }
 /* compiles to:
@@ -373,7 +642,7 @@ export function TGenericParameterMapping(Input: unknown) {
 
 // ✓ TGenericParameterListMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParameterListMapping(Input: [ unknown, unknown ]) {
+export function TGenericParameterListMapping(Input: [ unknown, unknown ]): any {
   return TDelimited(Input)
 }
 /* compiles to:
@@ -382,7 +651,7 @@ export function TGenericParameterListMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TGenericParametersMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericParametersMapping(Input: [ unknown, unknown, unknown ]) {
+export function TGenericParametersMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ '<', Hole<"Parameters", T.TParameter[]>, '>' ]>(Input)
   if (m1) {
     return m1.Parameters
@@ -396,7 +665,7 @@ export function TGenericParametersMapping(Input: [ unknown, unknown, unknown ]) 
 
 // ✓ TGenericCallArgumentListMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericCallArgumentListMapping(Input: [ unknown, unknown ]) {
+export function TGenericCallArgumentListMapping(Input: [ unknown, unknown ]): any {
   return TDelimited(Input)
 }
 /* compiles to:
@@ -407,7 +676,7 @@ export function TGenericCallArgumentListMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TGenericCallArgumentsMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericCallArgumentsMapping(Input: [ unknown, unknown, unknown ]) {
+export function TGenericCallArgumentsMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ '<', Hole<"Arguments", T.TSchema[]>, '>' ]>(Input)
   if (m1) {
     return m1.Arguments
@@ -421,14 +690,14 @@ export function TGenericCallArgumentsMapping(Input: [ unknown, unknown, unknown 
 
 // ✓ TGenericCallMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericCallMapping__v1(Input) {
+export function TGenericCallMapping__v1(Input): any {
   const m1 = matches<[ Hole<"Ref", string>, Hole<"Arguments", T.TSchema[]> ]>(Input)
   if (m1) {
     return TIntrinsicOrCall(m1.Ref, m1.Arguments)
   }
   return never
 }
-export function TGenericCallMapping(Input: [ unknown, unknown ], Result = TGenericCallMapping__v1(Input)) {
+export function TGenericCallMapping(Input: [ unknown, unknown ], Result = TGenericCallMapping__v1(Input)): any {
   return Result
 }
 /* compiles to:
@@ -445,7 +714,7 @@ export function TGenericCallMapping(Input: [ unknown, unknown ], Result = TGener
 
 // ✓ TOptionalSemiColonMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TOptionalSemiColonMapping(Input: [ unknown ] | [ ]) {
+export function TOptionalSemiColonMapping(Input: [ unknown ] | [ ]): any {
   return Null
 }
 /* compiles to:
@@ -454,8 +723,8 @@ export function TOptionalSemiColonMapping(Input: [ unknown ] | [ ]) {
 
 // ✓ TKeywordStringMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordStringMapping(Input: 'string') {
-  return T.TString
+export function TKeywordStringMapping(Input: 'string'): any {
+  return t<T.TString>()
 }
 /* compiles to:
  * export type TKeywordStringMapping<Input extends 'string'> = T.TString
@@ -463,8 +732,8 @@ export function TKeywordStringMapping(Input: 'string') {
 
 // ✓ TKeywordNumberMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordNumberMapping(Input: 'number') {
-  return T.TNumber
+export function TKeywordNumberMapping(Input: 'number'): any {
+  return t<T.TNumber>()
 }
 /* compiles to:
  * export type TKeywordNumberMapping<Input extends 'number'> = T.TNumber
@@ -472,8 +741,8 @@ export function TKeywordNumberMapping(Input: 'number') {
 
 // ✓ TKeywordBooleanMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordBooleanMapping(Input: 'boolean') {
-  return T.TBoolean
+export function TKeywordBooleanMapping(Input: 'boolean'): any {
+  return t<T.TBoolean>()
 }
 /* compiles to:
  * export type TKeywordBooleanMapping<Input extends 'boolean'> = T.TBoolean
@@ -481,8 +750,8 @@ export function TKeywordBooleanMapping(Input: 'boolean') {
 
 // ✓ TKeywordUndefinedMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordUndefinedMapping(Input: 'undefined') {
-  return T.TUndefined
+export function TKeywordUndefinedMapping(Input: 'undefined'): any {
+  return t<T.TUndefined>()
 }
 /* compiles to:
  * export type TKeywordUndefinedMapping<Input extends 'undefined'> = T.TUndefined
@@ -490,8 +759,8 @@ export function TKeywordUndefinedMapping(Input: 'undefined') {
 
 // ✓ TKeywordNullMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordNullMapping(Input: 'null') {
-  return T.TNull
+export function TKeywordNullMapping(Input: 'null'): any {
+  return t<T.TNull>()
 }
 /* compiles to:
  * export type TKeywordNullMapping<Input extends 'null'> = T.TNull
@@ -499,8 +768,8 @@ export function TKeywordNullMapping(Input: 'null') {
 
 // ✓ TKeywordIntegerMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordIntegerMapping(Input: 'integer') {
-  return T.TInteger
+export function TKeywordIntegerMapping(Input: 'integer'): any {
+  return t<T.TInteger>()
 }
 /* compiles to:
  * export type TKeywordIntegerMapping<Input extends 'integer'> = T.TInteger
@@ -508,8 +777,8 @@ export function TKeywordIntegerMapping(Input: 'integer') {
 
 // ✓ TKeywordBigIntMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordBigIntMapping(Input: 'bigint') {
-  return T.TBigInt
+export function TKeywordBigIntMapping(Input: 'bigint'): any {
+  return t<T.TBigInt>()
 }
 /* compiles to:
  * export type TKeywordBigIntMapping<Input extends 'bigint'> = T.TBigInt
@@ -517,8 +786,8 @@ export function TKeywordBigIntMapping(Input: 'bigint') {
 
 // ✓ TKeywordUnknownMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordUnknownMapping(Input: 'unknown') {
-  return T.TUnknown
+export function TKeywordUnknownMapping(Input: 'unknown'): any {
+  return t<T.TUnknown>()
 }
 /* compiles to:
  * export type TKeywordUnknownMapping<Input extends 'unknown'> = T.TUnknown
@@ -526,8 +795,8 @@ export function TKeywordUnknownMapping(Input: 'unknown') {
 
 // ✓ TKeywordAnyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordAnyMapping(Input: 'any') {
-  return T.TAny
+export function TKeywordAnyMapping(Input: 'any'): any {
+  return t<T.TAny>()
 }
 /* compiles to:
  * export type TKeywordAnyMapping<Input extends 'any'> = T.TAny
@@ -535,8 +804,8 @@ export function TKeywordAnyMapping(Input: 'any') {
 
 // ✓ TKeywordObjectMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordObjectMapping(Input: 'object') {
-  return T.TObject({})
+export function TKeywordObjectMapping(Input: 'object'): any {
+  return t<T.TObject<{}>>()
 }
 /* compiles to:
  * export type TKeywordObjectMapping<Input extends 'object'> = T.TObject<{}>
@@ -544,8 +813,8 @@ export function TKeywordObjectMapping(Input: 'object') {
 
 // ✓ TKeywordNeverMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordNeverMapping(Input: 'never') {
-  return T.TNever
+export function TKeywordNeverMapping(Input: 'never'): any {
+  return t<T.TNever>()
 }
 /* compiles to:
  * export type TKeywordNeverMapping<Input extends 'never'> = T.TNever
@@ -553,8 +822,8 @@ export function TKeywordNeverMapping(Input: 'never') {
 
 // ✓ TKeywordSymbolMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordSymbolMapping(Input: 'symbol') {
-  return T.TSymbol
+export function TKeywordSymbolMapping(Input: 'symbol'): any {
+  return t<T.TSymbol>()
 }
 /* compiles to:
  * export type TKeywordSymbolMapping<Input extends 'symbol'> = T.TSymbol
@@ -562,8 +831,8 @@ export function TKeywordSymbolMapping(Input: 'symbol') {
 
 // ✓ TKeywordVoidMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordVoidMapping(Input: 'void') {
-  return T.TVoid
+export function TKeywordVoidMapping(Input: 'void'): any {
+  return t<T.TVoid>()
 }
 /* compiles to:
  * export type TKeywordVoidMapping<Input extends 'void'> = T.TVoid
@@ -571,8 +840,8 @@ export function TKeywordVoidMapping(Input: 'void') {
 
 // ✓ TKeywordThisMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeywordThisMapping(Input: 'this') {
-  return T.TThis
+export function TKeywordThisMapping(Input: 'this'): any {
+  return t<T.TThis>()
 }
 /* compiles to:
  * export type TKeywordThisMapping<Input extends 'this'> = T.TThis
@@ -580,10 +849,10 @@ export function TKeywordThisMapping(Input: 'this') {
 
 // ✓ TLiteralBigIntMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLiteralBigIntMapping(Input: string) {
+export function TLiteralBigIntMapping(Input: string): any {
   const m1 = matches<`${Hole<"Value", bigint>}`>(Input)
   if (m1) {
-    return T.TLiteral(m1.Value)
+    return t<T.TLiteral<typeof m1.Value>>()
   }
   return never
 }
@@ -594,11 +863,11 @@ export function TLiteralBigIntMapping(Input: string) {
 
 // ✓ TLiteralBooleanMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLiteralBooleanMapping(Input: 'true' | 'false') {
+export function TLiteralBooleanMapping(Input: 'true' | 'false'): any {
   if (matches<'true'>(Input)) {
-    return T.TLiteral(true)
+    return t<T.TLiteral<true>>()
   }
-  return T.TLiteral(false)
+  return t<T.TLiteral<false>>()
 }
 /* compiles to:
  * export type TLiteralBooleanMapping<Input extends 'true' | 'false'> =
@@ -607,10 +876,10 @@ export function TLiteralBooleanMapping(Input: 'true' | 'false') {
 
 // ✓ TLiteralNumberMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLiteralNumberMapping(Input: string) {
+export function TLiteralNumberMapping(Input: string): any {
   const m1 = matches<`${Hole<"Value", number>}`>(Input)
   if (m1) {
-    return T.TLiteral(m1.Value)
+    return t<T.TLiteral<typeof m1.Value>>()
   }
   return never
 }
@@ -621,9 +890,9 @@ export function TLiteralNumberMapping(Input: string) {
 
 // ✓ TLiteralStringMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TLiteralStringMapping(Input: string) {
+export function TLiteralStringMapping(Input: string): any {
   if (matches<T.TLiteralValue>(Input)) {
-    return T.TLiteral(Input)
+    return t<T.TLiteral<typeof Input>>()
   }
   return never
 }
@@ -634,7 +903,7 @@ export function TLiteralStringMapping(Input: string) {
 
 // ✓ TTemplateInterpolateMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateInterpolateMapping(Input: [ unknown, unknown, unknown ]) {
+export function TTemplateInterpolateMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ '${', Hole<"Type", T.TSchema>, '}' ]>(Input)
   if (m1) {
     return m1.Type
@@ -648,7 +917,7 @@ export function TTemplateInterpolateMapping(Input: [ unknown, unknown, unknown ]
 
 // ✓ TTemplateSpanMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateSpanMapping(Input: string, Result: T.TSchema = T.TLiteral(Input)) {
+export function TTemplateSpanMapping(Input: string, Result: T.TSchema = t<T.TLiteral<typeof Input>>()): any {
   return Result
 }
 /* compiles to:
@@ -661,7 +930,7 @@ export function TTemplateSpanMapping(Input: string, Result: T.TSchema = T.TLiter
 
 // ✓ TTemplateBodyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateBodyMapping(Input: [ unknown, unknown, unknown ] | [ unknown ]) {
+export function TTemplateBodyMapping(Input: [ unknown, unknown, unknown ] | [ unknown ]): any {
   const m1 = matches<[ Hole<"Text", T.TSchema>, Hole<"Type", T.TSchema>, Hole<"Rest", T.TSchema[]> ]>(Input)
   if (m1) {
     return [m1.Text, m1.Type, ...m1.Rest]
@@ -682,14 +951,14 @@ export function TTemplateBodyMapping(Input: [ unknown, unknown, unknown ] | [ un
 
 // ✓ TTemplateLiteralTypesMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralTypesMapping__v1(Input) {
+export function TTemplateLiteralTypesMapping__v1(Input): any {
   const m1 = matches<[ '`', Hole<"Types", T.TSchema[]>, '`' ]>(Input)
   if (m1) {
     return m1.Types
   }
   return []
 }
-export function TTemplateLiteralTypesMapping(Input: [ unknown, unknown, unknown ], Result: T.TSchema = TTemplateLiteralTypesMapping__v1(Input)) {
+export function TTemplateLiteralTypesMapping(Input: [ unknown, unknown, unknown ], Result: T.TSchema = TTemplateLiteralTypesMapping__v1(Input)): any {
   return Result
 }
 /* compiles to:
@@ -704,10 +973,10 @@ export function TTemplateLiteralTypesMapping(Input: [ unknown, unknown, unknown 
 
 // ✓ TTemplateLiteralMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralMapping(Input: unknown) {
+export function TTemplateLiteralMapping(Input: unknown): any {
   const m1 = matches<Hole<"Types", T.TSchema[]>>(Input)
   if (m1) {
-    return T.TTemplateLiteralDeferred(m1.Types)
+    return t<T.TTemplateLiteralDeferred<typeof m1.Types>>()
   }
   return never
 }
@@ -718,14 +987,14 @@ export function TTemplateLiteralMapping(Input: unknown) {
 
 // ✓ TDependentMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDependentMapping(Input: [ unknown, unknown, unknown, unknown, unknown, unknown ] | [ unknown, unknown, unknown, unknown ]) {
+export function TDependentMapping(Input: [ unknown, unknown, unknown, unknown, unknown, unknown ] | [ unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ 'if', Hole<"If", T.TSchema>, 'then', Hole<"Then", T.TSchema>, 'else', Hole<"Else", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TDependent(m1.If, m1.Then, m1.Else)
+    return t<T.TDependent<typeof m1.If, typeof m1.Then, typeof m1.Else>>()
   }
   const m2 = matches<[ 'if', Hole<"If", T.TSchema>, 'then', Hole<"Then", T.TSchema> ]>(Input)
   if (m2) {
-    return T.TDependent(m2.If, m2.Then, T.TUnknown)
+    return t<T.TDependent<typeof m2.If, typeof m2.Then, T.TUnknown>>()
   }
   return never
 }
@@ -742,7 +1011,7 @@ export function TDependentMapping(Input: [ unknown, unknown, unknown, unknown, u
 
 // ✓ TKeyOfMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TKeyOfMapping(Input: [ unknown ] | [ ]) {
+export function TKeyOfMapping(Input: [ unknown ] | [ ]): any {
   if (matches<[ unknown ]>(Input)) {
     return true
   }
@@ -754,7 +1023,7 @@ export function TKeyOfMapping(Input: [ unknown ] | [ ]) {
 
 // ✓ TIndexArrayMappingReduce: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndexArrayMappingReduce(Input: unknown[], Result: unknown[] = []) {
+export function TIndexArrayMappingReduce(Input: unknown[], Result: unknown[] = []): any {
   const m1 = matches<[ Hole<"Left", unknown>, ...Hole<"Right", unknown[]> ]>(Input)
   if (m1) {
     const m2 = matches<[ '[', Hole<"Type", T.TSchema>, ']' ]>(m1.Left)
@@ -776,7 +1045,7 @@ export function TIndexArrayMappingReduce(Input: unknown[], Result: unknown[] = [
 
 // ✓ TIndexArrayMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndexArrayMapping(Input: ([ unknown, unknown, unknown ] | [ unknown, unknown ])[]) {
+export function TIndexArrayMapping(Input: ([ unknown, unknown, unknown ] | [ unknown, unknown ])[]): any {
   if (matches<unknown[]>(Input)) {
     return TIndexArrayMappingReduce(Input)
   }
@@ -791,7 +1060,7 @@ export function TIndexArrayMapping(Input: ([ unknown, unknown, unknown ] | [ unk
 
 // ✓ TExtendsMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExtendsMapping(Input: [ unknown, unknown, unknown, unknown, unknown, unknown ] | [ ]) {
+export function TExtendsMapping(Input: [ unknown, unknown, unknown, unknown, unknown, unknown ] | [ ]): any {
   const m1 = matches<[ 'extends', Hole<"Type", T.TSchema>, '?', Hole<"True", T.TSchema>, ':', Hole<"False", T.TSchema> ]>(Input)
   if (m1) {
     return [m1.Type, m1.True, m1.False]
@@ -809,7 +1078,7 @@ export function TExtendsMapping(Input: [ unknown, unknown, unknown, unknown, unk
 
 // ✓ TBaseMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TBaseMapping(Input: [ unknown, unknown, unknown ] | unknown) {
+export function TBaseMapping(Input: [ unknown, unknown, unknown ] | unknown): any {
   const m1 = matches<[ '(', Hole<"Type", T.TSchema>, ')' ]>(Input)
   if (m1) {
     return m1.Type
@@ -829,7 +1098,7 @@ export function TBaseMapping(Input: [ unknown, unknown, unknown ] | unknown) {
 
 // ✓ TWithMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithMapping(Input: [ unknown, unknown ] | [ ]) {
+export function TWithMapping(Input: [ unknown, unknown ] | [ ]): any {
   const m1 = matches<[ 'with', Hole<"WithObject", Record<PropertyKey, unknown>> ]>(Input)
   if (m1) {
     return m1.WithObject
@@ -845,17 +1114,17 @@ export function TWithMapping(Input: [ unknown, unknown ] | [ ]) {
 
 // ✓ TFactorIndexArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFactorIndexArray(Type: T.TSchema, IndexArray: unknown[]) {
+export function TFactorIndexArray(Type: T.TSchema, IndexArray: unknown[]): any {
   const m1 = matches<[ Hole<"Left", T.TSchema[]>, ...Hole<"Right", unknown[]> ]>(IndexArray)
   if (m1) {
     const m2 = matches<[ Hole<"Indexer", T.TSchema> ]>(m1.Left)
     if (m2) {
-      return TFactorIndexArray(S.TIndexDeferred(Type, m2.Indexer), m1.Right)
+      return TFactorIndexArray(t<S.TIndexDeferred<typeof Type, typeof m2.Indexer>>(), m1.Right)
     }
     if (matches<[ ]>(m1.Left)) {
-      return TFactorIndexArray(T.TArray(Type), m1.Right)
+      return TFactorIndexArray(t<T.TArray<typeof Type>>(), m1.Right)
     }
-    return T.TNever
+    return t<T.TNever>()
   }
   return Type
 }
@@ -871,10 +1140,10 @@ export function TFactorIndexArray(Type: T.TSchema, IndexArray: unknown[]) {
 
 // ✓ TFactorExtends: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFactorExtends(Type: T.TSchema, Extends: unknown[]) {
+export function TFactorExtends(Type: T.TSchema, Extends: unknown[]): any {
   const m1 = matches<[ Hole<"Right", T.TSchema>, Hole<"True", T.TSchema>, Hole<"False", T.TSchema> ]>(Extends)
   if (m1) {
-    return S.TConditionalDeferred(Type, m1.Right, m1.True, m1.False)
+    return t<S.TConditionalDeferred<typeof Type, typeof m1.Right, typeof m1.True, typeof m1.False>>()
   }
   return Type
 }
@@ -887,9 +1156,9 @@ export function TFactorExtends(Type: T.TSchema, Extends: unknown[]) {
 
 // ✓ TFactorWith: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFactorWith(Type: T.TSchema, With: unknown) {
+export function TFactorWith(Type: T.TSchema, With: unknown): any {
   if (matches<Record<PropertyKey, unknown>>(With)) {
-    return S.TWithDeferred(Type, With)
+    return t<S.TWithDeferred<typeof Type, typeof With>>()
   }
   return Type
 }
@@ -900,10 +1169,10 @@ export function TFactorWith(Type: T.TSchema, With: unknown) {
 
 // ✓ TFactorMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFactorMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]) {
+export function TFactorMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ Hole<"KeyOf", boolean>, Hole<"Type", T.TSchema>, Hole<"IndexArray", unknown[]>, Hole<"Extend", unknown[]>, Hole<"WithClause", unknown> ]>(Input)
   if (m1) {
-    return TFactorWith(matches<true>(m1.KeyOf) ? TFactorExtends(S.TKeyOfDeferred(TFactorIndexArray(m1.Type, m1.IndexArray)), m1.Extend) : TFactorExtends(TFactorIndexArray(m1.Type, m1.IndexArray), m1.Extend), m1.WithClause)
+    return TFactorWith(matches<true>(m1.KeyOf) ? TFactorExtends(t<S.TKeyOfDeferred<TFactorIndexArray<typeof m1.Type, typeof m1.IndexArray>>>(), m1.Extend) : TFactorExtends(TFactorIndexArray(m1.Type, m1.IndexArray), m1.Extend), m1.WithClause)
   }
   return never
 }
@@ -921,7 +1190,7 @@ export function TFactorMapping(Input: [ unknown, unknown, unknown, unknown, unkn
 
 // ✓ TExprBinaryMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprBinaryMapping(Left: T.TSchema, Rest: unknown[]) {
+export function TExprBinaryMapping(Left: T.TSchema, Rest: unknown[]): any {
   const m1 = matches<[ Hole<"Operator", unknown>, Hole<"Right", T.TSchema>, Hole<"Next", unknown[]> ]>(Rest)
   if (m1) {
     const m2 = matches<Hole<"Schema", T.TSchema>>(TExprBinaryMapping(m1.Right, m1.Next))
@@ -929,16 +1198,16 @@ export function TExprBinaryMapping(Left: T.TSchema, Rest: unknown[]) {
       if (matches<'&'>(m1.Operator)) {
         const m3 = matches<T.TIntersect<Hole<"Types", T.TSchema[]>>>(m2.Schema)
         if (m3) {
-          return T.TIntersect([Left, ...m3.Types])
+          return t<T.TIntersect<[ typeof Left, ...typeof m3.Types ]>>()
         }
-        return T.TIntersect([Left, m2.Schema])
+        return t<T.TIntersect<[ typeof Left, typeof m2.Schema ]>>()
       }
       if (matches<'|'>(m1.Operator)) {
         const m4 = matches<T.TUnion<Hole<"Types", T.TSchema[]>>>(m2.Schema)
         if (m4) {
-          return T.TUnion([Left, ...m4.Types])
+          return t<T.TUnion<[ typeof Left, ...typeof m4.Types ]>>()
         }
-        return T.TUnion([Left, m2.Schema])
+        return t<T.TUnion<[ typeof Left, typeof m2.Schema ]>>()
       }
       return never
     }
@@ -965,7 +1234,7 @@ export function TExprBinaryMapping(Left: T.TSchema, Rest: unknown[]) {
 
 // ✓ TExprTermTailMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprTermTailMapping(Input: [ unknown, unknown, unknown ] | [ ]) {
+export function TExprTermTailMapping(Input: [ unknown, unknown, unknown ] | [ ]): any {
   return Input
 }
 /* compiles to:
@@ -974,7 +1243,7 @@ export function TExprTermTailMapping(Input: [ unknown, unknown, unknown ] | [ ])
 
 // ✓ TExprTermMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprTermMapping(Input: [ unknown, unknown ]) {
+export function TExprTermMapping(Input: [ unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Left", T.TSchema>, Hole<"Rest", unknown[]> ]>(Input)
   if (m1) {
     return TExprBinaryMapping(m1.Left, m1.Rest)
@@ -990,7 +1259,7 @@ export function TExprTermMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TExprTailMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprTailMapping(Input: [ unknown, unknown, unknown ] | [ ]) {
+export function TExprTailMapping(Input: [ unknown, unknown, unknown ] | [ ]): any {
   return Input
 }
 /* compiles to:
@@ -999,7 +1268,7 @@ export function TExprTailMapping(Input: [ unknown, unknown, unknown ] | [ ]) {
 
 // ✓ TExprMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprMapping(Input: [ unknown, unknown ]) {
+export function TExprMapping(Input: [ unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Left", T.TSchema>, Hole<"Rest", unknown[]> ]>(Input)
   if (m1) {
     return TExprBinaryMapping(m1.Left, m1.Rest)
@@ -1015,10 +1284,10 @@ export function TExprMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TExprReadonlyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprReadonlyMapping(Input: [ unknown, unknown ]) {
+export function TExprReadonlyMapping(Input: [ unknown, unknown ]): any {
   const m1 = matches<[ 'readonly', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return S.TAddImmutableDeferred(m1.Type)
+    return t<S.TAddImmutableDeferred<typeof m1.Type>>()
   }
   return never
 }
@@ -1031,7 +1300,7 @@ export function TExprReadonlyMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TExprPipeMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExprPipeMapping(Input: [ unknown, unknown ]) {
+export function TExprPipeMapping(Input: [ unknown, unknown ]): any {
   const m1 = matches<[ '|', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
     return m1.Type
@@ -1045,10 +1314,10 @@ export function TExprPipeMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TGenericTypeMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TGenericTypeMapping(Input: [ unknown, unknown, unknown ]) {
+export function TGenericTypeMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Arguments", T.TParameter[]>, '=', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TGeneric(m1.Arguments, m1.Type)
+    return t<T.TGeneric<typeof m1.Arguments, typeof m1.Type>>()
   }
   return never
 }
@@ -1061,14 +1330,14 @@ export function TGenericTypeMapping(Input: [ unknown, unknown, unknown ]) {
 
 // ✓ TInferTypeMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInferTypeMapping(Input: [ unknown, unknown, unknown, unknown ] | [ unknown, unknown ]) {
+export function TInferTypeMapping(Input: [ unknown, unknown, unknown, unknown ] | [ unknown, unknown ]): any {
   const m1 = matches<[ 'infer', Hole<"Name", string>, 'extends', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TInfer(m1.Name, m1.Type)
+    return t<T.TInfer<typeof m1.Name, typeof m1.Type>>()
   }
   const m2 = matches<[ 'infer', Hole<"Name", string> ]>(Input)
   if (m2) {
-    return T.TInfer(m2.Name, T.TUnknown)
+    return t<T.TInfer<typeof m2.Name, T.TUnknown>>()
   }
   return never
 }
@@ -1084,7 +1353,7 @@ export function TInferTypeMapping(Input: [ unknown, unknown, unknown, unknown ] 
 
 // ✓ TTypeMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTypeMapping(Input: unknown) {
+export function TTypeMapping(Input: unknown): any {
   return Input
 }
 /* compiles to:
@@ -1093,7 +1362,7 @@ export function TTypeMapping(Input: unknown) {
 
 // ✓ TPropertyKeyNumberMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeyNumberMapping(Input: string) {
+export function TPropertyKeyNumberMapping(Input: string): any {
   return `${Input}`
 }
 /* compiles to:
@@ -1102,7 +1371,7 @@ export function TPropertyKeyNumberMapping(Input: string) {
 
 // ✓ TPropertyKeyIdentMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeyIdentMapping(Input: string) {
+export function TPropertyKeyIdentMapping(Input: string): any {
   return Input
 }
 /* compiles to:
@@ -1111,7 +1380,7 @@ export function TPropertyKeyIdentMapping(Input: string) {
 
 // ✓ TPropertyKeyQuotedMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeyQuotedMapping(Input: string) {
+export function TPropertyKeyQuotedMapping(Input: string): any {
   return Input
 }
 /* compiles to:
@@ -1120,18 +1389,18 @@ export function TPropertyKeyQuotedMapping(Input: string) {
 
 // ✓ TPropertyKeyIndexMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeyIndexMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]) {
+export function TPropertyKeyIndexMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]): any {
   if (matches<[ '[', string, ':', T.TInteger, ']' ]>(Input)) {
-    return T.TIntegerKey
+    return t<T.TIntegerKey>()
   }
   if (matches<[ '[', string, ':', T.TNumber, ']' ]>(Input)) {
-    return T.TNumberKey
+    return t<T.TNumberKey>()
   }
   if (matches<[ '[', string, ':', T.TString, ']' ]>(Input)) {
-    return T.TStringKey
+    return t<T.TStringKey>()
   }
   if (matches<[ '[', string, ':', T.TSymbol, ']' ]>(Input)) {
-    return T.TStringKey
+    return t<T.TStringKey>()
   }
   return never
 }
@@ -1148,7 +1417,7 @@ export function TPropertyKeyIndexMapping(Input: [ unknown, unknown, unknown, unk
 
 // ✓ TPropertyKeyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyKeyMapping(Input: unknown) {
+export function TPropertyKeyMapping(Input: unknown): any {
   return Input
 }
 /* compiles to:
@@ -1157,7 +1426,7 @@ export function TPropertyKeyMapping(Input: unknown) {
 
 // ✓ TReadonlyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TReadonlyMapping(Input: [ unknown ] | [ ]) {
+export function TReadonlyMapping(Input: [ unknown ] | [ ]): any {
   if (matches<[ unknown ]>(Input)) {
     return true
   }
@@ -1170,7 +1439,7 @@ export function TReadonlyMapping(Input: [ unknown ] | [ ]) {
 
 // ✓ TOptionalMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TOptionalMapping(Input: [ unknown ] | [ ]) {
+export function TOptionalMapping(Input: [ unknown ] | [ ]): any {
   if (matches<[ unknown ]>(Input)) {
     return true
   }
@@ -1183,12 +1452,12 @@ export function TOptionalMapping(Input: [ unknown ] | [ ]) {
 
 // ✓ TPropertyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]) {
+export function TPropertyMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ Hole<"IsReadonly", boolean>, Hole<"Key", string>, Hole<"IsOptional", boolean>, string, Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
     const out = emptyObject
     for (const _ in keySet(m1.Key)) {
-      out[_] = matches<[ true, true ]>([m1.IsReadonly, m1.IsOptional]) ? S.TAddReadonlyDeferred(S.TAddOptionalDeferred(m1.Type)) : (matches<[ true, false ]>([m1.IsReadonly, m1.IsOptional]) ? S.TAddReadonlyDeferred(m1.Type) : (matches<[ false, true ]>([m1.IsReadonly, m1.IsOptional]) ? S.TAddOptionalDeferred(m1.Type) : m1.Type))
+      out[_] = matches<[ true, true ]>([m1.IsReadonly, m1.IsOptional]) ? t<S.TAddReadonlyDeferred<S.TAddOptionalDeferred<typeof m1.Type>>>() : (matches<[ true, false ]>([m1.IsReadonly, m1.IsOptional]) ? t<S.TAddReadonlyDeferred<typeof m1.Type>>() : (matches<[ false, true ]>([m1.IsReadonly, m1.IsOptional]) ? t<S.TAddOptionalDeferred<typeof m1.Type>>() : m1.Type))
     }
     return out
   }
@@ -1209,7 +1478,7 @@ export function TPropertyMapping(Input: [ unknown, unknown, unknown, unknown, un
 
 // ✓ TPropertyDelimiterMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyDelimiterMapping(Input: [ unknown, unknown ] | [ unknown ]) {
+export function TPropertyDelimiterMapping(Input: [ unknown, unknown ] | [ unknown ]): any {
   return Input
 }
 /* compiles to:
@@ -1218,7 +1487,7 @@ export function TPropertyDelimiterMapping(Input: [ unknown, unknown ] | [ unknow
 
 // ✓ TPropertyListMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertyListMapping(Input: [ unknown, unknown ]) {
+export function TPropertyListMapping(Input: [ unknown, unknown ]): any {
   return TDelimited(Input)
 }
 /* compiles to:
@@ -1227,19 +1496,22 @@ export function TPropertyListMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TPropertiesReduce: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertiesReduce(PropertiesList: T.TProperties[], Result: [ properties: T.TProperties, patternProperties: T.TProperties ] = [{}, {}]) {
+/**
+ * @param {[ properties: T.TProperties, patternProperties: T.TProperties ]} Result
+ */
+export function TPropertiesReduce(PropertiesList: T.TProperties[], Result = [{}, {}]): any {
   const m1 = matches<[ Hole<"Left", T.TProperties>, ...Hole<"Right", T.TProperties[]> ]>(PropertiesList)
   if (m1) {
     if (matches<{ [_ in T.TIntegerKey]: T.TSchema; }>(m1.Left)) {
-      return TPropertiesReduce(m1.Right, [Result[0], Memory.TAssign(Result[1], m1.Left)])
+      return TPropertiesReduce(m1.Right, [Result[0], t<Memory.TAssign<(typeof Result)[1], typeof m1.Left>>()])
     }
     if (matches<{ [_ in T.TNumberKey]: T.TSchema; }>(m1.Left)) {
-      return TPropertiesReduce(m1.Right, [Result[0], Memory.TAssign(Result[1], m1.Left)])
+      return TPropertiesReduce(m1.Right, [Result[0], t<Memory.TAssign<(typeof Result)[1], typeof m1.Left>>()])
     }
     if (matches<{ [_ in T.TStringKey]: T.TSchema; }>(m1.Left)) {
-      return TPropertiesReduce(m1.Right, [Result[0], Memory.TAssign(Result[1], m1.Left)])
+      return TPropertiesReduce(m1.Right, [Result[0], t<Memory.TAssign<(typeof Result)[1], typeof m1.Left>>()])
     }
-    return TPropertiesReduce(m1.Right, [Memory.TAssign(Result[0], m1.Left), Result[1]])
+    return TPropertiesReduce(m1.Right, [t<Memory.TAssign<(typeof Result)[0], typeof m1.Left>>(), Result[1]])
   }
   const out = emptyObject
   for (const Key in keyof(Result)) {
@@ -1265,14 +1537,14 @@ export function TPropertiesReduce(PropertiesList: T.TProperties[], Result: [ pro
 
 // ✓ TPropertiesMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPropertiesMapping__v1(Input) {
+export function TPropertiesMapping__v1(Input): any {
   const m1 = matches<[ '{', Hole<"PropertyList", T.TProperties[]>, '}' ]>(Input)
   if (m1) {
     return TPropertiesReduce(m1.PropertyList)
   }
   return [{}, {}]
 }
-export function TPropertiesMapping(Input: [ unknown, unknown, unknown ], Result: [ T.TProperties, T.TProperties ] = TPropertiesMapping__v1(Input)) {
+export function TPropertiesMapping(Input: [ unknown, unknown, unknown ], Result: [ T.TProperties, T.TProperties ] = TPropertiesMapping__v1(Input)): any {
   return Result
 }
 /* compiles to:
@@ -1289,10 +1561,10 @@ export function TPropertiesMapping(Input: [ unknown, unknown, unknown ], Result:
 
 // ✓ T_Object_Mapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Object_Mapping(Input: unknown) {
+export function T_Object_Mapping(Input: unknown): any {
   const m1 = matches<[ Hole<"Properties", T.TProperties>, Hole<"_PatternProperties", T.TProperties> ]>(Input)
   if (m1) {
-    return T.TObject(m1.Properties)
+    return t<T.TObject<typeof m1.Properties>>()
   }
   return never
 }
@@ -1305,18 +1577,18 @@ export function T_Object_Mapping(Input: unknown) {
 
 // ✓ TElementNamedMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementNamedMapping(Input: [ unknown, unknown, unknown, unknown, unknown ] | [ unknown, unknown, unknown, unknown ] | [ unknown, unknown, unknown ]) {
+export function TElementNamedMapping(Input: [ unknown, unknown, unknown, unknown, unknown ] | [ unknown, unknown, unknown, unknown ] | [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ string, '?', ':', 'readonly', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return S.TAddReadonlyDeferred(S.TAddOptionalDeferred(m1.Type))
+    return t<S.TAddReadonlyDeferred<S.TAddOptionalDeferred<typeof m1.Type>>>()
   }
   const m2 = matches<[ string, ':', 'readonly', Hole<"Type", T.TSchema> ]>(Input)
   if (m2) {
-    return S.TAddReadonlyDeferred(m2.Type)
+    return t<S.TAddReadonlyDeferred<typeof m2.Type>>()
   }
   const m3 = matches<[ string, '?', ':', Hole<"Type", T.TSchema> ]>(Input)
   if (m3) {
-    return S.TAddOptionalDeferred(m3.Type)
+    return t<S.TAddOptionalDeferred<typeof m3.Type>>()
   }
   const m4 = matches<[ string, ':', Hole<"Type", T.TSchema> ]>(Input)
   if (m4) {
@@ -1340,10 +1612,10 @@ export function TElementNamedMapping(Input: [ unknown, unknown, unknown, unknown
 
 // ✓ TElementReadonlyOptionalMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementReadonlyOptionalMapping(Input: [ unknown, unknown, unknown ]) {
+export function TElementReadonlyOptionalMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ 'readonly', Hole<"Type", T.TSchema>, '?' ]>(Input)
   if (m1) {
-    return S.TAddReadonlyDeferred(S.TAddOptionalDeferred(m1.Type))
+    return t<S.TAddReadonlyDeferred<S.TAddOptionalDeferred<typeof m1.Type>>>()
   }
   return never
 }
@@ -1356,10 +1628,10 @@ export function TElementReadonlyOptionalMapping(Input: [ unknown, unknown, unkno
 
 // ✓ TElementReadonlyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementReadonlyMapping(Input: [ unknown, unknown ]) {
+export function TElementReadonlyMapping(Input: [ unknown, unknown ]): any {
   const m1 = matches<[ 'readonly', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return S.TAddReadonlyDeferred(m1.Type)
+    return t<S.TAddReadonlyDeferred<typeof m1.Type>>()
   }
   return never
 }
@@ -1372,10 +1644,10 @@ export function TElementReadonlyMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TElementOptionalMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementOptionalMapping(Input: [ unknown, unknown ]) {
+export function TElementOptionalMapping(Input: [ unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Type", T.TSchema>, '?' ]>(Input)
   if (m1) {
-    return S.TAddOptionalDeferred(m1.Type)
+    return t<S.TAddOptionalDeferred<typeof m1.Type>>()
   }
   return never
 }
@@ -1386,7 +1658,7 @@ export function TElementOptionalMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TElementBaseMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementBaseMapping(Input: unknown) {
+export function TElementBaseMapping(Input: unknown): any {
   return Input
 }
 /* compiles to:
@@ -1395,10 +1667,10 @@ export function TElementBaseMapping(Input: unknown) {
 
 // ✓ TElementMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementMapping(Input: [ unknown, unknown ] | [ unknown ]) {
+export function TElementMapping(Input: [ unknown, unknown ] | [ unknown ]): any {
   const m1 = matches<[ '...', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TRest(m1.Type)
+    return t<T.TRest<typeof m1.Type>>()
   }
   const m2 = matches<[ Hole<"Type", T.TSchema> ]>(Input)
   if (m2) {
@@ -1415,7 +1687,7 @@ export function TElementMapping(Input: [ unknown, unknown ] | [ unknown ]) {
 
 // ✓ TElementListMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TElementListMapping(Input: [ unknown, unknown ]) {
+export function TElementListMapping(Input: [ unknown, unknown ]): any {
   return TDelimited(Input)
 }
 /* compiles to:
@@ -1424,10 +1696,10 @@ export function TElementListMapping(Input: [ unknown, unknown ]) {
 
 // ✓ T_Tuple_Mapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Tuple_Mapping(Input: [ unknown, unknown, unknown ]) {
+export function T_Tuple_Mapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ '[', Hole<"Types", T.TSchema[]>, ']' ]>(Input)
   if (m1) {
-    return T.TTuple(m1.Types)
+    return t<T.TTuple<typeof m1.Types>>()
   }
   return never
 }
@@ -1438,10 +1710,10 @@ export function T_Tuple_Mapping(Input: [ unknown, unknown, unknown ]) {
 
 // ✓ TParameterReadonlyOptionalMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterReadonlyOptionalMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]) {
+export function TParameterReadonlyOptionalMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ string, '?', ':', 'readonly', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return S.TAddReadonlyDeferred(S.TAddOptionalDeferred(m1.Type))
+    return t<S.TAddReadonlyDeferred<S.TAddOptionalDeferred<typeof m1.Type>>>()
   }
   return never
 }
@@ -1456,10 +1728,10 @@ export function TParameterReadonlyOptionalMapping(Input: [ unknown, unknown, unk
 
 // ✓ TParameterReadonlyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterReadonlyMapping(Input: [ unknown, unknown, unknown, unknown ]) {
+export function TParameterReadonlyMapping(Input: [ unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ string, ':', 'readonly', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return S.TAddReadonlyDeferred(m1.Type)
+    return t<S.TAddReadonlyDeferred<typeof m1.Type>>()
   }
   return never
 }
@@ -1472,10 +1744,10 @@ export function TParameterReadonlyMapping(Input: [ unknown, unknown, unknown, un
 
 // ✓ TParameterOptionalMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterOptionalMapping(Input: [ unknown, unknown, unknown, unknown ]) {
+export function TParameterOptionalMapping(Input: [ unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ string, '?', ':', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return S.TAddOptionalDeferred(m1.Type)
+    return t<S.TAddOptionalDeferred<typeof m1.Type>>()
   }
   return never
 }
@@ -1488,7 +1760,7 @@ export function TParameterOptionalMapping(Input: [ unknown, unknown, unknown, un
 
 // ✓ TParameterTypeMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterTypeMapping(Input: [ unknown, unknown, unknown ]) {
+export function TParameterTypeMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ string, ':', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
     return m1.Type
@@ -1502,7 +1774,7 @@ export function TParameterTypeMapping(Input: [ unknown, unknown, unknown ]) {
 
 // ✓ TParameterBaseMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterBaseMapping(Input: unknown) {
+export function TParameterBaseMapping(Input: unknown): any {
   return Input
 }
 /* compiles to:
@@ -1511,10 +1783,10 @@ export function TParameterBaseMapping(Input: unknown) {
 
 // ✓ TParameterMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterMapping(Input: [ unknown, unknown ] | [ unknown ]) {
+export function TParameterMapping(Input: [ unknown, unknown ] | [ unknown ]): any {
   const m1 = matches<[ '...', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TRest(m1.Type)
+    return t<T.TRest<typeof m1.Type>>()
   }
   const m2 = matches<[ Hole<"Type", T.TSchema> ]>(Input)
   if (m2) {
@@ -1531,7 +1803,7 @@ export function TParameterMapping(Input: [ unknown, unknown ] | [ unknown ]) {
 
 // ✓ TParameterListMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TParameterListMapping(Input: [ unknown, unknown ]) {
+export function TParameterListMapping(Input: [ unknown, unknown ]): any {
   return TDelimited(Input)
 }
 /* compiles to:
@@ -1540,10 +1812,10 @@ export function TParameterListMapping(Input: [ unknown, unknown ]) {
 
 // ✓ T_Function_Mapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Function_Mapping(Input: [ unknown, unknown, unknown, unknown, unknown ]) {
+export function T_Function_Mapping(Input: [ unknown, unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ '(', Hole<"ParameterList", T.TSchema[]>, ')', '=>', Hole<"ReturnType", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TFunction(m1.ParameterList, m1.ReturnType)
+    return t<T.TFunction<typeof m1.ParameterList, typeof m1.ReturnType>>()
   }
   return never
 }
@@ -1556,10 +1828,10 @@ export function T_Function_Mapping(Input: [ unknown, unknown, unknown, unknown, 
 
 // ✓ T_Constructor_Mapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Constructor_Mapping(Input: [ unknown, unknown, unknown, unknown, unknown, unknown ]) {
+export function T_Constructor_Mapping(Input: [ unknown, unknown, unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ 'new', '(', Hole<"ParameterList", T.TSchema[]>, ')', '=>', Hole<"InstanceType", T.TSchema> ]>(Input)
   if (m1) {
-    return T.TConstructor(m1.ParameterList, m1.InstanceType)
+    return t<T.TConstructor<typeof m1.ParameterList, typeof m1.InstanceType>>()
   }
   return never
 }
@@ -1574,12 +1846,12 @@ export function T_Constructor_Mapping(Input: [ unknown, unknown, unknown, unknow
 
 // ✓ TApplyReadonly: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TApplyReadonly(Readonly: TModifierOperation, Type: T.TSchema) {
+export function TApplyReadonly(Readonly: TModifierOperation, Type: T.TSchema): any {
   if (matches<'remove'>(Readonly)) {
-    return S.TRemoveReadonlyDeferred(Type)
+    return t<S.TRemoveReadonlyDeferred<typeof Type>>()
   }
   if (matches<'add'>(Readonly)) {
-    return S.TAddReadonlyDeferred(Type)
+    return t<S.TAddReadonlyDeferred<typeof Type>>()
   }
   return Type
 }
@@ -1592,7 +1864,7 @@ export function TApplyReadonly(Readonly: TModifierOperation, Type: T.TSchema) {
 
 // ✓ TMappedReadonlyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedReadonlyMapping(Input: [ unknown, unknown ] | [ unknown ] | [ ]) {
+export function TMappedReadonlyMapping(Input: [ unknown, unknown ] | [ unknown ] | [ ]): any {
   if (matches<[ '-', 'readonly' ]>(Input)) {
     return 'remove'
   }
@@ -1614,12 +1886,12 @@ export function TMappedReadonlyMapping(Input: [ unknown, unknown ] | [ unknown ]
 
 // ✓ TApplyOptional: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TApplyOptional(Optional: TModifierOperation, Type: T.TSchema) {
+export function TApplyOptional(Optional: TModifierOperation, Type: T.TSchema): any {
   if (matches<'remove'>(Optional)) {
-    return S.TRemoveOptionalDeferred(Type)
+    return t<S.TRemoveOptionalDeferred<typeof Type>>()
   }
   if (matches<'add'>(Optional)) {
-    return S.TAddOptionalDeferred(Type)
+    return t<S.TAddOptionalDeferred<typeof Type>>()
   }
   return Type
 }
@@ -1632,7 +1904,7 @@ export function TApplyOptional(Optional: TModifierOperation, Type: T.TSchema) {
 
 // ✓ TMappedOptionalMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedOptionalMapping(Input: [ unknown, unknown ] | [ unknown ] | [ ]) {
+export function TMappedOptionalMapping(Input: [ unknown, unknown ] | [ unknown ] | [ ]): any {
   if (matches<[ '-', '?' ]>(Input)) {
     return 'remove'
   }
@@ -1654,7 +1926,7 @@ export function TMappedOptionalMapping(Input: [ unknown, unknown ] | [ unknown ]
 
 // ✓ TMappedAsMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TMappedAsMapping(Input: [ unknown, unknown ] | [ ]) {
+export function TMappedAsMapping(Input: [ unknown, unknown ] | [ ]): any {
   const m1 = matches<[ 'as', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
     return [m1.Type]
@@ -1668,14 +1940,14 @@ export function TMappedAsMapping(Input: [ unknown, unknown ] | [ ]) {
 
 // ✓ T_Mapped_Mapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function T_Mapped_Mapping(Input: [ unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown ]) {
+export function T_Mapped_Mapping(Input: [ unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ '{', Hole<"Readonly", TModifierOperation>, '[', Hole<"Key", string>, 'in', Hole<"Type", T.TSchema>, Hole<"As", T.TSchema[]>, ']', Hole<"Optional", TModifierOperation>, ':', Hole<"Property", T.TSchema>, null, '}' ]>(Input)
   if (m1) {
     const m2 = matches<[ Hole<"As", T.TSchema> ]>(m1.As)
     if (m2) {
-      return S.TMappedDeferred(T.TIdentifier(m1.Key), m1.Type, m2.As, TApplyReadonly(m1.Readonly, TApplyOptional(m1.Optional, m1.Property)))
+      return t<S.TMappedDeferred<T.TIdentifier<typeof m1.Key>, typeof m1.Type, typeof m2.As, TApplyReadonly<typeof m1.Readonly, TApplyOptional<typeof m1.Optional, typeof m1.Property>>>>()
     }
-    return S.TMappedDeferred(T.TIdentifier(m1.Key), m1.Type, T.TRef(m1.Key), TApplyReadonly(m1.Readonly, TApplyOptional(m1.Optional, m1.Property)))
+    return t<S.TMappedDeferred<T.TIdentifier<typeof m1.Key>, typeof m1.Type, T.TRef<typeof m1.Key>, TApplyReadonly<typeof m1.Readonly, TApplyOptional<typeof m1.Optional, typeof m1.Property>>>>()
   }
   return never
 }
@@ -1702,7 +1974,7 @@ export function T_Mapped_Mapping(Input: [ unknown, unknown, unknown, unknown, un
 
 // ✓ TReferenceMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TReferenceMapping(Input: string, Result: T.TSchema = T.TRef(Input)) {
+export function TReferenceMapping(Input: string, Result: T.TSchema = t<T.TRef<typeof Input>>()): any {
   return Result
 }
 /* compiles to:
@@ -1711,7 +1983,7 @@ export function TReferenceMapping(Input: string, Result: T.TSchema = T.TRef(Inpu
 
 // ✓ TWithBigIntMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithBigIntMapping(Input: string) {
+export function TWithBigIntMapping(Input: string): any {
   const m1 = matches<`${Hole<"Value", bigint>}`>(Input)
   if (m1) {
     return m1.Value
@@ -1725,7 +1997,7 @@ export function TWithBigIntMapping(Input: string) {
 
 // ✓ TWithNumberMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithNumberMapping(Input: string) {
+export function TWithNumberMapping(Input: string): any {
   const m1 = matches<`${Hole<"Value", number>}`>(Input)
   if (m1) {
     return m1.Value
@@ -1739,7 +2011,7 @@ export function TWithNumberMapping(Input: string) {
 
 // ✓ TWithBooleanMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithBooleanMapping(Input: 'true' | 'false') {
+export function TWithBooleanMapping(Input: 'true' | 'false'): any {
   if (matches<'true'>(Input)) {
     return true
   }
@@ -1752,7 +2024,7 @@ export function TWithBooleanMapping(Input: 'true' | 'false') {
 
 // ✓ TWithStringMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithStringMapping(Input: string) {
+export function TWithStringMapping(Input: string): any {
   return Input
 }
 /* compiles to:
@@ -1761,7 +2033,7 @@ export function TWithStringMapping(Input: string) {
 
 // ✓ TWithNullMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithNullMapping(Input: 'null') {
+export function TWithNullMapping(Input: 'null'): any {
   return Null
 }
 /* compiles to:
@@ -1770,7 +2042,7 @@ export function TWithNullMapping(Input: 'null') {
 
 // ✓ TWithUndefinedMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithUndefinedMapping(Input: 'undefined') {
+export function TWithUndefinedMapping(Input: 'undefined'): any {
   return Undefined
 }
 /* compiles to:
@@ -1779,7 +2051,7 @@ export function TWithUndefinedMapping(Input: 'undefined') {
 
 // ✓ TWithPropertyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithPropertyMapping(Input: [ unknown, unknown, unknown ]) {
+export function TWithPropertyMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Key", string>, ':', Hole<"Value", unknown> ]>(Input)
   if (m1) {
     const out = emptyObject
@@ -1799,7 +2071,7 @@ export function TWithPropertyMapping(Input: [ unknown, unknown, unknown ]) {
 
 // ✓ TWithPropertyListMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithPropertyListMapping(Input: [ unknown, unknown ]) {
+export function TWithPropertyListMapping(Input: [ unknown, unknown ]): any {
   return TDelimited(Input)
 }
 /* compiles to:
@@ -1808,7 +2080,7 @@ export function TWithPropertyListMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TWithObjectMappingReduce: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithObjectMappingReduce(PropertyList: Record<PropertyKey, unknown>[]) {
+export function TWithObjectMappingReduce(PropertyList: Record<PropertyKey, unknown>[]): any {
   let Result = {}
   let propertyList = PropertyList
   while (true) {
@@ -1817,7 +2089,7 @@ export function TWithObjectMappingReduce(PropertyList: Record<PropertyKey, unkno
       break
     }
     propertyList = m1.Right
-    Result = Memory.TAssign(Result, m1.Left)
+    Result = t<Memory.TAssign<typeof Result, typeof m1.Left>>()
   }
   const out = emptyObject
   for (const Key in keyof(Result)) {
@@ -1841,7 +2113,7 @@ export function TWithObjectMappingReduce(PropertyList: Record<PropertyKey, unkno
 
 // ✓ TWithObjectMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithObjectMapping(Input: [ unknown, unknown, unknown ]) {
+export function TWithObjectMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ '{', Hole<"PropertyList", Record<PropertyKey, unknown>[]>, '}' ]>(Input)
   if (m1) {
     return TWithObjectMappingReduce(m1.PropertyList)
@@ -1857,7 +2129,7 @@ export function TWithObjectMapping(Input: [ unknown, unknown, unknown ]) {
 
 // ✓ TWithElementListMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithElementListMapping(Input: [ unknown, unknown ]) {
+export function TWithElementListMapping(Input: [ unknown, unknown ]): any {
   return TDelimited(Input)
 }
 /* compiles to:
@@ -1866,7 +2138,7 @@ export function TWithElementListMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TWithArrayMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithArrayMapping(Input: [ unknown, unknown, unknown ]) {
+export function TWithArrayMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ '[', Hole<"Elements", unknown[]>, ']' ]>(Input)
   if (m1) {
     return m1.Elements
@@ -1880,7 +2152,7 @@ export function TWithArrayMapping(Input: [ unknown, unknown, unknown ]) {
 
 // ✓ TWithValueMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TWithValueMapping(Input: unknown) {
+export function TWithValueMapping(Input: unknown): any {
   return Input
 }
 /* compiles to:
@@ -1889,8 +2161,8 @@ export function TWithValueMapping(Input: unknown) {
 
 // ✓ TPatternBigIntMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternBigIntMapping(Input: '-?(?:0|[1-9][0-9]*)n') {
-  return T.TBigInt
+export function TPatternBigIntMapping(Input: '-?(?:0|[1-9][0-9]*)n'): any {
+  return t<T.TBigInt>()
 }
 /* compiles to:
  * export type TPatternBigIntMapping<Input extends '-?(?:0|[1-9][0-9]*)n'> = T.TBigInt
@@ -1898,8 +2170,8 @@ export function TPatternBigIntMapping(Input: '-?(?:0|[1-9][0-9]*)n') {
 
 // ✓ TPatternStringMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternStringMapping(Input: '.*') {
-  return T.TString
+export function TPatternStringMapping(Input: '.*'): any {
+  return t<T.TString>()
 }
 /* compiles to:
  * export type TPatternStringMapping<Input extends '.*'> = T.TString
@@ -1907,8 +2179,8 @@ export function TPatternStringMapping(Input: '.*') {
 
 // ✓ TPatternNumberMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternNumberMapping(Input: '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?') {
-  return T.TNumber
+export function TPatternNumberMapping(Input: '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?'): any {
+  return t<T.TNumber>()
 }
 /* compiles to:
  * export type TPatternNumberMapping<Input extends '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?'> = T.TNumber
@@ -1916,8 +2188,8 @@ export function TPatternNumberMapping(Input: '-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?'
 
 // ✓ TPatternIntegerMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternIntegerMapping(Input: '-?(?:0|[1-9][0-9]*)') {
-  return T.TInteger
+export function TPatternIntegerMapping(Input: '-?(?:0|[1-9][0-9]*)'): any {
+  return t<T.TInteger>()
 }
 /* compiles to:
  * export type TPatternIntegerMapping<Input extends '-?(?:0|[1-9][0-9]*)'> = T.TInteger
@@ -1925,8 +2197,8 @@ export function TPatternIntegerMapping(Input: '-?(?:0|[1-9][0-9]*)') {
 
 // ✓ TPatternNeverMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternNeverMapping(Input: '(?!)') {
-  return T.TNever
+export function TPatternNeverMapping(Input: '(?!)'): any {
+  return t<T.TNever>()
 }
 /* compiles to:
  * export type TPatternNeverMapping<Input extends '(?!)'> = T.TNever
@@ -1934,7 +2206,7 @@ export function TPatternNeverMapping(Input: '(?!)') {
 
 // ✓ TPatternTextMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternTextMapping(Input: string, Result: T.TSchema = T.TLiteral(Input)) {
+export function TPatternTextMapping(Input: string, Result: T.TSchema = t<T.TLiteral<typeof Input>>()): any {
   return Result
 }
 /* compiles to:
@@ -1947,7 +2219,7 @@ export function TPatternTextMapping(Input: string, Result: T.TSchema = T.TLitera
 
 // ✓ TPatternBaseMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternBaseMapping(Input: unknown) {
+export function TPatternBaseMapping(Input: unknown): any {
   return Input
 }
 /* compiles to:
@@ -1956,10 +2228,10 @@ export function TPatternBaseMapping(Input: unknown) {
 
 // ✓ TPatternGroupMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternGroupMapping(Input: [ unknown, unknown, unknown ]) {
+export function TPatternGroupMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ '(', Hole<"Body", T.TSchema[]>, ')' ]>(Input)
   if (m1) {
-    return T.TUnion(m1.Body)
+    return t<T.TUnion<typeof m1.Body>>()
   }
   return never
 }
@@ -1970,7 +2242,7 @@ export function TPatternGroupMapping(Input: [ unknown, unknown, unknown ]) {
 
 // ✓ TPatternUnionMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternUnionMapping(Input: [ unknown, unknown, unknown ] | [ unknown ] | [ ]) {
+export function TPatternUnionMapping(Input: [ unknown, unknown, unknown ] | [ unknown ] | [ ]): any {
   const m1 = matches<[ Hole<"Term", T.TSchema[]>, '|', Hole<"Union", T.TSchema[]> ]>(Input)
   if (m1) {
     return [...m1.Term, ...m1.Union]
@@ -1991,7 +2263,7 @@ export function TPatternUnionMapping(Input: [ unknown, unknown, unknown ] | [ un
 
 // ✓ TPatternTermMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternTermMapping(Input: [ unknown, unknown ]) {
+export function TPatternTermMapping(Input: [ unknown, unknown ]): any {
   const m1 = matches<[ Hole<"Left", T.TSchema>, Hole<"Right", T.TSchema[]> ]>(Input)
   if (m1) {
     return [m1.Left, ...m1.Right]
@@ -2007,7 +2279,7 @@ export function TPatternTermMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TPatternBodyMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternBodyMapping(Input: unknown) {
+export function TPatternBodyMapping(Input: unknown): any {
   return Input
 }
 /* compiles to:
@@ -2016,7 +2288,7 @@ export function TPatternBodyMapping(Input: unknown) {
 
 // ✓ TPatternMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TPatternMapping(Input: [ unknown, unknown, unknown ]) {
+export function TPatternMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ '^', Hole<"Body", T.TSchema[]>, '$' ]>(Input)
   if (m1) {
     return m1.Body
@@ -2030,7 +2302,7 @@ export function TPatternMapping(Input: [ unknown, unknown, unknown ]) {
 
 // ✓ TInterfaceDeclarationHeritageListMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInterfaceDeclarationHeritageListMapping(Input: [ unknown, unknown ]) {
+export function TInterfaceDeclarationHeritageListMapping(Input: [ unknown, unknown ]): any {
   return TDelimited(Input)
 }
 /* compiles to:
@@ -2041,7 +2313,7 @@ export function TInterfaceDeclarationHeritageListMapping(Input: [ unknown, unkno
 
 // ✓ TInterfaceDeclarationHeritageMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInterfaceDeclarationHeritageMapping(Input: [ unknown, unknown ] | [ ]) {
+export function TInterfaceDeclarationHeritageMapping(Input: [ unknown, unknown ] | [ ]): any {
   const m1 = matches<[ 'extends', Hole<"Heritage", T.TSchema[]> ]>(Input)
   if (m1) {
     return m1.Heritage
@@ -2055,12 +2327,12 @@ export function TInterfaceDeclarationHeritageMapping(Input: [ unknown, unknown ]
 
 // ✓ TInterfaceDeclarationGenericMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInterfaceDeclarationGenericMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]) {
+export function TInterfaceDeclarationGenericMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ 'interface', Hole<"Name", string>, Hole<"Parameters", T.TParameter[]>, Hole<"Heritage", T.TSchema[]>, Hole<"Properties", [ T.TProperties, T.TProperties ]> ]>(Input)
   if (m1) {
     const out = emptyObject
     for (const _ in keySet(m1.Name)) {
-      out[_] = T.TGeneric(m1.Parameters, S.TInterfaceDeferred(m1.Heritage, m1.Properties[0]))
+      out[_] = t<T.TGeneric<typeof m1.Parameters, S.TInterfaceDeferred<typeof m1.Heritage, (typeof m1.Properties)[0]>>>()
     }
     return out
   }
@@ -2077,12 +2349,12 @@ export function TInterfaceDeclarationGenericMapping(Input: [ unknown, unknown, u
 
 // ✓ TInterfaceDeclarationMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInterfaceDeclarationMapping(Input: [ unknown, unknown, unknown, unknown ]) {
+export function TInterfaceDeclarationMapping(Input: [ unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ 'interface', Hole<"Name", string>, Hole<"Heritage", T.TSchema[]>, Hole<"Properties", [ T.TProperties, T.TProperties ]> ]>(Input)
   if (m1) {
     const out = emptyObject
     for (const _ in keySet(m1.Name)) {
-      out[_] = S.TInterfaceDeferred(m1.Heritage, m1.Properties[0])
+      out[_] = t<S.TInterfaceDeferred<typeof m1.Heritage, (typeof m1.Properties)[0]>>()
     }
     return out
   }
@@ -2097,12 +2369,12 @@ export function TInterfaceDeclarationMapping(Input: [ unknown, unknown, unknown,
 
 // ✓ TTypeAliasDeclarationGenericMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTypeAliasDeclarationGenericMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]) {
+export function TTypeAliasDeclarationGenericMapping(Input: [ unknown, unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ 'type', Hole<"Name", string>, Hole<"Parameters", T.TParameter[]>, '=', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
     const out = emptyObject
     for (const _ in keySet(m1.Name)) {
-      out[_] = T.TGeneric(m1.Parameters, m1.Type)
+      out[_] = t<T.TGeneric<typeof m1.Parameters, typeof m1.Type>>()
     }
     return out
   }
@@ -2119,7 +2391,7 @@ export function TTypeAliasDeclarationGenericMapping(Input: [ unknown, unknown, u
 
 // ✓ TTypeAliasDeclarationMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTypeAliasDeclarationMapping(Input: [ unknown, unknown, unknown, unknown ]) {
+export function TTypeAliasDeclarationMapping(Input: [ unknown, unknown, unknown, unknown ]): any {
   const m1 = matches<[ 'type', Hole<"Name", string>, '=', Hole<"Type", T.TSchema> ]>(Input)
   if (m1) {
     const out = emptyObject
@@ -2139,7 +2411,7 @@ export function TTypeAliasDeclarationMapping(Input: [ unknown, unknown, unknown,
 
 // ✓ TExportKeywordMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TExportKeywordMapping(Input: [ unknown ] | [ ]) {
+export function TExportKeywordMapping(Input: [ unknown ] | [ ]): any {
   return Null
 }
 /* compiles to:
@@ -2148,7 +2420,7 @@ export function TExportKeywordMapping(Input: [ unknown ] | [ ]) {
 
 // ✓ TModuleDeclarationDelimiterMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TModuleDeclarationDelimiterMapping(Input: [ unknown, unknown ] | [ unknown ]) {
+export function TModuleDeclarationDelimiterMapping(Input: [ unknown, unknown ] | [ unknown ]): any {
   return Input
 }
 /* compiles to:
@@ -2157,7 +2429,7 @@ export function TModuleDeclarationDelimiterMapping(Input: [ unknown, unknown ] |
 
 // ✓ TModuleDeclarationListMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TModuleDeclarationListMapping(Input: [ unknown, unknown ]) {
+export function TModuleDeclarationListMapping(Input: [ unknown, unknown ]): any {
   return TPropertiesReduce(TDelimited(Input))
 }
 /* compiles to:
@@ -2168,7 +2440,7 @@ export function TModuleDeclarationListMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TModuleDeclarationMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TModuleDeclarationMapping(Input: [ unknown, unknown, unknown ]) {
+export function TModuleDeclarationMapping(Input: [ unknown, unknown, unknown ]): any {
   const m1 = matches<[ null, Hole<"ModuleDeclaration", T.TProperties>, null ]>(Input)
   if (m1) {
     return m1.ModuleDeclaration
@@ -2184,10 +2456,10 @@ export function TModuleDeclarationMapping(Input: [ unknown, unknown, unknown ]) 
 
 // ✓ TModuleMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TModuleMapping(Input: [ unknown, unknown ]) {
+export function TModuleMapping(Input: [ unknown, unknown ]): any {
   const m1 = matches<[ Hole<"ModuleDeclaration", T.TProperties>, Hole<"ModuleDeclarationList", [ T.TProperties, T.TProperties ]> ]>(Input)
   if (m1) {
-    return S.TModuleDeferred(Memory.TAssign(m1.ModuleDeclaration, m1.ModuleDeclarationList[0]))
+    return t<S.TModuleDeferred<Memory.TAssign<typeof m1.ModuleDeclaration, (typeof m1.ModuleDeclarationList)[0]>>>()
   }
   return never
 }
@@ -2200,7 +2472,7 @@ export function TModuleMapping(Input: [ unknown, unknown ]) {
 
 // ✓ TScriptMapping: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TScriptMapping(Input: unknown) {
+export function TScriptMapping(Input: unknown): any {
   return Input
 }
 /* compiles to:

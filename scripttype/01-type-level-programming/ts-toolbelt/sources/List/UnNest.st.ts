@@ -7,9 +7,26 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Extends } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Extends.js'
+import type { And } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Boolean/And.js'
+import type { Not } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Boolean/Not.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { Pos } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+import type { Append } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Append.js'
+import type { Concat } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/Concat.js'
+import type { Naked } from '../../../../../01-type-level-programming/ts-toolbelt/sources/List/_Internal.js'
+declare namespace m1 {
+  export type LP<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type UL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const And: any
 declare const Append: any
 declare const Cast: any
@@ -24,23 +41,12 @@ declare const Next: any
 declare const Not: any
 declare const Pos: any
 declare const UnionOf: any
-type And<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Append<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Concat<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Extends<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Length<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Naked<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnionOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnNestLoose: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnNestLoose(L: List) {
+export function UnNestLoose(L: List): any {
   const m1 = matches<Hole<"UL">>(UnionOf(L))
   return merge(arrayOf(m1 ? (matches<unknown>(m1.UL) ? (matches<List>(m1.UL) ? UnionOf(m1.UL) : m1.UL) : never) : never), {})
 }
@@ -56,7 +62,7 @@ export function UnNestLoose(L: List) {
 
 // ✓ Flatter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Flatter(L: List, LN: List, I: Iteration) {
+export function Flatter(L: List, LN: List, I: Iteration): any {
   const m1 = matches<Hole<"LP">>(L[Pos(I)])
   if (m1) {
     if (matches<List>(m1.LP)) {
@@ -76,7 +82,7 @@ export function Flatter(L: List, LN: List, I: Iteration) {
 // ✗ UnNestStrict: does not compile yet
 //   Type 'Extends<Pos<I>, Length<L>>' cannot be used to index type '{ '0': UnNestStrict__st2<L, Flatter<L, LN, I>, Next<I>>; '1': LN; }'.
 /* @scripttype preserveParamNames */
-export function UnNestStrict(L: List, LN: List = [], I: Iteration = IterationOf(0)) {
+export function UnNestStrict(L: List, LN: List = [], I: Iteration = IterationOf(0)): any {
   return { 0: UnNestStrict(L, Flatter(L, LN, I), Next(I)), 1: LN }[Extends(Pos(I), Length(L))]
 }
 /* compiles to:
@@ -91,7 +97,7 @@ export function UnNestStrict(L: List, LN: List = [], I: Iteration = IterationOf(
 // ✗ __UnNest: does not compile yet
 //   Type 'And<Not<number extends Length<L> ? 1 : 0>, strict>' cannot be used to index type '{ '0': (UnionOf<L> extends infer UL ? UL extends unknown ? UL extends Li
 /* @scripttype preserveParamNames */
-export function __UnNest(L: List, strict: Boolean) {
+export function __UnNest(L: List, strict: Boolean): any {
   return { 0: UnNestLoose(L), 1: UnNestStrict(L) }[And(Not(Extends(number, Length(L))), strict)]
 }
 /* compiles to:
@@ -101,7 +107,7 @@ export function __UnNest(L: List, strict: Boolean) {
 
 // ✓ _UnNest: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _UnNest(L: List, strict: Boolean) {
+export function _UnNest(L: List, strict: Boolean): any {
   const m1 = matches<Hole<"X">>(__UnNest(Naked(L), strict))
   if (m1) {
     return Cast(m1.X, List)
@@ -116,7 +122,7 @@ export function _UnNest(L: List, strict: Boolean) {
 // ✗ UnNest: the ScriptType does not itself typecheck as TypeScript
 //   UnNest.st.ts(2:33) TS2322: Type 'number' is not assignable to type 'Boolean'.
 /* @scripttype preserveParamNames */
-export function UnNest(L: List, strict: Boolean = 1) {
+export function UnNest(L: List, strict: Boolean = 1): any {
   if (matches<unknown>(L)) {
     return _UnNest(L, strict)
   }

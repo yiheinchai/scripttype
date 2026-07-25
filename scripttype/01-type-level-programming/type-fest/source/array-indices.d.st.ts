@@ -9,7 +9,7 @@
  */
 // ✓ ArrayIndices: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayIndices(Element: readonly unknown[]) {
+export function ArrayIndices(Element: readonly unknown[]): any {
   return Exclude(Partial(Element)['length'], Element['length'])
 }
 /* compiles to:

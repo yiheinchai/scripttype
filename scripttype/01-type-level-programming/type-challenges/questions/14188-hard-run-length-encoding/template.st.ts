@@ -9,7 +9,7 @@
  */
 // ✓ Encode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Encode(S: string) {
+export function Encode(S: string): any {
   return any
 }
 /* compiles to:
@@ -18,7 +18,7 @@ export function Encode(S: string) {
 
 // ✓ Decode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Decode(S: string) {
+export function Decode(S: string): any {
   return any
 }
 /* compiles to:

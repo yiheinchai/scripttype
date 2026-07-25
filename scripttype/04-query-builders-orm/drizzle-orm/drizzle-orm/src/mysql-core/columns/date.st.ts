@@ -16,7 +16,7 @@ type MySqlDateBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any
 type MySqlDateStringBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlDateBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlDateBuilderInitial(TName: string) {
+export function MySqlDateBuilderInitial(TName: string): any {
   return MySqlDateBuilder({ name: TName, dataType: 'date', columnType: 'MySqlDate', data: t<Date>(), driverParam: string | number, enumValues: Undefined })
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function MySqlDateBuilderInitial(TName: string) {
 
 // ✓ MySqlDateStringBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlDateStringBuilderInitial(TName: string) {
+export function MySqlDateStringBuilderInitial(TName: string): any {
   return MySqlDateStringBuilder({ name: TName, dataType: 'string', columnType: 'MySqlDateString', data: string, driverParam: string | number, enumValues: Undefined })
 }
 /* compiles to:

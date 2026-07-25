@@ -9,7 +9,7 @@
  */
 // ✓ writeJsonSchemaInsufficientKeysMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeJsonSchemaInsufficientKeysMessage(describedExpectedKeys: string, printableJsonSchema: string) {
+export function writeJsonSchemaInsufficientKeysMessage(describedExpectedKeys: string, printableJsonSchema: string): any {
   return `Provided JSON Schema must have at least one of the keys ${describedExpectedKeys} (was ${printableJsonSchema})`
 }
 /* compiles to:
@@ -22,7 +22,7 @@ export function writeJsonSchemaInsufficientKeysMessage(describedExpectedKeys: st
 
 // ✓ writeJsonSchemaUnsupportedTypeMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeJsonSchemaUnsupportedTypeMessage(printableType: string) {
+export function writeJsonSchemaUnsupportedTypeMessage(printableType: string): any {
   return `Provided 'type' value must be a supported JSON Schema type (was '${printableType}')`
 }
 /* compiles to:
@@ -31,7 +31,7 @@ export function writeJsonSchemaUnsupportedTypeMessage(printableType: string) {
 
 // ✓ writeJsonSchemaObjectNonConformingKeyAndPropertyNamesMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeJsonSchemaObjectNonConformingKeyAndPropertyNamesMessage(requiredKey: string, propertyNamesExpression: string) {
+export function writeJsonSchemaObjectNonConformingKeyAndPropertyNamesMessage(requiredKey: string, propertyNamesExpression: string): any {
   return `Required key ${requiredKey} doesn't conform to propertyNames schema of ${propertyNamesExpression}`
 }
 /* compiles to:
@@ -44,7 +44,7 @@ export function writeJsonSchemaObjectNonConformingKeyAndPropertyNamesMessage(req
 
 // ✓ writeJsonSchemaObjectNonConformingPatternAndPropertyNamesMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function writeJsonSchemaObjectNonConformingPatternAndPropertyNamesMessage(patternPropertySignatureExpression: string, propertyNamesExpression: string) {
+export function writeJsonSchemaObjectNonConformingPatternAndPropertyNamesMessage(patternPropertySignatureExpression: string, propertyNamesExpression: string): any {
   return `Pattern property ${patternPropertySignatureExpression} doesn't conform to propertyNames schema of ${propertyNamesExpression}`
 }
 /* compiles to:

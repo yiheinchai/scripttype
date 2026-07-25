@@ -14,7 +14,7 @@ declare const Subscribable: any
 type Subscribable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnaryFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnaryFunction(TSource, TReturn) {
+export function UnaryFunction(TSource, TReturn): any {
   return fnType([TSource], TReturn)
 }
 /* compiles to:
@@ -23,7 +23,7 @@ export function UnaryFunction(TSource, TReturn) {
 
 // ✓ OperatorFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OperatorFunction(TValueBefore, TErrorBefore, TValueAfter, TErrorAfter) {
+export function OperatorFunction(TValueBefore, TErrorBefore, TValueAfter, TErrorAfter): any {
   return UnaryFunction(Subscribable(TValueBefore, TErrorBefore), Subscribable(TValueAfter, TErrorAfter))
 }
 /* compiles to:
@@ -35,7 +35,7 @@ export function OperatorFunction(TValueBefore, TErrorBefore, TValueAfter, TError
 
 // ✓ MonoTypeOperatorFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MonoTypeOperatorFunction(TValue, TError) {
+export function MonoTypeOperatorFunction(TValue, TError): any {
   return OperatorFunction(TValue, TError, TValue, TError)
 }
 /* compiles to:

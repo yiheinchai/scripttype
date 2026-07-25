@@ -7,31 +7,35 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExpressionBuilder } from '../../../../../04-query-builders-orm/kysely/src/expression/expression-builder.js'
+import type { ExtractRawTypeFromReferenceExpression } from '../../../../../04-query-builders-orm/kysely/src/parser/reference-parser.js'
+import type { ValueExpression } from '../../../../../04-query-builders-orm/kysely/src/parser/value-parser.js'
+import type { UpdateType } from '../../../../../04-query-builders-orm/kysely/src/util/column-type.js'
+import type { AnyColumn, DrainOuterGeneric } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
 declare const AnyColumn: any
 declare const DrainOuterGeneric: any
 declare const ExpressionBuilder: any
 declare const ExtractRawTypeFromReferenceExpression: any
 declare const UpdateType: any
 declare const ValueExpression: any
-type AnyColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractRawTypeFromReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UpdateType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValueExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UpdateObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateObject__v1(DB, TB, UT, C) {
+export function UpdateObject__v1(DB, TB, UT, C): any {
   const out = emptyObject
   for (const T in keySet(UT)) {
     out[T] = C in DB[T] ? (anyOf(ValueExpression(DB, TB, UpdateType(DB[T][C])), Undefined)) : never
   }
   return out
 }
-export function UpdateObject(DB, TB: keyof typeof DB, UT: keyof typeof DB = TB) {
+/**
+ * @param {keyof typeof DB} TB
+ * @param {keyof typeof DB} UT
+ */
+export function UpdateObject(DB, TB, UT = TB): any {
   const out = emptyObject
   for (const C in keySet(AnyColumn(DB, UT))) {
     out[C] = optional(UpdateObject__v1(DB, TB, UT, C)[UT])
@@ -51,7 +55,11 @@ export function UpdateObject(DB, TB: keyof typeof DB, UT: keyof typeof DB = TB) 
 
 // ✓ UpdateObjectFactory: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateObjectFactory(DB, TB: keyof typeof DB, UT: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ * @param {keyof typeof DB} UT
+ */
+export function UpdateObjectFactory(DB, TB, UT): any {
   return fnType([ExpressionBuilder(DB, TB)], UpdateObject(DB, TB, UT))
 }
 /* compiles to:
@@ -61,7 +69,11 @@ export function UpdateObjectFactory(DB, TB: keyof typeof DB, UT: keyof typeof DB
 
 // ✓ UpdateObjectExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UpdateObjectExpression(DB, TB: keyof typeof DB, UT: keyof typeof DB = TB) {
+/**
+ * @param {keyof typeof DB} TB
+ * @param {keyof typeof DB} UT
+ */
+export function UpdateObjectExpression(DB, TB, UT = TB): any {
   return UpdateObject(DB, TB, UT) | UpdateObjectFactory(DB, TB, UT)
 }
 /* compiles to:
@@ -71,7 +83,10 @@ export function UpdateObjectExpression(DB, TB: keyof typeof DB, UT: keyof typeof
 
 // ✓ ExtractUpdateTypeFromReferenceExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractUpdateTypeFromReferenceExpression(DB, TB: keyof typeof DB, RE, DV = unknown) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractUpdateTypeFromReferenceExpression(DB, TB, RE, DV = unknown): any {
   return UpdateType(ExtractRawTypeFromReferenceExpression(DB, TB, RE, DV))
 }
 /* compiles to:

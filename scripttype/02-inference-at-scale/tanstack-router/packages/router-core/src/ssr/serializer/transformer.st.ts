@@ -7,9 +7,29 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyRoute, ResolveAllSSR } from '../../../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/route.js'
+import type { RegisteredConfigType, RegisteredSsr, SSROption } from '../../../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/router.js'
+import type { AnySerializationAdapter, RegisteredReadableStream, Serializable, SerializationError } from '../../../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/ssr/serializer/transformer.js'
+import type { LooseReturnType } from '../../../../../../../../02-inference-at-scale/tanstack-router/packages/router-core/src/utils.js'
+declare namespace m1 {
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TAwaited<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TNext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TReturn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TStreamed<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyRoute: any
 declare const AnySerializationAdapter: any
 declare const AsyncGenerator: any
@@ -28,19 +48,9 @@ declare const TKey: any
 declare const TNext: any
 declare const TReturn: any
 declare const TValue: any
-type AnyRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnySerializationAdapter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AsyncGenerator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LooseReturnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ReadableStream<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredConfigType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredReadableStream<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RegisteredSerializationAdapters<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RegisteredSsr<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolveAllSSR<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SSROption<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Serializable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SerializationError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TAwaited<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TItem<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -50,7 +60,7 @@ type TValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any
 type ValidateSerializable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnionizeSerializationAdaptersInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function UnionizeSerializationAdaptersInput(TAdapters: ReadonlyArray<AnySerializationAdapter>) {
+export function UnionizeSerializationAdaptersInput(TAdapters: ReadonlyArray<AnySerializationAdapter>): any {
   return TAdapters[number]['~types']['input']
 }
 /* compiles to:
@@ -62,7 +72,7 @@ export function UnionizeSerializationAdaptersInput(TAdapters: ReadonlyArray<AnyS
 
 // ✓ ValidateSerializable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializable(T, TSerializable) {
+export function ValidateSerializable(T, TSerializable): any {
   if (matches<typeof TSerializable>(T)) {
     return T
   }
@@ -113,7 +123,7 @@ export function ValidateSerializable(T, TSerializable) {
 
 // ✓ ValidateSerializableAsyncGenerator: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializableAsyncGenerator(T, TSerializable) {
+export function ValidateSerializableAsyncGenerator(T, TSerializable): any {
   const m1 = matches<AsyncGenerator<Hole<"T">, Hole<"TReturn">, Hole<"TNext">>>(T)
   if (m1) {
     return t<AsyncGenerator<ValidateSerializable<typeof m1.T, typeof TSerializable>, ValidateSerializable<typeof m1.TReturn, typeof TSerializable>, typeof m1.TNext>>()
@@ -133,7 +143,7 @@ export function ValidateSerializableAsyncGenerator(T, TSerializable) {
 
 // ✓ ValidateSerializablePromise: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializablePromise(T, TSerializable) {
+export function ValidateSerializablePromise(T, TSerializable): any {
   const m1 = matches<Promise<Hole<"TAwaited">>>(T)
   if (m1) {
     return t<Promise<ValidateSerializable<typeof m1.TAwaited, typeof TSerializable>>>()
@@ -149,7 +159,7 @@ export function ValidateSerializablePromise(T, TSerializable) {
 
 // ✓ ValidateReadableStream: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateReadableStream(T, TSerializable) {
+export function ValidateReadableStream(T, TSerializable): any {
   const m1 = matches<ReadableStream<Hole<"TStreamed">>>(T)
   if (m1) {
     return ReadableStream(ValidateSerializable(m1.TStreamed, TSerializable))
@@ -165,7 +175,7 @@ export function ValidateReadableStream(T, TSerializable) {
 
 // ✓ ValidateSerializableSet: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializableSet(T, TSerializable) {
+export function ValidateSerializableSet(T, TSerializable): any {
   const m1 = matches<Set<Hole<"TItem">>>(T)
   if (m1) {
     return t<Set<ValidateSerializable<typeof m1.TItem, typeof TSerializable>>>()
@@ -179,7 +189,7 @@ export function ValidateSerializableSet(T, TSerializable) {
 
 // ✓ ValidateSerializableMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializableMap(T, TSerializable) {
+export function ValidateSerializableMap(T, TSerializable): any {
   const m1 = matches<Map<Hole<"TKey">, Hole<"TValue">>>(T)
   if (m1) {
     return t<Map<ValidateSerializable<typeof m1.TKey, typeof TSerializable>, ValidateSerializable<typeof m1.TValue, typeof TSerializable>>>()
@@ -198,7 +208,7 @@ export function ValidateSerializableMap(T, TSerializable) {
 
 // ✓ ValidateSerializableArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializableArray(T, TSerializable) {
+export function ValidateSerializableArray(T, TSerializable): any {
   if (matches<readonly [ any, ...Array<any> ]>(T)) {
     return ValidateSerializableMapped(T, TSerializable)
   }
@@ -222,7 +232,7 @@ export function ValidateSerializableArray(T, TSerializable) {
 
 // ✓ ValidateSerializableMapped: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializableMapped(T, TSerializable) {
+export function ValidateSerializableMapped(T, TSerializable): any {
   const out = emptyObject
   for (const K in keyof(T)) {
     out[K] = ValidateSerializable(T[K], TSerializable)
@@ -237,7 +247,7 @@ export function ValidateSerializableMapped(T, TSerializable) {
 
 // ✓ ValidateSerializableInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializableInput(TRegister, T) {
+export function ValidateSerializableInput(TRegister, T): any {
   return ValidateSerializable(T, RegisteredSerializableInput(TRegister))
 }
 /* compiles to:
@@ -249,7 +259,7 @@ export function ValidateSerializableInput(TRegister, T) {
 
 // ✓ RegisteredSerializableInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RegisteredSerializableInput(TRegister) {
+export function RegisteredSerializableInput(TRegister): any {
   return (matches<RegisteredSerializationAdapters<typeof TRegister>>(unknown) ? never : (matches<ReadonlyArray<AnySerializationAdapter>>(RegisteredSerializationAdapters(TRegister)) ? RegisteredSerializationAdapters(TRegister)[number]['~types']['input'] : never)) | Serializable
 }
 /* compiles to:
@@ -265,7 +275,7 @@ export function RegisteredSerializableInput(TRegister) {
 
 // ✓ RegisteredSerializationAdapters: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RegisteredSerializationAdapters(TRegister) {
+export function RegisteredSerializationAdapters(TRegister): any {
   return RegisteredConfigType(TRegister, 'serializationAdapters')
 }
 /* compiles to:
@@ -277,7 +287,7 @@ export function RegisteredSerializationAdapters(TRegister) {
 
 // ✓ RegisteredSSROption: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RegisteredSSROption(TRegister) {
+export function RegisteredSSROption(TRegister): any {
   if (matches<RegisteredConfigType<typeof TRegister, 'defaultSsr'>>(unknown)) {
     return SSROption
   }
@@ -292,7 +302,7 @@ export function RegisteredSSROption(TRegister) {
 
 // ✓ ValidateSerializableLifecycleResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializableLifecycleResult(TRegister, TParentRoute: AnyRoute, TSSR, TFn) {
+export function ValidateSerializableLifecycleResult(TRegister, TParentRoute: AnyRoute, TSSR, TFn): any {
   if (matches<RegisteredSsr<typeof TRegister>>(false)) {
     return any
   }
@@ -317,7 +327,7 @@ export function ValidateSerializableLifecycleResult(TRegister, TParentRoute: Any
 
 // ✓ ValidateSerializableLifecycleResultSSR: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateSerializableLifecycleResultSSR(TRegister, TParentRoute: AnyRoute, TSSR, TFn) {
+export function ValidateSerializableLifecycleResultSSR(TRegister, TParentRoute: AnyRoute, TSSR, TFn): any {
   if (matches<false>(ResolveAllSSR(TParentRoute, TSSR))) {
     return any
   }

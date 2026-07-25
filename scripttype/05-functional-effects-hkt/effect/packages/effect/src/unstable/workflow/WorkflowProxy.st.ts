@@ -20,23 +20,37 @@ declare namespace Workflow {
   export type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type Workflow<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type _Error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _Name<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _Payload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _Success<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Any: any
 declare const HttpApiEndpoint: any
 declare const ResumePayload: any
 declare const Rpc: any
 declare const Workflow: any
+declare const _Error: any
+declare const _Name: any
+declare const _Payload: any
+declare const _Success: any
 type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HttpApiEndpoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResumePayload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Rpc<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Workflow<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Name<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Payload<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type _Success<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ ConvertRpcs: does not compile yet
 //   'ResumePayload' refers to a value, but is being used as a type here. Did you mean 'typeof ResumePayload'?
 /* @scripttype preserveParamNames */
-export function ConvertRpcs(Workflows: Workflow.Any, Prefix: string) {
+export function ConvertRpcs(Workflows: Workflow.Any, Prefix: string): any {
   const m1 = matches<Workflow.Workflow<Hole<"_Name">, Hole<"_Payload">, Hole<"_Success">, Hole<"_Error">>>(Workflows)
   if (m1) {
-    return Rpc.Rpc(`${Prefix}${m1._Name}`, m1._Payload, m1._Success, m1._Error) | Rpc.Rpc(`${Prefix}${m1._Name}Discard`, m1._Payload) | Rpc.Rpc(`${Prefix}${m1._Name}Resume`, t<typeof ResumePayload>())
+    return t<Rpc.Rpc<`${typeof Prefix}${typeof m1._Name}`, typeof m1._Payload, typeof m1._Success, typeof m1._Error>>() | t<Rpc.Rpc<`${typeof Prefix}${typeof m1._Name}Discard`, typeof m1._Payload>>() | t<Rpc.Rpc<`${typeof Prefix}${typeof m1._Name}Resume`, typeof ResumePayload>>()
   }
   return never
 }
@@ -52,10 +66,10 @@ export function ConvertRpcs(Workflows: Workflow.Any, Prefix: string) {
 // ✗ ConvertHttpApi: does not compile yet
 //   'ResumePayload' refers to a value, but is being used as a type here. Did you mean 'typeof ResumePayload'?
 /* @scripttype preserveParamNames */
-export function ConvertHttpApi(Workflows: Workflow.Any) {
+export function ConvertHttpApi(Workflows: Workflow.Any): any {
   const m1 = matches<Workflow.Workflow<Hole<"_Name">, Hole<"_Payload">, Hole<"_Success">, Hole<"_Error">>>(Workflows)
   if (m1) {
-    return HttpApiEndpoint.HttpApiEndpoint(m1._Name, 'POST', `/${Lowercase(m1._Name)}`, never, never, m1._Payload, never, m1._Success, m1._Error) | HttpApiEndpoint.HttpApiEndpoint(`${m1._Name}Discard`, 'POST', `/${Lowercase(m1._Name)}/discard`, never, never, m1._Payload) | HttpApiEndpoint.HttpApiEndpoint(`${m1._Name}Resume`, 'POST', `/${Lowercase(m1._Name)}/resume`, never, never, t<typeof ResumePayload>())
+    return t<HttpApiEndpoint.HttpApiEndpoint<typeof m1._Name, "POST", `/${Lowercase<typeof m1._Name>}`, never, never, typeof m1._Payload, never, typeof m1._Success, typeof m1._Error>>() | t<HttpApiEndpoint.HttpApiEndpoint<`${typeof m1._Name}Discard`, "POST", `/${Lowercase<typeof m1._Name>}/discard`, never, never, typeof m1._Payload>>() | t<HttpApiEndpoint.HttpApiEndpoint<`${typeof m1._Name}Resume`, "POST", `/${Lowercase<typeof m1._Name>}/resume`, never, never, typeof ResumePayload>>()
   }
   return never
 }

@@ -9,7 +9,7 @@
  */
 // ✓ DeepObjectToUniq: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DeepObjectToUniq(O: object) {
+export function DeepObjectToUniq(O: object): any {
   return any
 }
 /* compiles to:

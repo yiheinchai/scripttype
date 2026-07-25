@@ -10,6 +10,15 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Last<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const ApplyDefaultOptions: any
 declare const DefaultSplitOnRestElementOptions: any
 declare const If: any
@@ -30,7 +39,7 @@ type SplitOnRestElementOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any,
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SplitOnRestElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SplitOnRestElement(Array_: UnknownArray, Options: SplitOnRestElementOptions = {}) {
+export function SplitOnRestElement(Array_: UnknownArray, Options: SplitOnRestElementOptions = {}): any {
   if (matches<unknown>(Array_)) {
     const m1 = matches<Hole<"Result", UnknownArray>>(IfNotAnyOrNever(Array_, { ifNot: _SplitOnRestElement(Array_, ApplyDefaultOptions(SplitOnRestElementOptions, DefaultSplitOnRestElementOptions, Options)) }))
     if (m1) {
@@ -54,7 +63,7 @@ export function SplitOnRestElement(Array_: UnknownArray, Options: SplitOnRestEle
 
 // ✓ _SplitOnRestElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SplitOnRestElement(Array_: UnknownArray, Options: Required<SplitOnRestElementOptions>, HeadAcc: UnknownArray = [], TailAcc: UnknownArray = []) {
+export function _SplitOnRestElement(Array_: UnknownArray, Options: Required<SplitOnRestElementOptions>, HeadAcc: UnknownArray = [], TailAcc: UnknownArray = []): any {
   if (matches<never>(merge(keyof(Array_), `${number}`))) {
     const m1 = matches<readonly [ ...Hole<"Rest">, Hole<"Last"> ]>(Array_)
     if (m1) {

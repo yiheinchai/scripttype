@@ -16,7 +16,7 @@ type PgEnumColumnBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = 
 type PgEnumObjectColumnBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgEnumObjectColumnBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgEnumObjectColumnBuilderInitial(TName: string, TValues: object) {
+export function PgEnumObjectColumnBuilderInitial(TName: string, TValues: object): any {
   return PgEnumObjectColumnBuilder({ name: TName, dataType: 'string', columnType: 'PgEnumObjectColumn', data: TValues[keyof(TValues)], enumValues: arrayOf(string), driverParam: string })
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function PgEnumObjectColumnBuilderInitial(TName: string, TValues: object)
 
 // ✓ PgEnumColumnBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgEnumColumnBuilderInitial(TName: string, TValues: [ string, ...string[] ]) {
+export function PgEnumColumnBuilderInitial(TName: string, TValues: [ string, ...string[] ]): any {
   return PgEnumColumnBuilder({ name: TName, dataType: 'string', columnType: 'PgEnumColumn', data: TValues[number], enumValues: TValues, driverParam: string })
 }
 /* compiles to:

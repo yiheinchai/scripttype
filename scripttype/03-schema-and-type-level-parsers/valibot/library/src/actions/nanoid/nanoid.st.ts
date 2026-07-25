@@ -7,18 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
-declare const ErrorMessage: any
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { NanoIdAction, NanoIdIssue } from '../../../../../../../03-schema-and-type-level-parsers/valibot/library/src/actions/nanoid/nanoid.js'
 declare const NanoIdAction: any
 declare const NanoIdIssue: any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NanoIdAction<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NanoIdIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NanoIDIssue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NanoIDIssue(TInput: string) {
+export function NanoIDIssue(TInput: string): any {
   return NanoIdIssue(TInput)
 }
 /* compiles to:
@@ -27,7 +25,11 @@ export function NanoIDIssue(TInput: string) {
 
 // ✓ NanoIDAction: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NanoIDAction(TInput: string, TMessage: ErrorMessage<NanoIdIssue<typeof TInput>> | undefined) {
+/**
+ * @param {string} TInput
+ * @param {ErrorMessage<NanoIdIssue<typeof TInput>> | undefined} TMessage
+ */
+export function NanoIDAction(TInput, TMessage): any {
   return NanoIdAction(TInput, TMessage)
 }
 /* compiles to:

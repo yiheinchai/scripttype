@@ -24,7 +24,10 @@ type RequireExactlyOne<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = an
 type RequireNone<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ RequireOneOrNone: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RequireOneOrNone(ObjectType, KeysType: keyof typeof ObjectType = keyof(ObjectType)) {
+/**
+ * @param {keyof typeof ObjectType} KeysType
+ */
+export function RequireOneOrNone(ObjectType, KeysType = keyof(ObjectType)): any {
   return IfNotAnyOrNever(ObjectType, { ifNot: If(IsNever(KeysType), ObjectType, _RequireOneOrNone(ObjectType, If(IsAny(KeysType), keyof(ObjectType), KeysType))) })
 }
 /* compiles to:
@@ -46,7 +49,10 @@ export function RequireOneOrNone(ObjectType, KeysType: keyof typeof ObjectType =
 
 // ✓ _RequireOneOrNone: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _RequireOneOrNone(ObjectType, KeysType: keyof typeof ObjectType) {
+/**
+ * @param {keyof typeof ObjectType} KeysType
+ */
+export function _RequireOneOrNone(ObjectType, KeysType): any {
   return merge(RequireExactlyOne(ObjectType, KeysType) | RequireNone(KeysType), Omit(ObjectType, KeysType))
 }
 /* compiles to:

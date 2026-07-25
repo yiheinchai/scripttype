@@ -7,9 +7,24 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { NodeConfig } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/config.js'
+import type { Inner, errorContext, nodeOfKind } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/kinds.js'
+import type { NodeParseContext } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/parse.js'
+import type { schemaKindOrRightOf } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/roots/root.js'
+import type { BaseErrorContext, BaseNodeDeclaration, BaseNormalizedSchema } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/shared/declare.js'
+import type { ConstraintKind, IntersectionContext, NodeKind, RootKind } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/shared/implement.js'
+import type { listable } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/arrays.js'
+import type { show } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
+import type { requireKeys } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/records.js'
+import type { Json } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/serialize.js'
+declare namespace m2 {
+  export type head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseErrorContext: any
 declare const BaseNode: any
 declare const BaseNodeDeclaration: any
@@ -34,34 +49,16 @@ declare const nodeOfKind: any
 declare const requireKeys: any
 declare const schemaKindOrRightOf: any
 declare const show: any
-type BaseErrorContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type BaseNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseNodeDeclaration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseNormalizedSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type BaseRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type CommonNodeImplementationInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ConstraintKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Disjoint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Inner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IntersectionContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Json<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NodeConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NodeKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NodeParseContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PrecedenceByKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RightsByKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type RootKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type errorContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type kindOrRightOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type listable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type makeRootAndArrayPropertiesMutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type nodeOfKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type requireKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type schemaKindOrRightOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type show<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ kindOrRightOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function kindOrRightOf(kind: NodeKind) {
+export function kindOrRightOf(kind: NodeKind): any {
   return anyOf(kind, kindRightOf(kind))
 }
 /* compiles to:
@@ -70,7 +67,7 @@ export function kindOrRightOf(kind: NodeKind) {
 
 // ✓ kindLeftOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function kindLeftOf(kind: NodeKind) {
+export function kindLeftOf(kind: NodeKind): any {
   return Exclude(NodeKind, kindOrRightOf(kind))
 }
 /* compiles to:
@@ -79,7 +76,7 @@ export function kindLeftOf(kind: NodeKind) {
 
 // ✓ kindOrLeftOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function kindOrLeftOf(kind: NodeKind) {
+export function kindOrLeftOf(kind: NodeKind): any {
   return anyOf(kind, kindLeftOf(kind))
 }
 /* compiles to:
@@ -88,14 +85,14 @@ export function kindOrLeftOf(kind: NodeKind) {
 
 // ✓ accumulateRightKinds: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function accumulateRightKinds(remaining: readonly NodeKind[], result) {
+export function accumulateRightKinds(remaining: readonly NodeKind[], result): any {
   const m2 = matches<(readonly [ Hole<"head", NodeKind>, ...Hole<"tail", NodeKind[]> ])>(remaining)
   if (m2) {
     const out2 = emptyObject
     for (const k in keySet(m2.head)) {
       out2[k] = m2.tail[number]
     }
-    return accumulateRightKinds(m2.tail, result & out2)
+    return accumulateRightKinds(m2.tail, merge(result, out2))
   }
   return result
 }
@@ -108,7 +105,11 @@ export function accumulateRightKinds(remaining: readonly NodeKind[], result) {
 
 // ✓ ConstraintIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConstraintIntersection(lKind: ConstraintKind, rKind: kindOrRightOf<typeof lKind>) {
+/**
+ * @param {ConstraintKind} lKind
+ * @param {kindOrRightOf<typeof lKind>} rKind
+ */
+export function ConstraintIntersection(lKind, rKind): any {
   return fnType([nodeOfKind(lKind), nodeOfKind(rKind), IntersectionContext], BaseNode | Disjoint | Null)
 }
 /* compiles to:
@@ -123,7 +124,7 @@ export function ConstraintIntersection(lKind: ConstraintKind, rKind: kindOrRight
 
 // ✓ ConstraintIntersectionMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ConstraintIntersectionMap(kind: ConstraintKind) {
+export function ConstraintIntersectionMap(kind: ConstraintKind): any {
   const out = emptyObject
   for (const _ in keySet(kind)) {
     out[_] = ConstraintIntersection(kind, kind)
@@ -132,7 +133,7 @@ export function ConstraintIntersectionMap(kind: ConstraintKind) {
   for (const rKind in keySet(kindRightOf(kind))) {
     out2[rKind] = optional(ConstraintIntersection(kind, rKind))
   }
-  return show(out & out2)
+  return show(merge(out, out2))
 }
 /* compiles to:
  * export type ConstraintIntersectionMap<kind extends ConstraintKind> = show<
@@ -143,7 +144,11 @@ export function ConstraintIntersectionMap(kind: ConstraintKind) {
 
 // ✓ RootIntersection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function RootIntersection(lKind: RootKind, rKind: schemaKindOrRightOf<typeof lKind>) {
+/**
+ * @param {RootKind} lKind
+ * @param {schemaKindOrRightOf<typeof lKind>} rKind
+ */
+export function RootIntersection(lKind, rKind): any {
   return fnType([nodeOfKind(lKind), nodeOfKind(rKind), IntersectionContext], BaseRoot | Disjoint)
 }
 /* compiles to:
@@ -156,7 +161,7 @@ export function RootIntersection(lKind: RootKind, rKind: schemaKindOrRightOf<typ
 
 // ✓ TypeIntersectionMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TypeIntersectionMap(kind: RootKind) {
+export function TypeIntersectionMap(kind: RootKind): any {
   const out = emptyObject
   for (const rKind in keySet(schemaKindOrRightOf(kind))) {
     out[rKind] = RootIntersection(kind, rKind)
@@ -171,7 +176,7 @@ export function TypeIntersectionMap(kind: RootKind) {
 
 // ✓ IntersectionMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IntersectionMap(kind: NodeKind) {
+export function IntersectionMap(kind: NodeKind): any {
   if (matches<RootKind>(kind)) {
     return TypeIntersectionMap(kind)
   }
@@ -186,7 +191,7 @@ export function IntersectionMap(kind: NodeKind) {
 
 // ✓ precedenceOfKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function precedenceOfKind(kind: NodeKind) {
+export function precedenceOfKind(kind: NodeKind): any {
   return PrecedenceByKind[kind]
 }
 /* compiles to:
@@ -195,7 +200,7 @@ export function precedenceOfKind(kind: NodeKind) {
 
 // ✓ kindRightOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function kindRightOf(kind: NodeKind) {
+export function kindRightOf(kind: NodeKind): any {
   return RightsByKind[kind]
 }
 /* compiles to:
@@ -204,7 +209,7 @@ export function kindRightOf(kind: NodeKind) {
 
 // ✓ keySchemaDefinitions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function keySchemaDefinitions(d: BaseNodeDeclaration) {
+export function keySchemaDefinitions(d: BaseNodeDeclaration): any {
   const out = emptyObject
   for (const k in keySet(keyRequiringSchemaDefinition(d))) {
     out[k] = NodeKeyImplementation(d, k)
@@ -219,7 +224,7 @@ export function keySchemaDefinitions(d: BaseNodeDeclaration) {
 
 // ✓ keyRequiringSchemaDefinition: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function keyRequiringSchemaDefinition(d: BaseNodeDeclaration) {
+export function keyRequiringSchemaDefinition(d: BaseNodeDeclaration): any {
   return Exclude(keyof(d['normalizedSchema']), keyof(BaseNormalizedSchema))
 }
 /* compiles to:
@@ -231,8 +236,12 @@ export function keyRequiringSchemaDefinition(d: BaseNodeDeclaration) {
 
 // ✓ NodeKeyImplementation: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NodeKeyImplementation(d: BaseNodeDeclaration, k: keyof (typeof d)["normalizedSchema"], instantiated = k in d['inner'] ? Exclude(d['inner'][k], Undefined) : never) {
-  return requireKeys({ preserveUndefined: optional(true), child: optional(boolean | fnType([instantiated], arrayOf(BaseNode))), serialize: optional(fnType([instantiated], Json)), reduceIo: optional(fnType([anyOf('in', 'out'), makeRootAndArrayPropertiesMutable(d['inner']), d['inner'][k]], voidType())), parse: optional(fnType([Exclude(d['normalizedSchema'][k], Undefined), NodeParseContext(d['kind'])], anyOf(instantiated, Undefined))) }, (matches<typeof instantiated | undefined>(d['normalizedSchema'][k]) ? never : 'parse') | (matches<[ listable<BaseNode> ]>([instantiated]) ? 'child' : never))
+/**
+ * @param {BaseNodeDeclaration} d
+ * @param {keyof (typeof d)["normalizedSchema"]} k
+ */
+export function NodeKeyImplementation(d, k, instantiated = k in d['inner'] ? Exclude(d['inner'][k], Undefined) : never): any {
+  return requireKeys({ preserveUndefined: optional(true), child: optional(boolean | fnType([instantiated], arrayOf(BaseNode))), serialize: optional(fnType([instantiated], Json)), reduceIo: optional(fnType([anyOf('in', 'out'), makeRootAndArrayPropertiesMutable(d['inner']), d['inner'][k]], voidType())), parse: optional(fnType([Exclude(d['normalizedSchema'][k], Undefined), NodeParseContext(d['kind'])], anyOf(instantiated, Undefined))) }, anyOf(matches<typeof instantiated | undefined>(d['normalizedSchema'][k]) ? never : 'parse', matches<[ listable<BaseNode> ]>([instantiated]) ? 'child' : never))
 }
 /* compiles to:
  * export type NodeKeyImplementation<
@@ -262,7 +271,7 @@ export function NodeKeyImplementation(d: BaseNodeDeclaration, k: keyof (typeof d
 
 // ✓ nodeImplementationOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function nodeImplementationOf(d: BaseNodeDeclaration) {
+export function nodeImplementationOf(d: BaseNodeDeclaration): any {
   return merge(nodeImplementationInputOf(d), { intersections: IntersectionMap(d['kind']), intersectionIsOpen: d['intersectionIsOpen'], defaults: Required(NodeConfig(d['kind'])) })
 }
 /* compiles to:
@@ -277,7 +286,7 @@ export function nodeImplementationOf(d: BaseNodeDeclaration) {
 
 // ✓ nodeImplementationInputOf: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function nodeImplementationInputOf(d: BaseNodeDeclaration) {
+export function nodeImplementationInputOf(d: BaseNodeDeclaration): any {
   return merge(CommonNodeImplementationInput(d), { intersections: IntersectionMap(d['kind']), defaults: nodeSchemaaultsImplementationInputFor(d['kind']) }, matches<true>(d['intersectionIsOpen']) ? { intersectionIsOpen: true } : {}, matches<(typeof d)["kind"]>(d['reducibleTo']) ? {} : { reduce: {} })
 }
 /* compiles to:
@@ -293,7 +302,7 @@ export function nodeImplementationInputOf(d: BaseNodeDeclaration) {
 
 // ✓ nodeSchemaaultsImplementationInputFor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function nodeSchemaaultsImplementationInputFor(kind: NodeKind) {
+export function nodeSchemaaultsImplementationInputFor(kind: NodeKind): any {
   return requireKeys(NodeConfig(kind), anyOf('description', matches<(Omit<errorContext<typeof kind>, keyof BaseErrorContext | "description">)>(Inner(kind)) ? never : (merge('expected', keyof(NodeConfig(kind))))))
 }
 /* compiles to:
@@ -310,7 +319,7 @@ export function nodeSchemaaultsImplementationInputFor(kind: NodeKind) {
 
 // ✓ DescriptionWriter: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DescriptionWriter(kind: NodeKind = NodeKind) {
+export function DescriptionWriter(kind: NodeKind = NodeKind): any {
   return fnType([nodeOfKind(kind)], string)
 }
 /* compiles to:

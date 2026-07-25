@@ -7,23 +7,35 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Any, Layer } from '../../../../../../05-functional-effects-hkt/effect/packages/effect/src/Layer.js'
 declare namespace Types {
   export type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type L<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _E<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type _ROut<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type _RIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Any: any
 declare const AnyEffectOrStream: any
+declare const K: any
 declare const Layer: any
+declare const Simplify: any
 declare const Types: any
-type Any<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AnyEffectOrStream<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Layer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type K<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Services: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Services(T: Any) {
+export function Services(T: Any): any {
   const m1 = matches<Hole<"L">>(T)
   if (m1) {
     const m2 = matches<Layer<Hole<"_ROut">, Hole<"_E">, Hole<"_RIn">>>(m1.L)
@@ -36,12 +48,12 @@ export function Services(T: Any) {
 }
 /* compiles to:
  * export type Services<T extends Any> =
- *   T extends infer L ? L extends Layer<unknown, unknown, infer _RIn> ? _RIn : never : never
+ *   T extends infer L ? L extends Layer<any, any, infer _RIn> ? _RIn : never : never
  */
 
 // ✓ Error: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Error(T: Any) {
+export function Error(T: Any): any {
   const m1 = matches<Layer<Hole<"_ROut">, Hole<"_E">, Hole<"_RIn">>>(T)
   if (m1) {
     return m1._E
@@ -49,12 +61,12 @@ export function Error(T: Any) {
   return never
 }
 /* compiles to:
- * export type Error<T extends Any> = T extends Layer<unknown, infer _E, unknown> ? _E : never
+ * export type Error<T extends Any> = T extends Layer<any, infer _E, any> ? _E : never
  */
 
 // ✓ Success: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Success(T: Any) {
+export function Success(T: Any): any {
   const m1 = matches<Layer<Hole<"_ROut">, Hole<"_E">, Hole<"_RIn">>>(T)
   if (m1) {
     return m1._ROut
@@ -62,26 +74,20 @@ export function Success(T: Any) {
   return never
 }
 /* compiles to:
- * export type Success<T extends Any> =
- *   T extends Layer<infer _ROut, unknown, unknown> ? _ROut : never
+ * export type Success<T extends Any> = T extends Layer<infer _ROut, any, any> ? _ROut : never
  */
 
 // ✓ PartialEffectful: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PartialEffectful(A: object) {
-  const out = emptyObject
-  for (const K in keyof(A)) {
-    out[matches<AnyEffectOrStream>(A[K]) ? K : never] = optional(A[K])
-  }
-  const out2 = emptyObject
-  for (const K in keyof(A)) {
-    out2[matches<AnyEffectOrStream>(A[K]) ? never : K] = A[K]
-  }
-  return Types.Simplify(out & out2)
+/**
+ * @param {object} A
+ */
+export function PartialEffectful(A): any {
+  return t<Types.Simplify<{ [K in keyof typeof A as (typeof A)[K] extends AnyEffectOrStream ? K : never]?: (typeof A)[K]; } & { [K in keyof typeof A as (typeof A)[K] extends AnyEffectOrStream ? never : K]: (typeof A)[K]; }>>()
 }
 /* compiles to:
  * export type PartialEffectful<A extends object> = Types.Simplify<
- *   & { [K in keyof A as A[K] extends AnyEffectOrStream ? K : never]?: A[K] }
- *   & { [K1 in keyof A as A[K1] extends AnyEffectOrStream ? never : K1]: A[K1] }
+ *   & { [K in keyof A as (A)[K] extends AnyEffectOrStream ? K : never]?: (A)[K]; }
+ *   & { [K in keyof A as (A)[K] extends AnyEffectOrStream ? never : K]: (A)[K]; }
  * >
  */

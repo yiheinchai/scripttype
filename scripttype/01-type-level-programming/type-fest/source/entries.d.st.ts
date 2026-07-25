@@ -20,7 +20,7 @@ type _ObjectEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type _SetEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ArrayEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ArrayEntries(BaseType: readonly unknown[]) {
+export function ArrayEntries(BaseType: readonly unknown[]): any {
   return arrayOf(_ArrayEntry(BaseType))
 }
 /* compiles to:
@@ -29,7 +29,7 @@ export function ArrayEntries(BaseType: readonly unknown[]) {
 
 // ✓ MapEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapEntries(BaseType) {
+export function MapEntries(BaseType): any {
   return arrayOf(_MapEntry(BaseType))
 }
 /* compiles to:
@@ -38,7 +38,7 @@ export function MapEntries(BaseType) {
 
 // ✓ ObjectEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ObjectEntries(BaseType) {
+export function ObjectEntries(BaseType): any {
   return arrayOf(_ObjectEntry(BaseType))
 }
 /* compiles to:
@@ -47,7 +47,7 @@ export function ObjectEntries(BaseType) {
 
 // ✓ SetEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetEntries(BaseType: Set<unknown>) {
+export function SetEntries(BaseType: Set<unknown>): any {
   return arrayOf(_SetEntry(BaseType))
 }
 /* compiles to:
@@ -56,7 +56,7 @@ export function SetEntries(BaseType: Set<unknown>) {
 
 // ✓ Entries: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Entries(BaseType) {
+export function Entries(BaseType): any {
   if (matches<Map<unknown, unknown>>(BaseType)) {
     return MapEntries(BaseType)
   }

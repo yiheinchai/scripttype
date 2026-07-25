@@ -9,7 +9,7 @@
  */
 // ✓ Merge: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Merge(F, S) {
+export function Merge(F, S): any {
   return any
 }
 /* compiles to:

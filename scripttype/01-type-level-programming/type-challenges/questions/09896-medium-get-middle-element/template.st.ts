@@ -9,7 +9,7 @@
  */
 // ✓ GetMiddleElement: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetMiddleElement(T) {
+export function GetMiddleElement(T): any {
   return any
 }
 /* compiles to:

@@ -7,9 +7,21 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TInterfaceDeferred } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/action/interface.js'
+import type { TCyclicDependencies } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/cyclic/dependencies.js'
+import type { TEvaluateIntersect } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/evaluate/evaluate.js'
+import type { TInstantiateProperties, TInstantiateTypes, TState } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/instantiate.js'
+import type { TCyclic } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/cyclic.js'
+import type { TObject } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/object.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+declare namespace m1 {
+  export type Heritage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Properties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TCyclic: any
 declare const TCyclicDependencies: any
 declare const TEvaluateIntersect: any
@@ -20,19 +32,10 @@ declare const TObject: any
 declare const TProperties: any
 declare const TSchema: any
 declare const TState: any
-type TCyclic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TCyclicDependencies<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TEvaluateIntersect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInstantiateTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TInterfaceDeferred<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TProperties<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TCyclicInterface: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TCyclicInterface(Context: TProperties, Heritage: TSchema[], Properties: TProperties, InstantiatedHeritage: TSchema[] = TInstantiateTypes(Context, TState([], []), Heritage), instantiatedProperties: TProperties = TInstantiateProperties({}, TState([], []), Properties), EvaluatedInterface: TSchema = TEvaluateIntersect([...InstantiatedHeritage, TObject(instantiatedProperties)])) {
+export function TCyclicInterface(Context: TProperties, Heritage: TSchema[], Properties: TProperties, InstantiatedHeritage: TSchema[] = TInstantiateTypes(Context, TState([], []), Heritage), instantiatedProperties: TProperties = TInstantiateProperties({}, TState([], []), Properties), EvaluatedInterface: TSchema = TEvaluateIntersect([...InstantiatedHeritage, TObject(instantiatedProperties)])): any {
   return EvaluatedInterface
 }
 /* compiles to:
@@ -50,7 +53,7 @@ export function TCyclicInterface(Context: TProperties, Heritage: TSchema[], Prop
 // ✗ TCyclicDefinitions: the ScriptType does not itself typecheck as TypeScript
 //   TCyclicDefinitions.st.ts(3:104) TS2304: Cannot find name 'Context'.
 /* @scripttype preserveParamNames */
-export function TCyclicDefinitions__v1__v1(Key) {
+export function TCyclicDefinitions__v1__v1(Key): any {
   const m1 = matches<TInterfaceDeferred<Hole<"Heritage", TSchema[]>, Hole<"Properties", TProperties>>>(Context[Key])
   if (m1) {
     return TCyclicInterface(Context, m1.Heritage, m1.Properties)
@@ -58,14 +61,14 @@ export function TCyclicDefinitions__v1__v1(Key) {
   return Context[Key]
 }
 
-export function TCyclicDefinitions__v1(Context, Dependencies) {
+export function TCyclicDefinitions__v1(Context, Dependencies): any {
   const out = emptyObject
   for (const Key in keySet(Extract(keyof(Context), Dependencies[number]))) {
     out[Key] = TCyclicDefinitions__v1__v1(Key)
   }
   return out
 }
-export function TCyclicDefinitions(Context: TProperties, Dependencies: string[], Result: TProperties = TCyclicDefinitions__v1(Context, Dependencies)) {
+export function TCyclicDefinitions(Context: TProperties, Dependencies: string[], Result: TProperties = TCyclicDefinitions__v1(Context, Dependencies)): any {
   return Result
 }
 /* compiles to:
@@ -86,7 +89,7 @@ export function TCyclicDefinitions(Context: TProperties, Dependencies: string[],
 
 // ✓ TInstantiateCyclic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TInstantiateCyclic(Context: TProperties, Ref: string, Type: TSchema, Dependencies: string[] = TCyclicDependencies(Context, Ref, Type), Definitions: TProperties = TCyclicDefinitions(Context, Dependencies), Result: TSchema = TCyclic(Definitions, Ref)) {
+export function TInstantiateCyclic(Context: TProperties, Ref: string, Type: TSchema, Dependencies: string[] = TCyclicDependencies(Context, Ref, Type), Definitions: TProperties = TCyclicDefinitions(Context, Dependencies), Result: TSchema = TCyclic(Definitions, Ref)): any {
   return Result
 }
 /* compiles to:

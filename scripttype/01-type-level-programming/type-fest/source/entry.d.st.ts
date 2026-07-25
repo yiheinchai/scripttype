@@ -7,9 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
+// Names this file references but does not define: types from elsewhere in the
+// library, and local functions used in type position. Declared so the generated
+// ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type ItemType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type KeyType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type ValueType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 // ✓ MapKey: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapKey(BaseType) {
+export function MapKey(BaseType): any {
   const m1 = matches<Map<Hole<"KeyType">, unknown>>(BaseType)
   if (m1) {
     return m1.KeyType
@@ -22,7 +30,7 @@ export function MapKey(BaseType) {
 
 // ✓ MapValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MapValue(BaseType) {
+export function MapValue(BaseType): any {
   const m1 = matches<Map<unknown, Hole<"ValueType">>>(BaseType)
   if (m1) {
     return m1.ValueType
@@ -36,7 +44,7 @@ export function MapValue(BaseType) {
 
 // ✓ _ArrayEntry: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ArrayEntry(BaseType: readonly unknown[]) {
+export function _ArrayEntry(BaseType: readonly unknown[]): any {
   return [number, BaseType[number]]
 }
 /* compiles to:
@@ -45,7 +53,7 @@ export function _ArrayEntry(BaseType: readonly unknown[]) {
 
 // ✓ _MapEntry: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _MapEntry(BaseType) {
+export function _MapEntry(BaseType): any {
   return [MapKey(BaseType), MapValue(BaseType)]
 }
 /* compiles to:
@@ -54,7 +62,7 @@ export function _MapEntry(BaseType) {
 
 // ✓ _ObjectEntry: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _ObjectEntry(BaseType) {
+export function _ObjectEntry(BaseType): any {
   return [keyof(BaseType), BaseType[keyof(BaseType)]]
 }
 /* compiles to:
@@ -63,7 +71,7 @@ export function _ObjectEntry(BaseType) {
 
 // ✓ _SetEntry: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _SetEntry(BaseType) {
+export function _SetEntry(BaseType): any {
   const m1 = matches<Set<Hole<"ItemType">>>(BaseType)
   if (m1) {
     return [m1.ItemType, m1.ItemType]
@@ -77,7 +85,7 @@ export function _SetEntry(BaseType) {
 
 // ✓ Entry: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Entry(BaseType) {
+export function Entry(BaseType): any {
   if (matches<Map<unknown, unknown>>(BaseType)) {
     return _MapEntry(BaseType)
   }

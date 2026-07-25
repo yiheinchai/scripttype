@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Cast } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Cast.js'
+import type { Iteration } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Iteration.js'
+import type { IterationOf } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/IterationOf.js'
+import type { Next } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Next.js'
+import type { Pos } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Pos.js'
+import type { Prev } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Iteration/Prev.js'
+import type { _IsNegative } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Number/IsNegative.js'
+declare namespace m1 {
+  export type X<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Cast: any
 declare const Iteration: any
 declare const IterationOf: any
@@ -17,17 +28,10 @@ declare const Next: any
 declare const Pos: any
 declare const Prev: any
 declare const _IsNegative: any
-type Cast<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Iteration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type IterationOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Pos<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Prev<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _IsNegative<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ _AddPositive: does not compile yet
 //   Type 'Pos<N2> extends 0 ? 1 : number extends Pos<N2> ? 2 : 0' cannot be used to index type '{ '0': _AddPositive__st0<Next<N1>, Prev<N2>>; '1': N1; '2': [number,
 /* @scripttype preserveParamNames */
-export function _AddPositive(N1: Iteration, N2: Iteration) {
+export function _AddPositive(N1: Iteration, N2: Iteration): any {
   return { 0: _AddPositive(Next(N1), Prev(N2)), 1: N1, 2: IterationOf(number) }[matches<0>(Pos(N2)) ? 1 : (matches<Pos<typeof N2>>(number) ? 2 : 0)]
 }
 /* compiles to:
@@ -37,7 +41,7 @@ export function _AddPositive(N1: Iteration, N2: Iteration) {
 
 // ✓ AddPositive: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AddPositive(N1: Iteration, N2: Iteration) {
+export function AddPositive(N1: Iteration, N2: Iteration): any {
   const m1 = matches<Hole<"X">>(_AddPositive(N1, N2))
   if (m1) {
     return Cast(m1.X, Iteration)
@@ -52,7 +56,7 @@ export function AddPositive(N1: Iteration, N2: Iteration) {
 // ✗ _AddNegative: does not compile yet
 //   Type 'Pos<N2> extends 0 ? 1 : number extends Pos<N2> ? 2 : 0' cannot be used to index type '{ '0': _AddNegative__st2<Prev<N1>, Next<N2>>; '1': N1; '2': number; 
 /* @scripttype preserveParamNames */
-export function _AddNegative(N1: Iteration, N2: Iteration) {
+export function _AddNegative(N1: Iteration, N2: Iteration): any {
   return { 0: _AddNegative(Prev(N1), Next(N2)), 1: N1, 2: number }[matches<0>(Pos(N2)) ? 1 : (matches<Pos<typeof N2>>(number) ? 2 : 0)]
 }
 /* compiles to:
@@ -62,7 +66,7 @@ export function _AddNegative(N1: Iteration, N2: Iteration) {
 
 // ✓ AddNegative: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AddNegative(N1: Iteration, N2: Iteration) {
+export function AddNegative(N1: Iteration, N2: Iteration): any {
   const m1 = matches<Hole<"X">>(_AddNegative(N1, N2))
   if (m1) {
     return Cast(m1.X, Iteration)
@@ -77,7 +81,7 @@ export function AddNegative(N1: Iteration, N2: Iteration) {
 // ✗ _Add: does not compile yet
 //   Type '_IsNegative<N2>' cannot be used to index type '{ '0': AddPositive<N1, N2>; '1': AddNegative<N1, N2>; }'.
 /* @scripttype preserveParamNames */
-export function _Add(N1: Iteration, N2: Iteration) {
+export function _Add(N1: Iteration, N2: Iteration): any {
   return { 0: AddPositive(N1, N2), 1: AddNegative(N1, N2) }[_IsNegative(N2)]
 }
 /* compiles to:
@@ -87,7 +91,7 @@ export function _Add(N1: Iteration, N2: Iteration) {
 
 // ✓ Add: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Add(N1: number, N2: number) {
+export function Add(N1: number, N2: number): any {
   if (matches<unknown>(N1)) {
     if (matches<unknown>(N2)) {
       return _Add(IterationOf(N1), IterationOf(N2))[0]

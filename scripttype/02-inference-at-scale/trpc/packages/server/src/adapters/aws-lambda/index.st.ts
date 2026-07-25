@@ -7,9 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { LambdaEvent } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/adapters/aws-lambda/getPlanner.js'
+import type { HTTPBaseHandlerOptions, TRPCRequestInfo } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/http/types.js'
+import type { CreateContextCallback } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/rootConfig.js'
+import type { AnyRouter, inferRouterContext } from '../../../../../../../../02-inference-at-scale/trpc/packages/server/src/unstable-core-do-not-import/router.js'
 declare const APIGWContext: any
 declare const AnyRouter: any
 declare const CreateContextCallback: any
@@ -18,15 +23,9 @@ declare const LambdaEvent: any
 declare const TRPCRequestInfo: any
 declare const inferRouterContext: any
 type APIGWContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CreateContextCallback<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type HTTPBaseHandlerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type LambdaEvent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCRequestInfo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferRouterContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateAWSLambdaContextOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateAWSLambdaContextOptions(TEvent: LambdaEvent) {
+export function CreateAWSLambdaContextOptions(TEvent: LambdaEvent): any {
   return { event: TEvent, context: APIGWContext, info: TRPCRequestInfo }
 }
 /* compiles to:
@@ -39,7 +38,7 @@ export function CreateAWSLambdaContextOptions(TEvent: LambdaEvent) {
 
 // ✓ AWSLambdaOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AWSLambdaOptions(TRouter: AnyRouter, TEvent: LambdaEvent) {
+export function AWSLambdaOptions(TRouter: AnyRouter, TEvent: LambdaEvent): any {
   return HTTPBaseHandlerOptions(TRouter, TEvent) & CreateContextCallback(inferRouterContext(AnyRouter), AWSLambdaCreateContextFn(TRouter, TEvent))
 }
 /* compiles to:
@@ -53,7 +52,7 @@ export function AWSLambdaOptions(TRouter: AnyRouter, TEvent: LambdaEvent) {
 
 // ✓ AWSLambdaCreateContextFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AWSLambdaCreateContextFn(TRouter: AnyRouter, TEvent: LambdaEvent) {
+export function AWSLambdaCreateContextFn(TRouter: AnyRouter, TEvent: LambdaEvent): any {
   return fnType([CreateAWSLambdaContextOptions(TEvent)], inferRouterContext(TRouter) | t<Promise<inferRouterContext<typeof TRouter>>>())
 }
 /* compiles to:

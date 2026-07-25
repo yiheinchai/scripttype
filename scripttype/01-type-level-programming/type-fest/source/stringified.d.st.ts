@@ -9,7 +9,7 @@
  */
 // ✓ Stringified: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Stringified(ObjectType) {
+export function Stringified(ObjectType): any {
   const out = emptyObject
   for (const KeyType in keyof(ObjectType)) {
     out[KeyType] = string

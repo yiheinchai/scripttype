@@ -7,24 +7,35 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { XLessThan } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/_comparer.js'
+import type { XStaticSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/static/schema.js'
+import type { XAdditionalItems } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/additionalItems.js'
+import type { XMaxItems } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/maxItems.js'
+import type { XMinItems } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/minItems.js'
+import type { XSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/schema/types/schema.js'
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type MaxItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type MinItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const XAdditionalItems: any
 declare const XLessThan: any
 declare const XMaxItems: any
 declare const XMinItems: any
 declare const XSchema: any
 declare const XStaticSchema: any
-type XAdditionalItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XLessThan<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XMaxItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XMinItems<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type XStaticSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ XWithElements: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XWithElements(Stack: string[], Root: XSchema, Schemas: XSchema[]) {
+export function XWithElements(Stack: string[], Root: XSchema, Schemas: XSchema[]): any {
   let Result: any[] = []
   let schemas = Schemas
   while (true) {
@@ -57,7 +68,7 @@ export function XWithElements(Stack: string[], Root: XSchema, Schemas: XSchema[]
 
 // ✓ XWithMaxItemsRemap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XWithMaxItemsRemap(Elements: unknown[], MaxItems: number, Result: unknown[] = []) {
+export function XWithMaxItemsRemap(Elements: unknown[], MaxItems: number, Result: unknown[] = []): any {
   const m1 = matches<[ Hole<"Left", unknown>, ...Hole<"Right", unknown[]> ]>(Elements)
   if (m1) {
     if (matches<true>(XLessThan(Result['length'], MaxItems))) {
@@ -82,14 +93,14 @@ export function XWithMaxItemsRemap(Elements: unknown[], MaxItems: number, Result
 
 // ✓ XWithMaxItems: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XWithMaxItems__v1(Schema, Elements) {
+export function XWithMaxItems__v1(Schema, Elements): any {
   const m1 = matches<XMaxItems<Hole<"MaxItems", number>>>(Schema)
   if (m1) {
     return XWithMaxItemsRemap(Elements, m1.MaxItems)
   }
   return Elements
 }
-export function XWithMaxItems(Schema: XSchema, Elements: unknown[], Result: unknown[] = XWithMaxItems__v1(Schema, Elements)) {
+export function XWithMaxItems(Schema: XSchema, Elements: unknown[], Result: unknown[] = XWithMaxItems__v1(Schema, Elements)): any {
   return Result
 }
 /* compiles to:
@@ -107,14 +118,14 @@ export function XWithMaxItems(Schema: XSchema, Elements: unknown[], Result: unkn
 
 // ✓ XNeedsAdditionalItems: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XNeedsAdditionalItems__v1(Schema, Elements) {
+export function XNeedsAdditionalItems__v1(Schema, Elements): any {
   const m1 = matches<XMaxItems<Hole<"MaxItems", number>>>(Schema)
   if (m1) {
     return XLessThan(Elements['length'], m1.MaxItems)
   }
   return true
 }
-export function XNeedsAdditionalItems(Schema: XSchema, Elements: unknown[], Result: boolean = XNeedsAdditionalItems__v1(Schema, Elements)) {
+export function XNeedsAdditionalItems(Schema: XSchema, Elements: unknown[], Result: boolean = XNeedsAdditionalItems__v1(Schema, Elements)): any {
   return Result
 }
 /* compiles to:
@@ -132,7 +143,7 @@ export function XNeedsAdditionalItems(Schema: XSchema, Elements: unknown[], Resu
 
 // ✓ XWithMinItemsRemap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XWithMinItemsRemap(Elements: unknown[], MinItems: number, Result: unknown[] = []) {
+export function XWithMinItemsRemap(Elements: unknown[], MinItems: number, Result: unknown[] = []): any {
   const m1 = matches<[ Hole<"Left">, ...Hole<"Right"> ]>(Elements)
   if (m1) {
     if (matches<true>(XLessThan(Result['length'], MinItems))) {
@@ -158,14 +169,14 @@ export function XWithMinItemsRemap(Elements: unknown[], MinItems: number, Result
 // ✗ XWithMinItems: the ScriptType does not itself typecheck as TypeScript
 //   XWithMinItems.st.ts(9:112) TS2372: Parameter 'MinItems' cannot reference itself.
 /* @scripttype preserveParamNames */
-export function XWithMinItems__v1(Schema, MinItems) {
+export function XWithMinItems__v1(Schema, MinItems): any {
   const m1 = matches<XMinItems<Hole<"MinItems", number>>>(Schema)
   if (m1) {
     return m1.MinItems
   }
   return 0
 }
-export function XWithMinItems(Schema: XSchema, Values: unknown[], MinItems: number = XWithMinItems__v1(Schema, MinItems), Result: unknown[] = XWithMinItemsRemap(Values, MinItems)) {
+export function XWithMinItems(Schema: XSchema, Values: unknown[], MinItems: number = XWithMinItems__v1(Schema, MinItems), Result: unknown[] = XWithMinItemsRemap(Values, MinItems)): any {
   return Result
 }
 /* compiles to:
@@ -182,7 +193,7 @@ export function XWithMinItems(Schema: XSchema, Values: unknown[], MinItems: numb
 
 // ✓ XWithAdditionalItems: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XWithAdditionalItems__v1(Stack, Root, Schema, Elements) {
+export function XWithAdditionalItems__v1(Stack, Root, Schema, Elements): any {
   const m1 = matches<XAdditionalItems<Hole<"Schema", XSchema>>>(Schema)
   if (m1) {
     if (matches<true>(m1.Schema)) {
@@ -195,7 +206,7 @@ export function XWithAdditionalItems__v1(Stack, Root, Schema, Elements) {
   }
   return [...Elements, ...arrayOf(unknown)]
 }
-export function XWithAdditionalItems(Stack: string[], Root: XSchema, Schema: XSchema, Elements: unknown[], Result: unknown[] = XWithAdditionalItems__v1(Stack, Root, Schema, Elements)) {
+export function XWithAdditionalItems(Stack: string[], Root: XSchema, Schema: XSchema, Elements: unknown[], Result: unknown[] = XWithAdditionalItems__v1(Stack, Root, Schema, Elements)): any {
   return Result
 }
 /* compiles to:
@@ -217,7 +228,7 @@ export function XWithAdditionalItems(Stack: string[], Root: XSchema, Schema: XSc
 
 // ✓ XStaticElements: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XStaticElements(Stack: string[], Root: XSchema, Schema: XSchema, PrefixItems: XSchema[], WithElements: unknown[] = XWithElements(Stack, Root, PrefixItems), WithMaxItems: unknown[] = XWithMaxItems(Schema, WithElements), NeedsAdditional: boolean = XNeedsAdditionalItems(Schema, WithMaxItems), WithMinItems: unknown[] = XWithMinItems(Schema, WithMaxItems), WithAdditionalItems: unknown[] = matches<true>(NeedsAdditional) ? XWithAdditionalItems(Stack, Root, Schema, WithMinItems) : WithMinItems) {
+export function XStaticElements(Stack: string[], Root: XSchema, Schema: XSchema, PrefixItems: XSchema[], WithElements: unknown[] = XWithElements(Stack, Root, PrefixItems), WithMaxItems: unknown[] = XWithMaxItems(Schema, WithElements), NeedsAdditional: boolean = XNeedsAdditionalItems(Schema, WithMaxItems), WithMinItems: unknown[] = XWithMinItems(Schema, WithMaxItems), WithAdditionalItems: unknown[] = matches<true>(NeedsAdditional) ? XWithAdditionalItems(Stack, Root, Schema, WithMinItems) : WithMinItems): any {
   return WithAdditionalItems
 }
 /* compiles to:

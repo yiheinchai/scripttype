@@ -7,9 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { UndeclaredKeyBehavior } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/schema/structure/structure.js'
+import type { inferDefinition, validateInnerDefinition } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/definition.js'
+import type { ParsedKeyKind } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/objectLiteral.js'
+import type { PossibleDefaultableStringDefinition } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/property.js'
+import type { typeToString } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/describe.js'
+import type { ErrorMessage, ErrorType } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
+import type { anyOrNever } from '../../../../../../03-schema-and-type-level-parsers/arktype/ark/util/generics.js'
 declare const ErrorMessage: any
 declare const ErrorType: any
 declare const ParsedKeyKind: any
@@ -24,23 +32,14 @@ declare const typeToString: any
 declare const validateInnerDefinition: any
 declare const writeInvalidSpreadTypeMessage: any
 type DefaultablePropertyTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OptionalPropertyDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ParsedKeyKind<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PossibleDefaultableStringDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UndeclaredKeyBehavior<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type anyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type inferDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type invalidDefaultableKeyKindMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type invalidOptionalKeyKindMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type parseString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type typeToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type validateInnerDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type writeInvalidSpreadTypeMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ validateProperty: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function validateProperty(def, keyKind: ParsedKeyKind, $, args) {
+export function validateProperty(def, keyKind: ParsedKeyKind, $, args): any {
   if (matches<[ anyOrNever ]>([def])) {
     return def
   }
@@ -85,7 +84,7 @@ export function validateProperty(def, keyKind: ParsedKeyKind, $, args) {
 
 // ✓ isDefaultable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function isDefaultable(def, $, args) {
+export function isDefaultable(def, $, args): any {
   if (matches<DefaultablePropertyTuple>(def)) {
     return true
   }
@@ -107,8 +106,8 @@ export function isDefaultable(def, $, args) {
 
 // ✓ OptionalPropertyDefinition: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalPropertyDefinition(baseDef = unknown) {
-  return OptionalPropertyTuple(baseDef) | OptionalPropertyString(baseDef & string)
+export function OptionalPropertyDefinition(baseDef = unknown): any {
+  return OptionalPropertyTuple(baseDef) | OptionalPropertyString(merge(baseDef, string))
 }
 /* compiles to:
  * export type OptionalPropertyDefinition<baseDef = unknown> =
@@ -117,7 +116,7 @@ export function OptionalPropertyDefinition(baseDef = unknown) {
 
 // ✓ OptionalPropertyString: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalPropertyString(baseDef: string = string) {
+export function OptionalPropertyString(baseDef: string = string): any {
   return `${baseDef}?`
 }
 /* compiles to:
@@ -126,7 +125,7 @@ export function OptionalPropertyString(baseDef: string = string) {
 
 // ✓ OptionalPropertyTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function OptionalPropertyTuple(baseDef = unknown) {
+export function OptionalPropertyTuple(baseDef = unknown): any {
   return asReadonly([baseDef, '?'])
 }
 /* compiles to:
@@ -135,7 +134,7 @@ export function OptionalPropertyTuple(baseDef = unknown) {
 
 // ✓ DefaultablePropertyTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DefaultablePropertyTuple(baseDef = unknown, thunkableProperty = unknown) {
+export function DefaultablePropertyTuple(baseDef = unknown, thunkableProperty = unknown): any {
   return asReadonly([baseDef, '=', thunkableProperty])
 }
 /* compiles to:

@@ -7,9 +7,18 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { DigitCompareTable } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/compare.js'
+import type { Digit, DigitNumber, Num, Sign, ToDigitNumber, ToString } from '../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/utils.js'
+declare namespace m1 {
+  export type N1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type N2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Digit: any
 declare const DigitCompareTable: any
 declare const DigitNumber: any
@@ -18,17 +27,10 @@ declare const Sign: any
 declare const ToDigitNumber: any
 declare const ToString: any
 declare const _Equal: any
-type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DigitCompareTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Num<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Sign<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToDigitNumber<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CompareLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CompareLength(T: any[], U: any[]) {
+export function CompareLength(T: any[], U: any[]): any {
   if (matches<(typeof U)["length"]>(T['length'])) {
     return 1
   }
@@ -41,7 +43,7 @@ export function CompareLength(T: any[], U: any[]) {
 
 // ✓ DigitCompare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DigitCompare(D1: Digit, D2: Digit) {
+export function DigitCompare(D1: Digit, D2: Digit): any {
   return DigitCompareTable[D1][D2]
 }
 /* compiles to:
@@ -50,7 +52,7 @@ export function DigitCompare(D1: Digit, D2: Digit) {
 
 // ✓ CompareDigitsWithEqualLength: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CompareDigitsWithEqualLength(T: Digit[], U: Digit[]) {
+export function CompareDigitsWithEqualLength(T: Digit[], U: Digit[]): any {
   const m1 = matches<[ [ Hole<"N1", Digit>, ...Hole<"R1", Digit[]> ], [ Hole<"N2", Digit>, ...Hole<"R2", Digit[]> ] ]>([T, U])
   if (m1) {
     if (matches<0>(DigitCompare(m1.N1, m1.N2))) {
@@ -71,7 +73,7 @@ export function CompareDigitsWithEqualLength(T: Digit[], U: Digit[]) {
 
 // ✓ CompareDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CompareDigits(T: Digit[], U: Digit[]) {
+export function CompareDigits(T: Digit[], U: Digit[]): any {
   if (matches<1>(CompareLength(T, U))) {
     return CompareDigitsWithEqualLength(T, U)
   }
@@ -89,7 +91,7 @@ export function CompareDigits(T: Digit[], U: Digit[]) {
 
 // ✓ CompareDigitNumbers: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CompareDigitNumbers(T: DigitNumber, U: DigitNumber) {
+export function CompareDigitNumbers(T: DigitNumber, U: DigitNumber): any {
   if (matches<Sign<typeof U>>(Sign(T))) {
     if (matches<"">(Sign(T))) {
       return CompareDigits(Num(T), Num(U))
@@ -111,7 +113,7 @@ export function CompareDigitNumbers(T: DigitNumber, U: DigitNumber) {
 
 // ✓ Compare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Compare(T: number | bigint, U: number | bigint) {
+export function Compare(T: number | bigint, U: number | bigint): any {
   if (matches<true>(_Equal(T, U))) {
     return 0
   }
@@ -126,7 +128,7 @@ export function Compare(T: number | bigint, U: number | bigint) {
 
 // ✓ LessThan: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LessThan(T: number | bigint, U: number | bigint) {
+export function LessThan(T: number | bigint, U: number | bigint): any {
   if (matches<-1>(Compare(T, U))) {
     return true
   }
@@ -139,7 +141,7 @@ export function LessThan(T: number | bigint, U: number | bigint) {
 
 // ✓ GreaterThan: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GreaterThan(T: number | bigint, U: number | bigint) {
+export function GreaterThan(T: number | bigint, U: number | bigint): any {
   if (matches<1>(Compare(T, U))) {
     return true
   }
@@ -152,7 +154,7 @@ export function GreaterThan(T: number | bigint, U: number | bigint) {
 
 // ✓ Equal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Equal(T: number | bigint, U: number | bigint) {
+export function Equal(T: number | bigint, U: number | bigint): any {
   return _Equal(T, U)
 }
 /* compiles to:
@@ -161,7 +163,7 @@ export function Equal(T: number | bigint, U: number | bigint) {
 
 // ✓ NotEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NotEqual(T: number | bigint, U: number | bigint) {
+export function NotEqual(T: number | bigint, U: number | bigint): any {
   if (matches<true>(_Equal(T, U))) {
     return false
   }
@@ -174,7 +176,7 @@ export function NotEqual(T: number | bigint, U: number | bigint) {
 
 // ✓ LessThanOrEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LessThanOrEqual(T: number | bigint, U: number | bigint) {
+export function LessThanOrEqual(T: number | bigint, U: number | bigint): any {
   if (matches<-1 | 0>(Compare(T, U))) {
     return true
   }
@@ -187,7 +189,7 @@ export function LessThanOrEqual(T: number | bigint, U: number | bigint) {
 
 // ✓ GreaterThanOrEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GreaterThanOrEqual(T: number | bigint, U: number | bigint) {
+export function GreaterThanOrEqual(T: number | bigint, U: number | bigint): any {
   if (matches<1 | 0>(Compare(T, U))) {
     return true
   }
@@ -200,7 +202,7 @@ export function GreaterThanOrEqual(T: number | bigint, U: number | bigint) {
 
 // ✓ Max: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Max(T: number | bigint, U: number | bigint) {
+export function Max(T: number | bigint, U: number | bigint): any {
   if (matches<1 | 0>(Compare(T, U))) {
     return T
   }
@@ -213,7 +215,7 @@ export function Max(T: number | bigint, U: number | bigint) {
 
 // ✓ Min: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Min(T: number | bigint, U: number | bigint) {
+export function Min(T: number | bigint, U: number | bigint): any {
   if (matches<1 | 0>(Compare(T, U))) {
     return U
   }

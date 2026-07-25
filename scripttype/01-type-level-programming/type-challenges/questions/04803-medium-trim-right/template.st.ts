@@ -9,7 +9,7 @@
  */
 // ✓ TrimRight: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TrimRight(S: string) {
+export function TrimRight(S: string): any {
   return any
 }
 /* compiles to:

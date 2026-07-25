@@ -12,22 +12,40 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const MySqlBigInt53Builder: any
 declare const MySqlBigInt64Builder: any
-type MySqlBigInt53Builder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MySqlBigInt64Builder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MySqlBigInt53Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MySqlBigInt64Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MySqlBigInt53BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlBigInt53BuilderInitial(TName: string) {
+export function MySqlBigInt53BuilderInitial(TName: string): any {
   return MySqlBigInt53Builder({ name: TName, dataType: 'number', columnType: 'MySqlBigInt53', data: number, driverParam: number | string, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlBigInt53BuilderInitial<TName extends string> = MySqlBigInt53Builder<{ name: TName; dataType: 'number'; columnType: 'MySqlBigInt53'; data: number; driverParam: number | string; enumValues: undefined }>
+ * export type MySqlBigInt53BuilderInitial<TName extends string> = MySqlBigInt53Builder<
+ *   {
+ *     name: TName
+ *     dataType: 'number'
+ *     columnType: 'MySqlBigInt53'
+ *     data: number
+ *     driverParam: number | string
+ *     enumValues: undefined
+ *   }
+ * >
  */
 
 // ✓ MySqlBigInt64BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MySqlBigInt64BuilderInitial(TName: string) {
+export function MySqlBigInt64BuilderInitial(TName: string): any {
   return MySqlBigInt64Builder({ name: TName, dataType: 'bigint', columnType: 'MySqlBigInt64', data: bigint, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
- * export type MySqlBigInt64BuilderInitial<TName extends string> = MySqlBigInt64Builder<{ name: TName; dataType: 'bigint'; columnType: 'MySqlBigInt64'; data: bigint; driverParam: string; enumValues: undefined }>
+ * export type MySqlBigInt64BuilderInitial<TName extends string> = MySqlBigInt64Builder<
+ *   {
+ *     name: TName
+ *     dataType: 'bigint'
+ *     columnType: 'MySqlBigInt64'
+ *     data: bigint
+ *     driverParam: string
+ *     enumValues: undefined
+ *   }
+ * >
  */

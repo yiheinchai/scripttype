@@ -9,7 +9,7 @@
  */
 // ✓ Includes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Includes(T: readonly any[], U) {
+export function Includes(T: readonly any[], U): any {
   return any
 }
 /* compiles to:

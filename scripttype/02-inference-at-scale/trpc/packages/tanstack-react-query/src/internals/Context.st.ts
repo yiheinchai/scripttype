@@ -7,31 +7,34 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TRPCClient } from '../../../../../../../02-inference-at-scale/trpc/packages/client/src/createTRPCClient.js'
+import type { DefaultFeatureFlags, FeatureFlags, KeyPrefixOptions } from '../../../../../../../02-inference-at-scale/trpc/packages/tanstack-react-query/src/internals/types.js'
 declare namespace React {
   export type FC<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type ReactNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const AnyTRPCRouter: any
 declare const DefaultFeatureFlags: any
+declare const FC: any
 declare const FeatureFlags: any
 declare const KeyPrefixOptions: any
 declare const QueryClient: any
 declare const React: any
+declare const ReactNode: any
 declare const TRPCClient: any
 type AnyTRPCRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DefaultFeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type FeatureFlags<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type KeyPrefixOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type FC<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type QueryClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type React<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TRPCClient<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type ReactNode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRPCProviderType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRPCProviderType(TRouter: AnyTRPCRouter, TFeatureFlags: FeatureFlags = DefaultFeatureFlags) {
-  return React.FC(merge({ children: React.ReactNode, queryClient: QueryClient, trpcClient: TRPCClient(TRouter) }, KeyPrefixOptions(TFeatureFlags)))
+export function TRPCProviderType(TRouter: AnyTRPCRouter, TFeatureFlags: FeatureFlags = DefaultFeatureFlags): any {
+  return t<React.FC<{ children: React.ReactNode; queryClient: QueryClient; trpcClient: TRPCClient<typeof TRouter>; } & KeyPrefixOptions<typeof TFeatureFlags>>>()
 }
 /* compiles to:
  * export type TRPCProviderType<
@@ -39,7 +42,7 @@ export function TRPCProviderType(TRouter: AnyTRPCRouter, TFeatureFlags: FeatureF
  *   TFeatureFlags extends FeatureFlags = DefaultFeatureFlags
  * > =
  *   React.FC<
- *     & { children: React.ReactNode; queryClient: QueryClient; trpcClient: TRPCClient<TRouter> }
+ *     & { children: React.ReactNode; queryClient: QueryClient; trpcClient: TRPCClient<TRouter>; }
  *     & KeyPrefixOptions<TFeatureFlags>
  *   >
  */

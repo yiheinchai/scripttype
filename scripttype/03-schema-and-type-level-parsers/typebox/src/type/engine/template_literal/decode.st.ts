@@ -7,9 +7,28 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TUnreachable } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/system/unreachable/unreachable.js'
+import type { TParsePatternIntoTypes } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/patterns/pattern.js'
+import type { TIsTemplateLiteralFinite } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/engine/template_literal/is_finite.js'
+import type { TLiteral, TLiteralValue } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/literal.js'
+import type { TSchema } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
+import type { TUnion } from '../../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/union.js'
+declare namespace Result {
+  export type push<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Type<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Types<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Value<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const TIsTemplateLiteralFinite: any
 declare const TLiteral: any
 declare const TLiteralValue: any
@@ -19,18 +38,11 @@ declare const TString: any
 declare const TTemplateLiteral: any
 declare const TUnion: any
 declare const TUnreachable: any
-type TIsTemplateLiteralFinite<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TLiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TParsePatternIntoTypes<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TTemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TUnreachable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TFromLiteralPush: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromLiteralPush(Variants: string[], Value: TLiteralValue) {
+export function TFromLiteralPush(Variants: string[], Value: TLiteralValue): any {
   let Result: any[] = []
   let variants = Variants
   while (true) {
@@ -61,7 +73,7 @@ export function TFromLiteralPush(Variants: string[], Value: TLiteralValue) {
 
 // ✓ TFromLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromLiteral(Variants: string[], Value: TLiteralValue) {
+export function TFromLiteral(Variants: string[], Value: TLiteralValue): any {
   if (matches<[ ]>(Variants)) {
     return [`${Value}`]
   }
@@ -74,7 +86,7 @@ export function TFromLiteral(Variants: string[], Value: TLiteralValue) {
 
 // ✓ TFromUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromUnion(Variants: string[], Types: TSchema[]) {
+export function TFromUnion(Variants: string[], Types: TSchema[]): any {
   let Result: any[] = []
   let types = Types
   while (true) {
@@ -105,7 +117,7 @@ export function TFromUnion(Variants: string[], Types: TSchema[]) {
 
 // ✓ TFromType: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromType__v1(Variants, Type) {
+export function TFromType__v1(Variants, Type): any {
   const m1 = matches<TUnion<Hole<"Types", TSchema[]>>>(Type)
   if (m1) {
     return TFromUnion(Variants, m1.Types)
@@ -116,7 +128,7 @@ export function TFromType__v1(Variants, Type) {
   }
   return TUnreachable
 }
-export function TFromType(Variants: string[], Type: TSchema, Result: string[] = TFromType__v1(Variants, Type)) {
+export function TFromType(Variants: string[], Type: TSchema, Result: string[] = TFromType__v1(Variants, Type)): any {
   return Result
 }
 /* compiles to:
@@ -134,7 +146,7 @@ export function TFromType(Variants: string[], Type: TSchema, Result: string[] = 
 
 // ✓ TDecodeFromSpan: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDecodeFromSpan(Variants: string[], Types: TSchema[]) {
+export function TDecodeFromSpan(Variants: string[], Types: TSchema[]): any {
   let variants = Variants
   let types = Types
   while (true) {
@@ -160,7 +172,7 @@ export function TDecodeFromSpan(Variants: string[], Types: TSchema[]) {
 
 // ✓ TVariantsToLiterals: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TVariantsToLiterals(Variants: string[]) {
+export function TVariantsToLiterals(Variants: string[]): any {
   let Result: any[] = []
   let variants = Variants
   while (true) {
@@ -186,7 +198,7 @@ export function TVariantsToLiterals(Variants: string[]) {
 
 // ✓ TDecodeTypesAsUnion: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDecodeTypesAsUnion(Types: TSchema[], Variants: string[] = TDecodeFromSpan([], Types), Literals: TSchema[] = TVariantsToLiterals(Variants), Result: TSchema = TUnion(Literals)) {
+export function TDecodeTypesAsUnion(Types: TSchema[], Variants: string[] = TDecodeFromSpan([], Types), Literals: TSchema[] = TVariantsToLiterals(Variants), Result: TSchema = TUnion(Literals)): any {
   return Result
 }
 /* compiles to:
@@ -201,14 +213,14 @@ export function TDecodeTypesAsUnion(Types: TSchema[], Variants: string[] = TDeco
 
 // ✓ TDecodeTypes: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TDecodeTypes__v1(Types) {
+export function TDecodeTypes__v1(Types): any {
   const m1 = matches<[ Hole<"Type", TLiteral> ]>(Types)
   if (m1) {
     return m1.Type
   }
   return TDecodeTypesAsUnion(Types)
 }
-export function TDecodeTypes(Types: TSchema[], Result: TSchema = matches<[ ]>(Types) ? TUnreachable : (TDecodeTypes__v1(Types))) {
+export function TDecodeTypes(Types: TSchema[], Result: TSchema = matches<[ ]>(Types) ? TUnreachable : (TDecodeTypes__v1(Types))): any {
   return Result
 }
 /* compiles to:
@@ -223,7 +235,7 @@ export function TDecodeTypes(Types: TSchema[], Result: TSchema = matches<[ ]>(Ty
 
 // ✓ TTemplateLiteralDecodeUnsafe: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralDecodeUnsafe(Pattern: string, Types: TSchema[] = TParsePatternIntoTypes(Pattern), Result: TSchema = matches<[ ]>(Types) ? TString : (matches<true>(TIsTemplateLiteralFinite(Types)) ? TDecodeTypes(Types) : TTemplateLiteral(Pattern))) {
+export function TTemplateLiteralDecodeUnsafe(Pattern: string, Types: TSchema[] = TParsePatternIntoTypes(Pattern), Result: TSchema = matches<[ ]>(Types) ? TString : (matches<true>(TIsTemplateLiteralFinite(Types)) ? TDecodeTypes(Types) : TTemplateLiteral(Pattern))): any {
   return Result
 }
 /* compiles to:
@@ -237,7 +249,7 @@ export function TTemplateLiteralDecodeUnsafe(Pattern: string, Types: TSchema[] =
 
 // ✓ TTemplateLiteralDecode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TTemplateLiteralDecode(Pattern: string, Decoded: TSchema = TTemplateLiteralDecodeUnsafe(Pattern), Result: TSchema = matches<TTemplateLiteral>(Decoded) ? TString : Decoded) {
+export function TTemplateLiteralDecode(Pattern: string, Decoded: TSchema = TTemplateLiteralDecodeUnsafe(Pattern), Result: TSchema = matches<TTemplateLiteral>(Decoded) ? TString : Decoded): any {
   return Result
 }
 /* compiles to:

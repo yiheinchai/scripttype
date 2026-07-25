@@ -7,16 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ParamIndexMap, Result } from '../../../../../../02-inference-at-scale/hono/src/router.js'
 declare const ParamIndexMap: any
 declare const Result: any
-type ParamIndexMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ HandlerData: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function HandlerData(T) {
+export function HandlerData(T): any {
   return arrayOf([T, ParamIndexMap])
 }
 /* compiles to:
@@ -25,7 +25,7 @@ export function HandlerData(T) {
 
 // ✓ StaticMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticMap(T) {
+export function StaticMap(T): any {
   return Record(string, Result(T))
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function StaticMap(T) {
 
 // ✓ Matcher: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Matcher(T) {
+export function Matcher(T): any {
   return [t<RegExp>(), arrayOf(HandlerData(T)), StaticMap(T)]
 }
 /* compiles to:
@@ -43,8 +43,8 @@ export function Matcher(T) {
 
 // ✓ MatcherMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MatcherMap(T) {
-  return Record(string, Matcher(T) | Null)
+export function MatcherMap(T): any {
+  return Record(string, anyOf(Matcher(T), Null))
 }
 /* compiles to:
  * export type MatcherMap<T> = Record<string, Matcher<T> | null>

@@ -7,24 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Tail } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/List/Tail.js'
+import type { BuiltIn } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/Misc/BuiltIn.js'
+import type { _ListOf } from '../../../../../../01-type-level-programming/ts-toolbelt/sources/Object/ListOf.js'
 declare const BuiltIn: any
 declare const Key: any
 declare const List: any
 declare const Tail: any
 declare const _ListOf: any
 declare const _OPick: any
-type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Key<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type List<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Tail<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _ListOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _OPick<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PickAt: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PickAt(O, Path: List<Key>) {
+export function PickAt(O, Path: List<Key>): any {
   if (matches<typeof Path>([])) {
     return O
   }
@@ -58,7 +59,7 @@ export function PickAt(O, Path: List<Key>) {
 
 // ✓ Pick: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Pick(O: object, Path: List<Key>) {
+export function Pick(O: object, Path: List<Key>): any {
   if (matches<unknown>(Path)) {
     return PickAt(O, Path)
   }

@@ -7,9 +7,50 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ExpressionBuilder } from '../../../../../04-query-builders-orm/kysely/src/expression/expression-builder.js'
+import type { AliasedExpression } from '../../../../../04-query-builders-orm/kysely/src/expression/expression.js'
+import type { AliasedExpressionOrFactory } from '../../../../../04-query-builders-orm/kysely/src/parser/expression-parser.js'
+import type { AliasedSelectQueryBuilder } from '../../../../../04-query-builders-orm/kysely/src/query-builder/select-query-builder.js'
+import type { SelectType } from '../../../../../04-query-builders-orm/kysely/src/util/column-type.js'
+import type { AnyAliasedColumn, AnyAliasedColumnWithTable, AnyColumn, AnyColumnWithTable, DrainOuterGeneric, ExtractColumnType } from '../../../../../04-query-builders-orm/kysely/src/util/type-utils.js'
+declare namespace m1 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type C<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type EA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type SC<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type SE<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type C<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type EA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type A<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type C<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type C<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type O<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type SC<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type C<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type RA<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type T<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AliasedExpression: any
 declare const AliasedExpressionOrFactory: any
 declare const AliasedSelectQueryBuilder: any
@@ -22,22 +63,13 @@ declare const DynamicReferenceBuilder: any
 declare const ExpressionBuilder: any
 declare const ExtractColumnType: any
 declare const SelectType: any
-type AliasedExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AliasedExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AliasedSelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyAliasedColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyAliasedColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyColumn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrainOuterGeneric<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DynamicReferenceBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ExtractColumnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SelectExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectExpression(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function SelectExpression(DB, TB): any {
   return AnyAliasedColumnWithTable(DB, TB) | AnyAliasedColumn(DB, TB) | AnyColumnWithTable(DB, TB) | AnyColumn(DB, TB) | DynamicReferenceBuilder(any) | AliasedExpressionOrFactory(DB, TB)
 }
 /* compiles to:
@@ -52,7 +84,10 @@ export function SelectExpression(DB, TB: keyof typeof DB) {
 
 // ✓ SelectCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectCallback(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function SelectCallback(DB, TB): any {
   return fnType([ExpressionBuilder(DB, TB)], readonlyArrayOf(SelectExpression(DB, TB)))
 }
 /* compiles to:
@@ -62,7 +97,10 @@ export function SelectCallback(DB, TB: keyof typeof DB) {
 
 // ✓ Selection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Selection(DB, TB: keyof typeof DB, SE) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function Selection(DB, TB, SE): any {
   if (matches<[ unknown ]>([DB])) {
     const out = emptyObject
     for (const E in keySet(FlattenSelectExpression(SE))) {
@@ -85,7 +123,10 @@ export function Selection(DB, TB: keyof typeof DB, SE) {
 
 // ✓ CallbackSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CallbackSelection(DB, TB: keyof typeof DB, CB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function CallbackSelection(DB, TB, CB): any {
   const m1 = matches<(eb: any) => ReadonlyArray<Hole<"SE">>>(CB)
   if (m1) {
     return Selection(DB, TB, m1.SE)
@@ -99,8 +140,12 @@ export function CallbackSelection(DB, TB: keyof typeof DB, CB) {
 
 // ✓ SelectArg: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SelectArg(DB, TB: keyof typeof DB, SE: SelectExpression<typeof DB, typeof TB>) {
-  return anyOf(SE, readonlyArrayOf(SE), fnType([ExpressionBuilder(DB, TB)], readonlyArrayOf(SE)))
+/**
+ * @param {keyof typeof DB} TB
+ * @param {SelectExpression<typeof DB, typeof TB>} SE
+ */
+export function SelectArg(DB, TB, SE): any {
+  return SE | readonlyArrayOf(SE) | fnType([ExpressionBuilder(DB, TB)], readonlyArrayOf(SE))
 }
 /* compiles to:
  * export type SelectArg<DB, TB extends keyof DB, SE extends SelectExpression<DB, TB>> =
@@ -109,7 +154,7 @@ export function SelectArg(DB, TB: keyof typeof DB, SE: SelectExpression<typeof D
 
 // ✓ FlattenSelectExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function FlattenSelectExpression(SE) {
+export function FlattenSelectExpression(SE): any {
   const m1 = matches<DynamicReferenceBuilder<Hole<"RA">>>(SE)
   if (m1) {
     const out = emptyObject
@@ -129,7 +174,7 @@ export function FlattenSelectExpression(SE) {
 
 // ✓ ExtractAliasFromSelectExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractAliasFromSelectExpression(SE) {
+export function ExtractAliasFromSelectExpression(SE): any {
   if (typeof SE === 'string') {
     return ExtractAliasFromStringSelectExpression(SE)
   }
@@ -158,7 +203,7 @@ export function ExtractAliasFromSelectExpression(SE) {
 
 // ✓ ExtractAliasFromStringSelectExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractAliasFromStringSelectExpression(SE: string) {
+export function ExtractAliasFromStringSelectExpression(SE: string): any {
   const m1 = matches<`${string}.${string}.${string} as ${Hole<"A">}`>(SE)
   if (m1) {
     return m1.A
@@ -193,7 +238,10 @@ export function ExtractAliasFromStringSelectExpression(SE: string) {
 
 // ✓ ExtractTypeFromSelectExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromSelectExpression(DB, TB: keyof typeof DB, SE) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractTypeFromSelectExpression(DB, TB, SE): any {
   if (typeof SE === 'string') {
     return ExtractTypeFromStringSelectExpression(DB, TB, SE)
   }
@@ -233,7 +281,10 @@ export function ExtractTypeFromSelectExpression(DB, TB: keyof typeof DB, SE) {
 
 // ✓ ExtractTypeFromStringSelectExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ExtractTypeFromStringSelectExpression(DB, TB: keyof typeof DB, SE: string) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function ExtractTypeFromStringSelectExpression(DB, TB, SE: string): any {
   const m1 = matches<`${Hole<"SC">}.${Hole<"T">}.${Hole<"C">} as ${string}`>(SE)
   if (m1) {
     if (matches<typeof TB>(`${m1.SC}.${m1.T}`)) {
@@ -308,14 +359,17 @@ export function ExtractTypeFromStringSelectExpression(DB, TB: keyof typeof DB, S
 
 // ✓ AllSelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function AllSelection__v1(DB, TB, C) {
+export function AllSelection__v1(DB, TB, C): any {
   const out = emptyObject
   for (const T in keySet(TB)) {
     out[T] = SelectType(C in DB[T] ? DB[T][C] : never)
   }
   return out
 }
-export function AllSelection(DB, TB: keyof typeof DB) {
+/**
+ * @param {keyof typeof DB} TB
+ */
+export function AllSelection(DB, TB): any {
   const out = emptyObject
   for (const C in keySet(AnyColumn(DB, TB))) {
     out[C] = AllSelection__v1(DB, TB, C)[TB]

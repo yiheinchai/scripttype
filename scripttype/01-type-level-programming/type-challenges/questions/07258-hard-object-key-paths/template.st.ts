@@ -9,7 +9,7 @@
  */
 // ✓ ObjectKeyPaths: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ObjectKeyPaths(T: object) {
+export function ObjectKeyPaths(T: object): any {
   return any
 }
 /* compiles to:

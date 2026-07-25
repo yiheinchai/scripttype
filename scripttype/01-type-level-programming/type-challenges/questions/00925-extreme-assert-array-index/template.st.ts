@@ -9,7 +9,7 @@
  */
 // ✓ Index: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Index(Array) {
+export function Index(Array): any {
   return any
 }
 /* compiles to:

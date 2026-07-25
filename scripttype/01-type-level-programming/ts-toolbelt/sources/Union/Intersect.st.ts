@@ -7,15 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Equals } from '../../../../../01-type-level-programming/ts-toolbelt/sources/Any/Equals.js'
 declare const Equals: any
-type Equals<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ Intersect: does not compile yet
 //   Type 'Equals<U1, U2>' cannot be used to index type '{ '1': U1; '0': never; }'.
 /* @scripttype preserveParamNames */
-export function Intersect(U1: any, U2: any) {
+export function Intersect(U1: any, U2: any): any {
   if (matches<unknown>(U1)) {
     if (matches<unknown>(U2)) {
       return { 1: U1, 0: never }[Equals(U1, U2)]
@@ -25,5 +26,8 @@ export function Intersect(U1: any, U2: any) {
   return never
 }
 /* compiles to:
- * export type Intersect<U1 extends any, U2 extends any> = U1 extends unknown ? U2 extends unknown ? { '1': U1; '0': never }[Equals<U1, U2>] : never : never
+ * export type Intersect<U1 extends any, U2 extends any> =
+ *   U1 extends unknown
+ *     ? U2 extends unknown ? { '1': U1; '0': never }[Equals<U1, U2>] : never
+ *     : never
  */

@@ -18,7 +18,7 @@ type IfNotAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any,
 type UnwrapBrand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ IsBooleanLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IsBooleanLiteral(T) {
+export function IsBooleanLiteral(T): any {
   return IfNotAnyOrNever(T, { ifNot: _IsBooleanLiteral(CollapseLiterals(UnwrapBrand(T))), ifAny: false, ifNever: false })
 }
 /* compiles to:
@@ -30,7 +30,7 @@ export function IsBooleanLiteral(T) {
 
 // ✓ _IsBooleanLiteral: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function _IsBooleanLiteral(T) {
+export function _IsBooleanLiteral(T): any {
   if (matches<typeof T>(boolean)) {
     return false
   }

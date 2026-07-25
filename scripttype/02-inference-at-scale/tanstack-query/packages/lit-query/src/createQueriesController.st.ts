@@ -7,9 +7,50 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { ValueAccessor } from '../../../../../../02-inference-at-scale/tanstack-query/packages/lit-query/src/accessor.js'
+import type { DefaultError, DefinedQueryObserverResult, OmitKeyof, QueryFunction, QueryKey, QueryObserverResult, ThrowOnError } from '../../../../../../02-inference-at-scale/tanstack-query/packages/query-core/src/types.js'
+declare namespace m1 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TInitialData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TQueryFnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TInitialDataResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TQueryFnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Tails<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type TData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TQueryFnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TQueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m4 {
+  export type TData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TQueryFnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m5 {
+  export type TError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TQueryFnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m6 {
+  export type TQueryFnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m7 {
+  export type TData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TQueryFnData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TQueryKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Accessor: any
 declare const DefaultError: any
 declare const DefinedQueryObserverResult: any
@@ -24,42 +65,46 @@ declare const TInitialData: any
 declare const TInitialDataResult: any
 declare const ThrowOnError: any
 declare const ValueAccessor: any
-type Accessor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type CreateQueriesInputForController<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefaultError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type DefinedQueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type MAXIMUM_DEPTH<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type OmitKeyof<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type QueryObserverResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type SkipTokenForCreateQueries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInitialData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type TInitialDataResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ThrowOnError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type ValueAccessor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Accessor<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type CreateQueriesInputForController<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type MAXIMUM_DEPTH<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type QueryObserverOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type SkipTokenForCreateQueries<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInitialData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type TInitialDataResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CreateQueriesInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateQueriesInput(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
+export function CreateQueriesInput(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey): any {
   return QueryObserverOptions(TQueryFnData, TError, TData, TQueryFnData, TQueryKey)
 }
 /* compiles to:
- * export type CreateQueriesInput<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = QueryObserverOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>
+ * export type CreateQueriesInput<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   QueryObserverOptions<TQueryFnData, TError, TData, TQueryFnData, TQueryKey>
  */
 
 // ✓ CreateQueriesInputForController: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateQueriesInputForController(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey) {
+export function CreateQueriesInputForController(TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey: QueryKey = QueryKey): any {
   return OmitKeyof(CreateQueriesInput(TQueryFnData, TError, TData, TQueryKey), never)
 }
 /* compiles to:
- * export type CreateQueriesInputForController<TQueryFnData = unknown, TError = DefaultError, TData = TQueryFnData, TQueryKey extends QueryKey = QueryKey> = OmitKeyof<CreateQueriesInput<TQueryFnData, TError, TData, TQueryKey>, never>
+ * export type CreateQueriesInputForController<
+ *   TQueryFnData = unknown,
+ *   TError = DefaultError,
+ *   TData = TQueryFnData,
+ *   TQueryKey extends QueryKey = QueryKey
+ * > =
+ *   OmitKeyof<CreateQueriesInput<TQueryFnData, TError, TData, TQueryKey>, never>
  */
 
 // ✓ GetCreateQueriesInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetCreateQueriesInput(T) {
+export function GetCreateQueriesInput(T): any {
   const m1 = matches<{ queryFnData: Hole<"TQueryFnData">; error?: Hole<"TError">; data: Hole<"TData">; }>(T)
   if (m1) {
     return CreateQueriesInputForController(m1.TQueryFnData, m1.TError, m1.TData)
@@ -91,12 +136,31 @@ export function GetCreateQueriesInput(T) {
   return CreateQueriesInputForController
 }
 /* compiles to:
- * export type GetCreateQueriesInput<T> = T extends { queryFnData: infer TQueryFnData; error?: infer TError; data: infer TData; } ? CreateQueriesInputForController<TQueryFnData, TError, TData> : T extends { queryFnData: infer TQueryFnData; error?: infer TError; } ? CreateQueriesInputForController<TQueryFnData, TError> : T extends { data: infer TData; error?: infer TError; } ? CreateQueriesInputForController<unknown, TError, TData> : T extends [infer TQueryFnData, infer TError, infer TData] ? CreateQueriesInputForController<TQueryFnData, TError, TData> : T extends [infer TQueryFnData, infer TError] ? CreateQueriesInputForController<TQueryFnData, TError> : T extends [infer TQueryFnData] ? CreateQueriesInputForController<TQueryFnData> : T extends { queryFn?: QueryFunction<infer TQueryFnData, infer TQueryKey> | SkipTokenForCreateQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; } ? CreateQueriesInputForController<TQueryFnData, unknown extends TError ? DefaultError : TError, unknown extends TData ? TQueryFnData : TData, TQueryKey> : CreateQueriesInputForController
+ * export type GetCreateQueriesInput<T> =
+ *   T extends { queryFnData: infer TQueryFnData; error?: infer TError; data: infer TData; }
+ *     ? CreateQueriesInputForController<TQueryFnData, TError, TData>
+ *   : T extends { queryFnData: infer TQueryFnData; error?: infer TError; }
+ *     ? CreateQueriesInputForController<TQueryFnData, TError>
+ *   : T extends { data: infer TData; error?: infer TError; }
+ *     ? CreateQueriesInputForController<unknown, TError, TData>
+ *   : T extends [infer TQueryFnData, infer TError, infer TData]
+ *     ? CreateQueriesInputForController<TQueryFnData, TError, TData>
+ *   : T extends [infer TQueryFnData, infer TError]
+ *     ? CreateQueriesInputForController<TQueryFnData, TError>
+ *   : T extends [infer TQueryFnData] ? CreateQueriesInputForController<TQueryFnData>
+ *   : T extends { queryFn?: QueryFunction<infer TQueryFnData, infer TQueryKey> | SkipTokenForCreateQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; }
+ *     ? CreateQueriesInputForController<
+ *       TQueryFnData,
+ *       unknown extends TError ? DefaultError : TError,
+ *       unknown extends TData ? TQueryFnData : TData,
+ *       TQueryKey
+ *     >
+ *   : CreateQueriesInputForController
  */
 
 // ✓ GetDefinedOrUndefinedCreateQueriesResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetDefinedOrUndefinedCreateQueriesResult(T, TData, TError = unknown) {
+export function GetDefinedOrUndefinedCreateQueriesResult(T, TData, TError = unknown): any {
   const m1 = matches<{ initialData?: Hole<"TInitialData">; }>(T)
   if (m1) {
     if (matches<typeof m1.TInitialData>(unknown)) {
@@ -120,12 +184,21 @@ export function GetDefinedOrUndefinedCreateQueriesResult(T, TData, TError = unkn
   return QueryObserverResult(TData, TError)
 }
 /* compiles to:
- * export type GetDefinedOrUndefinedCreateQueriesResult<T, TData, TError = unknown> = T extends { initialData?: infer TInitialData; } ? unknown extends TInitialData ? QueryObserverResult<TData, TError> : TInitialData extends TData ? DefinedQueryObserverResult<TData, TError> : TInitialData extends () => infer TInitialDataResult ? unknown extends TInitialDataResult ? QueryObserverResult<TData, TError> : TInitialDataResult extends TData ? DefinedQueryObserverResult<TData, TError> : QueryObserverResult<TData, TError> : QueryObserverResult<TData, TError> : QueryObserverResult<TData, TError>
+ * export type GetDefinedOrUndefinedCreateQueriesResult<T, TData, TError = unknown> =
+ *   T extends { initialData?: infer TInitialData; }
+ *     ? unknown extends TInitialData ? QueryObserverResult<TData, TError>
+ *     : TInitialData extends TData ? DefinedQueryObserverResult<TData, TError>
+ *     : TInitialData extends () => infer TInitialDataResult
+ *       ? unknown extends TInitialDataResult ? QueryObserverResult<TData, TError>
+ *       : TInitialDataResult extends TData ? DefinedQueryObserverResult<TData, TError>
+ *       : QueryObserverResult<TData, TError>
+ *     : QueryObserverResult<TData, TError>
+ *     : QueryObserverResult<TData, TError>
  */
 
 // ✓ GetCreateQueriesResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GetCreateQueriesResult(T) {
+export function GetCreateQueriesResult(T): any {
   const m1 = matches<{ queryFnData: any; error?: Hole<"TError">; data: Hole<"TData">; }>(T)
   if (m1) {
     return GetDefinedOrUndefinedCreateQueriesResult(T, m1.TData, m1.TError)
@@ -157,14 +230,32 @@ export function GetCreateQueriesResult(T) {
   return QueryObserverResult
 }
 /* compiles to:
- * export type GetCreateQueriesResult<T> = T extends { queryFnData: any; error?: infer TError; data: infer TData; } ? GetDefinedOrUndefinedCreateQueriesResult<T, TData, TError> : T extends { queryFnData: infer TQueryFnData; error?: infer TError; } ? GetDefinedOrUndefinedCreateQueriesResult<T, TQueryFnData, TError> : T extends { data: infer TData; error?: infer TError; } ? GetDefinedOrUndefinedCreateQueriesResult<T, TData, TError> : T extends [any, infer TError, infer TData] ? GetDefinedOrUndefinedCreateQueriesResult<T, TData, TError> : T extends [infer TQueryFnData, infer TError] ? GetDefinedOrUndefinedCreateQueriesResult<T, TQueryFnData, TError> : T extends [infer TQueryFnData] ? GetDefinedOrUndefinedCreateQueriesResult<T, TQueryFnData> : T extends { queryFn?: QueryFunction<infer TQueryFnData, any> | SkipTokenForCreateQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; } ? GetDefinedOrUndefinedCreateQueriesResult<T, unknown extends TData ? TQueryFnData : TData, unknown extends TError ? DefaultError : TError> : QueryObserverResult
+ * export type GetCreateQueriesResult<T> =
+ *   T extends { queryFnData: any; error?: infer TError; data: infer TData; }
+ *     ? GetDefinedOrUndefinedCreateQueriesResult<T, TData, TError>
+ *   : T extends { queryFnData: infer TQueryFnData; error?: infer TError; }
+ *     ? GetDefinedOrUndefinedCreateQueriesResult<T, TQueryFnData, TError>
+ *   : T extends { data: infer TData; error?: infer TError; }
+ *     ? GetDefinedOrUndefinedCreateQueriesResult<T, TData, TError>
+ *   : T extends [any, infer TError, infer TData]
+ *     ? GetDefinedOrUndefinedCreateQueriesResult<T, TData, TError>
+ *   : T extends [infer TQueryFnData, infer TError]
+ *     ? GetDefinedOrUndefinedCreateQueriesResult<T, TQueryFnData, TError>
+ *   : T extends [infer TQueryFnData] ? GetDefinedOrUndefinedCreateQueriesResult<T, TQueryFnData>
+ *   : T extends { queryFn?: QueryFunction<infer TQueryFnData, any> | SkipTokenForCreateQueries; select?: (data: any) => infer TData; throwOnError?: ThrowOnError<any, infer TError, any, any>; }
+ *     ? GetDefinedOrUndefinedCreateQueriesResult<
+ *       T,
+ *       unknown extends TData ? TQueryFnData : TData,
+ *       unknown extends TError ? DefaultError : TError
+ *     >
+ *   : QueryObserverResult
  */
 
 // ✓ CreateQueriesOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateQueriesOptions(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
+export function CreateQueriesOptions(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []): any {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return t<Array<CreateQueriesInputForController>>()
+    return arrayOf(CreateQueriesInputForController)
   }
   if (matches<[ ]>(T)) {
     return []
@@ -177,24 +268,44 @@ export function CreateQueriesOptions(T: Array<any>, TResults: Array<any> = [], T
   if (m2) {
     return CreateQueriesOptions([...m2.Tails], [...TResults, GetCreateQueriesInput(m2.Head)], [...TDepth, 1])
   }
-  if (matches<typeof T>(t<ReadonlyArray<unknown>>())) {
+  if (matches<typeof T>(readonlyArrayOf(unknown))) {
     return T
   }
   const m3 = matches<Array<CreateQueriesInputForController<Hole<"TQueryFnData">, Hole<"TError">, Hole<"TData">, Hole<"TQueryKey">>>>(T)
   if (m3) {
-    return t<Array<CreateQueriesInputForController<typeof m3.TQueryFnData, typeof m3.TError, typeof m3.TData, typeof m3.TQueryKey>>>()
+    return arrayOf(CreateQueriesInputForController(m3.TQueryFnData, m3.TError, m3.TData, m3.TQueryKey))
   }
-  return t<Array<CreateQueriesInputForController>>()
+  return arrayOf(CreateQueriesInputForController)
 }
 /* compiles to:
- * export type CreateQueriesOptions<T extends Array<any>, TResults extends Array<any> = [], TDepth extends ReadonlyArray<number> = []> = TDepth['length'] extends MAXIMUM_DEPTH ? Array<CreateQueriesInputForController> : T extends [] ? [] : T extends [infer Head] ? [...TResults, GetCreateQueriesInput<Head>] : T extends [infer Head, ...infer Tails] ? CreateQueriesOptions<[...Tails], [...TResults, GetCreateQueriesInput<Head>], [...TDepth, 1]> : ReadonlyArray<unknown> extends T ? T : T extends Array<CreateQueriesInputForController<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>> ? Array<CreateQueriesInputForController<TQueryFnData, TError, TData, TQueryKey>> : Array<CreateQueriesInputForController>
+ * export type CreateQueriesOptions<
+ *   T extends Array<any>,
+ *   TResults extends Array<any> = [],
+ *   TDepth extends ReadonlyArray<number> = []
+ * > =
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? CreateQueriesInputForController[]
+ *   : T extends [] ? []
+ *   : T extends [infer Head] ? [...TResults, GetCreateQueriesInput<Head>]
+ *   : T extends [infer Head, ...infer Tails]
+ *     ? CreateQueriesOptions<
+ *       [...Tails],
+ *       [...TResults, GetCreateQueriesInput<Head>],
+ *       [...TDepth, 1]
+ *     >
+ *   : readonly unknown[] extends T ? T
+ *   : T extends Array<CreateQueriesInputForController<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>>
+ *     ? CreateQueriesInputForController<TQueryFnData, TError, TData, TQueryKey>[]
+ *   : CreateQueriesInputForController[]
  */
 
 // ✓ CreateQueriesResults: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreateQueriesResults(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
+/**
+ * @param {Array<any>} T
+ */
+export function CreateQueriesResults(T, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []): any {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return t<Array<QueryObserverResult>>()
+    return arrayOf(QueryObserverResult)
   }
   if (matches<[ ]>(T)) {
     return []
@@ -214,28 +325,56 @@ export function CreateQueriesResults(T: Array<any>, TResults: Array<any> = [], T
   return out
 }
 /* compiles to:
- * export type CreateQueriesResults<T extends Array<any>, TResults extends Array<any> = [], TDepth extends ReadonlyArray<number> = []> = TDepth['length'] extends MAXIMUM_DEPTH ? Array<QueryObserverResult> : T extends [] ? [] : T extends [infer Head] ? [...TResults, GetCreateQueriesResult<Head>] : T extends [infer Head, ...infer Tails] ? CreateQueriesResults<[...Tails], [...TResults, GetCreateQueriesResult<Head>], [...TDepth, 1]> : { [K in keyof T]: GetCreateQueriesResult<T[K]> }
+ * export type CreateQueriesResults<
+ *   T extends Array<any>,
+ *   TResults extends Array<any> = [],
+ *   TDepth extends ReadonlyArray<number> = []
+ * > =
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? QueryObserverResult[]
+ *   : T extends [] ? []
+ *   : T extends [infer Head] ? [...TResults, GetCreateQueriesResult<Head>]
+ *   : T extends [infer Head, ...infer Tails]
+ *     ? CreateQueriesResults<
+ *       [...Tails],
+ *       [...TResults, GetCreateQueriesResult<Head>],
+ *       [...TDepth, 1]
+ *     >
+ *   : { [K in keyof T]: GetCreateQueriesResult<T[K]> }
  */
 
 // ✗ CreateQueriesControllerOptions: does not compile yet
 //   A rest element type must be an array type.
 /* @scripttype preserveParamNames */
-export function CreateQueriesControllerOptions(TQueryOptions: Array<any> = t<Array<any>>(), TCombinedResult = CreateQueriesResults(TQueryOptions)) {
+/**
+ * @param {Array<any>} TQueryOptions
+ */
+export function CreateQueriesControllerOptions(TQueryOptions = arrayOf(any), TCombinedResult = CreateQueriesResults(TQueryOptions)): any {
   const out = emptyObject
   for (const K in keyof(TQueryOptions)) {
     out[K] = GetCreateQueriesInput(TQueryOptions[K])
   }
-  return { queries: Accessor(asReadonly([...CreateQueriesOptions(TQueryOptions)]) | asReadonly([...out])), combine: optional(fnType([CreateQueriesResults(TQueryOptions)], TCombinedResult)) }
+  return { queries: Accessor(anyOf(asReadonly([...CreateQueriesOptions(TQueryOptions)]), asReadonly([...out]))), combine: optional(fnType([CreateQueriesResults(TQueryOptions)], TCombinedResult)) }
 }
 /* compiles to:
- * export type CreateQueriesControllerOptions<TQueryOptions extends Array<any> = Array<any>, TCombinedResult = CreateQueriesResults<TQueryOptions>> = { queries: Accessor<readonly [...CreateQueriesOptions<TQueryOptions>] | readonly [...{ [K in keyof TQueryOptions]: GetCreateQueriesInput<TQueryOptions[K]> }]>; combine?: (a0: CreateQueriesResults<TQueryOptions>) => TCombinedResult }
+ * export type CreateQueriesControllerOptions<
+ *   TQueryOptions extends Array<any> = any[],
+ *   TCombinedResult = CreateQueriesResults<TQueryOptions>
+ * > =
+ *   {
+ *     queries: Accessor<
+ *       | readonly [...CreateQueriesOptions<TQueryOptions>]
+ *       | readonly [...{ [K in keyof TQueryOptions]: GetCreateQueriesInput<TQueryOptions[K]> }]
+ *     >
+ *     combine?: (a0: CreateQueriesResults<TQueryOptions>) => TCombinedResult
+ *   }
  */
 
 // ✓ QueriesResultAccessor: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function QueriesResultAccessor(TCombinedResult) {
+export function QueriesResultAccessor(TCombinedResult): any {
   return merge(ValueAccessor(TCombinedResult), { destroy: fnType([], voidType()) })
 }
 /* compiles to:
- * export type QueriesResultAccessor<TCombinedResult> = ValueAccessor<TCombinedResult> & { destroy: () => void }
+ * export type QueriesResultAccessor<TCombinedResult> =
+ *   ValueAccessor<TCombinedResult> & { destroy: () => void }
  */

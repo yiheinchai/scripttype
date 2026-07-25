@@ -7,13 +7,39 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { StringDigit, parseEscapedChar } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/regex/escape.js'
+import type { next } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/regex/parse.js'
+import type { State } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/regex/state.js'
+import type { ErrorMessage } from '../../../../../03-schema-and-type-level-parsers/arktype/ark/util/errors.js'
 declare namespace Scanner {
   export type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type shiftUntilEscapable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type lookahead<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type next<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type rangeEnd<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type scanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type unscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type escaped<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type postEscaped<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type remaining<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m3 {
+  export type result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace s {
+  export type error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type shiftQuantifiable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const Backslash: any
 declare const ErrorMessage: any
@@ -22,50 +48,74 @@ declare const State: any
 declare const StringDigit: any
 declare const UnescapedDashMarker: any
 declare const emptyCharacterSetMessage: any
+declare const escaped: any
+declare const lookahead: any
+declare const next: any
 declare const parseEscapedChar: any
+declare const postEscaped: any
+declare const remaining: any
+declare const result: any
 declare const shift: any
+declare const shiftQuantifiable: any
 declare const shiftResult: any
+declare const shiftUntilEscapable: any
 declare const writeUnclosedGroupMessage: any
 type Backslash<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ErrorMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type State<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StringDigit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnescapedDashMarker<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type emptyCharacterSetMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type parseEscapedChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type escaped<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type lookahead<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type postEscaped<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type remaining<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type result<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shift<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftQuantifiable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftUntilEscapable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type writeUnclosedGroupMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseCharset: does not compile yet
-//   only direct calls are supported
+//   Type 'scanned' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function parseCharset(s: State, unscanned: string) {
-  const m1 = matches<(Scanner.shiftResult<Hole<"scanned">, Hole<"nextUnscanned">>)>(Scanner.shiftUntilEscapable(unscanned, ']', Backslash))
+export function parseCharset(s: State, unscanned: string): any {
+  const m1 = matches<(Scanner.shiftResult<Hole<"scanned">, Hole<"nextUnscanned">>)>(t<Scanner.shiftUntilEscapable<typeof unscanned, "]", Backslash>>())
   if (m1) {
     const m2 = matches<`]${Hole<"remaining">}`>(m1.nextUnscanned)
     if (m2) {
       if (matches<Scanner.shift<"^", string>>(m1.scanned)) {
-        return s.shiftQuantifiable(s, string, m2.remaining)
+        return t<s.shiftQuantifiable<typeof s, string, typeof m2.remaining>>()
       }
       const m3 = matches<(Hole<"result", string>)>(parseNonNegatedCharset(m1.scanned, never, Null))
       if (m3) {
         if (matches<[ never ]>([m3.result])) {
-          return s.error(emptyCharacterSetMessage)
+          return t<s.error<emptyCharacterSetMessage>>()
         }
-        return s.shiftQuantifiable(s, m3.result, m2.remaining)
+        return t<s.shiftQuantifiable<typeof s, typeof m3.result, typeof m2.remaining>>()
       }
       return never
     }
-    return s.error(writeUnclosedGroupMessage(']'))
+    return t<s.error<writeUnclosedGroupMessage<"]">>>()
   }
   return never
 }
+/* compiles to:
+ * export type parseCharset<s extends State, unscanned extends string> =
+ *   Scanner.shiftUntilEscapable<unscanned, ']', Backslash> extends Scanner.shiftResult<infer scanned, infer nextUnscanned>
+ *     ? nextUnscanned extends `]${infer remaining}`
+ *       ? scanned extends Scanner.shift<'^', string> ? s.shiftQuantifiable<s, string, remaining>
+ *       : parseNonNegatedCharset<scanned, never, null> extends (infer result extends string)
+ *         ? [result] extends [never]
+ *           ? s.error<emptyCharacterSetMessage>
+ *           : s.shiftQuantifiable<s, result, remaining>
+ *       : never
+ *       : s.error<writeUnclosedGroupMessage<']'>>
+ *     : never
+ */
 
 // ✗ parseNonNegatedCharset: does not compile yet
 //   Type 'unscanned' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function parseNonNegatedCharset(chars: string, set: string, lastChar: string | null) {
+export function parseNonNegatedCharset(chars: string, set: string, lastChar: string | null): any {
   const m1 = matches<Scanner.shiftResult<Hole<"result">, Hole<"unscanned">>>(parseChar(chars))
   if (m1) {
     if (matches<UnescapedDashMarker>(m1.result)) {
@@ -94,7 +144,7 @@ export function parseNonNegatedCharset(chars: string, set: string, lastChar: str
 // ✗ parseDash: does not compile yet
 //   Type 'next' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function parseDash(unscanned: string, set: string, lastChar: string | null) {
+export function parseDash(unscanned: string, set: string, lastChar: string | null): any {
   if (typeof lastChar === 'string') {
     const m1 = matches<(Scanner.shiftResult<Hole<"rangeEnd">, Hole<"next">>)>(parseChar(unscanned))
     if (m1) {
@@ -119,7 +169,7 @@ export function parseDash(unscanned: string, set: string, lastChar: string | nul
 
 // ✓ inferRange: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function inferRange(start: string, end: string) {
+export function inferRange(start: string, end: string): any {
   if (matches<StringDigit>(anyOf(start, end))) {
     return `${number}`
   }
@@ -133,17 +183,17 @@ export function inferRange(start: string, end: string) {
 // ✗ parseChar: does not compile yet
 //   Type 'escaped' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function parseChar(unscanned: string) {
+export function parseChar(unscanned: string): any {
   const m1 = matches<Scanner.shift<Hole<"lookahead">, Hole<"next">>>(unscanned)
   if (m1) {
     if (matches<Backslash>(m1.lookahead)) {
       const m2 = matches<Scanner.shift<Hole<"escaped">, Hole<"postEscaped">>>(m1.next)
       if (m2) {
-        return Scanner.shiftResult(parseEscapedChar(m2.escaped), m2.postEscaped)
+        return t<Scanner.shiftResult<parseEscapedChar<typeof m2.escaped>, typeof m2.postEscaped>>()
       }
       return never
     }
-    return Scanner.shiftResult(matches<"-">(m1.lookahead) ? UnescapedDashMarker : m1.lookahead, m1.next)
+    return t<Scanner.shiftResult<typeof m1.lookahead extends "-" ? UnescapedDashMarker : typeof m1.lookahead, typeof m1.next>>()
   }
   return Null
 }
@@ -154,6 +204,9 @@ export function parseChar(unscanned: string) {
  *       ? next extends Scanner.shift<infer escaped, infer postEscaped>
  *         ? Scanner.shiftResult<parseEscapedChar<escaped>, postEscaped>
  *         : never
- *       : Scanner.shiftResult<lookahead extends '-' ? UnescapedDashMarker : lookahead, next>
+ *       : Scanner.shiftResult<
+ *         typeof m1.lookahead extends "-" ? UnescapedDashMarker : typeof m1.lookahead,
+ *         next
+ *       >
  *     : null
  */

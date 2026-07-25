@@ -7,9 +7,25 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AnyPgSelect, AnyPgSelectQueryBuilder, AnyPgSetOperatorInterface, PgSelectHKTBase, PgSelectQueryBuilderHKT, PgSetOperatorExcludedMethods, PgSetOperatorInterface, SelectedFields } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/pg-core/query-builders/select.types.js'
+import type { PgTableWithColumns } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/pg-core/table.js'
+import type { PgViewWithSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/pg-core/view.js'
+import type { AppendToNullabilityMap, AppendToResult, BuildSubquerySelection, GetSelectTableName, JoinNullability, JoinType, MapColumnsToTableAlias, SelectMode, SelectResult } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/query-builders/select.types.js'
+import type { ColumnsSelection } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/sql/sql.js'
+import type { UpdateTableConfig } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/table.js'
+import type { Assume, DrizzleTypeError, ValidateShape } from '../../../../../../../04-query-builders-orm/drizzle-orm/drizzle-orm/src/utils.js'
+declare namespace m1 {
+  export type First<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Rest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TValueResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type TValueResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AnyPgSelect: any
 declare const AnyPgSelectQueryBuilder: any
 declare const AnyPgSetOperatorInterface: any
@@ -46,46 +62,21 @@ declare const TypedQueryBuilder: any
 declare const UpdateTableConfig: any
 declare const ValidateShape: any
 declare const View: any
-type AnyPgSelect<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyPgSelectQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AnyPgSetOperatorInterface<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToNullabilityMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type AppendToResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Assume<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BuildSubquerySelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ColumnsSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DrizzleTypeError<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type GetSelectTableName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinNullability<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type JoinType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MapColumnsToTableAlias<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgPreparedQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgSelectBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgSelectHKTBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgSelectQueryBuilderBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgSelectQueryBuilderHKT<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgSetOperatorExcludedMethods<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgSetOperatorInterface<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgSetOperatorWithResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgTableWithColumns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PgViewBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type PgViewWithSelection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PreparedQueryConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SQL<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectMode<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SelectedFields<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Subquery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TypedQueryBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UpdateTableConfig<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValidateShape<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type View<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ BuildAliasTable: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function BuildAliasTable(TTable: PgTable | View, TAlias: string) {
+export function BuildAliasTable(TTable: PgTable | View, TAlias: string): any {
   if (matches<Table>(TTable)) {
     return PgTableWithColumns(UpdateTableConfig(TTable['_']['config'], { name: TAlias, columns: MapColumnsToTableAlias(TTable['_']['columns'], TAlias, 'pg') }))
   }
@@ -114,7 +105,7 @@ export function BuildAliasTable(TTable: PgTable | View, TAlias: string) {
 
 // ✓ TableLikeHasEmptySelection: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TableLikeHasEmptySelection(T: PgTable | Subquery | PgViewBase | SQL) {
+export function TableLikeHasEmptySelection(T: PgTable | Subquery | PgViewBase | SQL): any {
   if (matches<Subquery>(T)) {
     if (matches<true>(Equal(T['_']['selectedFields'], {}))) {
       return true
@@ -130,7 +121,11 @@ export function TableLikeHasEmptySelection(T: PgTable | Subquery | PgViewBase | 
 
 // ✓ PgSelectJoin: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSelectJoin(T: AnyPgSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TJoinedTable: PgTable | Subquery | PgViewBase | SQL, TJoinedName: GetSelectTableName<typeof TJoinedTable> = GetSelectTableName(TJoinedTable)) {
+/**
+ * @param {PgTable | Subquery | PgViewBase | SQL} TJoinedTable
+ * @param {GetSelectTableName<typeof TJoinedTable>} TJoinedName
+ */
+export function PgSelectJoin(T: AnyPgSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TJoinedTable, TJoinedName = GetSelectTableName(TJoinedTable)): any {
   if (matches<any>(T)) {
     return PgSelectWithout(PgSelectKind(T['_']['hkt'], T['_']['tableName'], AppendToResult(T['_']['tableName'], T['_']['selection'], TJoinedName, matches<Table>(TJoinedTable) ? TJoinedTable['_']['columns'] : (matches<Subquery | View>(TJoinedTable) ? Assume(TJoinedTable['_']['selectedFields'], SelectedFields) : never), T['_']['selectMode']), matches<'partial'>(T['_']['selectMode']) ? T['_']['selectMode'] : 'multiple', AppendToNullabilityMap(T['_']['nullabilityMap'], TJoinedName, TJoinType), T['_']['dynamic'], T['_']['excludedMethods']), TDynamic, T['_']['excludedMethods'])
   }
@@ -172,7 +167,7 @@ export function PgSelectJoin(T: AnyPgSelectQueryBuilder, TDynamic: boolean, TJoi
 
 // ✓ PgSelectJoinFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSelectJoinFn(T: AnyPgSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TIsLateral: boolean) {
+export function PgSelectJoinFn(T: AnyPgSelectQueryBuilder, TDynamic: boolean, TJoinType: JoinType, TIsLateral: boolean): any {
   return genericFnType(['TJoinedTable extends (TIsLateral extends true ? Subquery | SQL : PgTable | Subquery | PgViewBase | SQL)', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [matches<true>(TableLikeHasEmptySelection(TJoinedTable)) ? DrizzleTypeError('Cannot reference a data-modifying statement subquery if it doesn\'t contain a `returning` clause') : TJoinedTable, anyOf(fnType([T['_']['selection']], anyOf(SQL, Undefined)), SQL, Undefined)], PgSelectJoin(T, TDynamic, TJoinType, TJoinedTable, TJoinedName))
 }
 /* compiles to:
@@ -190,7 +185,7 @@ export function PgSelectJoinFn(T: AnyPgSelectQueryBuilder, TDynamic: boolean, TJ
 
 // ✓ PgSelectCrossJoinFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSelectCrossJoinFn(T: AnyPgSelectQueryBuilder, TDynamic: boolean, TIsLateral: boolean) {
+export function PgSelectCrossJoinFn(T: AnyPgSelectQueryBuilder, TDynamic: boolean, TIsLateral: boolean): any {
   return genericFnType(['TJoinedTable extends (TIsLateral extends true ? Subquery | SQL : PgTable | Subquery | PgViewBase | SQL)', 'TJoinedName extends GetSelectTableName<TJoinedTable> = GetSelectTableName<TJoinedTable>'], [matches<true>(TableLikeHasEmptySelection(TJoinedTable)) ? DrizzleTypeError('Cannot reference a data-modifying statement subquery if it doesn\'t contain a `returning` clause') : TJoinedTable], PgSelectJoin(T, TDynamic, 'cross', TJoinedTable, TJoinedName))
 }
 /* compiles to:
@@ -206,7 +201,7 @@ export function PgSelectCrossJoinFn(T: AnyPgSelectQueryBuilder, TDynamic: boolea
 
 // ✓ PgSelectKind: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSelectKind(T: PgSelectHKTBase, TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode, TNullabilityMap: Record<string, JoinNullability>, TDynamic: boolean, TExcludedMethods: string, TResult = arrayOf(SelectResult(TSelection, TSelectMode, TNullabilityMap)), TSelectedFields = BuildSubquerySelection(TSelection, TNullabilityMap)) {
+export function PgSelectKind(T: PgSelectHKTBase, TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode, TNullabilityMap: Record<string, JoinNullability>, TDynamic: boolean, TExcludedMethods: string, TResult = arrayOf(SelectResult(TSelection, TSelectMode, TNullabilityMap)), TSelectedFields = BuildSubquerySelection(TSelection, TNullabilityMap)): any {
   return (merge(T, { tableName: TTableName, selection: TSelection, selectMode: TSelectMode, nullabilityMap: TNullabilityMap, dynamic: TDynamic, excludedMethods: TExcludedMethods, result: TResult, selectedFields: TSelectedFields }))['_type']
 }
 /* compiles to:
@@ -238,7 +233,7 @@ export function PgSelectKind(T: PgSelectHKTBase, TTableName: string | undefined,
 
 // ✓ CreatePgSelectFromBuilderMode: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CreatePgSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode) {
+export function CreatePgSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTableName: string | undefined, TSelection: ColumnsSelection, TSelectMode: SelectMode): any {
   if (matches<'db'>(TBuilderMode)) {
     return PgSelectBase(TTableName, TSelection, TSelectMode)
   }
@@ -258,11 +253,15 @@ export function CreatePgSelectFromBuilderMode(TBuilderMode: 'db' | 'qb', TTableN
 
 // ✓ PgSelectWithout: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSelectWithout(T: AnyPgSelectQueryBuilder, TDynamic: boolean, K: keyof typeof T & string, TResetExcluded: boolean = false) {
+/**
+ * @param {AnyPgSelectQueryBuilder} T
+ * @param {keyof typeof T & string} K
+ */
+export function PgSelectWithout(T, TDynamic: boolean, K, TResetExcluded: boolean = false): any {
   if (matches<true>(TDynamic)) {
     return T
   }
-  return Omit(PgSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['selection'], T['_']['selectMode'], T['_']['nullabilityMap'], TDynamic, matches<true>(TResetExcluded) ? K : (anyOf(T['_']['excludedMethods'], K)), T['_']['result'], T['_']['selectedFields']), matches<true>(TResetExcluded) ? K : (anyOf(T['_']['excludedMethods'], K)))
+  return Omit(PgSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['selection'], T['_']['selectMode'], T['_']['nullabilityMap'], TDynamic, matches<true>(TResetExcluded) ? K : (T['_']['excludedMethods'] | K), T['_']['result'], T['_']['selectedFields']), matches<true>(TResetExcluded) ? K : (T['_']['excludedMethods'] | K))
 }
 /* compiles to:
  * export type PgSelectWithout<
@@ -291,7 +290,7 @@ export function PgSelectWithout(T: AnyPgSelectQueryBuilder, TDynamic: boolean, K
 
 // ✓ PgSelectPrepare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSelectPrepare(T: AnyPgSelect) {
+export function PgSelectPrepare(T: AnyPgSelect): any {
   return PgPreparedQuery(merge(PreparedQueryConfig, { execute: T['_']['result'] }))
 }
 /* compiles to:
@@ -302,7 +301,7 @@ export function PgSelectPrepare(T: AnyPgSelect) {
 
 // ✓ PgSelectDynamic: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSelectDynamic(T: AnyPgSelectQueryBuilder) {
+export function PgSelectDynamic(T: AnyPgSelectQueryBuilder): any {
   return PgSelectKind(T['_']['hkt'], T['_']['tableName'], T['_']['selection'], T['_']['selectMode'], T['_']['nullabilityMap'], true, never, T['_']['result'], T['_']['selectedFields'])
 }
 /* compiles to:
@@ -321,7 +320,7 @@ export function PgSelectDynamic(T: AnyPgSelectQueryBuilder) {
 
 // ✓ PgSelectQueryBuilder: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSelectQueryBuilder(THKT: PgSelectHKTBase = PgSelectQueryBuilderHKT, TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = ColumnsSelection, TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability), TResult: any[] = arrayOf(unknown), TSelectedFields: ColumnsSelection = ColumnsSelection) {
+export function PgSelectQueryBuilder(THKT: PgSelectHKTBase = PgSelectQueryBuilderHKT, TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = ColumnsSelection, TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability), TResult: any[] = arrayOf(unknown), TSelectedFields: ColumnsSelection = ColumnsSelection): any {
   return PgSelectQueryBuilderBase(THKT, TTableName, TSelection, TSelectMode, TNullabilityMap, true, never, TResult, TSelectedFields)
 }
 /* compiles to:
@@ -349,7 +348,7 @@ export function PgSelectQueryBuilder(THKT: PgSelectHKTBase = PgSelectQueryBuilde
 
 // ✓ PgSetOperatorWithResult: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSetOperatorWithResult(TResult: any[]) {
+export function PgSetOperatorWithResult(TResult: any[]): any {
   return PgSetOperatorInterface(any, any, any, any, any, any, TResult, any)
 }
 /* compiles to:
@@ -367,7 +366,7 @@ export function PgSetOperatorWithResult(TResult: any[]) {
 
 // ✓ PgSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSelect(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)) {
+export function PgSelect(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)): any {
   return PgSelectBase(TTableName, TSelection, TSelectMode, TNullabilityMap, true, never)
 }
 /* compiles to:
@@ -382,7 +381,7 @@ export function PgSelect(TTableName: string | undefined = anyOf(string, Undefine
 
 // ✓ PgSetOperator: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgSetOperator(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)) {
+export function PgSetOperator(TTableName: string | undefined = anyOf(string, Undefined), TSelection: ColumnsSelection = Record(string, any), TSelectMode: SelectMode = SelectMode, TNullabilityMap: Record<string, JoinNullability> = Record(string, JoinNullability)): any {
   return PgSelectBase(TTableName, TSelection, TSelectMode, TNullabilityMap, true, PgSetOperatorExcludedMethods)
 }
 /* compiles to:
@@ -404,7 +403,11 @@ export function PgSetOperator(TTableName: string | undefined = anyOf(string, Und
 
 // ✓ SetOperatorRightSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetOperatorRightSelect(TValue: PgSetOperatorWithResult<typeof TResult>, TResult: any[]) {
+/**
+ * @param {PgSetOperatorWithResult<typeof TResult>} TValue
+ * @param {any[]} TResult
+ */
+export function SetOperatorRightSelect(TValue, TResult): any {
   const m1 = matches<PgSetOperatorInterface<any, any, any, any, any, any, Hole<"TValueResult">, any>>(TValue)
   if (m1) {
     return ValidateShape(m1.TValueResult[number], TResult[number], TypedQueryBuilder(any, m1.TValueResult))
@@ -423,7 +426,11 @@ export function SetOperatorRightSelect(TValue: PgSetOperatorWithResult<typeof TR
 
 // ✓ SetOperatorRestSelect: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SetOperatorRestSelect(TValue: readonly PgSetOperatorWithResult<typeof TResult>[], TResult: any[]) {
+/**
+ * @param {readonly PgSetOperatorWithResult<typeof TResult>[]} TValue
+ * @param {any[]} TResult
+ */
+export function SetOperatorRestSelect(TValue, TResult): any {
   const m1 = matches<[ Hole<"First">, ...Hole<"Rest"> ]>(TValue)
   if (m1) {
     const m2 = matches<PgSetOperatorInterface<any, any, any, any, any, any, Hole<"TValueResult">, any>>(m1.First)

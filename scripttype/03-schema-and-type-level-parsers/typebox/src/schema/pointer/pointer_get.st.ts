@@ -7,9 +7,16 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
+// Names this file references but does not define: types from elsewhere in the
+// library, and local functions used in type position. Declared so the generated
+// ScriptType typechecks standalone. They carry no runtime meaning.
+declare namespace m1 {
+  export type Left<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type Right<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 // ✓ TEscape0: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEscape0(Index: string) {
+export function TEscape0(Index: string): any {
   const m1 = matches<`${Hole<"Left">}~0${Hole<"Right">}`>(Index)
   if (m1) {
     return `${m1.Left}~${TEscape(m1.Right)}`
@@ -23,7 +30,7 @@ export function TEscape0(Index: string) {
 
 // ✓ TEscape1: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEscape1(Index: string) {
+export function TEscape1(Index: string): any {
   const m1 = matches<`${Hole<"Left">}~1${Hole<"Right">}`>(Index)
   if (m1) {
     return `${m1.Left}/${TEscape(m1.Right)}`
@@ -37,7 +44,7 @@ export function TEscape1(Index: string) {
 
 // ✓ TEscape: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TEscape(Index: string, Escaped0: string = TEscape0(Index), Escaped1: string = TEscape1(Escaped0)) {
+export function TEscape(Index: string, Escaped0: string = TEscape0(Index), Escaped1: string = TEscape1(Escaped0)): any {
   return Escaped1
 }
 /* compiles to:
@@ -51,7 +58,7 @@ export function TEscape(Index: string, Escaped0: string = TEscape0(Index), Escap
 
 // ✓ IndicesReduce: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function IndicesReduce(Pointer: string, Result: string[] = []) {
+export function IndicesReduce(Pointer: string, Result: string[] = []): any {
   const m1 = matches<`${Hole<"Left", string>}/${Hole<"Right", string>}`>(Pointer)
   if (m1) {
     if (matches<''>(m1.Left)) {
@@ -72,7 +79,7 @@ export function IndicesReduce(Pointer: string, Result: string[] = []) {
 
 // ✓ TIndices: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TIndices(Pointer: string, Result: string[] = matches<''>(Pointer) ? [] : IndicesReduce(Pointer)) {
+export function TIndices(Pointer: string, Result: string[] = matches<''>(Pointer) ? [] : IndicesReduce(Pointer)): any {
   return Result
 }
 /* compiles to:
@@ -84,9 +91,9 @@ export function TIndices(Pointer: string, Result: string[] = matches<''>(Pointer
  */
 
 // ✗ TResolve: the ScriptType does not itself typecheck as TypeScript
-//   TResolve.st.ts(6:23) TS18046: 'Value' is of type 'unknown'.
+//   TResolve.st.ts(5:20) TS18046: 'Value' is of type 'unknown'.
 /* @scripttype preserveParamNames */
-export function TResolve(Value: unknown, Indices: string[]) {
+export function TResolve(Value: unknown, Indices: string[]): any {
   const m1 = matches<[ Hole<"Left", string>, ...Hole<"Right", string[]> ]>(Indices)
   if (m1) {
     if (m1.Left in Value) {
@@ -105,7 +112,7 @@ export function TResolve(Value: unknown, Indices: string[]) {
 
 // ✓ XPointerGet: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function XPointerGet(Value: unknown, Pointer: string, Indices: string[] = TIndices(Pointer), Result: unknown = TResolve(Value, Indices)) {
+export function XPointerGet(Value: unknown, Pointer: string, Indices: string[] = TIndices(Pointer), Result: unknown = TResolve(Value, Indices)): any {
   return Result
 }
 /* compiles to:

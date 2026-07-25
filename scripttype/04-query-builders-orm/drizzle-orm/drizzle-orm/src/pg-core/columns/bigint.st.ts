@@ -16,7 +16,7 @@ type PgBigInt53Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = an
 type PgBigInt64Builder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PgBigInt53BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgBigInt53BuilderInitial(TName: string) {
+export function PgBigInt53BuilderInitial(TName: string): any {
   return PgBigInt53Builder({ name: TName, dataType: 'number', columnType: 'PgBigInt53', data: number, driverParam: number | string, enumValues: Undefined })
 }
 /* compiles to:
@@ -34,7 +34,7 @@ export function PgBigInt53BuilderInitial(TName: string) {
 
 // ✓ PgBigInt64BuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function PgBigInt64BuilderInitial(TName: string) {
+export function PgBigInt64BuilderInitial(TName: string): any {
   return PgBigInt64Builder({ name: TName, dataType: 'bigint', columnType: 'PgBigInt64', data: bigint, driverParam: string, enumValues: Undefined })
 }
 /* compiles to:

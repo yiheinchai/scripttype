@@ -7,31 +7,40 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Call } from '../../../../../../../01-type-level-programming/hotscript/src/internals/core/Core.js'
+import type { StringToTuple } from '../../../../../../../01-type-level-programming/hotscript/src/internals/strings/impl/split.js'
 declare namespace Numbers {
   export type Compare<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m1 {
+  export type N1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R1<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace m2 {
+  export type N2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R2<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const Call: any
 declare const Numbers: any
 declare const StringToTuple: any
 declare const _Equal: any
 declare const ascii: any
-type Call<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Numbers<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StringToTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _Equal<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ascii<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ CharacterCompare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CharacterCompare(Char1: string, Char2: string) {
+export function CharacterCompare(Char1: string, Char2: string): any {
   if (matches<typeof Char2>(Char1)) {
     return 0
   }
   if (Char1 in ascii) {
     if (Char2 in ascii) {
-      return Call(Numbers.Compare, ascii[Char1], ascii[Char2])
+      return Call(t<Numbers.Compare>(), ascii[Char1], ascii[Char2])
     }
     return 1
   }
@@ -47,7 +56,7 @@ export function CharacterCompare(Char1: string, Char2: string) {
 
 // ✓ CharactersCompare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CharactersCompare(T: string[], U: string[]) {
+export function CharactersCompare(T: string[], U: string[]): any {
   const m1 = matches<[ Hole<"N1", string>, ...Hole<"R1", string[]> ]>(T)
   if (m1) {
     const m2 = matches<[ Hole<"N2", string>, ...Hole<"R2", string[]> ]>(U)
@@ -78,7 +87,7 @@ export function CharactersCompare(T: string[], U: string[]) {
 
 // ✓ Compare: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Compare(T: string, U: string) {
+export function Compare(T: string, U: string): any {
   if (matches<true>(_Equal(T, U))) {
     return 0
   }
@@ -91,7 +100,7 @@ export function Compare(T: string, U: string) {
 
 // ✓ LessThan: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LessThan(T: string, U: string) {
+export function LessThan(T: string, U: string): any {
   if (matches<-1>(Compare(T, U))) {
     return true
   }
@@ -104,7 +113,7 @@ export function LessThan(T: string, U: string) {
 
 // ✓ LessThanOrEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function LessThanOrEqual(T: string, U: string) {
+export function LessThanOrEqual(T: string, U: string): any {
   if (matches<1>(Compare(T, U))) {
     return false
   }
@@ -117,7 +126,7 @@ export function LessThanOrEqual(T: string, U: string) {
 
 // ✓ Equal: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Equal(T: string, U: string) {
+export function Equal(T: string, U: string): any {
   return _Equal(T, U)
 }
 /* compiles to:
@@ -126,7 +135,7 @@ export function Equal(T: string, U: string) {
 
 // ✓ NotEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function NotEqual(T: string, U: string) {
+export function NotEqual(T: string, U: string): any {
   if (matches<true>(_Equal(T, U))) {
     return false
   }
@@ -139,7 +148,7 @@ export function NotEqual(T: string, U: string) {
 
 // ✓ GreaterThan: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GreaterThan(T: string, U: string) {
+export function GreaterThan(T: string, U: string): any {
   if (matches<1>(Compare(T, U))) {
     return true
   }
@@ -152,7 +161,7 @@ export function GreaterThan(T: string, U: string) {
 
 // ✓ GreaterThanOrEqual: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GreaterThanOrEqual(T: string, U: string) {
+export function GreaterThanOrEqual(T: string, U: string): any {
   if (matches<-1>(Compare(T, U))) {
     return false
   }

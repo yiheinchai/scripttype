@@ -7,16 +7,17 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { TRefinement } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/_refine.js'
+import type { TSchema } from '../../../../../../03-schema-and-type-level-parsers/typebox/src/type/types/schema.js'
 declare const TRefinement: any
 declare const TSchema: any
-type TRefinement<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TRefineAdd: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRefineAdd(Type: TSchema = TSchema) {
+export function TRefineAdd(Type: TSchema = TSchema): any {
   if ('~refine' in Type) {
     return Type
   }
@@ -29,7 +30,7 @@ export function TRefineAdd(Type: TSchema = TSchema) {
 
 // ✓ TRefine: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRefine(Type: TSchema = TSchema) {
+export function TRefine(Type: TSchema = TSchema): any {
   return merge(Type, { '~refine': arrayOf(TRefinement(unknown)) })
 }
 /* compiles to:
@@ -39,7 +40,7 @@ export function TRefine(Type: TSchema = TSchema) {
 
 // ✓ TRefineCheckCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRefineCheckCallback(Value: unknown = unknown) {
+export function TRefineCheckCallback(Value: unknown = unknown): any {
   return fnType([Value], boolean)
 }
 /* compiles to:
@@ -48,7 +49,7 @@ export function TRefineCheckCallback(Value: unknown = unknown) {
 
 // ✓ TRefineErrorCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TRefineErrorCallback(Value: unknown = unknown) {
+export function TRefineErrorCallback(Value: unknown = unknown): any {
   return fnType([Value], string)
 }
 /* compiles to:

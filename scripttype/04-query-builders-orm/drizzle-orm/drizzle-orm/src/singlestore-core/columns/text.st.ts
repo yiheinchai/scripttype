@@ -14,7 +14,7 @@ declare const SingleStoreTextBuilder: any
 type SingleStoreTextBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SingleStoreTextBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SingleStoreTextBuilderInitial(TName: string, TEnum: [ string, ...string[] ]) {
+export function SingleStoreTextBuilderInitial(TName: string, TEnum: [ string, ...string[] ]): any {
   return SingleStoreTextBuilder({ name: TName, dataType: 'string', columnType: 'SingleStoreText', data: TEnum[number], driverParam: string, enumValues: TEnum, generated: Undefined })
 }
 /* compiles to:

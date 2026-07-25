@@ -7,9 +7,20 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { Config } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/config.js'
+import type { UnknownDataset } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/dataset.js'
+import type { InferInput, InferIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/infer.js'
+import type { BaseIssue } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/issue.js'
+import type { BaseSchema, BaseSchemaAsync } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/schema.js'
+import type { MaybeDeepReadonly, MaybePromise } from '../../../../../../03-schema-and-type-level-parsers/valibot/library/src/types/utils.js'
+declare namespace m1 {
+  export type TInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type TWrapped<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const BaseIssue: any
 declare const BaseSchema: any
 declare const BaseSchemaAsync: any
@@ -19,20 +30,11 @@ declare const InferIssue: any
 declare const MaybeDeepReadonly: any
 declare const MaybePromise: any
 declare const UnknownDataset: any
-type BaseIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type BaseSchemaAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Config<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Default<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DefaultAsync<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InferIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybeDeepReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MaybePromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type UnknownDataset<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ErrorMessage: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ErrorMessage(TIssue: BaseIssue<unknown>) {
+export function ErrorMessage(TIssue: BaseIssue<unknown>): any {
   return fnType([TIssue], string) | string
 }
 /* compiles to:
@@ -41,8 +43,8 @@ export function ErrorMessage(TIssue: BaseIssue<unknown>) {
 
 // ✓ Default: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Default(TWrapped: BaseSchema<unknown, unknown, BaseIssue<unknown>>, TInput: null | undefined) {
-  return anyOf(MaybeDeepReadonly(anyOf(InferInput(TWrapped), TInput)), fnType([UnknownDataset, Config(InferIssue(TWrapped))], MaybeDeepReadonly(anyOf(InferInput(TWrapped), TInput))), Undefined)
+export function Default(TWrapped: BaseSchema<unknown, unknown, BaseIssue<unknown>>, TInput: null | undefined): any {
+  return anyOf(MaybeDeepReadonly(anyOf(InferInput(TWrapped), TInput)), fnType([optElem(UnknownDataset), optElem(Config(InferIssue(TWrapped)))], MaybeDeepReadonly(anyOf(InferInput(TWrapped), TInput))), Undefined)
 }
 /* compiles to:
  * export type Default<
@@ -51,7 +53,7 @@ export function Default(TWrapped: BaseSchema<unknown, unknown, BaseIssue<unknown
  * > =
  *   | MaybeDeepReadonly<InferInput<TWrapped> | TInput>
  *   | (
- *       (a0: UnknownDataset, a1: Config<InferIssue<TWrapped>>) => MaybeDeepReadonly<
+ *       (a0?: UnknownDataset, a1?: Config<InferIssue<TWrapped>>) => MaybeDeepReadonly<
  *         InferInput<TWrapped> | TInput
  *       >
  *     )
@@ -60,8 +62,8 @@ export function Default(TWrapped: BaseSchema<unknown, unknown, BaseIssue<unknown
 
 // ✓ DefaultAsync: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function DefaultAsync(TWrapped: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, TInput: null | undefined) {
-  return anyOf(MaybeDeepReadonly(anyOf(InferInput(TWrapped), TInput)), fnType([UnknownDataset, Config(InferIssue(TWrapped))], MaybePromise(MaybeDeepReadonly(anyOf(InferInput(TWrapped), TInput)))), Undefined)
+export function DefaultAsync(TWrapped: BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, TInput: null | undefined): any {
+  return anyOf(MaybeDeepReadonly(anyOf(InferInput(TWrapped), TInput)), fnType([optElem(UnknownDataset), optElem(Config(InferIssue(TWrapped)))], MaybePromise(MaybeDeepReadonly(anyOf(InferInput(TWrapped), TInput)))), Undefined)
 }
 /* compiles to:
  * export type DefaultAsync<
@@ -70,7 +72,7 @@ export function DefaultAsync(TWrapped: BaseSchema<unknown, unknown, BaseIssue<un
  * > =
  *   | MaybeDeepReadonly<InferInput<TWrapped> | TInput>
  *   | (
- *       (a0: UnknownDataset, a1: Config<InferIssue<TWrapped>>) => MaybePromise<
+ *       (a0?: UnknownDataset, a1?: Config<InferIssue<TWrapped>>) => MaybePromise<
  *         MaybeDeepReadonly<InferInput<TWrapped> | TInput>
  *       >
  *     )
@@ -78,9 +80,9 @@ export function DefaultAsync(TWrapped: BaseSchema<unknown, unknown, BaseIssue<un
  */
 
 // ✗ DefaultValue: does not compile yet
-//   Type 'unknown' does not satisfy the constraint 'null | undefined'.
+//   Cannot find name 'm1'.
 /* @scripttype preserveParamNames */
-export function DefaultValue(TDefault: Default<BaseSchema<unknown, unknown, BaseIssue<unknown>>, null | undefined> | DefaultAsync<BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, null | undefined>) {
+export function DefaultValue(TDefault: Default<BaseSchema<unknown, unknown, BaseIssue<unknown>>, null | undefined> | DefaultAsync<BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, null | undefined>): any {
   const m1 = matches<DefaultAsync<Hole<"TWrapped", BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>>, Hole<"TInput">>>(TDefault)
   if (m1) {
     if (matches<(dataset?: UnknownDataset, config?: Config<InferIssue<typeof m1.TWrapped>>) => MaybePromise<MaybeDeepReadonly<InferInput<typeof m1.TWrapped> | typeof m1.TInput>>>(TDefault)) {
@@ -94,7 +96,7 @@ export function DefaultValue(TDefault: Default<BaseSchema<unknown, unknown, Base
  * export type DefaultValue<
  *   TDefault extends Default<BaseSchema<unknown, unknown, BaseIssue<unknown>>, null | undefined> | DefaultAsync<BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, null | undefined>
  * > =
- *   TDefault extends DefaultAsync<BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, unknown>
+ *   TDefault extends DefaultAsync<BaseSchema<unknown, unknown, BaseIssue<unknown>> | BaseSchemaAsync<unknown, unknown, BaseIssue<unknown>>, any>
  *     ? TDefault extends (dataset?: UnknownDataset, config?: Config<InferIssue<typeof m1.TWrapped>>) => MaybePromise<MaybeDeepReadonly<InferInput<typeof m1.TWrapped> | typeof m1.TInput>>
  *       ? Awaited<ReturnType<TDefault>>
  *       : TDefault

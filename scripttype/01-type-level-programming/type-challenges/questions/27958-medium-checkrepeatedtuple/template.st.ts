@@ -9,7 +9,7 @@
  */
 // ✓ CheckRepeatedTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function CheckRepeatedTuple(T: unknown[]) {
+export function CheckRepeatedTuple(T: unknown[]): any {
   return any
 }
 /* compiles to:

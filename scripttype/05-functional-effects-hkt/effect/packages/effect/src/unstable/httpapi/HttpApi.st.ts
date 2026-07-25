@@ -14,13 +14,15 @@ declare namespace HttpApiGroup {
   export type Identifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
 declare const HttpApiGroup: any
+declare const Identifier: any
 type HttpApiGroup<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type Identifier<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GroupMap: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function GroupMap(Groups) {
+export function GroupMap(Groups): any {
   const out = emptyObject
   for (const Group in keySet(Groups)) {
-    out[HttpApiGroup.Identifier(Group)] = readonlyProp(Group)
+    out[t<HttpApiGroup.Identifier<typeof Group>>()] = readonlyProp(Group)
   }
   return out
 }

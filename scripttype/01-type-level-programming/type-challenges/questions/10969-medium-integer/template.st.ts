@@ -9,7 +9,7 @@
  */
 // ✓ Integer: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Integer(T) {
+export function Integer(T): any {
   return any
 }
 /* compiles to:

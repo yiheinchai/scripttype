@@ -7,34 +7,61 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { StaticState } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/reduce/static.js'
+import type { TerminatingChar } from '../../../../../../../../03-schema-and-type-level-parsers/arktype/ark/type/parser/shift/tokens.js'
 declare namespace Scanner {
   export type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type shiftUntil<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
   export type skipWhitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 }
+declare namespace m1 {
+  export type brandName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
+declare namespace s {
+  export type error<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type setRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const Scanner: any
 declare const StaticState: any
 declare const TerminatingChar: any
+declare const brandName: any
 declare const emptyBrandNameMessage: any
+declare const nextUnscanned: any
+declare const setRoot: any
 declare const shiftResult: any
+declare const shiftUntil: any
+declare const skipWhitespace: any
 type Scanner<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type StaticState<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TerminatingChar<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type brandName<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type emptyBrandNameMessage<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type nextUnscanned<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type setRoot<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type shiftResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type shiftUntil<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+type skipWhitespace<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ parseBrand: does not compile yet
-//   only direct calls are supported
+//   Type 'nextUnscanned' does not satisfy the constraint 'string'.
 /* @scripttype preserveParamNames */
-export function parseBrand(s: StaticState, unscanned: string) {
-  const m1 = matches<Scanner.shiftResult<`${Hole<"brandName">}`, Hole<"nextUnscanned">>>(Scanner.shiftUntil(Scanner.skipWhitespace(unscanned), TerminatingChar))
+export function parseBrand(s: StaticState, unscanned: string): any {
+  const m1 = matches<Scanner.shiftResult<`${Hole<"brandName">}`, Hole<"nextUnscanned">>>(t<Scanner.shiftUntil<Scanner.skipWhitespace<typeof unscanned>, TerminatingChar>>())
   if (m1) {
     if (matches<"">(m1.brandName)) {
-      return s.error(emptyBrandNameMessage)
+      return t<s.error<emptyBrandNameMessage>>()
     }
-    return s.setRoot(s, [s['root'], '#', m1.brandName], m1.nextUnscanned)
+    return t<s.setRoot<typeof s, [ (typeof s)["root"], "#", typeof m1.brandName ], typeof m1.nextUnscanned>>()
   }
   return never
 }
+/* compiles to:
+ * export type parseBrand<s extends StaticState, unscanned extends string> =
+ *   Scanner.shiftUntil<Scanner.skipWhitespace<unscanned>, TerminatingChar> extends Scanner.shiftResult<`${infer brandName}`, infer nextUnscanned>
+ *     ? brandName extends ''
+ *       ? s.error<emptyBrandNameMessage>
+ *       : s.setRoot<s, [s['root'], '#', brandName], nextUnscanned>
+ *     : never
+ */

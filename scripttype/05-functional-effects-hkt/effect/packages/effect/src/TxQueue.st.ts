@@ -17,8 +17,8 @@ declare const Cause: any
 type Cause<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ State: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function State(_A, E) {
-  return anyOf({ _tag: readonlyProp('Open') }, { _tag: readonlyProp('Closing'), cause: readonlyProp(Cause.Cause(E)) }, { _tag: readonlyProp('Done'), cause: readonlyProp(Cause.Cause(E)) })
+export function State(_A, E): any {
+  return anyOf({ _tag: readonlyProp('Open') }, { _tag: readonlyProp('Closing'), cause: readonlyProp(t<Cause.Cause<typeof E>>()) }, { _tag: readonlyProp('Done'), cause: readonlyProp(t<Cause.Cause<typeof E>>()) })
 }
 /* compiles to:
  * export type State<_A, E> =

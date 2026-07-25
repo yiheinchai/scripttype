@@ -20,12 +20,15 @@ type Spreadable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 =
 type TupleOrArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ SpreadObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SpreadObject(FirstType: object, SecondType: object) {
+/**
+ * @param {object} FirstType
+ */
+export function SpreadObject(FirstType, SecondType: object): any {
   const out = emptyObject
   for (const Key in keyof(FirstType)) {
     out[Key] = Key in SecondType ? (FirstType[Key] | Required(SecondType)[Key]) : FirstType[Key]
   }
-  return out & Pick(SecondType, RequiredKeysOf(SecondType) | Exclude(keyof(SecondType), keyof(FirstType)))
+  return out & Pick(SecondType, anyOf(RequiredKeysOf(SecondType), Exclude(keyof(SecondType), keyof(FirstType))))
 }
 /* compiles to:
  * export type SpreadObject<FirstType extends object, SecondType extends object> =
@@ -39,8 +42,8 @@ export function SpreadObject(FirstType: object, SecondType: object) {
 
 // ✓ SpreadTupleOrArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function SpreadTupleOrArray(FirstType: TupleOrArray, SecondType: TupleOrArray) {
-  return arrayOf(FirstType[number] | SecondType[number])
+export function SpreadTupleOrArray(FirstType: TupleOrArray, SecondType: TupleOrArray): any {
+  return arrayOf(anyOf(FirstType[number], SecondType[number]))
 }
 /* compiles to:
  * export type SpreadTupleOrArray<
@@ -52,7 +55,7 @@ export function SpreadTupleOrArray(FirstType: TupleOrArray, SecondType: TupleOrA
 
 // ✓ Spread: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function Spread(FirstType: Spreadable, SecondType: Spreadable) {
+export function Spread(FirstType: Spreadable, SecondType: Spreadable): any {
   if (matches<TupleOrArray>(FirstType)) {
     if (matches<TupleOrArray>(SecondType)) {
       return SpreadTupleOrArray(FirstType, SecondType)

@@ -7,18 +7,23 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
-// Names this file references but does not define: types from elsewhere in the
-// library, and local functions used in type position. Declared so the generated
-// ScriptType typechecks standalone. They carry no runtime meaning.
+// Types this file references but does not define. Those whose declaration could be
+// found are imported, so the check is against the real type rather than `any`; the
+// rest are stubbed. Each also gets a value declaration, because ScriptType applies
+// types in call position and a type-only import binds nothing in value space.
+import type { AddDigits } from '../../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/digits/addition.js'
+import type { SubDigits } from '../../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/digits/substraction.js'
+import type { Digit } from '../../../../../../../../01-type-level-programming/hotscript/src/internals/numbers/impl/utils.js'
+declare namespace m1 {
+  export type N<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+  export type R<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
+}
 declare const AddDigits: any
 declare const Digit: any
 declare const SubDigits: any
-type AddDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Digit<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SubDigits<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ MulX2: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulX2(T: Digit[]) {
+export function MulX2(T: Digit[]): any {
   return AddDigits(T, T)
 }
 /* compiles to:
@@ -27,7 +32,7 @@ export function MulX2(T: Digit[]) {
 
 // ✓ MulX3: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulX3(T: Digit[]) {
+export function MulX3(T: Digit[]): any {
   return AddDigits(T, MulX2(T))
 }
 /* compiles to:
@@ -36,7 +41,7 @@ export function MulX3(T: Digit[]) {
 
 // ✓ MulX4: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulX4(T: Digit[]) {
+export function MulX4(T: Digit[]): any {
   return MulX2(MulX2(T))
 }
 /* compiles to:
@@ -45,7 +50,7 @@ export function MulX4(T: Digit[]) {
 
 // ✓ MulX5: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulX5(T: Digit[]) {
+export function MulX5(T: Digit[]): any {
   return AddDigits(T, MulX4(T))
 }
 /* compiles to:
@@ -54,7 +59,7 @@ export function MulX5(T: Digit[]) {
 
 // ✓ MulX6: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulX6(T: Digit[]) {
+export function MulX6(T: Digit[]): any {
   return MulX2(MulX3(T))
 }
 /* compiles to:
@@ -63,7 +68,7 @@ export function MulX6(T: Digit[]) {
 
 // ✓ MulX7: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulX7(T: Digit[]) {
+export function MulX7(T: Digit[]): any {
   return SubDigits(MulX10(T), MulX3(T))
 }
 /* compiles to:
@@ -72,7 +77,7 @@ export function MulX7(T: Digit[]) {
 
 // ✓ MulX8: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulX8(T: Digit[]) {
+export function MulX8(T: Digit[]): any {
   return SubDigits(MulX10(T), MulX2(T))
 }
 /* compiles to:
@@ -81,7 +86,7 @@ export function MulX8(T: Digit[]) {
 
 // ✓ MulX9: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulX9(T: Digit[]) {
+export function MulX9(T: Digit[]): any {
   return SubDigits(MulX10(T), T)
 }
 /* compiles to:
@@ -90,7 +95,7 @@ export function MulX9(T: Digit[]) {
 
 // ✓ MulX10: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulX10(T: Digit[]) {
+export function MulX10(T: Digit[]): any {
   return [...T, 0]
 }
 /* compiles to:
@@ -99,7 +104,7 @@ export function MulX10(T: Digit[]) {
 
 // ✓ MulByDigit: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulByDigit(T: Digit[], U: Digit) {
+export function MulByDigit(T: Digit[], U: Digit): any {
   if (matches<0>(U)) {
     return [0]
   }
@@ -145,7 +150,7 @@ export function MulByDigit(T: Digit[], U: Digit) {
 
 // ✓ MulDigits: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function MulDigits(T: Digit[], U: Digit[]) {
+export function MulDigits(T: Digit[], U: Digit[]): any {
   let Acc: any[] = []
   let u = U
   while (true) {

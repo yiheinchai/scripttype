@@ -281,4 +281,9 @@ declare function Lowercase(...a: any[]): any
 declare function Capitalize(...a: any[]): any
 declare function Uncapitalize(...a: any[]): any
 declare function ReadonlyArray(...a: any[]): any
+// The readonly collection interfaces are type-only in lib.es5: unlike `Map` and `Set`
+// there is no constructor value to fall back on, so without these a decompiled
+// `ReadonlyMap<K, V>` is TS2693.
+declare function ReadonlyMap(...a: any[]): any
+declare function ReadonlySet(...a: any[]): any
 declare function ScriptTypeError(...a: any[]): any

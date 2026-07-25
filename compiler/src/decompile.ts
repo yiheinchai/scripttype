@@ -843,13 +843,28 @@ function inferNames(t: ts.TypeNode): string[] {
  * preserved as a second argument.
  */
 /**
- * Whether an emitted expression can sit beside an operator without parentheses.
+ * Whether an emitted expression binds tightly enough to sit beside an operator without
+ * parentheses.
  *
- * `typeof a.b === 'string'` and `typeof x['k'] === 'string'` are fine; `typeof (a | b)`
- * is a different test entirely, so anything with an operator in it is rejected.
+ * This has to be exact rather than approximate, because both operators it guards are
+ * silently wrong on a loose operand: `typeof (a | b)` is a different test, and `k in a | b`
+ * parses as `(k in a) | b` since `in` binds tighter than `|`. So the emitted text is
+ * parsed and the node kind inspected, rather than pattern-matched — a call or an index
+ * is fine, a binary expression is not.
  */
 function isSimpleOperand(s: string): boolean {
-  return /^[A-Za-z_$][A-Za-z0-9_$]*(\.[A-Za-z_$][A-Za-z0-9_$]*|\[[^\][]*\])*$/.test(s)
+  const sf = ts.createSourceFile('op.ts', `(${s});`, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
+  const stmt = sf.statements[0]
+  if (!stmt || !ts.isExpressionStatement(stmt) || sf.statements.length !== 1) return false
+  if ((sf as unknown as { parseDiagnostics?: unknown[] }).parseDiagnostics?.length) return false
+  let e: ts.Expression = stmt.expression
+  while (ts.isParenthesizedExpression(e)) e = e.expression
+  return (
+    ts.isIdentifier(e) ||
+    ts.isPropertyAccessExpression(e) ||
+    ts.isElementAccessExpression(e) ||
+    ts.isCallExpression(e)
+  )
 }
 
 function holePattern(

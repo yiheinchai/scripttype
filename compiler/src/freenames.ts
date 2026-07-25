@@ -229,6 +229,57 @@ export function declarePreambleForTypes(source: string): string {
   ].join('\n')
 }
 
+/**
+ * Locally declared ScriptType functions that the same file also uses in *type* position.
+ *
+ * A ScriptType function is a value, so writing `F<X>` inside a `matches<…>` pattern or a
+ * `t<…>()` — both of which are type positions — is TS2749, "refers to a value but is
+ * being used as a type". The name genuinely needs a type-space declaration alongside its
+ * value-space one, which is exactly how the builtins are declared.
+ *
+ * Returns the names needing that companion alias, so a generated file can declare only
+ * the ones it actually uses rather than one per function.
+ */
+export function localFunctionsUsedAsTypes(source: string): string[] {
+  const sf = ts.createSourceFile('gen.st.ts', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
+  const functions = new Set<string>()
+  const collectFns = (n: ts.Node) => {
+    if (ts.isFunctionDeclaration(n) && n.name) functions.add(n.name.text)
+    ts.forEachChild(n, collectFns)
+  }
+  collectFns(sf)
+  if (!functions.size) return []
+
+  const asTypes = new Set<string>()
+  const collectTypes = (n: ts.Node) => {
+    if (ts.isTypeReferenceNode(n)) {
+      const root = n.typeName.getText(sf).split('.')[0]!
+      if (functions.has(root)) asTypes.add(root)
+    }
+    ts.forEachChild(n, collectTypes)
+  }
+  collectTypes(sf)
+  return [...asTypes].sort()
+}
+
+/**
+ * The companion type aliases for `localFunctionsUsedAsTypes`, ready to prepend.
+ *
+ * Permissive and generic, because their only job is to make the name legal in type
+ * position — the compiler reads the *function* for meaning, never this alias.
+ */
+export function declareLocalTypeAliases(source: string): string {
+  const names = localFunctionsUsedAsTypes(source)
+  if (!names.length) return ''
+  return [
+    '// A ScriptType function is a value, so these names also need a type-space',
+    '// declaration to appear inside a `matches<…>` pattern or a `t<…>()`. The compiler',
+    '// reads the function below for meaning; these carry none.',
+    ...names.map((n) => `type ${n}${GENERIC} = any`),
+    '',
+  ].join('\n')
+}
+
 /** The free names of a source, for feeding the typecheck gate. */
 export function freeNamesOf(source: string): string[] {
   const f = freeNames(source)

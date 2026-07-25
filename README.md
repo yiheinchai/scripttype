@@ -96,8 +96,10 @@ export function TrimLeft(S: string) {
 }
 ```
 
-Roughly four in five real-world aliases convert and recompile to a type identical to the
-original — see [Coverage](#coverage) for the measurement across 26 libraries. The rest keep
+Measured over 73 type-bearing files from type-fest, ts-pattern and kysely, **70 convert and
+build with no errors and no warnings, and none fail**. Per alias, roughly four in five
+convert and recompile to a type identical to the original — see [Coverage](#coverage) for
+that measurement across 26 libraries. The rest keep
 their original TypeScript inside `raw('…')` and are marked `TODO(scripttype)` with the
 construct that could not be expressed, so what needs finishing by hand is visible rather
 than silent. Converted output is a starting point to review, not something to commit

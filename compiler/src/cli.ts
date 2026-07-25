@@ -9,7 +9,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { compileAll } from './compile.js'
 import { typecheckScriptType } from './typecheck.js'
-import { freeNames } from './freenames.js'
+import { declareLocalTypeAliases, freeNames } from './freenames.js'
 import { BUILTINS } from './builtins.js'
 import { decompileFile } from './decompile.js'
 import {
@@ -460,7 +460,11 @@ function cmdConvert(args: Args): number {
       `// Converted from ${path.basename(file)} by \`scripttype convert\`.\n` +
       `// Review before committing: compile with \`scripttype build\` and check the output\n` +
       `// against the original.\n`
-    const body = header + '\n' + blocks.join('\n\n') + '\n'
+    const code = blocks.join('\n\n') + '\n'
+    // Derived from the finished code, not per block: a function is only given a
+    // type-space alias if something in the file actually names it in type position.
+    const aliases = declareLocalTypeAliases(code)
+    const body = header + '\n' + (aliases ? aliases + '\n' : '') + code
 
     const dest = path.join(
       outDir ?? path.dirname(file),

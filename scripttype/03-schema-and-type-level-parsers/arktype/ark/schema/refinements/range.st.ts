@@ -26,7 +26,7 @@ type UpperBoundKind<A = any, B = any, C = any, D = any, E = any, F = any, G = an
 /* @scripttype preserveParamNames */
 export function LimitInnerValue(kind: RangeKind = RangeKind) {
   if (matches<"before" | "after">(kind)) {
-    return Date
+    return t<Date>()
   }
   return number
 }

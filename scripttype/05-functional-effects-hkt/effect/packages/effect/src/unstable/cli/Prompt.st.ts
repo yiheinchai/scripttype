@@ -44,7 +44,7 @@ export function ProcessInput(A) {
 export function ReturnIterable(T: Iterable<Any>) {
   const m1 = matches<[ Iterable<Prompt<Hole<"A">>> ]>([T])
   if (m1) {
-    return Prompt(Array(m1.A))
+    return Prompt(t<Array<typeof m1.A>>())
   }
   return never
 }

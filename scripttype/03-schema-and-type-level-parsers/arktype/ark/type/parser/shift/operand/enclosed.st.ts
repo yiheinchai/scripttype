@@ -106,7 +106,7 @@ export function _parseEnclosed(s: StaticState, enclosingStart: EnclosingStartTok
     return never
   }
   const m5 = matches<Scanner.shift<string, Hole<"unscanned">>>(nextUnscanned)
-  return s.setRoot(s, InferredAst(Date, def), m5 ? m5.unscanned : '')
+  return s.setRoot(s, InferredAst(t<Date>(), def), m5 ? m5.unscanned : '')
 }
 
 // ✓ writeUnterminatedEnclosedMessage: verified type-identical to the original

@@ -164,7 +164,7 @@ export function GetCreateQueriesResult(T) {
 /* @scripttype preserveParamNames */
 export function CreateQueriesOptions(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return Array(CreateQueriesInputForController)
+    return t<Array<CreateQueriesInputForController>>()
   }
   if (matches<[ ]>(T)) {
     return []
@@ -177,14 +177,14 @@ export function CreateQueriesOptions(T: Array<any>, TResults: Array<any> = [], T
   if (m2) {
     return CreateQueriesOptions([...m2.Tails], [...TResults, GetCreateQueriesInput(m2.Head)], [...TDepth, 1])
   }
-  if (matches<typeof T>(ReadonlyArray(unknown))) {
+  if (matches<typeof T>(t<ReadonlyArray<unknown>>())) {
     return T
   }
   const m3 = matches<Array<CreateQueriesInputForController<Hole<"TQueryFnData">, Hole<"TError">, Hole<"TData">, Hole<"TQueryKey">>>>(T)
   if (m3) {
-    return Array(CreateQueriesInputForController(m3.TQueryFnData, m3.TError, m3.TData, m3.TQueryKey))
+    return t<Array<CreateQueriesInputForController<typeof m3.TQueryFnData, typeof m3.TError, typeof m3.TData, typeof m3.TQueryKey>>>()
   }
-  return Array(CreateQueriesInputForController)
+  return t<Array<CreateQueriesInputForController>>()
 }
 /* compiles to:
  * export type CreateQueriesOptions<T extends Array<any>, TResults extends Array<any> = [], TDepth extends ReadonlyArray<number> = []> = TDepth['length'] extends MAXIMUM_DEPTH ? Array<CreateQueriesInputForController> : T extends [] ? [] : T extends [infer Head] ? [...TResults, GetCreateQueriesInput<Head>] : T extends [infer Head, ...infer Tails] ? CreateQueriesOptions<[...Tails], [...TResults, GetCreateQueriesInput<Head>], [...TDepth, 1]> : ReadonlyArray<unknown> extends T ? T : T extends Array<CreateQueriesInputForController<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>> ? Array<CreateQueriesInputForController<TQueryFnData, TError, TData, TQueryKey>> : Array<CreateQueriesInputForController>
@@ -194,7 +194,7 @@ export function CreateQueriesOptions(T: Array<any>, TResults: Array<any> = [], T
 /* @scripttype preserveParamNames */
 export function CreateQueriesResults(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return Array(QueryObserverResult)
+    return t<Array<QueryObserverResult>>()
   }
   if (matches<[ ]>(T)) {
     return []
@@ -220,7 +220,7 @@ export function CreateQueriesResults(T: Array<any>, TResults: Array<any> = [], T
 // ✗ CreateQueriesControllerOptions: does not compile yet
 //   A rest element type must be an array type.
 /* @scripttype preserveParamNames */
-export function CreateQueriesControllerOptions(TQueryOptions: Array<any> = Array(any), TCombinedResult = CreateQueriesResults(TQueryOptions)) {
+export function CreateQueriesControllerOptions(TQueryOptions: Array<any> = t<Array<any>>(), TCombinedResult = CreateQueriesResults(TQueryOptions)) {
   const out = emptyObject
   for (const K in keyof(TQueryOptions)) {
     out[K] = GetCreateQueriesInput(TQueryOptions[K])

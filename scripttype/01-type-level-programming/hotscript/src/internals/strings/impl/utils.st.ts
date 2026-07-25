@@ -51,7 +51,7 @@ export function Size(It: Iterator) {
 //   Next.st.ts(2:26) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
 export function Next(It: Iterator) {
-  return [[`${String(It)}${string}`, Add(Value(It), 1)], ...It]
+  return [[`${t<String<typeof It>>()}${string}`, Add(Value(It), 1)], ...It]
 }
 /* compiles to:
  * export type Next<It extends Iterator> = [[`${String<It>}${string}`, Add<Value<It>, 1>], ...It]
@@ -75,9 +75,9 @@ export function Prev(It: Iterator) {
 //   Double.st.ts(2:28) TS2707: Generic type 'Iterator<T, TReturn, TNext>' requires between 1 and 3 type arguments.
 /* @scripttype preserveParamNames */
 export function Double(It: Iterator) {
-  const m1 = matches<`$${Hole<"pattern">}`>(`${String(It)}_`)
+  const m1 = matches<`$${Hole<"pattern">}`>(`${t<String<typeof It>>()}_`)
   if (m1) {
-    const m2 = matches<`${Hole<"double">}_`>(`${String(It)}${m1.pattern}`)
+    const m2 = matches<`${Hole<"double">}_`>(`${t<String<typeof It>>()}${m1.pattern}`)
     if (m2) {
       return [[m2.double, Mul(Value(It), 2)], ...It]
     }

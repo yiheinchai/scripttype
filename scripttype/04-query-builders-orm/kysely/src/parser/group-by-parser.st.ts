@@ -13,6 +13,7 @@
 declare const ExpressionBuilder: any
 declare const ReferenceExpression: any
 type ExpressionBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type GroupByExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReferenceExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ GroupByExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
@@ -26,7 +27,7 @@ export function GroupByExpression(DB, TB: keyof typeof DB, O) {
 // ✓ GroupByArg: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GroupByArg(DB, TB: keyof typeof DB, O) {
-  return GroupByExpression(DB, TB, O) | ReadonlyArray(GroupByExpression(DB, TB, O)) | fnType([ExpressionBuilder(DB, TB)], ReadonlyArray(GroupByExpression(DB, TB, O)))
+  return GroupByExpression(DB, TB, O) | t<ReadonlyArray<GroupByExpression<typeof DB, typeof TB, typeof O>>>() | fnType([ExpressionBuilder(DB, TB)], t<ReadonlyArray<GroupByExpression<typeof DB, typeof TB, typeof O>>>())
 }
 /* compiles to:
  * export type GroupByArg<DB, TB extends keyof DB, O> = GroupByExpression<DB, TB, O> | ReadonlyArray<GroupByExpression<DB, TB, O>> | ((a0: ExpressionBuilder<DB, TB>) => ReadonlyArray<GroupByExpression<DB, TB, O>>)

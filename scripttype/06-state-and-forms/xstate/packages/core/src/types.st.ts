@@ -73,6 +73,7 @@ type ErrorActorEvent<A = any, B = any, C = any, D = any, E = any, F = any, G = a
 type EventDescriptor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type EventDescriptorMatches<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type EventObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExtractEvent<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Guard<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type GuardPredicate<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type InputFrom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -773,7 +774,7 @@ export function MachineConfig(TContext: MachineContext, TEvent: EventObject, TAc
 // ✓ HistoryValue: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HistoryValue(TContext: MachineContext, TEvent: EventObject) {
-  return Record(string, Array(StateNode(TContext, TEvent)))
+  return Record(string, t<Array<StateNode<typeof TContext, typeof TEvent>>>())
 }
 /* compiles to:
  * export type HistoryValue<TContext extends MachineContext, TEvent extends EventObject> = Record<string, Array<StateNode<TContext, TEvent>>>
@@ -797,7 +798,7 @@ export function StateFrom(T: AnyStateMachine | ((...args: any[]) => AnyStateMach
 // ✓ Transitions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Transitions(TContext: MachineContext, TEvent: EventObject) {
-  return Array(TransitionDefinition(TContext, TEvent))
+  return t<Array<TransitionDefinition<typeof TContext, typeof TEvent>>>()
 }
 /* compiles to:
  * export type Transitions<TContext extends MachineContext, TEvent extends EventObject> = Array<TransitionDefinition<TContext, TEvent>>
@@ -875,7 +876,7 @@ export function Mapper(TContext: MachineContext, TExpressionEvent: EventObject, 
 export function TransitionDefinitionMap(TContext: MachineContext, TEvent: EventObject) {
   const out = emptyObject
   for (const K in keySet(EventDescriptor(TEvent))) {
-    out[K] = Array(TransitionDefinition(TContext, ExtractEvent(TEvent, K)))
+    out[K] = t<Array<TransitionDefinition<typeof TContext, ExtractEvent<typeof TEvent, typeof K>>>>()
   }
   return out
 }

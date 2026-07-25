@@ -17,6 +17,7 @@ declare const KeysOfUnion: any
 declare const ObjectValue: any
 declare const Primitive: any
 type ArrayElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Exact<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type KeysOfUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -51,10 +52,10 @@ export function Exact(ParameterType, InputType) {
     return ParameterType
   }
   if (matches<unknown[]>(ParameterType)) {
-    return Array(Exact(ArrayElement(ParameterType), ArrayElement(InputType)))
+    return t<Array<Exact<ArrayElement<typeof ParameterType>, ArrayElement<typeof InputType>>>>()
   }
   if (matches<readonly unknown[]>(ParameterType)) {
-    return ReadonlyArray(Exact(ArrayElement(ParameterType), ArrayElement(InputType)))
+    return t<ReadonlyArray<Exact<ArrayElement<typeof ParameterType>, ArrayElement<typeof InputType>>>>()
   }
   return ExactObject(ParameterType, InputType)
 }

@@ -22,12 +22,12 @@ stricter per-sample equivalence gate.
 
 - files: 1902
 - aliases: 7518
-- verified type-identical: 5582 (74.2%)
+- verified type-identical: 5692 (75.7%)
 
 | status | count | meaning |
 |---|--:|---|
-| `covered` | 5582 | verified type-identical to the original |
-| `typecheck-error` | 639 | the ScriptType does not itself typecheck as TypeScript |
+| `covered` | 5692 | verified type-identical to the original |
 | `compile-error` | 638 | does not compile yet |
+| `typecheck-error` | 510 | the ScriptType does not itself typecheck as TypeScript |
 | `raw` | 438 | uses raw() — language gap, does not count as covered |
-| `mismatch` | 221 | compiles but is not type-identical yet |
+| `mismatch` | 240 | compiles but is not type-identical yet |

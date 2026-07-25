@@ -17,7 +17,7 @@ type SingleStoreDateTimeStringBuilder<A = any, B = any, C = any, D = any, E = an
 // ✓ SingleStoreDateTimeBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreDateTimeBuilderInitial(TName: string) {
-  return SingleStoreDateTimeBuilder({ name: TName, dataType: 'date', columnType: 'SingleStoreDateTime', data: Date, driverParam: string | number, enumValues: Undefined, generated: Undefined })
+  return SingleStoreDateTimeBuilder({ name: TName, dataType: 'date', columnType: 'SingleStoreDateTime', data: t<Date>(), driverParam: string | number, enumValues: Undefined, generated: Undefined })
 }
 /* compiles to:
  * export type SingleStoreDateTimeBuilderInitial<TName extends string> = SingleStoreDateTimeBuilder<{ name: TName; dataType: 'date'; columnType: 'SingleStoreDateTime'; data: Date; driverParam: string | number; enumValues: undefined; generated: undefined }>

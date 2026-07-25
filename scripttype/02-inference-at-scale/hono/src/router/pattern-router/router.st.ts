@@ -10,7 +10,7 @@
 // ✓ Route: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Route(T) {
-  return [RegExp, string, T]
+  return [t<RegExp>(), string, T]
 }
 /* compiles to:
  * export type Route<T> = [RegExp, string, T]

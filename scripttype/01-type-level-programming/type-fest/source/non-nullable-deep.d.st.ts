@@ -13,17 +13,24 @@
 declare const BuiltIns: any
 declare const HasMultipleCallSignatures: any
 declare const IsNever: any
+declare const ItemType: any
+declare const KeyType: any
 declare const ReadonlyMap: any
 declare const ReadonlySet: any
 declare const Simplify: any
+declare const ValueType: any
 type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type HasMultipleCallSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ItemType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type KeyType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type NonNullableDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ValueType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ NonNullableDeep: the ScriptType does not itself typecheck as TypeScript
-//   NonNullableDeep.st.ts(8:12) TS2348: Value of type 'MapConstructor' is not callable. Did you mean to include 'new'?
+//   NonNullableDeep.st.ts(16:12) TS2693: 'ReadonlyMap' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
 export function NonNullableDeep(T) {
   if (matches<BuiltIns | (new (...arguments_: any[]) => unknown)>(T)) {
@@ -31,11 +38,11 @@ export function NonNullableDeep(T) {
   }
   const m1 = matches<Map<Hole<"KeyType">, Hole<"ValueType">>>(T)
   if (m1) {
-    return Map(NonNullableDeep(m1.KeyType), NonNullableDeep(m1.ValueType))
+    return t<Map<NonNullableDeep<typeof m1.KeyType>, NonNullableDeep<typeof m1.ValueType>>>()
   }
   const m2 = matches<Set<Hole<"ItemType">>>(T)
   if (m2) {
-    return Set(NonNullableDeep(m2.ItemType))
+    return t<Set<NonNullableDeep<typeof m2.ItemType>>>()
   }
   const m3 = matches<ReadonlyMap<Hole<"KeyType">, Hole<"ValueType">>>(T)
   if (m3) {
@@ -47,15 +54,15 @@ export function NonNullableDeep(T) {
   }
   const m5 = matches<WeakMap<Hole<"KeyType">, Hole<"ValueType">>>(T)
   if (m5) {
-    return WeakMap(NonNullableDeep(m5.KeyType), NonNullableDeep(m5.ValueType))
+    return t<WeakMap<NonNullableDeep<typeof m5.KeyType>, NonNullableDeep<typeof m5.ValueType>>>()
   }
   const m6 = matches<WeakSet<Hole<"ItemType">>>(T)
   if (m6) {
-    return WeakSet(NonNullableDeep(m6.ItemType))
+    return t<WeakSet<NonNullableDeep<typeof m6.ItemType>>>()
   }
   const m7 = matches<Promise<Hole<"ValueType">>>(T)
   if (m7) {
-    return Promise(NonNullableDeep(m7.ValueType))
+    return t<Promise<NonNullableDeep<typeof m7.ValueType>>>()
   }
   if (matches<(...arguments_: any[]) => unknown>(T)) {
     if (matches<true>(HasMultipleCallSignatures(T))) {

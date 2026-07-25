@@ -29,7 +29,7 @@ type UnknownIfNonSpecific<A = any, B = any, C = any, D = any, E = any, F = any, 
 // ✓ Middlewares: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Middlewares(S) {
-  return ReadonlyArray(Middleware({}, S))
+  return t<ReadonlyArray<Middleware<{}, typeof S>>>()
 }
 /* compiles to:
  * export type Middlewares<S> = ReadonlyArray<Middleware<{}, S>>

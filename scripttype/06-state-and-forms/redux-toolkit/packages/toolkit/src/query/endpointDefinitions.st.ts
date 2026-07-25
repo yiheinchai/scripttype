@@ -51,6 +51,7 @@ type NonUndefined<A = any, B = any, C = any, D = any, E = any, F = any, G = any,
 type QueryDefinition<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type QueryExtraOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SchemaFailureInfo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TagDescription<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnwrapPromise<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type baseQuery<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type rawResultType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -99,7 +100,7 @@ export function BaseEndpointDefinition(QueryArg, BaseQuery: BaseQueryFn, ResultT
 // ✓ TagDescriptionArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TagDescriptionArray(TagTypes: string) {
-  return ReadonlyArray(anyOf(TagDescription(TagTypes), Undefined, Null))
+  return t<ReadonlyArray<TagDescription<typeof TagTypes> | undefined | null>>()
 }
 /* compiles to:
  * export type TagDescriptionArray<TagTypes extends string> = ReadonlyArray<TagDescription<TagTypes> | undefined | null>

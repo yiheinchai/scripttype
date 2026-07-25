@@ -17,7 +17,7 @@ type RewriteCandidate<A = any, B = any, C = any, D = any, E = any, F = any, G = 
 // ✓ BatchedPluginHandler: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BatchedPluginHandler(TOpts = unknown) {
-  return fnType([Array(RewriteCandidate), CompilationContext, TOpts], voidType())
+  return fnType([t<Array<RewriteCandidate>>(), CompilationContext, TOpts], voidType())
 }
 /* compiles to:
  * export type BatchedPluginHandler<TOpts = unknown> = (a0: Array<RewriteCandidate>, a1: CompilationContext, a2: TOpts) => void

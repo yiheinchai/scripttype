@@ -27,6 +27,7 @@ declare const SomeType: any
 declare const StandardSchemaV1: any
 declare const TupleItems: any
 declare const core: any
+declare const output: any
 declare const util: any
 type $ZodFunctionIn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type $ZodFunctionOut<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -45,6 +46,7 @@ type SomeType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H =
 type StandardSchemaV1<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TupleItems<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type core<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type output<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type util<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ CheckFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
@@ -407,10 +409,10 @@ export function $InferOuterFunctionType(Args: $ZodFunctionIn, Returns: $ZodFunct
  */
 
 // ✗ $InferOuterFunctionTypeAsync: the ScriptType does not itself typecheck as TypeScript
-//   $InferOuterFunctionTypeAsync.st.ts(3:93) TS2348: Value of type 'PromiseConstructor' is not callable. Did you mean to include 'new'?
+//   $InferOuterFunctionTypeAsync.st.ts(3:103) TS2702: 'core' only refers to a type, but is being used as a namespace here.
 /* @scripttype preserveParamNames */
 export function $InferOuterFunctionTypeAsync(Args: $ZodFunctionIn, Returns: $ZodFunctionOut) {
-  return fnType([matches<typeof Args>($ZodFunctionIn) ? arrayOf(never) : core.input(Args)], Promise(core.output(Returns)))
+  return fnType([matches<typeof Args>($ZodFunctionIn) ? arrayOf(never) : core.input(Args)], t<Promise<core.output<typeof Returns>>>())
 }
 /* compiles to:
  * export type $InferOuterFunctionTypeAsync<Args extends $ZodFunctionIn, Returns extends $ZodFunctionOut> = (a0: $ZodFunctionIn extends Args ? never[] : core.input<Args>) => Promise<core.output<Returns>>

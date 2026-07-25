@@ -38,7 +38,7 @@ export function writeInvalidDateMessage(source: string) {
 //   DateParseResult.st.ts(2:33) TS2322: Type 'number' is not assignable to type 'string | boolean'.
 /* @scripttype preserveParamNames */
 export function DateParseResult(errorOnFail: boolean | string = boolean | string) {
-  return Date | (matches<true | string>(errorOnFail) ? never : Undefined)
+  return t<Date>() | (matches<true | string>(errorOnFail) ? never : Undefined)
 }
 /* compiles to:
  * export type DateParseResult<errorOnFail extends boolean | string = boolean | string> = Date | (errorOnFail extends true | string ? never : undefined)

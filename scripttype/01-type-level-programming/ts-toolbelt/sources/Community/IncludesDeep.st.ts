@@ -43,7 +43,7 @@ export function _IncludesDeep(O, M: any, match: Match, limit: number, I: Iterati
 export function IncludesDeep(O: object, M: any, match: Match = 'default', limit: number = 10) {
   const m1 = matches<Hole<"X">>(_IncludesDeep(O, M, match, limit))
   if (m1) {
-    return Cast(m1.X, Boolean)
+    return Cast(m1.X, t<Boolean>())
   }
   return never
 }

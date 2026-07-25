@@ -49,7 +49,7 @@ export function SelectExpression(DB, TB: keyof typeof DB) {
 // ✓ SelectCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SelectCallback(DB, TB: keyof typeof DB) {
-  return fnType([ExpressionBuilder(DB, TB)], ReadonlyArray(SelectExpression(DB, TB)))
+  return fnType([ExpressionBuilder(DB, TB)], t<ReadonlyArray<SelectExpression<typeof DB, typeof TB>>>())
 }
 /* compiles to:
  * export type SelectCallback<DB, TB extends keyof DB> = (a0: ExpressionBuilder<DB, TB>) => ReadonlyArray<SelectExpression<DB, TB>>
@@ -87,7 +87,7 @@ export function CallbackSelection(DB, TB: keyof typeof DB, CB) {
 // ✓ SelectArg: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SelectArg(DB, TB: keyof typeof DB, SE: SelectExpression<typeof DB, typeof TB>) {
-  return anyOf(SE, ReadonlyArray(SE), fnType([ExpressionBuilder(DB, TB)], ReadonlyArray(SE)))
+  return anyOf(SE, t<ReadonlyArray<typeof SE>>(), fnType([ExpressionBuilder(DB, TB)], t<ReadonlyArray<typeof SE>>()))
 }
 /* compiles to:
  * export type SelectArg<DB, TB extends keyof DB, SE extends SelectExpression<DB, TB>> = SE | ReadonlyArray<SE> | ((a0: ExpressionBuilder<DB, TB>) => ReadonlyArray<SE>)

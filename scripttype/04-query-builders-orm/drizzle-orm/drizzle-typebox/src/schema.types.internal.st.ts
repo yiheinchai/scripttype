@@ -21,7 +21,6 @@ declare const Simplify: any
 declare const TSchema: any
 declare const Table: any
 declare const View: any
-declare const t: any
 type Assume<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Column<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ColumnIsGeneratedAlwaysAs<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -33,9 +32,8 @@ type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H =
 type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Table<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type View<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
-type t<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ BuildRefineField: the ScriptType does not itself typecheck as TypeScript
-//   BuildRefineField.st.ts(3:15) TS2702: 't' only refers to a type, but is being used as a namespace here.
+//   BuildRefineField.st.ts(3:15) TS2503: Cannot find namespace 't'.
 /* @scripttype preserveParamNames */
 export function BuildRefineField(T) {
   if (matches<t.TSchema>(T)) {
@@ -61,7 +59,7 @@ export function BuildRefine(TColumns: Record<string, any>) {
  */
 
 // ✗ HandleRefinement: the ScriptType does not itself typecheck as TypeScript
-//   HandleRefinement.st.ts(3:32) TS2702: 't' only refers to a type, but is being used as a namespace here.
+//   HandleRefinement.st.ts(3:32) TS2503: Cannot find namespace 't'.
 /* @scripttype preserveParamNames */
 export function HandleRefinement(TType: 'select' | 'insert' | 'update', TRefinement, TColumn: Column) {
   if (matches<(schema: any) => t.TSchema>(TRefinement)) {
@@ -81,7 +79,7 @@ export function HandleRefinement(TType: 'select' | 'insert' | 'update', TRefinem
  */
 
 // ✗ IsRefinementDefined: the ScriptType does not itself typecheck as TypeScript
-//   IsRefinementDefined.st.ts(4:17) TS2702: 't' only refers to a type, but is being used as a namespace here.
+//   IsRefinementDefined.st.ts(4:17) TS2503: Cannot find namespace 't'.
 /* @scripttype preserveParamNames */
 export function IsRefinementDefined(TRefinements: Record<string | symbol | number, any> | undefined, TKey: string | symbol | number) {
   if (matches<object>(TRefinements)) {
@@ -108,7 +106,7 @@ export function BuildSchema(TType: 'select' | 'insert' | 'update', TColumns: Rec
 }
 
 // ✗ NoUnknownKeys: the ScriptType does not itself typecheck as TypeScript
-//   NoUnknownKeys.st.ts(5:59) TS2702: 't' only refers to a type, but is being used as a namespace here.
+//   NoUnknownKeys.st.ts(5:59) TS2503: Cannot find namespace 't'.
 /* @scripttype preserveParamNames */
 export function NoUnknownKeys(TRefinement: Record<string, any>, TCompare: Record<string, any>) {
   const out = emptyObject

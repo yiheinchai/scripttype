@@ -85,7 +85,7 @@ export function SuccessType(S) {
     return Stream.Stream(m1._Value, m1._Error['Type'] | HttpClientError.HttpClientError | Schema.SchemaError | Sse.Retry, never)
   }
   if (matches<HttpApiSchema.StreamUint8Array>(S)) {
-    return Stream.Stream(Uint8Array, HttpClientError.HttpClientError, never)
+    return Stream.Stream(t<Uint8Array>(), HttpClientError.HttpClientError, never)
   }
   if (matches<Schema.Constraint>(S)) {
     return S['Type']

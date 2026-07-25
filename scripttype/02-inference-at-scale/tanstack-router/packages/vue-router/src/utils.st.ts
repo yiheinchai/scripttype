@@ -10,13 +10,15 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
+declare const VNode: any
 declare const Vue: any
+type VNode<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Vue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ ParentProps: the ScriptType does not itself typecheck as TypeScript
-//   ParentProps.st.ts(3:52) TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+//   ParentProps.st.ts(3:60) TS2702: 'Vue' only refers to a type, but is being used as a namespace here.
 /* @scripttype preserveParamNames */
 export function ParentProps(T = {}) {
-  return merge(T, { children: optional(Vue.VNode | Array(Vue.VNode) | string) })
+  return merge(T, { children: optional(Vue.VNode | t<Array<Vue.VNode>>() | string) })
 }
 /* compiles to:
  * export type ParentProps<T = {}> = T & { children?: Vue.VNode | Array<Vue.VNode> | string }

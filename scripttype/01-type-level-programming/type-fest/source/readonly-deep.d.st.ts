@@ -16,6 +16,7 @@ declare const ReadonlyMap: any
 declare const ReadonlySet: any
 type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type HasMultipleCallSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ReadonlyDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type _ReadonlyObjectDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -58,7 +59,7 @@ export function ReadonlyDeep(T) {
   }
   const m5 = matches<ReadonlyArray<Hole<"ItemType">>>(T)
   if (m5) {
-    return ReadonlyArray(ReadonlyDeep(m5.ItemType))
+    return t<ReadonlyArray<ReadonlyDeep<typeof m5.ItemType>>>()
   }
   if (matches<object>(T)) {
     return _ReadonlyObjectDeep(T)

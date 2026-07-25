@@ -11,13 +11,20 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const BuiltIns: any
+declare const F: any
+declare const K: any
 declare const ReadonlyMap: any
 declare const ReadonlySet: any
+declare const V: any
 type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type F<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type K<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type UndefinedOnPartialDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type V<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ UndefinedOnPartialDeep: the ScriptType does not itself typecheck as TypeScript
-//   UndefinedOnPartialDeep.st.ts(11:12) TS2348: Value of type 'MapConstructor' is not callable. Did you mean to include 'new'?
+//   UndefinedOnPartialDeep.st.ts(15:12) TS2693: 'ReadonlyMap' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
 export function UndefinedOnPartialDeep(T) {
   if (matches<BuiltIns | Function>(T)) {
@@ -28,7 +35,7 @@ export function UndefinedOnPartialDeep(T) {
   }
   const m1 = matches<Map<Hole<"K">, Hole<"V">>>(T)
   if (m1) {
-    return Map(m1.K, UndefinedOnPartialDeep(m1.V))
+    return t<Map<typeof m1.K, UndefinedOnPartialDeep<typeof m1.V>>>()
   }
   const m2 = matches<ReadonlyMap<Hole<"K">, Hole<"V">>>(T)
   if (m2) {
@@ -36,7 +43,7 @@ export function UndefinedOnPartialDeep(T) {
   }
   const m3 = matches<Set<Hole<"K">>>(T)
   if (m3) {
-    return Set(UndefinedOnPartialDeep(m3.K))
+    return t<Set<UndefinedOnPartialDeep<typeof m3.K>>>()
   }
   const m4 = matches<ReadonlySet<Hole<"K">>>(T)
   if (m4) {
@@ -71,11 +78,11 @@ export function UndefinedOnPartialList(T: readonly unknown[]) {
   }
   const m3 = matches<Array<Hole<"F">>>(T)
   if (m3) {
-    return Array(UndefinedOnPartialDeep(m3.F))
+    return t<Array<UndefinedOnPartialDeep<typeof m3.F>>>()
   }
   const m4 = matches<ReadonlyArray<Hole<"F">>>(T)
   if (m4) {
-    return ReadonlyArray(UndefinedOnPartialDeep(m4.F))
+    return t<ReadonlyArray<UndefinedOnPartialDeep<typeof m4.F>>>()
   }
   return never
 }

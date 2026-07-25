@@ -39,6 +39,7 @@ type Context<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = 
 type Custom<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Deferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Effect<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Error<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Exit_<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Handler<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Headers<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -185,14 +186,14 @@ export function ErrorExitSchema(R) {
  */
 
 // ✗ ErrorExit: the ScriptType does not itself typecheck as TypeScript
-//   ErrorExit.st.ts(5:20) TS2363: The right-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+//   ErrorExit.st.ts(5:22) TS2315: Type 'Error' is not generic.
 /* @scripttype preserveParamNames */
 export function ErrorExit(R) {
   const m1 = matches<Stream<Hole<"_A">, Hole<"_E">, Hole<"_Env">>>(Success(R))
   if (m1) {
-    return m1._E | Error(R)
+    return m1._E | t<Error<typeof R>>()
   }
-  return Error(R)
+  return t<Error<typeof R>>()
 }
 /* compiles to:
  * export type ErrorExit<R> = Success<R> extends Stream<unknown, infer _E, unknown> ? _E | Error<R> : Error<R>
@@ -314,7 +315,7 @@ export function MiddlewareClient(R) {
 export function AddError(R: Any, Error: Schema.Top) {
   const m1 = matches<Rpc<Hole<"_Tag">, Hole<"_Payload">, Hole<"_Success">, Hole<"_Error">, Hole<"_Middleware">, Hole<"_Requires">>>(R)
   if (m1) {
-    return Rpc(m1._Tag, m1._Payload, m1._Success, anyOf(m1._Error, Error), m1._Middleware, m1._Requires)
+    return Rpc(m1._Tag, m1._Payload, m1._Success, anyOf(m1._Error, t<typeof Error>()), m1._Middleware, m1._Requires)
   }
   return never
 }
@@ -459,7 +460,7 @@ export function Prefixed(Rpcs: Any, Prefix: string) {
 //   Kind.st.ts(2:44) TS2702: 'Schema' only refers to a type, but is being used as a namespace here.
 /* @scripttype preserveParamNames */
 export function Kind(Def: Custom, Success: Schema.Constraint, Error: Schema.Constraint) {
-  return (merge(Def, { success: readonlyProp(Success), error: readonlyProp(Error) }))['out']
+  return (merge(Def, { success: readonlyProp(Success), error: readonlyProp(t<typeof Error>()) }))['out']
 }
 /* compiles to:
  * export type Kind<Def extends Custom, Success extends Schema.Constraint, Error extends Schema.Constraint> = (Def & { readonly success: Success; readonly error: Error })['out']

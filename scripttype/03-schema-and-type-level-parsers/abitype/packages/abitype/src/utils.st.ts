@@ -64,7 +64,7 @@ export function AbiTypeToPrimitiveType(abiType: AbiType, abiParameterKind: AbiPa
  */
 
 // ✗ AbiParameterToPrimitiveType: the ScriptType does not itself typecheck as TypeScript
-//   AbiParameterToPrimitiveType.st.ts(17:29) TS2315: Type 'Error' is not generic.
+//   AbiParameterToPrimitiveType.st.ts(15:14) TS2315: Type 'Error' is not generic.
 /* @scripttype preserveParamNames */
 export function AbiParameterToPrimitiveType(abiParameter: AbiParameter | { name: string; type: unknown; }, abiParameterKind: AbiParameterKind = AbiParameterKind) {
   if (matches<AbiBasicType>(abiParameter['type'])) {
@@ -79,7 +79,7 @@ export function AbiParameterToPrimitiveType(abiParameter: AbiParameter | { name:
     return AbiArrayToPrimitiveType(abiParameter, abiParameterKind, m2.head, m2.size)
   }
   if (matches<true>(ResolvedRegister['strictAbiType'])) {
-    return Error(`Unknown type '${abiParameter['type'] & string}'.`)
+    return t<Error<`Unknown type '${(typeof abiParameter)['type'] & string}'.`>>()
   }
   if (matches<{ components: Error<string>; }>(abiParameter)) {
     return abiParameter['components']
@@ -357,7 +357,7 @@ export function TypedDataToPrimitiveTypes(typedData: TypedData, abiParameterKind
   }
   const out2 = emptyObject
   for (const key2 in keySet(typedData[key][number])) {
-    out2[key2['name']] = matches<typeof key>(key2['type']) ? Error(`Cannot convert self-referencing struct '${key2['type']}' to primitive type.`) : (matches<keyof typeof typedData>(key2['type']) ? (matches<keyof typeof keyReferences>(key2['type']) ? Error(`Circular reference detected. '${key2['type']}' is a circular reference.`) : TypedDataToPrimitiveTypes(Exclude(typedData, key), abiParameterKind, merge(keyReferences, out3))[key2['type']]) : (raw('key2[\'type\'] extends `${infer type extends keyof typedData & string}[${infer tail}]` ? AbiParameterToPrimitiveType<{ name: key2[\'name\']; type: `tuple[${tail}]`; components: _TypedDataParametersToAbiParameters<typedData[type], typedData, keyReferences & { [_ in type | key]: true; }>; }, abiParameterKind> : key2[\'type\'] extends TypedDataType ? AbiParameterToPrimitiveType<key2, abiParameterKind> : Error<`Cannot convert unknown type \'${key2[\'type\']}\' to primitive type.`>')))
+    out2[key2['name']] = matches<typeof key>(key2['type']) ? t<Error<`Cannot convert self-referencing struct '${(typeof key2)['type']}' to primitive type.`>>() : (matches<keyof typeof typedData>(key2['type']) ? (matches<keyof typeof keyReferences>(key2['type']) ? t<Error<`Circular reference detected. '${(typeof key2)['type']}' is a circular reference.`>>() : TypedDataToPrimitiveTypes(Exclude(typedData, key), abiParameterKind, merge(keyReferences, out3))[key2['type']]) : (raw('key2[\'type\'] extends `${infer type extends keyof typedData & string}[${infer tail}]` ? AbiParameterToPrimitiveType<{ name: key2[\'name\']; type: `tuple[${tail}]`; components: _TypedDataParametersToAbiParameters<typedData[type], typedData, keyReferences & { [_ in type | key]: true; }>; }, abiParameterKind> : key2[\'type\'] extends TypedDataType ? AbiParameterToPrimitiveType<key2, abiParameterKind> : Error<`Cannot convert unknown type \'${key2[\'type\']}\' to primitive type.`>')))
   }
   const out = emptyObject
   for (const key in keyof(typedData)) {

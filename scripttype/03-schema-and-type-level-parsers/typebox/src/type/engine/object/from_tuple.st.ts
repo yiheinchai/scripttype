@@ -20,7 +20,7 @@ type TTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = a
 type TTupleToObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ TFromTuple: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function TFromTuple(Types: TSchema[], Object: TSchema = TTupleToObject(TTuple(Types)), Result: TSchema = TFromType(Object)) {
+export function TFromTuple(Types: TSchema[], Object: TSchema = TTupleToObject(TTuple(Types)), Result: TSchema = TFromType(t<typeof Object>())) {
   return Result
 }
 /* compiles to:

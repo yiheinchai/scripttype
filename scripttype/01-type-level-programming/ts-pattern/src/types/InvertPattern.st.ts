@@ -39,7 +39,12 @@ declare const RecordValue: any
 declare const SetValue: any
 declare const ValueOf: any
 declare const WithDefault: any
+declare const ik: any
+declare const iv: any
 declare const matchableInput: any
+declare const pk: any
+declare const pv: any
+declare const subpattern: any
 type All<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type AnyMatcher<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Call<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -50,6 +55,8 @@ type Extends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = 
 type ExtractPlainObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type GetKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InvertPatternForExcludeInternal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InvertPatternInternal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsPlainObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsReadonlyArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -69,7 +76,12 @@ type RecordValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, 
 type SetValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ValueOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type WithDefault<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ik<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type iv<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type matchableInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type pk<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type pv<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type subpattern<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ OptionalKeys: uses raw() — language gap, does not count as covered
 //   gap: pattern bindings inside a mapped-type value
 /* @scripttype preserveParamNames */
@@ -180,7 +192,7 @@ export function InvertPatternInternal(p, input) {
   if (m1) {
     const m2 = matches<[ Hole<"pk">, Hole<"pv"> ]>(m1.subpattern)
     const m3 = matches<[ Hole<"pk">, Hole<"pv"> ]>(m1.subpattern)
-    return { not: DeepExclude(input, InvertPatternInternal(m1.subpattern, input)), select: InvertPatternInternal(m1.subpattern, input), array: arrayOf(InvertPatternInternal(m1.subpattern, ReadonlyArrayValue(input))), record: m2 ? Record(Extract(InvertPatternInternal(m2.pk, RecordKey(input)), PropertyKey), InvertPatternInternal(m2.pv, RecordValue(input))) : never, map: m3 ? Map(InvertPatternInternal(m3.pk, MapKey(Extract(input, Map(any, any)))), InvertPatternInternal(m3.pv, MapValue(Extract(input, Map(any, any))))) : never, set: Set(InvertPatternInternal(m1.subpattern, SetValue(Extract(input, Set(any))))), optional: anyOf(InvertPatternInternal(m1.subpattern, Exclude(input, Undefined)), Undefined), and: ReduceIntersection(Extract(m1.subpattern, readonlyArrayOf(any)), input), or: ReduceUnion(Extract(m1.subpattern, readonlyArrayOf(any)), input), default: matches<[ never ]>([m1.subpattern]) ? input : m1.subpattern, custom: Override(matches<Fn>(m1.narrowedOrFn) ? Call(m1.narrowedOrFn, input) : m1.narrowedOrFn) }[m1.matcherType]
+    return { not: DeepExclude(input, InvertPatternInternal(m1.subpattern, input)), select: InvertPatternInternal(m1.subpattern, input), array: arrayOf(InvertPatternInternal(m1.subpattern, ReadonlyArrayValue(input))), record: m2 ? Record(Extract(InvertPatternInternal(m2.pk, RecordKey(input)), PropertyKey), InvertPatternInternal(m2.pv, RecordValue(input))) : never, map: m3 ? t<Map<InvertPatternInternal<typeof m3.pk, MapKey<Extract<typeof input, Map<any, any>>>>, InvertPatternInternal<typeof m3.pv, MapValue<Extract<typeof input, Map<any, any>>>>>>() : never, set: t<Set<InvertPatternInternal<typeof m1.subpattern, SetValue<Extract<typeof input, Set<any>>>>>>(), optional: anyOf(InvertPatternInternal(m1.subpattern, Exclude(input, Undefined)), Undefined), and: ReduceIntersection(Extract(m1.subpattern, readonlyArrayOf(any)), input), or: ReduceUnion(Extract(m1.subpattern, readonlyArrayOf(any)), input), default: matches<[ never ]>([m1.subpattern]) ? input : m1.subpattern, custom: Override(matches<Fn>(m1.narrowedOrFn) ? Call(m1.narrowedOrFn, input) : m1.narrowedOrFn) }[m1.matcherType]
   }
   if (matches<Primitives>(p)) {
     return p
@@ -346,7 +358,7 @@ export function InvertPatternForExcludeInternal(p, i, empty = never) {
     const m5 = matches<Map<Hole<"ik">, Hole<"iv">>>(i)
     const m6 = matches<Set<Hole<"iv">>>(i)
     const m7 = matches<Hole<"narrowedOrFn", Fn>>(m1.excluded)
-    return { select: InvertPatternForExcludeInternal(m1.subpattern, i, empty), array: m2 ? MaybeAddReadonly(arrayOf(InvertPatternForExcludeInternal(m1.subpattern, m2.ii, empty)), IsReadonlyArray(i)) : empty, record: m3 ? Record(Extract(InvertPatternForExcludeInternal(m3.pk, RecordKey(i), empty), PropertyKey), InvertPatternForExcludeInternal(m3.pv, RecordValue(i), empty)) : empty, map: m4 ? (m5 ? Map(InvertPatternForExcludeInternal(m4.pk, m5.ik, empty), InvertPatternForExcludeInternal(m4.pv, m5.iv, empty)) : empty) : empty, set: m6 ? Set(InvertPatternForExcludeInternal(m1.subpattern, m6.iv, empty)) : empty, optional: anyOf(InvertPatternForExcludeInternal(m1.subpattern, i, empty), Undefined), and: ReduceIntersectionForExclude(Extract(m1.subpattern, readonlyArrayOf(any)), i), or: ReduceUnionForExclude(Extract(m1.subpattern, readonlyArrayOf(any)), i), not: ExcludeIfExists(matches<typeof m1.matchableInput>(unknown) ? i : m1.matchableInput, InvertPatternForExcludeInternal(m1.subpattern, i)), default: m1.excluded, custom: m7 ? Call(m7.narrowedOrFn, i) : m1.excluded }[m1.matcherType]
+    return { select: InvertPatternForExcludeInternal(m1.subpattern, i, empty), array: m2 ? MaybeAddReadonly(arrayOf(InvertPatternForExcludeInternal(m1.subpattern, m2.ii, empty)), IsReadonlyArray(i)) : empty, record: m3 ? Record(Extract(InvertPatternForExcludeInternal(m3.pk, RecordKey(i), empty), PropertyKey), InvertPatternForExcludeInternal(m3.pv, RecordValue(i), empty)) : empty, map: m4 ? (m5 ? t<Map<InvertPatternForExcludeInternal<typeof m4.pk, typeof m5.ik, typeof empty>, InvertPatternForExcludeInternal<typeof m4.pv, typeof m5.iv, typeof empty>>>() : empty) : empty, set: m6 ? t<Set<InvertPatternForExcludeInternal<typeof m1.subpattern, typeof m6.iv, typeof empty>>>() : empty, optional: anyOf(InvertPatternForExcludeInternal(m1.subpattern, i, empty), Undefined), and: ReduceIntersectionForExclude(Extract(m1.subpattern, readonlyArrayOf(any)), i), or: ReduceUnionForExclude(Extract(m1.subpattern, readonlyArrayOf(any)), i), not: ExcludeIfExists(matches<typeof m1.matchableInput>(unknown) ? i : m1.matchableInput, InvertPatternForExcludeInternal(m1.subpattern, i)), default: m1.excluded, custom: m7 ? Call(m7.narrowedOrFn, i) : m1.excluded }[m1.matcherType]
   }
   if (matches<readonly any[]>(p)) {
     const m8 = matches<Hole<"arrayInput">>(Extract(i, readonlyArrayOf(any)))

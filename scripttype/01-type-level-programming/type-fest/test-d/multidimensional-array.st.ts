@@ -7,10 +7,14 @@
  *
  * Do not edit: regenerate with `tsx src/materialize.ts`.
  */
+// Names this file references but does not define: types from elsewhere in the
+// library, and local functions used in type position. Declared so the generated
+// ScriptType typechecks standalone. They carry no runtime meaning.
+type RecursiveArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ RecursiveArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RecursiveArray(T) {
-  return Array(RecursiveArray(T))
+  return t<Array<RecursiveArray<typeof T>>>()
 }
 /* compiles to:
  * export type RecursiveArray<T> = Array<RecursiveArray<T>>

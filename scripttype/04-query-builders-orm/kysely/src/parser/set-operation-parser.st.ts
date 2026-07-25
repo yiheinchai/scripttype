@@ -17,7 +17,7 @@ type ExpressionBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G =
 // ✓ SetOperandExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetOperandExpression(DB, O) {
-  return Expression(O) | ReadonlyArray(Expression(O)) | fnType([ExpressionBuilder(DB, never)], Expression(O) | ReadonlyArray(Expression(O)))
+  return Expression(O) | t<ReadonlyArray<Expression<typeof O>>>() | fnType([ExpressionBuilder(DB, never)], Expression(O) | t<ReadonlyArray<Expression<typeof O>>>())
 }
 /* compiles to:
  * export type SetOperandExpression<DB, O> = Expression<O> | ReadonlyArray<Expression<O>> | ((a0: ExpressionBuilder<DB, never>) => Expression<O> | ReadonlyArray<Expression<O>>)

@@ -17,7 +17,7 @@ type PgDateStringBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G
 // ✓ PgDateBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PgDateBuilderInitial(TName: string) {
-  return PgDateBuilder({ name: TName, dataType: 'date', columnType: 'PgDate', data: Date, driverParam: string, enumValues: Undefined })
+  return PgDateBuilder({ name: TName, dataType: 'date', columnType: 'PgDate', data: t<Date>(), driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
  * export type PgDateBuilderInitial<TName extends string> = PgDateBuilder<{ name: TName; dataType: 'date'; columnType: 'PgDate'; data: Date; driverParam: string; enumValues: undefined }>

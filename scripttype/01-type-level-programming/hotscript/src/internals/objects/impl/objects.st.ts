@@ -22,6 +22,9 @@ declare const ReadonlyMap: any
 declare const ReadonlySet: any
 declare const Strings: any
 declare const UnionToIntersection: any
+declare const keys: any
+declare const value: any
+declare const values: any
 type Apply<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Call<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Equal<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -33,7 +36,11 @@ type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, 
 type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Strings<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TransformObjectDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnionToIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type keys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type value<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type values<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ Keys: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Keys(src) {
@@ -162,7 +169,7 @@ export function RecursiveGet(Obj, pathList) {
  */
 
 // ✗ TransformObjectDeep: the ScriptType does not itself typecheck as TypeScript
-//   TransformObjectDeep.st.ts(8:12) TS2348: Value of type 'MapConstructor' is not callable. Did you mean to include 'new'?
+//   TransformObjectDeep.st.ts(12:12) TS2693: 'ReadonlyMap' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
 export function TransformObjectDeep(fn: Fn, type) {
   if (matches<Function | Date>(type)) {
@@ -170,7 +177,7 @@ export function TransformObjectDeep(fn: Fn, type) {
   }
   const m1 = matches<Map<Hole<"keys">, Hole<"values">>>(type)
   if (m1) {
-    return Map(TransformObjectDeep(fn, m1.keys), TransformObjectDeep(fn, m1.values))
+    return t<Map<TransformObjectDeep<typeof fn, typeof m1.keys>, TransformObjectDeep<typeof fn, typeof m1.values>>>()
   }
   const m2 = matches<ReadonlyMap<Hole<"keys">, Hole<"values">>>(type)
   if (m2) {
@@ -178,11 +185,11 @@ export function TransformObjectDeep(fn: Fn, type) {
   }
   const m3 = matches<WeakMap<Hole<"keys">, Hole<"values">>>(type)
   if (m3) {
-    return WeakMap(Extract(TransformObjectDeep(fn, m3.keys), object), TransformObjectDeep(fn, m3.values))
+    return t<WeakMap<Extract<TransformObjectDeep<typeof fn, typeof m3.keys>, object>, TransformObjectDeep<typeof fn, typeof m3.values>>>()
   }
   const m4 = matches<Set<Hole<"values">>>(type)
   if (m4) {
-    return Set(TransformObjectDeep(fn, m4.values))
+    return t<Set<TransformObjectDeep<typeof fn, typeof m4.values>>>()
   }
   const m5 = matches<ReadonlySet<Hole<"values">>>(type)
   if (m5) {
@@ -190,7 +197,7 @@ export function TransformObjectDeep(fn: Fn, type) {
   }
   const m6 = matches<WeakSet<Hole<"values">>>(type)
   if (m6) {
-    return WeakSet(Extract(TransformObjectDeep(fn, m6.values), object))
+    return t<WeakSet<Extract<TransformObjectDeep<typeof fn, typeof m6.values>, object>>>()
   }
   const m7 = matches<Array<Hole<"values">>>(type)
   if (m7) {
@@ -201,11 +208,11 @@ export function TransformObjectDeep(fn: Fn, type) {
       }
       return Call(fn, out)
     }
-    return Array(anyOf(TransformObjectDeep(fn, m7.values), Undefined))
+    return t<Array<TransformObjectDeep<typeof fn, typeof m7.values> | undefined>>()
   }
   const m8 = matches<Promise<Hole<"value">>>(type)
   if (m8) {
-    return Promise(TransformObjectDeep(fn, m8.value))
+    return t<Promise<TransformObjectDeep<typeof fn, typeof m8.value>>>()
   }
   if (matches<object>(type)) {
     const out2 = emptyObject

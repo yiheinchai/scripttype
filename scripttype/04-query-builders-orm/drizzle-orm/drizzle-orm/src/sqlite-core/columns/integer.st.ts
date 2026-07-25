@@ -28,7 +28,7 @@ export function SQLiteIntegerBuilderInitial(TName: string) {
 // ✓ SQLiteTimestampBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SQLiteTimestampBuilderInitial(TName: string) {
-  return SQLiteTimestampBuilder({ name: TName, dataType: 'date', columnType: 'SQLiteTimestamp', data: Date, driverParam: number, enumValues: Undefined })
+  return SQLiteTimestampBuilder({ name: TName, dataType: 'date', columnType: 'SQLiteTimestamp', data: t<Date>(), driverParam: number, enumValues: Undefined })
 }
 /* compiles to:
  * export type SQLiteTimestampBuilderInitial<TName extends string> = SQLiteTimestampBuilder<{ name: TName; dataType: 'date'; columnType: 'SQLiteTimestamp'; data: Date; driverParam: number; enumValues: undefined }>

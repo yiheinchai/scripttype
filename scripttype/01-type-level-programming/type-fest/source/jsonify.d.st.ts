@@ -29,10 +29,12 @@ type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = 
 type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type JsonPrimitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type JsonValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Jsonify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type NegativeInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type NotJsonable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type PositiveInfinity<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TypedArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type UndefinedToNull<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UndefinedToOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type toJSON<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -76,10 +78,10 @@ export function JsonifyList(T: UnknownArray) {
   if (matches<true>(IsUnknown(T[number]))) {
     return arrayOf(JsonValue)
   }
-  return Array(matches<NotJsonable>(T[number]) ? Null : Jsonify(UndefinedToNull(T[number])))
+  return t<Array<(typeof T)[number] extends NotJsonable ? null : Jsonify<UndefinedToNull<(typeof T)[number]>>>>()
 }
 /* compiles to:
- * export type JsonifyList<T extends UnknownArray> = T extends readonly [] ? [] : T extends readonly [infer F, ...infer R] ? [F, ...R] extends T ? [NeverToNull<Jsonify<F>>, ...JsonifyList<R>] : [NeverToNull<Jsonify<F>>] : IsUnknown<T[number]> extends true ? JsonValue[] : Array<T[number] extends NotJsonable ? null : Jsonify<UndefinedToNull<T[number]>>>
+ * export type JsonifyList<T extends UnknownArray> = T extends readonly [] ? [] : T extends readonly [infer F, ...infer R] ? [F, ...R] extends T ? [NeverToNull<Jsonify<F>>, ...JsonifyList<R>] : [NeverToNull<Jsonify<F>>] : IsUnknown<T[number]> extends true ? JsonValue[] : Array<(typeof T)[number] extends NotJsonable ? null : Jsonify<UndefinedToNull<(typeof T)[number]>>>
  */
 
 // ✓ JsonifyObject: verified type-identical to the original

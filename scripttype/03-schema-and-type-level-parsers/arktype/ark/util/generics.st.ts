@@ -87,10 +87,10 @@ export function exactMessageOnError(t: object, u: object) {
  */
 
 // ✗ promisable: the ScriptType does not itself typecheck as TypeScript
-//   promisable.st.ts(3:14) TS2348: Value of type 'PromiseConstructor' is not callable. Did you mean to include 'new'?
+//   promisable.st.ts(3:14) TS2347: Untyped function calls may not accept type arguments.
 /* @scripttype preserveParamNames */
 export function promisable(t) {
-  return t | Promise(t)
+  return t | t<Promise<typeof t>>()
 }
 /* compiles to:
  * export type promisable<t> = t | Promise<t>

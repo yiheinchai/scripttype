@@ -19,6 +19,7 @@ type AliasedExpression<A = any, B = any, C = any, D = any, E = any, F = any, G =
 type AliasedExpressionOrFactory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type DrainOuterGeneric<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ExtractAliasFromTableExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TableExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ TableExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TableExpression(DB, TB: keyof typeof DB) {
@@ -31,7 +32,7 @@ export function TableExpression(DB, TB: keyof typeof DB) {
 // ✓ TableExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TableExpressionOrList(DB, TB: keyof typeof DB) {
-  return TableExpression(DB, TB) | ReadonlyArray(TableExpression(DB, TB))
+  return TableExpression(DB, TB) | t<ReadonlyArray<TableExpression<typeof DB, typeof TB>>>()
 }
 /* compiles to:
  * export type TableExpressionOrList<DB, TB extends keyof DB> = TableExpression<DB, TB> | ReadonlyArray<TableExpression<DB, TB>>

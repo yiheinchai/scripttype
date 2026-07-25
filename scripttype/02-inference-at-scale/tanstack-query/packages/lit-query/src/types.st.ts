@@ -79,7 +79,7 @@ export function MutationControllerResult(TData = unknown, TError = DefaultError,
 
 // ✓ QueriesControllerOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function QueriesControllerOptions(TQueryOptions: Array<any> = Array(any), TCombinedResult = CreateQueriesResults(TQueryOptions)) {
+export function QueriesControllerOptions(TQueryOptions: Array<any> = t<Array<any>>(), TCombinedResult = CreateQueriesResults(TQueryOptions)) {
   return Accessor(CreateQueriesControllerOptions(TQueryOptions, TCombinedResult))
 }
 /* compiles to:

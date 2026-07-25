@@ -17,7 +17,7 @@ type MySqlDateStringBuilder<A = any, B = any, C = any, D = any, E = any, F = any
 // ✓ MySqlDateBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySqlDateBuilderInitial(TName: string) {
-  return MySqlDateBuilder({ name: TName, dataType: 'date', columnType: 'MySqlDate', data: Date, driverParam: string | number, enumValues: Undefined })
+  return MySqlDateBuilder({ name: TName, dataType: 'date', columnType: 'MySqlDate', data: t<Date>(), driverParam: string | number, enumValues: Undefined })
 }
 /* compiles to:
  * export type MySqlDateBuilderInitial<TName extends string> = MySqlDateBuilder<{ name: TName; dataType: 'date'; columnType: 'MySqlDate'; data: Date; driverParam: string | number; enumValues: undefined }>

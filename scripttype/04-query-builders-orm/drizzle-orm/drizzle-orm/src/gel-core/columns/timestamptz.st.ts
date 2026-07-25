@@ -15,7 +15,7 @@ type GelTimestampTzBuilder<A = any, B = any, C = any, D = any, E = any, F = any,
 // ✓ GelTimestampTzBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GelTimestampTzBuilderInitial(TName: string) {
-  return GelTimestampTzBuilder({ name: TName, dataType: 'date', columnType: 'GelTimestampTz', data: Date, driverParam: Date, enumValues: Undefined })
+  return GelTimestampTzBuilder({ name: TName, dataType: 'date', columnType: 'GelTimestampTz', data: t<Date>(), driverParam: t<Date>(), enumValues: Undefined })
 }
 /* compiles to:
  * export type GelTimestampTzBuilderInitial<TName extends string> = GelTimestampTzBuilder<{ name: TName; dataType: 'date'; columnType: 'GelTimestampTz'; data: Date; driverParam: Date; enumValues: undefined }>

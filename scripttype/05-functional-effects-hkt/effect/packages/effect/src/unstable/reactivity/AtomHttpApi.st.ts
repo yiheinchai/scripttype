@@ -42,7 +42,7 @@ export function ResponseByMode(Success, ResponseMode: HttpApiEndpoint.ClientResp
 //   ErrorByMode.st.ts(2:36) TS2702: 'Schema' only refers to a type, but is being used as a namespace here.
 /* @scripttype preserveParamNames */
 export function ErrorByMode(Error: Schema.Constraint, Middleware, ResponseMode: HttpApiEndpoint.ClientResponseMode) {
-  return HttpApiMiddleware.Error(Middleware) | HttpApiMiddleware.ClientError(Middleware) | (matches<[ "response-only" ]>([ResponseMode]) ? never : Error['Type'])
+  return HttpApiMiddleware.Error(Middleware) | HttpApiMiddleware.ClientError(Middleware) | (matches<[ "response-only" ]>([ResponseMode]) ? never : t<typeof Error>()['Type'])
 }
 /* compiles to:
  * export type ErrorByMode<Error extends Schema.Constraint, Middleware, ResponseMode extends HttpApiEndpoint.ClientResponseMode> = HttpApiMiddleware.Error<Middleware> | HttpApiMiddleware.ClientError<Middleware> | ([ResponseMode] extends ['response-only'] ? never : Error['Type'])

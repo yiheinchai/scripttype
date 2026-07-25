@@ -58,17 +58,33 @@ const LIB_TYPES = new Set([
   'Generator',
 ])
 
-export function extractType(filePath: string, typeName: string): ExtractResult {
+/**
+ * Parsed files and their declaration indexes, keyed by path.
+ *
+ * Callers extract many types from the same file — one per alias — and re-parsing per
+ * call makes that quadratic. Materialising the corpus went from minutes to seconds on
+ * this cache alone.
+ */
+const FILE_CACHE = new Map<string, { sf: ts.SourceFile; decls: Map<string, ts.Node> }>()
+
+function parseFile(filePath: string): { sf: ts.SourceFile; decls: Map<string, ts.Node> } {
+  const cached = FILE_CACHE.get(filePath)
+  if (cached) return cached
   const text = fs.readFileSync(filePath, 'utf8')
   const sf = ts.createSourceFile(filePath, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
-
-  // Index every type-ish declaration in the file.
   const decls = new Map<string, ts.Node>()
   const visit = (n: ts.Node) => {
     if (ts.isTypeAliasDeclaration(n) || ts.isInterfaceDeclaration(n)) decls.set(n.name.text, n)
     ts.forEachChild(n, visit)
   }
   visit(sf)
+  const entry = { sf, decls }
+  FILE_CACHE.set(filePath, entry)
+  return entry
+}
+
+export function extractType(filePath: string, typeName: string): ExtractResult {
+  const { sf, decls } = parseFile(filePath)
 
   if (!decls.has(typeName)) {
     throw new Error(

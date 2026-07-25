@@ -18,6 +18,7 @@ declare const InferIssue: any
 declare const InferObjectInput: any
 declare const InferObjectIssue: any
 declare const InferObjectOutput: any
+declare const InferOutput: any
 declare const LooseObjectIssue: any
 declare const LooseObjectSchema: any
 declare const LooseObjectSchemaAsync: any
@@ -34,6 +35,7 @@ declare const StandardProps: any
 declare const StrictObjectIssue: any
 declare const StrictObjectSchema: any
 declare const StrictObjectSchemaAsync: any
+declare const TEntries: any
 declare const UnknownDataset: any
 type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type BaseSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -43,6 +45,7 @@ type InferIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H
 type InferObjectInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type InferObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type InferObjectOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type LooseObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type LooseObjectSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type LooseObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -59,6 +62,7 @@ type StandardProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any
 type StrictObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type StrictObjectSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type StrictObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TEntries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnknownDataset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ SchemaWithPick: uses raw() — language gap, does not count as covered
 //   gap: index signature
@@ -70,7 +74,7 @@ export function SchemaWithPick(TSchema: Schema, TKeys: ObjectKeys<typeof TSchema
   }
   const m2 = matches<ObjectSchemaAsync<Hole<"TEntries">, ErrorMessage<ObjectIssue> | undefined> | StrictObjectSchemaAsync<Hole<"TEntries">, ErrorMessage<StrictObjectIssue> | undefined>>(TSchema)
   if (m2) {
-    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(Pick(m2.TEntries, TKeys[number])), '~standard': readonlyProp(StandardProps(InferObjectInput(Pick(m2.TEntries, TKeys[number])), InferObjectOutput(Pick(m2.TEntries, TKeys[number])))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], Promise(OutputDataset(InferObjectOutput(Pick(m2.TEntries, TKeys[number])), Extract(InferIssue(TSchema), { type: TSchema['type'] }) | InferObjectIssue(Pick(m2.TEntries, TKeys[number])))))), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(InferObjectInput(Pick(m2.TEntries, TKeys[number]))), output: readonlyProp(InferObjectOutput(Pick(m2.TEntries, TKeys[number]))), issue: readonlyProp(Extract(InferIssue(TSchema), { type: TSchema['type'] }) | InferObjectIssue(Pick(m2.TEntries, TKeys[number]))) }, Undefined))) })
+    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(Pick(m2.TEntries, TKeys[number])), '~standard': readonlyProp(StandardProps(InferObjectInput(Pick(m2.TEntries, TKeys[number])), InferObjectOutput(Pick(m2.TEntries, TKeys[number])))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], t<Promise<OutputDataset<InferObjectOutput<Pick<typeof m2.TEntries, (typeof TKeys)[number]>>, Extract<InferIssue<typeof TSchema>, { type: (typeof TSchema)['type']; }> | InferObjectIssue<Pick<typeof m2.TEntries, (typeof TKeys)[number]>>>>>())), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(InferObjectInput(Pick(m2.TEntries, TKeys[number]))), output: readonlyProp(InferObjectOutput(Pick(m2.TEntries, TKeys[number]))), issue: readonlyProp(Extract(InferIssue(TSchema), { type: TSchema['type'] }) | InferObjectIssue(Pick(m2.TEntries, TKeys[number]))) }, Undefined))) })
   }
   const m3 = matches<LooseObjectSchema<Hole<"TEntries">, ErrorMessage<LooseObjectIssue> | undefined>>(TSchema)
   if (m3) {
@@ -78,7 +82,7 @@ export function SchemaWithPick(TSchema: Schema, TKeys: ObjectKeys<typeof TSchema
   }
   const m4 = matches<LooseObjectSchemaAsync<Hole<"TEntries">, ErrorMessage<LooseObjectIssue> | undefined>>(TSchema)
   if (m4) {
-    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(Pick(m4.TEntries, TKeys[number])), '~standard': readonlyProp(StandardProps(merge(InferObjectInput(Pick(m4.TEntries, TKeys[number])), raw('{ [key: string]: unknown; }')), merge(InferObjectOutput(Pick(m4.TEntries, TKeys[number])), raw('{ [key: string]: unknown; }')))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], Promise(OutputDataset(merge(InferObjectOutput(Pick(m4.TEntries, TKeys[number])), raw('{ [key: string]: unknown; }')), Extract(InferIssue(TSchema), { type: TSchema['type'] }) | InferObjectIssue(Pick(m4.TEntries, TKeys[number])))))), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(merge(InferObjectInput(Pick(m4.TEntries, TKeys[number])), raw('{ [key: string]: unknown; }'))), output: readonlyProp(merge(InferObjectOutput(Pick(m4.TEntries, TKeys[number])), raw('{ [key: string]: unknown; }'))), issue: readonlyProp(Extract(InferIssue(TSchema), { type: TSchema['type'] }) | InferObjectIssue(Pick(m4.TEntries, TKeys[number]))) }, Undefined))) })
+    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(Pick(m4.TEntries, TKeys[number])), '~standard': readonlyProp(StandardProps(merge(InferObjectInput(Pick(m4.TEntries, TKeys[number])), raw('{ [key: string]: unknown; }')), merge(InferObjectOutput(Pick(m4.TEntries, TKeys[number])), raw('{ [key: string]: unknown; }')))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], t<Promise<OutputDataset<InferObjectOutput<Pick<typeof m4.TEntries, (typeof TKeys)[number]>> & { [key: string]: unknown; }, Extract<InferIssue<typeof TSchema>, { type: (typeof TSchema)['type']; }> | InferObjectIssue<Pick<typeof m4.TEntries, (typeof TKeys)[number]>>>>>())), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(merge(InferObjectInput(Pick(m4.TEntries, TKeys[number])), raw('{ [key: string]: unknown; }'))), output: readonlyProp(merge(InferObjectOutput(Pick(m4.TEntries, TKeys[number])), raw('{ [key: string]: unknown; }'))), issue: readonlyProp(Extract(InferIssue(TSchema), { type: TSchema['type'] }) | InferObjectIssue(Pick(m4.TEntries, TKeys[number]))) }, Undefined))) })
   }
   const m5 = matches<ObjectWithRestSchema<Hole<"TEntries">, BaseSchema<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined>>(TSchema)
   if (m5) {
@@ -86,7 +90,7 @@ export function SchemaWithPick(TSchema: Schema, TKeys: ObjectKeys<typeof TSchema
   }
   const m6 = matches<ObjectWithRestSchemaAsync<Hole<"TEntries">, BaseSchema<unknown, unknown, BaseIssue<unknown>>, ErrorMessage<ObjectWithRestIssue> | undefined>>(TSchema)
   if (m6) {
-    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(Pick(m6.TEntries, TKeys[number])), '~standard': readonlyProp(StandardProps(merge(InferObjectInput(Pick(m6.TEntries, TKeys[number])), raw('{ [key: string]: InferInput<TSchema[\'rest\']>; }')), merge(InferObjectOutput(Pick(m6.TEntries, TKeys[number])), raw('{ [key: string]: InferOutput<TSchema[\'rest\']>; }')))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], Promise(OutputDataset(merge(InferObjectOutput(Pick(m6.TEntries, TKeys[number])), raw('{ [key: string]: InferOutput<TSchema[\'rest\']>; }')), Extract(InferIssue(TSchema), { type: TSchema['type'] }) | InferObjectIssue(Pick(m6.TEntries, TKeys[number])) | InferIssue(TSchema['rest']))))), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(merge(InferObjectInput(Pick(m6.TEntries, TKeys[number])), raw('{ [key: string]: InferInput<TSchema[\'rest\']>; }'))), output: readonlyProp(merge(InferObjectOutput(Pick(m6.TEntries, TKeys[number])), raw('{ [key: string]: InferOutput<TSchema[\'rest\']>; }'))), issue: readonlyProp(Extract(InferIssue(TSchema), { type: TSchema['type'] }) | InferObjectIssue(Pick(m6.TEntries, TKeys[number])) | InferIssue(TSchema['rest'])) }, Undefined))) })
+    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(Pick(m6.TEntries, TKeys[number])), '~standard': readonlyProp(StandardProps(merge(InferObjectInput(Pick(m6.TEntries, TKeys[number])), raw('{ [key: string]: InferInput<TSchema[\'rest\']>; }')), merge(InferObjectOutput(Pick(m6.TEntries, TKeys[number])), raw('{ [key: string]: InferOutput<TSchema[\'rest\']>; }')))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], t<Promise<OutputDataset<InferObjectOutput<Pick<typeof m6.TEntries, (typeof TKeys)[number]>> & { [key: string]: InferOutput<(typeof TSchema)['rest']>; }, Extract<InferIssue<typeof TSchema>, { type: (typeof TSchema)['type']; }> | InferObjectIssue<Pick<typeof m6.TEntries, (typeof TKeys)[number]>> | InferIssue<(typeof TSchema)['rest']>>>>())), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(merge(InferObjectInput(Pick(m6.TEntries, TKeys[number])), raw('{ [key: string]: InferInput<TSchema[\'rest\']>; }'))), output: readonlyProp(merge(InferObjectOutput(Pick(m6.TEntries, TKeys[number])), raw('{ [key: string]: InferOutput<TSchema[\'rest\']>; }'))), issue: readonlyProp(Extract(InferIssue(TSchema), { type: TSchema['type'] }) | InferObjectIssue(Pick(m6.TEntries, TKeys[number])) | InferIssue(TSchema['rest'])) }, Undefined))) })
   }
   return never
 }

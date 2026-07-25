@@ -15,7 +15,7 @@ type SingleStoreVectorBuilder<A = any, B = any, C = any, D = any, E = any, F = a
 // ✓ SingleStoreVectorBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SingleStoreVectorBuilderInitial(TName: string) {
-  return SingleStoreVectorBuilder({ name: TName, dataType: 'array', columnType: 'SingleStoreVector', data: Array(number), driverParam: string, enumValues: Undefined })
+  return SingleStoreVectorBuilder({ name: TName, dataType: 'array', columnType: 'SingleStoreVector', data: t<Array<number>>(), driverParam: string, enumValues: Undefined })
 }
 /* compiles to:
  * export type SingleStoreVectorBuilderInitial<TName extends string> = SingleStoreVectorBuilder<{ name: TName; dataType: 'array'; columnType: 'SingleStoreVector'; data: Array<number>; driverParam: string; enumValues: undefined }>

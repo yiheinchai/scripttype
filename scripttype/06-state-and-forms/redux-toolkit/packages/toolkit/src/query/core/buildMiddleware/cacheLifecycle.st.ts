@@ -34,7 +34,7 @@ export function LifecycleApi(ReducerPath: string = string) {
 //   gap: type node TypeQuery
 /* @scripttype preserveParamNames */
 export function CacheLifecyclePromises(ResultType = unknown, MetaType = unknown) {
-  return { cacheDataLoaded: PromiseWithKnownReason({ data: ResultType, meta: MetaType }, raw('typeof neverResolvedError')), cacheEntryRemoved: Promise(voidType()) }
+  return { cacheDataLoaded: PromiseWithKnownReason({ data: ResultType, meta: MetaType }, raw('typeof neverResolvedError')), cacheEntryRemoved: t<Promise<void>>() }
 }
 
 // ✓ MutationCacheLifecycleApi: verified type-identical to the original

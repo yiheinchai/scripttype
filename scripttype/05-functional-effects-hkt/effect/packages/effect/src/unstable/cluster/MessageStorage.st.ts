@@ -29,7 +29,7 @@ export function SaveResult(R: Rpc.Any) {
 // ✓ EncodedUnprocessedOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function EncodedUnprocessedOptions(A) {
-  return { existingShards: readonlyProp(Array(number)), newShards: readonlyProp(Array(number)), cursor: readonlyProp(Option.Option(A)) }
+  return { existingShards: readonlyProp(t<Array<number>>()), newShards: readonlyProp(t<Array<number>>()), cursor: readonlyProp(Option.Option(A)) }
 }
 /* compiles to:
  * export type EncodedUnprocessedOptions<A> = { readonly existingShards: Array<number>; readonly newShards: Array<number>; readonly cursor: Option.Option<A> }
@@ -38,7 +38,7 @@ export function EncodedUnprocessedOptions(A) {
 // ✓ EncodedRepliesOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function EncodedRepliesOptions(A) {
-  return { existingRequests: readonlyProp(Array(string)), newRequests: readonlyProp(Array(string)), cursor: readonlyProp(Option.Option(A)) }
+  return { existingRequests: readonlyProp(t<Array<string>>()), newRequests: readonlyProp(t<Array<string>>()), cursor: readonlyProp(Option.Option(A)) }
 }
 /* compiles to:
  * export type EncodedRepliesOptions<A> = { readonly existingRequests: Array<string>; readonly newRequests: Array<string>; readonly cursor: Option.Option<A> }

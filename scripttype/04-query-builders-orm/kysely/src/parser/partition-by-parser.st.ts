@@ -13,6 +13,7 @@
 declare const DynamicReferenceBuilder: any
 declare const StringReference: any
 type DynamicReferenceBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PartitionByExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type StringReference<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ PartitionByExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
@@ -26,7 +27,7 @@ export function PartitionByExpression(DB, TB: keyof typeof DB) {
 // ✓ PartitionByExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PartitionByExpressionOrList(DB, TB: keyof typeof DB) {
-  return ReadonlyArray(PartitionByExpression(DB, TB)) | PartitionByExpression(DB, TB)
+  return t<ReadonlyArray<PartitionByExpression<typeof DB, typeof TB>>>() | PartitionByExpression(DB, TB)
 }
 /* compiles to:
  * export type PartitionByExpressionOrList<DB, TB extends keyof DB> = ReadonlyArray<PartitionByExpression<DB, TB>> | PartitionByExpression<DB, TB>

@@ -16,6 +16,8 @@ declare const QueryFunction: any
 declare const SkipTokenForUseQueries: any
 declare const TData: any
 declare const TError: any
+declare const TQueryFnData: any
+declare const TQueryKey: any
 declare const ThrowOnError: any
 declare const UseSuspenseQueryOptions: any
 declare const UseSuspenseQueryResult: any
@@ -25,6 +27,8 @@ type QueryFunction<A = any, B = any, C = any, D = any, E = any, F = any, G = any
 type SkipTokenForUseQueries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TQueryFnData<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TQueryKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ThrowOnError<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UseSuspenseQueryOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UseSuspenseQueryResult<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -114,7 +118,7 @@ export function GetUseSuspenseQueryResult(T) {
 /* @scripttype preserveParamNames */
 export function SuspenseQueriesOptions(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return Array(UseSuspenseQueryOptions)
+    return t<Array<UseSuspenseQueryOptions>>()
   }
   if (matches<[ ]>(T)) {
     return []
@@ -127,14 +131,14 @@ export function SuspenseQueriesOptions(T: Array<any>, TResults: Array<any> = [],
   if (m2) {
     return SuspenseQueriesOptions([...m2.Tails], [...TResults, GetUseSuspenseQueryOptions(m2.Head)], [...TDepth, 1])
   }
-  if (matches<typeof T>(Array(unknown))) {
+  if (matches<typeof T>(t<Array<unknown>>())) {
     return T
   }
   const m3 = matches<Array<UseSuspenseQueryOptions<Hole<"TQueryFnData">, Hole<"TError">, Hole<"TData">, Hole<"TQueryKey">>>>(T)
   if (m3) {
-    return Array(UseSuspenseQueryOptions(m3.TQueryFnData, m3.TError, m3.TData, m3.TQueryKey))
+    return t<Array<UseSuspenseQueryOptions<typeof m3.TQueryFnData, typeof m3.TError, typeof m3.TData, typeof m3.TQueryKey>>>()
   }
-  return Array(UseSuspenseQueryOptions)
+  return t<Array<UseSuspenseQueryOptions>>()
 }
 /* compiles to:
  * export type SuspenseQueriesOptions<T extends Array<any>, TResults extends Array<any> = [], TDepth extends ReadonlyArray<number> = []> = TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseSuspenseQueryOptions> : T extends [] ? [] : T extends [infer Head] ? [...TResults, GetUseSuspenseQueryOptions<Head>] : T extends [infer Head, ...infer Tails] ? SuspenseQueriesOptions<[...Tails], [...TResults, GetUseSuspenseQueryOptions<Head>], [...TDepth, 1]> : Array<unknown> extends T ? T : T extends Array<UseSuspenseQueryOptions<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>> ? Array<UseSuspenseQueryOptions<TQueryFnData, TError, TData, TQueryKey>> : Array<UseSuspenseQueryOptions>
@@ -144,7 +148,7 @@ export function SuspenseQueriesOptions(T: Array<any>, TResults: Array<any> = [],
 /* @scripttype preserveParamNames */
 export function SuspenseQueriesResults(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return Array(UseSuspenseQueryResult)
+    return t<Array<UseSuspenseQueryResult>>()
   }
   if (matches<[ ]>(T)) {
     return []

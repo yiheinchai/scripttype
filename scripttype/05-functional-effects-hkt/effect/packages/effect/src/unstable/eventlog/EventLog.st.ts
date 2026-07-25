@@ -26,10 +26,10 @@ type StoreId<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = 
 //   eq=false
 /* @scripttype preserveParamNames */
 export function Item(R) {
-  return { event: readonlyProp(Event.AnyWithProps), context: readonlyProp(Context.Context(R)), handler: readonlyProp(fnType([{ storeId: readonlyProp(StoreId), payload: readonlyProp(unknown), entry: readonlyProp(Entry), conflicts: readonlyProp(ReadonlyArray({ entry: readonlyProp(Entry), payload: readonlyProp(unknown) })) }], Effect.Effect(unknown, unknown, R))) }
+  return { event: readonlyProp(Event.AnyWithProps), context: readonlyProp(Context.Context(R)), handler: readonlyProp(fnType([{ storeId: readonlyProp(StoreId), payload: readonlyProp(unknown), entry: readonlyProp(Entry), conflicts: readonlyProp(t<ReadonlyArray<{ readonly entry: Entry; readonly payload: unknown; }>>()) }], Effect.Effect(unknown, unknown, R))) }
 }
 /* compiles to:
- * export type Item<R> = { readonly event: Event.AnyWithProps; readonly context: Context.Context<R>; readonly handler: (a0: { readonly storeId: StoreId; readonly payload: unknown; readonly entry: Entry; readonly conflicts: ReadonlyArray<{ readonly entry: Entry; readonly payload: unknown }> }) => Effect.Effect<unknown, unknown, R> }
+ * export type Item<R> = { readonly event: Event.AnyWithProps; readonly context: Context.Context<R>; readonly handler: (a0: { readonly storeId: StoreId; readonly payload: unknown; readonly entry: Entry; readonly conflicts: ReadonlyArray<{ readonly entry: Entry; readonly payload: unknown; }> }) => Effect.Effect<unknown, unknown, R> }
  */
 
 // ✗ ValidateReturn: uses raw() — language gap, does not count as covered

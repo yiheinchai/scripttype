@@ -16,6 +16,7 @@ declare const Constraint: any
 declare const ConstraintDecoder: any
 declare const Derivation: any
 declare const FastCheck: any
+declare const Head: any
 declare const LiteralPart: any
 declare const LiteralValue: any
 declare const Objects: any
@@ -31,11 +32,13 @@ declare const Union: any
 declare const UnionToIntersection: any
 declare const tag: any
 type Brand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type CauseReasonIso<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Codec<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Constraint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ConstraintDecoder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Derivation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type FastCheck<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Head<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type LiteralPart<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type LiteralValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Objects<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -45,6 +48,7 @@ type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H =
 type Struct<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type StructWithRest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TemplateLiteral<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Tree<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TreeRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TupleWithRest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Union<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -865,7 +869,7 @@ export function Type(T: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
     for (const K in keyof(m1.Tail)) {
       out[K] = readonlyProp(m1.Tail[K]['Type'])
     }
-    return Readonly([...T, ...Array(m1.Head['Type']), ...out])
+    return Readonly([...T, ...t<Array<(typeof m1.Head)["Type"]>>(), ...out])
   }
   return T
 }
@@ -883,7 +887,7 @@ export function Iso(T: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
     for (const K in keyof(m1.Tail)) {
       out[K] = readonlyProp(m1.Tail[K]['Iso'])
     }
-    return Readonly([...T, ...Array(m1.Head['Iso']), ...out])
+    return Readonly([...T, ...t<Array<(typeof m1.Head)["Iso"]>>(), ...out])
   }
   return T
 }
@@ -901,7 +905,7 @@ export function Encoded(E: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
     for (const K in keyof(m1.Tail)) {
       out[K] = readonlyProp(m1.Tail[K]['Encoded'])
     }
-    return asReadonly([...E, ...Array(m1.Head['Encoded']), ...out])
+    return asReadonly([...E, ...t<Array<(typeof m1.Head)["Encoded"]>>(), ...out])
   }
   return E
 }
@@ -919,7 +923,7 @@ export function MakeIn(M: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
     for (const K in keyof(m1.Tail)) {
       out[K] = readonlyProp(m1.Tail[K]['~type.make'])
     }
-    return asReadonly([...M, ...Array(m1.Head['~type.make']), ...out])
+    return asReadonly([...M, ...t<Array<(typeof m1.Head)["~type.make"]>>(), ...out])
   }
   return M
 }
@@ -1023,7 +1027,7 @@ export function CauseReasonIso(E: Constraint, D: Constraint) {
 // ✓ CauseIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CauseIso(E: Constraint, D: Constraint) {
-  return ReadonlyArray(CauseReasonIso(E, D))
+  return t<ReadonlyArray<CauseReasonIso<typeof E, typeof D>>>()
 }
 /* compiles to:
  * export type CauseIso<E extends Constraint, D extends Constraint> = ReadonlyArray<CauseReasonIso<E, D>>
@@ -1041,7 +1045,7 @@ export function ExitIso(A: Constraint, E: Constraint, D: Constraint) {
 // ✓ ReadonlyMapIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyMapIso(Key: Constraint, Value: Constraint) {
-  return ReadonlyArray(asReadonly([Key['Iso'], Value['Iso']]))
+  return t<ReadonlyArray<readonly [ (typeof Key)["Iso"], (typeof Value)["Iso"] ]>>()
 }
 /* compiles to:
  * export type ReadonlyMapIso<Key extends Constraint, Value extends Constraint> = ReadonlyArray<readonly [Key['Iso'], Value['Iso']]>
@@ -1050,7 +1054,7 @@ export function ReadonlyMapIso(Key: Constraint, Value: Constraint) {
 // ✓ HashMapIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HashMapIso(Key: Constraint, Value: Constraint) {
-  return ReadonlyArray(asReadonly([Key['Iso'], Value['Iso']]))
+  return t<ReadonlyArray<readonly [ (typeof Key)["Iso"], (typeof Value)["Iso"] ]>>()
 }
 /* compiles to:
  * export type HashMapIso<Key extends Constraint, Value extends Constraint> = ReadonlyArray<readonly [Key['Iso'], Value['Iso']]>
@@ -1059,7 +1063,7 @@ export function HashMapIso(Key: Constraint, Value: Constraint) {
 // ✓ ReadonlySetIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlySetIso(Value: Constraint) {
-  return ReadonlyArray(Value['Iso'])
+  return t<ReadonlyArray<(typeof Value)["Iso"]>>()
 }
 /* compiles to:
  * export type ReadonlySetIso<Value extends Constraint> = ReadonlyArray<Value['Iso']>
@@ -1068,7 +1072,7 @@ export function ReadonlySetIso(Value: Constraint) {
 // ✓ HashSetIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HashSetIso(Value: Constraint) {
-  return ReadonlyArray(Value['Iso'])
+  return t<ReadonlyArray<(typeof Value)["Iso"]>>()
 }
 /* compiles to:
  * export type HashSetIso<Value extends Constraint> = ReadonlyArray<Value['Iso']>
@@ -1077,7 +1081,7 @@ export function HashSetIso(Value: Constraint) {
 // ✓ ChunkIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ChunkIso(Value: Constraint) {
-  return ReadonlyArray(Value['Iso'])
+  return t<ReadonlyArray<(typeof Value)["Iso"]>>()
 }
 /* compiles to:
  * export type ChunkIso<Value extends Constraint> = ReadonlyArray<Value['Iso']>
@@ -1111,7 +1115,7 @@ export function LazyArbitrary(T) {
 // ✓ Tree: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Tree(Node) {
-  return Node | TreeRecord(Node) | ReadonlyArray(Tree(Node))
+  return Node | TreeRecord(Node) | t<ReadonlyArray<Tree<typeof Node>>>()
 }
 /* compiles to:
  * export type Tree<Node> = Node | TreeRecord<Node> | ReadonlyArray<Tree<Node>>

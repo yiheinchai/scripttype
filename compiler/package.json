@@ -7,17 +7,18 @@
     "scripttype": "./src/cli.ts"
   },
   "scripts": {
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "typecheck": "tsc --noEmit",
-    "verify": "tsx src/verify-cli.ts",
-    "gate": "tsx src/typecheck-cli.ts",
-    "check": "tsc --noEmit && vitest run && tsx src/typecheck-cli.ts && tsx src/verify-cli.ts",
-    "inventory": "tsx src/inventory.ts",
-    "roundtrip": "tsx src/inplace.ts",
-    "coverage": "tsx src/aggregate.ts .results/inplace",
-    "materialize": "tsx src/materialize.ts .results/inplace",
-    "dx": "tsx src/dx-report.ts"
+    "test": "./node_modules/.bin/vitest run",
+    "typecheck": "./node_modules/.bin/tsc --noEmit",
+    "check": "./node_modules/.bin/tsx src/check.ts",
+    "gate": "./node_modules/.bin/tsx src/typecheck-cli.ts",
+    "verify": "./node_modules/.bin/tsx src/verify-cli.ts",
+    "all": "./node_modules/.bin/tsc --noEmit && ./node_modules/.bin/vitest run && ./node_modules/.bin/tsx src/check.ts",
+    "smoke": "./node_modules/.bin/tsx src/inplace.ts 04-query-builders-orm/kysely/src 01-type-level-programming/ts-pattern/src",
+    "corpus": "./run-parallel.sh",
+    "coverage": "./node_modules/.bin/tsx src/aggregate.ts .results/inplace",
+    "materialize": "./node_modules/.bin/tsx src/materialize.ts .results/inplace",
+    "inventory": "./node_modules/.bin/tsx src/inventory.ts",
+    "dx": "./node_modules/.bin/tsx src/dx-report.ts"
   },
   "dependencies": {
     "typescript": "^5.9.3"

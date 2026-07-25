@@ -16,7 +16,7 @@ type NonEmptyReadonlyArray<A = any, B = any, C = any, D = any, E = any, F = any,
 // ✓ NonEmptyReadonlyArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonEmptyReadonlyArray(A) {
-  return asReadonly([A, ...Array(A)])
+  return asReadonly([A, ...t<Array<typeof A>>()])
 }
 /* compiles to:
  * export type NonEmptyReadonlyArray<A> = readonly [A, ...Array<A>]
@@ -25,7 +25,7 @@ export function NonEmptyReadonlyArray(A) {
 // ✓ NonEmptyArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonEmptyArray(A) {
-  return [A, ...Array(A)]
+  return [A, ...t<Array<typeof A>>()]
 }
 /* compiles to:
  * export type NonEmptyArray<A> = [A, ...Array<A>]
@@ -55,7 +55,7 @@ export function With(S: Iterable<any>, A) {
   if (matches<NonEmptyReadonlyArray<any>>(S)) {
     return NonEmptyArray(A)
   }
-  return Array(A)
+  return t<Array<typeof A>>()
 }
 /* compiles to:
  * export type With<S extends Iterable<any>, A> = S extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A> : Array<A>
@@ -71,7 +71,7 @@ export function OrNonEmpty(S: Iterable<any>, T: Iterable<any>, A) {
   if (matches<NonEmptyReadonlyArray<any>>(T)) {
     return NonEmptyArray(A)
   }
-  return Array(A)
+  return t<Array<typeof A>>()
 }
 /* compiles to:
  * export type OrNonEmpty<S extends Iterable<any>, T extends Iterable<any>, A> = S extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A> : T extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A> : Array<A>
@@ -85,9 +85,9 @@ export function AndNonEmpty(S: Iterable<any>, T: Iterable<any>, A) {
     if (matches<NonEmptyReadonlyArray<any>>(T)) {
       return NonEmptyArray(A)
     }
-    return Array(A)
+    return t<Array<typeof A>>()
   }
-  return Array(A)
+  return t<Array<typeof A>>()
 }
 /* compiles to:
  * export type AndNonEmpty<S extends Iterable<any>, T extends Iterable<any>, A> = S extends NonEmptyReadonlyArray<any> ? T extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A> : Array<A> : Array<A>
@@ -100,7 +100,7 @@ export function Flatten(T: ReadonlyArray<ReadonlyArray<any>>) {
   if (matches<NonEmptyReadonlyArray<NonEmptyReadonlyArray<any>>>(T)) {
     return NonEmptyArray(T[number][number])
   }
-  return Array(T[number][number])
+  return t<Array<(typeof T)[number][number]>>()
 }
 /* compiles to:
  * export type Flatten<T extends ReadonlyArray<ReadonlyArray<any>>> = T extends NonEmptyReadonlyArray<NonEmptyReadonlyArray<any>> ? NonEmptyArray<T[number][number]> : Array<T[number][number]>

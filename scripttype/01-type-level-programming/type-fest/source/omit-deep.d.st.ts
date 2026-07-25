@@ -22,6 +22,7 @@ declare const Paths: any
 declare const PropertyKey: any
 declare const SetArrayAccess: any
 declare const SimplifyDeep: any
+declare const SubPath: any
 declare const ToString: any
 declare const UnionToTuple: any
 declare const UnknownArray: any
@@ -33,10 +34,12 @@ type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = 
 type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type LiteralUnion<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type OmitDeepWithOnePath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Paths<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SetArrayAccess<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SimplifyDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SubPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ToString<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnionToTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -118,7 +121,7 @@ export function OmitDeepArrayWithOnePath(ArrayType: UnknownArray, P: string | nu
   const m1 = matches<`${Hole<"ArrayIndex", number>}.${Hole<"SubPath">}`>(P)
   if (m1) {
     if (matches<typeof m1.ArrayIndex>(number)) {
-      return Array(OmitDeepWithOnePath(NonNullable(ArrayType[number]), m1.SubPath))
+      return t<Array<OmitDeepWithOnePath<NonNullable<(typeof ArrayType)[number]>, typeof m1.SubPath>>>()
     }
     return ArraySplice(ArrayType, m1.ArrayIndex, 1, [OmitDeepWithOnePath(NonNullable(ArrayType[m1.ArrayIndex]), m1.SubPath)])
   }

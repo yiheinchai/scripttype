@@ -45,7 +45,7 @@ export type __Split<S extends string, D extends string, T extends string[] = []>
 
 ```ts
 export function __Split(S: string, D: string) {
-  let T = []
+  let T: any[] = []
   let s = S
   while (true) {
     const m1 = matches<`${Hole<"BS">}${typeof D}${Hole<"AS">}`>(s)
@@ -63,7 +63,7 @@ export function __Split(S: string, D: string) {
 
 ```ts
 export type __Split<S extends string, D extends string> = __Split__loop<S, [], D>
-type __Split__loop<S extends string, T extends readonly unknown[], D extends string> = S extends `${infer BS}${D}${infer AS}` ? __Split__loop<AS, [...T, BS], D> : [...T, S]
+type __Split__loop<S extends string, T extends any[], D extends string> = S extends `${infer BS}${D}${infer AS}` ? __Split__loop<AS, [...T, BS], D> : [...T, S]
 ```
 
 ## Iterator
@@ -85,7 +85,7 @@ export type Iterator<
 
 ```ts
 export function Iterator(n: number) {
-  let it = []
+  let it: any[] = []
   while (true) {
     if (matches<typeof n>(it['length'])) {
       break
@@ -100,7 +100,7 @@ export function Iterator(n: number) {
 
 ```ts
 export type Iterator<n extends number> = Iterator__loop<[], n>
-type Iterator__loop<It extends readonly unknown[], N extends number> = It['length'] extends N ? It : Iterator__loop<[any, ...It], N>
+type Iterator__loop<It extends any[], N extends number> = It['length'] extends N ? It : Iterator__loop<[any, ...It], N>
 ```
 
 ## ExtractTypeFromStringSelectExpression

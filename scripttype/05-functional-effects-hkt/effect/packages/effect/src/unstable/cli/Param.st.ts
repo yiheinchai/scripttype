@@ -33,7 +33,7 @@ type Variadic<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H =
 // ✓ Parse: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Parse(A) {
-  return fnType([ParsedArgs], Effect.Effect(asReadonly([ReadonlyArray(string), A]), CliError.CliError, Environment))
+  return fnType([ParsedArgs], Effect.Effect(asReadonly([t<ReadonlyArray<string>>(), A]), CliError.CliError, Environment))
 }
 /* compiles to:
  * export type Parse<A> = (a0: ParsedArgs) => Effect.Effect<readonly [ReadonlyArray<string>, A], CliError.CliError, Environment>
@@ -49,10 +49,10 @@ export function FallbackPrompt(A) {
  */
 
 // ✗ AnyParam: the ScriptType does not itself typecheck as TypeScript
-//   AnyParam.st.ts(3:28) TS2348: Value of type 'MapConstructor' is not callable. Did you mean to include 'new'?
+//   AnyParam.st.ts(3:30) TS2314: Generic type 'Map<K, V>' requires 2 type argument(s).
 /* @scripttype preserveParamNames */
 export function AnyParam(Kind: ParamKind, A) {
-  return Single(Kind, A) | Map(Kind, any, A) | Transform(Kind, any, A) | Optional(Kind, A) | Variadic(Kind, A)
+  return Single(Kind, A) | t<Map<typeof Kind, any, typeof A>>() | Transform(Kind, any, A) | Optional(Kind, A) | Variadic(Kind, A)
 }
 /* compiles to:
  * export type AnyParam<Kind extends ParamKind, A> = Single<Kind, A> | Map<Kind, any, A> | Transform<Kind, any, A> | Optional<Kind, A> | Variadic<Kind, A>

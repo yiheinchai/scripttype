@@ -29,7 +29,7 @@ export function QueryReturnValue(T = unknown, E = unknown, M = unknown) {
 // ✓ BaseQueryFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function BaseQueryFn(Args = any, Result = unknown, Error = unknown, DefinitionExtraOptions = {}, Meta = {}) {
-  return fnType([Args, BaseQueryApi, DefinitionExtraOptions], MaybePromise(QueryReturnValue(Result, Error, Meta)))
+  return fnType([Args, BaseQueryApi, DefinitionExtraOptions], MaybePromise(QueryReturnValue(Result, t<typeof Error>(), Meta)))
 }
 /* compiles to:
  * export type BaseQueryFn<Args = any, Result = unknown, Error = unknown, DefinitionExtraOptions = {}, Meta = {}> = (a0: Args, a1: BaseQueryApi, a2: DefinitionExtraOptions) => MaybePromise<QueryReturnValue<Result, Error, Meta>>

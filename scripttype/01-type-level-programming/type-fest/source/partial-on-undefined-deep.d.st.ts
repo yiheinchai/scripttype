@@ -28,6 +28,7 @@ type LiteralKeyOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any,
 type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type PartialOnUndefinedDeepOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type U<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type _PartialOnUndefinedDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ PartialOnUndefinedDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PartialOnUndefinedDeep(T, Options: PartialOnUndefinedDeepOptions = {}) {
@@ -72,9 +73,9 @@ export function PartialOnUndefinedDeepValue(T, Options: Required<PartialOnUndefi
     if (matches<true>(Options['recurseIntoArrays'])) {
       if (matches<typeof T>(arrayOf(m1.U))) {
         if (matches<typeof T>(readonlyArrayOf(m1.U))) {
-          return ReadonlyArray(_PartialOnUndefinedDeep(m1.U, Options))
+          return t<ReadonlyArray<_PartialOnUndefinedDeep<typeof m1.U, typeof Options>>>()
         }
-        return Array(_PartialOnUndefinedDeep(m1.U, Options))
+        return t<Array<_PartialOnUndefinedDeep<typeof m1.U, typeof Options>>>()
       }
       const out = emptyObject
       for (const Key in keyof(T)) {

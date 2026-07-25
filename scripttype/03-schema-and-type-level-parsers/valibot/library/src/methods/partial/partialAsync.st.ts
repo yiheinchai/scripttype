@@ -16,6 +16,7 @@ declare const ErrorMessage: any
 declare const InferIssue: any
 declare const InferObjectInput: any
 declare const InferObjectOutput: any
+declare const InferOutput: any
 declare const LooseObjectIssue: any
 declare const LooseObjectSchemaAsync: any
 declare const ObjectEntriesAsync: any
@@ -30,6 +31,7 @@ declare const Schema: any
 declare const StandardProps: any
 declare const StrictObjectIssue: any
 declare const StrictObjectSchemaAsync: any
+declare const TRest: any
 declare const UnknownDataset: any
 type BaseIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Config<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -37,6 +39,7 @@ type ErrorMessage<A = any, B = any, C = any, D = any, E = any, F = any, G = any,
 type InferIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type InferObjectInput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type InferObjectOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InferOutput<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type LooseObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type LooseObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ObjectEntriesAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -47,10 +50,12 @@ type ObjectWithRestIssue<A = any, B = any, C = any, D = any, E = any, F = any, G
 type ObjectWithRestSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type OptionalSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type OutputDataset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type PartialEntries<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Schema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type StandardProps<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type StrictObjectIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type StrictObjectSchemaAsync<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type TRest<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnknownDataset<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ PartialEntries: the ScriptType does not itself typecheck as TypeScript
 //   PartialEntries.st.ts(5:94) TS2537: Type 'readonly (string | number | symbol)[] | undefined' has no matching index signature for type 'number'.
@@ -72,15 +77,15 @@ export function PartialEntries(TEntries: ObjectEntriesAsync, TKeys: readonly (ke
 export function SchemaWithPartialAsync(TSchema: Schema, TKeys: ObjectKeys<typeof TSchema> | undefined) {
   const m1 = matches<ObjectSchemaAsync<Hole<"TEntries">, ErrorMessage<ObjectIssue> | undefined> | StrictObjectSchemaAsync<Hole<"TEntries">, ErrorMessage<StrictObjectIssue> | undefined>>(TSchema)
   if (m1) {
-    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(PartialEntries(m1.TEntries, TKeys)), '~standard': readonlyProp(StandardProps(InferObjectInput(PartialEntries(m1.TEntries, TKeys)), InferObjectOutput(PartialEntries(m1.TEntries, TKeys)))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], Promise(OutputDataset(InferObjectOutput(PartialEntries(m1.TEntries, TKeys)), InferIssue(TSchema))))), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(InferObjectInput(PartialEntries(m1.TEntries, TKeys))), output: readonlyProp(InferObjectOutput(PartialEntries(m1.TEntries, TKeys))), issue: readonlyProp(InferIssue(TSchema)) }, Undefined))) })
+    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(PartialEntries(m1.TEntries, TKeys)), '~standard': readonlyProp(StandardProps(InferObjectInput(PartialEntries(m1.TEntries, TKeys)), InferObjectOutput(PartialEntries(m1.TEntries, TKeys)))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], t<Promise<OutputDataset<InferObjectOutput<PartialEntries<typeof m1.TEntries, typeof TKeys>>, InferIssue<typeof TSchema>>>>())), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(InferObjectInput(PartialEntries(m1.TEntries, TKeys))), output: readonlyProp(InferObjectOutput(PartialEntries(m1.TEntries, TKeys))), issue: readonlyProp(InferIssue(TSchema)) }, Undefined))) })
   }
   const m2 = matches<LooseObjectSchemaAsync<Hole<"TEntries">, ErrorMessage<LooseObjectIssue> | undefined>>(TSchema)
   if (m2) {
-    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(PartialEntries(m2.TEntries, TKeys)), '~standard': readonlyProp(StandardProps(merge(InferObjectInput(PartialEntries(m2.TEntries, TKeys)), raw('{ [key: string]: unknown; }')), merge(InferObjectOutput(PartialEntries(m2.TEntries, TKeys)), raw('{ [key: string]: unknown; }')))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], Promise(OutputDataset(merge(InferObjectOutput(PartialEntries(m2.TEntries, TKeys)), raw('{ [key: string]: unknown; }')), InferIssue(TSchema))))), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(merge(InferObjectInput(PartialEntries(m2.TEntries, TKeys)), raw('{ [key: string]: unknown; }'))), output: readonlyProp(merge(InferObjectOutput(PartialEntries(m2.TEntries, TKeys)), raw('{ [key: string]: unknown; }'))), issue: readonlyProp(InferIssue(TSchema)) }, Undefined))) })
+    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(PartialEntries(m2.TEntries, TKeys)), '~standard': readonlyProp(StandardProps(merge(InferObjectInput(PartialEntries(m2.TEntries, TKeys)), raw('{ [key: string]: unknown; }')), merge(InferObjectOutput(PartialEntries(m2.TEntries, TKeys)), raw('{ [key: string]: unknown; }')))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], t<Promise<OutputDataset<InferObjectOutput<PartialEntries<typeof m2.TEntries, typeof TKeys>> & { [key: string]: unknown; }, InferIssue<typeof TSchema>>>>())), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(merge(InferObjectInput(PartialEntries(m2.TEntries, TKeys)), raw('{ [key: string]: unknown; }'))), output: readonlyProp(merge(InferObjectOutput(PartialEntries(m2.TEntries, TKeys)), raw('{ [key: string]: unknown; }'))), issue: readonlyProp(InferIssue(TSchema)) }, Undefined))) })
   }
   const m3 = matches<ObjectWithRestSchemaAsync<Hole<"TEntries">, Hole<"TRest">, ErrorMessage<ObjectWithRestIssue> | undefined>>(TSchema)
   if (m3) {
-    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(PartialEntries(m3.TEntries, TKeys)), '~standard': readonlyProp(StandardProps(merge(InferObjectInput(PartialEntries(m3.TEntries, TKeys)), raw('{ [key: string]: InferInput<TRest>; }')), merge(InferObjectOutput(PartialEntries(m3.TEntries, TKeys)), raw('{ [key: string]: InferOutput<TRest>; }')))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], Promise(OutputDataset(merge(InferObjectOutput(PartialEntries(m3.TEntries, TKeys)), raw('{ [key: string]: InferOutput<TRest>; }')), InferIssue(TSchema))))), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(merge(InferObjectInput(PartialEntries(m3.TEntries, TKeys)), raw('{ [key: string]: InferInput<TRest>; }'))), output: readonlyProp(merge(InferObjectOutput(PartialEntries(m3.TEntries, TKeys)), raw('{ [key: string]: InferOutput<TRest>; }'))), issue: readonlyProp(InferIssue(TSchema)) }, Undefined))) })
+    return merge(Omit(TSchema, anyOf('entries', '~standard', '~run', '~types')), { entries: readonlyProp(PartialEntries(m3.TEntries, TKeys)), '~standard': readonlyProp(StandardProps(merge(InferObjectInput(PartialEntries(m3.TEntries, TKeys)), raw('{ [key: string]: InferInput<TRest>; }')), merge(InferObjectOutput(PartialEntries(m3.TEntries, TKeys)), raw('{ [key: string]: InferOutput<TRest>; }')))), '~run': readonlyProp(fnType([UnknownDataset, Config(BaseIssue(unknown))], t<Promise<OutputDataset<InferObjectOutput<PartialEntries<typeof m3.TEntries, typeof TKeys>> & { [key: string]: InferOutput<typeof m3.TRest>; }, InferIssue<typeof TSchema>>>>())), '~types': readonlyProp(optional(anyOf({ input: readonlyProp(merge(InferObjectInput(PartialEntries(m3.TEntries, TKeys)), raw('{ [key: string]: InferInput<TRest>; }'))), output: readonlyProp(merge(InferObjectOutput(PartialEntries(m3.TEntries, TKeys)), raw('{ [key: string]: InferOutput<TRest>; }'))), issue: readonlyProp(InferIssue(TSchema)) }, Undefined))) })
   }
   return never
 }

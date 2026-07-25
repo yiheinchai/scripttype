@@ -28,12 +28,15 @@ type EnforceOptional<A = any, B = any, C = any, D = any, E = any, F = any, G = a
 type FirstArrayElement<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsBothExtends<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Merge<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MergeDeepArrayOrTupleRecursive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type MergeDeepInternalOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type MergeDeepOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MergeDeepRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type NonEmptyTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type OmitIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type PickIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SimplifyDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SimplifyDeepExcludeArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnknownArrayOrTuple<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnknownRecord<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -289,7 +292,7 @@ export function ShouldSpread(Options: MergeDeepInternalOptions) {
 /* @scripttype preserveParamNames */
 export function DoMergeArrayOrTuple(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
   if (matches<true>(ShouldSpread(Options))) {
-    return Array(Exclude(Destination, Undefined)[number] | Exclude(Source, Undefined)[number])
+    return t<Array<Exclude<typeof Destination, undefined>[number] | Exclude<typeof Source, undefined>[number]>>()
   }
   return Source
 }
@@ -302,13 +305,13 @@ export function DoMergeArrayOrTuple(Destination: UnknownArrayOrTuple, Source: Un
 export function MergeDeepArrayRecursive(Destination: UnknownArrayOrTuple, Source: UnknownArrayOrTuple, Options: MergeDeepInternalOptions) {
   if (matches<UnknownArrayOrTuple>(Destination[number])) {
     if (matches<UnknownArrayOrTuple>(Source[number])) {
-      return Array(MergeDeepArrayOrTupleRecursive(Destination[number], Source[number], Options))
+      return t<Array<MergeDeepArrayOrTupleRecursive<(typeof Destination)[number], (typeof Source)[number], typeof Options>>>()
     }
     return DoMergeArrayOrTuple(Destination, Source, Options)
   }
   if (matches<UnknownRecord>(Destination[number])) {
     if (matches<UnknownRecord>(Source[number])) {
-      return Array(SimplifyDeepExcludeArray(MergeDeepRecord(Destination[number], Source[number], Options)))
+      return t<Array<SimplifyDeepExcludeArray<MergeDeepRecord<(typeof Destination)[number], (typeof Source)[number], typeof Options>>>>()
     }
     return DoMergeArrayOrTuple(Destination, Source, Options)
   }

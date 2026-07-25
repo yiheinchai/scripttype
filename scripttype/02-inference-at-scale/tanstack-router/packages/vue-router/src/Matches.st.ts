@@ -54,7 +54,7 @@ export function MakeMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFr
 /* @scripttype preserveParamNames */
 export function UseMatchesResult(TRouter: AnyRouter, TSelected) {
   if (matches<typeof TSelected>(unknown)) {
-    return Array(MakeRouteMatchUnion(TRouter))
+    return t<Array<MakeRouteMatchUnion<typeof TRouter>>>()
   }
   return TSelected
 }

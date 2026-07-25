@@ -21,7 +21,7 @@ type _SetEntry<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H 
 // ✓ ArrayEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ArrayEntries(BaseType: readonly unknown[]) {
-  return Array(_ArrayEntry(BaseType))
+  return t<Array<_ArrayEntry<typeof BaseType>>>()
 }
 /* compiles to:
  * export type ArrayEntries<BaseType extends readonly unknown[]> = Array<_ArrayEntry<BaseType>>
@@ -30,7 +30,7 @@ export function ArrayEntries(BaseType: readonly unknown[]) {
 // ✓ MapEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MapEntries(BaseType) {
-  return Array(_MapEntry(BaseType))
+  return t<Array<_MapEntry<typeof BaseType>>>()
 }
 /* compiles to:
  * export type MapEntries<BaseType> = Array<_MapEntry<BaseType>>
@@ -39,7 +39,7 @@ export function MapEntries(BaseType) {
 // ✓ ObjectEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ObjectEntries(BaseType) {
-  return Array(_ObjectEntry(BaseType))
+  return t<Array<_ObjectEntry<typeof BaseType>>>()
 }
 /* compiles to:
  * export type ObjectEntries<BaseType> = Array<_ObjectEntry<BaseType>>
@@ -48,7 +48,7 @@ export function ObjectEntries(BaseType) {
 // ✓ SetEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetEntries(BaseType: Set<unknown>) {
-  return Array(_SetEntry(BaseType))
+  return t<Array<_SetEntry<typeof BaseType>>>()
 }
 /* compiles to:
  * export type SetEntries<BaseType extends Set<unknown>> = Array<_SetEntry<BaseType>>

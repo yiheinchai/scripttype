@@ -227,7 +227,7 @@ export function OuterJoinedBuilderDB(DB, TB: keyof typeof DB, A: keyof any, R) {
 // ✓ TableOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TableOrList(TB: keyof any) {
-  return anyOf(merge(TB, string), ReadonlyArray(merge(TB, string)))
+  return anyOf(merge(TB, string), t<ReadonlyArray<typeof TB & string>>())
 }
 /* compiles to:
  * export type TableOrList<TB extends keyof any> = TB & string | ReadonlyArray<TB & string>

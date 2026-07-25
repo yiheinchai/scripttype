@@ -16,6 +16,7 @@ declare const NonNullableInsertKeys: any
 declare const NullableInsertKeys: any
 declare const ValueExpression: any
 type ExpressionBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InsertObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type InsertType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type NonNullableInsertKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type NullableInsertKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -40,7 +41,7 @@ export function InsertObject(DB, TB: keyof typeof DB) {
 // ✓ InsertObjectOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InsertObjectOrList(DB, TB: keyof typeof DB) {
-  return InsertObject(DB, TB) | ReadonlyArray(InsertObject(DB, TB))
+  return InsertObject(DB, TB) | t<ReadonlyArray<InsertObject<typeof DB, typeof TB>>>()
 }
 /* compiles to:
  * export type InsertObjectOrList<DB, TB extends keyof DB> = InsertObject<DB, TB> | ReadonlyArray<InsertObject<DB, TB>>

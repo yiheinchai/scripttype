@@ -27,7 +27,7 @@ type WithHandler<A = any, B = any, C = any, D = any, E = any, F = any, G = any, 
 // ✓ ToolChoice: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ToolChoice(ToolName: string) {
-  return anyOf('auto', 'none', 'required', { tool: readonlyProp(ToolName) }, { mode: readonlyProp(optional(anyOf('auto', 'required'))), oneOf: readonlyProp(ReadonlyArray(ToolName)) })
+  return anyOf('auto', 'none', 'required', { tool: readonlyProp(ToolName) }, { mode: readonlyProp(optional(anyOf('auto', 'required'))), oneOf: readonlyProp(t<ReadonlyArray<typeof ToolName>>()) })
 }
 /* compiles to:
  * export type ToolChoice<ToolName extends string> = 'auto' | 'none' | 'required' | { readonly tool: ToolName } | { readonly mode?: 'auto' | 'required'; readonly oneOf: ReadonlyArray<ToolName> }

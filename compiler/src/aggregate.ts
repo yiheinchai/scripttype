@@ -27,16 +27,24 @@ interface RepoRow {
 const rows: RepoRow[] = []
 const gapCounts = new Map<string, number>()
 
+// Group by the repository named in each outcome's `file`, not by the JSON filename:
+// sharded runs put outcomes from every repository into every shard's file.
+const byRepo = new Map<string, AliasOutcome[]>()
 for (const f of fs.readdirSync(dir).sort()) {
   if (!f.endsWith('.json')) continue
-  const repo = f.replace(/\.json$/, '').replace(/^(\d\d-[a-z-]+)_/, '$1/')
   let outcomes: AliasOutcome[]
   try {
     outcomes = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'))
   } catch {
-    rows.push({ repo, total: 0, covered: 0, counts: new Map(), crashed: true })
     continue
   }
+  for (const o of outcomes) {
+    const repo = o.file.split('/').slice(0, 2).join('/')
+    if (!byRepo.has(repo)) byRepo.set(repo, [])
+    byRepo.get(repo)!.push(o)
+  }
+}
+for (const [repo, outcomes] of byRepo) {
   const counts = new Map<Status, number>()
   for (const o of outcomes) {
     counts.set(o.status, (counts.get(o.status) ?? 0) + 1)

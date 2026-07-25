@@ -13,17 +13,22 @@
 declare const BuiltIns: any
 declare const HasMultipleCallSignatures: any
 declare const IsNever: any
+declare const ItemType: any
 declare const ReadonlyMap: any
 declare const ReadonlySet: any
 declare const Simplify: any
+declare const ValueType: any
 type BuiltIns<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type HasMultipleCallSignatures<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ItemType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type RequiredDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ValueType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ RequiredDeep: the ScriptType does not itself typecheck as TypeScript
-//   RequiredDeep.st.ts(8:12) TS2348: Value of type 'MapConstructor' is not callable. Did you mean to include 'new'?
+//   RequiredDeep.st.ts(16:12) TS2693: 'ReadonlyMap' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
 export function RequiredDeep(T) {
   if (matches<BuiltIns>(T)) {
@@ -31,11 +36,11 @@ export function RequiredDeep(T) {
   }
   const m1 = matches<Map<Hole<"KeyType">, Hole<"ValueType">>>(T)
   if (m1) {
-    return Map(RequiredDeep(m1.KeyType), RequiredDeep(m1.ValueType))
+    return t<Map<RequiredDeep<typeof m1.KeyType>, RequiredDeep<typeof m1.ValueType>>>()
   }
   const m2 = matches<Set<Hole<"ItemType">>>(T)
   if (m2) {
-    return Set(RequiredDeep(m2.ItemType))
+    return t<Set<RequiredDeep<typeof m2.ItemType>>>()
   }
   const m3 = matches<ReadonlyMap<Hole<"KeyType">, Hole<"ValueType">>>(T)
   if (m3) {
@@ -47,15 +52,15 @@ export function RequiredDeep(T) {
   }
   const m5 = matches<WeakMap<Hole<"KeyType">, Hole<"ValueType">>>(T)
   if (m5) {
-    return WeakMap(RequiredDeep(m5.KeyType), RequiredDeep(m5.ValueType))
+    return t<WeakMap<RequiredDeep<typeof m5.KeyType>, RequiredDeep<typeof m5.ValueType>>>()
   }
   const m6 = matches<WeakSet<Hole<"ItemType">>>(T)
   if (m6) {
-    return WeakSet(RequiredDeep(m6.ItemType))
+    return t<WeakSet<RequiredDeep<typeof m6.ItemType>>>()
   }
   const m7 = matches<Promise<Hole<"ValueType">>>(T)
   if (m7) {
-    return Promise(RequiredDeep(m7.ValueType))
+    return t<Promise<RequiredDeep<typeof m7.ValueType>>>()
   }
   if (matches<(...arguments_: any[]) => unknown>(T)) {
     if (matches<true>(IsNever(keyof(T)))) {

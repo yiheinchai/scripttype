@@ -33,6 +33,7 @@ type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = 
 type ReadonlyMap<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReadonlySet<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SetArrayAccess<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SharedUnionFieldsDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SharedUnionFieldsDeepOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type StaticPartOfArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TupleLength<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -99,7 +100,7 @@ export function SharedArrayUnionFieldsDeep(Union: UnknownArray, Options: Require
 export function InternalSharedArrayUnionFieldsDeep(Union: UnknownArray, Options: Required<SharedUnionFieldsDeepOptions>, ResultTuple: UnknownArray = []) {
   if (matches<true>(IsNever(TupleLength(Union)))) {
     if (matches<UnionMax<StaticPartOfArray<typeof Union>['length']>>(ResultTuple['length'])) {
-      return [...ResultTuple, ...Array(SharedUnionFieldsDeep(VariablePartOfArray(Union)[number], Options))]
+      return [...ResultTuple, ...t<Array<SharedUnionFieldsDeep<VariablePartOfArray<typeof Union>[number], typeof Options>>>()]
     }
     return InternalSharedArrayUnionFieldsDeep(Union, Options, [...ResultTuple, SharedUnionFieldsDeep(Union[ResultTuple['length']], Options)])
   }

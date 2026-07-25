@@ -13,12 +13,14 @@
 declare const AnyClientTypes: any
 declare const AnyConstructor: any
 declare const EventSourceLike: any
+declare const InitDictOf: any
 declare const Operation: any
 declare const TransformerOptions: any
 declare const UrlOptionsWithConnectionParams: any
 type AnyClientTypes<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type AnyConstructor<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type EventSourceLike<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InitDictOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Operation<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TransformerOptions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UrlOptionsWithConnectionParams<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -26,5 +28,5 @@ type UrlOptionsWithConnectionParams<A = any, B = any, C = any, D = any, E = any,
 //   gap: type node TypeQuery
 /* @scripttype preserveParamNames */
 export function HTTPSubscriptionLinkOptions(TRoot: AnyClientTypes, TEventSource: EventSourceLike.AnyConstructor = raw('typeof EventSource')) {
-  return merge({ EventSource: optional(TEventSource), eventSourceOptions: optional(EventSourceLike.InitDictOf(TEventSource) | fnType([{ op: Operation }], EventSourceLike.InitDictOf(TEventSource) | Promise(EventSourceLike.InitDictOf(TEventSource)))) }, TransformerOptions(TRoot), UrlOptionsWithConnectionParams)
+  return merge({ EventSource: optional(TEventSource), eventSourceOptions: optional(EventSourceLike.InitDictOf(TEventSource) | fnType([{ op: Operation }], EventSourceLike.InitDictOf(TEventSource) | t<Promise<EventSourceLike.InitDictOf<typeof TEventSource>>>())) }, TransformerOptions(TRoot), UrlOptionsWithConnectionParams)
 }

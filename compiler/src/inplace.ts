@@ -264,20 +264,44 @@ if (process.argv[1] && import.meta.filename === path.resolve(process.argv[1])) {
   const args = process.argv.slice(2)
   const jsonIdx = args.indexOf('--json')
   const jsonOut = jsonIdx >= 0 ? args[jsonIdx + 1] : undefined
-  const roots = args.filter((a, i) => !a.startsWith('--') && !(jsonIdx >= 0 && i === jsonIdx + 1))
+  // `--shard k/n` processes only every n-th file, so the corpus can be split across
+  // parallel workers. Sharding by file rather than by repository balances the load:
+  // repositories differ by more than an order of magnitude in size.
+  const shardIdx = args.indexOf('--shard')
+  const shardSpec = shardIdx >= 0 ? args[shardIdx + 1] : undefined
+  let shard: { k: number; n: number } | undefined
+  if (shardSpec) {
+    const [k, n] = shardSpec.split('/').map(Number)
+    if (!Number.isInteger(k) || !Number.isInteger(n) || !n || k! >= n!) {
+      console.error(`invalid --shard '${shardSpec}': expected k/n with 0 <= k < n`)
+      process.exit(2)
+    }
+    shard = { k: k!, n: n! }
+  }
+  const skipValues = new Set<string | undefined>()
+  if (jsonIdx >= 0) skipValues.add(args[jsonIdx + 1])
+  if (shardIdx >= 0) skipValues.add(args[shardIdx + 1])
+  const roots = args.filter(
+    (a, i) =>
+      !a.startsWith('--') &&
+      !(jsonIdx >= 0 && i === jsonIdx + 1) &&
+      !(shardIdx >= 0 && i === shardIdx + 1),
+  )
   if (!roots.length) {
     console.error('usage: inplace.ts <file-or-dir>... [--json out.json]')
     process.exit(2)
   }
 
+  const files: string[] = []
+  for (const root of roots) files.push(...collectFiles(root))
+  const mine = shard ? files.filter((_, i) => i % shard!.n === shard!.k) : files
+
   const all: Outcome[] = []
-  for (const root of roots) {
-    for (const f of collectFiles(root)) {
-      try {
-        all.push(...inplaceFile(f))
-      } catch (err) {
-        console.error(`  error in ${f}: ${(err as Error).message.split('\n')[0]}`)
-      }
+  for (const f of mine) {
+    try {
+      all.push(...inplaceFile(f))
+    } catch (err) {
+      console.error(`  error in ${f}: ${(err as Error).message.split('\n')[0]}`)
     }
   }
 

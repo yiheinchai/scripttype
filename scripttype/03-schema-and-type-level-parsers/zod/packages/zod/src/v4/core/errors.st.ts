@@ -17,6 +17,7 @@ declare const $ZodType: any
 declare const Primitive: any
 declare const util: any
 type $ZodCheck<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type $ZodErrorTree<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type $ZodIssue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type $ZodIssueBase<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type $ZodType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -125,7 +126,7 @@ export function $ZodErrorTree(T, U = string) {
     return { errors: arrayOf(U), items: optional(out) }
   }
   if (matches<any[]>(T)) {
-    return { errors: arrayOf(U), items: optional(Array($ZodErrorTree(T[number], U))) }
+    return { errors: arrayOf(U), items: optional(t<Array<$ZodErrorTree<(typeof T)[number], typeof U>>>()) }
   }
   if (matches<object>(T)) {
     const out2 = emptyObject

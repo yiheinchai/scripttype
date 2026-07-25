@@ -18,17 +18,20 @@ declare const ObjectValue: any
 declare const Paths: any
 declare const Simplify: any
 declare const SimplifyDeep: any
+declare const SubPath: any
 declare const TupleOf: any
 declare const UnionToIntersection: any
 declare const UnknownArray: any
 type ArrayIndex<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type BuildObject<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type InternalPickDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type NonRecursiveType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ObjectValue<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Paths<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Simplify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SimplifyDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type SubPath<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type TupleOf<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnionToIntersection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type UnknownArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -110,10 +113,10 @@ export function PickDeepArray(ArrayType: UnknownArray, P: string | number) {
   if (m1) {
     if (matches<typeof m1.ArrayIndex>(number)) {
       if (matches<unknown[]>(ArrayType)) {
-        return Array(InternalPickDeep(NonNullable(ArrayType[number]), m1.SubPath))
+        return t<Array<InternalPickDeep<NonNullable<(typeof ArrayType)[number]>, typeof m1.SubPath>>>()
       }
       if (matches<readonly unknown[]>(ArrayType)) {
-        return ReadonlyArray(InternalPickDeep(NonNullable(ArrayType[number]), m1.SubPath))
+        return t<ReadonlyArray<InternalPickDeep<NonNullable<(typeof ArrayType)[number]>, typeof m1.SubPath>>>()
       }
       return never
     }

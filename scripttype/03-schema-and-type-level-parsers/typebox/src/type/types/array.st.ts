@@ -22,7 +22,7 @@ type TProperties<A = any, B = any, C = any, D = any, E = any, F = any, G = any, 
 type TSchema<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ StaticArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function StaticArray(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Array: TSchema, Item: TSchema, Result: readonly unknown[] = matches<TImmutable>(Array) ? readonlyArrayOf(StaticType(Stack, Direction, Context, This, Item)) : arrayOf(StaticType(Stack, Direction, Context, This, Item))) {
+export function StaticArray(Stack: string[], Direction: StaticDirection, Context: TProperties, This: TProperties, Array: TSchema, Item: TSchema, Result: readonly unknown[] = matches<TImmutable>(t<typeof Array>()) ? readonlyArrayOf(StaticType(Stack, Direction, Context, This, Item)) : arrayOf(StaticType(Stack, Direction, Context, This, Item))) {
   return Result
 }
 /* compiles to:

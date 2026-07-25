@@ -47,6 +47,7 @@ type ExtendsExcludingAnyOrNever<A = any, B = any, C = any, D = any, E = any, F =
 type IsAny<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsNever<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsUnknown<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MismatchInfo<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Not<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type OptionalKeys<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type StrictEqualUsingBranding<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -124,7 +125,7 @@ export function PrintType(T) {
 export function MismatchInfo(Actual, Expected, Options: DeepBrandOptions = DeepBrandOptionsDefaults) {
   if (matches<true>(And([Extends(PrintType(Actual), '...'), Not(IsAny(Actual))]))) {
     if (matches<true>(And([Extends(arrayOf(any), Actual), Extends(arrayOf(any), Expected)]))) {
-      return Array(MismatchInfo(Extract(Actual, arrayOf(any))[number], Extract(Expected, arrayOf(any))[number], Options))
+      return t<Array<MismatchInfo<Extract<typeof Actual, any[]>[number], Extract<typeof Expected, any[]>[number], typeof Options>>>()
     }
     const out = emptyObject
     for (const K in keySet(UsefulKeys(Actual) | UsefulKeys(Expected))) {

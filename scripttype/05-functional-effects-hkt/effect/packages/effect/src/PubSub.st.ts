@@ -17,10 +17,10 @@ type BackingSubscription<A = any, B = any, C = any, D = any, E = any, F = any, G
 type Deferred<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type MutableList<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ Subscribers: the ScriptType does not itself typecheck as TypeScript
-//   Subscribers.st.ts(3:10) TS2348: Value of type 'MapConstructor' is not callable. Did you mean to include 'new'?
+//   Subscribers.st.ts(3:51) TS2702: 'MutableList' only refers to a type, but is being used as a namespace here.
 /* @scripttype preserveParamNames */
 export function Subscribers(A) {
-  return Map(BackingSubscription(A), Set(MutableList.MutableList(Deferred.Deferred(A))))
+  return t<Map<BackingSubscription<typeof A>, Set<MutableList.MutableList<Deferred.Deferred<typeof A>>>>>()
 }
 /* compiles to:
  * export type Subscribers<A> = Map<BackingSubscription<A>, Set<MutableList.MutableList<Deferred.Deferred<A>>>>

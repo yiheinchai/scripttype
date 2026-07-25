@@ -19,6 +19,7 @@ type AliasedExpressionOrFactory<A = any, B = any, C = any, D = any, E = any, F =
 type AnyAliasedColumnWithTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type AnyColumnWithTable<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ExpressionBuilder<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type OutputExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type OutputPrefix<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ OutputDatabase: verified type-identical to the original
 /* @scripttype preserveParamNames */
@@ -45,7 +46,7 @@ export function OutputExpression(DB, TB: keyof typeof DB, OP: OutputPrefix = Out
 // ✓ OutputCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OutputCallback(DB, TB: keyof typeof DB, OP: OutputPrefix = OutputPrefix) {
-  return fnType([ExpressionBuilder(OutputDatabase(DB, TB, OP), OP)], ReadonlyArray(OutputExpression(DB, TB, OP)))
+  return fnType([ExpressionBuilder(OutputDatabase(DB, TB, OP), OP)], t<ReadonlyArray<OutputExpression<typeof DB, typeof TB, typeof OP>>>())
 }
 /* compiles to:
  * export type OutputCallback<DB, TB extends keyof DB, OP extends OutputPrefix = OutputPrefix> = (a0: ExpressionBuilder<OutputDatabase<DB, TB, OP>, OP>) => ReadonlyArray<OutputExpression<DB, TB, OP>>

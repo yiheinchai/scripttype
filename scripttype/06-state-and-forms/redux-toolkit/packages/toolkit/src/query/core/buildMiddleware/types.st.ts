@@ -53,5 +53,5 @@ export function InternalHandlerBuilder(ReturnType = voidType()) {
 //   gap: object member MethodSignature
 /* @scripttype preserveParamNames */
 export function PromiseWithKnownReason(T, R) {
-  return merge(Omit(Promise(T), anyOf('then', 'catch')), raw('{ then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: R) => TResult2 | PromiseLike<TResult2>) | undefined | null): Promise<TResult1 | TResult2>; catch<TResult = never>(onrejected?: ((reason: R) => TResult | PromiseLike<TResult>) | undefined | null): Promise<T | TResult>; }'))
+  return merge(Omit(t<Promise<typeof T>>(), anyOf('then', 'catch')), raw('{ then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: R) => TResult2 | PromiseLike<TResult2>) | undefined | null): Promise<TResult1 | TResult2>; catch<TResult = never>(onrejected?: ((reason: R) => TResult | PromiseLike<TResult>) | undefined | null): Promise<T | TResult>; }'))
 }

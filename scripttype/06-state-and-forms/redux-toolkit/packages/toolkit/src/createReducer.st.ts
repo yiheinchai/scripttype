@@ -17,6 +17,7 @@ declare const Reducer: any
 declare const TypeGuard: any
 declare const UnknownAction: any
 type Action<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ActionMatcherDescription<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Actions<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Draft<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type NoInfer<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -46,7 +47,7 @@ export function ActionMatcherDescription(S, A: Action) {
 // ✓ ReadonlyActionMatcherDescriptionCollection: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyActionMatcherDescriptionCollection(S) {
-  return ReadonlyArray(ActionMatcherDescription(S, any))
+  return t<ReadonlyArray<ActionMatcherDescription<typeof S, any>>>()
 }
 /* compiles to:
  * export type ReadonlyActionMatcherDescriptionCollection<S> = ReadonlyArray<ActionMatcherDescription<S, any>>
@@ -55,7 +56,7 @@ export function ReadonlyActionMatcherDescriptionCollection(S) {
 // ✓ ActionMatcherDescriptionCollection: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ActionMatcherDescriptionCollection(S) {
-  return Array(ActionMatcherDescription(S, any))
+  return t<Array<ActionMatcherDescription<typeof S, any>>>()
 }
 /* compiles to:
  * export type ActionMatcherDescriptionCollection<S> = Array<ActionMatcherDescription<S, any>>

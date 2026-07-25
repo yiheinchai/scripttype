@@ -10,7 +10,7 @@
 // ✓ List: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function List(A = any) {
-  return ReadonlyArray(A)
+  return t<ReadonlyArray<typeof A>>()
 }
 /* compiles to:
  * export type List<A = any> = ReadonlyArray<A>

@@ -12,15 +12,18 @@
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const LiteralToPrimitive: any
 declare const OmitIndexSignature: any
+declare const U: any
 type LiteralToPrimitive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type LiteralToPrimitiveDeep<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type OmitIndexSignature<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type U<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ LiteralToPrimitiveDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function LiteralToPrimitiveDeep(T) {
   if (matches<object>(T)) {
     const m1 = matches<Array<Hole<"U">>>(T)
     if (m1) {
-      return Array(LiteralToPrimitiveDeep(m1.U))
+      return t<Array<LiteralToPrimitiveDeep<typeof m1.U>>>()
     }
     const out = emptyObject
     for (const K in keyof(OmitIndexSignature(T))) {

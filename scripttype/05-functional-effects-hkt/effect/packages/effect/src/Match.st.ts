@@ -290,7 +290,7 @@ export function NonLiteralsTo(A, T) {
 export function PatternBase(A) {
   const m1 = matches<ReadonlyArray<Hole<"_T">>>(A)
   if (m1) {
-    return ReadonlyArray(any) | PatternPrimitive(A)
+    return t<ReadonlyArray<any>>() | PatternPrimitive(A)
   }
   if (matches<Record<string, any>>(A)) {
     const out = emptyObject

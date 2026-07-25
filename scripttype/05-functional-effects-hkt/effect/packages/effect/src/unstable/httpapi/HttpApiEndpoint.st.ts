@@ -40,6 +40,7 @@ declare const StreamSse: any
 declare const StreamUint8Array: any
 declare const Struct: any
 declare const SuccessConstraint: any
+declare const Top: any
 declare const Uint8Array: any
 type AnyId<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Brand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -71,6 +72,7 @@ type StreamSse<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H 
 type StreamUint8Array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Struct<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SuccessConstraint<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Top<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Uint8Array<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✗ SuccessType: the ScriptType does not itself typecheck as TypeScript
 //   SuccessType.st.ts(3:22) TS2702: 'HttpApiSchema' only refers to a type, but is being used as a namespace here.
@@ -81,7 +83,7 @@ export function SuccessType(S) {
     return Stream.Stream(m1._Value, m1._Error['Type'], never)
   }
   if (matches<HttpApiSchema.StreamUint8Array>(S)) {
-    return Stream.Stream(Uint8Array, unknown, never)
+    return Stream.Stream(t<Uint8Array>(), unknown, never)
   }
   if (matches<Schema.Constraint>(S)) {
     return S['Type']
@@ -641,9 +643,9 @@ export function AddMiddleware(Endpoint, M: HttpApiMiddleware.AnyId) {
 /* @scripttype preserveParamNames */
 export function PayloadConstraint(Method: HttpMethod) {
   if (matches<HttpMethod.NoBody>(Method)) {
-    return Record(string, Schema.Encoder(anyOf(string, ReadonlyArray(string), Undefined), unknown))
+    return Record(string, Schema.Encoder(anyOf(string, t<ReadonlyArray<string>>(), Undefined), unknown))
   }
-  return Schema.Top | ReadonlyArray(Schema.Top)
+  return Schema.Top | t<ReadonlyArray<Schema.Top>>()
 }
 /* compiles to:
  * export type PayloadConstraint<Method extends HttpMethod> = Method extends HttpMethod.NoBody ? Record<string, Schema.Encoder<string | ReadonlyArray<string> | undefined, unknown>> : Schema.Top | ReadonlyArray<Schema.Top>
@@ -656,7 +658,7 @@ export function PayloadConstraintCodecs(Method: HttpMethod) {
   if (matches<HttpMethod.NoBody>(Method)) {
     return Record(string, Schema.Top)
   }
-  return Schema.Top | ReadonlyArray(Schema.Top)
+  return Schema.Top | t<ReadonlyArray<Schema.Top>>()
 }
 /* compiles to:
  * export type PayloadConstraintCodecs<Method extends HttpMethod> = Method extends HttpMethod.NoBody ? Record<string, Schema.Top> : Schema.Top | ReadonlyArray<Schema.Top>

@@ -17,7 +17,7 @@ type MySqlTimestampStringBuilder<A = any, B = any, C = any, D = any, E = any, F 
 // ✓ MySqlTimestampBuilderInitial: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MySqlTimestampBuilderInitial(TName: string) {
-  return MySqlTimestampBuilder({ name: TName, dataType: 'date', columnType: 'MySqlTimestamp', data: Date, driverParam: string | number, enumValues: Undefined })
+  return MySqlTimestampBuilder({ name: TName, dataType: 'date', columnType: 'MySqlTimestamp', data: t<Date>(), driverParam: string | number, enumValues: Undefined })
 }
 /* compiles to:
  * export type MySqlTimestampBuilderInitial<TName extends string> = MySqlTimestampBuilder<{ name: TName; dataType: 'date'; columnType: 'MySqlTimestamp'; data: Date; driverParam: string | number; enumValues: undefined }>

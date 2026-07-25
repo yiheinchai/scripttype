@@ -90,7 +90,7 @@ export function DeepBrand(T, Options: DeepBrandOptions) {
       const m2 = matches<(...args: Hole<"P">) => Hole<"R">>(T)
       if (m2) {
         if (matches<1>(NumOverloads(T))) {
-          return { type: 'function', params: DeepBrand(m2.P, Options), return: DeepBrand(m2.R, Options), this: DeepBrand(ThisParameterType(T), Options), props: DeepBrand(Omit(T, keyof(Function)), Options) }
+          return { type: 'function', params: DeepBrand(m2.P, Options), return: DeepBrand(m2.R, Options), this: DeepBrand(ThisParameterType(T), Options), props: DeepBrand(Omit(T, keyof(t<Function>())), Options) }
         }
         const m3 = matches<Hole<"OverloadsTuple">>(UnionToTuple(OverloadsInfoUnion(T)))
         if (m3) {

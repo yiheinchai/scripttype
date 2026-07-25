@@ -131,7 +131,7 @@ export function OmitSymbolKeys(T) {
 
 // ✓ JSONParsed: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function JSONParsed(T, TError = bigint | ReadonlyArray(bigint)) {
+export function JSONParsed(T, TError = bigint | t<ReadonlyArray<bigint>>()) {
   const m1 = matches<{ toJSON(): Hole<"J">; }>(T)
   if (m1) {
     if (matches<() => JSONPrimitive>(fnType([], m1.J))) {

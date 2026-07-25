@@ -35,7 +35,7 @@ export function StaticMap(T) {
 // ✓ Matcher: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Matcher(T) {
-  return [RegExp, arrayOf(HandlerData(T)), StaticMap(T)]
+  return [t<RegExp>(), arrayOf(HandlerData(T)), StaticMap(T)]
 }
 /* compiles to:
  * export type Matcher<T> = [RegExp, HandlerData<T>[], StaticMap<T>]

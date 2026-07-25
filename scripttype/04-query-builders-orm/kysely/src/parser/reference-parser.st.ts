@@ -28,6 +28,7 @@ type Expression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H
 type ExpressionOrFactory<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ExtractColumnType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type OrderByDirection<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ReferenceExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SC<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SelectQueryBuilderExpression<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type SelectType<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -62,7 +63,7 @@ export function ReferenceExpression(DB, TB: keyof typeof DB) {
 // ✓ ReferenceExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReferenceExpressionOrList(DB, TB: keyof typeof DB) {
-  return ReferenceExpression(DB, TB) | ReadonlyArray(ReferenceExpression(DB, TB))
+  return ReferenceExpression(DB, TB) | t<ReadonlyArray<ReferenceExpression<typeof DB, typeof TB>>>()
 }
 /* compiles to:
  * export type ReferenceExpressionOrList<DB, TB extends keyof DB> = ReferenceExpression<DB, TB> | ReadonlyArray<ReferenceExpression<DB, TB>>

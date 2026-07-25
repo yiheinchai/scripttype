@@ -20,6 +20,8 @@ declare const SubcommandEntry: any
 declare const SubcommandGroup: any
 type Command<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Config<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Error<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type ExtractSubcommand<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type GlobalFlag<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Param<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Setting<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -132,7 +134,7 @@ export function ExtractSubcommand(T) {
 //   ExtractSubcommandErrors.st.ts(2:58) TS2702: 'Command' only refers to a type, but is being used as a namespace here.
 /* @scripttype preserveParamNames */
 export function ExtractSubcommandErrors(T: ReadonlyArray<Command.SubcommandEntry>) {
-  return Error(ExtractSubcommand(T[number]))
+  return t<Error<ExtractSubcommand<(typeof T)[number]>>>()
 }
 /* compiles to:
  * export type ExtractSubcommandErrors<T extends ReadonlyArray<Command.SubcommandEntry>> = Error<ExtractSubcommand<T[number]>>

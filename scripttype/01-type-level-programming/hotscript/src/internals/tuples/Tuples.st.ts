@@ -20,6 +20,7 @@ declare const FilterFn: any
 declare const FindFn: any
 declare const FlatMapFn: any
 declare const Fn: any
+declare const Get: any
 declare const HeadFn: any
 declare const IsEmptyFn: any
 declare const Iterator: any
@@ -35,6 +36,7 @@ declare const PartialApply: any
 declare const PartitionFn: any
 declare const PrependFn: any
 declare const Prettify: any
+declare const Prev: any
 declare const PropertyKey: any
 declare const RangeFn: any
 declare const ReduceFn: any
@@ -64,6 +66,7 @@ type FilterFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H =
 type FindFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type FlatMapFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Fn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Get<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type HeadFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type IsEmptyFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Iterator<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -79,6 +82,7 @@ type PartialApply<A = any, B = any, C = any, D = any, E = any, F = any, G = any,
 type PartitionFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type PrependFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Prettify<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Prev<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type PropertyKey<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type RangeFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type ReduceFn<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
@@ -396,15 +400,15 @@ export function Sum(tuple: readonly any[] | unset = unset) {
  */
 
 // ✗ DropImpl: the ScriptType does not itself typecheck as TypeScript
-//   DropImpl.st.ts(3:18) TS2693: 'Iterator' only refers to a type, but is being used as a value here.
+//   DropImpl.st.ts(3:20) TS2702: 'Iterator' only refers to a type, but is being used as a namespace here.
 /* @scripttype preserveParamNames */
 export function DropImpl(xs: readonly any[], n: any[]) {
-  if (matches<0>(Iterator.Get(n))) {
+  if (matches<0>(t<Iterator.Get<typeof n>>())) {
     return xs
   }
   const m1 = matches<readonly [ any, ...Hole<"tail"> ]>(xs)
   if (m1) {
-    return DropImpl(m1.tail, Iterator.Prev(n))
+    return DropImpl(m1.tail, t<Iterator.Prev<typeof n>>())
   }
   return []
 }
@@ -423,15 +427,15 @@ export function Drop(n: number | unset | _ = unset, tuple = unset) {
  */
 
 // ✗ TakeImpl: the ScriptType does not itself typecheck as TypeScript
-//   TakeImpl.st.ts(3:18) TS2693: 'Iterator' only refers to a type, but is being used as a value here.
+//   TakeImpl.st.ts(3:20) TS2702: 'Iterator' only refers to a type, but is being used as a namespace here.
 /* @scripttype preserveParamNames */
 export function TakeImpl(xs: readonly any[], it: any[], output: any[] = []) {
-  if (matches<0>(Iterator.Get(it))) {
+  if (matches<0>(t<Iterator.Get<typeof it>>())) {
     return output
   }
   const m1 = matches<readonly [ Hole<"head">, ...Hole<"tail"> ]>(xs)
   if (m1) {
-    return TakeImpl(m1.tail, Iterator.Prev(it), [...output, m1.head])
+    return TakeImpl(m1.tail, t<Iterator.Prev<typeof it>>(), [...output, m1.head])
   }
   return output
 }

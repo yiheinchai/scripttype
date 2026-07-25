@@ -13,11 +13,13 @@
 declare const IsEqual: any
 declare const Subtract: any
 type IsEqual<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type MultidimensionalReadonlyArray<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
+type Recursive<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 type Subtract<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any> = any
 // ✓ Recursive: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Recursive(T) {
-  return ReadonlyArray(Recursive(T))
+  return t<ReadonlyArray<Recursive<typeof T>>>()
 }
 /* compiles to:
  * export type Recursive<T> = ReadonlyArray<Recursive<T>>
@@ -32,7 +34,7 @@ export function MultidimensionalReadonlyArray(Element, Dimensions: number) {
   if (matches<true>(IsEqual(Dimensions, 0))) {
     return Element
   }
-  return ReadonlyArray(MultidimensionalReadonlyArray(Element, Subtract(Dimensions, 1)))
+  return t<ReadonlyArray<MultidimensionalReadonlyArray<typeof Element, Subtract<typeof Dimensions, 1>>>>()
 }
 /* compiles to:
  * export type MultidimensionalReadonlyArray<Element, Dimensions extends number> = number extends Dimensions ? Recursive<Element> : IsEqual<Dimensions, 0> extends true ? Element : ReadonlyArray<MultidimensionalReadonlyArray<Element, Subtract<Dimensions, 1>>>

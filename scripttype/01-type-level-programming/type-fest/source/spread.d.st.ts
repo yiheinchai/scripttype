@@ -40,14 +40,14 @@ export function SpreadObject(FirstType: object, SecondType: object) {
 // ✓ SpreadTupleOrArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SpreadTupleOrArray(FirstType: TupleOrArray, SecondType: TupleOrArray) {
-  return t<Array<(typeof FirstType)[number] | (typeof SecondType)[number]>>()
+  return arrayOf(FirstType[number] | SecondType[number])
 }
 /* compiles to:
  * export type SpreadTupleOrArray<
  *   FirstType extends TupleOrArray,
  *   SecondType extends TupleOrArray
  * > =
- *   Array<FirstType[number] | SecondType[number]>
+ *   (FirstType[number] | SecondType[number])[]
  */
 
 // ✓ Spread: verified type-identical to the original

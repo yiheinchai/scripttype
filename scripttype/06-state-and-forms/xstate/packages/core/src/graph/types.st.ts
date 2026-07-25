@@ -36,12 +36,11 @@ export function JSONSerializable(T: object, U) {
 // ✓ Steps: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Steps(TSnapshot: Snapshot<unknown>, TEvent: EventObject) {
-  return t<Array<Step<typeof TSnapshot, typeof TEvent>>>()
+  return arrayOf(Step(TSnapshot, TEvent))
 }
 /* compiles to:
- * export type Steps<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject> = Array<
- *   Step<TSnapshot, TEvent>
- * >
+ * export type Steps<TSnapshot extends Snapshot<unknown>, TEvent extends EventObject> =
+ *   Step<TSnapshot, TEvent>[]
  */
 
 // ✗ ExtractEvent: does not compile yet
@@ -114,7 +113,7 @@ export function EventExecutor(TSnapshot: Snapshot<unknown>, TEvent: EventObject)
 // ✓ PathGenerator: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PathGenerator(TSnapshot: Snapshot<unknown>, TEvent: EventObject, TInput) {
-  return fnType([ActorLogic(TSnapshot, TEvent, TInput), TraversalOptions(TSnapshot, TEvent, TInput)], t<Array<StatePath<typeof TSnapshot, typeof TEvent>>>())
+  return fnType([ActorLogic(TSnapshot, TEvent, TInput), TraversalOptions(TSnapshot, TEvent, TInput)], arrayOf(StatePath(TSnapshot, TEvent)))
 }
 /* compiles to:
  * export type PathGenerator<
@@ -125,5 +124,5 @@ export function PathGenerator(TSnapshot: Snapshot<unknown>, TEvent: EventObject,
  *   (
  *     a0: ActorLogic<TSnapshot, TEvent, TInput>,
  *     a1: TraversalOptions<TSnapshot, TEvent, TInput>
- *   ) => Array<StatePath<TSnapshot, TEvent>>
+ *   ) => StatePath<TSnapshot, TEvent>[]
  */

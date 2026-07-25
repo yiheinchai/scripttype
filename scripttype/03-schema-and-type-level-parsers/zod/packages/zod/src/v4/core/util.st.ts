@@ -22,8 +22,6 @@ declare const AnyFunc: any
 declare const BuiltIn: any
 declare const EnumValue: any
 declare const PropertyKey: any
-declare const ReadonlyMap: any
-declare const ReadonlySet: any
 declare const SomeObject: any
 declare const SomeType: any
 declare const V: any
@@ -34,8 +32,6 @@ type AnyFunc<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type EnumValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SomeObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SomeType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -216,7 +212,7 @@ export function MakeReadonly(T) {
   }
   const m4 = matches<Array<Hole<"V">>>(T)
   if (m4) {
-    return t<ReadonlyArray<typeof m4.V>>()
+    return readonlyArrayOf(m4.V)
   }
   if (matches<BuiltIn>(T)) {
     return T
@@ -228,7 +224,7 @@ export function MakeReadonly(T) {
  *   T extends Map<infer K, infer V> ? ReadonlyMap<K, V>
  *   : T extends Set<infer V> ? ReadonlySet<V>
  *   : T extends [infer Head, ...infer Tail] ? readonly [Head, ...Tail]
- *   : T extends Array<infer V> ? ReadonlyArray<V>
+ *   : T extends Array<infer V> ? readonly V[]
  *   : T extends BuiltIn ? T
  *   : Readonly<T>
  */

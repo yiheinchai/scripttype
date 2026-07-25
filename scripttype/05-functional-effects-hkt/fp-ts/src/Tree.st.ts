@@ -15,8 +15,8 @@ type Tree<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, 
 // ✓ Forest: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Forest(A) {
-  return t<Array<Tree<typeof A>>>()
+  return arrayOf(Tree(A))
 }
 /* compiles to:
- * export type Forest<A> = Array<Tree<A>>
+ * export type Forest<A> = Tree<A>[]
  */

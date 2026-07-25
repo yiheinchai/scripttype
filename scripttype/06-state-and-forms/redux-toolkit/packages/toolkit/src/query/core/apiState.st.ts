@@ -57,23 +57,23 @@ type WithRequiredProp<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any
 // ✓ InfiniteQueryConfigOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InfiniteQueryConfigOptions(DataType, PageParam, QueryArg) {
-  return { initialPageParam: PageParam, getNextPageParam: fnType([DataType, t<Array<typeof DataType>>(), PageParam, t<Array<typeof PageParam>>(), QueryArg], anyOf(PageParam, Undefined, Null)), getPreviousPageParam: optional(fnType([DataType, t<Array<typeof DataType>>(), PageParam, t<Array<typeof PageParam>>(), QueryArg], anyOf(PageParam, Undefined, Null))), maxPages: optional(number), refetchCachedPages: optional(boolean) }
+  return { initialPageParam: PageParam, getNextPageParam: fnType([DataType, arrayOf(DataType), PageParam, arrayOf(PageParam), QueryArg], anyOf(PageParam, Undefined, Null)), getPreviousPageParam: optional(fnType([DataType, arrayOf(DataType), PageParam, arrayOf(PageParam), QueryArg], anyOf(PageParam, Undefined, Null))), maxPages: optional(number), refetchCachedPages: optional(boolean) }
 }
 /* compiles to:
  * export type InfiniteQueryConfigOptions<DataType, PageParam, QueryArg> = {
  *   initialPageParam: PageParam
  *   getNextPageParam: (
  *     a0: DataType,
- *     a1: Array<DataType>,
+ *     a1: DataType[],
  *     a2: PageParam,
- *     a3: Array<PageParam>,
+ *     a3: PageParam[],
  *     a4: QueryArg
  *   ) => PageParam | undefined | null
  *   getPreviousPageParam?: (
  *     a0: DataType,
- *     a1: Array<DataType>,
+ *     a1: DataType[],
  *     a2: PageParam,
- *     a3: Array<PageParam>,
+ *     a3: PageParam[],
  *     a4: QueryArg
  *   ) => PageParam | undefined | null
  *   maxPages?: number
@@ -84,13 +84,10 @@ export function InfiniteQueryConfigOptions(DataType, PageParam, QueryArg) {
 // ✓ InfiniteData: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function InfiniteData(DataType, PageParam) {
-  return { pages: t<Array<typeof DataType>>(), pageParams: t<Array<typeof PageParam>>() }
+  return { pages: arrayOf(DataType), pageParams: arrayOf(PageParam) }
 }
 /* compiles to:
- * export type InfiniteData<DataType, PageParam> = {
- *   pages: Array<DataType>
- *   pageParams: Array<PageParam>
- * }
+ * export type InfiniteData<DataType, PageParam> = { pages: DataType[]; pageParams: PageParam[] }
  */
 
 // ✓ QueryKeys: verified type-identical to the original
@@ -293,7 +290,7 @@ export function InvalidationState(TagTypes: string) {
   for (const _ in keySet(TagTypes)) {
     out[_] = raw('{ [id: string]: Array<QueryCacheKey>; [id: number]: Array<QueryCacheKey>; }')
   }
-  return { tags: out, keys: Record(QueryCacheKey, t<Array<FullTagDescription<any>>>()) }
+  return { tags: out, keys: Record(QueryCacheKey, arrayOf(FullTagDescription(any))) }
 }
 
 // ✓ QueryState: verified type-identical to the original

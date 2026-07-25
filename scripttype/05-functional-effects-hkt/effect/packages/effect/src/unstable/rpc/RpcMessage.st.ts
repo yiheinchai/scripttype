@@ -56,17 +56,17 @@ export function FromServer(A: Rpc.Any) {
 //   'E' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
 export function ExitEncoded(A, E) {
-  return anyOf({ _tag: readonlyProp('Success'), value: readonlyProp(A) }, { _tag: readonlyProp('Failure'), cause: readonlyProp(t<ReadonlyArray<{ readonly _tag: "Fail"; readonly error: typeof E; } | { readonly _tag: "Die"; readonly defect: unknown; } | { readonly _tag: "Interrupt"; readonly fiberId: number | undefined; }>>()) })
+  return anyOf({ _tag: readonlyProp('Success'), value: readonlyProp(A) }, { _tag: readonlyProp('Failure'), cause: readonlyProp(readonlyArrayOf(anyOf({ _tag: readonlyProp('Fail'), error: readonlyProp(E) }, { _tag: readonlyProp('Die'), defect: readonlyProp(unknown) }, { _tag: readonlyProp('Interrupt'), fiberId: readonlyProp(anyOf(number, Undefined)) }))) })
 }
 /* compiles to:
  * export type ExitEncoded<A, E> =
  *   | { readonly _tag: 'Success'; readonly value: A }
  *   | {
  *       readonly _tag: 'Failure'
- *       readonly cause: ReadonlyArray<
- *         | { readonly _tag: "Fail"; readonly error: typeof E; }
- *         | { readonly _tag: "Die"; readonly defect: unknown; }
- *         | { readonly _tag: "Interrupt"; readonly fiberId: number | undefined; }
- *       >
+ *       readonly cause: readonly (
+ *         | { readonly _tag: 'Fail'; readonly error: E }
+ *         | { readonly _tag: 'Die'; readonly defect: unknown }
+ *         | { readonly _tag: 'Interrupt'; readonly fiberId: number | undefined }
+ *       )[]
  *     }
  */

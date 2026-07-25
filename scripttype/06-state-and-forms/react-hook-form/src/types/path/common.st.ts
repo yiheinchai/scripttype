@@ -315,14 +315,14 @@ export function CheckKeyConstraint(T, K: Key, U) {
 // ✓ ContainsIndexable: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ContainsIndexable(T) {
-  if (matches<true>(IsNever(Extract(T, t<ReadonlyArray<any>>())))) {
+  if (matches<true>(IsNever(Extract(T, readonlyArrayOf(any))))) {
     return false
   }
   return true
 }
 /* compiles to:
  * export type ContainsIndexable<T> =
- *   IsNever<Extract<T, ReadonlyArray<any>>> extends true ? false : true
+ *   IsNever<Extract<T, readonly any[]>> extends true ? false : true
  */
 
 // ✓ KeysImpl: verified type-identical to the original

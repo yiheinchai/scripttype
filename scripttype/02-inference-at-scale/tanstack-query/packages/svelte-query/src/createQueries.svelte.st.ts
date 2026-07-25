@@ -206,7 +206,7 @@ export function GetCreateQueryResult(T) {
 /* @scripttype preserveParamNames */
 export function QueriesOptions(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return t<Array<CreateQueryOptionsForCreateQueries>>()
+    return arrayOf(CreateQueryOptionsForCreateQueries)
   }
   if (matches<[ ]>(T)) {
     return []
@@ -219,14 +219,14 @@ export function QueriesOptions(T: Array<any>, TResults: Array<any> = [], TDepth:
   if (m2) {
     return QueriesOptions([...m2.Tails], [...TResults, GetCreateQueryOptionsForCreateQueries(m2.Head)], [...TDepth, 1])
   }
-  if (matches<typeof T>(t<ReadonlyArray<unknown>>())) {
+  if (matches<typeof T>(readonlyArrayOf(unknown))) {
     return T
   }
   const m3 = matches<Array<CreateQueryOptionsForCreateQueries<Hole<"TQueryFnData">, Hole<"TError">, Hole<"TData">, Hole<"TQueryKey">>>>(T)
   if (m3) {
-    return t<Array<CreateQueryOptionsForCreateQueries<typeof m3.TQueryFnData, typeof m3.TError, typeof m3.TData, typeof m3.TQueryKey>>>()
+    return arrayOf(CreateQueryOptionsForCreateQueries(m3.TQueryFnData, m3.TError, m3.TData, m3.TQueryKey))
   }
-  return t<Array<CreateQueryOptionsForCreateQueries>>()
+  return arrayOf(CreateQueryOptionsForCreateQueries)
 }
 /* compiles to:
  * export type QueriesOptions<
@@ -234,7 +234,7 @@ export function QueriesOptions(T: Array<any>, TResults: Array<any> = [], TDepth:
  *   TResults extends Array<any> = [],
  *   TDepth extends ReadonlyArray<number> = []
  * > =
- *   TDepth['length'] extends MAXIMUM_DEPTH ? Array<CreateQueryOptionsForCreateQueries>
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? CreateQueryOptionsForCreateQueries[]
  *   : T extends [] ? []
  *   : T extends [infer Head] ? [...TResults, GetCreateQueryOptionsForCreateQueries<Head>]
  *   : T extends [infer Head, ...infer Tails]
@@ -243,17 +243,17 @@ export function QueriesOptions(T: Array<any>, TResults: Array<any> = [], TDepth:
  *       [...TResults, GetCreateQueryOptionsForCreateQueries<Head>],
  *       [...TDepth, 1]
  *     >
- *   : ReadonlyArray<unknown> extends T ? T
+ *   : readonly unknown[] extends T ? T
  *   : T extends Array<CreateQueryOptionsForCreateQueries<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>>
- *     ? Array<CreateQueryOptionsForCreateQueries<TQueryFnData, TError, TData, TQueryKey>>
- *   : Array<CreateQueryOptionsForCreateQueries>
+ *     ? CreateQueryOptionsForCreateQueries<TQueryFnData, TError, TData, TQueryKey>[]
+ *   : CreateQueryOptionsForCreateQueries[]
  */
 
 // ✓ QueriesResults: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function QueriesResults(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return t<Array<CreateQueryResult>>()
+    return arrayOf(CreateQueryResult)
   }
   if (matches<[ ]>(T)) {
     return []
@@ -278,7 +278,7 @@ export function QueriesResults(T: Array<any>, TResults: Array<any> = [], TDepth:
  *   TResults extends Array<any> = [],
  *   TDepth extends ReadonlyArray<number> = []
  * > =
- *   TDepth['length'] extends MAXIMUM_DEPTH ? Array<CreateQueryResult>
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? CreateQueryResult[]
  *   : T extends [] ? []
  *   : T extends [infer Head] ? [...TResults, GetCreateQueryResult<Head>]
  *   : T extends [infer Head, ...infer Tails]

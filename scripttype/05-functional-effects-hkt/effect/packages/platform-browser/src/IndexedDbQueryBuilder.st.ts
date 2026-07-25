@@ -34,11 +34,9 @@ declare const IndexFromTable: any
 declare const IndexedDb: any
 declare const IndexedDbDatabase: any
 declare const IndexedDbTable: any
-declare const MakeIn: any
 declare const NonEmptyReadonlyArray: any
 declare const Schema: any
 declare const Select: any
-declare const Struct: any
 type AnySchemaStruct<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AnyWithProps<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Delete<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -47,11 +45,9 @@ type IndexFromTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, 
 type IndexedDb<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IndexedDbDatabase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IndexedDbTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MakeIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonEmptyReadonlyArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Schema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Select<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Struct<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ KeyPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function KeyPath(TableSchema: IndexedDbTable.AnySchemaStruct) {
@@ -96,7 +92,7 @@ export function SelectType(Table: IndexedDbTable.AnyWithProps) {
 export function ModifyType(Table: IndexedDbTable.AnyWithProps) {
   const out = emptyObject
   for (const key in keyof(Schema.Struct.MakeIn(Omit(IndexedDbTable.TableSchema(Table)['fields'], IndexedDbTable.KeyPath(Table))))) {
-    out[key] = matches<keyof Schema.Struct.MakeIn<IndexedDbTable.TableSchema<typeof Table>["fields"]>>(key) ? Schema.Struct.MakeIn(IndexedDbTable.TableSchema(Table)['fields'])[key] : never
+    out[key] = key in Schema.Struct.MakeIn(IndexedDbTable.TableSchema(Table)['fields']) ? Schema.Struct.MakeIn(IndexedDbTable.TableSchema(Table)['fields'])[key] : never
   }
   const out2 = emptyObject
   for (const key in keySet(IndexedDbTable.KeyPath(Table))) {

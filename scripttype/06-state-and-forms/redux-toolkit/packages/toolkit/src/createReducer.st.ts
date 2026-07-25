@@ -17,7 +17,6 @@ declare const Reducer: any
 declare const TypeGuard: any
 declare const UnknownAction: any
 type Action<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ActionMatcherDescription<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Actions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Draft<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NoInfer<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -50,21 +49,19 @@ export function ActionMatcherDescription(S, A: Action) {
 // ✓ ReadonlyActionMatcherDescriptionCollection: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyActionMatcherDescriptionCollection(S) {
-  return t<ReadonlyArray<ActionMatcherDescription<typeof S, any>>>()
+  return readonlyArrayOf(ActionMatcherDescription(S, any))
 }
 /* compiles to:
- * export type ReadonlyActionMatcherDescriptionCollection<S> = ReadonlyArray<
- *   ActionMatcherDescription<S, any>
- * >
+ * export type ReadonlyActionMatcherDescriptionCollection<S> = readonly ActionMatcherDescription<S, any>[]
  */
 
 // ✓ ActionMatcherDescriptionCollection: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ActionMatcherDescriptionCollection(S) {
-  return t<Array<ActionMatcherDescription<typeof S, any>>>()
+  return arrayOf(ActionMatcherDescription(S, any))
 }
 /* compiles to:
- * export type ActionMatcherDescriptionCollection<S> = Array<ActionMatcherDescription<S, any>>
+ * export type ActionMatcherDescriptionCollection<S> = ActionMatcherDescription<S, any>[]
  */
 
 // ✗ CaseReducer: the ScriptType does not itself typecheck as TypeScript

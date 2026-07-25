@@ -11,8 +11,8 @@
 //   eq=false
 /* @scripttype preserveParamNames */
 export function TaggedValues(A) {
-  return { _tag: readonlyProp(string), value: readonlyProp(t<ReadonlyArray<typeof A>>()) }
+  return { _tag: readonlyProp(string), value: readonlyProp(readonlyArrayOf(A)) }
 }
 /* compiles to:
- * export type TaggedValues<A> = { readonly _tag: string; readonly value: ReadonlyArray<A> }
+ * export type TaggedValues<A> = { readonly _tag: string; readonly value: readonly A[] }
  */

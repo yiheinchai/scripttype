@@ -47,7 +47,6 @@ type ExtendsExcludingAnyOrNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any
 type IsAny<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsUnknown<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MismatchInfo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Not<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OptionalKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StrictEqualUsingBranding<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -140,7 +139,7 @@ export function PrintType(T) {
 export function MismatchInfo(Actual, Expected, Options: DeepBrandOptions = DeepBrandOptionsDefaults) {
   if (matches<true>(And([Extends(PrintType(Actual), '...'), Not(IsAny(Actual))]))) {
     if (matches<true>(And([Extends(arrayOf(any), Actual), Extends(arrayOf(any), Expected)]))) {
-      return t<Array<MismatchInfo<Extract<typeof Actual, any[]>[number], Extract<typeof Expected, any[]>[number], typeof Options>>>()
+      return arrayOf(MismatchInfo(Extract(Actual, arrayOf(any))[number], Extract(Expected, arrayOf(any))[number], Options))
     }
     const out = emptyObject
     for (const K in keySet(UsefulKeys(Actual) | UsefulKeys(Expected))) {
@@ -161,9 +160,7 @@ export function MismatchInfo(Actual, Expected, Options: DeepBrandOptions = DeepB
  * > =
  *   And<[Extends<PrintType<Actual>, '...'>, Not<IsAny<Actual>>]> extends true
  *     ? And<[Extends<any[], Actual>, Extends<any[], Expected>]> extends true
- *       ? Array<
- *         MismatchInfo<Extract<Actual, any[]>[number], Extract<Expected, any[]>[number], Options>
- *       >
+ *       ? MismatchInfo<Extract<Actual, any[]>[number], Extract<Expected, any[]>[number], Options>[]
  *       : Optionalify<
  *         {
  *           [K in UsefulKeys<Actual> | UsefulKeys<Expected>]: MismatchInfo<

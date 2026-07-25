@@ -15,8 +15,8 @@ type QueryObserverResult<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = 
 // ✓ CombineFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CombineFn(TCombinedResult) {
-  return fnType([t<Array<QueryObserverResult>>()], TCombinedResult)
+  return fnType([arrayOf(QueryObserverResult)], TCombinedResult)
 }
 /* compiles to:
- * export type CombineFn<TCombinedResult> = (a0: Array<QueryObserverResult>) => TCombinedResult
+ * export type CombineFn<TCombinedResult> = (a0: QueryObserverResult[]) => TCombinedResult
  */

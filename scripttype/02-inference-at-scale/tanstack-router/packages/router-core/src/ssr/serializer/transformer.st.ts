@@ -28,7 +28,6 @@ declare const TKey: any
 declare const TNext: any
 declare const TReturn: any
 declare const TValue: any
-declare const U: any
 type AnyRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AnySerializationAdapter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AsyncGenerator<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -48,7 +47,6 @@ type TKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, 
 type TNext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TReturn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValidateSerializable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ UnionizeSerializationAdaptersInput: verified type-identical to the original
 /* @scripttype preserveParamNames */
@@ -206,19 +204,19 @@ export function ValidateSerializableArray(T, TSerializable) {
   }
   const m1 = matches<Array<Hole<"U">>>(T)
   if (m1) {
-    return t<Array<ValidateSerializable<typeof m1.U, typeof TSerializable>>>()
+    return arrayOf(ValidateSerializable(m1.U, TSerializable))
   }
   const m2 = matches<ReadonlyArray<Hole<"U">>>(T)
   if (m2) {
-    return t<ReadonlyArray<ValidateSerializable<typeof m2.U, typeof TSerializable>>>()
+    return readonlyArrayOf(ValidateSerializable(m2.U, TSerializable))
   }
   return never
 }
 /* compiles to:
  * export type ValidateSerializableArray<T, TSerializable> =
  *   T extends readonly [any, ...Array<any>] ? ValidateSerializableMapped<T, TSerializable>
- *   : T extends Array<infer U> ? Array<ValidateSerializable<U, TSerializable>>
- *   : T extends ReadonlyArray<infer U> ? ReadonlyArray<ValidateSerializable<U, TSerializable>>
+ *   : T extends Array<infer U> ? ValidateSerializable<U, TSerializable>[]
+ *   : T extends ReadonlyArray<infer U> ? readonly ValidateSerializable<U, TSerializable>[]
  *   : never
  */
 

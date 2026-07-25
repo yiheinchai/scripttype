@@ -22,12 +22,8 @@ type ResolvedMigration<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = an
 // ✓ Loader: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Loader(R = never) {
-  return Effect.Effect(t<ReadonlyArray<ResolvedMigration>>(), MigrationError, R)
+  return Effect.Effect(readonlyArrayOf(ResolvedMigration), MigrationError, R)
 }
 /* compiles to:
- * export type Loader<R = never> = Effect.Effect<
- *   ReadonlyArray<ResolvedMigration>,
- *   MigrationError,
- *   R
- * >
+ * export type Loader<R = never> = Effect.Effect<readonly ResolvedMigration[], MigrationError, R>
  */

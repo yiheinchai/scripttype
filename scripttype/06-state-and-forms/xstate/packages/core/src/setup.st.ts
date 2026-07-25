@@ -105,7 +105,7 @@ export function ToParameterizedObject(TParameterizedMap: Record<string, Paramete
 export function ToProvidedActor(TChildrenMap: Record<string, string>, TActors: Record<string, UnknownActorLogic>) {
   const out = emptyObject
   for (const K in keyof(TActors)) {
-    out[merge(K, string)] = { src: merge(K, string), logic: TActors[K], id: matches<true>(IsNever(TChildrenMap)) ? (anyOf(string, Undefined)) : (matches<keyof Invert<typeof TChildrenMap>>(K) ? (Invert(TChildrenMap)[K] & string) : (anyOf(string, Undefined))) }
+    out[merge(K, string)] = { src: merge(K, string), logic: TActors[K], id: matches<true>(IsNever(TChildrenMap)) ? (anyOf(string, Undefined)) : (K in Invert(TChildrenMap) ? (Invert(TChildrenMap)[K] & string) : (anyOf(string, Undefined))) }
   }
   return Values(out)
 }

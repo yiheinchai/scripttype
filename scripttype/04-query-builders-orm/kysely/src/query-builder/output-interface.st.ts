@@ -19,7 +19,6 @@ type AliasedExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any
 type AnyAliasedColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type AnyColumnWithTable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OutputExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OutputPrefix<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ OutputDatabase: verified type-identical to the original
 /* @scripttype preserveParamNames */
@@ -57,13 +56,11 @@ export function OutputExpression(DB, TB: keyof typeof DB, OP: OutputPrefix = Out
 // ✓ OutputCallback: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function OutputCallback(DB, TB: keyof typeof DB, OP: OutputPrefix = OutputPrefix) {
-  return fnType([ExpressionBuilder(OutputDatabase(DB, TB, OP), OP)], t<ReadonlyArray<OutputExpression<typeof DB, typeof TB, typeof OP>>>())
+  return fnType([ExpressionBuilder(OutputDatabase(DB, TB, OP), OP)], readonlyArrayOf(OutputExpression(DB, TB, OP)))
 }
 /* compiles to:
  * export type OutputCallback<DB, TB extends keyof DB, OP extends OutputPrefix = OutputPrefix> =
- *   (a0: ExpressionBuilder<OutputDatabase<DB, TB, OP>, OP>) => ReadonlyArray<
- *     OutputExpression<DB, TB, OP>
- *   >
+ *   (a0: ExpressionBuilder<OutputDatabase<DB, TB, OP>, OP>) => readonly OutputExpression<DB, TB, OP>[]
  */
 
 // ✓ SelectExpressionFromOutputExpression: verified type-identical to the original

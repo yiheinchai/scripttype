@@ -402,7 +402,7 @@ export function MergeAll(TUnion) {
 // ✓ ValidateJSON: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValidateJSON(T) {
-  if (matches<typeof T>(fnType([t<Array<any>>()], any))) {
+  if (matches<typeof T>(fnType([arrayOf(any)], any))) {
     if (matches<typeof T>(unknown)) {
       return never
     }
@@ -416,7 +416,7 @@ export function ValidateJSON(T) {
 }
 /* compiles to:
  * export type ValidateJSON<T> =
- *   ((a0: Array<any>) => any) extends T
+ *   ((a0: any[]) => any) extends T
  *     ? unknown extends T ? never : 'Function is not serializable'
  *     : { [K in keyof T]: ValidateJSON<T[K]> }
  */

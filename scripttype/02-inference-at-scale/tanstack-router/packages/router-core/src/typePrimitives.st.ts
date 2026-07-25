@@ -171,7 +171,7 @@ export function ValidateNavigateOptions(TRouter: AnyRouter = RegisteredRouter, T
 
 // ✓ ValidateNavigateOptionsArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateNavigateOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions: ReadonlyArray<any> = t<ReadonlyArray<unknown>>(), TDefaultFrom: string = string) {
+export function ValidateNavigateOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions: ReadonlyArray<any> = readonlyArrayOf(unknown), TDefaultFrom: string = string) {
   const out = emptyObject
   for (const K in keyof(TOptions)) {
     out[K] = ValidateNavigateOptions(TRouter, TOptions[K], TDefaultFrom)
@@ -181,7 +181,7 @@ export function ValidateNavigateOptionsArray(TRouter: AnyRouter = RegisteredRout
 /* compiles to:
  * export type ValidateNavigateOptionsArray<
  *   TRouter extends AnyRouter = RegisteredRouter,
- *   TOptions extends ReadonlyArray<any> = ReadonlyArray<unknown>,
+ *   TOptions extends ReadonlyArray<any> = readonly unknown[],
  *   TDefaultFrom extends string = string
  * > =
  *   { [K in keyof TOptions]: ValidateNavigateOptions<TRouter, TOptions[K], TDefaultFrom> }
@@ -212,7 +212,7 @@ export function ValidateRedirectOptions(TRouter: AnyRouter = RegisteredRouter, T
 
 // ✓ ValidateRedirectOptionsArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateRedirectOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions: ReadonlyArray<any> = t<ReadonlyArray<unknown>>(), TDefaultFrom: string = string) {
+export function ValidateRedirectOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions: ReadonlyArray<any> = readonlyArrayOf(unknown), TDefaultFrom: string = string) {
   const out = emptyObject
   for (const K in keyof(TOptions)) {
     out[K] = ValidateRedirectOptions(TRouter, TOptions[K], TDefaultFrom)
@@ -222,7 +222,7 @@ export function ValidateRedirectOptionsArray(TRouter: AnyRouter = RegisteredRout
 /* compiles to:
  * export type ValidateRedirectOptionsArray<
  *   TRouter extends AnyRouter = RegisteredRouter,
- *   TOptions extends ReadonlyArray<any> = ReadonlyArray<unknown>,
+ *   TOptions extends ReadonlyArray<any> = readonly unknown[],
  *   TDefaultFrom extends string = string
  * > =
  *   { [K in keyof TOptions]: ValidateRedirectOptions<TRouter, TOptions[K], TDefaultFrom> }

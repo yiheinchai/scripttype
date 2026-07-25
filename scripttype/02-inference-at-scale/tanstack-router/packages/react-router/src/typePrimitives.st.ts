@@ -117,7 +117,7 @@ export function ValidateUseParamsOptions(TOptions, TRouter: AnyRouter = Register
 
 // ✓ ValidateLinkOptionsArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
-export function ValidateLinkOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions: ReadonlyArray<any> = t<ReadonlyArray<unknown>>(), TDefaultFrom: string = string, TComp = 'a') {
+export function ValidateLinkOptionsArray(TRouter: AnyRouter = RegisteredRouter, TOptions: ReadonlyArray<any> = readonlyArrayOf(unknown), TDefaultFrom: string = string, TComp = 'a') {
   const out = emptyObject
   for (const K in keyof(TOptions)) {
     out[K] = ValidateLinkOptions(TRouter, TOptions[K], TDefaultFrom, TComp)
@@ -127,7 +127,7 @@ export function ValidateLinkOptionsArray(TRouter: AnyRouter = RegisteredRouter, 
 /* compiles to:
  * export type ValidateLinkOptionsArray<
  *   TRouter extends AnyRouter = RegisteredRouter,
- *   TOptions extends ReadonlyArray<any> = ReadonlyArray<unknown>,
+ *   TOptions extends ReadonlyArray<any> = readonly unknown[],
  *   TDefaultFrom extends string = string,
  *   TComp = 'a'
  * > =

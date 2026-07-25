@@ -17,12 +17,12 @@ type RequestServerOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 =
 // ✓ CsrfMatcher: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CsrfMatcher(TValue, TRegister = Register, TMiddlewares = unknown) {
-  return TValue | t<Array<typeof TValue>>() | fnType([anyOf(TValue, merge(string, {})), RequestServerOptions(TRegister, TMiddlewares)], boolean | t<Promise<boolean>>())
+  return TValue | arrayOf(TValue) | fnType([anyOf(TValue, merge(string, {})), RequestServerOptions(TRegister, TMiddlewares)], boolean | t<Promise<boolean>>())
 }
 /* compiles to:
  * export type CsrfMatcher<TValue, TRegister = Register, TMiddlewares = unknown> =
  *   | TValue
- *   | Array<TValue>
+ *   | TValue[]
  *   | (
  *       (a0: TValue | string & {}, a1: RequestServerOptions<TRegister, TMiddlewares>) => | boolean
  *       | Promise<boolean>

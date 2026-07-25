@@ -43,15 +43,15 @@ export function State(A, E) {
 //   eq=false
 /* @scripttype preserveParamNames */
 export function OfferEntry(A) {
-  return anyOf({ _tag: readonlyProp('Array'), remaining: readonlyProp(t<Array<typeof A>>()), offset: number, resume: readonlyProp(fnType([Effect(t<Array<typeof A>>())], voidType())) }, { _tag: readonlyProp('Single'), message: readonlyProp(A), resume: readonlyProp(fnType([Effect(boolean)], voidType())) })
+  return anyOf({ _tag: readonlyProp('Array'), remaining: readonlyProp(arrayOf(A)), offset: number, resume: readonlyProp(fnType([Effect(arrayOf(A))], voidType())) }, { _tag: readonlyProp('Single'), message: readonlyProp(A), resume: readonlyProp(fnType([Effect(boolean)], voidType())) })
 }
 /* compiles to:
  * export type OfferEntry<A> =
  *   | {
  *       readonly _tag: 'Array'
- *       readonly remaining: Array<A>
+ *       readonly remaining: A[]
  *       offset: number
- *       readonly resume: (a0: Effect<Array<A>>) => void
+ *       readonly resume: (a0: Effect<A[]>) => void
  *     }
  *   | {
  *       readonly _tag: 'Single'

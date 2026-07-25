@@ -10,15 +10,11 @@
 // Names this file references but does not define: types from elsewhere in the
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
-declare const ReadonlyMap: any
-declare const ReadonlySet: any
 declare const V: any
 type Contravariant<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Covariant<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DeepMutable<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Invariant<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ TupleOf_: verified type-identical to the original
@@ -42,7 +38,7 @@ export function TupleOf_(T, N: number, R: Array<unknown>) {
 export function TupleOf(N: number, T) {
   if (matches<typeof N>(N)) {
     if (matches<typeof N>(number)) {
-      return t<Array<typeof T>>()
+      return arrayOf(T)
     }
     return TupleOf_(T, N, [])
   }
@@ -50,16 +46,16 @@ export function TupleOf(N: number, T) {
 }
 /* compiles to:
  * export type TupleOf<N extends number, T> =
- *   N extends N ? number extends N ? Array<T> : TupleOf_<T, N, []> : never
+ *   N extends N ? number extends N ? T[] : TupleOf_<T, N, []> : never
  */
 
 // ✓ TupleOfAtLeast: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TupleOfAtLeast(N: number, T) {
-  return [...TupleOf(N, T), ...t<Array<typeof T>>()]
+  return [...TupleOf(N, T), ...arrayOf(T)]
 }
 /* compiles to:
- * export type TupleOfAtLeast<N extends number, T> = [...TupleOf<N, T>, ...Array<T>]
+ * export type TupleOfAtLeast<N extends number, T> = [...TupleOf<N, T>, ...T[]]
  */
 
 // ✓ Tags: verified type-identical to the original

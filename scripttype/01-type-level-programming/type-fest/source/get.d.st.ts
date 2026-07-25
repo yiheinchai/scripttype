@@ -27,7 +27,6 @@ type KeyAsString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 
 type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Split<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ToString<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type WithStringKeys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _LiteralStringUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ GetWithPath: verified type-identical to the original
 /* @scripttype preserveParamNames */
@@ -203,7 +202,7 @@ export function PropertyOf(BaseType, Key: string, Options: Required<GetOptions>)
     }
     return unknown
   }
-  if (matches<keyof WithStringKeys<typeof BaseType>>(Key)) {
+  if (Key in WithStringKeys(BaseType)) {
     return StrictPropertyOf(WithStringKeys(BaseType), Key, Options)
   }
   return unknown

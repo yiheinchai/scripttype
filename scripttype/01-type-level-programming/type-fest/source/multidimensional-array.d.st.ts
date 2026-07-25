@@ -13,16 +13,14 @@
 declare const IsEqual: any
 declare const Subtract: any
 type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type MultidimensionalArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Recursive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Subtract<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ Recursive: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Recursive(T) {
-  return t<Array<Recursive<typeof T>>>()
+  return arrayOf(Recursive(T))
 }
 /* compiles to:
- * export type Recursive<T> = Array<Recursive<T>>
+ * export type Recursive<T> = Recursive<T>[]
  */
 
 // ✓ MultidimensionalArray: verified type-identical to the original
@@ -34,11 +32,11 @@ export function MultidimensionalArray(Element, Dimensions: number) {
   if (matches<true>(IsEqual(Dimensions, 0))) {
     return Element
   }
-  return t<Array<MultidimensionalArray<typeof Element, Subtract<typeof Dimensions, 1>>>>()
+  return arrayOf(MultidimensionalArray(Element, Subtract(Dimensions, 1)))
 }
 /* compiles to:
  * export type MultidimensionalArray<Element, Dimensions extends number> =
  *   number extends Dimensions ? Recursive<Element>
  *   : IsEqual<Dimensions, 0> extends true ? Element
- *   : Array<MultidimensionalArray<Element, Subtract<Dimensions, 1>>>
+ *   : MultidimensionalArray<Element, Subtract<Dimensions, 1>>[]
  */

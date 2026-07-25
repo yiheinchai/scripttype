@@ -51,7 +51,6 @@ type NonUndefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type QueryDefinition<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type QueryExtraOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SchemaFailureInfo<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type TagDescription<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnwrapPromise<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type baseQuery<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type rawResultType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -132,12 +131,11 @@ export function BaseEndpointDefinition(QueryArg, BaseQuery: BaseQueryFn, ResultT
 // ✓ TagDescriptionArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function TagDescriptionArray(TagTypes: string) {
-  return t<ReadonlyArray<TagDescription<typeof TagTypes> | undefined | null>>()
+  return readonlyArrayOf(anyOf(TagDescription(TagTypes), Undefined, Null))
 }
 /* compiles to:
- * export type TagDescriptionArray<TagTypes extends string> = ReadonlyArray<
- *   TagDescription<TagTypes> | undefined | null
- * >
+ * export type TagDescriptionArray<TagTypes extends string> =
+ *   readonly (TagDescription<TagTypes> | undefined | null)[]
  */
 
 // ✓ GetResultDescriptionFn: verified type-identical to the original

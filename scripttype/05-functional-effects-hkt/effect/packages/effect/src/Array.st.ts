@@ -16,19 +16,19 @@ type NonEmptyReadonlyArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 
 // ✓ NonEmptyReadonlyArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonEmptyReadonlyArray(A) {
-  return asReadonly([A, ...t<Array<typeof A>>()])
+  return asReadonly([A, ...arrayOf(A)])
 }
 /* compiles to:
- * export type NonEmptyReadonlyArray<A> = readonly [A, ...Array<A>]
+ * export type NonEmptyReadonlyArray<A> = readonly [A, ...A[]]
  */
 
 // ✓ NonEmptyArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function NonEmptyArray(A) {
-  return [A, ...t<Array<typeof A>>()]
+  return [A, ...arrayOf(A)]
 }
 /* compiles to:
- * export type NonEmptyArray<A> = [A, ...Array<A>]
+ * export type NonEmptyArray<A> = [A, ...A[]]
  */
 
 // ✓ Infer: verified type-identical to the original
@@ -56,11 +56,11 @@ export function With(S: Iterable<any>, A) {
   if (matches<NonEmptyReadonlyArray<any>>(S)) {
     return NonEmptyArray(A)
   }
-  return t<Array<typeof A>>()
+  return arrayOf(A)
 }
 /* compiles to:
  * export type With<S extends Iterable<any>, A> =
- *   S extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A> : Array<A>
+ *   S extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A> : A[]
  */
 
 // ✗ OrNonEmpty: compiles but is not type-identical yet
@@ -73,13 +73,13 @@ export function OrNonEmpty(S: Iterable<any>, T: Iterable<any>, A) {
   if (matches<NonEmptyReadonlyArray<any>>(T)) {
     return NonEmptyArray(A)
   }
-  return t<Array<typeof A>>()
+  return arrayOf(A)
 }
 /* compiles to:
  * export type OrNonEmpty<S extends Iterable<any>, T extends Iterable<any>, A> =
  *   S extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A>
  *   : T extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A>
- *   : Array<A>
+ *   : A[]
  */
 
 // ✗ AndNonEmpty: compiles but is not type-identical yet
@@ -90,15 +90,15 @@ export function AndNonEmpty(S: Iterable<any>, T: Iterable<any>, A) {
     if (matches<NonEmptyReadonlyArray<any>>(T)) {
       return NonEmptyArray(A)
     }
-    return t<Array<typeof A>>()
+    return arrayOf(A)
   }
-  return t<Array<typeof A>>()
+  return arrayOf(A)
 }
 /* compiles to:
  * export type AndNonEmpty<S extends Iterable<any>, T extends Iterable<any>, A> =
  *   S extends NonEmptyReadonlyArray<any>
- *     ? T extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A> : Array<A>
- *     : Array<A>
+ *     ? T extends NonEmptyReadonlyArray<any> ? NonEmptyArray<A> : A[]
+ *     : A[]
  */
 
 // ✗ Flatten: compiles but is not type-identical yet
@@ -108,11 +108,11 @@ export function Flatten(T: ReadonlyArray<ReadonlyArray<any>>) {
   if (matches<NonEmptyReadonlyArray<NonEmptyReadonlyArray<any>>>(T)) {
     return NonEmptyArray(T[number][number])
   }
-  return t<Array<(typeof T)[number][number]>>()
+  return arrayOf(T[number][number])
 }
 /* compiles to:
  * export type Flatten<T extends ReadonlyArray<ReadonlyArray<any>>> =
  *   T extends NonEmptyReadonlyArray<NonEmptyReadonlyArray<any>>
  *     ? NonEmptyArray<T[number][number]>
- *     : Array<T[number][number]>
+ *     : T[number][number][]
  */

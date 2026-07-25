@@ -33,7 +33,7 @@ export function PascalCase(Value, Options: CamelCaseOptions = {}) {
 // ✓ _PascalCase: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function _PascalCase(Value, Options: Required<CamelCaseOptions>) {
-  if (matches<string>(CamelCase(Value, Options))) {
+  if (typeof CamelCase(Value, Options) === 'string') {
     return Capitalize(CamelCase(Value, Options))
   }
   return CamelCase(Value, Options)

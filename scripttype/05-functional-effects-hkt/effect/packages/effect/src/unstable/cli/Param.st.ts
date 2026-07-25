@@ -42,12 +42,12 @@ type Variadic<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = a
 // ✓ Parse: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Parse(A) {
-  return fnType([ParsedArgs], Effect.Effect(asReadonly([t<ReadonlyArray<string>>(), A]), CliError.CliError, Environment))
+  return fnType([ParsedArgs], Effect.Effect(asReadonly([readonlyArrayOf(string), A]), CliError.CliError, Environment))
 }
 /* compiles to:
  * export type Parse<A> =
  *   (a0: ParsedArgs) => Effect.Effect<
- *     readonly [ReadonlyArray<string>, A],
+ *     readonly [readonly string[], A],
  *     CliError.CliError,
  *     Environment
  *   >

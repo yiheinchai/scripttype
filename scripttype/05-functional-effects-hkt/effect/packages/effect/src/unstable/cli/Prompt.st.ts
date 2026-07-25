@@ -61,13 +61,13 @@ export function ProcessInput(A) {
 export function ReturnIterable(T: Iterable<Any>) {
   const m1 = matches<[ Iterable<Prompt<Hole<"A">>> ]>([T])
   if (m1) {
-    return Prompt(t<Array<typeof m1.A>>())
+    return Prompt(arrayOf(m1.A))
   }
   return never
 }
 /* compiles to:
  * export type ReturnIterable<T extends Iterable<Any>> =
- *   [T] extends [Iterable<Prompt<infer A>>] ? Prompt<Array<A>> : never
+ *   [T] extends [Iterable<Prompt<infer A>>] ? Prompt<A[]> : never
  */
 
 // ✗ ReturnTuple: compiles but is not type-identical yet

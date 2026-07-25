@@ -17,11 +17,11 @@ type ExpressionBuilder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = an
 // ✓ SetOperandExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetOperandExpression(DB, O) {
-  return Expression(O) | t<ReadonlyArray<Expression<typeof O>>>() | fnType([ExpressionBuilder(DB, never)], Expression(O) | t<ReadonlyArray<Expression<typeof O>>>())
+  return Expression(O) | readonlyArrayOf(Expression(O)) | fnType([ExpressionBuilder(DB, never)], Expression(O) | readonlyArrayOf(Expression(O)))
 }
 /* compiles to:
  * export type SetOperandExpression<DB, O> =
  *   | Expression<O>
- *   | ReadonlyArray<Expression<O>>
- *   | ((a0: ExpressionBuilder<DB, never>) => Expression<O> | ReadonlyArray<Expression<O>>)
+ *   | readonly Expression<O>[]
+ *   | ((a0: ExpressionBuilder<DB, never>) => Expression<O> | readonly Expression<O>[])
  */

@@ -15,19 +15,13 @@ declare const BuiltIns: any
 declare const DefaultPartialDeepOptions: any
 declare const HasMultipleCallSignatures: any
 declare const IsNever: any
-declare const ItemType: any
 declare const PartialDeepOptions: any
-declare const ReadonlyMap: any
-declare const ReadonlySet: any
 type ApplyDefaultOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type DefaultPartialDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HasMultipleCallSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ItemType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PartialDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _PartialDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PartialDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
@@ -78,9 +72,9 @@ export function _PartialDeep(T, Options: Required<PartialDeepOptions>) {
       if (matches<true>(Options['recurseIntoArrays'])) {
         if (matches<typeof T>(arrayOf(m5.ItemType))) {
           if (matches<typeof T>(readonlyArrayOf(m5.ItemType))) {
-            return t<ReadonlyArray<_PartialDeep<(typeof Options)['allowUndefinedInNonTupleArrays'] extends false ? typeof m5.ItemType : typeof m5.ItemType | undefined, typeof Options>>>()
+            return readonlyArrayOf(_PartialDeep(matches<false>(Options['allowUndefinedInNonTupleArrays']) ? m5.ItemType : (anyOf(m5.ItemType, Undefined)), Options))
           }
-          return t<Array<_PartialDeep<(typeof Options)['allowUndefinedInNonTupleArrays'] extends false ? typeof m5.ItemType : typeof m5.ItemType | undefined, typeof Options>>>()
+          return arrayOf(_PartialDeep(matches<false>(Options['allowUndefinedInNonTupleArrays']) ? m5.ItemType : (anyOf(m5.ItemType, Undefined)), Options))
         }
         return PartialObjectDeep(T, Options)
       }
@@ -107,18 +101,18 @@ export function _PartialDeep(T, Options: Required<PartialDeepOptions>) {
  *       ? Options['recurseIntoArrays'] extends true
  *         ? ItemType[] extends T
  *           ? readonly ItemType[] extends T
- *             ? ReadonlyArray<
- *               _PartialDeep<
- *                 (typeof Options)['allowUndefinedInNonTupleArrays'] extends false ? typeof m5.ItemType : typeof m5.ItemType | undefined,
- *                 Options
- *               >
- *             >
- *             : Array<
- *               _PartialDeep<
- *                 (typeof Options)['allowUndefinedInNonTupleArrays'] extends false ? typeof m5.ItemType : typeof m5.ItemType | undefined,
- *                 Options
- *               >
- *             >
+ *             ? readonly _PartialDeep<
+ *               Options['allowUndefinedInNonTupleArrays'] extends false
+ *                 ? ItemType
+ *                 : ItemType | undefined,
+ *               Options
+ *             >[]
+ *             : _PartialDeep<
+ *               Options['allowUndefinedInNonTupleArrays'] extends false
+ *                 ? ItemType
+ *                 : ItemType | undefined,
+ *               Options
+ *             >[]
  *           : PartialObjectDeep<T, Options>
  *         : T
  *       : PartialObjectDeep<T, Options>

@@ -18,20 +18,17 @@ declare const ObjectValue: any
 declare const Paths: any
 declare const Simplify: any
 declare const SimplifyDeep: any
-declare const SubPath: any
 declare const TupleOf: any
 declare const UnionToIntersection: any
 declare const UnknownArray: any
 type ArrayIndex<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type BuildObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type InternalPickDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ObjectValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SimplifyDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SubPath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TupleOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnknownArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -138,10 +135,10 @@ export function PickDeepArray(ArrayType: UnknownArray, P: string | number) {
   if (m1) {
     if (matches<typeof m1.ArrayIndex>(number)) {
       if (matches<unknown[]>(ArrayType)) {
-        return t<Array<InternalPickDeep<NonNullable<(typeof ArrayType)[number]>, typeof m1.SubPath>>>()
+        return arrayOf(InternalPickDeep(NonNullable(ArrayType[number]), m1.SubPath))
       }
       if (matches<readonly unknown[]>(ArrayType)) {
-        return t<ReadonlyArray<InternalPickDeep<NonNullable<(typeof ArrayType)[number]>, typeof m1.SubPath>>>()
+        return readonlyArrayOf(InternalPickDeep(NonNullable(ArrayType[number]), m1.SubPath))
       }
       return never
     }
@@ -172,10 +169,9 @@ export function PickDeepArray(ArrayType: UnknownArray, P: string | number) {
  * export type PickDeepArray<ArrayType extends UnknownArray, P extends string | number> =
  *   P extends `${infer ArrayIndex extends number}.${infer SubPath}`
  *     ? number extends ArrayIndex
- *       ? ArrayType extends unknown[]
- *         ? Array<InternalPickDeep<NonNullable<ArrayType[number]>, SubPath>>
+ *       ? ArrayType extends unknown[] ? InternalPickDeep<NonNullable<ArrayType[number]>, SubPath>[]
  *       : ArrayType extends readonly unknown[]
- *         ? ReadonlyArray<InternalPickDeep<NonNullable<ArrayType[number]>, SubPath>>
+ *         ? readonly InternalPickDeep<NonNullable<ArrayType[number]>, SubPath>[]
  *       : never
  *     : ArrayType extends unknown[]
  *       ? [...TupleOf<ArrayIndex>, InternalPickDeep<NonNullable<ArrayType[ArrayIndex]>, SubPath>]

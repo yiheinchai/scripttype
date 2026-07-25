@@ -90,7 +90,7 @@ export function Services(T) {
 export function ReturnIterable(T: Iterable<EffectAny>, Discard: boolean, Mode: boolean = false) {
   const m1 = matches<[ Iterable<Effect<Hole<"A">, Hole<"E">, Hole<"R">>> ]>([T])
   if (m1) {
-    return Effect(matches<true>(Discard) ? voidType() : t<Array<typeof Mode extends true ? Result.Result<typeof m1.A, typeof m1.E> : typeof m1.A>>(), matches<true>(Mode) ? never : m1.E, m1.R)
+    return Effect(matches<true>(Discard) ? voidType() : arrayOf(matches<true>(Mode) ? Result.Result(m1.A, m1.E) : m1.A), matches<true>(Mode) ? never : m1.E, m1.R)
   }
   return never
 }
@@ -100,13 +100,9 @@ export function ReturnIterable(T: Iterable<EffectAny>, Discard: boolean, Mode: b
  *   Discard extends boolean,
  *   Mode extends boolean = false
  * > =
- *   [T] extends [Iterable<Effect<unknown, infer E, infer R>>]
+ *   [T] extends [Iterable<Effect<infer A, infer E, infer R>>]
  *     ? Effect<
- *       Discard extends true
- *         ? void
- *         : Array<
- *           typeof Mode extends true ? Result.Result<typeof m1.A, typeof m1.E> : typeof m1.A
- *         >,
+ *       Discard extends true ? void : (Mode extends true ? Result.Result<A, E> : A)[],
  *       Mode extends true ? never : E,
  *       R
  *     >

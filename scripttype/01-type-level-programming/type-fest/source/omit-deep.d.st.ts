@@ -33,7 +33,6 @@ type IsEqual<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type LiteralUnion<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type OmitDeepWithOnePath<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Paths<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SetArrayAccess<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -162,7 +161,7 @@ export function OmitDeepArrayWithOnePath(ArrayType: UnknownArray, P: string | nu
   const m1 = matches<`${Hole<"ArrayIndex", number>}.${Hole<"SubPath">}`>(P)
   if (m1) {
     if (matches<typeof m1.ArrayIndex>(number)) {
-      return t<Array<OmitDeepWithOnePath<NonNullable<(typeof ArrayType)[number]>, typeof m1.SubPath>>>()
+      return arrayOf(OmitDeepWithOnePath(NonNullable(ArrayType[number]), m1.SubPath))
     }
     return ArraySplice(ArrayType, m1.ArrayIndex, 1, [OmitDeepWithOnePath(NonNullable(ArrayType[m1.ArrayIndex]), m1.SubPath)])
   }
@@ -182,7 +181,7 @@ export function OmitDeepArrayWithOnePath(ArrayType: UnknownArray, P: string | nu
  * > =
  *   P extends `${infer ArrayIndex extends number}.${infer SubPath}`
  *     ? number extends ArrayIndex
- *       ? Array<OmitDeepWithOnePath<NonNullable<ArrayType[number]>, SubPath>>
+ *       ? OmitDeepWithOnePath<NonNullable<ArrayType[number]>, SubPath>[]
  *       : ArraySplice<
  *         ArrayType,
  *         ArrayIndex,

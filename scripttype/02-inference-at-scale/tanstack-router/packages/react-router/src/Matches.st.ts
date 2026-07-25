@@ -81,11 +81,11 @@ export function MakeMatchRouteOptions(TRouter: AnyRouter = RegisteredRouter, TFr
 /* @scripttype preserveParamNames */
 export function UseMatchesResult(TRouter: AnyRouter, TSelected) {
   if (matches<typeof TSelected>(unknown)) {
-    return t<Array<MakeRouteMatchUnion<typeof TRouter>>>()
+    return arrayOf(MakeRouteMatchUnion(TRouter))
   }
   return TSelected
 }
 /* compiles to:
  * export type UseMatchesResult<TRouter extends AnyRouter, TSelected> =
- *   unknown extends TSelected ? Array<MakeRouteMatchUnion<TRouter>> : TSelected
+ *   unknown extends TSelected ? MakeRouteMatchUnion<TRouter>[] : TSelected
  */

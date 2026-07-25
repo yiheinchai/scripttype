@@ -233,7 +233,7 @@ export function GetUseQueryResult(T) {
 /* @scripttype preserveParamNames */
 export function UseQueriesOptions(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return t<Array<UseQueryOptionsForUseQueries>>()
+    return arrayOf(UseQueryOptionsForUseQueries)
   }
   if (matches<[ ]>(T)) {
     return []
@@ -246,14 +246,14 @@ export function UseQueriesOptions(T: Array<any>, TResults: Array<any> = [], TDep
   if (m2) {
     return UseQueriesOptions([...m2.Tails], [...TResults, GetUseQueryOptionsForUseQueries(m2.Head)], [...TDepth, 1])
   }
-  if (matches<typeof T>(t<ReadonlyArray<unknown>>())) {
+  if (matches<typeof T>(readonlyArrayOf(unknown))) {
     return T
   }
   const m3 = matches<Array<UseQueryOptionsForUseQueries<Hole<"TQueryFnData">, Hole<"TError">, Hole<"TData">, Hole<"TQueryKey">>>>(T)
   if (m3) {
-    return t<Array<UseQueryOptionsForUseQueries<typeof m3.TQueryFnData, typeof m3.TError, typeof m3.TData, typeof m3.TQueryKey>>>()
+    return arrayOf(UseQueryOptionsForUseQueries(m3.TQueryFnData, m3.TError, m3.TData, m3.TQueryKey))
   }
-  return t<Array<UseQueryOptionsForUseQueries>>()
+  return arrayOf(UseQueryOptionsForUseQueries)
 }
 /* compiles to:
  * export type UseQueriesOptions<
@@ -261,7 +261,7 @@ export function UseQueriesOptions(T: Array<any>, TResults: Array<any> = [], TDep
  *   TResults extends Array<any> = [],
  *   TDepth extends ReadonlyArray<number> = []
  * > =
- *   TDepth['length'] extends MAXIMUM_DEPTH ? Array<UseQueryOptionsForUseQueries>
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? UseQueryOptionsForUseQueries[]
  *   : T extends [] ? []
  *   : T extends [infer Head] ? [...TResults, GetUseQueryOptionsForUseQueries<Head>]
  *   : T extends [infer Head, ...infer Tails]
@@ -270,17 +270,17 @@ export function UseQueriesOptions(T: Array<any>, TResults: Array<any> = [], TDep
  *       [...TResults, GetUseQueryOptionsForUseQueries<Head>],
  *       [...TDepth, 1]
  *     >
- *   : ReadonlyArray<unknown> extends T ? T
+ *   : readonly unknown[] extends T ? T
  *   : T extends Array<UseQueryOptionsForUseQueries<infer TQueryFnData, infer TError, infer TData, infer TQueryKey>>
- *     ? Array<UseQueryOptionsForUseQueries<TQueryFnData, TError, TData, TQueryKey>>
- *   : Array<UseQueryOptionsForUseQueries>
+ *     ? UseQueryOptionsForUseQueries<TQueryFnData, TError, TData, TQueryKey>[]
+ *   : UseQueryOptionsForUseQueries[]
  */
 
 // ✓ UseQueriesResults: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function UseQueriesResults(T: Array<any>, TResults: Array<any> = [], TDepth: ReadonlyArray<number> = []) {
   if (matches<MAXIMUM_DEPTH>(TDepth['length'])) {
-    return t<Array<QueryObserverResult>>()
+    return arrayOf(QueryObserverResult)
   }
   if (matches<[ ]>(T)) {
     return []
@@ -305,7 +305,7 @@ export function UseQueriesResults(T: Array<any>, TResults: Array<any> = [], TDep
  *   TResults extends Array<any> = [],
  *   TDepth extends ReadonlyArray<number> = []
  * > =
- *   TDepth['length'] extends MAXIMUM_DEPTH ? Array<QueryObserverResult>
+ *   TDepth['length'] extends MAXIMUM_DEPTH ? QueryObserverResult[]
  *   : T extends [] ? []
  *   : T extends [infer Head] ? [...TResults, GetUseQueryResult<Head>]
  *   : T extends [infer Head, ...infer Tails]

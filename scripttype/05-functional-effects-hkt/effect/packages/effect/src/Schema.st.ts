@@ -37,7 +37,6 @@ declare const Constraint: any
 declare const ConstraintDecoder: any
 declare const Derivation: any
 declare const FastCheck: any
-declare const Head: any
 declare const Keys: any
 declare const LiteralPart: any
 declare const LiteralValue: any
@@ -54,13 +53,11 @@ declare const Union: any
 declare const UnionToIntersection: any
 declare const tag: any
 type Brand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type CauseReasonIso<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Codec<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Constraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ConstraintDecoder<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Derivation<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FastCheck<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Head<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Keys<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type LiteralPart<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type LiteralValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -71,7 +68,6 @@ type Simplify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = a
 type Struct<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StructWithRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TemplateLiteral<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Tree<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TreeRecord<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TupleWithRest<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Union<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -1077,16 +1073,14 @@ export function Type(T: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
     for (const K in keyof(m1.Tail)) {
       out[K] = readonlyProp(m1.Tail[K]['Type'])
     }
-    return Readonly([...T, ...t<Array<(typeof m1.Head)["Type"]>>(), ...out])
+    return Readonly([...T, ...arrayOf(m1.Head['Type']), ...out])
   }
   return T
 }
 /* compiles to:
  * export type Type<T extends ReadonlyArray<unknown>, Rest extends TupleWithRest.Rest> =
  *   Rest extends readonly [infer Head extends Constraint, ...infer Tail extends ReadonlyArray<Constraint>]
- *     ? Readonly<
- *       [...T, ...Array<Head['Type']>, ...{ readonly [K in keyof Tail]: Tail[K]['Type'] }]
- *     >
+ *     ? Readonly<[...T, ...Head['Type'][], ...{ readonly [K in keyof Tail]: Tail[K]['Type'] }]>
  *     : T
  */
 
@@ -1100,14 +1094,14 @@ export function Iso(T: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
     for (const K in keyof(m1.Tail)) {
       out[K] = readonlyProp(m1.Tail[K]['Iso'])
     }
-    return Readonly([...T, ...t<Array<(typeof m1.Head)["Iso"]>>(), ...out])
+    return Readonly([...T, ...arrayOf(m1.Head['Iso']), ...out])
   }
   return T
 }
 /* compiles to:
  * export type Iso<T extends ReadonlyArray<unknown>, Rest extends TupleWithRest.Rest> =
  *   Rest extends readonly [infer Head extends Constraint, ...infer Tail extends ReadonlyArray<Constraint>]
- *     ? Readonly<[...T, ...Array<Head['Iso']>, ...{ readonly [K in keyof Tail]: Tail[K]['Iso'] }]>
+ *     ? Readonly<[...T, ...Head['Iso'][], ...{ readonly [K in keyof Tail]: Tail[K]['Iso'] }]>
  *     : T
  */
 
@@ -1121,7 +1115,7 @@ export function Encoded(E: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
     for (const K in keyof(m1.Tail)) {
       out[K] = readonlyProp(m1.Tail[K]['Encoded'])
     }
-    return asReadonly([...E, ...t<Array<(typeof m1.Head)["Encoded"]>>(), ...out])
+    return asReadonly([...E, ...arrayOf(m1.Head['Encoded']), ...out])
   }
   return E
 }
@@ -1130,7 +1124,7 @@ export function Encoded(E: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
  *   Rest extends readonly [infer Head extends Constraint, ...infer Tail extends ReadonlyArray<Constraint>]
  *     ? readonly [
  *       ...E,
- *       ...Array<Head['Encoded']>,
+ *       ...Head['Encoded'][],
  *       ...{ readonly [K in keyof Tail]: Tail[K]['Encoded'] }
  *     ]
  *     : E
@@ -1146,7 +1140,7 @@ export function MakeIn(M: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
     for (const K in keyof(m1.Tail)) {
       out[K] = readonlyProp(m1.Tail[K]['~type.make'])
     }
-    return asReadonly([...M, ...t<Array<(typeof m1.Head)["~type.make"]>>(), ...out])
+    return asReadonly([...M, ...arrayOf(m1.Head['~type.make']), ...out])
   }
   return M
 }
@@ -1155,7 +1149,7 @@ export function MakeIn(M: ReadonlyArray<unknown>, Rest: TupleWithRest.Rest) {
  *   Rest extends readonly [infer Head extends Constraint, ...infer Tail extends ReadonlyArray<Constraint>]
  *     ? readonly [
  *       ...M,
- *       ...Array<Head['~type.make']>,
+ *       ...Head['~type.make'][],
  *       ...{ readonly [K in keyof Tail]: Tail[K]['~type.make'] }
  *     ]
  *     : M
@@ -1223,7 +1217,7 @@ export function TaggedUnionUtils(Tag: PropertyKey, Members: ReadonlyArray<Constr
   for (const M in keySet(Flattened[number])) {
     out3[M['Type'][Tag]] = fnType([unknown], raw('u is M["Type"]'))
   }
-  return { discriminants: readonlyProp(out), cases: readonlyProp(Simplify(out2)), isAnyOf: readonlyProp(genericFnType(['const Keys'], [t<ReadonlyArray<Keys>>()], fnType([Members[number]['Type']], raw('value is Extract<Members[number]["Type"], { readonly [K in Tag]: Keys; }>')))), guards: readonlyProp(out3), match: readonlyProp(raw('{ <Cases extends { [M in Flattened[number] as M["Type"][Tag]]: (value: M["Type"]) => any; }>(value: Members[number]["Type"], cases: Cases): Cases[keyof Cases] extends (value: any) => infer R ? Unify<R> : never; <Cases extends { [M in Flattened[number] as M["Type"][Tag]]: (value: M["Type"]) => any; }>(cases: Cases): (value: Members[number]["Type"]) => Cases[keyof Cases] extends (value: any) => infer R ? Unify<R> : never; }')) }
+  return { discriminants: readonlyProp(out), cases: readonlyProp(Simplify(out2)), isAnyOf: readonlyProp(genericFnType(['const Keys'], [readonlyArrayOf(Keys)], fnType([Members[number]['Type']], raw('value is Extract<Members[number]["Type"], { readonly [K in Tag]: Keys; }>')))), guards: readonlyProp(out3), match: readonlyProp(raw('{ <Cases extends { [M in Flattened[number] as M["Type"][Tag]]: (value: M["Type"]) => any; }>(value: Members[number]["Type"], cases: Cases): Cases[keyof Cases] extends (value: any) => infer R ? Unify<R> : never; <Cases extends { [M in Flattened[number] as M["Type"][Tag]]: (value: M["Type"]) => any; }>(cases: Cases): (value: Members[number]["Type"]) => Cases[keyof Cases] extends (value: any) => infer R ? Unify<R> : never; }')) }
 }
 
 // ✗ toTaggedUnion: does not compile yet
@@ -1276,12 +1270,10 @@ export function CauseReasonIso(E: Constraint, D: Constraint) {
 // ✓ CauseIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function CauseIso(E: Constraint, D: Constraint) {
-  return t<ReadonlyArray<CauseReasonIso<typeof E, typeof D>>>()
+  return readonlyArrayOf(CauseReasonIso(E, D))
 }
 /* compiles to:
- * export type CauseIso<E extends Constraint, D extends Constraint> = ReadonlyArray<
- *   CauseReasonIso<E, D>
- * >
+ * export type CauseIso<E extends Constraint, D extends Constraint> = readonly CauseReasonIso<E, D>[]
  */
 
 // ✓ ExitIso: verified type-identical to the original
@@ -1298,50 +1290,48 @@ export function ExitIso(A: Constraint, E: Constraint, D: Constraint) {
 // ✓ ReadonlyMapIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyMapIso(Key: Constraint, Value: Constraint) {
-  return t<ReadonlyArray<readonly [ (typeof Key)["Iso"], (typeof Value)["Iso"] ]>>()
+  return readonlyArrayOf(asReadonly([Key['Iso'], Value['Iso']]))
 }
 /* compiles to:
- * export type ReadonlyMapIso<Key extends Constraint, Value extends Constraint> = ReadonlyArray<
- *   readonly [Key['Iso'], Value['Iso']]
- * >
+ * export type ReadonlyMapIso<Key extends Constraint, Value extends Constraint> =
+ *   readonly (readonly [Key['Iso'], Value['Iso']])[]
  */
 
 // ✓ HashMapIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HashMapIso(Key: Constraint, Value: Constraint) {
-  return t<ReadonlyArray<readonly [ (typeof Key)["Iso"], (typeof Value)["Iso"] ]>>()
+  return readonlyArrayOf(asReadonly([Key['Iso'], Value['Iso']]))
 }
 /* compiles to:
- * export type HashMapIso<Key extends Constraint, Value extends Constraint> = ReadonlyArray<
- *   readonly [Key['Iso'], Value['Iso']]
- * >
+ * export type HashMapIso<Key extends Constraint, Value extends Constraint> =
+ *   readonly (readonly [Key['Iso'], Value['Iso']])[]
  */
 
 // ✓ ReadonlySetIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlySetIso(Value: Constraint) {
-  return t<ReadonlyArray<(typeof Value)["Iso"]>>()
+  return readonlyArrayOf(Value['Iso'])
 }
 /* compiles to:
- * export type ReadonlySetIso<Value extends Constraint> = ReadonlyArray<Value['Iso']>
+ * export type ReadonlySetIso<Value extends Constraint> = readonly Value['Iso'][]
  */
 
 // ✓ HashSetIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function HashSetIso(Value: Constraint) {
-  return t<ReadonlyArray<(typeof Value)["Iso"]>>()
+  return readonlyArrayOf(Value['Iso'])
 }
 /* compiles to:
- * export type HashSetIso<Value extends Constraint> = ReadonlyArray<Value['Iso']>
+ * export type HashSetIso<Value extends Constraint> = readonly Value['Iso'][]
  */
 
 // ✓ ChunkIso: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ChunkIso(Value: Constraint) {
-  return t<ReadonlyArray<(typeof Value)["Iso"]>>()
+  return readonlyArrayOf(Value['Iso'])
 }
 /* compiles to:
- * export type ChunkIso<Value extends Constraint> = ReadonlyArray<Value['Iso']>
+ * export type ChunkIso<Value extends Constraint> = readonly Value['Iso'][]
  */
 
 // ✓ InheritStaticMembers: verified type-identical to the original
@@ -1375,10 +1365,10 @@ export function LazyArbitrary(T) {
 // ✓ Tree: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function Tree(Node) {
-  return Node | TreeRecord(Node) | t<ReadonlyArray<Tree<typeof Node>>>()
+  return Node | TreeRecord(Node) | readonlyArrayOf(Tree(Node))
 }
 /* compiles to:
- * export type Tree<Node> = Node | TreeRecord<Node> | ReadonlyArray<Tree<Node>>
+ * export type Tree<Node> = Node | TreeRecord<Node> | readonly Tree<Node>[]
  */
 
 // ✗ Type: does not compile yet

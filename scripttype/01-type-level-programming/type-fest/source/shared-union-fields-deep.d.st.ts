@@ -15,8 +15,6 @@ declare const DefaultSharedUnionFieldsDeepOptions: any
 declare const IsArrayReadonly: any
 declare const IsNever: any
 declare const NonRecursiveType: any
-declare const ReadonlyMap: any
-declare const ReadonlySet: any
 declare const SetArrayAccess: any
 declare const SharedUnionFieldsDeepOptions: any
 declare const StaticPartOfArray: any
@@ -30,10 +28,7 @@ type DefaultSharedUnionFieldsDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any,
 type IsArrayReadonly<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type IsNever<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NonRecursiveType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SetArrayAccess<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type SharedUnionFieldsDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SharedUnionFieldsDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type StaticPartOfArray<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TupleLength<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -130,7 +125,7 @@ export function SharedArrayUnionFieldsDeep(Union: UnknownArray, Options: Require
 export function InternalSharedArrayUnionFieldsDeep(Union: UnknownArray, Options: Required<SharedUnionFieldsDeepOptions>, ResultTuple: UnknownArray = []) {
   if (matches<true>(IsNever(TupleLength(Union)))) {
     if (matches<UnionMax<StaticPartOfArray<typeof Union>['length']>>(ResultTuple['length'])) {
-      return [...ResultTuple, ...t<Array<SharedUnionFieldsDeep<VariablePartOfArray<typeof Union>[number], typeof Options>>>()]
+      return [...ResultTuple, ...arrayOf(SharedUnionFieldsDeep(VariablePartOfArray(Union)[number], Options))]
     }
     return InternalSharedArrayUnionFieldsDeep(Union, Options, [...ResultTuple, SharedUnionFieldsDeep(Union[ResultTuple['length']], Options)])
   }
@@ -149,7 +144,7 @@ export function InternalSharedArrayUnionFieldsDeep(Union: UnknownArray, Options:
  *     ? ResultTuple['length'] extends UnionMax<StaticPartOfArray<Union>['length']>
  *       ? [
  *         ...ResultTuple,
- *         ...Array<SharedUnionFieldsDeep<VariablePartOfArray<Union>[number], Options>>
+ *         ...SharedUnionFieldsDeep<VariablePartOfArray<Union>[number], Options>[]
  *       ]
  *       : InternalSharedArrayUnionFieldsDeep<
  *         Union,

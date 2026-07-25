@@ -184,7 +184,7 @@ export function CompiledFetcherFn(TRegister, TResponse) {
 // ✓ ServerFnBaseOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ServerFnBaseOptions(TRegister, TMethod: Method = 'GET', TResponse = unknown, TMiddlewares = unknown, TInputValidator = unknown, TStrict: ServerFnStrict = true) {
-  return { method: TMethod, strict: optional(TStrict), middleware: optional(Constrain(TMiddlewares, t<ReadonlyArray<AnyFunctionMiddleware | AnyRequestMiddleware>>())), validator: optional(ConstrainValidator(TRegister, TMethod, TInputValidator, TStrict)), inputValidator: optional(ConstrainValidator(TRegister, TMethod, TInputValidator, TStrict)), extractedFn: optional(CompiledFetcherFn(TRegister, TResponse)), serverFn: optional(ServerFn(TRegister, TMethod, TMiddlewares, TInputValidator, TResponse, TStrict)) }
+  return { method: TMethod, strict: optional(TStrict), middleware: optional(Constrain(TMiddlewares, readonlyArrayOf(AnyFunctionMiddleware | AnyRequestMiddleware))), validator: optional(ConstrainValidator(TRegister, TMethod, TInputValidator, TStrict)), inputValidator: optional(ConstrainValidator(TRegister, TMethod, TInputValidator, TStrict)), extractedFn: optional(CompiledFetcherFn(TRegister, TResponse)), serverFn: optional(ServerFn(TRegister, TMethod, TMiddlewares, TInputValidator, TResponse, TStrict)) }
 }
 /* compiles to:
  * export type ServerFnBaseOptions<
@@ -200,7 +200,7 @@ export function ServerFnBaseOptions(TRegister, TMethod: Method = 'GET', TRespons
  *     strict?: TStrict
  *     middleware?: Constrain<
  *       TMiddlewares,
- *       ReadonlyArray<AnyFunctionMiddleware | AnyRequestMiddleware>
+ *       readonly (AnyFunctionMiddleware | AnyRequestMiddleware)[]
  *     >
  *     validator?: ConstrainValidator<TRegister, TMethod, TInputValidator, TStrict>
  *     inputValidator?: ConstrainValidator<TRegister, TMethod, TInputValidator, TStrict>

@@ -73,10 +73,6 @@ type ParsePathParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any,
 type ParseRoute<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RegisteredRouter<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type RemountDepsOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolveAllContext<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolveAllParamsFromParent<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolveFullSearchSchema<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ResolveLoaderData<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResolveParams<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResolveSearchValidatorInput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ResolveValidatorOutput<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -791,7 +787,7 @@ export function RouteLazyFn(TRoute: AnyRoute) {
 // ✓ RouteAddChildrenFn: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function RouteAddChildrenFn(TRegister, TParentRoute: AnyRoute, TPath: string, TFullPath: string, TCustomId: string, TId: string, TSearchValidator, TParams, TRouterContext, TRouteContextFn, TBeforeLoadFn, TLoaderDeps: Record<string, any>, TLoaderFn, TFileRouteTypes, TSSR, TServerMiddlewares, THandlers) {
-  return genericFnType(['const TNewChildren'], [Constrain(TNewChildren, t<ReadonlyArray<AnyRoute>>() | Record(string, AnyRoute))], Route(TRegister, TParentRoute, TPath, TFullPath, TCustomId, TId, TSearchValidator, TParams, TRouterContext, TRouteContextFn, TBeforeLoadFn, TLoaderDeps, TLoaderFn, TNewChildren, TFileRouteTypes, TSSR, TServerMiddlewares, THandlers))
+  return genericFnType(['const TNewChildren'], [Constrain(TNewChildren, readonlyArrayOf(AnyRoute) | Record(string, AnyRoute))], Route(TRegister, TParentRoute, TPath, TFullPath, TCustomId, TId, TSearchValidator, TParams, TRouterContext, TRouteContextFn, TBeforeLoadFn, TLoaderDeps, TLoaderFn, TNewChildren, TFileRouteTypes, TSSR, TServerMiddlewares, THandlers))
 }
 /* compiles to:
  * export type RouteAddChildrenFn<
@@ -814,7 +810,7 @@ export function RouteAddChildrenFn(TRegister, TParentRoute: AnyRoute, TPath: str
  *   THandlers
  * > =
  *   <const TNewChildren>(
- *     a0: Constrain<TNewChildren, ReadonlyArray<AnyRoute> | Record<string, AnyRoute>>
+ *     a0: Constrain<TNewChildren, readonly AnyRoute[] | Record<string, AnyRoute>>
  *   ) => Route<
  *     TRegister,
  *     TParentRoute,
@@ -1104,7 +1100,7 @@ export function BaseRouteOptions(TRegister, TParentRoute: AnyRoute = AnyRoute, T
 // ✓ AssetFnContextOptions: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function AssetFnContextOptions(TRouteId, TFullPath, TParentRoute: AnyRoute, TParams, TSearchValidator, TLoaderFn, TRouterContext, TRouteContextFn, TBeforeLoadFn, TLoaderDeps) {
-  return { ssr: optional({ nonce: optional(string) }), matches: t<Array<RouteMatch<typeof TRouteId, typeof TFullPath, ResolveAllParamsFromParent<typeof TParentRoute, typeof TParams>, ResolveFullSearchSchema<typeof TParentRoute, typeof TSearchValidator>, ResolveLoaderData<typeof TLoaderFn>, ResolveAllContext<typeof TParentRoute, typeof TRouterContext, typeof TRouteContextFn, typeof TBeforeLoadFn>, typeof TLoaderDeps>>>(), match: RouteMatch(TRouteId, TFullPath, ResolveAllParamsFromParent(TParentRoute, TParams), ResolveFullSearchSchema(TParentRoute, TSearchValidator), ResolveLoaderData(TLoaderFn), ResolveAllContext(TParentRoute, TRouterContext, TRouteContextFn, TBeforeLoadFn), TLoaderDeps), params: ResolveAllParamsFromParent(TParentRoute, TParams), loaderData: optional(ResolveLoaderData(TLoaderFn)) }
+  return { ssr: optional({ nonce: optional(string) }), matches: arrayOf(RouteMatch(TRouteId, TFullPath, ResolveAllParamsFromParent(TParentRoute, TParams), ResolveFullSearchSchema(TParentRoute, TSearchValidator), ResolveLoaderData(TLoaderFn), ResolveAllContext(TParentRoute, TRouterContext, TRouteContextFn, TBeforeLoadFn), TLoaderDeps)), match: RouteMatch(TRouteId, TFullPath, ResolveAllParamsFromParent(TParentRoute, TParams), ResolveFullSearchSchema(TParentRoute, TSearchValidator), ResolveLoaderData(TLoaderFn), ResolveAllContext(TParentRoute, TRouterContext, TRouteContextFn, TBeforeLoadFn), TLoaderDeps), params: ResolveAllParamsFromParent(TParentRoute, TParams), loaderData: optional(ResolveLoaderData(TLoaderFn)) }
 }
 /* compiles to:
  * export type AssetFnContextOptions<
@@ -1121,17 +1117,15 @@ export function AssetFnContextOptions(TRouteId, TFullPath, TParentRoute: AnyRout
  * > =
  *   {
  *     ssr?: { nonce?: string }
- *     matches: Array<
- *       RouteMatch<
- *         TRouteId,
- *         TFullPath,
- *         ResolveAllParamsFromParent<TParentRoute, TParams>,
- *         ResolveFullSearchSchema<TParentRoute, TSearchValidator>,
- *         ResolveLoaderData<TLoaderFn>,
- *         ResolveAllContext<TParentRoute, TRouterContext, TRouteContextFn, TBeforeLoadFn>,
- *         TLoaderDeps
- *       >
- *     >
+ *     matches: RouteMatch<
+ *       TRouteId,
+ *       TFullPath,
+ *       ResolveAllParamsFromParent<TParentRoute, TParams>,
+ *       ResolveFullSearchSchema<TParentRoute, TSearchValidator>,
+ *       ResolveLoaderData<TLoaderFn>,
+ *       ResolveAllContext<TParentRoute, TRouterContext, TRouteContextFn, TBeforeLoadFn>,
+ *       TLoaderDeps
+ *     >[]
  *     match: RouteMatch<
  *       TRouteId,
  *       TFullPath,

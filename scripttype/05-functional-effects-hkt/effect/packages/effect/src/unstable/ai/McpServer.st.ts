@@ -48,7 +48,7 @@ export function ValidateCompletions(Completions, Keys: string) {
 export function ResourceCompletions(Schemas: ReadonlyArray<Schema.Constraint>) {
   const out = emptyObject
   for (const K in keySet(Extract(keyof(Schemas), `${number}`))) {
-    out[m1 ? m1.Id : `param${K}`] = readonlyProp(fnType([string], Effect.Effect(t<Array<(typeof Schemas)[typeof K]["Type"]>>(), any, any)))
+    out[m1 ? m1.Id : `param${K}`] = readonlyProp(fnType([string], Effect.Effect(arrayOf(Schemas[K]['Type']), any, any)))
   }
   return out
 }
@@ -56,6 +56,6 @@ export function ResourceCompletions(Schemas: ReadonlyArray<Schema.Constraint>) {
  * export type ResourceCompletions<Schemas extends ReadonlyArray<Schema.Constraint>> = {
  *   readonly [K in Extract<keyof Schemas, `${number}`> as m1 extends true ? m1.Id : `param${K}`]: (
  *     a0: string
- *   ) => Effect.Effect<Array<Schemas[K]['Type']>, any, any>
+ *   ) => Effect.Effect<Schemas[K]['Type'][], any, any>
  * }
  */

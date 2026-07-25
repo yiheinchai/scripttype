@@ -16,7 +16,6 @@ declare const SelectQueryBuilderExpression: any
 type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectQueryBuilderExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ValueExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ ValueExpression: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValueExpression(DB, TB: keyof typeof DB, V) {
@@ -29,11 +28,11 @@ export function ValueExpression(DB, TB: keyof typeof DB, V) {
 // ✓ ValueExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ValueExpressionOrList(DB, TB: keyof typeof DB, V) {
-  return ValueExpression(DB, TB, V) | t<ReadonlyArray<ValueExpression<typeof DB, typeof TB, typeof V>>>()
+  return ValueExpression(DB, TB, V) | readonlyArrayOf(ValueExpression(DB, TB, V))
 }
 /* compiles to:
  * export type ValueExpressionOrList<DB, TB extends keyof DB, V> =
- *   ValueExpression<DB, TB, V> | ReadonlyArray<ValueExpression<DB, TB, V>>
+ *   ValueExpression<DB, TB, V> | readonly ValueExpression<DB, TB, V>[]
  */
 
 // ✓ ExtractTypeFromValueExpressionOrList: verified type-identical to the original

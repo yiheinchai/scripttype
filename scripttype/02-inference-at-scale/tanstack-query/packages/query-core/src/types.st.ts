@@ -347,11 +347,11 @@ export function QueryKeyHashFunction(TQueryKey: QueryKey) {
 // ✓ GetPreviousPageParamFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GetPreviousPageParamFunction(TPageParam, TQueryFnData = unknown) {
-  return fnType([TQueryFnData, t<Array<typeof TQueryFnData>>(), TPageParam, t<Array<typeof TPageParam>>()], anyOf(TPageParam, Undefined, Null))
+  return fnType([TQueryFnData, arrayOf(TQueryFnData), TPageParam, arrayOf(TPageParam)], anyOf(TPageParam, Undefined, Null))
 }
 /* compiles to:
  * export type GetPreviousPageParamFunction<TPageParam, TQueryFnData = unknown> =
- *   (a0: TQueryFnData, a1: Array<TQueryFnData>, a2: TPageParam, a3: Array<TPageParam>) => | TPageParam
+ *   (a0: TQueryFnData, a1: TQueryFnData[], a2: TPageParam, a3: TPageParam[]) => | TPageParam
  *   | undefined
  *   | null
  */
@@ -359,11 +359,11 @@ export function GetPreviousPageParamFunction(TPageParam, TQueryFnData = unknown)
 // ✓ GetNextPageParamFunction: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function GetNextPageParamFunction(TPageParam, TQueryFnData = unknown) {
-  return fnType([TQueryFnData, t<Array<typeof TQueryFnData>>(), TPageParam, t<Array<typeof TPageParam>>()], anyOf(TPageParam, Undefined, Null))
+  return fnType([TQueryFnData, arrayOf(TQueryFnData), TPageParam, arrayOf(TPageParam)], anyOf(TPageParam, Undefined, Null))
 }
 /* compiles to:
  * export type GetNextPageParamFunction<TPageParam, TQueryFnData = unknown> =
- *   (a0: TQueryFnData, a1: Array<TQueryFnData>, a2: TPageParam, a3: Array<TPageParam>) => | TPageParam
+ *   (a0: TQueryFnData, a1: TQueryFnData[], a2: TPageParam, a3: TPageParam[]) => | TPageParam
  *   | undefined
  *   | null
  */

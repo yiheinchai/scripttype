@@ -11,16 +11,10 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const BuiltIns: any
-declare const F: any
 declare const K: any
-declare const ReadonlyMap: any
-declare const ReadonlySet: any
 declare const V: any
 type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type F<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type K<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UndefinedOnPartialDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type V<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ UndefinedOnPartialDeep: the ScriptType does not itself typecheck as TypeScript
@@ -91,11 +85,11 @@ export function UndefinedOnPartialList(T: readonly unknown[]) {
   }
   const m3 = matches<Array<Hole<"F">>>(T)
   if (m3) {
-    return t<Array<UndefinedOnPartialDeep<typeof m3.F>>>()
+    return arrayOf(UndefinedOnPartialDeep(m3.F))
   }
   const m4 = matches<ReadonlyArray<Hole<"F">>>(T)
   if (m4) {
-    return t<ReadonlyArray<UndefinedOnPartialDeep<typeof m4.F>>>()
+    return readonlyArrayOf(UndefinedOnPartialDeep(m4.F))
   }
   return never
 }
@@ -105,7 +99,7 @@ export function UndefinedOnPartialList(T: readonly unknown[]) {
  *   : T extends [infer F, ...infer R] ? [UndefinedOnPartialDeep<F>, ...UndefinedOnPartialDeep<R>]
  *   : T extends readonly [infer F, ...infer R]
  *     ? readonly [UndefinedOnPartialDeep<F>, ...UndefinedOnPartialDeep<R>]
- *   : T extends Array<infer F> ? Array<UndefinedOnPartialDeep<F>>
- *   : T extends ReadonlyArray<infer F> ? ReadonlyArray<UndefinedOnPartialDeep<F>>
+ *   : T extends Array<infer F> ? UndefinedOnPartialDeep<F>[]
+ *   : T extends ReadonlyArray<infer F> ? readonly UndefinedOnPartialDeep<F>[]
  *   : never
  */

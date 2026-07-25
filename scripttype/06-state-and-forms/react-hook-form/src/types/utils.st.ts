@@ -16,11 +16,9 @@ declare const G: any
 declare const NestedValue: any
 declare const Primitive: any
 type BrowserNativeObject<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type DeepMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type FileList<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type G<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type NestedValue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type NonUndefined<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ NonUndefined: verified type-identical to the original
 /* @scripttype preserveParamNames */
@@ -179,7 +177,7 @@ export function DeepMap(T, TValue) {
   }
   const m1 = matches<ReadonlyArray<Hole<"U">>>(T)
   if (m1) {
-    return t<Array<DeepMap<NonUndefined<typeof m1.U>, typeof TValue> | undefined>>()
+    return arrayOf(anyOf(DeepMap(NonUndefined(m1.U), TValue), Undefined))
   }
   if (matches<object>(T)) {
     const out = emptyObject
@@ -194,7 +192,7 @@ export function DeepMap(T, TValue) {
  * export type DeepMap<T, TValue> =
  *   IsAny<T> extends true ? any
  *   : T extends BrowserNativeObject | NestedValue ? TValue
- *   : T extends ReadonlyArray<infer U> ? Array<DeepMap<NonUndefined<U>, TValue> | undefined>
+ *   : T extends ReadonlyArray<infer U> ? (DeepMap<NonUndefined<U>, TValue> | undefined)[]
  *   : T extends object ? { [K in keyof T]: DeepMap<NonUndefined<T[K]>, TValue> }
  *   : TValue
  */

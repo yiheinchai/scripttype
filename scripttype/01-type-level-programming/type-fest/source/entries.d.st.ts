@@ -21,37 +21,37 @@ type _SetEntry<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = 
 // ✓ ArrayEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ArrayEntries(BaseType: readonly unknown[]) {
-  return t<Array<_ArrayEntry<typeof BaseType>>>()
+  return arrayOf(_ArrayEntry(BaseType))
 }
 /* compiles to:
- * export type ArrayEntries<BaseType extends readonly unknown[]> = Array<_ArrayEntry<BaseType>>
+ * export type ArrayEntries<BaseType extends readonly unknown[]> = _ArrayEntry<BaseType>[]
  */
 
 // ✓ MapEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function MapEntries(BaseType) {
-  return t<Array<_MapEntry<typeof BaseType>>>()
+  return arrayOf(_MapEntry(BaseType))
 }
 /* compiles to:
- * export type MapEntries<BaseType> = Array<_MapEntry<BaseType>>
+ * export type MapEntries<BaseType> = _MapEntry<BaseType>[]
  */
 
 // ✓ ObjectEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ObjectEntries(BaseType) {
-  return t<Array<_ObjectEntry<typeof BaseType>>>()
+  return arrayOf(_ObjectEntry(BaseType))
 }
 /* compiles to:
- * export type ObjectEntries<BaseType> = Array<_ObjectEntry<BaseType>>
+ * export type ObjectEntries<BaseType> = _ObjectEntry<BaseType>[]
  */
 
 // ✓ SetEntries: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function SetEntries(BaseType: Set<unknown>) {
-  return t<Array<_SetEntry<typeof BaseType>>>()
+  return arrayOf(_SetEntry(BaseType))
 }
 /* compiles to:
- * export type SetEntries<BaseType extends Set<unknown>> = Array<_SetEntry<BaseType>>
+ * export type SetEntries<BaseType extends Set<unknown>> = _SetEntry<BaseType>[]
  */
 
 // ✓ Entries: verified type-identical to the original

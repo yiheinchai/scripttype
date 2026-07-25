@@ -976,7 +976,7 @@ export function PathParamOptions(TRouter: AnyRouter, TFrom, TTo) {
 //   ToPathOption.st.ts(3:84) TS2693: 'NoInfer' only refers to a type, but is being used as a value here.
 /* @scripttype preserveParamNames */
 export function ToPathOption(TRouter: AnyRouter = AnyRouter, TFrom: string = string, TTo: string | undefined = string) {
-  return ConstrainLiteral(TTo, RelativeToPathAutoComplete(TRouter, matches<string>(NoInfer(TFrom)) ? NoInfer(TFrom) : '', NoInfer(TTo) & string))
+  return ConstrainLiteral(TTo, RelativeToPathAutoComplete(TRouter, typeof NoInfer(TFrom) === 'string' ? NoInfer(TFrom) : '', NoInfer(TTo) & string))
 }
 /* compiles to:
  * export type ToPathOption<

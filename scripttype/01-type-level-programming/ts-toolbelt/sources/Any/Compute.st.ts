@@ -16,7 +16,6 @@ declare const Has: any
 declare const If: any
 declare const Key: any
 type BuiltIn<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ComputeDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Depth<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Has<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type If<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -47,34 +46,42 @@ export function ComputeFlat(A: any) {
   }
   if (matches<Array<any>>(A)) {
     if (matches<Array<Record<Key, any>>>(A)) {
-      return t<Array<{ [K in keyof (typeof A)[number]]: (typeof A)[number][K]; } & unknown>>()
+      const out = emptyObject
+      for (const K in keyof(A[number])) {
+        out[K] = A[number][K]
+      }
+      return arrayOf(out & unknown)
     }
     return A
   }
   if (matches<ReadonlyArray<any>>(A)) {
     if (matches<ReadonlyArray<Record<Key, any>>>(A)) {
-      return t<ReadonlyArray<{ [K in keyof (typeof A)[number]]: (typeof A)[number][K]; } & unknown>>()
+      const out2 = emptyObject
+      for (const K in keyof(A[number])) {
+        out2[K] = A[number][K]
+      }
+      return readonlyArrayOf(out2 & unknown)
     }
     return A
   }
-  const out = emptyObject
+  const out3 = emptyObject
   for (const K in keyof(A)) {
-    out[K] = A[K]
+    out3[K] = A[K]
   }
-  return out & unknown
+  return out3 & unknown
 }
 /* compiles to:
  * export type ComputeFlat<A extends any> =
  *   A extends BuiltIn ? A
  *   : A extends Array<any>
  *     ? A extends Array<Record<Key, any>>
- *       ? Array<{ [K in keyof (typeof A)[number]]: (typeof A)[number][K]; } & unknown>
+ *       ? ({ [K in keyof A[number]]: A[number][K] } & unknown)[]
  *       : A
  *   : A extends ReadonlyArray<any>
  *     ? A extends ReadonlyArray<Record<Key, any>>
- *       ? ReadonlyArray<{ [K in keyof (typeof A)[number]]: (typeof A)[number][K]; } & unknown>
+ *       ? readonly ({ [K1 in keyof A[number]]: A[number][K1] } & unknown)[]
  *       : A
- *   : { [K in keyof A]: A[K] } & unknown
+ *   : { [K2 in keyof A]: A[K2] } & unknown
  */
 
 // ✗ ComputeDeep: does not compile yet
@@ -85,10 +92,18 @@ export function ComputeDeep(A: any, Seen = never) {
     return A
   }
   const out = emptyObject
-  for (const K in keyof(A)) {
-    out[K] = ComputeDeep(A[K], anyOf(A, Seen))
+  for (const K in keyof(A[number])) {
+    out[K] = ComputeDeep(A[number][K], anyOf(A, Seen))
   }
-  return If(Has(Seen, A), A, matches<Array<any>>(A) ? (matches<Array<Record<Key, any>>>(A) ? t<Array<{ [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; } & unknown>>() : A) : (matches<ReadonlyArray<any>>(A) ? (matches<ReadonlyArray<Record<Key, any>>>(A) ? t<ReadonlyArray<{ [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; } & unknown>>() : A) : (out & unknown)))
+  const out2 = emptyObject
+  for (const K in keyof(A[number])) {
+    out2[K] = ComputeDeep(A[number][K], anyOf(A, Seen))
+  }
+  const out3 = emptyObject
+  for (const K in keyof(A)) {
+    out3[K] = ComputeDeep(A[K], anyOf(A, Seen))
+  }
+  return If(Has(Seen, A), A, matches<Array<any>>(A) ? (matches<Array<Record<Key, any>>>(A) ? arrayOf(out & unknown) : A) : (matches<ReadonlyArray<any>>(A) ? (matches<ReadonlyArray<Record<Key, any>>>(A) ? readonlyArrayOf(out2 & unknown) : A) : (out3 & unknown)))
 }
 /* compiles to:
  * export type ComputeDeep<A extends any, Seen = never> =
@@ -99,19 +114,13 @@ export function ComputeDeep(A: any, Seen = never) {
  *       A,
  *       A extends Array<any>
  *         ? A extends Array<Record<Key, any>>
- *           ? Array<
- *             & { [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; }
- *             & unknown
- *           >
+ *           ? ({ [K in keyof A[number]]: ComputeDeep<A[number][K], A | Seen> } & unknown)[]
  *           : A
  *       : A extends ReadonlyArray<any>
  *         ? A extends ReadonlyArray<Record<Key, any>>
- *           ? ReadonlyArray<
- *             & { [K in keyof (typeof A)[number]]: ComputeDeep<(typeof A)[number][K], typeof A | typeof Seen>; }
- *             & unknown
- *           >
+ *           ? readonly ({ [K1 in keyof A[number]]: ComputeDeep<A[number][K1], A | Seen> } & unknown)[]
  *           : A
- *       : { [K in keyof A]: ComputeDeep<A[K], A | Seen> } & unknown
+ *       : { [K2 in keyof A]: ComputeDeep<A[K2], A | Seen> } & unknown
  *     >
  */
 

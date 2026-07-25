@@ -91,11 +91,11 @@ export function CamelCasedPropertiesArrayDeep(Value: UnknownArray, Options: Requ
   }
   const m4 = matches<Array<Hole<"U">>>(Value)
   if (m4) {
-    return t<Array<_CamelCasedPropertiesDeep<typeof m4.U, typeof Options>>>()
+    return arrayOf(_CamelCasedPropertiesDeep(m4.U, Options))
   }
   const m5 = matches<ReadonlyArray<Hole<"U">>>(Value)
   if (m5) {
-    return t<ReadonlyArray<_CamelCasedPropertiesDeep<typeof m5.U, typeof Options>>>()
+    return readonlyArrayOf(_CamelCasedPropertiesDeep(m5.U, Options))
   }
   return never
 }
@@ -111,7 +111,7 @@ export function CamelCasedPropertiesArrayDeep(Value: UnknownArray, Options: Requ
  *     ? readonly [_CamelCasedPropertiesDeep<U, Options>, ..._CamelCasedPropertiesDeep<V, Options>]
  *   : Value extends readonly [...infer U, infer V]
  *     ? [..._CamelCasedPropertiesDeep<U, Options>, _CamelCasedPropertiesDeep<V, Options>]
- *   : Value extends Array<infer U> ? Array<_CamelCasedPropertiesDeep<U, Options>>
- *   : Value extends ReadonlyArray<infer U> ? ReadonlyArray<_CamelCasedPropertiesDeep<U, Options>>
+ *   : Value extends Array<infer U> ? _CamelCasedPropertiesDeep<U, Options>[]
+ *   : Value extends ReadonlyArray<infer U> ? readonly _CamelCasedPropertiesDeep<U, Options>[]
  *   : never
  */

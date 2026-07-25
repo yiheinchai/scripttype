@@ -32,7 +32,7 @@ export function EnumValues__v1(TEnum, TKey) {
 export function EnumValues(TEnum: Enum) {
   const out = emptyObject
   for (const TKey in keyof(TEnum)) {
-    out[TKey] = typeof TKey === 'number' ? (typeof TEnum[TKey] === 'string' ? (matches<typeof TKey>(TEnum[TEnum[TKey]]) ? never : TEnum[TKey]) : TEnum[TKey]) : (matches<'NaN' | 'Infinity' | '-Infinity'>(TKey) ? (typeof TEnum[TKey] === 'string' ? (matches<number>(TEnum[TEnum[TKey]]) ? never : TEnum[TKey]) : TEnum[TKey]) : (matches<`+${number}`>(TKey) ? TEnum[TKey] : (EnumValues__v1(TEnum, TKey))))
+    out[TKey] = typeof TKey === 'number' ? (typeof TEnum[TKey] === 'string' ? (matches<typeof TKey>(TEnum[TEnum[TKey]]) ? never : TEnum[TKey]) : TEnum[TKey]) : (matches<'NaN' | 'Infinity' | '-Infinity'>(TKey) ? (typeof TEnum[TKey] === 'string' ? (typeof TEnum[TEnum[TKey]] === 'number' ? never : TEnum[TKey]) : TEnum[TKey]) : (matches<`+${number}`>(TKey) ? TEnum[TKey] : (EnumValues__v1(TEnum, TKey))))
   }
   return out[keyof(TEnum)]
 }

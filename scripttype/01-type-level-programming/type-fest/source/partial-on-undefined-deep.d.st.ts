@@ -28,7 +28,6 @@ type LiteralKeyOf<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7
 type Merge<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PartialOnUndefinedDeepOptions<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type _PartialOnUndefinedDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ PartialOnUndefinedDeep: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function PartialOnUndefinedDeep(T, Options: PartialOnUndefinedDeepOptions = {}) {
@@ -96,9 +95,9 @@ export function PartialOnUndefinedDeepValue(T, Options: Required<PartialOnUndefi
     if (matches<true>(Options['recurseIntoArrays'])) {
       if (matches<typeof T>(arrayOf(m1.U))) {
         if (matches<typeof T>(readonlyArrayOf(m1.U))) {
-          return t<ReadonlyArray<_PartialOnUndefinedDeep<typeof m1.U, typeof Options>>>()
+          return readonlyArrayOf(_PartialOnUndefinedDeep(m1.U, Options))
         }
-        return t<Array<_PartialOnUndefinedDeep<typeof m1.U, typeof Options>>>()
+        return arrayOf(_PartialOnUndefinedDeep(m1.U, Options))
       }
       const out = emptyObject
       for (const Key in keyof(T)) {
@@ -123,8 +122,8 @@ export function PartialOnUndefinedDeepValue(T, Options: Required<PartialOnUndefi
  *     ? Options['recurseIntoArrays'] extends true
  *       ? U[] extends T
  *         ? readonly U[] extends T
- *           ? ReadonlyArray<_PartialOnUndefinedDeep<U, Options>>
- *           : Array<_PartialOnUndefinedDeep<U, Options>>
+ *           ? readonly _PartialOnUndefinedDeep<U, Options>[]
+ *           : _PartialOnUndefinedDeep<U, Options>[]
  *         : _PartialOnUndefinedDeep<
  *           { [Key in keyof T]: _PartialOnUndefinedDeep<T[Key], Options> },
  *           Options

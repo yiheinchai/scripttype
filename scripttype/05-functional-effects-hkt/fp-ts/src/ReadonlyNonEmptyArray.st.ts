@@ -10,8 +10,8 @@
 // ✓ ReadonlyNonEmptyArray: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReadonlyNonEmptyArray(A) {
-  return merge(t<ReadonlyArray<typeof A>>(), { 0: readonlyProp(A) })
+  return merge(readonlyArrayOf(A), { 0: readonlyProp(A) })
 }
 /* compiles to:
- * export type ReadonlyNonEmptyArray<A> = ReadonlyArray<A> & { readonly '0': A }
+ * export type ReadonlyNonEmptyArray<A> = readonly A[] & { readonly '0': A }
  */

@@ -11,9 +11,7 @@
 // library, and local functions used in type position. Declared so the generated
 // ScriptType typechecks standalone. They carry no runtime meaning.
 declare const Coercible: any
-declare const Item: any
 type Coercible<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Item<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ CoercibleRecordField: does not compile yet
 //   Cannot find name 'm1'.
 /* @scripttype preserveParamNames */
@@ -23,7 +21,7 @@ export function CoercibleRecordField(A) {
   }
   const m1 = matches<ReadonlyArray<Hole<"Item">>>(A)
   if (m1) {
-    return t<ReadonlyArray<typeof m1.Item extends Coercible ? typeof m1.Item : never>>()
+    return readonlyArrayOf(matches<Coercible>(m1.Item) ? m1.Item : never)
   }
   if (matches<object>(A)) {
     return CoercibleRecord(A)
@@ -33,8 +31,7 @@ export function CoercibleRecordField(A) {
 /* compiles to:
  * export type CoercibleRecordField<A> =
  *   A extends Coercible ? A
- *   : A extends ReadonlyArray<unknown>
- *     ? ReadonlyArray<typeof m1.Item extends Coercible ? typeof m1.Item : never>
+ *   : A extends ReadonlyArray<infer Item> ? readonly (Item extends Coercible ? Item : never)[]
  *   : A extends object ? CoercibleRecord<A>
  *   : never
  */

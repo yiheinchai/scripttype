@@ -81,7 +81,6 @@ declare const StreamSse: any
 declare const StreamUint8Array: any
 declare const Struct: any
 declare const SuccessConstraint: any
-declare const Top: any
 declare const Uint8Array: any
 type AnyId<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Brand<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -113,7 +112,6 @@ type StreamSse<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = 
 type StreamUint8Array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Struct<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SuccessConstraint<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type Top<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Uint8Array<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✗ SuccessType: does not compile yet
 //   Type 'unknown' does not satisfy the constraint 'EventCodec'.
@@ -852,15 +850,15 @@ export function AddMiddleware(Endpoint, M: HttpApiMiddleware.AnyId) {
 /* @scripttype preserveParamNames */
 export function PayloadConstraint(Method: HttpMethod) {
   if (matches<HttpMethod.NoBody>(Method)) {
-    return Record(string, Schema.Encoder(anyOf(string, t<ReadonlyArray<string>>(), Undefined), unknown))
+    return Record(string, Schema.Encoder(anyOf(string, readonlyArrayOf(string), Undefined), unknown))
   }
-  return Schema.Top | t<ReadonlyArray<Schema.Top>>()
+  return Schema.Top | readonlyArrayOf(Schema.Top)
 }
 /* compiles to:
  * export type PayloadConstraint<Method extends HttpMethod> =
  *   Method extends HttpMethod.NoBody
- *     ? Record<string, Schema.Encoder<string | ReadonlyArray<string> | undefined, unknown>>
- *     : Schema.Top | ReadonlyArray<Schema.Top>
+ *     ? Record<string, Schema.Encoder<string | readonly string[] | undefined, unknown>>
+ *     : Schema.Top | readonly Schema.Top[]
  */
 
 // ✓ PayloadConstraintCodecs: verified type-identical to the original
@@ -869,13 +867,13 @@ export function PayloadConstraintCodecs(Method: HttpMethod) {
   if (matches<HttpMethod.NoBody>(Method)) {
     return Record(string, Schema.Top)
   }
-  return Schema.Top | t<ReadonlyArray<Schema.Top>>()
+  return Schema.Top | readonlyArrayOf(Schema.Top)
 }
 /* compiles to:
  * export type PayloadConstraintCodecs<Method extends HttpMethod> =
  *   Method extends HttpMethod.NoBody
  *     ? Record<string, Schema.Top>
- *     : Schema.Top | ReadonlyArray<Schema.Top>
+ *     : Schema.Top | readonly Schema.Top[]
  */
 
 // ✓ ErrorNoStream: verified type-identical to the original

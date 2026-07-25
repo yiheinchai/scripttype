@@ -41,7 +41,7 @@ export function _PascalCasedPropertiesDeep(Value, Options: Required<CamelCaseOpt
   }
   const m1 = matches<Array<Hole<"U">>>(Value)
   if (m1) {
-    return t<Array<_PascalCasedPropertiesDeep<typeof m1.U, typeof Options>>>()
+    return arrayOf(_PascalCasedPropertiesDeep(m1.U, Options))
   }
   const m2 = matches<Set<Hole<"U">>>(Value)
   if (m2) {
@@ -59,7 +59,7 @@ export function _PascalCasedPropertiesDeep(Value, Options: Required<CamelCaseOpt
 /* compiles to:
  * export type _PascalCasedPropertiesDeep<Value, Options extends Required<CamelCaseOptions>> =
  *   Value extends Function | Date | RegExp ? Value
- *   : Value extends Array<infer U> ? Array<_PascalCasedPropertiesDeep<U, Options>>
+ *   : Value extends Array<infer U> ? _PascalCasedPropertiesDeep<U, Options>[]
  *   : Value extends Set<infer U> ? Set<_PascalCasedPropertiesDeep<U, Options>>
  *   : Value extends object
  *     ? {

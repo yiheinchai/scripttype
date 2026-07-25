@@ -22,7 +22,6 @@ declare const $ZodType: any
 declare const Primitive: any
 declare const util: any
 type $ZodCheck<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type $ZodErrorTree<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type $ZodIssue<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type $ZodIssueBase<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type $ZodType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -152,7 +151,7 @@ export function $ZodErrorTree(T, U = string) {
     return { errors: arrayOf(U), items: optional(out) }
   }
   if (Array.isArray(T)) {
-    return { errors: arrayOf(U), items: optional(t<Array<$ZodErrorTree<(typeof T)[number], typeof U>>>()) }
+    return { errors: arrayOf(U), items: optional(arrayOf($ZodErrorTree(T[number], U))) }
   }
   if (matches<object>(T)) {
     const out2 = emptyObject
@@ -168,7 +167,7 @@ export function $ZodErrorTree(T, U = string) {
  *   T extends util.Primitive ? { errors: U[] }
  *   : T extends [any, ...any[]]
  *     ? { errors: U[]; items?: { [K in keyof T]?: $ZodErrorTree<T[K], U> } }
- *   : T extends any[] ? { errors: U[]; items?: Array<$ZodErrorTree<T[number], U>> }
+ *   : T extends any[] ? { errors: U[]; items?: $ZodErrorTree<T[number], U>[] }
  *   : T extends object
  *     ? { errors: U[]; properties?: { [K1 in keyof T]?: $ZodErrorTree<T[K1], U> } }
  *   : { errors: U[] }

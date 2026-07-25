@@ -21,8 +21,6 @@ declare const IsTuple: any
 declare const Prettify: any
 declare const Primitive: any
 declare const PropertyKey: any
-declare const ReadonlyMap: any
-declare const ReadonlySet: any
 declare const Strings: any
 declare const UnionToIntersection: any
 declare const keys: any
@@ -36,8 +34,6 @@ type IsTuple<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = an
 type Prettify<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Primitive<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type PropertyKey<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type Strings<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type TransformObjectDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type UnionToIntersection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -233,7 +229,7 @@ export function TransformObjectDeep(fn: Fn, type) {
       }
       return Call(fn, out)
     }
-    return t<Array<TransformObjectDeep<typeof fn, typeof m7.values> | undefined>>()
+    return arrayOf(anyOf(TransformObjectDeep(fn, m7.values), Undefined))
   }
   const m8 = matches<Promise<Hole<"value">>>(type)
   if (m8) {
@@ -267,7 +263,7 @@ export function TransformObjectDeep(fn: Fn, type) {
  *   : type extends Array<infer values>
  *     ? IsTuple<type> extends true
  *       ? Call<fn, { [Key in keyof type]: TransformObjectDeep<fn, type[Key]> }>
- *       : Array<TransformObjectDeep<fn, values> | undefined>
+ *       : (TransformObjectDeep<fn, values> | undefined)[]
  *   : type extends Promise<infer value> ? Promise<TransformObjectDeep<fn, value>>
  *   : type extends object
  *     ? Call<fn, { [Key1 in keyof type]: TransformObjectDeep<fn, type[Key1]> }>

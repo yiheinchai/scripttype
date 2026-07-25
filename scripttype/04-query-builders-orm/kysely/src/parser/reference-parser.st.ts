@@ -26,7 +26,6 @@ type Expression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 =
 type ExpressionOrFactory<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ExtractColumnType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type OrderByDirection<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReferenceExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectQueryBuilderExpression<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type SelectType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 // ✓ StringReference: verified type-identical to the original
@@ -62,11 +61,11 @@ export function ReferenceExpression(DB, TB: keyof typeof DB) {
 // ✓ ReferenceExpressionOrList: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function ReferenceExpressionOrList(DB, TB: keyof typeof DB) {
-  return ReferenceExpression(DB, TB) | t<ReadonlyArray<ReferenceExpression<typeof DB, typeof TB>>>()
+  return ReferenceExpression(DB, TB) | readonlyArrayOf(ReferenceExpression(DB, TB))
 }
 /* compiles to:
  * export type ReferenceExpressionOrList<DB, TB extends keyof DB> =
- *   ReferenceExpression<DB, TB> | ReadonlyArray<ReferenceExpression<DB, TB>>
+ *   ReferenceExpression<DB, TB> | readonly ReferenceExpression<DB, TB>[]
  */
 
 // ✓ ExtractTypeFromReferenceExpression: verified type-identical to the original

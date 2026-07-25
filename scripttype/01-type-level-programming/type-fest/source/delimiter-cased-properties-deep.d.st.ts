@@ -109,11 +109,11 @@ export function DelimiterCasedPropertiesArrayDeep(Value: UnknownArray, Delimiter
   }
   const m5 = matches<Array<Hole<"U">>>(Value)
   if (m5) {
-    return t<Array<_DelimiterCasedPropertiesDeep<typeof m5.U, typeof Delimiter, typeof Options>>>()
+    return arrayOf(_DelimiterCasedPropertiesDeep(m5.U, Delimiter, Options))
   }
   const m6 = matches<ReadonlyArray<Hole<"U">>>(Value)
   if (m6) {
-    return t<ReadonlyArray<_DelimiterCasedPropertiesDeep<typeof m6.U, typeof Delimiter, typeof Options>>>()
+    return readonlyArrayOf(_DelimiterCasedPropertiesDeep(m6.U, Delimiter, Options))
   }
   return never
 }
@@ -144,8 +144,8 @@ export function DelimiterCasedPropertiesArrayDeep(Value: UnknownArray, Delimiter
  *       ..._DelimiterCasedPropertiesDeep<U, Delimiter, Options>,
  *       _DelimiterCasedPropertiesDeep<V, Delimiter, Options>
  *     ]
- *   : Value extends Array<infer U> ? Array<_DelimiterCasedPropertiesDeep<U, Delimiter, Options>>
+ *   : Value extends Array<infer U> ? _DelimiterCasedPropertiesDeep<U, Delimiter, Options>[]
  *   : Value extends ReadonlyArray<infer U>
- *     ? ReadonlyArray<_DelimiterCasedPropertiesDeep<U, Delimiter, Options>>
+ *     ? readonly _DelimiterCasedPropertiesDeep<U, Delimiter, Options>[]
  *   : never
  */

@@ -70,7 +70,7 @@ export function objectKindOf(data: object) {
 // ✓ describeObject: verified type-identical to the original
 /* @scripttype preserveParamNames */
 export function describeObject(o: object, opts: DescribeOptions = {}) {
-  if (matches<string>(objectKindOf(o))) {
+  if (typeof objectKindOf(o) === 'string') {
     if (matches<[ true ]>([opts['includeArticles']])) {
       return objectKindDescriptions[objectKindOf(o)]
     }
@@ -113,7 +113,7 @@ export function instantiableObjectKind(data: object) {
 /* @scripttype preserveParamNames */
 export function objectKindOrDomainOf(data) {
   if (matches<object>(data)) {
-    if (matches<undefined>(objectKindOf(data))) {
+    if (typeof objectKindOf(data) === 'undefined') {
       return 'object'
     }
     return objectKindOf(data)

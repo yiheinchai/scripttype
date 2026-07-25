@@ -13,16 +13,10 @@
 declare const BuiltIns: any
 declare const HasMultipleCallSignatures: any
 declare const ItemType: any
-declare const ReadonlyMap: any
-declare const ReadonlySet: any
-declare const U: any
 declare const ValueType: any
 type BuiltIns<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type HasMultipleCallSignatures<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ItemType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlyMap<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type ReadonlySet<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
-type U<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type ValueType<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type WritableDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
 type _WritableObjectDeep<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any, T8 = any, T9 = any, T10 = any, T11 = any, T12 = any, T13 = any, T14 = any, T15 = any, T16 = any> = any
@@ -130,11 +124,11 @@ export function WritableArrayDeep(ArrayType: readonly unknown[]) {
   }
   const m3 = matches<ReadonlyArray<Hole<"U">>>(ArrayType)
   if (m3) {
-    return t<Array<WritableDeep<typeof m3.U>>>()
+    return arrayOf(WritableDeep(m3.U))
   }
   const m4 = matches<Array<Hole<"U">>>(ArrayType)
   if (m4) {
-    return t<Array<WritableDeep<typeof m4.U>>>()
+    return arrayOf(WritableDeep(m4.U))
   }
   return ArrayType
 }
@@ -145,7 +139,7 @@ export function WritableArrayDeep(ArrayType: readonly unknown[]) {
  *     ? [...WritableArrayDeep<U>, WritableDeep<V>]
  *   : ArrayType extends readonly [infer U, ...infer V]
  *     ? [WritableDeep<U>, ...WritableArrayDeep<V>]
- *   : ArrayType extends ReadonlyArray<infer U> ? Array<WritableDeep<U>>
- *   : ArrayType extends Array<infer U> ? Array<WritableDeep<U>>
+ *   : ArrayType extends ReadonlyArray<infer U> ? WritableDeep<U>[]
+ *   : ArrayType extends Array<infer U> ? WritableDeep<U>[]
  *   : ArrayType
  */

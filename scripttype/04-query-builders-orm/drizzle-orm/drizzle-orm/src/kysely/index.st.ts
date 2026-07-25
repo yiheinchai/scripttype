@@ -27,7 +27,7 @@ type Table<T1 = any, T2 = any, T3 = any, T4 = any, T5 = any, T6 = any, T7 = any,
 export function Kyselify(T: Table) {
   const out = emptyObject
   for (const Key in keySet(keyof(T['_']['columns']) & string)) {
-    out[MapColumnName(Key, T['_']['columns'][Key], true)] = ColumnType(InferSelectModel(T, { dbColumnNames: true })[MapColumnName(Key, T['_']['columns'][Key], true)], matches<keyof InferInsertModel<typeof T, { dbColumnNames: true; }>>(MapColumnName(Key, T['_']['columns'][Key], true)) ? InferInsertModel(T, { dbColumnNames: true })[MapColumnName(Key, T['_']['columns'][Key], true)] : never, matches<keyof InferInsertModel<typeof T, { dbColumnNames: true; }>>(MapColumnName(Key, T['_']['columns'][Key], true)) ? InferInsertModel(T, { dbColumnNames: true })[MapColumnName(Key, T['_']['columns'][Key], true)] : never)
+    out[MapColumnName(Key, T['_']['columns'][Key], true)] = ColumnType(InferSelectModel(T, { dbColumnNames: true })[MapColumnName(Key, T['_']['columns'][Key], true)], MapColumnName(Key, T['_']['columns'][Key], true) in InferInsertModel(T, { dbColumnNames: true }) ? InferInsertModel(T, { dbColumnNames: true })[MapColumnName(Key, T['_']['columns'][Key], true)] : never, MapColumnName(Key, T['_']['columns'][Key], true) in InferInsertModel(T, { dbColumnNames: true }) ? InferInsertModel(T, { dbColumnNames: true })[MapColumnName(Key, T['_']['columns'][Key], true)] : never)
   }
   return Simplify(out)
 }
@@ -36,10 +36,10 @@ export function Kyselify(T: Table) {
  *   {
  *     [Key in keyof T['_']['columns'] & string as MapColumnName<Key, T['_']['columns'][Key], true>]: ColumnType<
  *       InferSelectModel<T, { dbColumnNames: true }>[MapColumnName<Key, T['_']['columns'][Key], true>],
- *       MapColumnName<Key, T['_']['columns'][Key], true> extends keyof InferInsertModel<T, { dbColumnNames: true; }>
+ *       MapColumnName<Key, T['_']['columns'][Key], true> extends keyof InferInsertModel<T, { dbColumnNames: true }>
  *         ? InferInsertModel<T, { dbColumnNames: true }>[MapColumnName<Key, T['_']['columns'][Key], true>]
  *         : never,
- *       MapColumnName<Key, T['_']['columns'][Key], true> extends keyof InferInsertModel<T, { dbColumnNames: true; }>
+ *       MapColumnName<Key, T['_']['columns'][Key], true> extends keyof InferInsertModel<T, { dbColumnNames: true }>
  *         ? InferInsertModel<T, { dbColumnNames: true }>[MapColumnName<Key, T['_']['columns'][Key], true>]
  *         : never
  *     >

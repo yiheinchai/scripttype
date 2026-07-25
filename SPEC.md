@@ -70,6 +70,27 @@ Parameter names are lowerCamel in source and PascalCase in output (`input` → `
 the conventions of each language. The return annotation is optional; when present it is enforced
 as a post-condition by the verifier, not emitted.
 
+### Modules
+
+A module `shared.st.ts` compiles to `shared.ts`, and imports are carried through as type
+imports, because every name a ScriptType module imports is a type once compiled.
+
+```ts
+import { Trim } from './shared.st.js'      // source: a value import, because Trim is *called*
+```
+```ts
+import type { Trim } from './shared.js'    // output: a type import of the compiled alias
+```
+
+The `.st.js` specifier is what makes both halves work. TypeScript maps `X.js` to `X.ts`, so
+`./shared.st.js` resolves to `shared.st.ts` and the *source* typechecks; the compiler rewrites
+it to `./shared.js`, which is what that file compiles to. Importing `./shared.js` from source
+instead would resolve to the compiled output, where `Trim` is a type and cannot be called.
+
+Named imports are emitted only if the output mentions them — lowering can inline a helper
+away, and an unused import fails `noUnusedLocals`. Side-effect imports (`import './x.js'`) are
+dropped, having no type-level meaning. Re-exports are kept unconditionally.
+
 ## Expression lowering
 
 | ScriptType | TypeScript | Notes |
@@ -129,6 +150,26 @@ if (extendsType<[unknown, ...unknown[]]>(t)) {
   const [head] = t                     // legal only because t narrowed to a tuple
 }
 ```
+
+The JavaScript narrowing forms are recognised too, and mean exactly what they say — a
+reader who has never seen ScriptType can still tell what these do:
+
+| written | lowers to |
+|---|---|
+| `typeof x === 'string'` | `X extends string` |
+| `typeof x !== 'string'` | the same test, branches swapped |
+| `Array.isArray(x)` | `X extends any[]` |
+| `'k' in o` | `'k' extends keyof O` |
+| `a === b` | `A extends B` |
+| `a !== b` | the same test, branches swapped |
+
+`typeof` accepts either operand order, and every tag it can produce: `string`, `number`,
+`boolean`, `bigint`, `symbol`, `object`, `undefined`, and `function` — the last being
+`(...a0: any[]) => any`, the general callable type. A tag `typeof` cannot produce, such
+as `'array'`, is an error rather than a silently wrong lowering.
+
+Relational operators (`<`, `>`, `<=`, `>=`) have no lowering, because TypeScript cannot
+compare numbers in the type system. Compare tuple lengths, or call an arithmetic helper.
 
 ### `matches<Pattern>(x)` — the general pattern primitive
 

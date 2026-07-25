@@ -302,26 +302,33 @@ and whether that round-trip was verified type-identical:
 
 ```ts
 // ✓ TrimLeft: verified type-identical to the original
+/* @scripttype preserveParamNames */
 export function TrimLeft(V: string) {
-  if (matches<`${Whitespace}${infer R}`>(V)) {
-    return TrimLeft(R)
+  let v = V
+  while (true) {
+    const m1 = matches<`${Whitespace}${Hole<"R">}`>(v)
+    if (!m1) {
+      break
+    }
+    v = m1.R
   }
-  return V
+  return v
 }
 /* compiles to:
- * export type TrimLeft<V extends string> = V extends `${Whitespace}${infer R}` ? TrimLeft<R> : V
+ * export type TrimLeft<V extends string> = TrimLeft__loop<V>
+ * type TrimLeft__loop<V extends string> = V extends `${Whitespace}${infer R}` ? TrimLeft__loop<R> : V
  */
 ```
 
 Regenerate with `tsx src/materialize.ts <statuses-dir>`.
 
 **These are decompiler output, and the distinction matters.** The decompiler turns each
-conditional type into statement form — `if (matches<…>(x)) { return … }` with early returns
-instead of a nested ternary — which linearises control flow and names each branch. It does *not*
-recover loops: a recursive type stays recursive rather than becoming the `while` loop a human
-would write, because loop recovery is the inverse of the compiler's loop lowering and is not
-implemented. For ScriptType in the intended imperative style, see the hand-authored `corpus/`
-targets, which are also held to the stricter per-sample gate.
+conditional type into statement form — early returns instead of a nested ternary — which
+linearises control flow and names each branch, and it recovers tail recursion back into a
+`while` loop, which is the inverse of the compiler's loop lowering. What it does not do is
+choose good names or find the abstraction a person would have reached for; for ScriptType in
+the intended hand-written style, see the `corpus/` targets, which are also held to the stricter
+per-sample gate.
 
 ## Coverage
 

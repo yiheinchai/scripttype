@@ -1,0 +1,14 @@
+{
+  "name": "kysely/ArrayItemType",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "ArrayItemType",
+  "samples": [
+    "string[]",
+    "readonly number[]",
+    "[1, 2]",
+    "string",
+    "never",
+    "(string | number)[]"
+  ],
+  "exercises": "elementOf() builtin -> ReadonlyArray<infer I> destructure"
+}

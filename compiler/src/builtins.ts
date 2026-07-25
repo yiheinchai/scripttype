@@ -1,0 +1,501 @@
+/**
+ * Builtin library. Each builtin is *declared*, never implemented — it carries a
+ * lowering rule from a JavaScript-looking call to native TypeScript type syntax.
+ *
+ * A builtin lowers to one of two things:
+ *   - 'expr'  : a plain type expression (`upper(s)` -> `Uppercase<S>`)
+ *   - 'match' : a test + inference pattern that the caller must weave into a
+ *               conditional type (`splitOnce(s, '/')` -> `S extends `${infer A}/${infer B}``)
+ */
+import {
+  type TypeExpr,
+  cond,
+  indexed,
+  infer,
+  kw,
+  ref,
+  str,
+  template,
+  tuple,
+  intersection,
+} from './ir.js'
+
+export interface MatchLowering {
+  tag: 'match'
+  /** The type under test. */
+  check: TypeExpr
+  /** The `extends` pattern; contains `infer` nodes for each binding. */
+  ext: TypeExpr
+  /** Names of the inferred bindings, positionally ordered. */
+  binds: string[]
+}
+
+export interface ExprLowering {
+  tag: 'expr'
+  expr: TypeExpr
+}
+
+export type Lowering = MatchLowering | ExprLowering
+
+const expr = (e: TypeExpr): ExprLowering => ({ tag: 'expr', expr: e })
+
+export interface BuiltinCtx {
+  /** Allocate a fresh, collision-free type-parameter name. */
+  fresh(hint: string): string
+  /** Lowered explicit type arguments, e.g. `extendsType<P>(x)`. */
+  typeArgs: TypeExpr[]
+  /** Mark a prelude helper as used so it gets emitted. */
+  usePrelude(name: string): void
+}
+
+export interface Builtin {
+  name: string
+  arity: number | [number, number]
+  /** True when this builtin can only appear as an `if` condition or destructuring source. */
+  lower(args: TypeExpr[], ctx: BuiltinCtx): Lowering
+  doc: string
+}
+
+const ANY_STR = kw('string')
+
+function def(b: Builtin): Builtin {
+  return b
+}
+
+export const BUILTINS: Record<string, Builtin> = {}
+function register(...bs: Builtin[]) {
+  for (const b of bs) BUILTINS[b.name] = b
+}
+
+// ---------------------------------------------------------------------------
+// String
+// ---------------------------------------------------------------------------
+
+register(
+  def({
+    name: 'startsWith',
+    arity: 2,
+    doc: 'startsWith(s, p) -> S extends `${P}${string}`',
+    lower: ([s, p]) => ({
+      tag: 'match',
+      check: s!,
+      ext: template(['', '', ''], [p!, ANY_STR]),
+      binds: [],
+    }),
+  }),
+  def({
+    name: 'endsWith',
+    arity: 2,
+    doc: 'endsWith(s, p) -> S extends `${string}${P}`',
+    lower: ([s, p]) => ({
+      tag: 'match',
+      check: s!,
+      ext: template(['', '', ''], [ANY_STR, p!]),
+      binds: [],
+    }),
+  }),
+  def({
+    name: 'includes',
+    arity: 2,
+    doc: 'includes(s, p) -> S extends `${string}${P}${string}`',
+    lower: ([s, p]) => ({
+      tag: 'match',
+      check: s!,
+      ext: template(['', '', '', ''], [ANY_STR, p!, ANY_STR]),
+      binds: [],
+    }),
+  }),
+  def({
+    name: 'splitOnce',
+    arity: 2,
+    doc: 'splitOnce(s, sep) -> S extends `${infer A}${Sep}${infer B}` (first occurrence)',
+    lower: ([s, sep], ctx) => {
+      const a = ctx.fresh('Left')
+      const b = ctx.fresh('Right')
+      return {
+        tag: 'match',
+        check: s!,
+        ext: template(['', '', '', ''], [infer(a), sep!, infer(b)]),
+        binds: [a, b],
+      }
+    },
+  }),
+  def({
+    name: 'removePrefix',
+    arity: 2,
+    doc: 'removePrefix(s, p) -> S extends `${P}${infer R}` ? R : S',
+    lower: ([s, p], ctx) => {
+      const r = ctx.fresh('Rest')
+      return expr(cond(s!, template(['', '', ''], [p!, infer(r)]), ref(r), s!))
+    },
+  }),
+  def({
+    name: 'removeSuffix',
+    arity: 2,
+    doc: 'removeSuffix(s, p) -> S extends `${infer R}${P}` ? R : S',
+    lower: ([s, p], ctx) => {
+      const r = ctx.fresh('Rest')
+      return expr(cond(s!, template(['', '', ''], [infer(r), p!]), ref(r), s!))
+    },
+  }),
+  def({
+    name: 'upper',
+    arity: 1,
+    doc: 'upper(s) -> Uppercase<S>',
+    lower: ([s]) => expr(ref('Uppercase', [s!])),
+  }),
+  def({
+    name: 'lower',
+    arity: 1,
+    doc: 'lower(s) -> Lowercase<S>',
+    lower: ([s]) => expr(ref('Lowercase', [s!])),
+  }),
+  def({
+    name: 'capitalize',
+    arity: 1,
+    doc: 'capitalize(s) -> Capitalize<S>',
+    lower: ([s]) => expr(ref('Capitalize', [s!])),
+  }),
+  def({
+    name: 'uncapitalize',
+    arity: 1,
+    doc: 'uncapitalize(s) -> Uncapitalize<S>',
+    lower: ([s]) => expr(ref('Uncapitalize', [s!])),
+  }),
+  def({
+    name: 'concatStr',
+    arity: 2,
+    doc: 'concatStr(a, b) -> `${A}${B}`',
+    lower: ([a, b]) => expr(template(['', '', ''], [a!, b!])),
+  }),
+  def({
+    name: 'trim',
+    arity: 1,
+    doc: 'trim(s) -> prelude Trim<S>',
+    lower: ([s], ctx) => {
+      ctx.usePrelude('Trim')
+      return expr(ref('Trim', [s!]))
+    },
+  }),
+  def({
+    name: 'splitLast',
+    arity: 2,
+    doc: 'splitLast(s, sep) -> prelude SplitLast<S, Sep> (last occurrence)',
+    lower: ([s, sep], ctx) => {
+      ctx.usePrelude('SplitLast')
+      return expr(ref('SplitLast', [s!, sep!]))
+    },
+  }),
+  def({
+    name: 'split',
+    arity: 2,
+    doc: 'split(s, sep) -> prelude Split<S, Sep>',
+    lower: ([s, sep], ctx) => {
+      ctx.usePrelude('Split')
+      return expr(ref('Split', [s!, sep!]))
+    },
+  }),
+  def({
+    name: 'replaceAll',
+    arity: 3,
+    doc: 'replaceAll(s, from, to) -> prelude ReplaceAll<S, From, To>',
+    lower: ([s, f, t], ctx) => {
+      ctx.usePrelude('ReplaceAll')
+      return expr(ref('ReplaceAll', [s!, f!, t!]))
+    },
+  }),
+  def({
+    name: 'strLength',
+    arity: 1,
+    doc: 'strLength(s) -> prelude StrLength<S>',
+    lower: ([s], ctx) => {
+      ctx.usePrelude('StrLength')
+      return expr(ref('StrLength', [s!]))
+    },
+  }),
+)
+
+// ---------------------------------------------------------------------------
+// Tuple / array
+// ---------------------------------------------------------------------------
+
+register(
+  def({
+    name: 'concat',
+    arity: 2,
+    doc: 'concat(a, b) -> [...A, ...B]',
+    lower: ([a, b]) => expr(tuple([{ expr: a!, spread: true }, { expr: b!, spread: true }])),
+  }),
+  def({
+    name: 'append',
+    arity: 2,
+    doc: 'append(t, x) -> [...T, X]',
+    lower: ([t, x]) => expr(tuple([{ expr: t!, spread: true }, { expr: x! }])),
+  }),
+  def({
+    name: 'prepend',
+    arity: 2,
+    doc: 'prepend(t, x) -> [X, ...T]',
+    lower: ([t, x]) => expr(tuple([{ expr: x! }, { expr: t!, spread: true }])),
+  }),
+  def({
+    name: 'length',
+    arity: 1,
+    doc: "length(t) -> T['length']",
+    lower: ([t]) => expr(indexed(t!, str('length'))),
+  }),
+  def({
+    name: 'at',
+    arity: 2,
+    doc: 'at(t, i) -> T[I]',
+    lower: ([t, i]) => expr(indexed(t!, i!)),
+  }),
+  def({
+    name: 'isEmpty',
+    arity: 1,
+    doc: 'isEmpty(t) -> T extends []',
+    lower: ([t]) => ({ tag: 'match', check: t!, ext: tuple([]), binds: [] }),
+  }),
+  def({
+    name: 'elementOf',
+    arity: 1,
+    doc: 'elementOf(t) -> T extends ReadonlyArray<infer I> ? I : never',
+    lower: ([t], ctx) => {
+      const i = ctx.fresh('Item')
+      return expr(cond(t!, ref('ReadonlyArray', [infer(i)]), ref(i), kw('never')))
+    },
+  }),
+  def({
+    name: 'arrayOf',
+    arity: 1,
+    doc: 'arrayOf(t) -> T[]',
+    lower: ([t]) => expr({ kind: 'array', element: t! }),
+  }),
+  def({
+    name: 'readonlyArrayOf',
+    arity: 1,
+    doc: 'readonlyArrayOf(t) -> readonly T[]',
+    lower: ([t]) => expr({ kind: 'array', element: t!, readonly: true }),
+  }),
+  def({
+    name: 'indexOfType',
+    arity: 1,
+    doc: 'indexOfType(t) -> T[number]',
+    lower: ([t]) => expr(indexed(t!, kw('number'))),
+  }),
+  def({
+    name: 'reverse',
+    arity: 1,
+    doc: 'reverse(t) -> prelude Reverse<T>',
+    lower: ([t], ctx) => {
+      ctx.usePrelude('Reverse')
+      return expr(ref('Reverse', [t!]))
+    },
+  }),
+  def({
+    name: 'join',
+    arity: 2,
+    doc: 'join(t, sep) -> prelude Join<T, Sep>',
+    lower: ([t, sep], ctx) => {
+      ctx.usePrelude('Join')
+      return expr(ref('Join', [t!, sep!]))
+    },
+  }),
+)
+
+// ---------------------------------------------------------------------------
+// Object
+// ---------------------------------------------------------------------------
+
+register(
+  def({
+    name: 'keyof',
+    arity: 1,
+    doc: 'keyof(o) -> keyof O',
+    lower: ([o]) => expr({ kind: 'op', op: 'keyof', target: o! }),
+  }),
+  def({
+    name: 'get',
+    arity: 2,
+    doc: 'get(o, k) -> O[K]',
+    lower: ([o, k]) => expr(indexed(o!, k!)),
+  }),
+  def({
+    name: 'pick',
+    arity: 2,
+    doc: 'pick(o, k) -> Pick<O, K>',
+    lower: ([o, k]) => expr(ref('Pick', [o!, k!])),
+  }),
+  def({
+    name: 'omit',
+    arity: 2,
+    doc: 'omit(o, k) -> Omit<O, K>',
+    lower: ([o, k]) => expr(ref('Omit', [o!, k!])),
+  }),
+  def({
+    name: 'merge',
+    arity: 2,
+    doc: 'merge(a, b) -> A & B',
+    lower: ([a, b]) => expr(intersection([a!, b!])),
+  }),
+  def({
+    name: 'simplify',
+    arity: 1,
+    doc: 'simplify(o) -> { [K in keyof O]: O[K] } & {}',
+    lower: ([o], ctx) => {
+      ctx.usePrelude('Simplify')
+      return expr(ref('Simplify', [o!]))
+    },
+  }),
+)
+
+// ---------------------------------------------------------------------------
+// Predicates & meta
+// ---------------------------------------------------------------------------
+
+register(
+  def({
+    name: 'extendsType',
+    arity: 1,
+    doc: 'extendsType<P>(x) -> X extends P',
+    lower: ([x], ctx) => {
+      const p = ctx.typeArgs[0]
+      if (!p) throw new Error('extendsType<P>(x) requires an explicit type argument P')
+      return { tag: 'match', check: x!, ext: p, binds: [] }
+    },
+  }),
+  def({
+    name: 'isSubtypeOf',
+    arity: 2,
+    doc: 'isSubtypeOf(a, b) -> A extends B  (both sides are values, unlike extendsType<P>)',
+    lower: ([a, b]) => ({ tag: 'match', check: a!, ext: b!, binds: [] }),
+  }),
+  def({
+    name: 'isNever',
+    arity: 1,
+    doc: 'isNever(x) -> [X] extends [never]',
+    lower: ([x]) => ({
+      tag: 'match',
+      check: tuple([{ expr: x! }]),
+      ext: tuple([{ expr: kw('never') }]),
+      binds: [],
+    }),
+  }),
+  def({
+    name: 'isAny',
+    arity: 1,
+    doc: 'isAny(x) -> 0 extends 1 & X',
+    lower: ([x]) => ({
+      tag: 'match',
+      check: { kind: 'lit', value: 0 },
+      ext: intersection([{ kind: 'lit', value: 1 }, x!]),
+      binds: [],
+    }),
+  }),
+  def({
+    name: 'equals',
+    arity: 2,
+    doc: 'equals(a, b) -> prelude Equals<A, B>',
+    lower: ([a, b], ctx) => {
+      ctx.usePrelude('Equals')
+      return expr(ref('Equals', [a!, b!]))
+    },
+  }),
+  def({
+    name: 'error',
+    arity: 1,
+    doc: "error(m) -> ScriptTypeError<'m'>",
+    lower: ([m], ctx) => {
+      ctx.usePrelude('ScriptTypeError')
+      return expr(ref('ScriptTypeError', [m!]))
+    },
+  }),
+  def({
+    name: 'voidType',
+    arity: 0,
+    doc: 'voidType() -> void  (`void` is a JS operator, so it needs a call form)',
+    lower: () => expr(kw('void')),
+  }),
+  def({
+    name: 'fnType',
+    arity: 2,
+    doc: 'fnType([A, B], R) -> (a0: A, a1: B) => R',
+    lower: ([params, ret]) => {
+      if (params!.kind !== 'tuple') throw new Error('fnType(params, ret) needs a tuple of parameter types')
+      return expr({ kind: 'fn', params: params!.elements.map((e) => e.expr), ret: ret! })
+    },
+  }),
+  def({
+    name: 'asReadonly',
+    arity: 1,
+    doc: 'asReadonly(t) -> readonly T',
+    lower: ([t]) => expr({ kind: 'op', op: 'readonly', target: t! }),
+  }),
+  def({
+    name: 'raw',
+    arity: 1,
+    doc: 'raw(`...`) -> verbatim type syntax (escape hatch)',
+    lower: ([t]) => {
+      if (t!.kind !== 'lit' || !t!.str) throw new Error('raw() requires a literal string')
+      return expr({ kind: 'raw', text: String((t as { value: string }).value) })
+    },
+  }),
+  def({
+    name: 'defer',
+    arity: 1,
+    doc: 'defer(x) -> [X] extends [unknown] ? X : never  (kysely DrainOuterGeneric)',
+    lower: ([x]) => expr(cond(tuple([{ expr: x! }]), tuple([{ expr: kw('unknown') }]), x!, kw('never'))),
+  }),
+)
+
+/** Builtins usable as an `if` condition (they lower to 'match'). */
+export const isPredicate = (name: string): boolean =>
+  [
+    'startsWith',
+    'endsWith',
+    'includes',
+    'extendsType',
+    'isSubtypeOf',
+    'isNever',
+    'isAny',
+    'isEmpty',
+    'splitOnce',
+  ].includes(name)
+
+/**
+ * Two patterns are "guard-equivalent" when replacing every `infer X` with its
+ * constraint (or a wildcard) makes them structurally identical. Used to fuse a
+ * loop guard with the destructure that immediately follows it, so that
+ *   `while (includes(r, s)) { const [h, t] = splitOnce(r, s) ... }`
+ * emits one conditional rather than two nested ones.
+ */
+export function guardEquivalent(guard: TypeExpr, inferring: TypeExpr): boolean {
+  // The wildcard an unconstrained `infer` stands for is position-dependent: a
+  // template-literal placeholder is implicitly string-constrained, so `infer X`
+  // there means `string`, not `unknown`.
+  const strip = (e: TypeExpr, inTemplate: boolean): TypeExpr => {
+    if (e.kind === 'infer') return e.constraint ?? (inTemplate ? kw('string') : kw('unknown'))
+    return e
+  }
+  const norm = (e: TypeExpr): string => JSON.stringify(walk(e, false))
+  function walk(e: TypeExpr, inTemplate: boolean): unknown {
+    const s = strip(e, inTemplate)
+    switch (s.kind) {
+      case 'template':
+        return { t: 'tpl', q: s.quasis, e: s.exprs.map((x) => walk(x, true)) }
+      case 'tuple':
+        return { t: 'tup', e: s.elements.map((x) => ({ s: !!x.spread, v: walk(x.expr, false) })) }
+      case 'keyword':
+        return { t: 'kw', n: s.name }
+      case 'ref':
+        return { t: 'ref', n: s.name, a: (s.args ?? []).map((x) => walk(x, false)) }
+      case 'lit':
+        return { t: 'lit', v: s.value, s: s.str }
+      case 'array':
+        return { t: 'arr', e: walk(s.element, false) }
+      default:
+        return { t: s.kind, j: JSON.stringify(s) }
+    }
+  }
+  return norm(guard) === norm(inferring)
+}

@@ -1,0 +1,13 @@
+{
+  "name": "kysely/IsNever",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "IsNever",
+  "samples": [
+    "never",
+    "string",
+    "any",
+    "unknown",
+    "never | string"
+  ],
+  "exercises": "isNever() builtin -> the [T] extends [never] tuple-wrap trick"
+}

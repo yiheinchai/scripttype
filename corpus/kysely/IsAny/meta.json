@@ -1,0 +1,13 @@
+{
+  "name": "kysely/IsAny",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "IsAny",
+  "samples": [
+    "any",
+    "string",
+    "unknown",
+    "never",
+    "0"
+  ],
+  "exercises": "isAny() builtin -> 0 extends T & 1"
+}

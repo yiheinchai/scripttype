@@ -1,0 +1,9 @@
+{
+  "name": "kysely/SqlBool",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "SqlBool",
+  "samples": [
+    ""
+  ],
+  "exercises": "union of literals, no parameters"
+}

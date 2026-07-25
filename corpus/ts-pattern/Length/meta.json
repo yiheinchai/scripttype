@@ -1,0 +1,12 @@
+{
+  "name": "ts-pattern/Length",
+  "sourcePath": "01-type-level-programming/ts-pattern/src/types/helpers.ts",
+  "typeName": "Length",
+  "samples": [
+    "[]",
+    "[1, 2, 3]",
+    "string[]",
+    "readonly [1]"
+  ],
+  "exercises": "length() builtin -> T['length']"
+}

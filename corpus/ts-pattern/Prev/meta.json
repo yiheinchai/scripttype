@@ -1,0 +1,11 @@
+{
+  "name": "ts-pattern/Prev",
+  "sourcePath": "01-type-level-programming/ts-pattern/src/types/helpers.ts",
+  "typeName": "Prev",
+  "samples": [
+    "[]",
+    "[any]",
+    "[1, 2, 3]"
+  ],
+  "exercises": "tuple destructure with an unread head, pruned to a wildcard"
+}

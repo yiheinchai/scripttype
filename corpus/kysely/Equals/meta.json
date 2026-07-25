@@ -1,0 +1,14 @@
+{
+  "name": "kysely/Equals",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "Equals",
+  "samples": [
+    "string, string",
+    "string, number",
+    "any, string",
+    "unknown, any",
+    "{a:1}, {a:1}",
+    "never, never"
+  ],
+  "exercises": "equals() builtin -> conditional-variance identity trick"
+}

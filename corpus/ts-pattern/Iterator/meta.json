@@ -1,0 +1,12 @@
+{
+  "name": "ts-pattern/Iterator",
+  "sourcePath": "01-type-level-programming/ts-pattern/src/types/helpers.ts",
+  "typeName": "Iterator",
+  "samples": [
+    "0",
+    "1",
+    "3",
+    "5"
+  ],
+  "exercises": "while loop counting up via unshift -> recursive accumulator"
+}

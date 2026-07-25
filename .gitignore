@@ -1,0 +1,12 @@
+# Corpus clones: 26 third-party repositories, ~359 MB, each under its own licence.
+# They are inputs, not our source. Restore them with ./refresh.sh
+/01-type-level-programming/
+/02-inference-at-scale/
+/03-schema-and-type-level-parsers/
+/04-query-builders-orm/
+/05-functional-effects-hkt/
+/06-state-and-forms/
+/07-compiler-internals/
+
+node_modules/
+*.log

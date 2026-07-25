@@ -1,0 +1,11 @@
+{
+  "name": "kysely/ShallowRecord",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "ShallowRecord",
+  "samples": [
+    "'a' | 'b', number",
+    "string, unknown",
+    "'x', { y: 1 }"
+  ],
+  "exercises": "keySet() marks an already-key-union domain: [P in K], not [P in keyof K]"
+}

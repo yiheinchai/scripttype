@@ -1,0 +1,12 @@
+{
+  "name": "ts-pattern/ValueOf",
+  "sourcePath": "01-type-level-programming/ts-pattern/src/types/helpers.ts",
+  "typeName": "ValueOf",
+  "samples": [
+    "[1, 2]",
+    "{ a: string; b: number }",
+    "string[]",
+    "{}"
+  ],
+  "exercises": "if/else over an array check, indexed access by number and keyof"
+}

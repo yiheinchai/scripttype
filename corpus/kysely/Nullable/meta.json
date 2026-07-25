@@ -1,0 +1,12 @@
+{
+  "name": "kysely/Nullable",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "Nullable",
+  "samples": [
+    "{ a: string; b: number }",
+    "{}",
+    "{ a: string | null }",
+    "{ readonly a: 1 }"
+  ],
+  "exercises": "for-in -> mapped type"
+}

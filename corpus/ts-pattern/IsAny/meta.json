@@ -1,0 +1,12 @@
+{
+  "name": "ts-pattern/IsAny",
+  "sourcePath": "01-type-level-programming/ts-pattern/src/types/helpers.ts",
+  "typeName": "IsAny",
+  "samples": [
+    "any",
+    "string",
+    "unknown",
+    "never"
+  ],
+  "exercises": "isAny() builtin"
+}

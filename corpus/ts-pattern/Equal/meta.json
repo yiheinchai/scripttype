@@ -1,0 +1,12 @@
+{
+  "name": "ts-pattern/Equal",
+  "sourcePath": "01-type-level-programming/ts-pattern/src/types/helpers.ts",
+  "typeName": "Equal",
+  "samples": [
+    "string, string",
+    "string, number",
+    "any, unknown",
+    "{a:1}, {a:1}"
+  ],
+  "exercises": "equals() builtin"
+}

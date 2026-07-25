@@ -1,0 +1,14 @@
+{
+  "name": "ts-toolbelt/__Split",
+  "sourcePath": "01-type-level-programming/ts-toolbelt/sources/String/Split.ts",
+  "typeName": "__Split",
+  "samples": [
+    "'a/b/c', '/'",
+    "'a', '/'",
+    "'', '/'",
+    "'a//b', '/'",
+    "'a-b', '/'",
+    "string, '/'"
+  ],
+  "exercises": "while loop with mutable accumulator -> tail-recursive helper (the flagship transform)"
+}

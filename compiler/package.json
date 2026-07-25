@@ -1,0 +1,14 @@
+{
+  "name": "scripttype",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": { "scripttype": "./src/cli.ts" },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "verify": "tsx src/verify-cli.ts"
+  },
+  "dependencies": { "typescript": "^5.9.3" },
+  "devDependencies": { "vitest": "^3.2.4", "tsx": "^4.20.6", "@types/node": "^22.18.6" }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "ts-pattern/LeastUpperBound",
+  "sourcePath": "01-type-level-programming/ts-pattern/src/types/helpers.ts",
+  "typeName": "LeastUpperBound",
+  "samples": [
+    "string, \"a\"",
+    "\"a\", string",
+    "number, string",
+    "1, 1"
+  ],
+  "exercises": "two-level nested conditional with parameter-to-parameter checks"
+}

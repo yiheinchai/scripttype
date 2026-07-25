@@ -1,0 +1,12 @@
+{
+  "name": "kysely/Simplify",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "Simplify",
+  "samples": [
+    "{ a: string } & { b: number }",
+    "{}",
+    "{ a: 1 }",
+    "string"
+  ],
+  "exercises": "mapped type combined with defer() (DrainOuterGeneric)"
+}

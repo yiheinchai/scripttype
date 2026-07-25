@@ -1,0 +1,9 @@
+{
+  "name": "kysely/UnknownRow",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "UnknownRow",
+  "samples": [
+    ""
+  ],
+  "exercises": "calling a lib generic (Record) from ScriptType"
+}

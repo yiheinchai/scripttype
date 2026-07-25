@@ -1,0 +1,18 @@
+{
+  "name": "kysely/ExtractAliasFromStringSelectExpression",
+  "sourcePath": "04-query-builders-orm/kysely/src/parser/select-parser.ts",
+  "typeName": "ExtractAliasFromStringSelectExpression",
+  "samples": [
+    "'user.name as author'",
+    "'user.name'",
+    "'name'",
+    "'a.b.c'",
+    "'a.b.c.d'",
+    "'a.b.c.d as x'",
+    "'x as y as z'",
+    "'a as b.c'",
+    "string",
+    "''"
+  ],
+  "exercises": "guard/destructure fusion; nested if; bounded-dot semantics"
+}

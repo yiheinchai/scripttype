@@ -1,0 +1,11 @@
+{
+  "name": "ts-pattern/Next",
+  "sourcePath": "01-type-level-programming/ts-pattern/src/types/helpers.ts",
+  "typeName": "Next",
+  "samples": [
+    "[]",
+    "[any]",
+    "[1, 2]"
+  ],
+  "exercises": "tuple prepend"
+}

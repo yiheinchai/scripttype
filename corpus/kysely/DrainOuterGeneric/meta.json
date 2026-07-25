@@ -1,0 +1,14 @@
+{
+  "name": "kysely/DrainOuterGeneric",
+  "sourcePath": "04-query-builders-orm/kysely/src/util/type-utils.ts",
+  "typeName": "DrainOuterGeneric",
+  "samples": [
+    "{ a: 1 }",
+    "string",
+    "never",
+    "string | number",
+    "unknown",
+    "any"
+  ],
+  "exercises": "defer() builtin -> [T] extends [unknown] ? T : never"
+}

@@ -115,6 +115,50 @@ export function declarePreamble(source: string): string {
   ].join('\n')
 }
 
+/**
+ * Free names of ordinary TypeScript *type declarations* (not ScriptType).
+ *
+ * The ScriptType analysis above understands function syntax, where parameters are
+ * function parameters. In a type alias the binders are different — type parameters,
+ * `infer` names, mapped-type keys — so it needs its own walk, or it reports every type
+ * parameter as free.
+ */
+export function declarePreambleForTypes(source: string): string {
+  const sf = ts.createSourceFile('orig.ts', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
+  const declared = new Set<string>()
+  const used = new Set<string>()
+
+  const noteDeclared = (n: ts.Node) => {
+    if (ts.isTypeAliasDeclaration(n) || ts.isInterfaceDeclaration(n)) declared.add(n.name.text)
+    if (ts.isTypeParameterDeclaration(n)) declared.add(n.name.text)
+    if (ts.isInferTypeNode(n)) declared.add(n.typeParameter.name.text)
+    if (ts.isMappedTypeNode(n)) declared.add(n.typeParameter.name.text)
+    if (ts.isModuleDeclaration(n) && ts.isIdentifier(n.name)) declared.add(n.name.text)
+    ts.forEachChild(n, noteDeclared)
+  }
+  noteDeclared(sf)
+
+  const noteUsed = (n: ts.Node) => {
+    if (ts.isTypeReferenceNode(n)) used.add(n.typeName.getText(sf).split('.')[0]!)
+    if (ts.isTypeQueryNode(n)) used.add(n.exprName.getText(sf).split('.')[0]!)
+    ts.forEachChild(n, noteUsed)
+  }
+  noteUsed(sf)
+
+  const free = [...used]
+    .filter((n) => !declared.has(n) && !LIB_GLOBALS.has(n))
+    .filter((n) => /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(n))
+    .sort()
+  if (!free.length) return ''
+  const GENERIC = '<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any>'
+  return [
+    '// Names imported from elsewhere in the library, declared here because relative',
+    '// imports do not resolve in this mirrored tree. Declarations only; no runtime meaning.',
+    ...free.map((n) => `type ${n}${GENERIC} = any`),
+    '',
+  ].join('\n')
+}
+
 /** The free names of a source, for feeding the typecheck gate. */
 export function freeNamesOf(source: string): string[] {
   const f = freeNames(source)

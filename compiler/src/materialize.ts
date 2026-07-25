@@ -16,7 +16,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { decompileFile } from './decompile.js'
 import { compile } from './compile.js'
-import { declarePreamble } from './freenames.js'
+import { declarePreamble, declarePreambleForTypes } from './freenames.js'
+import { extractType } from './extract.js'
 import { REPO_ROOT } from './corpus.js'
 import type { Status } from './batch.js'
 
@@ -160,6 +161,44 @@ for (const rel of targetFiles.sort()) {
   fs.mkdirSync(path.dirname(dest), { recursive: true })
   fs.writeFileSync(dest, header + preamble + body)
   written++
+
+  // The original, in the same directory, so the two forms can be read side by side.
+  //
+  // Its type declarations are verbatim, but its imports are replaced by declarations of
+  // the names it references: the file sits in a mirrored tree where relative imports
+  // would not resolve, and an unresolvable import is an editor error. This keeps the
+  // comparison faithful where it matters — the declarations themselves — while leaving
+  // the directory free of type errors.
+  const seen = new Set<string>()
+  const originals: string[] = []
+  for (const e of entries) {
+    let ex
+    try {
+      ex = extractType(abs, e.name)
+    } catch {
+      continue
+    }
+    for (const part of ex.parts) {
+      if (seen.has(part.name)) continue
+      seen.add(part.name)
+      originals.push(part.text)
+    }
+  }
+  if (originals.length) {
+    const origBody = originals.join('\n\n') + '\n'
+    const origHeader = [
+      '/**',
+      ` * ORIGINAL TypeScript from ${rel}, for comparison with the ScriptType alongside.`,
+      ' *',
+      ' * Type declarations are verbatim. Imports are replaced by declarations of the names',
+      ' * they brought in, because relative imports do not resolve in this mirrored tree and',
+      ' * an unresolvable import is an editor error.',
+      ' */',
+      '',
+    ].join('\n')
+    const origDest = path.join(outRoot, rel.replace(/\.tsx?$/, '.original.ts'))
+    fs.writeFileSync(origDest, origHeader + declarePreambleForTypes(origBody) + origBody)
+  }
 }
 
 const total = [...perStatus.values()].reduce((a, b) => a + b, 0)

@@ -193,7 +193,10 @@ class Decompiler {
       declared.set(param.name.text, local)
       accNames.add(param.name.text)
       taken.add(local)
-      lines.push(`let ${local} = ${this.expr(init)}`)
+      const initText = this.expr(init)
+      // An empty array literal infers `never[]`, which rejects every `push`. Annotate.
+      const ann = /^\[\s*\]$/.test(initText) ? ': any[]' : ''
+      lines.push(`let ${local}${ann} = ${initText}`)
     }
     for (const p of loop.publicParams) {
       if (!loop.changing.has(p.name.text)) continue

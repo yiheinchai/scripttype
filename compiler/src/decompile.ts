@@ -546,7 +546,8 @@ class Decompiler {
     }
 
     if (ts.isMappedTypeNode(t)) {
-      const name = `m${++this.temps}`
+      const n = ++this.temps
+      const name = n === 1 ? 'out' : `out${n}`
       const lines = this.mapped(t, name)
       if (!lines) return this.gap(t, 'mapped type with unsupported modifiers')
       this.pending.push(...lines)

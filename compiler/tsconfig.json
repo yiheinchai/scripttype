@@ -26,5 +26,8 @@
   "include": [
     "src/**/*.ts",
     "tests/**/*.ts"
+  ],
+  "exclude": [
+    "src/ts-plugin.ts"
   ]
 }

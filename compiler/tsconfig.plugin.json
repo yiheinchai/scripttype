@@ -1,0 +1,31 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "dist-plugin",
+    "module": "CommonJS",
+    "moduleResolution": "node10",
+    "target": "ES2022",
+    "declaration": false,
+    "sourceMap": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "verbatimModuleSyntax": false,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": false,
+    "rewriteRelativeImportExtensions": true
+  },
+  "include": [
+    "src/ts-plugin.ts",
+    "src/compile.ts",
+    "src/lower.ts",
+    "src/ir.ts",
+    "src/format.ts",
+    "src/builtins.ts",
+    "src/prelude.ts",
+    "src/optimize.ts",
+    "src/diagnostics.ts"
+  ],
+  "exclude": []
+}

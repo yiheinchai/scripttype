@@ -11,18 +11,21 @@
   },
   "exports": {
     ".": "./dist/index.js",
-    "./scripttype.d.ts": "./src/scripttype.d.ts"
+    "./scripttype.d.ts": "./src/scripttype.d.ts",
+    "./ts-plugin": "./ts-plugin/index.js"
   },
   "files": [
     "bin",
     "dist",
+    "dist-plugin",
+    "ts-plugin",
     "src/scripttype.d.ts",
     "README.md"
   ],
   "scripts": {
     "scripttype": "./bin/scripttype.mjs",
-    "build": "rm -rf dist .results/tsbuildinfo.build && ./node_modules/.bin/tsc -p tsconfig.build.json",
-    "prepack": "rm -rf dist .results/tsbuildinfo.build && ./node_modules/.bin/tsc -p tsconfig.build.json",
+    "build": "rm -rf dist dist-plugin .results/tsbuildinfo.build && ./node_modules/.bin/tsc -p tsconfig.build.json && ./node_modules/.bin/tsc -p tsconfig.plugin.json && echo '{\"type\":\"commonjs\"}' > dist-plugin/package.json",
+    "prepack": "rm -rf dist dist-plugin .results/tsbuildinfo.build && ./node_modules/.bin/tsc -p tsconfig.build.json && ./node_modules/.bin/tsc -p tsconfig.plugin.json && echo '{\"type\":\"commonjs\"}' > dist-plugin/package.json",
     "test": "./node_modules/.bin/vitest run",
     "typecheck": "./node_modules/.bin/tsc --noEmit",
     "check": "./node_modules/.bin/tsx src/check.ts",

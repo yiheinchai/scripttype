@@ -20,7 +20,7 @@ for k in $(seq 0 $((SHARDS - 1))); do
   (
     env NODE_OPTIONS=--max-old-space-size=4096 node dist/inplace.js \
       --files .results/unmeasured.txt --shard "$k/$SHARDS" --batch 1 \
-      --json "$OUT/sweep$k.json" >/dev/null 2>"$OUT/sweep$k.txt" &
+      --json "$OUT/sweep${SWEEP_TAG:-0}_$k.json" >/dev/null 2>"$OUT/sweep${SWEEP_TAG:-0}_$k.txt" &
     pid=$!
     ( sleep "$CAP"; kill -9 "$pid" 2>/dev/null ) & killer=$!
     wait "$pid" 2>/dev/null; kill "$killer" 2>/dev/null

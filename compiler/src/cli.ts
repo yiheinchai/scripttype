@@ -803,7 +803,12 @@ const TSCONFIG = `{
     // A ScriptType parameter denotes a type, so there is no value-level type to infer
     // and "implicit any" carries no information. Everything else in strict stays on.
     "noImplicitAny": false,
-    "noEmit": true
+    "noEmit": true,
+    // Surfaces ScriptType errors in the editor as you type, alongside TypeScript's own.
+    // In VS Code this needs the workspace TypeScript version: run
+    // "TypeScript: Select TypeScript Version" and choose "Use Workspace Version",
+    // because language-service plugins load inside tsserver.
+    "plugins": [{ "name": "scripttype/ts-plugin" }]
   },
   "include": ["**/*.st.ts", "scripttype.d.ts"]
 }

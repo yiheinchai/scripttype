@@ -132,6 +132,30 @@ than silent. Converted output is a starting point to review, not something to co
 unread: the decompiler recovers the structure, but it cannot invent the names or the
 abstraction a person would have chosen.
 
+## In the editor
+
+A type error in vanilla TypeScript is underlined the moment you type it. ScriptType has to
+match that or it is a step backwards, so it ships a tsserver plugin — no extension to
+install, just a line in `tsconfig.json` (which `scripttype init` writes for you):
+
+```json
+{ "compilerOptions": { "plugins": [{ "name": "scripttype/ts-plugin" }] } }
+```
+
+ScriptType errors then appear inline alongside TypeScript's own, with the same code and
+`help:` text the CLI prints. It works in any editor that speaks the tsserver protocol —
+VS Code, WebStorm, neovim. In VS Code, run **TypeScript: Select TypeScript Version** and
+choose **Use Workspace Version**, because language-service plugins load inside tsserver.
+
+Measured over nine kinds of mistake, driving a real tsserver: **two were visible in the
+editor before, nine are now.** The two that already worked were the ones that happen to be
+plain TypeScript errors as well, like referring to an undeclared `console`; the other
+seven — compound assignment, a missing return, `try`/`catch`, destructuring in a loop
+header — are valid TypeScript and so were invisible until you ran the CLI.
+
+The plugin only ever *adds* diagnostics, only to `.st.ts` files, and swallows any internal
+failure: an editor plugin that breaks the editor would be worse than no plugin at all.
+
 ## When you get something wrong
 
 A type-level language whose errors are bad is not worth adopting, so every compiler error

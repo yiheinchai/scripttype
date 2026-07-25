@@ -27,6 +27,8 @@ export type Status =
   | 'reference-error'
   /** The generated ScriptType does not itself typecheck as TypeScript. */
   | 'typecheck-error'
+  /** The checker did not finish resolving the file; recorded so the denominator stays whole. */
+  | 'timeout'
 
 export interface AliasOutcome {
   file: string

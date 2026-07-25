@@ -66,6 +66,7 @@ const MARK: Record<Status, string> = {
   'unresolved-deps': 'could not be judged in isolation',
   'reference-error': 'reference could not be resolved',
   'typecheck-error': 'the ScriptType does not itself typecheck as TypeScript',
+  timeout: 'the checker did not finish resolving this file',
 }
 
 let files = 0

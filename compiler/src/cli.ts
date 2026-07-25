@@ -14,6 +14,13 @@ import { declareLocalTypeAliases, freeNames } from './freenames.js'
 import { BUILTINS } from './builtins.js'
 import { decompileFile } from './decompile.js'
 import {
+  CONFIG_NAME,
+  CONFIG_TEMPLATE,
+  ConfigError,
+  loadConfig,
+  type LoadedConfig,
+} from './config.js'
+import {
   type Diagnostic,
   allCodes,
   colorsEnabled,
@@ -72,7 +79,7 @@ function parseArgs(argv: string[]): Args {
   return { command, positionals, flags }
 }
 
-const VALUE_FLAGS = new Set(['out', 'ext'])
+const VALUE_FLAGS = new Set(['out', 'ext', 'width', 'config'])
 const SHORT: Record<string, string> = { h: 'help', v: 'version', w: 'watch', o: 'out' }
 
 // ---------------------------------------------------------------------------
@@ -141,6 +148,25 @@ function outputPath(src: string, outDir: string | undefined): string {
 class UserError extends Error {}
 
 /**
+ * Load `scripttype.json`, turning a bad one into a user-facing error.
+ *
+ * `--no-config` exists so a one-off invocation can ignore a project's settings without
+ * moving the file — mostly useful when debugging why a build produced what it did.
+ */
+function loadCliConfig(args: Args): LoadedConfig {
+  if (args.flags['no-config']) return { config: {}, dir: process.cwd() }
+  try {
+    return loadConfig(
+      process.cwd(),
+      typeof args.flags.config === 'string' ? args.flags.config : undefined,
+    )
+  } catch (e) {
+    if (e instanceof ConfigError) throw new UserError(e.message)
+    throw e
+  }
+}
+
+/**
  * ScriptType-specific advice for the TypeScript errors a `.st.ts` actually hits.
  *
  * These fire while checking the *source*, where names mean something different from
@@ -184,7 +210,10 @@ interface FileResult {
  *   3. the names it references actually exist (a typo'd builtin is otherwise silently
  *      emitted as a reference to a type nobody declared).
  */
-function processFile(file: string, opts: { checkSource: boolean }): FileResult {
+function processFile(
+  file: string,
+  opts: { checkSource: boolean; width?: number | undefined },
+): FileResult {
   const text = fs.readFileSync(file, 'utf8')
   const diagnostics: Diagnostic[] = []
 
@@ -214,7 +243,7 @@ function processFile(file: string, opts: { checkSource: boolean }): FileResult {
     }
   }
 
-  const { result, errors } = compileAll(text, { fileName: file })
+  const { result, errors } = compileAll(text, { fileName: file, width: opts.width })
   for (const e of errors) {
     diagnostics.push(diagnosticFromNode(e.code, e.message, e.node, e.help))
   }
@@ -322,10 +351,28 @@ function positionOf(text: string, offset: number): { line: number; column: numbe
 // ---------------------------------------------------------------------------
 
 function cmdBuild(args: Args, { emit }: { emit: boolean }): number {
-  const files = collect(args.positionals.length ? args.positionals : ['.'])
+  const { config, dir: configDir } = loadCliConfig(args)
+
+  // Precedence, most specific first: positional arguments, then `include`, then the
+  // working directory. `include` is resolved against the config file so running from a
+  // subdirectory compiles the same set.
+  const inputs = args.positionals.length
+    ? args.positionals
+    : config.include?.length
+      ? config.include.map((i) => path.resolve(configDir, i))
+      : ['.']
+  const files = collect(inputs)
   if (!files.length) throw new UserError('no ScriptType files found (looking for *.st.ts)')
 
-  const outDir = typeof args.flags.out === 'string' ? args.flags.out : undefined
+  const outDir =
+    typeof args.flags.out === 'string'
+      ? args.flags.out
+      : config.outDir
+        ? path.resolve(configDir, config.outDir)
+        : undefined
+  const width = typeof args.flags.width === 'string' ? Number(args.flags.width) : config.width
+  // A flag can only turn the source check off, so `false` in config and the flag agree.
+  const checkSource = args.flags['no-check-source'] ? false : (config.checkSource ?? true)
   const toStdout = !!args.flags.stdout
   const force = !!args.flags.force
   const json = !!args.flags.json
@@ -337,7 +384,7 @@ function cmdBuild(args: Args, { emit }: { emit: boolean }): number {
   let written = 0
 
   for (const file of files) {
-    const r = processFile(file, { checkSource: !args.flags['no-check-source'] })
+    const r = processFile(file, { checkSource, width })
     const counts = report(r, json)
     errors += counts.errors
     warnings += counts.warnings
@@ -795,6 +842,7 @@ function cmdInit(args: Args): number {
   const files: [string, string][] = [
     ['scripttype.d.ts', fs.readFileSync(dtsSource, 'utf8')],
     ['tsconfig.json', TSCONFIG],
+    [CONFIG_NAME, CONFIG_TEMPLATE],
     ['example.st.ts', EXAMPLE],
   ]
 
@@ -839,6 +887,9 @@ ${bold('COMMANDS')}
 ${bold('OPTIONS')}
   -o, --out <dir>      Write output here instead of beside each source file
       --stdout         Print to stdout instead of writing files
+      --width <n>      Column to wrap emitted declarations at (default 96)
+      --config <path>  Use this scripttype.json instead of searching for one
+      --no-config      Ignore scripttype.json entirely
       --json           Emit diagnostics as JSON (for editors and CI); writes no files
       --force          Overwrite output files not generated by ScriptType
       --no-check-source  Skip typechecking the ScriptType source itself

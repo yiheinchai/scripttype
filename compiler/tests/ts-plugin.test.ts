@@ -25,56 +25,93 @@ interface Diag {
   text: string
 }
 
-/** Open `file` in tsserver and return the diagnostics it reports. */
-function diagnose(projectDir: string, file: string): Promise<Diag[]> {
-  return new Promise((resolve, reject) => {
-    const srv = spawn(
+/**
+ * A single long-lived tsserver, shared by every test in this file.
+ *
+ * Spawning one per request was both slow and racy: under the parallel suite the project
+ * and its plugins were sometimes not loaded by the time the first reply came back, and
+ * the symptom was an empty result rather than a timeout — so it read as a broken feature
+ * instead of a race. One warm server removes the race and the twelve process spawns.
+ *
+ * Replies are matched by `request_seq`, which is the protocol's own correlation id;
+ * matching on `command` alone cannot tell one caller's reply from another's.
+ */
+class TsServer {
+  private proc: ReturnType<typeof spawn>
+  private seq = 0
+  private buf = ''
+  private waiting = new Map<number, (body: unknown) => void>()
+
+  constructor(cwd: string) {
+    this.proc = spawn(
       'node',
       [TSSERVER, '--disableAutomaticTypingAcquisition', '--allowLocalPluginLoads'],
-      { cwd: projectDir, stdio: ['pipe', 'pipe', 'pipe'] },
+      { cwd, stdio: ['pipe', 'pipe', 'pipe'] },
     )
-    let seq = 0
-    const send = (command: string, args: unknown) =>
-      srv.stdin.write(JSON.stringify({ seq: ++seq, type: 'request', command, arguments: args }) + '\n')
-
-    const timer = setTimeout(() => {
-      srv.kill()
-      reject(new Error('tsserver did not answer within 20s'))
-    }, 20_000)
-
-    let buf = ''
-    srv.stdout.on('data', (chunk: Buffer) => {
-      buf += chunk.toString()
-      for (const line of buf.split('\n')) {
+    this.proc.stdout!.on('data', (chunk: Buffer) => {
+      this.buf += chunk.toString()
+      const lines = this.buf.split('\n')
+      this.buf = lines.pop() ?? ''
+      for (const line of lines) {
         const t = line.trim()
         if (!t.startsWith('{')) continue
-        let msg: { command?: string; body?: unknown[] }
+        let msg: { type?: string; request_seq?: number; body?: unknown }
         try {
           msg = JSON.parse(t)
         } catch {
           continue
         }
-        if (msg.command === 'semanticDiagnosticsSync') {
-          clearTimeout(timer)
-          srv.kill()
-          const body = (msg.body ?? []) as { code: number; source?: string; text?: string; message?: string }[]
-          resolve(
-            body.map((d) => ({
-              code: d.code,
-              source: d.source,
-              text: typeof d.text === 'string' ? d.text : String(d.message ?? ''),
-            })),
-          )
-          return
+        if (msg.type !== 'response' || msg.request_seq === undefined) continue
+        const resolve = this.waiting.get(msg.request_seq)
+        if (resolve) {
+          this.waiting.delete(msg.request_seq)
+          resolve(msg.body)
         }
       }
     })
+  }
 
-    const abs = path.resolve(projectDir, file)
-    send('open', { file: abs })
-    setTimeout(() => send('semanticDiagnosticsSync', { file: abs }), 800)
-  })
+  request<T>(command: string, args: unknown): Promise<T> {
+    const seq = ++this.seq
+    this.proc.stdin!.write(JSON.stringify({ seq, type: 'request', command, arguments: args }) + '\n')
+    return new Promise<T>((resolve, reject) => {
+      const timer = setTimeout(() => {
+        this.waiting.delete(seq)
+        reject(new Error(`tsserver did not answer '${command}' within 30s`))
+      }, 30_000)
+      this.waiting.set(seq, (body) => {
+        clearTimeout(timer)
+        resolve(body as T)
+      })
+    })
+  }
+
+  /**
+   * Open a file and wait for one full analysis, so plugins are loaded before we ask.
+   *
+   * Closes first: these tests rewrite the same path between cases, and tsserver serves an
+   * already-open file from its own buffer, so re-opening without closing would silently
+   * analyse the previous contents.
+   */
+  async open(abs: string): Promise<void> {
+    const notify = (command: string, args: unknown) =>
+      this.proc.stdin!.write(
+        JSON.stringify({ seq: ++this.seq, type: 'request', command, arguments: args }) + '\n',
+      )
+    notify('close', { file: abs })
+    // Send the text rather than letting tsserver read the path. These tests rewrite the
+    // same file between cases, and an open file is served from tsserver's own buffer —
+    // which produced the previous case's diagnostics for the current case's source.
+    notify('open', { file: abs, fileContent: fs.readFileSync(abs, 'utf8') })
+    await this.request('semanticDiagnosticsSync', { file: abs })
+  }
+
+  stop(): void {
+    this.proc.kill()
+  }
 }
+
+let server: TsServer
 
 let dir: string
 beforeAll(() => {
@@ -104,59 +141,55 @@ beforeAll(() => {
       include: ['**/*.st.ts', 'scripttype.d.ts'],
     }),
   )
+  server = new TsServer(dir)
 }, 120_000)
 
 afterAll(() => {
+  server?.stop()
   if (dir) fs.rmSync(dir, { recursive: true, force: true })
 })
+
+const diagnose = async (projectDir: string, file: string): Promise<Diag[]> => {
+  const abs = path.resolve(projectDir, file)
+  await server.open(abs)
+  const body = await server.request<{ code: number; source?: string; text?: string }[]>(
+    'semanticDiagnosticsSync', { file: abs },
+  )
+  return (body ?? []).map((d) => ({ code: d.code, source: d.source, text: String(d.text ?? '') }))
+}
 
 const check = async (source: string): Promise<Diag[]> => {
   fs.writeFileSync(path.join(dir, 't.st.ts'), source)
   return diagnose(dir, 't.st.ts')
 }
 
-/** Ask tsserver for the hover at a 1-based line/offset. */
-function quickInfo(projectDir: string, file: string, line: number, offset: number): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const srv = spawn(
-      'node',
-      [TSSERVER, '--disableAutomaticTypingAcquisition', '--allowLocalPluginLoads'],
-      { cwd: projectDir, stdio: ['pipe', 'pipe', 'pipe'] },
-    )
-    let seq = 0
-    const send = (command: string, args: unknown) =>
-      srv.stdin.write(JSON.stringify({ seq: ++seq, type: 'request', command, arguments: args }) + '\n')
-    const timer = setTimeout(() => {
-      srv.kill()
-      reject(new Error('tsserver did not answer within 20s'))
-    }, 20_000)
-
-    let buf = ''
-    srv.stdout.on('data', (chunk: Buffer) => {
-      buf += chunk.toString()
-      for (const l of buf.split('\n')) {
-        const t = l.trim()
-        if (!t.startsWith('{')) continue
-        let msg: { command?: string; body?: { documentation?: unknown } }
-        try {
-          msg = JSON.parse(t)
-        } catch {
-          continue
-        }
-        if (msg.command === 'quickinfo') {
-          clearTimeout(timer)
-          srv.kill()
-          const doc = msg.body?.documentation
-          resolve(typeof doc === 'string' ? doc : JSON.stringify(doc ?? ''))
-          return
-        }
-      }
-    })
-
-    const abs = path.resolve(projectDir, file)
-    send('open', { file: abs })
-    setTimeout(() => send('quickinfo', { file: abs, line, offset }), 800)
+const quickInfo = async (
+  projectDir: string, file: string, line: number, offset: number,
+): Promise<string> => {
+  const abs = path.resolve(projectDir, file)
+  await server.open(abs)
+  const body = await server.request<{ documentation?: unknown }>('quickinfo', {
+    file: abs, line, offset,
   })
+  const doc = body?.documentation
+  return typeof doc === 'string' ? doc : JSON.stringify(doc ?? '')
+}
+
+const codeFixes = async (
+  projectDir: string, file: string, line: number,
+  startOffset: number, endOffset: number, errorCode: number,
+): Promise<{ description: string; newText: string }[]> => {
+  const abs = path.resolve(projectDir, file)
+  await server.open(abs)
+  const body = await server.request<
+    { description: string; changes: { textChanges: { newText: string }[] }[] }[]
+  >('getCodeFixes', {
+    file: abs, startLine: line, startOffset, endLine: line, endOffset, errorCodes: [errorCode],
+  })
+  return (body ?? []).map((f) => ({
+    description: f.description,
+    newText: f.changes.flatMap((c) => c.textChanges.map((t) => t.newText)).join(''),
+  }))
 }
 
 describe('hover', () => {
@@ -196,6 +229,44 @@ describe('hover', () => {
     fs.writeFileSync(path.join(dir, 'plain2.ts'), 'export const value: number = 1\n')
     const doc = await quickInfo(dir, 'plain2.ts', 1, 14)
     expect(doc).not.toContain('compiles to:')
+  }, 60_000)
+})
+
+describe('quick fixes', () => {
+  it('rewrites compound assignment to the long form', async () => {
+    fs.writeFileSync(
+      path.join(dir, 'f1.st.ts'),
+      'export function F(t: string) {\n  let x = 1\n  x += 2\n  return x\n}\n',
+    )
+    const fixes = await codeFixes(dir, 'f1.st.ts', 3, 3, 9, 951101)
+    expect(fixes).toHaveLength(1)
+    expect(fixes[0]!.newText).toBe('x = x + 2')
+  }, 60_000)
+
+  it('deletes a statement with no type-level meaning', async () => {
+    fs.writeFileSync(
+      path.join(dir, 'f2.st.ts'),
+      'export function F(t: string) {\n  console.log(t)\n  return t\n}\n',
+    )
+    const fixes = await codeFixes(dir, 'f2.st.ts', 2, 3, 10, 951102)
+    expect(fixes[0]?.description).toBe('Delete this statement')
+    expect(fixes[0]?.newText).toBe('')
+  }, 60_000)
+
+  it('turns a bare return into `return never`', async () => {
+    fs.writeFileSync(path.join(dir, 'f3.st.ts'), 'export function F(t: string) {\n  return\n}\n')
+    const fixes = await codeFixes(dir, 'f3.st.ts', 2, 3, 9, 951004)
+    expect(fixes[0]?.newText).toBe('return never')
+  }, 60_000)
+
+  it('offers nothing for a diagnostic with no single right answer', async () => {
+    // A fix that guesses is worse than none, so `try`/`catch` gets the help text only.
+    fs.writeFileSync(
+      path.join(dir, 'f4.st.ts'),
+      'export function F(t: string) {\n  try { return t } catch { return t }\n}\n',
+    )
+    const fixes = await codeFixes(dir, 'f4.st.ts', 2, 3, 6, 951100)
+    expect(fixes.filter((f) => f.description.startsWith('Rewrite') || f.description.startsWith('Delete'))).toEqual([])
   }, 60_000)
 })
 

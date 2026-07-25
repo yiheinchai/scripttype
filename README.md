@@ -174,6 +174,14 @@ compiles to:
 This is the one thing a compile-to-TypeScript language adds that hand-written types do not
 have — a second artifact to hold in your head — so the editor shows both at once.
 
+**Quick fixes** are offered where the remedy is mechanical: `x += 2` becomes `x = x + 2`,
+a `console.log` is deleted, a bare `return` becomes `return never`. Only where there is
+exactly one right answer — a fix that guesses would be worse than the `help:` line.
+
+Hovering a builtin shows what it lowers to (`splitOnce(s, sep) -> S extends
+\`${infer A}${Sep}${infer B}\``), so the surface is discoverable in the editor rather than
+through a separate command.
+
 ## When you get something wrong
 
 A type-level language whose errors are bad is not worth adopting, so every compiler error

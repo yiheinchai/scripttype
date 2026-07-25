@@ -558,7 +558,7 @@ class Decompiler {
           return `...${this.expr(el.type)}`
         }
         if (ts.isNamedTupleMember(el)) return this.expr(el.type)
-        if (ts.isOptionalTypeNode(el)) return this.gap(el, 'optional tuple element')
+        if (ts.isOptionalTypeNode(el)) return `optElem(${this.expr(el.type)})`
         return this.expr(el)
       })
       return `[${parts.join(', ')}]`
@@ -574,7 +574,11 @@ class Decompiler {
           if (m.modifiers?.some((x) => x.kind === ts.SyntaxKind.ReadonlyKeyword)) v = `readonlyProp(${v})`
           props.push(`${key}: ${v}`)
         } else if (ts.isIndexSignatureDeclaration(m)) {
-          return this.gap(t, 'index signature')
+          // `{ [key: K]: V }` — an index signature, not a named property.
+          if (t.members.length !== 1 || !m.type || !m.parameters[0]?.type) {
+            return this.gap(t, 'index signature combined with other members')
+          }
+          return `indexRecord(${this.expr(m.parameters[0].type)}, ${this.expr(m.type)})`
         } else {
           return this.gap(t, `object member ${ts.SyntaxKind[m.kind]}`)
         }
@@ -625,10 +629,24 @@ class Decompiler {
     }
 
     if (ts.isFunctionTypeNode(t)) {
-      // Generic function types (the `<T>() => ...` variance trick) have no spelling yet.
-      if (t.typeParameters?.length) return this.gap(t, 'generic function type')
       const params = t.parameters.map((p) => (p.type ? this.expr(p.type) : 'unknown'))
-      return `fnType([${params.join(', ')}], ${this.expr(t.type)})`
+      const ret = this.expr(t.type)
+      if (t.typeParameters?.length) {
+        // The `<T>() => ...` variance trick: type parameters are named as string literals.
+        const tps = t.typeParameters.map((tp) => `'${tp.getText(this.sf).replace(/'/g, "\\'")}'`)
+        return `genericFnType([${tps.join(', ')}], [${params.join(', ')}], ${ret})`
+      }
+      return `fnType([${params.join(', ')}], ${ret})`
+    }
+
+    if (ts.isConstructorTypeNode(t)) {
+      const params = t.parameters.map((p) => (p.type ? this.expr(p.type) : 'unknown'))
+      return `ctorType([${params.join(', ')}], ${this.expr(t.type)})`
+    }
+
+    if (ts.isTypeQueryNode(t)) {
+      // `typeof X` names a value; there is no expression form, so name the type directly.
+      return `t<${t.getText(this.sf)}>()`
     }
 
     if (ts.isMappedTypeNode(t)) {

@@ -63,6 +63,15 @@ declare const emptyObject: any
  * form — `Promise<T>` cannot be written `Promise(T)`, because the global `Promise` value
  * is a constructor and requires `new`.
  */
+declare function optElem(...a: any[]): any
+type optElem = any
+declare function indexRecord(...a: any[]): any
+type indexRecord = any
+declare function ctorType(...a: any[]): any
+type ctorType = any
+declare function genericFnType(...a: any[]): any
+type genericFnType = any
+
 declare function t<T = any>(): any
 
 declare function anyOf(...a: any[]): any

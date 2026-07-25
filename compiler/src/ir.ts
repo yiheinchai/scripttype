@@ -21,7 +21,7 @@ export type TypeExpr =
   | { kind: 'mapped'; param: string; constraint: TypeExpr; value: TypeExpr; as?: TypeExpr; optional?: '+' | '-' | true; readonly?: '+' | '-' | true }
   | { kind: 'op'; op: 'keyof' | 'typeof' | 'readonly'; target: TypeExpr }
   | { kind: 'paren'; inner: TypeExpr }
-  | { kind: 'fn'; params: TypeExpr[]; ret: TypeExpr }
+  | { kind: 'fn'; params: TypeExpr[]; ret: TypeExpr; typeParams?: string[]; isCtor?: boolean }
   | { kind: 'raw'; text: string }
 
 export interface TupleElement {
@@ -243,8 +243,11 @@ function emitInner(e: TypeExpr): string {
       return `${e.op} ${emit(e.target, P_PREFIX + 1)}`
     case 'paren':
       return `(${emit(e.inner)})`
-    case 'fn':
-      return `(${e.params.map((p, i) => `a${i}: ${emit(p)}`).join(', ')}) => ${emit(e.ret)}`
+    case 'fn': {
+      const tp = e.typeParams?.length ? `<${e.typeParams.join(', ')}>` : ''
+      const args = e.params.map((p, i) => `a${i}: ${emit(p)}`).join(', ')
+      return `${e.isCtor ? 'new ' : ''}${tp}(${args}) => ${emit(e.ret)}`
+    }
     case 'raw':
       return e.text
   }

@@ -449,6 +449,43 @@ register(
     },
   }),
   def({
+    name: 'indexRecord',
+    arity: 2,
+    doc: 'indexRecord(k, v) -> { [key: K]: V }',
+    lower: ([k, v]) => expr({ kind: 'object', props: [], index: { key: k!, value: v! } }),
+  }),
+  def({
+    name: 'ctorType',
+    arity: 2,
+    doc: 'ctorType([A, B], R) -> new (a0: A, a1: B) => R',
+    lower: ([params, ret]) => {
+      if (params!.kind !== 'tuple') throw new Error('ctorType(params, ret) needs a tuple')
+      return expr({ kind: 'fn', params: params!.elements.map((e) => e.expr), ret: ret!, isCtor: true })
+    },
+  }),
+  def({
+    name: 'genericFnType',
+    arity: 3,
+    doc: "genericFnType(['T'], [A], R) -> <T>(a0: A) => R",
+    lower: ([tps, params, ret]) => {
+      if (tps!.kind !== 'tuple' || params!.kind !== 'tuple') {
+        throw new Error('genericFnType(typeParams, params, ret) needs two tuples')
+      }
+      const names = tps!.elements.map((e) => {
+        const x = e.expr
+        if (x.kind === 'lit' && x.str) return String(x.value)
+        if (x.kind === 'raw') return x.text
+        throw new Error('genericFnType type parameters must be string literals')
+      })
+      return expr({
+        kind: 'fn',
+        params: params!.elements.map((e) => e.expr),
+        ret: ret!,
+        typeParams: names,
+      })
+    },
+  }),
+  def({
     name: 'asReadonly',
     arity: 1,
     doc: 'asReadonly(t) -> readonly T',

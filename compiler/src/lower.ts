@@ -1047,11 +1047,19 @@ class FunctionCompiler {
 
     if (ts.isArrayLiteralExpression(e)) {
       return tuple(
-        e.elements.map((el) =>
-          ts.isSpreadElement(el)
-            ? { expr: this.expr(el.expression, vars), spread: true }
-            : { expr: this.expr(el, vars) },
-        ),
+        e.elements.map((el) => {
+          if (ts.isSpreadElement(el)) return { expr: this.expr(el.expression, vars), spread: true }
+          // `optElem(x)` marks an optional tuple element: `[A, B?]`.
+          if (
+            ts.isCallExpression(el) &&
+            ts.isIdentifier(el.expression) &&
+            el.expression.text === 'optElem' &&
+            el.arguments.length === 1
+          ) {
+            return { expr: this.expr(el.arguments[0]!, vars), optional: true }
+          }
+          return { expr: this.expr(el, vars) }
+        }),
       )
     }
 

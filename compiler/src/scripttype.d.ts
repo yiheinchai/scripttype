@@ -75,12 +75,14 @@ type ctorType = any
 declare function genericFnType(...a: any[]): any
 type genericFnType = any
 
+/** t<T>() -> T  (names a type whose head has no usable value form, e.g. Promise) */
 declare function t<T = any>(): any
 
 /** anyOf(a, b, ...) -> A | B | ... */
 declare function anyOf(...a: any[]): any
 type anyOf = any
 
+/** obj({ k: V }) -> { k: V }  (identity; exists so an object type can be an & operand) */
 declare function obj<T>(o: T): any
 type obj = any
 
@@ -215,6 +217,7 @@ type entries = any
 // Builtins — Predicates
 // ---------------------------------------------------------------------------
 
+/** extendsType<P>(x) -> X extends P */
 declare function extendsType<P = any>(...a: any[]): any
 /** isSubtypeOf(a, b) -> A extends B  (both sides are values, unlike extendsType<P>) */
 declare function isSubtypeOf(...a: any[]): any

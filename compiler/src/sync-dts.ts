@@ -28,7 +28,7 @@ export function syncDts(source: string): string {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i]!
-    const m = /^declare function (\w+)\(/.exec(line)
+    const m = /^declare function (\w+)(?:<[^>]*>)?\(/.exec(line)
     const doc = m ? BUILTINS[m[1]!]?.doc : undefined
 
     if (!doc) {

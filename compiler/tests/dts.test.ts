@@ -22,7 +22,7 @@ describe('scripttype.d.ts', () => {
     const undocumented: string[] = []
     const lines = DTS.split('\n')
     lines.forEach((line, i) => {
-      const m = /^declare function (\w+)\(/.exec(line)
+      const m = /^declare function (\w+)(?:<[^>]*>)?\(/.exec(line)
       if (!m || !BUILTINS[m[1]!]) return
       const above = lines[i - 1] ?? ''
       if (!above.trimEnd().endsWith('*/')) undocumented.push(m[1]!)
@@ -34,7 +34,7 @@ describe('scripttype.d.ts', () => {
     // A builtin the compiler accepts but the declarations omit would compile from the
     // CLI and be a red squiggle in the editor — the worst possible split.
     const declared = new Set(
-      [...DTS.matchAll(/^declare function (\w+)\(/gm)].map((m) => m[1]!),
+      [...DTS.matchAll(/^declare function (\w+)(?:<[^>]*>)?\(/gm)].map((m) => m[1]!),
     )
     const missing = Object.keys(BUILTINS).filter((n) => !declared.has(n))
     expect(missing).toEqual([])

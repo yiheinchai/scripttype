@@ -4,9 +4,10 @@
   "private": true,
   "type": "module",
   "bin": {
-    "scripttype": "./src/cli.ts"
+    "scripttype": "./bin/scripttype.mjs"
   },
   "scripts": {
+    "scripttype": "./bin/scripttype.mjs",
     "test": "./node_modules/.bin/vitest run",
     "typecheck": "./node_modules/.bin/tsc --noEmit",
     "check": "./node_modules/.bin/tsx src/check.ts",

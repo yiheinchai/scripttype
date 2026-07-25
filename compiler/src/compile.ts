@@ -29,10 +29,13 @@ export function compile(source: string, opts: CompileOptions = {}): CompileResul
   const syntactic = (sf as unknown as { parseDiagnostics?: ts.Diagnostic[] }).parseDiagnostics ?? []
   if (syntactic.length) {
     const d = syntactic[0]!
-    const pos = d.start != null ? sf.getLineAndCharacterOfPosition(d.start) : undefined
-    const where = pos ? ` at ${pos.line + 1}:${pos.character + 1}` : ''
+    // Attach the span so the CLI can draw a source frame, rather than embedding a
+    // "at 3:12" fragment in the message text.
+    const node = d.start != null ? findNodeAt(sf, d.start) : undefined
     throw new CompileError(
-      `ScriptType source must be valid TypeScript syntax${where}: ${ts.flattenDiagnosticMessageText(d.messageText, ' ')}`,
+      ts.flattenDiagnosticMessageText(d.messageText, ' '),
+      node ?? sf,
+      'ST1001',
     )
   }
 
@@ -77,6 +80,19 @@ export function compile(source: string, opts: CompileOptions = {}): CompileResul
   parts.push(...aliasSrc)
 
   return { code: parts.join('\n') + '\n', aliases: aliasSrc, prelude: preludeSrc }
+}
+
+/** Innermost node containing `pos`, so a parse diagnostic gets a span to underline. */
+function findNodeAt(sf: ts.SourceFile, pos: number): ts.Node | undefined {
+  let found: ts.Node | undefined
+  const visit = (n: ts.Node): void => {
+    if (pos >= n.getStart(sf) && pos < n.getEnd()) {
+      found = n
+      ts.forEachChild(n, visit)
+    }
+  }
+  ts.forEachChild(sf, visit)
+  return found
 }
 
 /** Whole-word rename of type names inside prelude source text. */

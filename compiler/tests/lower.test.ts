@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { compile } from '../src/compile.js'
+import { compile, CompileError } from '../src/compile.js'
 
 const c = (src: string) => compile(src, { includePrelude: false }).code.trim()
 
@@ -232,15 +232,76 @@ describe('switch', () => {
 })
 
 describe('errors', () => {
+  /** Compile, expecting failure, and return the CompileError for inspection. */
+  const fails = (src: string): CompileError => {
+    try {
+      c(src)
+    } catch (e) {
+      if (e instanceof CompileError) return e
+      throw e
+    }
+    throw new Error('expected a CompileError, but compilation succeeded')
+  }
+
   it('rejects a non-returning path', () => {
-    const src = `export function Bad(t: unknown) {
+    const e = fails(`export function Bad(t: unknown) {
       if (extendsType<string>(t)) { return 1 }
-    }`
-    expect(() => c(src)).toThrow(/does not return/)
+    }`)
+    expect(e.message).toMatch(/does not return/)
+    expect(e.code).toBe('ST1003')
   })
 
   it('rejects invalid TypeScript syntax', () => {
-    expect(() => c(`export function Oops( {`)).toThrow(/valid TypeScript syntax/)
+    const e = fails(`export function Oops( {`)
+    expect(e.code).toBe('ST1001')
+  })
+
+  // Diagnostics are the product surface, so the properties that make them useful —
+  // a stable code, a span to underline, and a fix hint — are asserted, not the prose.
+  it('reports a runtime global as such, with a fix', () => {
+    const e = fails(`export function F(t: string) {
+      console.log(t)
+      return t
+    }`)
+    expect(e.code).toBe('ST1102')
+    expect(e.help).toMatch(/delete the statement/)
+    expect(e.node).toBeDefined()
+  })
+
+  it('suggests the long form for compound assignment', () => {
+    const e = fails(`export function F(t: string) {
+      let x = 1
+      x += 2
+      return x
+    }`)
+    expect(e.code).toBe('ST1101')
+    expect(e.help).toBe('Write it out: `x = x + 2`.')
+  })
+
+  it('suggests a near-miss builtin name', () => {
+    const e = fails(`export function F(t: string) {
+      let acc = t
+      accum.push(t)
+      return acc
+    }`)
+    expect(e.code).toBe('ST1102')
+    expect(e.help).toMatch(/Did you mean `acc`\?/)
+  })
+
+  it('names the construct that has no lowering', () => {
+    const e = fails(`export function F(t: string) {
+      try { return t } catch { return t }
+    }`)
+    expect(e.code).toBe('ST1100')
+    expect(e.message).toMatch(/`try`\/`catch` has no type-level meaning/)
+  })
+
+  it('carries a span that points at the offending token', () => {
+    const src = `export function F(t: string) {\n  console.log(t)\n  return t\n}`
+    const e = fails(src)
+    const sf = e.node!.getSourceFile()
+    const { line, character } = sf.getLineAndCharacterOfPosition(e.node!.getStart(sf))
+    expect([line, character]).toEqual([1, 2])
   })
 })
 

@@ -30,15 +30,120 @@ import {
   union,
 } from './ir.js'
 import { BUILTINS, type Lowering, guardEquivalent } from './builtins.js'
+import { didYouMean } from './diagnostics.js'
 
+/**
+ * A user-facing compiler error.
+ *
+ * `code` indexes the diagnostic catalogue, which supplies the `help:` line and the
+ * long-form `scripttype explain` text. `help` overrides the catalogue where the throw
+ * site knows something more specific (a "did you mean" suggestion, say).
+ */
 export class CompileError extends Error {
+  readonly code: string
+  readonly help?: string
+
   constructor(
     message: string,
     readonly node?: ts.Node,
+    code: string = 'ST1500',
+    help?: string,
   ) {
     super(message)
+    this.code = code
+    this.help = help
   }
 }
+
+/** Arguments for the CompileError constructor, spread at a throw site. */
+type ErrorArgs = [message: string, node: ts.Node, code: string, help?: string]
+
+/** Human-readable name for a statement kind, for "X has no type-level meaning". */
+function describeStatement(stmt: ts.Statement): string {
+  const names: Partial<Record<ts.SyntaxKind, string>> = {
+    [ts.SyntaxKind.TryStatement]: '`try`/`catch`',
+    [ts.SyntaxKind.DoStatement]: '`do`/`while`',
+    [ts.SyntaxKind.ForStatement]: 'a C-style `for` loop',
+    [ts.SyntaxKind.LabeledStatement]: 'a labelled statement',
+    [ts.SyntaxKind.ClassDeclaration]: 'a class declaration',
+    [ts.SyntaxKind.WithStatement]: '`with`',
+    [ts.SyntaxKind.EmptyStatement]: 'an empty statement',
+    [ts.SyntaxKind.DebuggerStatement]: '`debugger`',
+    [ts.SyntaxKind.FunctionDeclaration]: 'a nested function declaration',
+  }
+  return names[stmt.kind] ?? `\`${ts.SyntaxKind[stmt.kind]}\``
+}
+
+/**
+ * `unknown variable 'x'` is the most common ScriptType error, and almost always either
+ * a typo or a reach for a runtime global. Both deserve a specific fix, not a generic one.
+ */
+function unknownVariable(target: ts.Identifier, vars: Vars): ErrorArgs {
+  const name = target.text
+  const RUNTIME_GLOBALS = new Set([
+    'console', 'Math', 'JSON', 'process', 'window', 'document', 'globalThis',
+    'Date', 'RegExp', 'Error', 'Map', 'Set', 'Reflect',
+  ])
+  if (RUNTIME_GLOBALS.has(name)) {
+    return [
+      `'${name}' is a runtime value and has no type-level meaning`,
+      target,
+      'ST1102',
+      `Type-level code cannot observe \`${name}\`; delete the statement.`,
+    ]
+  }
+  const near = didYouMean(name, [...vars.keys(), ...Object.keys(BUILTINS)])
+  return [
+    `unknown variable '${name}'`,
+    target,
+    'ST1102',
+    near ? `Did you mean \`${near}\`?` : undefined,
+  ]
+}
+
+/** Compound assignment and side-effecting calls are the two common shapes here. */
+function unsupportedStatementExpression(e: ts.Expression): ErrorArgs {
+  if (ts.isBinaryExpression(e) && ts.isIdentifier(e.left)) {
+    const op = ts.tokenToString(e.operatorToken.kind) ?? '?='
+    if (op.length > 1 && op.endsWith('=')) {
+      const bare = op.slice(0, -1)
+      const x = e.left.text
+      return [
+        `compound assignment \`${op}\` is not supported`,
+        e,
+        'ST1101',
+        `Write it out: \`${x} = ${x} ${bare} ${e.right.getText()}\`.`,
+      ]
+    }
+  }
+  return [`\`${e.getText()}\` has no type-level meaning`, e, 'ST1101']
+}
+
+/** An unsupported expression, with a hint for the shapes people actually reach for. */
+function unsupportedExpression(e: ts.Expression): ErrorArgs {
+  const hints: Partial<Record<ts.SyntaxKind, string>> = {
+    [ts.SyntaxKind.ArrowFunction]:
+      'Type-level code has no closures; declare a top-level function and call it by name.',
+    [ts.SyntaxKind.FunctionExpression]:
+      'Type-level code has no closures; declare a top-level function and call it by name.',
+    [ts.SyntaxKind.AwaitExpression]: 'There is nothing to await at the type level.',
+    [ts.SyntaxKind.NewExpression]:
+      'Use `ctorType(params, ret)` for a constructor type, or name the type with `t<T>()`.',
+    [ts.SyntaxKind.RegularExpressionLiteral]:
+      'Match with a template-literal pattern instead: `matches<`${Hole<"A">}-${Hole<"B">}`>(x)`.',
+    [ts.SyntaxKind.TypeOfExpression]:
+      'In an expression a name already denotes its type; `typeof` is only needed inside a type annotation.',
+  }
+  return [
+    `${ts.SyntaxKind[e.kind]} \`${ellipsis(e.getText())}\` has no type-level lowering`,
+    e,
+    'ST1500',
+    hints[e.kind],
+  ]
+}
+
+const ellipsis = (s: string, n = 40): string =>
+  s.length <= n ? s : s.slice(0, n - 1).replace(/\s+$/, '') + '…'
 
 /** Variable environment: source identifier -> current type-level value. */
 type Vars = Map<string, TypeExpr>
@@ -184,7 +289,7 @@ class FunctionCompiler {
   compile(): TypeAlias[] {
     const vars: Vars = new Map()
     for (const p of this.fn.parameters) {
-      if (!ts.isIdentifier(p.name)) throw new CompileError('destructured parameters are not supported', p)
+      if (!ts.isIdentifier(p.name)) throw new CompileError('destructured parameters are not supported', p, 'ST1002')
       const pName = this.paramName(p.name.text)
       this.used.add(pName)
       // `extends unknown` is redundant; omit it so output matches hand-written types.
@@ -213,6 +318,7 @@ class FunctionCompiler {
         throw new CompileError(
           `function '${this.fnName}' has a code path that does not return; every path must return a type`,
           this.fn,
+          'ST1003',
         )
       },
       undefined,
@@ -252,7 +358,7 @@ class FunctionCompiler {
     const rest: Cont = (v) => this.lowerStmts(stmts, idx + 1, v, k, loop)
 
     if (ts.isReturnStatement(stmt)) {
-      if (!stmt.expression) throw new CompileError('bare `return` has no type-level meaning', stmt)
+      if (!stmt.expression) throw new CompileError('bare `return` has no type-level meaning', stmt, 'ST1004')
       return this.expr(stmt.expression, vars)
     }
 
@@ -278,11 +384,11 @@ class FunctionCompiler {
     if (ts.isSwitchStatement(stmt)) return this.lowerSwitch(stmt, vars, rest, loop)
 
     if (ts.isBreakStatement(stmt)) {
-      if (!loop) throw new CompileError('`break` outside a loop', stmt)
+      if (!loop) throw new CompileError('`break` outside a loop', stmt, 'ST1104')
       return loop.onBreak(vars)
     }
     if (ts.isContinueStatement(stmt)) {
-      if (!loop) throw new CompileError('`continue` outside a loop', stmt)
+      if (!loop) throw new CompileError('`continue` outside a loop', stmt, 'ST1105')
       return loop.onContinue(vars)
     }
 
@@ -297,7 +403,11 @@ class FunctionCompiler {
       return rest(vars)
     }
 
-    throw new CompileError(`unsupported statement: ${ts.SyntaxKind[stmt.kind]}`, stmt)
+    throw new CompileError(
+      `${describeStatement(stmt)} has no type-level meaning`,
+      stmt,
+      'ST1100',
+    )
   }
 
   private throwMessage(stmt: ts.ThrowStatement): string {
@@ -313,7 +423,7 @@ class FunctionCompiler {
   /** `x = expr`, `x.push(expr)`, `out[k] = v` — record the new value of a variable. */
   private applyMutation(e: ts.Expression, vars: Vars): void {
     if (ts.isBinaryExpression(e) && e.operatorToken.kind === ts.SyntaxKind.EqualsToken) {
-      if (!ts.isIdentifier(e.left)) throw new CompileError('only simple assignment is supported', e)
+      if (!ts.isIdentifier(e.left)) throw new CompileError('only simple assignment is supported', e, 'ST1103')
       vars.set(e.left.text, this.expr(e.right, vars))
       return
     }
@@ -322,7 +432,7 @@ class FunctionCompiler {
       const method = e.expression.name.text
       if (ts.isIdentifier(target)) {
         const cur = vars.get(target.text)
-        if (!cur) throw new CompileError(`unknown variable '${target.text}'`, target)
+        if (!cur) throw new CompileError(...unknownVariable(target, vars))
         const args = e.arguments.map((a) => this.expr(a, vars))
         if (method === 'push') {
           vars.set(target.text, tuple([{ expr: cur, spread: true }, ...args.map((a) => ({ expr: a }))]))
@@ -341,7 +451,7 @@ class FunctionCompiler {
         }
       }
     }
-    throw new CompileError(`unsupported statement expression: ${e.getText()}`, e)
+    throw new CompileError(...unsupportedStatementExpression(e))
   }
 
   // -------------------------------------------------------------------------
@@ -355,7 +465,7 @@ class FunctionCompiler {
     const build = (i: number, v: Vars): TypeExpr => {
       if (i >= decls.length) return k(v)
       const d = decls[i]!
-      if (!d.initializer) throw new CompileError('declaration without an initializer', d)
+      if (!d.initializer) throw new CompileError('declaration without an initializer', d, 'ST1200')
       const next: Cont = (v2) => build(i + 1, v2)
 
       if (ts.isIdentifier(d.name)) {
@@ -380,13 +490,13 @@ class FunctionCompiler {
         const v2 = new Map(v)
         const src = this.expr(d.initializer, v)
         for (const el of d.name.elements) {
-          if (!ts.isIdentifier(el.name)) throw new CompileError('nested object patterns unsupported', el)
+          if (!ts.isIdentifier(el.name)) throw new CompileError('nested object patterns are not supported', el, 'ST1201')
           const key = el.propertyName ? propName(el.propertyName) : el.name.text
           v2.set(el.name.text, indexed(src, str(key)))
         }
         return next(v2)
       }
-      throw new CompileError('unsupported binding form', d)
+      throw new CompileError('unsupported binding form', d, 'ST1203')
     }
     out = build(0, vars)
     return out
@@ -458,7 +568,7 @@ class FunctionCompiler {
         rests.push(false)
         continue
       }
-      if (!ts.isIdentifier(el.name)) throw new CompileError('nested array patterns unsupported', el)
+      if (!ts.isIdentifier(el.name)) throw new CompileError('nested array patterns are not supported', el, 'ST1202')
       names.push(el.name.text)
       rests.push(!!el.dotDotDotToken)
     }
@@ -473,7 +583,7 @@ class FunctionCompiler {
       init.expression.text === 'orElse'
     ) {
       if (init.arguments.length !== 2) {
-        throw new CompileError('orElse(value, fallback) takes exactly two arguments', init)
+        throw new CompileError('orElse(value, fallback) takes exactly two arguments', init, 'ST1402')
       }
       source = init.arguments[0]!
       fallback = this.expr(init.arguments[1]!, vars)
@@ -578,8 +688,8 @@ class FunctionCompiler {
    */
   private lowerMatches(e: ts.CallExpression, vars: Vars): Lowering {
     const pattern = e.typeArguments?.[0]
-    if (!pattern) throw new CompileError('matches<Pattern>(value) requires a pattern type argument', e)
-    if (e.arguments.length !== 1) throw new CompileError('matches() takes exactly one value', e)
+    if (!pattern) throw new CompileError('matches<Pattern>(value) requires a pattern type argument', e, 'ST1400')
+    if (e.arguments.length !== 1) throw new CompileError('matches() takes exactly one value', e, 'ST1401')
     const check = this.expr(e.arguments[0]!, vars)
     const ext = this.typeNode(pattern, vars)
     const binds: string[] = []
@@ -694,10 +804,10 @@ class FunctionCompiler {
     if (ts.isForOfStatement(stmt)) {
       const decl = stmt.initializer
       if (!ts.isVariableDeclarationList(decl) || decl.declarations.length !== 1) {
-        throw new CompileError('for-of must declare exactly one variable', stmt)
+        throw new CompileError('for-of must declare exactly one variable', stmt, 'ST1300')
       }
       const nameNode = decl.declarations[0]!.name
-      if (!ts.isIdentifier(nameNode)) throw new CompileError('for-of destructuring unsupported', nameNode)
+      if (!ts.isIdentifier(nameNode)) throw new CompileError('for-of cannot destructure in the loop header', nameNode, 'ST1301')
       iterVar = nameNode.text
       listInit = this.expr(stmt.expression, vars)
       listVar = this.fresh('Rest')
@@ -844,10 +954,10 @@ class FunctionCompiler {
   private lowerForIn(stmt: ts.ForInStatement, vars: Vars, k: Cont): TypeExpr {
     const decl = stmt.initializer
     if (!ts.isVariableDeclarationList(decl) || decl.declarations.length !== 1) {
-      throw new CompileError('for-in must declare exactly one variable', stmt)
+      throw new CompileError('for-in must declare exactly one variable', stmt, 'ST1302')
     }
     const nameNode = decl.declarations[0]!.name
-    if (!ts.isIdentifier(nameNode)) throw new CompileError('for-in destructuring unsupported', nameNode)
+    if (!ts.isIdentifier(nameNode)) throw new CompileError('for-in cannot destructure in the loop header', nameNode, 'ST1303')
     const keySrc = nameNode.text
 
     const body = asStatements(stmt.statement)
@@ -855,6 +965,7 @@ class FunctionCompiler {
       throw new CompileError(
         'a for-in body must be a single assignment of the form `out[key] = value`',
         stmt.statement,
+        'ST1304',
       )
     }
     const assign = (body[0] as ts.ExpressionStatement).expression
@@ -864,7 +975,7 @@ class FunctionCompiler {
       !ts.isElementAccessExpression(assign.left) ||
       !ts.isIdentifier(assign.left.expression)
     ) {
-      throw new CompileError('a for-in body must assign to `out[key]`', assign)
+      throw new CompileError('a for-in body must assign to `out[key]`', assign, 'ST1305')
     }
 
     const target = assign.left.expression.text
@@ -1082,7 +1193,7 @@ class FunctionCompiler {
         if (ts.isShorthandPropertyAssignment(p)) {
           return { name: p.name.text, value: this.expr(p.name, vars) }
         }
-        throw new CompileError('unsupported object member', p)
+        throw new CompileError('unsupported object member', p, 'ST1501')
       })
       return { kind: 'object', props }
     }
@@ -1126,7 +1237,7 @@ class FunctionCompiler {
 
     if (ts.isNonNullExpression(e)) return this.expr(e.expression, vars)
 
-    throw new CompileError(`unsupported expression: ${ts.SyntaxKind[e.kind]} (${e.getText()})`, e)
+    throw new CompileError(...unsupportedExpression(e))
   }
 
   private callExpr(e: ts.CallExpression, vars: Vars): TypeExpr {
@@ -1155,7 +1266,7 @@ class FunctionCompiler {
       }
     }
     if (!ts.isIdentifier(e.expression)) {
-      throw new CompileError('only direct calls are supported', e)
+      throw new CompileError('only direct calls are supported', e, 'ST1403')
     }
     const name = e.expression.text
     const args = e.arguments.map((a) => this.expr(a, vars))

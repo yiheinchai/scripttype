@@ -25,6 +25,8 @@ export type Status =
   | 'mismatch'
   | 'unresolved-deps'
   | 'reference-error'
+  /** The generated ScriptType does not itself typecheck as TypeScript. */
+  | 'typecheck-error'
 
 export interface AliasOutcome {
   file: string

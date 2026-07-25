@@ -18,6 +18,7 @@ import {
   template,
   tuple,
   intersection,
+  union as unionOf,
 } from './ir.js'
 
 export interface MatchLowering {
@@ -334,9 +335,21 @@ register(
   }),
   def({
     name: 'merge',
-    arity: 2,
-    doc: 'merge(a, b) -> A & B',
-    lower: ([a, b]) => expr(intersection([a!, b!])),
+    arity: [2, 16],
+    doc: 'merge(a, b, ...) -> A & B & ...',
+    lower: (args) => expr(intersection(args.map((a) => a!))),
+  }),
+  def({
+    name: 'anyOf',
+    arity: [2, 32],
+    doc: 'anyOf(a, b, ...) -> A | B | ...',
+    lower: (args) => expr(unionOf(args.map((a) => a!))),
+  }),
+  def({
+    name: 'obj',
+    arity: 1,
+    doc: 'obj({ k: V }) -> { k: V }  (identity; exists so an object type can be an & operand)',
+    lower: ([o]) => expr(o!),
   }),
   def({
     name: 'simplify',

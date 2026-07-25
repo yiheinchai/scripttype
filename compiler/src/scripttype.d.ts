@@ -58,6 +58,12 @@ declare const emptyObject: any
  * `null` cannot be an operand of `|` (TS18050) and `{}` cannot be an operand of `&`
  * (TS2362), so the union/intersection-friendly spellings are named.
  */
+declare function anyOf(...a: any[]): any
+type anyOf = any
+
+declare function obj<T>(o: T): any
+type obj = any
+
 declare const Null: any
 declare const Undefined: any
 

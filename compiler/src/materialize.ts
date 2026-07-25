@@ -16,6 +16,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { decompileFile } from './decompile.js'
 import { compile } from './compile.js'
+import { declarePreamble } from './freenames.js'
 import { REPO_ROOT } from './corpus.js'
 import type { Status } from './batch.js'
 
@@ -63,6 +64,7 @@ const MARK: Record<Status, string> = {
   mismatch: 'compiles but is not type-identical yet',
   'unresolved-deps': 'could not be judged in isolation',
   'reference-error': 'reference could not be resolved',
+  'typecheck-error': 'the ScriptType does not itself typecheck as TypeScript',
 }
 
 let files = 0
@@ -149,9 +151,14 @@ for (const rel of targetFiles.sort()) {
     '',
   ].join('\n')
 
+  const body = blocks.join('\n\n') + '\n'
+  // Declare the names this file references but does not define, so it typechecks
+  // standalone. Both a value and a type: ScriptType applies types in call position.
+  const preamble = declarePreamble(body)
+
   const dest = path.join(outRoot, rel.replace(/\.tsx?$/, '.st.ts'))
   fs.mkdirSync(path.dirname(dest), { recursive: true })
-  fs.writeFileSync(dest, header + blocks.join('\n\n') + '\n')
+  fs.writeFileSync(dest, header + preamble + body)
   written++
 }
 

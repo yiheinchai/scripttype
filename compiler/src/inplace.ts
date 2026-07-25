@@ -25,6 +25,8 @@ import { compile } from './compile.js'
 import { decompileFile } from './decompile.js'
 import { REPO_ROOT } from './corpus.js'
 import { collectFiles, type Status } from './batch.js'
+import { typecheckScriptType } from './typecheck.js'
+import { freeNamesOf } from './freenames.js'
 
 export interface Outcome {
   file: string
@@ -125,6 +127,23 @@ export function inplaceFile(rel: string): Outcome[] {
       })
       return
     }
+    // ScriptType source must itself be valid TypeScript. This is part of verification:
+    // a program that does not typecheck does not count, however good its output.
+    const tc = typecheckScriptType(
+      { [`${e.name}.st.ts`]: e.result.source },
+      freeNamesOf(e.result.source),
+    )
+    if (!tc.ok) {
+      outcomes.push({
+        file: rel,
+        name: e.name,
+        status: 'typecheck-error',
+        gaps: [],
+        detail: (tc.errors[0] ?? tc.suppressions[0] ?? 'unknown').slice(0, 160),
+      })
+      return
+    }
+
     const suffix = `__st${i}`
     const { code } = suffixAliases(compiled.code, declaredNames(compiled.code), suffix)
     // Strip `export` so appending cannot change the host module's public surface.

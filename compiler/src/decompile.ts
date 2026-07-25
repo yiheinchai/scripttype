@@ -23,13 +23,16 @@ const INDENT = '  '
 
 export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile): DecompileResult {
   const gaps: string[] = []
-  const d = new Decompiler(sf, gaps)
+  const paramNames = new Set((decl.typeParameters ?? []).map((tp) => tp.name.text))
+  const d = new Decompiler(sf, gaps, paramNames)
   const name = decl.name.text
 
   const params = (decl.typeParameters ?? []).map((tp) => {
     // Keep the original parameter name: `pascal()` preserves already-capitalised
     // names, so emitted type parameters match the reference exactly.
-    const ann = tp.constraint ? `: ${tp.constraint.getText(sf)}` : ': unknown'
+    // No annotation when unconstrained: annotating `unknown` would make every use of
+    // the parameter a type error, and `extends unknown` is not emitted anyway.
+    const ann = tp.constraint ? `: ${holePattern(tp.constraint, sf, paramNames)}` : ''
     const def = tp.default ? ` = ${d.expr(tp.default)}` : ''
     return `${tp.name.text}${ann}${def}`
   })
@@ -47,10 +50,23 @@ class Decompiler {
   /** Statements hoisted out of the expression currently being rendered. */
   private pending: string[] = []
   private temps = 0
+  private markers = 0
+  /**
+   * Names bound by the enclosing pattern, mapped to how they are read.
+   *
+   * A hole cannot appear as a bare identifier in ScriptType source — it would be an
+   * undeclared name and would not typecheck. It is read as a property of the match
+   * marker instead (`m1.R`), which is always well-typed because the marker is `any`.
+   */
+  private holeScope: Map<string, string> = new Map()
+  /** Depth of contexts with no statement position available for a marker. */
+  private noHoist = 0
 
   constructor(
     private sf: ts.SourceFile,
     private gaps: string[],
+    /** Type parameters of the alias — values in ScriptType, so patterns use `typeof`. */
+    private params: Set<string> = new Set(),
   ) {}
 
   /**
@@ -86,12 +102,34 @@ class Decompiler {
 
     if (ts.isConditionalTypeNode(t)) {
       const { lines, value: check } = this.withHoist(() => this.expr(t.checkType))
-      const pattern = patternText(t.extendsType, this.sf)
+      const holes = inferNames(t.extendsType)
+      const pattern = holePattern(t.extendsType, this.sf, this.params)
+
+      if (!holes.length) {
+        const thenStmts = this.statements(t.trueType, depth + 1)
+        const elseStmts = this.statements(t.falseType, depth)
+        return [
+          ...lines,
+          `if (matches<${pattern}>(${check})) {`,
+          ...thenStmts.map((l) => INDENT + l),
+          `}`,
+          ...elseStmts,
+        ]
+      }
+
+      // Bindings are read off the marker, so they are declared names rather than free
+      // identifiers, and the source typechecks.
+      const marker = `m${++this.markers}`
+      const saved = this.holeScope
+      this.holeScope = new Map(saved)
+      for (const h of holes) this.holeScope.set(h, `${marker}.${h}`)
       const thenStmts = this.statements(t.trueType, depth + 1)
+      this.holeScope = saved
       const elseStmts = this.statements(t.falseType, depth)
       return [
         ...lines,
-        `if (matches<${pattern}>(${check})) {`,
+        `const ${marker} = matches<${pattern}>(${check})`,
+        `if (${marker}) {`,
         ...thenStmts.map((l) => INDENT + l),
         `}`,
         ...elseStmts,
@@ -118,13 +156,19 @@ class Decompiler {
     const param = t.typeParameter.name.text
     const constraint = t.typeParameter.constraint
     if (!constraint) return undefined
+    // The key variable is a value in ScriptType, so type positions referring to it need
+    // `typeof`. Register it for the duration of the body.
+    this.params.add(param)
 
     const domain = ts.isTypeOperatorNode(constraint) && constraint.operator === ts.SyntaxKind.KeyOfKeyword
       ? `keyof(${this.expr(constraint.type)})`
       : `keySet(${this.expr(constraint)})`
 
     const key = t.nameType ? this.expr(t.nameType) : param
+    // A mapped type's value is a single expression: nothing can be hoisted above it.
+    this.noHoist++
     let value = this.expr(t.type)
+    this.noHoist--
     // Property modifiers become value-wrapping markers.
     if (t.questionToken) {
       value = t.questionToken.kind === ts.SyntaxKind.MinusToken ? `required(${value})` : `optional(${value})`
@@ -134,7 +178,7 @@ class Decompiler {
         t.readonlyToken.kind === ts.SyntaxKind.MinusToken ? `mutable(${value})` : `readonlyProp(${value})`
     }
     return [
-      `const ${varName} = {}`,
+      `const ${varName} = emptyObject`,
       `for (const ${param} in ${domain}) {`,
       `${INDENT}${varName}[${key}] = ${value}`,
       `}`,
@@ -165,7 +209,7 @@ class Decompiler {
       case ts.SyntaxKind.ObjectKeyword:
         return 'object'
       case ts.SyntaxKind.UndefinedKeyword:
-        return 'undefined'
+        return 'Undefined'
       case ts.SyntaxKind.VoidKeyword:
         return 'voidType()'
     }
@@ -176,7 +220,8 @@ class Decompiler {
       if (ts.isNumericLiteral(l)) return l.text
       if (l.kind === ts.SyntaxKind.TrueKeyword) return 'true'
       if (l.kind === ts.SyntaxKind.FalseKeyword) return 'false'
-      if (l.kind === ts.SyntaxKind.NullKeyword) return 'null'
+      // `null` cannot be an operand of `|` (TS18050); `Null` is its spelling.
+      if (l.kind === ts.SyntaxKind.NullKeyword) return 'Null'
       if (ts.isPrefixUnaryExpression(l)) return l.getText(this.sf)
       return this.gap(t, `literal type ${ts.SyntaxKind[l.kind]}`)
     }
@@ -184,12 +229,14 @@ class Decompiler {
     if (ts.isTypeReferenceNode(t)) {
       const name = t.typeName.getText(this.sf)
       const args = t.typeArguments ?? []
+      const bound = this.holeScope.get(name)
+      if (bound && !args.length) return bound
       if (!args.length) return name
       return `${name}(${args.map((a) => this.expr(a)).join(', ')})`
     }
 
-    if (ts.isUnionTypeNode(t)) return t.types.map((x) => this.wrap(x)).join(' | ')
-    if (ts.isIntersectionTypeNode(t)) return t.types.map((x) => this.wrap(x)).join(' & ')
+    if (ts.isUnionTypeNode(t)) return `anyOf(${t.types.map((x) => this.expr(x)).join(', ')})`
+    if (ts.isIntersectionTypeNode(t)) return `merge(${t.types.map((x) => this.expr(x)).join(', ')})`
 
     if (ts.isArrayTypeNode(t)) return `arrayOf(${this.expr(t.elementType)})`
 
@@ -223,7 +270,7 @@ class Decompiler {
           return this.gap(t, `object member ${ts.SyntaxKind[m.kind]}`)
         }
       }
-      return props.length ? `{ ${props.join(', ')} }` : '{}'
+      return props.length ? `obj({ ${props.join(', ')} })` : 'emptyObject'
     }
 
     if (ts.isTemplateLiteralTypeNode(t)) {
@@ -251,8 +298,23 @@ class Decompiler {
     // `infer` names for the true-branch just as it does in statement position.
     if (ts.isConditionalTypeNode(t)) {
       const check = this.expr(t.checkType)
-      const pattern = patternText(t.extendsType, this.sf)
-      return `matches<${pattern}>(${check}) ? ${this.wrap(t.trueType)} : ${this.wrap(t.falseType)}`
+      const holes = inferNames(t.extendsType)
+      const pattern = holePattern(t.extendsType, this.sf, this.params)
+      if (!holes.length) {
+        return `matches<${pattern}>(${check}) ? ${this.wrap(t.trueType)} : ${this.wrap(t.falseType)}`
+      }
+      if (this.noHoist > 0) {
+        return this.gap(t, 'pattern bindings inside a mapped-type value')
+      }
+      const marker = `m${++this.markers}`
+      this.pending.push(`const ${marker} = matches<${pattern}>(${check})`)
+      const saved = this.holeScope
+      this.holeScope = new Map(saved)
+      for (const h of holes) this.holeScope.set(h, `${marker}.${h}`)
+      const t1 = this.wrap(t.trueType)
+      this.holeScope = saved
+      const t2 = this.wrap(t.falseType)
+      return `${marker} ? ${t1} : ${t2}`
     }
 
     if (ts.isFunctionTypeNode(t)) {
@@ -295,19 +357,55 @@ class Decompiler {
 
 const PRINTER = ts.createPrinter({ removeComments: true, newLine: ts.NewLineKind.LineFeed })
 
-/**
- * Pattern text for a `matches<...>` type argument.
- *
- * Printing (rather than copying source text) is load-bearing: real type-level code
- * carries `//` line comments inside its extends clauses, and collapsing such text to
- * one line would let the comment swallow the rest of the pattern.
- */
-function patternText(t: ts.TypeNode, sf: ts.SourceFile): string {
-  try {
-    return PRINTER.printNode(ts.EmitHint.Unspecified, t, sf).replace(/\s*\n\s*/g, ' ').trim()
-  } catch {
-    return t.getText(sf).replace(/\/\/[^\n]*/g, '').replace(/\s*\n\s*/g, ' ').trim()
+/** Names introduced by `infer` inside a pattern, in source order. */
+function inferNames(t: ts.TypeNode): string[] {
+  const out: string[] = []
+  const walk = (n: ts.Node) => {
+    if (ts.isInferTypeNode(n)) out.push(n.typeParameter.name.text)
+    ts.forEachChild(n, walk)
   }
+  walk(t)
+  return out
+}
+
+/**
+ * Render a pattern with each `infer X` replaced by `Hole<'X'>`.
+ *
+ * `infer` is a semantic error outside a conditional type's extends clause, so it cannot
+ * survive into a type-argument position. A hole is an ordinary type, so the pattern
+ * typechecks, and the compiler turns it back into `infer X`. Any inference constraint is
+ * preserved as a second argument.
+ */
+function holePattern(t: ts.TypeNode, sf: ts.SourceFile, params: Set<string> = new Set()): string {
+  const transformer: ts.TransformerFactory<ts.Node> = (ctx) => (root) => {
+    const visit = (n: ts.Node): ts.Node => {
+      // A ScriptType parameter is a value, so referring to it in a type position needs
+      // `typeof`; a bare reference would be TS2749.
+      if (
+        ts.isTypeReferenceNode(n) &&
+        !n.typeArguments?.length &&
+        ts.isIdentifier(n.typeName) &&
+        params.has(n.typeName.text)
+      ) {
+        return ctx.factory.createTypeQueryNode(ctx.factory.createIdentifier(n.typeName.text))
+      }
+      if (ts.isInferTypeNode(n)) {
+        const tp = n.typeParameter
+        const args: ts.TypeNode[] = [
+          ctx.factory.createLiteralTypeNode(ctx.factory.createStringLiteral(tp.name.text)),
+        ]
+        if (tp.constraint) args.push(tp.constraint)
+        return ctx.factory.createTypeReferenceNode('Hole', args)
+      }
+      return ts.visitEachChild(n, visit, ctx)
+    }
+    return ts.visitNode(root, visit) as ts.Node
+  }
+  const result = ts.transform(t, [transformer])
+  const out = result.transformed[0] as ts.TypeNode
+  const text = PRINTER.printNode(ts.EmitHint.Unspecified, out, sf)
+  result.dispose()
+  return text.replace(/\s*\n\s*/g, ' ').trim()
 }
 
 function unwrapParens(t: ts.TypeNode): ts.TypeNode {

@@ -127,6 +127,15 @@ class FunctionCompiler {
   private fnName: string
   /** Type parameters of the top-level alias, carried into every generated helper. */
   private topParams: TypeParam[] = []
+  /**
+   * Variables bound to a pattern match: `const m = matches<P>(v)`.
+   *
+   * The match itself is not a value, so `m` is not bound in `vars`; testing `m` lowers
+   * to the conditional, and `m.H` reads hole `H` bound by the pattern. This two-step
+   * form exists so ScriptType source typechecks: a hole name cannot simply appear as a
+   * free identifier, but a property of an `any` is always well-typed.
+   */
+  private markers = new Map<string, Lowering & { tag: 'match' }>()
   /** Declared annotations of local `const`/`let`, used to constrain accumulators. */
   private localTypes = new Map<string, TypeExpr>()
   /**
@@ -350,6 +359,18 @@ class FunctionCompiler {
       const next: Cont = (v2) => build(i + 1, v2)
 
       if (ts.isIdentifier(d.name)) {
+        // `const m = matches<P>(v)` records a pattern to test, not a value.
+        if (
+          ts.isCallExpression(d.initializer) &&
+          ts.isIdentifier(d.initializer.expression) &&
+          d.initializer.expression.text === 'matches'
+        ) {
+          const m = this.lowerMatches(d.initializer, v)
+          if (m.tag === 'match') {
+            this.markers.set(d.name.text, m)
+            return next(v)
+          }
+        }
         return this.bindSimple(d.name.text, d.initializer, d.type, v, next, stmt)
       }
       if (ts.isArrayBindingPattern(d.name)) {
@@ -564,6 +585,13 @@ class FunctionCompiler {
     const binds: string[] = []
     const collect = (n: ts.Node) => {
       if (ts.isInferTypeNode(n)) binds.push(n.typeParameter.name.text)
+      // `Hole<'N'>` is the typecheckable spelling of `infer N`.
+      if (ts.isTypeReferenceNode(n) && n.typeName.getText() === 'Hole') {
+        const arg = n.typeArguments?.[0]
+        if (arg && ts.isLiteralTypeNode(arg) && ts.isStringLiteral(arg.literal)) {
+          binds.push(arg.literal.text)
+        }
+      }
       ts.forEachChild(n, collect)
     }
     collect(pattern)
@@ -605,6 +633,15 @@ class FunctionCompiler {
 
     if (e.kind === ts.SyntaxKind.TrueKeyword) return onTrue(vars)
     if (e.kind === ts.SyntaxKind.FalseKeyword) return onFalse(vars)
+
+    if (ts.isIdentifier(e)) {
+      const marker = this.markers.get(e.text)
+      if (marker) {
+        const v2 = new Map(vars)
+        for (const b of marker.binds) v2.set(b, ref(b))
+        return cond(marker.check, marker.ext, onTrue(v2), onFalse(vars))
+      }
+    }
 
     // A predicate builtin: use its check/pattern and bind any inferred names.
     const m = this.tryBuiltinMatch(e, vars)
@@ -831,7 +868,7 @@ class FunctionCompiler {
     }
 
     const target = assign.left.expression.text
-    const param = this.fresh(keySrc)
+    const param = this.fresh(this.paramName(keySrc))
     const bodyVars = new Map(vars)
     bodyVars.set(keySrc, ref(param))
 
@@ -1057,6 +1094,9 @@ class FunctionCompiler {
     }
 
     if (ts.isPropertyAccessExpression(e)) {
+      if (ts.isIdentifier(e.expression) && this.markers.has(e.expression.text)) {
+        return ref(e.name.text)
+      }
       // `o.name` where `o` is a variable is an indexed access; `ns.Foo` where `ns` is
       // not in scope is a qualified type name and must stay dotted.
       const q = qualifiedName(e)
@@ -1176,6 +1216,17 @@ class FunctionCompiler {
     }
     if (ts.isTypeReferenceNode(t)) {
       const name = t.typeName.getText()
+      // `Hole<'N'>` is the ScriptType spelling of `infer N`. `infer` is only legal
+      // inside a conditional type's extends clause, so it cannot appear in a
+      // type-argument position; a hole is an ordinary type and typechecks.
+      if (name === 'Hole') {
+        const arg = t.typeArguments?.[0]
+        if (arg && ts.isLiteralTypeNode(arg) && ts.isStringLiteral(arg.literal)) {
+          // A second argument is the inference constraint: `infer X extends C`.
+          const c = t.typeArguments?.[1]
+          return inferNode(arg.literal.text, c ? this.typeNode(c, vars) : undefined)
+        }
+      }
       const args = (t.typeArguments ?? []).map((a) => this.typeNode(a, vars))
       // A bare reference naming an in-scope variable resolves to that variable's
       // current value, so patterns written with the source's parameter spelling
@@ -1195,8 +1246,28 @@ class FunctionCompiler {
     if (ts.isIndexedAccessTypeNode(t)) {
       return indexed(this.typeNode(t.objectType, vars), this.typeNode(t.indexType, vars))
     }
-    // Anything else is already valid type syntax; pass it through verbatim.
-    return { kind: 'raw', text: t.getText() }
+    if (ts.isTypeQueryNode(t)) {
+      // `typeof X` names the value X; in ScriptType that value *is* a type.
+      const name = t.exprName.getText()
+      if (vars?.has(name)) return vars.get(name)!
+      return ref(name)
+    }
+    if (ts.isTemplateLiteralTypeNode(t)) {
+      const quasis = [t.head.text]
+      const exprs: TypeExpr[] = []
+      for (const span of t.templateSpans) {
+        exprs.push(this.typeNode(span.type, vars))
+        quasis.push(span.literal.text)
+      }
+      return template(quasis, exprs)
+    }
+    if (ts.isRestTypeNode(t)) return this.typeNode(t.type, vars)
+    if (ts.isOptionalTypeNode(t)) return this.typeNode(t.type, vars)
+    if (ts.isNamedTupleMember(t)) return this.typeNode(t.type, vars)
+    // Anything else is already valid type syntax; pass it through verbatim — but first
+    // turn any `Hole<'X'>` back into `infer X`, since a hole is ScriptType spelling and
+    // must never reach the emitted TypeScript.
+    return { kind: 'raw', text: holesToInfer(t, this.sf) }
   }
 }
 
@@ -1260,6 +1331,48 @@ function qualifiedName(e: ts.PropertyAccessExpression): { text: string; root: st
   if (!ts.isIdentifier(cur)) return undefined
   parts.unshift(cur.text)
   return { text: parts.join('.'), root: cur.text }
+}
+
+const RAW_PRINTER = ts.createPrinter({ removeComments: true, newLine: ts.NewLineKind.LineFeed })
+
+/**
+ * Print a type node verbatim, rewriting `Hole<'X'>` (and `Hole<'X', C>`) back into
+ * `infer X` (`infer X extends C`).
+ *
+ * Holes exist only so ScriptType source typechecks; they are not TypeScript semantics.
+ * Any path that emits a node's original text must therefore undo them, or a hole leaks
+ * into the output and the emitted type fails to compile.
+ */
+function holesToInfer(t: ts.TypeNode, sf: ts.SourceFile): string {
+  let sawHole = false
+  const transformer: ts.TransformerFactory<ts.Node> = (ctx) => (root) => {
+    const visit = (n: ts.Node): ts.Node => {
+      if (ts.isTypeReferenceNode(n) && n.typeName.getText(sf) === 'Hole') {
+        const arg = n.typeArguments?.[0]
+        if (arg && ts.isLiteralTypeNode(arg) && ts.isStringLiteral(arg.literal)) {
+          sawHole = true
+          const constraint = n.typeArguments?.[1]
+          return ctx.factory.createInferTypeNode(
+            ctx.factory.createTypeParameterDeclaration(
+              undefined,
+              ctx.factory.createIdentifier(arg.literal.text),
+              constraint,
+              undefined,
+            ),
+          )
+        }
+      }
+      return ts.visitEachChild(n, visit, ctx)
+    }
+    return ts.visitNode(root, visit) as ts.Node
+  }
+  const result = ts.transform(t, [transformer])
+  const out = result.transformed[0] as ts.TypeNode
+  const text = sawHole
+    ? RAW_PRINTER.printNode(ts.EmitHint.Unspecified, out, sf)
+    : t.getText(sf)
+  result.dispose()
+  return text.replace(/\s*\n\s*/g, ' ').trim()
 }
 
 /** The JSDoc `@param {T}` type for a parameter, used by the pure-JavaScript dialect. */

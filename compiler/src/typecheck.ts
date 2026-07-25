@@ -59,7 +59,14 @@ export const AMBIENT_DTS = path.resolve(import.meta.dirname, 'scripttype.d.ts')
  */
 function extraAmbient(names: readonly string[]): string {
   const uniq = [...new Set(names)].filter((n) => /^[A-Za-z_$][A-Za-z0-9_$]*$/.test(n))
-  return uniq.map((n) => `declare function ${n}(...a: any[]): any\ntype ${n} = any`).join('\n') + '\n'
+  // Both a value and a *generic* type: ScriptType applies types in call position
+  // (`Foo(A, B)` -> `Foo<A, B>`), so a non-generic alias fails with "not generic".
+  const GENERIC = '<A = any, B = any, C = any, D = any, E = any, F = any, G = any, H = any>'
+  return (
+    uniq
+      .map((n) => `declare function ${n}(...a: any[]): any\ntype ${n}${GENERIC} = any`)
+      .join('\n') + '\n'
+  )
 }
 
 export function typecheckScriptType(

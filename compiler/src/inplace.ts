@@ -91,19 +91,39 @@ function witnessArgs(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile): string[]
   })
 }
 
-export function inplaceFile(rel: string): Outcome[] {
+interface Overlay {
+  rel: string
+  abs: string
+  /** Real text plus the appended generated aliases. */
+  text: string
+  /** Offset where the appended region begins. */
+  offset: number
+  live: { name: string; idx: number; ns: string[] }[]
+  /** Outcomes already decided without needing the checker. */
+  decided: Outcome[]
+}
+
+/**
+ * Build the overlay for one file: its real text with the recompiled aliases appended.
+ *
+ * Checking is deliberately *not* done here. TypeScript re-binds and re-checks a file's
+ * entire relative-import closure for every program it creates, so one program per file
+ * repeats that work once per file. Overlaying every file in a shard and checking them in
+ * a single program does it once.
+ */
+function buildOverlay(rel: string): Overlay | undefined {
   const abs = path.join(REPO_ROOT, rel)
   let realText: string
   try {
     realText = fs.readFileSync(abs, 'utf8')
   } catch {
-    return []
+    return undefined
   }
-  if (realText.length > 1_200_000) return []
+  if (realText.length > 1_200_000) return undefined
 
   const sf = ts.createSourceFile(abs, realText, ts.ScriptTarget.Latest, true, ts.ScriptKind.TS)
   const entries = decompileFile(abs, realText)
-  if (!entries.length) return []
+  if (!entries.length) return undefined
 
   const outcomes: Outcome[] = []
   const appended: string[] = ['', '// ===== ScriptType round-trip (generated) =====', EQ_DECL]
@@ -163,44 +183,69 @@ export function inplaceFile(rel: string): Outcome[] {
     live.push({ name: e.name, idx: i, ns: e.ns })
   })
 
-  if (!live.length) return outcomes
+  if (!live.length) return { rel, abs, text: realText, offset: realText.length, live: [], decided: outcomes }
 
-  const appendedText = appended.join('\n') + '\n'
-  const offset = realText.length
-  const overlayText = realText + appendedText
+  return {
+    rel,
+    abs,
+    text: realText + appended.join('\n') + '\n',
+    offset: realText.length,
+    live,
+    decided: outcomes,
+  }
+}
 
+/** Check a batch of overlays in one program and produce their outcomes. */
+function checkOverlays(overlays: Overlay[]): Outcome[] {
+  const out: Outcome[] = []
+  for (const o of overlays) out.push(...o.decided)
+  const active = overlays.filter((o) => o.live.length)
+  if (!active.length) return out
+
+  const byPath = new Map(active.map((o) => [o.abs, o]))
   const host: ts.CompilerHost = {
-    fileExists: (f) => f === abs || ts.sys.fileExists(f),
-    readFile: (f) => (f === abs ? overlayText : ts.sys.readFile(f)),
+    fileExists: (f) => byPath.has(f) || ts.sys.fileExists(f),
+    readFile: (f) => byPath.get(f)?.text ?? ts.sys.readFile(f),
     writeFile: () => {},
     getCanonicalFileName: (f) => f,
-    getCurrentDirectory: () => path.dirname(abs),
+    getCurrentDirectory: () => REPO_ROOT,
     getDefaultLibFileName: () => ts.getDefaultLibFilePath(OPTIONS),
     getNewLine: () => '\n',
     useCaseSensitiveFileNames: () => true,
     getSourceFile: (fileName, lv) => {
-      if (fileName === abs) return ts.createSourceFile(fileName, overlayText, lv, true)
+      const ov = byPath.get(fileName)
+      if (ov) return ts.createSourceFile(fileName, ov.text, lv, true)
       return cachedFile(fileName, lv)
     },
   }
 
   let program: ts.Program
   try {
-    program = ts.createProgram([abs], OPTIONS, host)
+    program = ts.createProgram([...byPath.keys()], OPTIONS, host)
   } catch (err) {
-    for (const l of live) {
-      outcomes.push({ file: rel, name: l.name, status: 'mismatch', gaps: [], detail: 'program creation failed' })
+    for (const o of active) {
+      for (const l of o.live) {
+        out.push({ file: o.rel, name: l.name, status: 'mismatch', gaps: [], detail: 'program creation failed' })
+      }
     }
-    return outcomes
-  }
-
-  const overlaySf = program.getSourceFile(abs)
-  if (!overlaySf) {
-    for (const l of live) outcomes.push({ file: rel, name: l.name, status: 'mismatch', gaps: [], detail: 'overlay missing' })
-    return outcomes
+    return out
   }
 
   const checker = program.getTypeChecker()
+  for (const o of active) out.push(...readOutcomes(program, checker, o))
+  return out
+}
+
+function readOutcomes(program: ts.Program, checker: ts.TypeChecker, o: Overlay): Outcome[] {
+  const outcomes: Outcome[] = []
+  const { rel, abs, offset, live } = o
+  const overlaySf = program.getSourceFile(abs)
+  if (!overlaySf) {
+    for (const l of live) {
+      outcomes.push({ file: rel, name: l.name, status: 'mismatch', gaps: [], detail: 'overlay missing' })
+    }
+    return outcomes
+  }
   // Only diagnostics inside the appended region are ours; the host file itself will
   // legitimately report unresolved imports (the clones have no node_modules).
   const ourDiags = program
@@ -257,6 +302,37 @@ export function inplaceFile(rel: string): Outcome[] {
   return outcomes
 }
 
+/** Round-trip a batch of files, checking them together. */
+export function inplaceFiles(rels: string[], batchSize = 40): Outcome[] {
+  const out: Outcome[] = []
+  const overlays: Overlay[] = []
+  for (const rel of rels) {
+    try {
+      const ov = buildOverlay(rel)
+      if (ov) overlays.push(ov)
+    } catch (err) {
+      out.push({
+        file: rel,
+        name: '(file)',
+        status: 'compile-error',
+        gaps: [],
+        detail: (err as Error).message.split('\n')[0],
+      })
+    }
+  }
+  // Batched rather than all at once: a single program over thousands of overlays holds
+  // every type in memory simultaneously and exhausts the heap.
+  for (let i = 0; i < overlays.length; i += batchSize) {
+    out.push(...checkOverlays(overlays.slice(i, i + batchSize)))
+  }
+  return out
+}
+
+/** Round-trip a single file. */
+export function inplaceFile(rel: string): Outcome[] {
+  return inplaceFiles([rel])
+}
+
 if (process.argv[1] && import.meta.filename === path.resolve(process.argv[1])) {
   const args = process.argv.slice(2)
   const jsonIdx = args.indexOf('--json')
@@ -293,14 +369,7 @@ if (process.argv[1] && import.meta.filename === path.resolve(process.argv[1])) {
   for (const root of roots) files.push(...collectFiles(root))
   const mine = shard ? files.filter((_, i) => i % shard!.n === shard!.k) : files
 
-  const all: Outcome[] = []
-  for (const f of mine) {
-    try {
-      all.push(...inplaceFile(f))
-    } catch (err) {
-      console.error(`  error in ${f}: ${(err as Error).message.split('\n')[0]}`)
-    }
-  }
+  const all: Outcome[] = inplaceFiles(mine)
 
   const counts = new Map<Status, number>()
   for (const o of all) counts.set(o.status, (counts.get(o.status) ?? 0) + 1)

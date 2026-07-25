@@ -12,6 +12,7 @@
  * still missing.
  */
 import ts from 'typescript'
+import { detectTailLoop, type LoopShape } from './recover-loop.js'
 
 export interface DecompileResult {
   source: string
@@ -28,6 +29,7 @@ export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile)
     (decl.typeParameters ?? []).filter((tp) => !tp.constraint).map((tp) => tp.name.text),
   )
   const d = new Decompiler(sf, gaps, paramNames, anyParams)
+  d.paramOrder = (decl.typeParameters ?? []).map((tp) => tp.name.text)
   const name = decl.name.text
 
   const params = (decl.typeParameters ?? []).map((tp) => {
@@ -39,6 +41,25 @@ export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile)
     const def = tp.default ? ` = ${d.expr(tp.default)}` : ''
     return `${tp.name.text}${ann}${def}`
   })
+
+  // A tail-recursive accumulator is a loop written as recursion; recovering the loop is
+  // the largest readability gain available here.
+  const loop = detectTailLoop(decl, sf)
+  if (loop) {
+    const recovered = d.loopBody(loop)
+    if (recovered) {
+      const sig = loop.publicParams.map((tp) => {
+        const ann = tp.constraint ? `: ${holePattern(tp.constraint, sf, paramNames)}` : ''
+        return `${tp.name.text}${ann}`
+      })
+      const src =
+        `/* @scripttype preserveParamNames */\n` +
+        `export function ${name}(${sig.join(', ')}) {\n` +
+        recovered.map((l) => INDENT + l).join('\n') +
+        '\n}\n'
+      return { source: src, gaps }
+    }
+  }
 
   const body = d.statements(decl.type, 1)
   const src =
@@ -64,6 +85,10 @@ class Decompiler {
   private holeScope: Map<string, string> = new Map()
   /** Depth of contexts with no statement position available for a marker. */
   private noHoist = 0
+  /** Parameters rewritten to loop locals. */
+  private locals: Map<string, string> = new Map()
+  /** Declaration order of the alias's parameters, for matching recursive-call arguments. */
+  paramOrder: string[] = []
 
   constructor(
     private sf: ts.SourceFile,
@@ -146,6 +171,139 @@ class Decompiler {
     // Escape for a single-quoted string literal.
     text = text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\s*\n\s*/g, ' ').trim()
     return `raw('${text}')`
+  }
+
+  /**
+   * Render a recovered loop.
+   *
+   * Parameters that change across iterations become mutable locals; defaulted parameters
+   * become locals seeded with their default. The guard is tested inside `while (true)` so
+   * a failed match can `break` out to the exit expression, which is exactly the shape the
+   * compiler lowers back into a tail-recursive helper.
+   */
+  loopBody(loop: LoopShape): string[] | undefined {
+    const declared = new Map<string, string>()
+    const lines: string[] = []
+
+    // Accumulators first: they read as the thing being built up.
+    const taken = new Set(this.paramOrder)
+    const accNames = new Set<string>()
+    for (const { param, init } of loop.accumulators) {
+      const local = this.localName(param.name.text, false, taken)
+      declared.set(param.name.text, local)
+      accNames.add(param.name.text)
+      taken.add(local)
+      lines.push(`let ${local} = ${this.expr(init)}`)
+    }
+    for (const p of loop.publicParams) {
+      if (!loop.changing.has(p.name.text)) continue
+      const local = this.localName(p.name.text, true, taken)
+      declared.set(p.name.text, local)
+      taken.add(local)
+      lines.push(`let ${local} = ${p.name.text}`)
+    }
+    if (this.pending.length) return undefined // an accumulator needing hoists: bail out
+
+    // Inside the loop, a changing parameter refers to its local.
+    const savedLocals = this.locals
+    this.locals = new Map([...savedLocals, ...declared])
+
+    const holes = inferNames(loop.pattern)
+    if (loop.recursiveOnTrue && !holes.length) {
+      // Continuing while a binding-free guard matches would loop forever unless some
+      // parameter shrinks; that is not a shape worth guessing at.
+      this.locals = savedLocals
+      return undefined
+    }
+    const marker = holes.length ? `m${++this.markers}` : ''
+    const pattern = holePattern(loop.pattern, this.sf, this.params, this.holeScope)
+    const check = this.expr(loop.check)
+    if (this.pending.length) {
+      this.locals = savedLocals
+      return undefined
+    }
+
+    const savedHoles = this.holeScope
+    this.holeScope = new Map(savedHoles)
+    for (const h of holes) this.holeScope.set(h, `${marker}.${h}`)
+
+    // One assignment per changing parameter, in declaration order.
+    const updates: string[] = []
+    let bail = false
+    for (const [i, arg] of loop.nextArgs.entries()) {
+      const pname = this.paramOrder[i]
+      if (!pname || !loop.changing.has(pname)) continue
+      const local = declared.get(pname)
+      if (!local) {
+        bail = true
+        break
+      }
+      // `Acc = [...Acc, x]` is an append; say so.
+      const prepended = prependedItems(arg, pname, this.sf)
+      if (prepended) {
+        const items = prepended.map((x) => this.expr(x))
+        if (this.pending.length) {
+          bail = true
+          break
+        }
+        updates.push(`${local}.unshift(${items.join(', ')})`)
+        continue
+      }
+      const appended = appendedItems(arg, pname, this.sf)
+      if (appended) {
+        const items = appended.map((x) => this.expr(x))
+        if (this.pending.length) {
+          bail = true
+          break
+        }
+        updates.push(`${local}.push(${items.join(', ')})`)
+        continue
+      }
+      const value = this.expr(arg)
+      if (this.pending.length) {
+        bail = true
+        break
+      }
+      updates.push(`${local} = ${value}`)
+    }
+
+    const exit = this.expr(loop.exit)
+    const exitPending = [...this.pending]
+    this.pending = []
+    this.holeScope = savedHoles
+    this.locals = savedLocals
+    if (bail) return undefined
+
+    lines.push(`while (true) {`)
+    if (marker) {
+      lines.push(`${INDENT}const ${marker} = matches<${pattern}>(${check})`)
+      lines.push(`${INDENT}if (${loop.recursiveOnTrue ? '!' : ''}${marker}) {`)
+    } else {
+      // No bindings: test the guard inline.
+      lines.push(`${INDENT}if (${loop.recursiveOnTrue ? '!' : ''}matches<${pattern}>(${check})) {`)
+    }
+    lines.push(`${INDENT}${INDENT}break`)
+    lines.push(`${INDENT}}`)
+    for (const u of updates) lines.push(INDENT + u)
+    lines.push(`}`)
+    lines.push(...exitPending)
+    lines.push(`return ${exit}`)
+    return lines
+  }
+
+  /**
+   * A local name for a parameter turned into a loop variable.
+   *
+   * A public parameter needs a *different* name, since `let S = S` shadows the parameter
+   * with itself and is not valid. Lowercasing the first letter keeps the connection
+   * obvious while reading.
+   */
+  private localName(param: string, isPublic: boolean, taken: Set<string>): string {
+    if (!isPublic) return param
+    let candidate = param[0]!.toLowerCase() + param.slice(1)
+    if (candidate === param) candidate = `${param}_`
+    while (taken.has(candidate)) candidate += '_'
+    return candidate
   }
 
   /** Lower a type node into a statement list ending in a `return`. */
@@ -284,6 +442,8 @@ class Decompiler {
       const args = t.typeArguments ?? []
       const bound = this.holeScope.get(name)
       if (bound && !args.length) return bound
+      const local = this.locals.get(name)
+      if (local && !args.length) return local
       if (!args.length) return name
       return `${name}(${args.map((a) => this.expr(a)).join(', ')})`
     }
@@ -417,6 +577,38 @@ class Decompiler {
 }
 
 const PRINTER = ts.createPrinter({ removeComments: true, newLine: ts.NewLineKind.LineFeed })
+
+/**
+ * If `arg` is `[...Param, a, b]`, return the appended items. Recognising this lets an
+ * accumulator update be written as `acc.push(a, b)` rather than a spread reassignment.
+ */
+function appendedItems(arg: ts.TypeNode, param: string, sf: ts.SourceFile): ts.TypeNode[] | undefined {
+  let n = arg
+  while (ts.isParenthesizedTypeNode(n)) n = n.type
+  if (!ts.isTupleTypeNode(n) || n.elements.length < 2) return undefined
+  const [first, ...rest] = n.elements
+  if (!first || !ts.isRestTypeNode(first)) return undefined
+  const spread = first.type
+  if (!ts.isTypeReferenceNode(spread) || spread.typeName.getText(sf) !== param) return undefined
+  if (spread.typeArguments?.length) return undefined
+  if (rest.some((e) => ts.isRestTypeNode(e))) return undefined
+  return rest
+}
+
+/** If `arg` is `[a, b, ...Param]`, return the prepended items. */
+function prependedItems(arg: ts.TypeNode, param: string, sf: ts.SourceFile): ts.TypeNode[] | undefined {
+  let n = arg
+  while (ts.isParenthesizedTypeNode(n)) n = n.type
+  if (!ts.isTupleTypeNode(n) || n.elements.length < 2) return undefined
+  const last = n.elements[n.elements.length - 1]!
+  const front = n.elements.slice(0, -1)
+  if (!ts.isRestTypeNode(last)) return undefined
+  const spread = last.type
+  if (!ts.isTypeReferenceNode(spread) || spread.typeName.getText(sf) !== param) return undefined
+  if (spread.typeArguments?.length) return undefined
+  if (front.some((e) => ts.isRestTypeNode(e))) return undefined
+  return front
+}
 
 /** Names introduced by `infer` inside a pattern, in source order. */
 function inferNames(t: ts.TypeNode): string[] {

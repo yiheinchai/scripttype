@@ -3,12 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "bin": { "scripttype": "./src/cli.ts" },
+  "bin": {
+    "scripttype": "./src/cli.ts"
+  },
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "verify": "tsx src/verify-cli.ts"
+    "typecheck": "tsc --noEmit",
+    "verify": "tsx src/verify-cli.ts",
+    "gate": "tsx src/typecheck-cli.ts",
+    "check": "tsc --noEmit && vitest run && tsx src/typecheck-cli.ts && tsx src/verify-cli.ts",
+    "inventory": "tsx src/inventory.ts",
+    "roundtrip": "tsx src/inplace.ts",
+    "coverage": "tsx src/aggregate.ts .results/inplace",
+    "materialize": "tsx src/materialize.ts .results/inplace",
+    "dx": "tsx src/dx-report.ts"
   },
-  "dependencies": { "typescript": "^5.9.3" },
-  "devDependencies": { "vitest": "^3.2.4", "tsx": "^4.20.6", "@types/node": "^22.18.6" }
+  "dependencies": {
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4",
+    "tsx": "^4.20.6",
+    "@types/node": "^22.18.6"
+  }
 }

@@ -151,18 +151,23 @@ typecheck and be **type-identical** to the reference for every sample instantiat
 and compared to the original. This is how the project scales past hand-authoring; see
 [Coverage](#coverage) for the current numbers and the honest caveats.
 
-Run both:
+Run the gates:
 
 ```bash
 cd compiler
 pnpm install
-pnpm test                      # compiler unit tests
-pnpm verify                    # hand-authored corpus targets
+pnpm check          # everything: tsc, unit tests, typecheck gate, corpus verification
+pnpm typecheck      # the compiler's own sources — zero errors
+pnpm test           # compiler unit tests
+pnpm gate           # every hand-authored ScriptType source typechecks, zero errors
+pnpm verify         # hand-authored targets are type-identical to their references
 pnpm verify kysely --verbose   # filter, and show emitted output on failure
 
-npx tsx src/inventory.ts                              # corpus size + coverage
-npx tsx src/batch.ts 04-query-builders-orm/kysely/src # round-trip a subtree
-npx tsx src/roundtrip.ts <file> --show                # round-trip one file, verbosely
+pnpm inventory                                    # corpus census
+pnpm roundtrip 04-query-builders-orm/kysely/src   # round-trip a subtree
+pnpm coverage                                     # aggregate the last full run
+pnpm materialize                                  # write scripttype/ to disk
+pnpm dx                                           # regenerate DX.md
 ```
 
 ## How equivalence is checked
@@ -191,6 +196,8 @@ reproduces that quirk exactly, verified across 10 samples.
 
 ```
 SPEC.md                 language specification and lowering rules
+DX.md                   generated side-by-side readability comparison
+COVERAGE.md             generated per-repository coverage report
 CORPUS.md               reading guide to the 26 corpus repositories
 compiler/src/
   ir.ts                 output IR (TypeExpr) + emitter with precedence-aware parenthesisation
@@ -201,6 +208,10 @@ compiler/src/
   compile.ts            orchestration
   decompile.ts          TypeScript type -> ScriptType (enables round-trip at scale)
   verify.ts             type-identity gate via the TS compiler API
+  typecheck.ts          the typecheck gate; scripttype.d.ts is the ambient surface
+  recover-loop.ts       tail recursion -> while loop, the main readability win
+  inplace.ts            high-coverage round-trip harness (overlay on the real file)
+  freenames.ts          free-name analysis, so generated files are self-contained
   extract.ts            pull reference types verbatim from a clone
   corpus.ts             target discovery, provenance checking
   batch.ts              batched round-trip (one TS program per file, not per alias)
@@ -209,9 +220,11 @@ corpus/<repo>/<Type>/         hand-authored targets (strict gate)
   meta.json             provenance + sample instantiations
   reference.ts          the original TypeScript, extracted verbatim
   source.st.ts          the ScriptType program, written by hand
-scripttype/<repo-path>.st.ts  generated ScriptType for every corpus alias,
-                              with the TypeScript it compiles back to and its
-                              verification status inline
+scripttype/<repo-path>.st.ts       generated ScriptType for every corpus alias,
+                                   with the TypeScript it compiles back to and its
+                                   verification status inline
+scripttype/<repo-path>.original.ts the original, in the same directory, for
+                                   side-by-side comparison
 01-…07-/                the corpus repositories (see CORPUS.md)
 ```
 

@@ -30,6 +30,8 @@ export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile)
   )
   const d = new Decompiler(sf, gaps, paramNames, anyParams)
   d.paramOrder = (decl.typeParameters ?? []).map((tp) => tp.name.text)
+  d.aliasName = decl.name.text
+  d.seedScope(d.paramOrder)
   const name = decl.name.text
 
   const params = (decl.typeParameters ?? []).map((tp) => {
@@ -54,6 +56,7 @@ export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile)
       })
       const src =
         `/* @scripttype preserveParamNames */\n` +
+        d.lifted.join('\n') +
         `export function ${name}(${sig.join(', ')}) {\n` +
         recovered.map((l) => INDENT + l).join('\n') +
         '\n}\n'
@@ -64,6 +67,7 @@ export function decompileAlias(decl: ts.TypeAliasDeclaration, sf: ts.SourceFile)
   const body = d.statements(decl.type, 1)
   const src =
     `/* @scripttype preserveParamNames */\n` +
+    d.lifted.join('\n') +
     `export function ${name}(${params.join(', ')}) {\n` +
     body.map((l) => INDENT + l).join('\n') +
     '\n}\n'
@@ -85,10 +89,25 @@ class Decompiler {
   private holeScope: Map<string, string> = new Map()
   /** Depth of contexts with no statement position available for a marker. */
   private noHoist = 0
+  /**
+   * Functions lifted out of positions that cannot hold statements.
+   *
+   * A mapped type's value is a single expression, so a construct needing statements
+   * (a nested mapped type, or a pattern with bindings) cannot be expressed inline. It is
+   * extracted into its own ScriptType function instead — ordinary lambda lifting — and the
+   * value becomes a call. The compiler turns that into a helper type alias, which is what
+   * a person writing this by hand would do too.
+   */
+  lifted: string[] = []
+  /** Names in scope at the current lift point, becoming the lifted function's parameters. */
+  private scopeVars: string[] = []
+  private liftCount = 0
   /** Parameters rewritten to loop locals. */
   private locals: Map<string, string> = new Map()
   /** Declaration order of the alias's parameters, for matching recursive-call arguments. */
   paramOrder: string[] = []
+  /** Name of the alias being decompiled, used to name lifted functions. */
+  aliasName = 'Lifted'
 
   constructor(
     private sf: ts.SourceFile,
@@ -301,6 +320,62 @@ class Decompiler {
    * with itself and is not valid. Lowercasing the first letter keeps the connection
    * obvious while reading.
    */
+  /**
+   * Extract `t` into its own ScriptType function and return a call to it.
+   *
+   * Parameters are the names `t` actually reads that are bound in the enclosing scope:
+   * the alias's own parameters, the mapped-type key, and any pattern bindings. Holes are
+   * passed as `marker.hole`, so the lifted function sees them as ordinary parameters.
+   */
+  private lift(t: ts.TypeNode): string {
+    const inScope = new Set(this.scopeVars)
+    const used = new Set<string>()
+    const walk = (n: ts.Node) => {
+      if (ts.isTypeReferenceNode(n) && ts.isIdentifier(n.typeName)) used.add(n.typeName.text)
+      if (ts.isTypeQueryNode(n)) used.add(n.exprName.getText(this.sf).split('.')[0]!)
+      ts.forEachChild(n, walk)
+    }
+    walk(t)
+
+    const params: string[] = []
+    const args: string[] = []
+    for (const name of inScope) {
+      if (!used.has(name)) continue
+      params.push(name)
+      args.push(this.holeScope.get(name) ?? this.locals.get(name) ?? name)
+    }
+
+    const fnName = `${this.aliasName}__v${++this.liftCount}`
+    // Render the body in a nested decompiler so its own hoists and markers are local.
+    const inner = new Decompiler(this.sf, this.gaps, new Set(params), new Set(params))
+    inner.aliasName = fnName
+    inner.paramOrder = params
+    const body = inner.statements(t, 1)
+    this.lifted.push(...inner.lifted)
+    this.lifted.push(
+      `export function ${fnName}(${params.join(', ')}) {\n` +
+        body.map((l) => INDENT + l).join('\n') +
+        '\n}\n',
+    )
+    return `${fnName}(${args.join(', ')})`
+  }
+
+  /**
+   * A fresh name for a mapped-type accumulator.
+   *
+   * Shared by every mapped type in a declaration, so a statement-level accumulator cannot
+   * collide with a hoisted one — a collision emitted `out[K] = out`, a self-reference.
+   */
+  /** Names in scope before any nesting: the alias's own parameters. */
+  seedScope(names: string[]): void {
+    this.scopeVars = [...names]
+  }
+
+  private accName(): string {
+    const n = ++this.temps
+    return n === 1 ? 'out' : `out${n}`
+  }
+
   private localName(param: string, isPublic: boolean, taken: Set<string>): string {
     if (!isPublic) return param
     let candidate = param[0]!.toLowerCase() + param.slice(1)
@@ -336,7 +411,10 @@ class Decompiler {
       const saved = this.holeScope
       this.holeScope = new Map(saved)
       for (const h of holes) this.holeScope.set(h, `${marker}.${h}`)
+      const savedScope = this.scopeVars
+      this.scopeVars = [...savedScope, ...holes]
       const thenStmts = this.statements(t.trueType, depth + 1)
+      this.scopeVars = savedScope
       this.holeScope = saved
       const elseStmts = this.statements(t.falseType, depth)
       return [
@@ -350,8 +428,9 @@ class Decompiler {
     }
 
     if (ts.isMappedTypeNode(t)) {
-      const mapped = this.mapped(t)
-      if (mapped) return [...mapped, `return out`]
+      const name = this.accName()
+      const mapped = this.mapped(t, name)
+      if (mapped) return [...mapped, `return ${name}`]
       return [`return ${this.gap(t, 'mapped type with unsupported modifiers')}`]
     }
 
@@ -370,8 +449,9 @@ class Decompiler {
     const constraint = t.typeParameter.constraint
     if (!constraint) return undefined
     // The key variable is a value in ScriptType, so type positions referring to it need
-    // `typeof`. Register it for the duration of the body.
+    // `typeof`. Register it for the duration of the body, and as a liftable scope name.
     this.params.add(param)
+    this.scopeVars.push(param)
 
     const domain = ts.isTypeOperatorNode(constraint) && constraint.operator === ts.SyntaxKind.KeyOfKeyword
       ? `keyof(${this.expr(constraint.type)})`
@@ -532,9 +612,7 @@ class Decompiler {
       if (!holes.length) {
         return `matches<${pattern}>(${check}) ? ${this.wrap(t.trueType)} : ${this.wrap(t.falseType)}`
       }
-      if (this.noHoist > 0) {
-        return this.gap(t, 'pattern bindings inside a mapped-type value')
-      }
+      if (this.noHoist > 0) return this.lift(t)
       const marker = `m${++this.markers}`
       this.pending.push(`const ${marker} = matches<${pattern}>(${check})`)
       const saved = this.holeScope
@@ -554,8 +632,11 @@ class Decompiler {
     }
 
     if (ts.isMappedTypeNode(t)) {
-      const n = ++this.temps
-      const name = n === 1 ? 'out' : `out${n}`
+      // Nothing can be hoisted above a mapped type's value expression, so a mapped type
+      // nested there cannot be lifted into a preceding `const`; its declaration would be
+      // dropped and the reference left dangling.
+      if (this.noHoist > 0) return this.lift(t)
+      const name = this.accName()
       const lines = this.mapped(t, name)
       if (!lines) return this.gap(t, 'mapped type with unsupported modifiers')
       this.pending.push(...lines)

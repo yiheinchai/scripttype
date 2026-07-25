@@ -245,6 +245,50 @@ describe('switch', () => {
  * Each of these used to be a compile error, which is the wrong answer for a language
  * whose pitch is "write it the way you already write JavaScript".
  */
+/**
+ * The arrow form exists so the simplest cases are not longer than the TypeScript they
+ * replace. A composition alias is one line either way.
+ */
+describe('arrow type functions', () => {
+  it('compiles a concise arrow exactly like the function form', () => {
+    const arrow = c(`export const Trim = (v: string) => TrimLeft(TrimRight(v))`)
+    const fn = c(`export function Trim(v: string) { return TrimLeft(TrimRight(v)) }`)
+    expect(arrow).toBe(`export type Trim<V extends string> = TrimLeft<TrimRight<V>>`)
+    expect(arrow).toBe(fn)
+  })
+
+  it('supports a block body with statements', () => {
+    const src = `export const Kind = (t) => {
+      if (typeof t === 'string') { return 'str' }
+      return 'other'
+    }`
+    expect(c(src)).toBe(`export type Kind<T> = T extends string ? 'str' : 'other'`)
+  })
+
+  it('keeps a non-exported alias unexported', () => {
+    expect(c(`const Id = (t: unknown) => t`)).toBe(`type Id<T> = T`)
+  })
+
+  it('carries JSDoc from the statement, not the arrow', () => {
+    const src = `/** Trims both ends. */\nexport const Trim = (v: string) => upper(v)`
+    expect(c(src)).toContain('Trims both ends.')
+  })
+
+  it('only treats a single const bound directly to an arrow as an alias', () => {
+    // Everything else falls through to the module-level passthrough rather than being
+    // half-understood. `let` is excluded because a rebindable alias has no meaning, and
+    // a multi-declarator statement because only one name can head a type alias.
+    const notAliases = [
+      `export const x = 1`,
+      `export let F = (t: unknown) => t`,
+      `export const A = (t: unknown) => t, B = (t: unknown) => t`,
+    ]
+    for (const src of notAliases) {
+      expect(c(src), src).not.toContain('type ')
+    }
+  })
+})
+
 describe('JavaScript idioms', () => {
   it('narrows with typeof', () => {
     const src = `export function F(a) { if (typeof a === 'string') { return 1 }; return 0 }`

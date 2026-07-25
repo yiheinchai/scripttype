@@ -1,2 +1,4 @@
 .results/
 dist/
+# Per-run copies of dist/ made by run-parallel.sh; removed when the run ends.
+dist-run.*/

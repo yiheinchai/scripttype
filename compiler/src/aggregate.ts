@@ -59,6 +59,18 @@ for (const [repo, outcomes] of byRepo) {
   })
 }
 
+/**
+ * A markdown cell cannot hold a newline, and a bare pipe would end it early. Everything
+ * else survives: the reason is the only record of why a shard measured nothing, and a
+ * module path cut off mid-word turns a one-line diagnosis into an investigation. The cap
+ * is only there to stop a pathological message from swamping the table, and says so.
+ */
+const CELL_LIMIT = 400
+function cell(text: string): string {
+  const flat = text.replace(/\s+/g, ' ').replace(/\|/g, '\\|').trim()
+  return flat.length > CELL_LIMIT ? `${flat.slice(0, CELL_LIMIT)}… (truncated)` : flat
+}
+
 // Repos whose json is missing entirely (the process died before writing it).
 const crashReason = new Map<string, string>()
 const txtOnly = fs
@@ -75,13 +87,17 @@ for (const n of txtOnly) {
     else if (/Maximum call stack/i.test(txt)) why = 'checker stack overflow'
     else if (/command not found/i.test(txt)) why = 'runner error'
     else {
-      const first = txt.split('\n').find((l) => /error|Error/.test(l))
-      if (first) why = first.slice(0, 60)
+      // Prefer the thrown error over the stack frames around it: a node crash dump puts
+      // `throw err` first and the line that names the missing module several lines down.
+      const lines = txt.split('\n').map((l) => l.trim()).filter(Boolean)
+      const first =
+        lines.find((l) => /^[A-Za-z]*Error[:\s]/.test(l)) ?? lines.find((l) => /error/i.test(l))
+      if (first) why = first
     }
   } catch {
     /* keep default */
   }
-  crashReason.set(repo, why)
+  crashReason.set(repo, cell(why))
   rows.push({ repo, total: 0, covered: 0, counts: new Map(), crashed: true })
 }
 
@@ -127,6 +143,13 @@ const report = [
     ? `> **Partial run.** ${total} of ${KNOWN_TOTAL} generic type aliases were measured; ` +
       `shards that exceeded their wall-clock cap contributed only their completed batches. ` +
       `Percentages below are of what was measured.`
+    : '',
+  // A capped shard and a crashed one both shrink the denominator, but only one of them is
+  // expected. Saying which happened here, rather than only in a table cell, is what makes
+  // a broken run distinguishable from a slow one at a glance.
+  crashReason.size
+    ? `>\n> **${crashReason.size} run(s) produced no results at all** ` +
+      `(${[...crashReason.keys()].join(', ')}): ${[...new Set(crashReason.values())].join(' / ')}`
     : '',
   '',
   ...lines,

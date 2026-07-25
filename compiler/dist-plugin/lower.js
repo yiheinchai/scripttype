@@ -184,11 +184,11 @@ function compileSourceFile(sf, opts = {}) {
         if (imported) {
             imports.push(imported);
         }
-        else if (typescript_1.default.isFunctionDeclaration(stmt) && stmt.body && stmt.name) {
+        else if (typeFunction(stmt)) {
             // A function is the natural recovery boundary: each compiles to its own alias, so
             // one failing does not corrupt the others.
             try {
-                const fc = new FunctionCompiler(stmt, sf, prelude, opts);
+                const fc = new FunctionCompiler(typeFunction(stmt), sf, prelude, opts);
                 aliases.push(...fc.compile());
             }
             catch (e) {
@@ -212,6 +212,43 @@ function compileSourceFile(sf, opts = {}) {
         }
     }
     return { aliases, prelude, imports, errors };
+}
+/**
+ * Recognise a statement that declares a type function, in either spelling.
+ *
+ * `export const F = (x) => …` only counts when it is a single `const` bound directly to
+ * an arrow function: a `let`, a destructuring, or several declarators in one statement
+ * are not alias declarations and should fall through to the normal unsupported path
+ * rather than being half-understood.
+ */
+function typeFunction(stmt) {
+    if (typescript_1.default.isFunctionDeclaration(stmt) && stmt.body && stmt.name) {
+        return {
+            name: stmt.name.text,
+            parameters: stmt.parameters,
+            body: stmt.body,
+            exported: hasExport(stmt),
+            docNode: stmt,
+        };
+    }
+    if (!typescript_1.default.isVariableStatement(stmt))
+        return undefined;
+    const list = stmt.declarationList;
+    if (!(list.flags & typescript_1.default.NodeFlags.Const) || list.declarations.length !== 1)
+        return undefined;
+    const decl = list.declarations[0];
+    if (!typescript_1.default.isIdentifier(decl.name) || !decl.initializer)
+        return undefined;
+    if (!typescript_1.default.isArrowFunction(decl.initializer))
+        return undefined;
+    return {
+        name: decl.name.text,
+        parameters: decl.initializer.parameters,
+        body: decl.initializer.body,
+        exported: hasExport(stmt),
+        // JSDoc hangs off the statement, not the arrow.
+        docNode: stmt,
+    };
 }
 /**
  * Read an import or re-export declaration, or return undefined for anything else.
@@ -285,7 +322,7 @@ class FunctionCompiler {
         this.sf = sf;
         this.prelude = prelude;
         this.opts = opts;
-        this.fnName = fn.name.text;
+        this.fnName = fn.name;
         this.used.add(this.fnName);
     }
     /** Emitted name for a source parameter. */
@@ -304,6 +341,10 @@ class FunctionCompiler {
         const out = `${name}${this.counter}`;
         this.used.add(out);
         return out;
+    }
+    /** Names of the emitted type parameters, for undoing source-only `typeof` queries. */
+    paramNames() {
+        return new Set(this.topParams.map((p) => p.name));
     }
     ctx() {
         return {
@@ -336,11 +377,15 @@ class FunctionCompiler {
             });
             vars.set(p.name.text, (0, ir_js_1.ref)(pName));
         }
-        const body = this.lowerStmts(this.fn.body.statements, 0, vars, () => {
-            throw new CompileError(`function '${this.fnName}' has a code path that does not return; every path must return a type`, this.fn, 'ST1003');
-        }, undefined);
+        // A concise arrow body (`= (v) => expr`) is the expression itself; there is no
+        // statement list and no way to fall off the end, so it lowers directly.
+        const body = typescript_1.default.isBlock(this.fn.body)
+            ? this.lowerStmts(this.fn.body.statements, 0, vars, () => {
+                throw new CompileError(`function '${this.fnName}' has a code path that does not return; every path must return a type`, this.fn.docNode, 'ST1003');
+            }, undefined)
+            : this.expr(this.fn.body, vars);
         const doc = typescript_1.default
-            .getJSDocCommentsAndTags(this.fn)
+            .getJSDocCommentsAndTags(this.fn.docNode)
             .map((d) => (typescript_1.default.isJSDoc(d) ? typescript_1.default.getTextOfJSDocComment(d.comment) : undefined))
             .filter(Boolean)
             .join('\n');
@@ -349,7 +394,7 @@ class FunctionCompiler {
                 name: this.fnName,
                 params: this.topParams,
                 body,
-                exported: hasExport(this.fn),
+                exported: this.fn.exported,
                 doc: doc || undefined,
             },
             ...this.helpers,
@@ -1421,7 +1466,7 @@ class FunctionCompiler {
         // Anything else is already valid type syntax; pass it through verbatim — but first
         // turn any `Hole<'X'>` back into `infer X`, since a hole is ScriptType spelling and
         // must never reach the emitted TypeScript.
-        return { kind: 'raw', text: holesToInfer(t, this.sf) };
+        return { kind: 'raw', text: holesToInfer(t, this.sf, this.paramNames()) };
     }
 }
 // ---------------------------------------------------------------------------
@@ -1494,10 +1539,19 @@ const RAW_PRINTER = typescript_1.default.createPrinter({ removeComments: true, n
  * Any path that emits a node's original text must therefore undo them, or a hole leaks
  * into the output and the emitted type fails to compile.
  */
-function holesToInfer(t, sf) {
+function holesToInfer(t, sf, params) {
     let sawHole = false;
     const transformer = (ctx) => (root) => {
         const visit = (n) => {
+            // `typeof X` is how a ScriptType *source* refers to a parameter in type position;
+            // in the emitted type the parameter is a type, so the query has to come back off.
+            if (typescript_1.default.isTypeQueryNode(n) && typescript_1.default.isIdentifier(n.exprName)) {
+                const name = n.exprName.text;
+                if (!params || params.has(name)) {
+                    sawHole = true;
+                    return ctx.factory.createTypeReferenceNode(name, undefined);
+                }
+            }
             if (typescript_1.default.isTypeReferenceNode(n) && n.typeName.getText(sf) === 'Hole') {
                 const arg = n.typeArguments?.[0];
                 if (arg && typescript_1.default.isLiteralTypeNode(arg) && typescript_1.default.isStringLiteral(arg.literal)) {

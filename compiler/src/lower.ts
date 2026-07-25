@@ -291,11 +291,11 @@ export function compileSourceFile(sf: ts.SourceFile, opts: LowerOptions = {}): M
     const imported = importInfo(stmt)
     if (imported) {
       imports.push(imported)
-    } else if (ts.isFunctionDeclaration(stmt) && stmt.body && stmt.name) {
+    } else if (typeFunction(stmt)) {
       // A function is the natural recovery boundary: each compiles to its own alias, so
       // one failing does not corrupt the others.
       try {
-        const fc = new FunctionCompiler(stmt, sf, prelude, opts)
+        const fc = new FunctionCompiler(typeFunction(stmt)!, sf, prelude, opts)
         aliases.push(...fc.compile())
       } catch (e) {
         if (!(e instanceof CompileError)) throw e
@@ -316,6 +316,40 @@ export function compileSourceFile(sf: ts.SourceFile, opts: LowerOptions = {}): M
     }
   }
   return { aliases, prelude, imports, errors }
+}
+
+/**
+ * Recognise a statement that declares a type function, in either spelling.
+ *
+ * `export const F = (x) => …` only counts when it is a single `const` bound directly to
+ * an arrow function: a `let`, a destructuring, or several declarators in one statement
+ * are not alias declarations and should fall through to the normal unsupported path
+ * rather than being half-understood.
+ */
+function typeFunction(stmt: ts.Statement): TypeFunction | undefined {
+  if (ts.isFunctionDeclaration(stmt) && stmt.body && stmt.name) {
+    return {
+      name: stmt.name.text,
+      parameters: stmt.parameters,
+      body: stmt.body,
+      exported: hasExport(stmt),
+      docNode: stmt,
+    }
+  }
+  if (!ts.isVariableStatement(stmt)) return undefined
+  const list = stmt.declarationList
+  if (!(list.flags & ts.NodeFlags.Const) || list.declarations.length !== 1) return undefined
+  const decl = list.declarations[0]!
+  if (!ts.isIdentifier(decl.name) || !decl.initializer) return undefined
+  if (!ts.isArrowFunction(decl.initializer)) return undefined
+  return {
+    name: decl.name.text,
+    parameters: decl.initializer.parameters,
+    body: decl.initializer.body,
+    exported: hasExport(stmt),
+    // JSDoc hangs off the statement, not the arrow.
+    docNode: stmt,
+  }
 }
 
 /**
@@ -456,19 +490,23 @@ class FunctionCompiler {
       vars.set(p.name.text, ref(pName))
     }
 
-    const body = this.lowerStmts(
-      (this.fn.body as ts.Block).statements,
-      0,
-      vars,
-      () => {
-        throw new CompileError(
-          `function '${this.fnName}' has a code path that does not return; every path must return a type`,
-          this.fn,
-          'ST1003',
+    // A concise arrow body (`= (v) => expr`) is the expression itself; there is no
+    // statement list and no way to fall off the end, so it lowers directly.
+    const body = ts.isBlock(this.fn.body)
+      ? this.lowerStmts(
+          this.fn.body.statements,
+          0,
+          vars,
+          () => {
+            throw new CompileError(
+              `function '${this.fnName}' has a code path that does not return; every path must return a type`,
+              this.fn.docNode,
+              'ST1003',
+            )
+          },
+          undefined,
         )
-      },
-      undefined,
-    )
+      : this.expr(this.fn.body, vars)
 
     const doc = ts
       .getJSDocCommentsAndTags(this.fn.docNode)

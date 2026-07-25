@@ -348,6 +348,17 @@ export function inplaceFile(rel: string): Outcome[] {
   return inplaceFiles([rel])
 }
 
+/**
+ * The slice of `files` belonging to shard k of n.
+ *
+ * Striding by index rather than cutting contiguous blocks keeps the shards comparable in
+ * cost: files sit in directory order, so a contiguous block is a single subdirectory and
+ * inherits whatever that subdirectory happens to weigh.
+ */
+export function shardOf<T>(files: T[], k: number, n: number): T[] {
+  return files.filter((_, i) => i % n === k)
+}
+
 if (process.argv[1] && import.meta.filename === path.resolve(process.argv[1])) {
   const args = process.argv.slice(2)
   const jsonIdx = args.indexOf('--json')
@@ -400,7 +411,7 @@ if (process.argv[1] && import.meta.filename === path.resolve(process.argv[1])) {
   } else {
     for (const root of roots) files.push(...collectFiles(root))
   }
-  const mine = shard ? files.filter((_, i) => i % shard!.n === shard!.k) : files
+  const mine = shard ? shardOf(files, shard.k, shard.n) : files
 
   // Persist after every batch, so a shard that is killed mid-run still contributes.
   const writeSoFar = (soFar: Outcome[]) => {

@@ -238,6 +238,80 @@ describe('switch', () => {
   })
 })
 
+/**
+ * The spellings a JavaScript programmer reaches for without being taught anything.
+ * Each of these used to be a compile error, which is the wrong answer for a language
+ * whose pitch is "write it the way you already write JavaScript".
+ */
+describe('JavaScript idioms', () => {
+  it('narrows with typeof', () => {
+    const src = `export function F(a) { if (typeof a === 'string') { return 1 }; return 0 }`
+    expect(c(src)).toBe(`export type F<A> = A extends string ? 1 : 0`)
+  })
+
+  it('accepts typeof in either operand order, and negated', () => {
+    expect(c(`export function F(a) { if ('number' === typeof a) { return 1 }; return 0 }`)).toBe(
+      `export type F<A> = A extends number ? 1 : 0`,
+    )
+    expect(c(`export function F(a) { if (typeof a !== 'string') { return 1 }; return 0 }`)).toBe(
+      `export type F<A> = A extends string ? 0 : 1`,
+    )
+  })
+
+  it('maps every typeof tag, including function', () => {
+    // The rest parameter is load-bearing: `(a0: any[]) => any` accepts only a single
+    // array argument, so `(x: string) => void` would not match it.
+    expect(c(`export function F(a) { if (typeof a === 'function') { return 1 }; return 0 }`)).toBe(
+      `export type F<A> = A extends ((...a0: any[]) => any) ? 1 : 0`,
+    )
+    expect(c(`export function F(a) { if (typeof a === 'bigint') { return 1 }; return 0 }`)).toBe(
+      `export type F<A> = A extends bigint ? 1 : 0`,
+    )
+  })
+
+  it('rejects a typeof tag that cannot exist, and lists the real ones', () => {
+    let err: CompileError | undefined
+    try {
+      c(`export function F(a) { if (typeof a === 'array') { return 1 }; return 0 }`)
+    } catch (e) {
+      err = e as CompileError
+    }
+    expect(err?.message).toMatch(/'array' is not a value `typeof` can produce/)
+    expect(err?.help).toMatch(/string, number, boolean/)
+  })
+
+  it('lowers `in` to a keyof test', () => {
+    expect(c(`export function F(o) { if ('a' in o) { return 1 }; return 0 }`)).toBe(
+      `export type F<O> = 'a' extends keyof O ? 1 : 0`,
+    )
+  })
+
+  it('lowers Array.isArray to an array extends check', () => {
+    expect(c(`export function F(a) { if (Array.isArray(a)) { return 1 }; return 0 }`)).toBe(
+      `export type F<A> = A extends any[] ? 1 : 0`,
+    )
+  })
+
+  it('ignores a stray semicolon', () => {
+    // `if (…) { … };` is valid JavaScript, and rejecting it was a gratuitous
+    // difference from the language ScriptType is spelled in.
+    expect(c(`export function F(a: string) { if (a === 'x') { return 1 }; return 0 }`)).toBe(
+      `export type F<A extends string> = A extends 'x' ? 1 : 0`,
+    )
+  })
+
+  it('explains why numeric comparison cannot work', () => {
+    let err: CompileError | undefined
+    try {
+      c(`export function F(a: number, b: number) { if (a < b) { return 1 } return 0 }`)
+    } catch (e) {
+      err = e as CompileError
+    }
+    expect(err?.message).toMatch(/`<` has no type-level meaning/)
+    expect(err?.help).toMatch(/cannot compare numbers/)
+  })
+})
+
 describe('errors', () => {
   /** Compile, expecting failure, and return the CompileError for inspection. */
   const fails = (src: string): CompileError => {

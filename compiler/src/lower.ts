@@ -55,6 +55,29 @@ export class CompileError extends Error {
   }
 }
 
+/**
+ * What each `typeof` tag narrows to as a type. Thunks, because the IR nodes for the
+ * compound cases are built rather than shared.
+ */
+const TYPEOF_TAGS: Record<string, () => TypeExpr> = {
+  string: () => kw('string'),
+  number: () => kw('number'),
+  boolean: () => kw('boolean'),
+  bigint: () => kw('bigint'),
+  symbol: () => kw('symbol'),
+  object: () => kw('object'),
+  undefined: () => kw('undefined'),
+  // There is no `function` keyword type, and the general callable signature must take
+  // a *rest* parameter: `(a0: any[]) => any` accepts only a single array argument, so
+  // `(x: string) => void` would not match it.
+  function: () => ({
+    kind: 'fn',
+    params: [{ kind: 'array', element: kw('any') }],
+    ret: kw('any'),
+    hasRest: true,
+  }),
+}
+
 /** Arguments for the CompileError constructor, spread at a throw site. */
 type ErrorArgs = [message: string, node: ts.Node, code: string, help?: string]
 
@@ -403,6 +426,11 @@ class FunctionCompiler {
       return rest(vars)
     }
 
+    // A stray `;` — as in `if (a) { return 1 };` — is valid JavaScript and carries no
+    // meaning at all. Rejecting it would be a gratuitous difference from the language
+    // ScriptType is spelled in.
+    if (stmt.kind === ts.SyntaxKind.EmptyStatement) return rest(vars)
+
     throw new CompileError(
       `${describeStatement(stmt)} has no type-level meaning`,
       stmt,
@@ -725,8 +753,42 @@ class FunctionCompiler {
       return this.lowerTest(e.operand, vars, onFalse, onTrue)
     }
 
+    // `typeof x === 'string'` is how a JavaScript programmer narrows, and it is exactly
+    // what `X extends string` means. Recognising it before the generic `===` case keeps
+    // the obvious spelling working instead of demanding `extendsType<string>(x)`.
+    const typeofNarrow = this.tryTypeofNarrowing(e, vars)
+    if (typeofNarrow) {
+      const [t, f] = typeofNarrow.negated ? [onFalse, onTrue] : [onTrue, onFalse]
+      return cond(typeofNarrow.check, typeofNarrow.ext, t(vars), f(vars))
+    }
+
     if (ts.isBinaryExpression(e)) {
       const op = e.operatorToken.kind
+      // `'a' in o` is the JavaScript spelling of `'a' extends keyof O`.
+      if (op === ts.SyntaxKind.InKeyword) {
+        return cond(
+          this.expr(e.left, vars),
+          { kind: 'op', op: 'keyof', target: this.expr(e.right, vars) },
+          onTrue(vars),
+          onFalse(vars),
+        )
+      }
+      // Relational operators need type-level arithmetic, which is a library concern
+      // rather than a language one. Say so, instead of "no lowering".
+      if (
+        op === ts.SyntaxKind.LessThanToken ||
+        op === ts.SyntaxKind.GreaterThanToken ||
+        op === ts.SyntaxKind.LessThanEqualsToken ||
+        op === ts.SyntaxKind.GreaterThanEqualsToken
+      ) {
+        throw new CompileError(
+          `\`${ts.tokenToString(op)}\` has no type-level meaning`,
+          e,
+          'ST1500',
+          'TypeScript cannot compare numbers in the type system. Compare tuple lengths ' +
+            'instead, or call a type-level arithmetic helper.',
+        )
+      }
       if (op === ts.SyntaxKind.AmpersandAmpersandToken) {
         return this.lowerTest(e.left, vars, (v) => this.lowerTest(e.right, v, onTrue, onFalse), onFalse)
       }
@@ -764,6 +826,57 @@ class FunctionCompiler {
     // Fall back to testing the value against `true`.
     const value = m && m.tag === 'expr' ? m.expr : this.expr(e, vars)
     return cond(value, kw('true'), onTrue(vars), onFalse(vars))
+  }
+
+  /**
+   * The JavaScript runtime type tests, as type-level `extends` checks:
+   *
+   *   typeof x === 'string'   ->  X extends string
+   *   typeof x !== 'string'   ->  handled by the caller's `!` path
+   *   Array.isArray(x)        ->  X extends any[]
+   *
+   * Returns undefined when `e` is not one of these, so the caller falls through.
+   */
+  private tryTypeofNarrowing(
+    e: ts.Expression,
+    vars: Vars,
+  ): { check: TypeExpr; ext: TypeExpr; negated?: boolean } | undefined {
+    if (
+      ts.isCallExpression(e) &&
+      ts.isPropertyAccessExpression(e.expression) &&
+      ts.isIdentifier(e.expression.expression) &&
+      e.expression.expression.text === 'Array' &&
+      e.expression.name.text === 'isArray' &&
+      e.arguments.length === 1
+    ) {
+      return { check: this.expr(e.arguments[0]!, vars), ext: { kind: 'array', element: kw('any') } }
+    }
+
+    if (!ts.isBinaryExpression(e)) return undefined
+    const op = e.operatorToken.kind
+    const negated =
+      op === ts.SyntaxKind.ExclamationEqualsEqualsToken || op === ts.SyntaxKind.ExclamationEqualsToken
+    const equality =
+      op === ts.SyntaxKind.EqualsEqualsEqualsToken || op === ts.SyntaxKind.EqualsEqualsToken
+    if (!equality && !negated) return undefined
+    // Either order: `typeof x === 'string'` and `'string' === typeof x`.
+    const [typeofSide, literalSide] = ts.isTypeOfExpression(e.left)
+      ? [e.left, e.right]
+      : ts.isTypeOfExpression(e.right)
+        ? [e.right, e.left]
+        : [undefined, undefined]
+    if (!typeofSide || !literalSide || !ts.isStringLiteral(literalSide)) return undefined
+
+    const ext = TYPEOF_TAGS[literalSide.text]
+    if (!ext) {
+      throw new CompileError(
+        `'${literalSide.text}' is not a value \`typeof\` can produce`,
+        literalSide,
+        'ST1500',
+        `Expected one of: ${Object.keys(TYPEOF_TAGS).join(', ')}.`,
+      )
+    }
+    return { check: this.expr(typeofSide.expression, vars), ext: ext(), negated }
   }
 
   private lowerSwitch(stmt: ts.SwitchStatement, vars: Vars, k: Cont, loop: LoopCtx | undefined): TypeExpr {

@@ -21,7 +21,8 @@ export type TypeExpr =
   | { kind: 'mapped'; param: string; constraint: TypeExpr; value: TypeExpr; as?: TypeExpr; optional?: '+' | '-' | true; readonly?: '+' | '-' | true }
   | { kind: 'op'; op: 'keyof' | 'typeof' | 'readonly'; target: TypeExpr }
   | { kind: 'paren'; inner: TypeExpr }
-  | { kind: 'fn'; params: TypeExpr[]; ret: TypeExpr; typeParams?: string[]; isCtor?: boolean }
+  /** `hasRest` marks the final parameter as a rest parameter: `(...a0: T) => R`. */
+  | { kind: 'fn'; params: TypeExpr[]; ret: TypeExpr; typeParams?: string[]; isCtor?: boolean; hasRest?: boolean }
   | { kind: 'raw'; text: string }
 
 export interface TupleElement {
@@ -181,6 +182,20 @@ const escapeQuasi = (s: string) => s.replace(/\\/g, '\\\\').replace(/`/g, '\\`')
 
 const IDENT_RE = /^[A-Za-z_$][A-Za-z0-9_$]*$/
 
+/**
+ * One parameter of a function type. Parameter names are synthesised (`a0`, `a1`) —
+ * a type-level function type has no meaningful names — and only the final one may be
+ * a rest parameter.
+ */
+export function emitFnParam(
+  fn: Extract<TypeExpr, { kind: 'fn' }>,
+  p: TypeExpr,
+  i: number,
+): string {
+  const rest = fn.hasRest && i === fn.params.length - 1 ? '...' : ''
+  return `${rest}a${i}: ${emit(p)}`
+}
+
 export function emit(e: TypeExpr, minPrec = 0): string {
   const text = emitInner(e)
   return precedenceOf(e) < minPrec ? `(${text})` : text
@@ -246,7 +261,7 @@ function emitInner(e: TypeExpr): string {
       return `(${emit(e.inner)})`
     case 'fn': {
       const tp = e.typeParams?.length ? `<${e.typeParams.join(', ')}>` : ''
-      const args = e.params.map((p, i) => `a${i}: ${emit(p)}`).join(', ')
+      const args = e.params.map((p, i) => emitFnParam(e, p, i)).join(', ')
       return `${e.isCtor ? 'new ' : ''}${tp}(${args}) => ${emit(e.ret)}`
     }
     case 'raw':

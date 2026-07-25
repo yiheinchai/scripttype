@@ -28,6 +28,7 @@ import {
   type TypeAlias,
   type TypeExpr,
   emit,
+  emitFnParam,
   precedenceOf,
   P_COND,
   P_INTER,
@@ -236,7 +237,7 @@ function fmt(
     case 'fn': {
       const tp = e.typeParams?.length ? `<${e.typeParams.join(', ')}>` : ''
       const open = `${e.isCtor ? 'new ' : ''}${tp}(`
-      const args = e.params.map((p, i) => `a${i}: ${emit(p)}`)
+      const args = e.params.map((p, i) => emitFnParam(e, p, i))
       const argText = args.join(', ')
       const afterArrow = start + open.length + argText.length + 5
       if (afterArrow <= width) {

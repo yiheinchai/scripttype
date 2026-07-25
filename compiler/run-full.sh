@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Run the round-trip per repository in separate processes to bound memory.
-OUT=/private/tmp/claude-501/-Users-yihein-chai-Documents-learn-ScriptType/93f73cb3-6a6e-4bc6-904f-cd19c8f6ebbe/scratchpad
+# Output directory for per-repo results; override with SCRIPTTYPE_OUT.
+OUT="${SCRIPTTYPE_OUT:-$(cd "$(dirname "$0")" && pwd)/.results}"
 mkdir -p "$OUT/per-repo"
 : > "$OUT/summary.txt"
 for cat in ../0*/; do

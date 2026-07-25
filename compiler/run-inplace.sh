@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-OUT=/private/tmp/claude-501/-Users-yihein-chai-Documents-learn-ScriptType/93f73cb3-6a6e-4bc6-904f-cd19c8f6ebbe/scratchpad
+# Output directory for per-repo results; override with SCRIPTTYPE_OUT.
+OUT="${SCRIPTTYPE_OUT:-$(cd "$(dirname "$0")" && pwd)/.results}"
 TIMEOUT=""
 if command -v gtimeout >/dev/null 2>&1; then TIMEOUT="gtimeout 2400"; fi
 mkdir -p "$OUT/inplace"

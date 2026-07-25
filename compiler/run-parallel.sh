@@ -12,7 +12,9 @@ WORKERS="${SCRIPTTYPE_WORKERS:-$(( $(sysctl -n hw.ncpu 2>/dev/null || nproc) - 2
 # Many more shards than workers, scheduled by xargs. With shards == workers a single
 # heavy shard blocks the whole run to its own wall time; oversharding lets fast workers
 # pick up remaining slices instead of idling.
-SHARDS="${SCRIPTTYPE_SHARDS:-$(( WORKERS * 6 ))}"
+# Shards per worker trades scheduling granularity against the worst-case wall time: the
+# cap applies per shard, so W workers and S shards allow ceil(S/W) * CAP in the worst case.
+SHARDS="${SCRIPTTYPE_SHARDS:-$(( WORKERS * 3 ))}"
 ROOTS=("$@")
 if [ ${#ROOTS[@]} -eq 0 ]; then
   ROOTS=(01-type-level-programming 02-inference-at-scale 03-schema-and-type-level-parsers \
@@ -29,7 +31,7 @@ START=$(date +%s)
 # Each shard runs under a wall-clock cap. A single corpus file can occupy the checker for
 # many minutes, and without a cap one such file holds the whole run to its own time.
 # Shards persist results after every batch, so a capped shard keeps what it finished.
-SHARD_CAP="${SCRIPTTYPE_SHARD_CAP:-180}"
+SHARD_CAP="${SCRIPTTYPE_SHARD_CAP:-150}"
 run_shard() {
   local k="$1"
   env NODE_OPTIONS=--max-old-space-size=4096 node dist/inplace.js \
@@ -45,5 +47,5 @@ export ROOTS_STR="${ROOTS[*]}" SHARDS OUT SHARD_CAP
 
 printf '%s\n' $(seq 0 $((SHARDS - 1))) | xargs -P "$WORKERS" -I{} \
   bash -c 'run_shard {}'
-echo "elapsed $(( $(date +%s) - START ))s"
+echo "elapsed $(( $(date +%s) - START ))s (cap ${SHARD_CAP}s x $SHARDS shards / $WORKERS workers)"
 ls "$OUT"/*.json 2>/dev/null | wc -l | xargs echo "shard files:"

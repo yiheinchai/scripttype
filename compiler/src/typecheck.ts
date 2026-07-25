@@ -15,10 +15,23 @@ import fs from 'node:fs'
 import path from 'node:path'
 import ts from 'typescript'
 
+/** A diagnostic with its span, so a caller can draw a source frame. */
+export interface TypecheckDiagnostic {
+  file: string
+  /** Absolute offset into the source text, when the diagnostic has a position. */
+  start?: number
+  length?: number
+  /** TypeScript's numeric code, e.g. 2307. */
+  tsCode: number
+  message: string
+}
+
 export interface TypecheckResult {
   ok: boolean
-  /** Diagnostics attributed to the ScriptType file itself. */
+  /** Diagnostics attributed to the ScriptType file itself, pre-formatted. */
   errors: string[]
+  /** The same diagnostics with spans, for callers that render their own frames. */
+  diagnostics: TypecheckDiagnostic[]
   /** Suppression comments found, which are disallowed outright. */
   suppressions: string[]
 }
@@ -96,6 +109,7 @@ export function typecheckScriptType(
     return {
       ok: false,
       errors: [`ambient declarations not found at ${AMBIENT_DTS}`],
+      diagnostics: [],
       suppressions,
     }
   }
@@ -137,6 +151,7 @@ export function typecheckScriptType(
 
   const program = ts.createProgram(roots, OPTIONS, host)
   const errors: string[] = []
+  const diagnostics: TypecheckDiagnostic[] = []
   for (const [name] of Object.entries(sources)) {
     const p = name.startsWith('/') ? name : `/${name}`
     const sf = program.getSourceFile(p)
@@ -147,7 +162,15 @@ export function typecheckScriptType(
     for (const d of [...program.getSyntacticDiagnostics(sf), ...program.getSemanticDiagnostics(sf)]) {
       const pos = d.start != null ? sf.getLineAndCharacterOfPosition(d.start) : undefined
       const where = pos ? `${pos.line + 1}:${pos.character + 1}` : '?'
-      errors.push(`${name}(${where}) TS${d.code}: ${ts.flattenDiagnosticMessageText(d.messageText, ' ')}`)
+      const message = ts.flattenDiagnosticMessageText(d.messageText, ' ')
+      errors.push(`${name}(${where}) TS${d.code}: ${message}`)
+      diagnostics.push({
+        file: name,
+        start: d.start ?? undefined,
+        length: d.length ?? undefined,
+        tsCode: d.code,
+        message,
+      })
     }
   }
   // Errors in the ambient file itself are our bug, and must also surface.
@@ -158,7 +181,12 @@ export function typecheckScriptType(
     }
   }
 
-  return { ok: errors.length === 0 && suppressions.length === 0, errors, suppressions }
+  return {
+    ok: errors.length === 0 && suppressions.length === 0,
+    errors,
+    diagnostics,
+    suppressions,
+  }
 }
 
 /** Convenience: typecheck a single ScriptType file from disk. */

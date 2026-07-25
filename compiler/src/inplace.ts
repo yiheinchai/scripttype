@@ -385,7 +385,7 @@ if (process.argv[1] && import.meta.filename === path.resolve(process.argv[1])) {
   const writeSoFar = (soFar: Outcome[]) => {
     if (jsonOut) fs.writeFileSync(jsonOut, JSON.stringify(soFar))
   }
-  const all: Outcome[] = inplaceFiles(mine, 20, writeSoFar)
+  const all: Outcome[] = inplaceFiles(mine, 5, writeSoFar)
 
   const counts = new Map<Status, number>()
   for (const o of all) counts.set(o.status, (counts.get(o.status) ?? 0) + 1)

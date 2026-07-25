@@ -138,6 +138,30 @@ function outputPath(src: string, outDir: string | undefined): string {
 
 class UserError extends Error {}
 
+/**
+ * ScriptType-specific advice for the TypeScript errors a `.st.ts` actually hits.
+ *
+ * These fire while checking the *source*, where names mean something different from
+ * ordinary TypeScript — so tsc's own wording, while accurate, points the wrong way.
+ */
+const TS_HINTS: Record<number, string> = {
+  2307:
+    'A ScriptType module `x.st.ts` is imported as `./x.st.js` — that is the specifier ' +
+    'TypeScript resolves, and the compiler rewrites it to `./x.js` in the output.',
+  1361:
+    'Import it as a value, not `import type`: a ScriptType type function is *called*, ' +
+    'so the source needs a value binding. The emitted import is type-only either way.',
+  2304:
+    'Declare it, import it, or check `scripttype builtins` — a ScriptType file has no ' +
+    'ambient globals beyond the builtin surface.',
+  2693:
+    'This resolved to a compiled type rather than to ScriptType source. Import the ' +
+    'source instead: `./x.st.js`, not `./x.js`.',
+  2451:
+    'A builtin already has this name. The DOM lib also collides with several; make sure ' +
+    'your tsconfig sets "lib" to something without DOM, e.g. ["ES2022"].',
+}
+
 // ---------------------------------------------------------------------------
 // The per-file pipeline
 // ---------------------------------------------------------------------------
@@ -167,8 +191,24 @@ function processFile(file: string, opts: { checkSource: boolean }): FileResult {
     // filesystem for anything it does not hold, so a relative import between two
     // ScriptType modules only resolves if the importer has its true location.
     const tc = typecheckScriptType({ [file]: text }, freeNames(text).values)
-    for (const e of tc.errors) {
-      diagnostics.push({ code: 'ST0001', message: e, file, severity: 'warning' })
+    for (const d of tc.diagnostics) {
+      diagnostics.push({
+        // Surfaced under TypeScript's own code, not a ScriptType one: this is tsc
+        // speaking about the source, and TS2307 is what the user can search for.
+        code: `TS${d.tsCode}`,
+        message: d.message,
+        file,
+        start: d.start,
+        length: d.length,
+        severity: 'warning',
+        help: TS_HINTS[d.tsCode],
+      })
+    }
+    // Diagnostics with no span (a missing source file, say) still have to surface.
+    if (tc.diagnostics.length < tc.errors.length) {
+      for (const e of tc.errors.slice(tc.diagnostics.length)) {
+        diagnostics.push({ code: 'ST0001', message: e, file, severity: 'warning' })
+      }
     }
   }
 
@@ -216,12 +256,46 @@ function unresolvedNames(text: string, file: string): Diagnostic[] {
   return out
 }
 
-function report(r: FileResult): { errors: number; warnings: number } {
+/** Collected for `--json`, so editors and CI can consume diagnostics directly. */
+interface JsonDiagnostic {
+  file: string
+  line: number
+  column: number
+  endLine: number
+  endColumn: number
+  severity: 'error' | 'warning'
+  code: string
+  message: string
+  help?: string
+}
+
+const jsonDiagnostics: JsonDiagnostic[] = []
+
+function report(r: FileResult, json: boolean): { errors: number; warnings: number } {
   let errors = 0
   let warnings = 0
   for (const d of r.diagnostics) {
-    if (d.severity === 'warning') warnings++
+    const severity = d.severity ?? 'error'
+    if (severity === 'warning') warnings++
     else errors++
+
+    if (json) {
+      const start = positionOf(r.text, d.start ?? 0)
+      const end = positionOf(r.text, (d.start ?? 0) + (d.length ?? 0))
+      jsonDiagnostics.push({
+        file: display(d.file ?? r.file),
+        line: start.line,
+        column: start.column,
+        endLine: end.line,
+        endColumn: end.column,
+        severity,
+        code: d.code,
+        message: d.message,
+        help: d.help,
+      })
+      continue
+    }
+
     process.stderr.write(
       formatDiagnostic({ ...d, file: display(d.file ?? r.file) }, {
         text: r.text,
@@ -231,6 +305,19 @@ function report(r: FileResult): { errors: number; warnings: number } {
     )
   }
   return { errors, warnings }
+}
+
+/** 1-based line and column of an absolute offset. */
+function positionOf(text: string, offset: number): { line: number; column: number } {
+  let line = 1
+  let lineStart = 0
+  for (let i = 0; i < offset && i < text.length; i++) {
+    if (text[i] === '\n') {
+      line++
+      lineStart = i + 1
+    }
+  }
+  return { line, column: offset - lineStart + 1 }
 }
 
 // ---------------------------------------------------------------------------
@@ -244,7 +331,9 @@ function cmdBuild(args: Args, { emit }: { emit: boolean }): number {
   const outDir = typeof args.flags.out === 'string' ? args.flags.out : undefined
   const toStdout = !!args.flags.stdout
   const force = !!args.flags.force
+  const json = !!args.flags.json
   const started = Date.now()
+  jsonDiagnostics.length = 0
 
   let errors = 0
   let warnings = 0
@@ -252,7 +341,7 @@ function cmdBuild(args: Args, { emit }: { emit: boolean }): number {
 
   for (const file of files) {
     const r = processFile(file, { checkSource: !args.flags['no-check-source'] })
-    const counts = report(r)
+    const counts = report(r, json)
     errors += counts.errors
     warnings += counts.warnings
     if (!r.code || counts.errors) continue
@@ -262,7 +351,7 @@ function cmdBuild(args: Args, { emit }: { emit: boolean }): number {
       process.stdout.write(body)
       continue
     }
-    if (!emit) continue
+    if (!emit || json) continue
 
     const dest = outputPath(file, outDir)
     // Never clobber a hand-written file that happens to sit at the output path.
@@ -287,6 +376,17 @@ function cmdBuild(args: Args, { emit }: { emit: boolean }): number {
   }
 
   const ms = Date.now() - started
+  if (json) {
+    process.stdout.write(
+      JSON.stringify(
+        { files: files.length, errors, warnings, durationMs: ms, diagnostics: jsonDiagnostics },
+        null,
+        2,
+      ) + '\n',
+    )
+    return errors ? 1 : 0
+  }
+
   const parts = [dim(`${files.length} file${files.length === 1 ? '' : 's'}`)]
   if (emit && !toStdout) parts.push(dim(`${written} written`))
   if (warnings) parts.push(yellow(`${warnings} warning${warnings === 1 ? '' : 's'}`))
@@ -461,6 +561,7 @@ ${bold('COMMANDS')}
 ${bold('OPTIONS')}
   -o, --out <dir>      Write output here instead of beside each source file
       --stdout         Print to stdout instead of writing files
+      --json           Emit diagnostics as JSON (for editors and CI); writes no files
       --force          Overwrite output files not generated by ScriptType
       --no-check-source  Skip typechecking the ScriptType source itself
       --quiet          Only print problems

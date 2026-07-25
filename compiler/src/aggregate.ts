@@ -118,8 +118,16 @@ lines.push(
     `**${rawN}** | **${mismatch}** | **${unresolved + refErr}** |`,
 )
 
+const KNOWN_TOTAL = 7518
+
 const report = [
   '## Round-trip coverage',
+  '',
+  total < KNOWN_TOTAL
+    ? `> **Partial run.** ${total} of ${KNOWN_TOTAL} generic type aliases were measured; ` +
+      `shards that exceeded their wall-clock cap contributed only their completed batches. ` +
+      `Percentages below are of what was measured.`
+    : '',
   '',
   ...lines,
   '',

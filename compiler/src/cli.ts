@@ -7,7 +7,7 @@
  */
 import fs from 'node:fs'
 import path from 'node:path'
-import { compile, CompileError } from './compile.js'
+import { compileAll } from './compile.js'
 import { typecheckScriptType } from './typecheck.js'
 import { freeNames } from './freenames.js'
 import { BUILTINS } from './builtins.js'
@@ -212,19 +212,14 @@ function processFile(file: string, opts: { checkSource: boolean }): FileResult {
     }
   }
 
-  let code: string | undefined
-  try {
-    code = compile(text, { fileName: file }).code
-  } catch (e) {
-    if (e instanceof CompileError) {
-      diagnostics.push(diagnosticFromNode(e.code, e.message, e.node, e.help))
-      return { file, text, diagnostics }
-    }
-    throw e
+  const { result, errors } = compileAll(text, { fileName: file })
+  for (const e of errors) {
+    diagnostics.push(diagnosticFromNode(e.code, e.message, e.node, e.help))
   }
+  if (!result || errors.length) return { file, text, diagnostics }
 
   for (const d of unresolvedNames(text, file)) diagnostics.push(d)
-  return { file, text, code, diagnostics }
+  return { file, text, code: result.code, diagnostics }
 }
 
 /**

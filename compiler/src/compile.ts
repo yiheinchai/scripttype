@@ -13,6 +13,11 @@ export interface CompileOptions {
   preserveParamNames?: boolean
   /** Column to wrap emitted declarations at. */
   width?: number
+  /**
+   * Collect per-function errors here instead of throwing the first one. Set by
+   * `compileAll`; callers should use that rather than passing this directly.
+   */
+  collect?: CompileError[]
 }
 
 export interface CompileResult {
@@ -22,6 +27,30 @@ export interface CompileResult {
   prelude: string[]
   /** Type-only imports carried over from the source, with specifiers rewritten. */
   imports: string[]
+}
+
+/**
+ * Compile, collecting every error instead of stopping at the first.
+ *
+ * Recovery is per function: each compiles to its own alias, so one failing does not
+ * corrupt the others, and a file with five mistakes reports five rather than making the
+ * user fix-and-rerun five times. A syntax error still aborts, because nothing after it
+ * can be trusted.
+ *
+ * `code` holds whatever did compile, so a partial build is still inspectable.
+ */
+export function compileAll(
+  source: string,
+  opts: CompileOptions = {},
+): { result?: CompileResult; errors: CompileError[] } {
+  try {
+    const collected: CompileError[] = []
+    const result = compile(source, { ...opts, collect: collected })
+    return { result, errors: collected }
+  } catch (e) {
+    if (e instanceof CompileError) return { errors: [e] }
+    throw e
+  }
 }
 
 export function compile(source: string, opts: CompileOptions = {}): CompileResult {
@@ -47,7 +76,12 @@ export function compile(source: string, opts: CompileOptions = {}): CompileResul
   // Generated sources opt in via a pragma so the setting travels with the file.
   const preserveParamNames =
     opts.preserveParamNames ?? /@scripttype\s+preserveParamNames/.test(source)
-  const { aliases, prelude, imports } = compileSourceFile(sf, { preserveParamNames })
+  const { aliases, prelude, imports, errors } = compileSourceFile(sf, { preserveParamNames })
+  // Without a collector the contract is unchanged: fail on the first error.
+  if (errors.length) {
+    if (!opts.collect) throw errors[0]!
+    opts.collect.push(...errors)
+  }
   for (const a of aliases) a.body = optimize(a.body)
 
   const entries = opts.includePrelude === false ? [] : resolvePrelude(prelude)

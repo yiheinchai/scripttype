@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { compile, CompileError } from '../src/compile.js'
+import { compile, compileAll, CompileError } from '../src/compile.js'
 
 /**
  * Compile for a *lowering* assertion.
@@ -309,6 +309,37 @@ describe('JavaScript idioms', () => {
     }
     expect(err?.message).toMatch(/`<` has no type-level meaning/)
     expect(err?.help).toMatch(/cannot compare numbers/)
+  })
+})
+
+describe('error recovery', () => {
+  it('reports every broken function, not just the first', () => {
+    // Fix-and-rerun once per error is the single most tiring thing a compiler can do.
+    const { errors, result } = compileAll(
+      `export function A(t: string) { console.log(t); return t }
+       export function B(t: string) { let x = 1; x *= 2; return x }
+       export function Fine(t: string) { return t }
+       export function D(xs: any[]) { for (const [a] of xs) { return a } return never }`,
+      { includePrelude: false },
+    )
+    expect(errors.map((e) => e.code)).toEqual(['ST1102', 'ST1101', 'ST1301'])
+    // The functions that did compile are still available, so a partial build is
+    // inspectable rather than discarded.
+    expect(result?.code).toContain('export type Fine<T extends string> = T')
+  })
+
+  it('reports nothing for a clean file', () => {
+    const { errors, result } = compileAll(`export function F(t: string) { return t }`, {
+      includePrelude: false,
+    })
+    expect(errors).toEqual([])
+    expect(result?.code.trim()).toBe('export type F<T extends string> = T')
+  })
+
+  it('stops at a syntax error, because nothing after it can be trusted', () => {
+    const { errors, result } = compileAll(`export function Oops( {`, { includePrelude: false })
+    expect(errors.map((e) => e.code)).toEqual(['ST1001'])
+    expect(result).toBeUndefined()
   })
 })
 

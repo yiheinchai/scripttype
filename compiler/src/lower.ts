@@ -239,6 +239,12 @@ export interface ModuleResult {
   aliases: TypeAlias[]
   prelude: Set<string>
   imports: ImportInfo[]
+  /**
+   * Errors collected per function rather than thrown at the first one, so a file with
+   * several broken functions reports all of them in one pass instead of making the
+   * user fix and re-run once per error.
+   */
+  errors: CompileError[]
 }
 
 export interface LowerOptions {
@@ -257,13 +263,21 @@ export function compileSourceFile(sf: ts.SourceFile, opts: LowerOptions = {}): M
   const aliases: TypeAlias[] = []
   const prelude = new Set<string>()
   const imports: ImportInfo[] = []
+  const errors: CompileError[] = []
   for (const stmt of sf.statements) {
     const imported = importInfo(stmt)
     if (imported) {
       imports.push(imported)
     } else if (ts.isFunctionDeclaration(stmt) && stmt.body && stmt.name) {
-      const fc = new FunctionCompiler(stmt, sf, prelude, opts)
-      aliases.push(...fc.compile())
+      // A function is the natural recovery boundary: each compiles to its own alias, so
+      // one failing does not corrupt the others.
+      try {
+        const fc = new FunctionCompiler(stmt, sf, prelude, opts)
+        aliases.push(...fc.compile())
+      } catch (e) {
+        if (!(e instanceof CompileError)) throw e
+        errors.push(e)
+      }
     } else if (ts.isTypeAliasDeclaration(stmt)) {
       // Pass hand-written type aliases through untouched.
       aliases.push({
@@ -278,7 +292,7 @@ export function compileSourceFile(sf: ts.SourceFile, opts: LowerOptions = {}): M
       })
     }
   }
-  return { aliases, prelude, imports }
+  return { aliases, prelude, imports, errors }
 }
 
 /**
